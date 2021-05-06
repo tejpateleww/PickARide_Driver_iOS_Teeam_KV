@@ -1,0 +1,6 @@
+framework module Pods_PickaRideDriver_PickaRideDriverUITests {
+  umbrella header "Pods-PickaRideDriver-PickaRideDriverUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

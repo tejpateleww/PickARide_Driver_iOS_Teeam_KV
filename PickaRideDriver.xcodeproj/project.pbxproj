@@ -1,0 +1,1166 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4F94F1192643D76500780413 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F94F1182643D76500780413 /* AppDelegate.swift */; };
+		4F94F11D2643D76500780413 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F94F11C2643D76500780413 /* ViewController.swift */; };
+		4F94F1202643D76500780413 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F94F11E2643D76500780413 /* Main.storyboard */; };
+		4F94F1222643D76700780413 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F94F1212643D76700780413 /* Assets.xcassets */; };
+		4F94F1252643D76700780413 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F94F1232643D76700780413 /* LaunchScreen.storyboard */; };
+		4F94F1302643D76700780413 /* PickaRideDriverTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F94F12F2643D76700780413 /* PickaRideDriverTests.swift */; };
+		4F94F13B2643D76700780413 /* PickaRideDriverUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F94F13A2643D76700780413 /* PickaRideDriverUITests.swift */; };
+		4F94F16D2643DB5F00780413 /* NavigationItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F94F14C2643DB5F00780413 /* NavigationItems.swift */; };
+		4F94F16E2643DB5F00780413 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F94F14D2643DB5F00780413 /* Fonts.swift */; };
+		4F94F16F2643DB5F00780413 /* AuthenticationToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F94F14E2643DB5F00780413 /* AuthenticationToken.swift */; };
+		4F94F1702643DB5F00780413 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F94F14F2643DB5F00780413 /* Colors.swift */; };
+		4F94F1712643DB5F00780413 /* navigationCommonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F94F1512643DB5F00780413 /* navigationCommonView.swift */; };
+		4F94F1722643DB5F00780413 /* navigationCommonView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F94F1522643DB5F00780413 /* navigationCommonView.xib */; };
+		4F94F1732643DB5F00780413 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F94F1542643DB5F00780413 /* UIColor+Extension.swift */; };
+		4F94F1742643DB5F00780413 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F94F1552643DB5F00780413 /* UILabel+Extension.swift */; };
+		4F94F1752643DB5F00780413 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F94F1562643DB5F00780413 /* String+Extensions.swift */; };
+		4F94F1762643DB5F00780413 /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F94F1572643DB5F00780413 /* UIButton+Extension.swift */; };
+		4F94F1772643DB5F00780413 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F94F1582643DB5F00780413 /* UIView+Extension.swift */; };
+		4F94F1782643DB5F00780413 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F94F1592643DB5F00780413 /* UIImage+Extension.swift */; };
+		4F94F1792643DB5F00780413 /* extension+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F94F15A2643DB5F00780413 /* extension+String.swift */; };
+		4F94F17A2643DB5F00780413 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F94F15B2643DB5F00780413 /* UIViewController+Extension.swift */; };
+		4F94F17B2643DB5F00780413 /* UITableViewCell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F94F15C2643DB5F00780413 /* UITableViewCell+Extension.swift */; };
+		4F94F17C2643DB5F00780413 /* UIStoryboard+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F94F15D2643DB5F00780413 /* UIStoryboard+Extension.swift */; };
+		4F94F17D2643DB5F00780413 /* UITapGestureRecognizer+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F94F15E2643DB5F00780413 /* UITapGestureRecognizer+Extension.swift */; };
+		4F94F17E2643DB5F00780413 /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F94F15F2643DB5F00780413 /* UITextField+Extension.swift */; };
+		4F94F17F2643DB5F00780413 /* UISearchbar+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F94F1602643DB5F00780413 /* UISearchbar+Extension.swift */; };
+		4F94F1802643DB5F00780413 /* Data+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F94F1612643DB5F00780413 /* Data+Extensions.swift */; };
+		4F94F1812643DB5F00780413 /* UICollectionViewCell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F94F1622643DB5F00780413 /* UICollectionViewCell+Extension.swift */; };
+		4F94F1822643DB5F00780413 /* CustomSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F94F1642643DB5F00780413 /* CustomSlider.swift */; };
+		4F94F1832643DB5F00780413 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F94F1652643DB5F00780413 /* CustomView.swift */; };
+		4F94F1842643DB5F00780413 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F94F1662643DB5F00780413 /* CustomButton.swift */; };
+		4F94F1852643DB5F00780413 /* customTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F94F1672643DB5F00780413 /* customTextField.swift */; };
+		4F94F1862643DB5F00780413 /* GradientButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F94F1682643DB5F00780413 /* GradientButton.swift */; };
+		4F94F1872643DB5F00780413 /* CustomImageVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F94F1692643DB5F00780413 /* CustomImageVIew.swift */; };
+		4F94F1882643DB5F00780413 /* customTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F94F16A2643DB5F00780413 /* customTextView.swift */; };
+		4F94F1892643DB5F00780413 /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F94F16B2643DB5F00780413 /* CustomLabel.swift */; };
+		4F94F1A22643DB7500780413 /* ApiPaths.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F94F18C2643DB7500780413 /* ApiPaths.swift */; };
+		4F94F1A32643DB7500780413 /* Method.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F94F18D2643DB7500780413 /* Method.swift */; };
+		4F94F1A42643DB7500780413 /* ResposneInitClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F94F1902643DB7500780413 /* ResposneInitClass.swift */; };
+		4F94F1A52643DB7500780413 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F94F1922643DB7500780413 /* UserInfo.swift */; };
+		4F94F1A62643DB7600780413 /* Datum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F94F1932643DB7500780413 /* Datum.swift */; };
+		4F94F1A72643DB7600780413 /* RegisterReqModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F94F1952643DB7500780413 /* RegisterReqModel.swift */; };
+		4F94F1A82643DB7600780413 /* ProfileUpdateReqModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F94F1962643DB7500780413 /* ProfileUpdateReqModel.swift */; };
+		4F94F1A92643DB7600780413 /* RequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F94F1972643DB7500780413 /* RequestModel.swift */; };
+		4F94F1AA2643DB7600780413 /* LoginReqModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F94F1982643DB7500780413 /* LoginReqModel.swift */; };
+		4F94F1AB2643DB7600780413 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F94F19A2643DB7500780413 /* Constants.swift */; };
+		4F94F1AC2643DB7600780413 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F94F19B2643DB7500780413 /* Utilities.swift */; };
+		4F94F1AD2643DB7600780413 /* Singleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F94F19C2643DB7500780413 /* Singleton.swift */; };
+		4F94F1AE2643DB7600780413 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F94F19D2643DB7500780413 /* ImagePicker.swift */; };
+		4F94F1AF2643DB7600780413 /* WebServicesSubClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F94F19E2643DB7500780413 /* WebServicesSubClass.swift */; };
+		4F94F1B02643DB7600780413 /* WebServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F94F19F2643DB7500780413 /* WebServices.swift */; };
+		4F94F1B12643DB7600780413 /* Validators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F94F1A12643DB7500780413 /* Validators.swift */; };
+		4F94F1BE2643E72800780413 /* Ubuntu-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4F94F1B52643E72800780413 /* Ubuntu-Medium.ttf */; };
+		4F94F1BF2643E72800780413 /* Ubuntu-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4F94F1B62643E72800780413 /* Ubuntu-LightItalic.ttf */; };
+		4F94F1C02643E72800780413 /* Ubuntu-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4F94F1B72643E72800780413 /* Ubuntu-Regular.ttf */; };
+		4F94F1C12643E72800780413 /* Ubuntu-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4F94F1B82643E72800780413 /* Ubuntu-Bold.ttf */; };
+		4F94F1C22643E72800780413 /* Ubuntu-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4F94F1B92643E72800780413 /* Ubuntu-MediumItalic.ttf */; };
+		4F94F1C32643E72800780413 /* Ubuntu-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4F94F1BA2643E72800780413 /* Ubuntu-BoldItalic.ttf */; };
+		4F94F1C42643E72800780413 /* Ubuntu-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4F94F1BB2643E72800780413 /* Ubuntu-Italic.ttf */; };
+		4F94F1C52643E72800780413 /* Ubuntu-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4F94F1BC2643E72800780413 /* Ubuntu-Light.ttf */; };
+		4F94F1C62643E72800780413 /* UFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4F94F1BD2643E72800780413 /* UFL.txt */; };
+		4F94F1CA2643F30800780413 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F94F1C92643F30800780413 /* Login.storyboard */; };
+		4F94F1CC2643FE1B00780413 /* Storyboards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F94F1CB2643FE1B00780413 /* Storyboards.swift */; };
+		4F94F1CE2643FEE500780413 /* AppInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F94F1CD2643FEE500780413 /* AppInfo.swift */; };
+		63306643E0B7E70ABC5DB425 /* Pods_PickaRideDriver_PickaRideDriverUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2829DD5CEA22E4198B109D0A /* Pods_PickaRideDriver_PickaRideDriverUITests.framework */; };
+		D41F99CBEDC0DD0DCC09EFAF /* Pods_PickaRideDriver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 346F3E876BF629DA2DD488C0 /* Pods_PickaRideDriver.framework */; };
+		E13924697974A4271CEFAD63 /* Pods_PickaRideDriverTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2365D99843CD5DA3E6579C86 /* Pods_PickaRideDriverTests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4F94F12C2643D76700780413 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4F94F10D2643D76500780413 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4F94F1142643D76500780413;
+			remoteInfo = PickaRideDriver;
+		};
+		4F94F1372643D76700780413 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4F94F10D2643D76500780413 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4F94F1142643D76500780413;
+			remoteInfo = PickaRideDriver;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2365D99843CD5DA3E6579C86 /* Pods_PickaRideDriverTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PickaRideDriverTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2829DD5CEA22E4198B109D0A /* Pods_PickaRideDriver_PickaRideDriverUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PickaRideDriver_PickaRideDriverUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		346F3E876BF629DA2DD488C0 /* Pods_PickaRideDriver.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PickaRideDriver.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4F94F1152643D76500780413 /* PickaRideDriver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PickaRideDriver.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4F94F1182643D76500780413 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		4F94F11C2643D76500780413 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		4F94F11F2643D76500780413 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		4F94F1212643D76700780413 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4F94F1242643D76700780413 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		4F94F1262643D76700780413 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4F94F12B2643D76700780413 /* PickaRideDriverTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PickaRideDriverTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4F94F12F2643D76700780413 /* PickaRideDriverTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickaRideDriverTests.swift; sourceTree = "<group>"; };
+		4F94F1312643D76700780413 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4F94F1362643D76700780413 /* PickaRideDriverUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PickaRideDriverUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4F94F13A2643D76700780413 /* PickaRideDriverUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickaRideDriverUITests.swift; sourceTree = "<group>"; };
+		4F94F13C2643D76700780413 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4F94F14C2643DB5F00780413 /* NavigationItems.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationItems.swift; sourceTree = "<group>"; };
+		4F94F14D2643DB5F00780413 /* Fonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
+		4F94F14E2643DB5F00780413 /* AuthenticationToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationToken.swift; sourceTree = "<group>"; };
+		4F94F14F2643DB5F00780413 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		4F94F1512643DB5F00780413 /* navigationCommonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = navigationCommonView.swift; sourceTree = "<group>"; };
+		4F94F1522643DB5F00780413 /* navigationCommonView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = navigationCommonView.xib; sourceTree = "<group>"; };
+		4F94F1542643DB5F00780413 /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		4F94F1552643DB5F00780413 /* UILabel+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
+		4F94F1562643DB5F00780413 /* String+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
+		4F94F1572643DB5F00780413 /* UIButton+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
+		4F94F1582643DB5F00780413 /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		4F94F1592643DB5F00780413 /* UIImage+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		4F94F15A2643DB5F00780413 /* extension+String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "extension+String.swift"; sourceTree = "<group>"; };
+		4F94F15B2643DB5F00780413 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		4F94F15C2643DB5F00780413 /* UITableViewCell+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extension.swift"; sourceTree = "<group>"; };
+		4F94F15D2643DB5F00780413 /* UIStoryboard+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Extension.swift"; sourceTree = "<group>"; };
+		4F94F15E2643DB5F00780413 /* UITapGestureRecognizer+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITapGestureRecognizer+Extension.swift"; sourceTree = "<group>"; };
+		4F94F15F2643DB5F00780413 /* UITextField+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
+		4F94F1602643DB5F00780413 /* UISearchbar+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UISearchbar+Extension.swift"; sourceTree = "<group>"; };
+		4F94F1612643DB5F00780413 /* Data+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Data+Extensions.swift"; sourceTree = "<group>"; };
+		4F94F1622643DB5F00780413 /* UICollectionViewCell+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell+Extension.swift"; sourceTree = "<group>"; };
+		4F94F1642643DB5F00780413 /* CustomSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSlider.swift; sourceTree = "<group>"; };
+		4F94F1652643DB5F00780413 /* CustomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
+		4F94F1662643DB5F00780413 /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		4F94F1672643DB5F00780413 /* customTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = customTextField.swift; sourceTree = "<group>"; };
+		4F94F1682643DB5F00780413 /* GradientButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientButton.swift; sourceTree = "<group>"; };
+		4F94F1692643DB5F00780413 /* CustomImageVIew.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomImageVIew.swift; sourceTree = "<group>"; };
+		4F94F16A2643DB5F00780413 /* customTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = customTextView.swift; sourceTree = "<group>"; };
+		4F94F16B2643DB5F00780413 /* CustomLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
+		4F94F18C2643DB7500780413 /* ApiPaths.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiPaths.swift; sourceTree = "<group>"; };
+		4F94F18D2643DB7500780413 /* Method.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Method.swift; sourceTree = "<group>"; };
+		4F94F1902643DB7500780413 /* ResposneInitClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResposneInitClass.swift; sourceTree = "<group>"; };
+		4F94F1922643DB7500780413 /* UserInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
+		4F94F1932643DB7500780413 /* Datum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Datum.swift; sourceTree = "<group>"; };
+		4F94F1952643DB7500780413 /* RegisterReqModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterReqModel.swift; sourceTree = "<group>"; };
+		4F94F1962643DB7500780413 /* ProfileUpdateReqModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileUpdateReqModel.swift; sourceTree = "<group>"; };
+		4F94F1972643DB7500780413 /* RequestModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestModel.swift; sourceTree = "<group>"; };
+		4F94F1982643DB7500780413 /* LoginReqModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginReqModel.swift; sourceTree = "<group>"; };
+		4F94F19A2643DB7500780413 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		4F94F19B2643DB7500780413 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		4F94F19C2643DB7500780413 /* Singleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Singleton.swift; sourceTree = "<group>"; };
+		4F94F19D2643DB7500780413 /* ImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		4F94F19E2643DB7500780413 /* WebServicesSubClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebServicesSubClass.swift; sourceTree = "<group>"; };
+		4F94F19F2643DB7500780413 /* WebServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebServices.swift; sourceTree = "<group>"; };
+		4F94F1A12643DB7500780413 /* Validators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validators.swift; sourceTree = "<group>"; };
+		4F94F1B52643E72800780413 /* Ubuntu-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-Medium.ttf"; sourceTree = "<group>"; };
+		4F94F1B62643E72800780413 /* Ubuntu-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-LightItalic.ttf"; sourceTree = "<group>"; };
+		4F94F1B72643E72800780413 /* Ubuntu-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-Regular.ttf"; sourceTree = "<group>"; };
+		4F94F1B82643E72800780413 /* Ubuntu-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-Bold.ttf"; sourceTree = "<group>"; };
+		4F94F1B92643E72800780413 /* Ubuntu-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-MediumItalic.ttf"; sourceTree = "<group>"; };
+		4F94F1BA2643E72800780413 /* Ubuntu-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-BoldItalic.ttf"; sourceTree = "<group>"; };
+		4F94F1BB2643E72800780413 /* Ubuntu-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-Italic.ttf"; sourceTree = "<group>"; };
+		4F94F1BC2643E72800780413 /* Ubuntu-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-Light.ttf"; sourceTree = "<group>"; };
+		4F94F1BD2643E72800780413 /* UFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = UFL.txt; sourceTree = "<group>"; };
+		4F94F1C92643F30800780413 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		4F94F1CB2643FE1B00780413 /* Storyboards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboards.swift; sourceTree = "<group>"; };
+		4F94F1CD2643FEE500780413 /* AppInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppInfo.swift; sourceTree = "<group>"; };
+		93E1C17C15C20F6DE6ECFCD9 /* Pods-PickaRideDriver.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PickaRideDriver.debug.xcconfig"; path = "Target Support Files/Pods-PickaRideDriver/Pods-PickaRideDriver.debug.xcconfig"; sourceTree = "<group>"; };
+		95CA4A3D3E669B672AE3B1E6 /* Pods-PickaRideDriverTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PickaRideDriverTests.debug.xcconfig"; path = "Target Support Files/Pods-PickaRideDriverTests/Pods-PickaRideDriverTests.debug.xcconfig"; sourceTree = "<group>"; };
+		ADAA6BC735A10CDF1515D667 /* Pods-PickaRideDriver-PickaRideDriverUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PickaRideDriver-PickaRideDriverUITests.release.xcconfig"; path = "Target Support Files/Pods-PickaRideDriver-PickaRideDriverUITests/Pods-PickaRideDriver-PickaRideDriverUITests.release.xcconfig"; sourceTree = "<group>"; };
+		B9E7B0AF3B350E02A0669E42 /* Pods-PickaRideDriver.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PickaRideDriver.release.xcconfig"; path = "Target Support Files/Pods-PickaRideDriver/Pods-PickaRideDriver.release.xcconfig"; sourceTree = "<group>"; };
+		BAA55B11AB7AA5C55BE97D15 /* Pods-PickaRideDriverTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PickaRideDriverTests.release.xcconfig"; path = "Target Support Files/Pods-PickaRideDriverTests/Pods-PickaRideDriverTests.release.xcconfig"; sourceTree = "<group>"; };
+		E67B96CF6B05246ADB210A21 /* Pods-PickaRideDriver-PickaRideDriverUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PickaRideDriver-PickaRideDriverUITests.debug.xcconfig"; path = "Target Support Files/Pods-PickaRideDriver-PickaRideDriverUITests/Pods-PickaRideDriver-PickaRideDriverUITests.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4F94F1122643D76500780413 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D41F99CBEDC0DD0DCC09EFAF /* Pods_PickaRideDriver.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4F94F1282643D76700780413 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E13924697974A4271CEFAD63 /* Pods_PickaRideDriverTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4F94F1332643D76700780413 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				63306643E0B7E70ABC5DB425 /* Pods_PickaRideDriver_PickaRideDriverUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		20F48818602083C8C2F55B66 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				93E1C17C15C20F6DE6ECFCD9 /* Pods-PickaRideDriver.debug.xcconfig */,
+				B9E7B0AF3B350E02A0669E42 /* Pods-PickaRideDriver.release.xcconfig */,
+				E67B96CF6B05246ADB210A21 /* Pods-PickaRideDriver-PickaRideDriverUITests.debug.xcconfig */,
+				ADAA6BC735A10CDF1515D667 /* Pods-PickaRideDriver-PickaRideDriverUITests.release.xcconfig */,
+				95CA4A3D3E669B672AE3B1E6 /* Pods-PickaRideDriverTests.debug.xcconfig */,
+				BAA55B11AB7AA5C55BE97D15 /* Pods-PickaRideDriverTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		4F94F10C2643D76500780413 = {
+			isa = PBXGroup;
+			children = (
+				4F94F1172643D76500780413 /* PickaRideDriver */,
+				4F94F12E2643D76700780413 /* PickaRideDriverTests */,
+				4F94F1392643D76700780413 /* PickaRideDriverUITests */,
+				4F94F1162643D76500780413 /* Products */,
+				20F48818602083C8C2F55B66 /* Pods */,
+				9E21C437D1532847F7D8E45B /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		4F94F1162643D76500780413 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4F94F1152643D76500780413 /* PickaRideDriver.app */,
+				4F94F12B2643D76700780413 /* PickaRideDriverTests.xctest */,
+				4F94F1362643D76700780413 /* PickaRideDriverUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4F94F1172643D76500780413 /* PickaRideDriver */ = {
+			isa = PBXGroup;
+			children = (
+				4F94F1CD2643FEE500780413 /* AppInfo.swift */,
+				4F94F1182643D76500780413 /* AppDelegate.swift */,
+				4F94F11C2643D76500780413 /* ViewController.swift */,
+				4F94F1C82643F2EB00780413 /* StoryBoards */,
+				4F94F1C72643EEEA00780413 /* ViewControllers */,
+				4F94F1B22643E72800780413 /* Resources */,
+				4F94F18A2643DB7500780413 /* WebServices */,
+				4F94F1482643DB5F00780413 /* Classes */,
+				4F94F1212643D76700780413 /* Assets.xcassets */,
+				4F94F1262643D76700780413 /* Info.plist */,
+			);
+			path = PickaRideDriver;
+			sourceTree = "<group>";
+		};
+		4F94F12E2643D76700780413 /* PickaRideDriverTests */ = {
+			isa = PBXGroup;
+			children = (
+				4F94F12F2643D76700780413 /* PickaRideDriverTests.swift */,
+				4F94F1312643D76700780413 /* Info.plist */,
+			);
+			path = PickaRideDriverTests;
+			sourceTree = "<group>";
+		};
+		4F94F1392643D76700780413 /* PickaRideDriverUITests */ = {
+			isa = PBXGroup;
+			children = (
+				4F94F13A2643D76700780413 /* PickaRideDriverUITests.swift */,
+				4F94F13C2643D76700780413 /* Info.plist */,
+			);
+			path = PickaRideDriverUITests;
+			sourceTree = "<group>";
+		};
+		4F94F1482643DB5F00780413 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				4F94F1492643DB5F00780413 /* BaseVC */,
+				4F94F14B2643DB5F00780413 /* Enum */,
+				4F94F1502643DB5F00780413 /* navigationCommonView */,
+				4F94F1532643DB5F00780413 /* Extention */,
+				4F94F1632643DB5F00780413 /* CustomClass */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		4F94F1492643DB5F00780413 /* BaseVC */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = BaseVC;
+			sourceTree = "<group>";
+		};
+		4F94F14B2643DB5F00780413 /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				4F94F14C2643DB5F00780413 /* NavigationItems.swift */,
+				4F94F14D2643DB5F00780413 /* Fonts.swift */,
+				4F94F14E2643DB5F00780413 /* AuthenticationToken.swift */,
+				4F94F14F2643DB5F00780413 /* Colors.swift */,
+				4F94F1CB2643FE1B00780413 /* Storyboards.swift */,
+			);
+			path = Enum;
+			sourceTree = "<group>";
+		};
+		4F94F1502643DB5F00780413 /* navigationCommonView */ = {
+			isa = PBXGroup;
+			children = (
+				4F94F1512643DB5F00780413 /* navigationCommonView.swift */,
+				4F94F1522643DB5F00780413 /* navigationCommonView.xib */,
+			);
+			path = navigationCommonView;
+			sourceTree = "<group>";
+		};
+		4F94F1532643DB5F00780413 /* Extention */ = {
+			isa = PBXGroup;
+			children = (
+				4F94F1542643DB5F00780413 /* UIColor+Extension.swift */,
+				4F94F1552643DB5F00780413 /* UILabel+Extension.swift */,
+				4F94F1562643DB5F00780413 /* String+Extensions.swift */,
+				4F94F1572643DB5F00780413 /* UIButton+Extension.swift */,
+				4F94F1582643DB5F00780413 /* UIView+Extension.swift */,
+				4F94F1592643DB5F00780413 /* UIImage+Extension.swift */,
+				4F94F15A2643DB5F00780413 /* extension+String.swift */,
+				4F94F15B2643DB5F00780413 /* UIViewController+Extension.swift */,
+				4F94F15C2643DB5F00780413 /* UITableViewCell+Extension.swift */,
+				4F94F15D2643DB5F00780413 /* UIStoryboard+Extension.swift */,
+				4F94F15E2643DB5F00780413 /* UITapGestureRecognizer+Extension.swift */,
+				4F94F15F2643DB5F00780413 /* UITextField+Extension.swift */,
+				4F94F1602643DB5F00780413 /* UISearchbar+Extension.swift */,
+				4F94F1612643DB5F00780413 /* Data+Extensions.swift */,
+				4F94F1622643DB5F00780413 /* UICollectionViewCell+Extension.swift */,
+			);
+			path = Extention;
+			sourceTree = "<group>";
+		};
+		4F94F1632643DB5F00780413 /* CustomClass */ = {
+			isa = PBXGroup;
+			children = (
+				4F94F1642643DB5F00780413 /* CustomSlider.swift */,
+				4F94F1652643DB5F00780413 /* CustomView.swift */,
+				4F94F1662643DB5F00780413 /* CustomButton.swift */,
+				4F94F1672643DB5F00780413 /* customTextField.swift */,
+				4F94F1682643DB5F00780413 /* GradientButton.swift */,
+				4F94F1692643DB5F00780413 /* CustomImageVIew.swift */,
+				4F94F16A2643DB5F00780413 /* customTextView.swift */,
+				4F94F16B2643DB5F00780413 /* CustomLabel.swift */,
+			);
+			path = CustomClass;
+			sourceTree = "<group>";
+		};
+		4F94F18A2643DB7500780413 /* WebServices */ = {
+			isa = PBXGroup;
+			children = (
+				4F94F18B2643DB7500780413 /* Network */,
+				4F94F18E2643DB7500780413 /* Response Models */,
+				4F94F1942643DB7500780413 /* Request Models */,
+				4F94F1992643DB7500780413 /* Utilities */,
+				4F94F19E2643DB7500780413 /* WebServicesSubClass.swift */,
+				4F94F19F2643DB7500780413 /* WebServices.swift */,
+				4F94F1A02643DB7500780413 /* Validation */,
+			);
+			path = WebServices;
+			sourceTree = "<group>";
+		};
+		4F94F18B2643DB7500780413 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				4F94F18C2643DB7500780413 /* ApiPaths.swift */,
+				4F94F18D2643DB7500780413 /* Method.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		4F94F18E2643DB7500780413 /* Response Models */ = {
+			isa = PBXGroup;
+			children = (
+				4F94F18F2643DB7500780413 /* Init */,
+				4F94F1912643DB7500780413 /* UserInfo */,
+			);
+			path = "Response Models";
+			sourceTree = "<group>";
+		};
+		4F94F18F2643DB7500780413 /* Init */ = {
+			isa = PBXGroup;
+			children = (
+				4F94F1902643DB7500780413 /* ResposneInitClass.swift */,
+			);
+			path = Init;
+			sourceTree = "<group>";
+		};
+		4F94F1912643DB7500780413 /* UserInfo */ = {
+			isa = PBXGroup;
+			children = (
+				4F94F1922643DB7500780413 /* UserInfo.swift */,
+				4F94F1932643DB7500780413 /* Datum.swift */,
+			);
+			path = UserInfo;
+			sourceTree = "<group>";
+		};
+		4F94F1942643DB7500780413 /* Request Models */ = {
+			isa = PBXGroup;
+			children = (
+				4F94F1952643DB7500780413 /* RegisterReqModel.swift */,
+				4F94F1962643DB7500780413 /* ProfileUpdateReqModel.swift */,
+				4F94F1972643DB7500780413 /* RequestModel.swift */,
+				4F94F1982643DB7500780413 /* LoginReqModel.swift */,
+			);
+			path = "Request Models";
+			sourceTree = "<group>";
+		};
+		4F94F1992643DB7500780413 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				4F94F19A2643DB7500780413 /* Constants.swift */,
+				4F94F19B2643DB7500780413 /* Utilities.swift */,
+				4F94F19C2643DB7500780413 /* Singleton.swift */,
+				4F94F19D2643DB7500780413 /* ImagePicker.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		4F94F1A02643DB7500780413 /* Validation */ = {
+			isa = PBXGroup;
+			children = (
+				4F94F1A12643DB7500780413 /* Validators.swift */,
+			);
+			path = Validation;
+			sourceTree = "<group>";
+		};
+		4F94F1B22643E72800780413 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4F94F1B32643E72800780413 /* Fonts */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		4F94F1B32643E72800780413 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				4F94F1B42643E72800780413 /* Ubuntu */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		4F94F1B42643E72800780413 /* Ubuntu */ = {
+			isa = PBXGroup;
+			children = (
+				4F94F1B52643E72800780413 /* Ubuntu-Medium.ttf */,
+				4F94F1B62643E72800780413 /* Ubuntu-LightItalic.ttf */,
+				4F94F1B72643E72800780413 /* Ubuntu-Regular.ttf */,
+				4F94F1B82643E72800780413 /* Ubuntu-Bold.ttf */,
+				4F94F1B92643E72800780413 /* Ubuntu-MediumItalic.ttf */,
+				4F94F1BA2643E72800780413 /* Ubuntu-BoldItalic.ttf */,
+				4F94F1BB2643E72800780413 /* Ubuntu-Italic.ttf */,
+				4F94F1BC2643E72800780413 /* Ubuntu-Light.ttf */,
+				4F94F1BD2643E72800780413 /* UFL.txt */,
+			);
+			path = Ubuntu;
+			sourceTree = "<group>";
+		};
+		4F94F1C72643EEEA00780413 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		4F94F1C82643F2EB00780413 /* StoryBoards */ = {
+			isa = PBXGroup;
+			children = (
+				4F94F11E2643D76500780413 /* Main.storyboard */,
+				4F94F1232643D76700780413 /* LaunchScreen.storyboard */,
+				4F94F1C92643F30800780413 /* Login.storyboard */,
+			);
+			path = StoryBoards;
+			sourceTree = "<group>";
+		};
+		9E21C437D1532847F7D8E45B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				346F3E876BF629DA2DD488C0 /* Pods_PickaRideDriver.framework */,
+				2829DD5CEA22E4198B109D0A /* Pods_PickaRideDriver_PickaRideDriverUITests.framework */,
+				2365D99843CD5DA3E6579C86 /* Pods_PickaRideDriverTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4F94F1142643D76500780413 /* PickaRideDriver */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4F94F13F2643D76700780413 /* Build configuration list for PBXNativeTarget "PickaRideDriver" */;
+			buildPhases = (
+				766D603B6956A30A230574FA /* [CP] Check Pods Manifest.lock */,
+				4F94F1112643D76500780413 /* Sources */,
+				4F94F1122643D76500780413 /* Frameworks */,
+				4F94F1132643D76500780413 /* Resources */,
+				5992B19294072A89A3E1F84D /* [CP] Embed Pods Frameworks */,
+				AC01D4CAC69AB50FC0576826 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PickaRideDriver;
+			productName = PickaRideDriver;
+			productReference = 4F94F1152643D76500780413 /* PickaRideDriver.app */;
+			productType = "com.apple.product-type.application";
+		};
+		4F94F12A2643D76700780413 /* PickaRideDriverTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4F94F1422643D76700780413 /* Build configuration list for PBXNativeTarget "PickaRideDriverTests" */;
+			buildPhases = (
+				A029C86666BDEFE500FEF4A3 /* [CP] Check Pods Manifest.lock */,
+				4F94F1272643D76700780413 /* Sources */,
+				4F94F1282643D76700780413 /* Frameworks */,
+				4F94F1292643D76700780413 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4F94F12D2643D76700780413 /* PBXTargetDependency */,
+			);
+			name = PickaRideDriverTests;
+			productName = PickaRideDriverTests;
+			productReference = 4F94F12B2643D76700780413 /* PickaRideDriverTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		4F94F1352643D76700780413 /* PickaRideDriverUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4F94F1452643D76700780413 /* Build configuration list for PBXNativeTarget "PickaRideDriverUITests" */;
+			buildPhases = (
+				BF01F46E0E6AA26A0AC167D6 /* [CP] Check Pods Manifest.lock */,
+				4F94F1322643D76700780413 /* Sources */,
+				4F94F1332643D76700780413 /* Frameworks */,
+				4F94F1342643D76700780413 /* Resources */,
+				1F2E234A88B94B97010D4F40 /* [CP] Embed Pods Frameworks */,
+				264416A7F82B654575054341 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4F94F1382643D76700780413 /* PBXTargetDependency */,
+			);
+			name = PickaRideDriverUITests;
+			productName = PickaRideDriverUITests;
+			productReference = 4F94F1362643D76700780413 /* PickaRideDriverUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4F94F10D2643D76500780413 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1250;
+				LastUpgradeCheck = 1250;
+				TargetAttributes = {
+					4F94F1142643D76500780413 = {
+						CreatedOnToolsVersion = 12.5;
+					};
+					4F94F12A2643D76700780413 = {
+						CreatedOnToolsVersion = 12.5;
+						TestTargetID = 4F94F1142643D76500780413;
+					};
+					4F94F1352643D76700780413 = {
+						CreatedOnToolsVersion = 12.5;
+						TestTargetID = 4F94F1142643D76500780413;
+					};
+				};
+			};
+			buildConfigurationList = 4F94F1102643D76500780413 /* Build configuration list for PBXProject "PickaRideDriver" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4F94F10C2643D76500780413;
+			productRefGroup = 4F94F1162643D76500780413 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4F94F1142643D76500780413 /* PickaRideDriver */,
+				4F94F12A2643D76700780413 /* PickaRideDriverTests */,
+				4F94F1352643D76700780413 /* PickaRideDriverUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4F94F1132643D76500780413 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4F94F1C42643E72800780413 /* Ubuntu-Italic.ttf in Resources */,
+				4F94F1252643D76700780413 /* LaunchScreen.storyboard in Resources */,
+				4F94F1C62643E72800780413 /* UFL.txt in Resources */,
+				4F94F1BE2643E72800780413 /* Ubuntu-Medium.ttf in Resources */,
+				4F94F1722643DB5F00780413 /* navigationCommonView.xib in Resources */,
+				4F94F1CA2643F30800780413 /* Login.storyboard in Resources */,
+				4F94F1C52643E72800780413 /* Ubuntu-Light.ttf in Resources */,
+				4F94F1222643D76700780413 /* Assets.xcassets in Resources */,
+				4F94F1C12643E72800780413 /* Ubuntu-Bold.ttf in Resources */,
+				4F94F1BF2643E72800780413 /* Ubuntu-LightItalic.ttf in Resources */,
+				4F94F1C32643E72800780413 /* Ubuntu-BoldItalic.ttf in Resources */,
+				4F94F1C02643E72800780413 /* Ubuntu-Regular.ttf in Resources */,
+				4F94F1202643D76500780413 /* Main.storyboard in Resources */,
+				4F94F1C22643E72800780413 /* Ubuntu-MediumItalic.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4F94F1292643D76700780413 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4F94F1342643D76700780413 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1F2E234A88B94B97010D4F40 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PickaRideDriver-PickaRideDriverUITests/Pods-PickaRideDriver-PickaRideDriverUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PickaRideDriver-PickaRideDriverUITests/Pods-PickaRideDriver-PickaRideDriverUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PickaRideDriver-PickaRideDriverUITests/Pods-PickaRideDriver-PickaRideDriverUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		264416A7F82B654575054341 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PickaRideDriver-PickaRideDriverUITests/Pods-PickaRideDriver-PickaRideDriverUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PickaRideDriver-PickaRideDriverUITests/Pods-PickaRideDriver-PickaRideDriverUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PickaRideDriver-PickaRideDriverUITests/Pods-PickaRideDriver-PickaRideDriverUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5992B19294072A89A3E1F84D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PickaRideDriver/Pods-PickaRideDriver-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PickaRideDriver/Pods-PickaRideDriver-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PickaRideDriver/Pods-PickaRideDriver-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		766D603B6956A30A230574FA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PickaRideDriver-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A029C86666BDEFE500FEF4A3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PickaRideDriverTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AC01D4CAC69AB50FC0576826 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PickaRideDriver/Pods-PickaRideDriver-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PickaRideDriver/Pods-PickaRideDriver-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PickaRideDriver/Pods-PickaRideDriver-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BF01F46E0E6AA26A0AC167D6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PickaRideDriver-PickaRideDriverUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4F94F1112643D76500780413 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4F94F1AA2643DB7600780413 /* LoginReqModel.swift in Sources */,
+				4F94F1842643DB5F00780413 /* CustomButton.swift in Sources */,
+				4F94F1A42643DB7500780413 /* ResposneInitClass.swift in Sources */,
+				4F94F1A92643DB7600780413 /* RequestModel.swift in Sources */,
+				4F94F17A2643DB5F00780413 /* UIViewController+Extension.swift in Sources */,
+				4F94F1CE2643FEE500780413 /* AppInfo.swift in Sources */,
+				4F94F1872643DB5F00780413 /* CustomImageVIew.swift in Sources */,
+				4F94F1A22643DB7500780413 /* ApiPaths.swift in Sources */,
+				4F94F11D2643D76500780413 /* ViewController.swift in Sources */,
+				4F94F1782643DB5F00780413 /* UIImage+Extension.swift in Sources */,
+				4F94F1AD2643DB7600780413 /* Singleton.swift in Sources */,
+				4F94F1AF2643DB7600780413 /* WebServicesSubClass.swift in Sources */,
+				4F94F1772643DB5F00780413 /* UIView+Extension.swift in Sources */,
+				4F94F1752643DB5F00780413 /* String+Extensions.swift in Sources */,
+				4F94F17F2643DB5F00780413 /* UISearchbar+Extension.swift in Sources */,
+				4F94F17E2643DB5F00780413 /* UITextField+Extension.swift in Sources */,
+				4F94F1A82643DB7600780413 /* ProfileUpdateReqModel.swift in Sources */,
+				4F94F1852643DB5F00780413 /* customTextField.swift in Sources */,
+				4F94F1812643DB5F00780413 /* UICollectionViewCell+Extension.swift in Sources */,
+				4F94F17D2643DB5F00780413 /* UITapGestureRecognizer+Extension.swift in Sources */,
+				4F94F17B2643DB5F00780413 /* UITableViewCell+Extension.swift in Sources */,
+				4F94F1712643DB5F00780413 /* navigationCommonView.swift in Sources */,
+				4F94F1742643DB5F00780413 /* UILabel+Extension.swift in Sources */,
+				4F94F1A62643DB7600780413 /* Datum.swift in Sources */,
+				4F94F17C2643DB5F00780413 /* UIStoryboard+Extension.swift in Sources */,
+				4F94F1B02643DB7600780413 /* WebServices.swift in Sources */,
+				4F94F1A72643DB7600780413 /* RegisterReqModel.swift in Sources */,
+				4F94F16F2643DB5F00780413 /* AuthenticationToken.swift in Sources */,
+				4F94F1AB2643DB7600780413 /* Constants.swift in Sources */,
+				4F94F1892643DB5F00780413 /* CustomLabel.swift in Sources */,
+				4F94F1762643DB5F00780413 /* UIButton+Extension.swift in Sources */,
+				4F94F1792643DB5F00780413 /* extension+String.swift in Sources */,
+				4F94F1AE2643DB7600780413 /* ImagePicker.swift in Sources */,
+				4F94F1732643DB5F00780413 /* UIColor+Extension.swift in Sources */,
+				4F94F16E2643DB5F00780413 /* Fonts.swift in Sources */,
+				4F94F1AC2643DB7600780413 /* Utilities.swift in Sources */,
+				4F94F1702643DB5F00780413 /* Colors.swift in Sources */,
+				4F94F1CC2643FE1B00780413 /* Storyboards.swift in Sources */,
+				4F94F1862643DB5F00780413 /* GradientButton.swift in Sources */,
+				4F94F1822643DB5F00780413 /* CustomSlider.swift in Sources */,
+				4F94F1832643DB5F00780413 /* CustomView.swift in Sources */,
+				4F94F1192643D76500780413 /* AppDelegate.swift in Sources */,
+				4F94F1B12643DB7600780413 /* Validators.swift in Sources */,
+				4F94F1882643DB5F00780413 /* customTextView.swift in Sources */,
+				4F94F1802643DB5F00780413 /* Data+Extensions.swift in Sources */,
+				4F94F16D2643DB5F00780413 /* NavigationItems.swift in Sources */,
+				4F94F1A52643DB7500780413 /* UserInfo.swift in Sources */,
+				4F94F1A32643DB7500780413 /* Method.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4F94F1272643D76700780413 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4F94F1302643D76700780413 /* PickaRideDriverTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4F94F1322643D76700780413 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4F94F13B2643D76700780413 /* PickaRideDriverUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4F94F12D2643D76700780413 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4F94F1142643D76500780413 /* PickaRideDriver */;
+			targetProxy = 4F94F12C2643D76700780413 /* PBXContainerItemProxy */;
+		};
+		4F94F1382643D76700780413 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4F94F1142643D76500780413 /* PickaRideDriver */;
+			targetProxy = 4F94F1372643D76700780413 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		4F94F11E2643D76500780413 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4F94F11F2643D76500780413 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		4F94F1232643D76700780413 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4F94F1242643D76700780413 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4F94F13D2643D76700780413 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		4F94F13E2643D76700780413 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4F94F1402643D76700780413 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 93E1C17C15C20F6DE6ECFCD9 /* Pods-PickaRideDriver.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8L8KR4GKUG;
+				INFOPLIST_FILE = PickaRideDriver/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.CountryPicker.PickaRideDriver;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4F94F1412643D76700780413 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B9E7B0AF3B350E02A0669E42 /* Pods-PickaRideDriver.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8L8KR4GKUG;
+				INFOPLIST_FILE = PickaRideDriver/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.CountryPicker.PickaRideDriver;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		4F94F1432643D76700780413 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 95CA4A3D3E669B672AE3B1E6 /* Pods-PickaRideDriverTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LNR2265795;
+				INFOPLIST_FILE = PickaRideDriverTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.CountryPicker.PickaRideDriverTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PickaRideDriver.app/PickaRideDriver";
+			};
+			name = Debug;
+		};
+		4F94F1442643D76700780413 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BAA55B11AB7AA5C55BE97D15 /* Pods-PickaRideDriverTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LNR2265795;
+				INFOPLIST_FILE = PickaRideDriverTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.CountryPicker.PickaRideDriverTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PickaRideDriver.app/PickaRideDriver";
+			};
+			name = Release;
+		};
+		4F94F1462643D76700780413 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E67B96CF6B05246ADB210A21 /* Pods-PickaRideDriver-PickaRideDriverUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LNR2265795;
+				INFOPLIST_FILE = PickaRideDriverUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.CountryPicker.PickaRideDriverUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PickaRideDriver;
+			};
+			name = Debug;
+		};
+		4F94F1472643D76700780413 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = ADAA6BC735A10CDF1515D667 /* Pods-PickaRideDriver-PickaRideDriverUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LNR2265795;
+				INFOPLIST_FILE = PickaRideDriverUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.CountryPicker.PickaRideDriverUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PickaRideDriver;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4F94F1102643D76500780413 /* Build configuration list for PBXProject "PickaRideDriver" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4F94F13D2643D76700780413 /* Debug */,
+				4F94F13E2643D76700780413 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4F94F13F2643D76700780413 /* Build configuration list for PBXNativeTarget "PickaRideDriver" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4F94F1402643D76700780413 /* Debug */,
+				4F94F1412643D76700780413 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4F94F1422643D76700780413 /* Build configuration list for PBXNativeTarget "PickaRideDriverTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4F94F1432643D76700780413 /* Debug */,
+				4F94F1442643D76700780413 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4F94F1452643D76700780413 /* Build configuration list for PBXNativeTarget "PickaRideDriverUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4F94F1462643D76700780413 /* Debug */,
+				4F94F1472643D76700780413 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4F94F10D2643D76500780413 /* Project object */;
+}
