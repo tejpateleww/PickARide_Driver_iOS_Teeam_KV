@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4F1A76372644FC67003F00CF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1A76362644FC67003F00CF /* LoginViewController.swift */; };
+		4F1A763A26450E78003F00CF /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1A763926450E78003F00CF /* SignUpVC.swift */; };
+		4F1A763D26450ED6003F00CF /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1A763C26450ED6003F00CF /* BaseVC.swift */; };
+		4F1A763F26455C7B003F00CF /* BankDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1A763E26455C7B003F00CF /* BankDetailsVC.swift */; };
 		4F94F1192643D76500780413 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F94F1182643D76500780413 /* AppDelegate.swift */; };
 		4F94F11D2643D76500780413 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F94F11C2643D76500780413 /* ViewController.swift */; };
 		4F94F1202643D76500780413 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F94F11E2643D76500780413 /* Main.storyboard */; };
@@ -97,6 +101,10 @@
 		2365D99843CD5DA3E6579C86 /* Pods_PickaRideDriverTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PickaRideDriverTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2829DD5CEA22E4198B109D0A /* Pods_PickaRideDriver_PickaRideDriverUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PickaRideDriver_PickaRideDriverUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		346F3E876BF629DA2DD488C0 /* Pods_PickaRideDriver.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PickaRideDriver.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4F1A76362644FC67003F00CF /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		4F1A763926450E78003F00CF /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
+		4F1A763C26450ED6003F00CF /* BaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseVC.swift; sourceTree = "<group>"; };
+		4F1A763E26455C7B003F00CF /* BankDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankDetailsVC.swift; sourceTree = "<group>"; };
 		4F94F1152643D76500780413 /* PickaRideDriver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PickaRideDriver.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F94F1182643D76500780413 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4F94F11C2643D76500780413 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -216,6 +224,40 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		4F1A76342644EF99003F00CF /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				4F1A763826450E4F003F00CF /* SignUp */,
+				4F1A76352644FC56003F00CF /* Login */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		4F1A76352644FC56003F00CF /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				4F1A76362644FC67003F00CF /* LoginViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		4F1A763826450E4F003F00CF /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				4F1A763926450E78003F00CF /* SignUpVC.swift */,
+				4F1A763E26455C7B003F00CF /* BankDetailsVC.swift */,
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
+		4F1A763B26450EC0003F00CF /* BaseVC */ = {
+			isa = PBXGroup;
+			children = (
+				4F1A763C26450ED6003F00CF /* BaseVC.swift */,
+			);
+			path = BaseVC;
+			sourceTree = "<group>";
+		};
 		4F94F10C2643D76500780413 = {
 			isa = PBXGroup;
 			children = (
@@ -244,8 +286,8 @@
 				4F94F1CD2643FEE500780413 /* AppInfo.swift */,
 				4F94F1182643D76500780413 /* AppDelegate.swift */,
 				4F94F11C2643D76500780413 /* ViewController.swift */,
+				4F1A76342644EF99003F00CF /* ViewControllers */,
 				4F94F1C82643F2EB00780413 /* StoryBoards */,
-				4F94F1C72643EEEA00780413 /* ViewControllers */,
 				4F94F1B22643E72800780413 /* Resources */,
 				4F94F18A2643DB7500780413 /* WebServices */,
 				4F94F1482643DB5F00780413 /* Classes */,
@@ -276,20 +318,13 @@
 		4F94F1482643DB5F00780413 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				4F94F1492643DB5F00780413 /* BaseVC */,
+				4F1A763B26450EC0003F00CF /* BaseVC */,
 				4F94F14B2643DB5F00780413 /* Enum */,
 				4F94F1502643DB5F00780413 /* navigationCommonView */,
 				4F94F1532643DB5F00780413 /* Extention */,
 				4F94F1632643DB5F00780413 /* CustomClass */,
 			);
 			path = Classes;
-			sourceTree = "<group>";
-		};
-		4F94F1492643DB5F00780413 /* BaseVC */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = BaseVC;
 			sourceTree = "<group>";
 		};
 		4F94F14B2643DB5F00780413 /* Enum */ = {
@@ -459,13 +494,6 @@
 				4F94F1BD2643E72800780413 /* UFL.txt */,
 			);
 			path = Ubuntu;
-			sourceTree = "<group>";
-		};
-		4F94F1C72643EEEA00780413 /* ViewControllers */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		4F94F1C82643F2EB00780413 /* StoryBoards */ = {
@@ -774,6 +802,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4F94F1AA2643DB7600780413 /* LoginReqModel.swift in Sources */,
+				4F1A763D26450ED6003F00CF /* BaseVC.swift in Sources */,
 				4F94F1842643DB5F00780413 /* CustomButton.swift in Sources */,
 				4F94F1A42643DB7500780413 /* ResposneInitClass.swift in Sources */,
 				4F94F1A92643DB7600780413 /* RequestModel.swift in Sources */,
@@ -787,6 +816,7 @@
 				4F94F1AF2643DB7600780413 /* WebServicesSubClass.swift in Sources */,
 				4F94F1772643DB5F00780413 /* UIView+Extension.swift in Sources */,
 				4F94F1752643DB5F00780413 /* String+Extensions.swift in Sources */,
+				4F1A76372644FC67003F00CF /* LoginViewController.swift in Sources */,
 				4F94F17F2643DB5F00780413 /* UISearchbar+Extension.swift in Sources */,
 				4F94F17E2643DB5F00780413 /* UITextField+Extension.swift in Sources */,
 				4F94F1A82643DB7600780413 /* ProfileUpdateReqModel.swift in Sources */,
@@ -810,11 +840,13 @@
 				4F94F16E2643DB5F00780413 /* Fonts.swift in Sources */,
 				4F94F1AC2643DB7600780413 /* Utilities.swift in Sources */,
 				4F94F1702643DB5F00780413 /* Colors.swift in Sources */,
+				4F1A763A26450E78003F00CF /* SignUpVC.swift in Sources */,
 				4F94F1CC2643FE1B00780413 /* Storyboards.swift in Sources */,
 				4F94F1862643DB5F00780413 /* GradientButton.swift in Sources */,
 				4F94F1822643DB5F00780413 /* CustomSlider.swift in Sources */,
 				4F94F1832643DB5F00780413 /* CustomView.swift in Sources */,
 				4F94F1192643D76500780413 /* AppDelegate.swift in Sources */,
+				4F1A763F26455C7B003F00CF /* BankDetailsVC.swift in Sources */,
 				4F94F1B12643DB7600780413 /* Validators.swift in Sources */,
 				4F94F1882643DB5F00780413 /* customTextView.swift in Sources */,
 				4F94F1802643DB5F00780413 /* Data+Extensions.swift in Sources */,

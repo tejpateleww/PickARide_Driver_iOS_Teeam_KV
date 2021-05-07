@@ -17,7 +17,7 @@ let kAPPVesion = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as!
 let AppName = ""
 let AppURL = "itms-apps://itunes.apple.com/app/id1488928328"
 
-let themeColor = hexStringToUIColor(hex: "2ab6b6")
+let themeColor = hexStringToUIColor(hex: "#00AA7E")
 let themeColorOrange = hexStringToUIColor(hex: "ff8b7b")
 let themeColorOffWhite = hexStringToUIColor(hex: "efecef")
 

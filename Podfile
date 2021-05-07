@@ -14,6 +14,9 @@ target 'PickaRideDriver' do
 pod 'Cosmos', '~> 23.0'
 pod 'SideMenuSwift'
 pod 'SkyFloatingLabelTextField'
+pod 'MaterialComponents'
+pod 'SDWebImage'
+
   # Pods for PickaRideDriver
 
   target 'PickaRideDriverTests' do

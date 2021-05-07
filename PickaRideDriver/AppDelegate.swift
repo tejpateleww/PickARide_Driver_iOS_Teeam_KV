@@ -18,8 +18,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+//        navigateToLogin()
         return true
     }
+    
+    func navigateToLogin(){
+        let storyborad = UIStoryboard(name: "Login", bundle: nil)
+        let Login = storyborad.instantiateViewController(withIdentifier: LoginViewController.className) as! LoginViewController
+        let NavHomeVC = UINavigationController(rootViewController: Login)
+        NavHomeVC.navigationBar.isHidden = true
+        self.window?.rootViewController = NavHomeVC
+    }
+    
+//    func navigateToHome(){
+//        let storyborad = UIStoryboard(name: "Main", bundle: nil)
+//        let Login = storyborad.instantiateViewController(withIdentifier: MainViewController.className) as! MainViewController
+////        let NavHomeVC = UINavigationController(rootViewController: Login)
+//        self.window?.rootViewController = Login
+//    }
 
 
 }

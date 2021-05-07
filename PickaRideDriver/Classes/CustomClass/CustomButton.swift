@@ -8,6 +8,63 @@
 
 import Foundation
 import AVKit
+class themeButton : UIButton{
+    @IBInspectable var isShadow : Bool = false
+    @IBInspectable var Font_Size : CGFloat = 14.0
+    @IBInspectable public var isbold: Bool = false
+    @IBInspectable public var isMedium: Bool = false
+    @IBInspectable public var islight: Bool = false
+    @IBInspectable var Font_Color = UIColor.white
+    @IBInspectable public var isRound: Bool = false
+    @IBInspectable var isthemeBg : Bool = false
+    
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        if isRound{
+            self.layer.cornerRadius = self.frame.height/2
+        }else{
+            self.layer.cornerRadius = 4
+         
+        }
+     
+        if isthemeBg{
+            self.tintColor = Font_Color
+            self.backgroundColor = themeColor
+            if isShadow == true {
+                
+                addShadow()
+            }
+        }else{
+            self.backgroundColor = .clear
+        }
+        
+        if isbold{
+            self.titleLabel?.font = CustomFont.bold.returnFont(Font_Size)
+        }else if isMedium{
+            self.titleLabel?.font = CustomFont.medium.returnFont(Font_Size)
+        }else if islight {
+            self.titleLabel?.font = CustomFont.light.returnFont(Font_Size)
+        }else{
+            self.titleLabel?.font = CustomFont.regular.returnFont(Font_Size)
+        }
+    }
+    
+//    override func layoutSubviews() {
+//        super.layoutSubviews()
+//    }
+    
+    func addShadow(){
+        let shadowPath = UIBezierPath(rect: self.bounds)
+        self.layer.masksToBounds = false
+        self.layer.shadowColor = UIColor(hexString: "#222B45").cgColor
+        self.layer.shadowOffset = CGSize(width: 0.0, height: 10)
+        self.layer.shadowOpacity = 0.3
+        self.layer.shadowRadius = 8
+        self.layer.shadowPath = shadowPath.cgPath
+    }
+    
+}
 
 class submitButton : UIButton
 {

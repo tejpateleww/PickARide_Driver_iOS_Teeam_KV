@@ -12,12 +12,54 @@ import UIKit
 class TitleLabel : UILabel {
     override func awakeFromNib() {
         
-            self.font = CustomFont.medium.returnFont(37)
-            self.textColor = colors.loginPlaceHolderColor.value
-       
+        self.font = CustomFont.medium.returnFont(37)
+        self.textColor = colors.loginPlaceHolderColor.value
+        
     }
 }
 
+class themeLabel : UILabel{
+    @IBInspectable var Font_Size : CGFloat = 14.0
+    @IBInspectable public var isbold: Bool = false
+    @IBInspectable public var islight: Bool = false
+    @IBInspectable public var isMedium: Bool = false
+    //    @IBInspectable public var islight: Bool = false
+    @IBInspectable public var isblack: Bool = false
+    @IBInspectable public var isgray: Bool = false
+    
+    @IBInspectable public var fontColor: UIColor = hexStringToUIColor(hex: "000000")
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        if isblack{
+            self.textColor = colors.black.value
+        }else if isgray{
+            self.textColor = colors.gray.value
+        }else{
+            self.textColor = fontColor
+        }
+        
+        if isbold{
+            self.font = CustomFont.bold.returnFont(Font_Size)
+        }else if isMedium{
+            self.font = CustomFont.medium.returnFont(Font_Size)
+        }else if islight{
+            self.font = CustomFont.light.returnFont(Font_Size)
+        }else{
+            self.font = CustomFont.regular.returnFont(Font_Size)
+        }
+        //        self.textColor = fontColor
+    }
+    
+    //    override func drawText(in rect: CGRect) {
+    //        super.drawText(in: rect.inset(by: UIEdgeInsets(top: 0, left: 2, bottom: 0, right: 2)))
+    //    }
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+    }
+    
+}
 
 class loginScreenLabel : UILabel {
     @IBInspectable var isWelcome : Bool = false
@@ -33,10 +75,10 @@ class loginScreenLabel : UILabel {
             self.textColor = colors.loginText.value
         } else if isORlbl {
             self.font = CustomFont.regular.returnFont(14)
-                self.textColor = colors.black.value
+            self.textColor = colors.black.value
         } else if isDontHaveAccount {
             self.font = CustomFont.regular.returnFont(14)
-                self.textColor = colors.black.value
+            self.textColor = colors.black.value
         }
     }
 }
@@ -62,17 +104,17 @@ class verifyVcLabel : UILabel {
         if IsVerifyPhoneNumber {
             self.textColor = colors.loginPlaceHolderColor.value
             self.font = CustomFont.bold.returnFont(29)
-          
+            
         } else if IsCheckYourPhoneNumber {
             self.textColor = colors.phoneNumberColor.value
-
-         
-         
+            
+            
+            
         } else if IsnotRecive {
             self.font = CustomFont.medium.returnFont(15)
-                self.textColor = colors.loginPlaceHolderColor.value
+            self.textColor = colors.loginPlaceHolderColor.value
         }
-      
+        
     }
 }
 
@@ -236,15 +278,15 @@ class walletHistoryLabel : UILabel {
         } else if ismoneyFrom {
             self.textColor = colors.loginPlaceHolderColor.value
             self.font = CustomFont.bold.returnFont(14)
-                   self.textAlignment = .left
+            self.textAlignment = .left
         } else if istime {
             self.textColor = colors.phoneNumberColor.value
             self.font = CustomFont.regular.returnFont(13)
-                   self.textAlignment = .left
+            self.textAlignment = .left
         } else if ismoney {
             self.textColor = colors.submitButtonColor.value
             self.font = CustomFont.bold.returnFont(15)
-                   self.textAlignment = .center
+            self.textAlignment = .center
         }
     }
 }
@@ -282,7 +324,7 @@ class SavedPlacesLabel : UILabel{
 class ProfileLabel : UILabel{
     @IBInspectable var isProfille : Bool = false
     @IBInspectable var isProfileLabel : Bool = false
-   
+    
     
     override func awakeFromNib() {
         if isProfille{
@@ -493,7 +535,7 @@ class menuLabel : UILabel {
 class ScheduleARide : UILabel {
     override func awakeFromNib() {
         self.font = CustomFont.medium.returnFont(28)
-            self.textColor = colors.loginPlaceHolderColor.value
+        self.textColor = colors.loginPlaceHolderColor.value
     }
 }
 class RatingTripLabel : UILabel{
