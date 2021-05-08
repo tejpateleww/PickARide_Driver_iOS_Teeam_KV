@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Vvz-Om-hHP">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Vvz-Om-hHP">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -12,7 +12,7 @@
         <!--Login View Controller-->
         <scene sceneID="UEQ-W4-4mu">
             <objects>
-                <viewController storyboardIdentifier="LoginViewController" id="hdv-88-biQ" customClass="LoginViewController" customModule="PickARide_User" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" id="hdv-88-biQ" customClass="LoginViewController" customModule="PickaRideDriver" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tWU-7F-dYm">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -36,7 +36,7 @@
                                                     <constraint firstAttribute="width" secondItem="bQz-ec-Nfr" secondAttribute="height" multiplier="1:1" id="ovd-Dv-9zE"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome Back! " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Veb-tb-4Bi" customClass="loginScreenLabel" customModule="PickARide_User" customModuleProvider="target">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome Back! " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Veb-tb-4Bi" customClass="loginScreenLabel" customModule="PickaRideDriver" customModuleProvider="target">
                                                 <rect key="frame" x="21" y="274" width="333" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
@@ -45,7 +45,7 @@
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isWelcome" value="YES"/>
                                                 </userDefinedRuntimeAttributes>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign In" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8nv-GS-Peu" customClass="loginScreenLabel" customModule="PickARide_User" customModuleProvider="target">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign In" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8nv-GS-Peu" customClass="loginScreenLabel" customModule="PickaRideDriver" customModuleProvider="target">
                                                 <rect key="frame" x="21" y="299.5" width="333" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
@@ -55,10 +55,10 @@
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="istitle" value="YES"/>
                                                 </userDefinedRuntimeAttributes>
                                             </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XcY-UG-ztG" customClass="loginView" customModule="PickARide_User" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XcY-UG-ztG" customClass="loginView" customModule="PickaRideDriver" customModuleProvider="target">
                                                 <rect key="frame" x="21" y="348" width="333" height="49"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email ID/Phone Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ho7-23-NTT" customClass="emailPasswordTextField" customModule="PickARide_User" customModuleProvider="target">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email ID/Phone Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ho7-23-NTT" customClass="emailPasswordTextField" customModule="PickaRideDriver" customModuleProvider="target">
                                                         <rect key="frame" x="18" y="15.5" width="297" height="18.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
@@ -72,10 +72,10 @@
                                                     <constraint firstAttribute="trailing" secondItem="Ho7-23-NTT" secondAttribute="trailing" constant="18" id="oZ3-6O-wqR"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xw7-nI-AVI" customClass="loginView" customModule="PickARide_User" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xw7-nI-AVI" customClass="loginView" customModule="PickaRideDriver" customModuleProvider="target">
                                                 <rect key="frame" x="21" y="434" width="333" height="49"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Al8-jC-Q8l" customClass="emailPasswordTextField" customModule="PickARide_User" customModuleProvider="target">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Al8-jC-Q8l" customClass="emailPasswordTextField" customModule="PickaRideDriver" customModuleProvider="target">
                                                         <rect key="frame" x="18" y="15.5" width="297" height="18.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
@@ -89,7 +89,7 @@
                                                     <constraint firstItem="Al8-jC-Q8l" firstAttribute="centerY" secondItem="Xw7-nI-AVI" secondAttribute="centerY" id="rd8-tp-clW"/>
                                                 </constraints>
                                             </view>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vbh-YP-hN7" customClass="loginScreenButton" customModule="PickARide_User" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vbh-YP-hN7" customClass="loginScreenButton" customModule="PickaRideDriver" customModuleProvider="target">
                                                 <rect key="frame" x="231" y="498" width="123" height="14"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="14" id="Yj9-wZ-cOp"/>
@@ -132,7 +132,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="EOg-Su-yxc">
                                                 <rect key="frame" x="66.5" y="611" width="242" height="16"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wJe-nU-pd2" customClass="loginScreenLabel" customModule="PickARide_User" customModuleProvider="target">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wJe-nU-pd2" customClass="loginScreenLabel" customModule="PickaRideDriver" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="179" height="16"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="16" id="Xow-5d-ohd"/>
@@ -144,7 +144,7 @@
                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="isDontHaveAccount" value="YES"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OF8-An-A8k" customClass="loginScreenButton" customModule="PickARide_User" customModuleProvider="target">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OF8-An-A8k" customClass="loginScreenButton" customModule="PickaRideDriver" customModuleProvider="target">
                                                         <rect key="frame" x="182" y="0.0" width="60" height="16"/>
                                                         <state key="normal" title="SIGN UP"/>
                                                         <userDefinedRuntimeAttributes>
@@ -227,14 +227,14 @@
             <objects>
                 <viewController storyboardIdentifier="SignUpVC" id="Yxg-PK-U4i" customClass="SignUpVC" customModule="PickaRideDriver" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xKE-xE-HOV">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="1500"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LV4-0Z-pPU">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="1500"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VyF-M5-jXq">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1439"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="606"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f2F-sz-OQk">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="603.5"/>
@@ -574,7 +574,7 @@
                                         </constraints>
                                     </scrollView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WZe-P8-RC1" customClass="themeButton" customModule="PickaRideDriver" customModuleProvider="target">
-                                        <rect key="frame" x="24" y="1444" width="327" height="40"/>
+                                        <rect key="frame" x="24" y="611" width="327" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="ilK-B1-Rro"/>
                                         </constraints>
@@ -613,7 +613,6 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="YgK-MO-B3V"/>
-                    <size key="freeformSize" width="375" height="1500"/>
                     <connections>
                         <outlet property="btnNext" destination="WZe-P8-RC1" id="MIt-41-Skf"/>
                         <outlet property="btnPrivacyPolicy" destination="IcC-7p-g8f" id="Xic-NV-qiq"/>
@@ -841,7 +840,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vg3-mC-dNG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4918" y="-298"/>
+            <point key="canvasLocation" x="4959" y="55"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="5mq-DG-MgF">
@@ -864,10 +863,9 @@
         <!--Navigation Controller-->
         <scene sceneID="TFJ-xe-THw">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Vvz-Om-hHP" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="Vvz-Om-hHP" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="bl9-T9-SXe">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

@@ -20,18 +20,19 @@ enum NavItemsLeft {
         case .back:
             return "back"
         case .menu:
-            return "menu"
+            return "ic_sideMenu"
         case .cancel:
             return "cancel"
         case .cancelWhite:
             return "cancelWhite"
+        
         }
     }
 }
 
 
 enum NavItemsRight {
-    case none,login,EditProfile,userProfile,Done
+    case none,login,EditProfile,userProfile,Done,sos
     
     var value:String {
         switch self {
@@ -45,7 +46,8 @@ enum NavItemsRight {
             return "like"
         case .Done:
             return "Done"
-        
+        case .sos:
+            return "ic_SOSBtn"
         }
     }
 }

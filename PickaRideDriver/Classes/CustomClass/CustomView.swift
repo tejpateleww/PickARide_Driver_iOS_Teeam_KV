@@ -195,11 +195,10 @@ class settingsView : UIView {
             self.layer.masksToBounds = true
             self.layer.cornerRadius = self.frame.size.height / 2
             self.backgroundColor = UIColor.white
-            self.layer.shadowColor = colors.loginViewColor.value.cgColor
-            self.layer.shadowOpacity = 1
-            self.layer.shadowOffset = CGSize(width: 4.0, height: 4.0)
-            self.layer.shadowRadius = 4.0
-           
+            self.layer.shadowColor = UIColor.black.cgColor
+            self.layer.shadowOpacity = 10
+            self.layer.shadowOffset = .zero
+            self.layer.shadowRadius = 10
          }
     }
 }
@@ -440,5 +439,19 @@ class chatScreenView : UIView {
             self.layer.mask = maskLayer
         }
         
+    }
+}
+class HomescreenView : UIView {
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        roundCorners(corners: [.topLeft, .topRight], radius: 12.0)
+    }
+}
+extension UIView {
+   func roundCorners(corners: UIRectCorner, radius: CGFloat) {
+        let path = UIBezierPath(roundedRect: bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
+        let mask = CAShapeLayer()
+        mask.path = path.cgPath
+        layer.mask = mask
     }
 }

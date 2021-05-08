@@ -23,7 +23,7 @@ enum UserDefaultsKey : String {
 enum APIEnvironment : String{
     
     case bu = "https://www.movecoins.net/admin/api/"//"http://admin.virtuwoof.com/Api/"
-  
+    case Profilebu = ""
     
     static var baseURL: String{
         return APIEnvironment.environment.rawValue

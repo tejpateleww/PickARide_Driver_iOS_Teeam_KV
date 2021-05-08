@@ -113,7 +113,7 @@ class BaseVC: UIViewController, UIGestureRecognizerDelegate {
             let btnLeft = UIButton(frame: CGRect(x: -12, y: 0, width: 40, height: 40))
             btnLeft.addTarget(self, action: #selector(self.btnBackAction), for: .touchUpInside)
             if IsGreen{
-                btnLeft.setImage(UIImage.init(named: "imgBackGreen"), for: .normal)
+                btnLeft.setImage(UIImage.init(named: "ic_sideMenu"), for: .normal)
             }else{
                 if IsShadow{
 //                    btnLeft.addNormalShaddow()
@@ -133,7 +133,7 @@ class BaseVC: UIViewController, UIGestureRecognizerDelegate {
         }
         if Right{
             let btnRight = UIButton.init()
-            btnRight.setImage(UIImage.init(named: "Nav_Edit_icon"), for: .normal)
+            btnRight.setImage(UIImage.init(named: "ic_SOSBtn"), for: .normal)
             btnRight.layer.setValue(controller, forKey: "controller")
             btnRight.addTarget(self, action: #selector(self.EditProfile), for: .touchUpInside)
             
@@ -264,7 +264,7 @@ class PlayerViewController: AVPlayerViewController, UIGestureRecognizerDelegate{
 //                    btnLeft.addNormalShaddow()
                 }
                 
-                btnLeft.setImage(UIImage.init(named: "imgBack"), for: .normal)
+                btnLeft.setImage(UIImage.init(named: "ic_sideMenu"), for: .normal)
             }
             
             btnLeft.layer.setValue(controller, forKey: "controller")
@@ -278,7 +278,7 @@ class PlayerViewController: AVPlayerViewController, UIGestureRecognizerDelegate{
         }
         if Right{
             let btnRight = UIButton.init()
-            btnRight.setImage(UIImage.init(named: "Nav_Edit_icon"), for: .normal)
+            btnRight.setImage(UIImage.init(named: "ic_SOSBtn"), for: .normal)
             btnRight.layer.setValue(controller, forKey: "controller")
             btnRight.addTarget(self, action: #selector(self.EditProfile), for: .touchUpInside)
             

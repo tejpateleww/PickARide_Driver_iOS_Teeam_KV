@@ -60,7 +60,12 @@ class themeLabel : UILabel{
     }
     
 }
-
+class BGColor : UILabel{
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        self.backgroundColor = UIColor.init(hexString: "#F2F2F2")
+    }
+}
 class loginScreenLabel : UILabel {
     @IBInspectable var isWelcome : Bool = false
     @IBInspectable var istitle : Bool = false

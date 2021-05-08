@@ -38,6 +38,8 @@ class BankDetailsVC: BaseVC {
     
     //MARK:- IBACrions
     @IBAction func btnNextTap(_ sender: UIButton) {
+        let vc : HomeVC = HomeVC.instantiate(fromAppStoryboard: .Login)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
 }

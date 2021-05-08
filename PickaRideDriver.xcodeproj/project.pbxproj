@@ -76,6 +76,12 @@
 		4F94F1CC2643FE1B00780413 /* Storyboards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F94F1CB2643FE1B00780413 /* Storyboards.swift */; };
 		4F94F1CE2643FEE500780413 /* AppInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F94F1CD2643FEE500780413 /* AppInfo.swift */; };
 		63306643E0B7E70ABC5DB425 /* Pods_PickaRideDriver_PickaRideDriverUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2829DD5CEA22E4198B109D0A /* Pods_PickaRideDriver_PickaRideDriverUITests.framework */; };
+		849CE22C2646616800E76E5E /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849CE22B2646616800E76E5E /* HomeVC.swift */; };
+		84A5D09D2646876F00AAFAB0 /* EditProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A5D09C2646876F00AAFAB0 /* EditProfileVC.swift */; };
+		84A5D0CE2646940A00AAFAB0 /* EditProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A5D0CD2646940A00AAFAB0 /* EditProfileCell.swift */; };
+		84A5D1002646A67200AAFAB0 /* AddVehicleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A5D0FF2646A67200AAFAB0 /* AddVehicleVC.swift */; };
+		84A5D11E2646B83900AAFAB0 /* CancelRideVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A5D11D2646B83900AAFAB0 /* CancelRideVC.swift */; };
+		84A5D1262646B89D00AAFAB0 /* CancelRideCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A5D1252646B89D00AAFAB0 /* CancelRideCell.swift */; };
 		D41F99CBEDC0DD0DCC09EFAF /* Pods_PickaRideDriver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 346F3E876BF629DA2DD488C0 /* Pods_PickaRideDriver.framework */; };
 		E13924697974A4271CEFAD63 /* Pods_PickaRideDriverTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2365D99843CD5DA3E6579C86 /* Pods_PickaRideDriverTests.framework */; };
 /* End PBXBuildFile section */
@@ -175,6 +181,12 @@
 		4F94F1C92643F30800780413 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		4F94F1CB2643FE1B00780413 /* Storyboards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboards.swift; sourceTree = "<group>"; };
 		4F94F1CD2643FEE500780413 /* AppInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppInfo.swift; sourceTree = "<group>"; };
+		849CE22B2646616800E76E5E /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		84A5D09C2646876F00AAFAB0 /* EditProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileVC.swift; sourceTree = "<group>"; };
+		84A5D0CD2646940A00AAFAB0 /* EditProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileCell.swift; sourceTree = "<group>"; };
+		84A5D0FF2646A67200AAFAB0 /* AddVehicleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVehicleVC.swift; sourceTree = "<group>"; };
+		84A5D11D2646B83900AAFAB0 /* CancelRideVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelRideVC.swift; sourceTree = "<group>"; };
+		84A5D1252646B89D00AAFAB0 /* CancelRideCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelRideCell.swift; sourceTree = "<group>"; };
 		93E1C17C15C20F6DE6ECFCD9 /* Pods-PickaRideDriver.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PickaRideDriver.debug.xcconfig"; path = "Target Support Files/Pods-PickaRideDriver/Pods-PickaRideDriver.debug.xcconfig"; sourceTree = "<group>"; };
 		95CA4A3D3E669B672AE3B1E6 /* Pods-PickaRideDriverTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PickaRideDriverTests.debug.xcconfig"; path = "Target Support Files/Pods-PickaRideDriverTests/Pods-PickaRideDriverTests.debug.xcconfig"; sourceTree = "<group>"; };
 		ADAA6BC735A10CDF1515D667 /* Pods-PickaRideDriver-PickaRideDriverUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PickaRideDriver-PickaRideDriverUITests.release.xcconfig"; path = "Target Support Files/Pods-PickaRideDriver-PickaRideDriverUITests/Pods-PickaRideDriver-PickaRideDriverUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -227,6 +239,8 @@
 		4F1A76342644EF99003F00CF /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				84A5D0FD2646A63800AAFAB0 /* Main */,
+				84A5D0CC264693E100AAFAB0 /* TableviewCell */,
 				4F1A763826450E4F003F00CF /* SignUp */,
 				4F1A76352644FC56003F00CF /* Login */,
 			);
@@ -504,6 +518,58 @@
 				4F94F1C92643F30800780413 /* Login.storyboard */,
 			);
 			path = StoryBoards;
+			sourceTree = "<group>";
+		};
+		849CE22A2646612D00E76E5E /* HomeScreen */ = {
+			isa = PBXGroup;
+			children = (
+				849CE22B2646616800E76E5E /* HomeVC.swift */,
+			);
+			path = HomeScreen;
+			sourceTree = "<group>";
+		};
+		84A5D09B2646875800AAFAB0 /* EditProfile */ = {
+			isa = PBXGroup;
+			children = (
+				84A5D09C2646876F00AAFAB0 /* EditProfileVC.swift */,
+			);
+			path = EditProfile;
+			sourceTree = "<group>";
+		};
+		84A5D0CC264693E100AAFAB0 /* TableviewCell */ = {
+			isa = PBXGroup;
+			children = (
+				84A5D0CD2646940A00AAFAB0 /* EditProfileCell.swift */,
+				84A5D1252646B89D00AAFAB0 /* CancelRideCell.swift */,
+			);
+			path = TableviewCell;
+			sourceTree = "<group>";
+		};
+		84A5D0FD2646A63800AAFAB0 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				84A5D11C2646B81B00AAFAB0 /* CancelRide */,
+				84A5D0FE2646A64D00AAFAB0 /* AddVehicle */,
+				84A5D09B2646875800AAFAB0 /* EditProfile */,
+				849CE22A2646612D00E76E5E /* HomeScreen */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		84A5D0FE2646A64D00AAFAB0 /* AddVehicle */ = {
+			isa = PBXGroup;
+			children = (
+				84A5D0FF2646A67200AAFAB0 /* AddVehicleVC.swift */,
+			);
+			path = AddVehicle;
+			sourceTree = "<group>";
+		};
+		84A5D11C2646B81B00AAFAB0 /* CancelRide */ = {
+			isa = PBXGroup;
+			children = (
+				84A5D11D2646B83900AAFAB0 /* CancelRideVC.swift */,
+			);
+			path = CancelRide;
 			sourceTree = "<group>";
 		};
 		9E21C437D1532847F7D8E45B /* Frameworks */ = {
@@ -816,13 +882,16 @@
 				4F94F1AF2643DB7600780413 /* WebServicesSubClass.swift in Sources */,
 				4F94F1772643DB5F00780413 /* UIView+Extension.swift in Sources */,
 				4F94F1752643DB5F00780413 /* String+Extensions.swift in Sources */,
+				84A5D1002646A67200AAFAB0 /* AddVehicleVC.swift in Sources */,
 				4F1A76372644FC67003F00CF /* LoginViewController.swift in Sources */,
 				4F94F17F2643DB5F00780413 /* UISearchbar+Extension.swift in Sources */,
 				4F94F17E2643DB5F00780413 /* UITextField+Extension.swift in Sources */,
 				4F94F1A82643DB7600780413 /* ProfileUpdateReqModel.swift in Sources */,
 				4F94F1852643DB5F00780413 /* customTextField.swift in Sources */,
 				4F94F1812643DB5F00780413 /* UICollectionViewCell+Extension.swift in Sources */,
+				84A5D0CE2646940A00AAFAB0 /* EditProfileCell.swift in Sources */,
 				4F94F17D2643DB5F00780413 /* UITapGestureRecognizer+Extension.swift in Sources */,
+				84A5D09D2646876F00AAFAB0 /* EditProfileVC.swift in Sources */,
 				4F94F17B2643DB5F00780413 /* UITableViewCell+Extension.swift in Sources */,
 				4F94F1712643DB5F00780413 /* navigationCommonView.swift in Sources */,
 				4F94F1742643DB5F00780413 /* UILabel+Extension.swift in Sources */,
@@ -831,6 +900,7 @@
 				4F94F1B02643DB7600780413 /* WebServices.swift in Sources */,
 				4F94F1A72643DB7600780413 /* RegisterReqModel.swift in Sources */,
 				4F94F16F2643DB5F00780413 /* AuthenticationToken.swift in Sources */,
+				84A5D1262646B89D00AAFAB0 /* CancelRideCell.swift in Sources */,
 				4F94F1AB2643DB7600780413 /* Constants.swift in Sources */,
 				4F94F1892643DB5F00780413 /* CustomLabel.swift in Sources */,
 				4F94F1762643DB5F00780413 /* UIButton+Extension.swift in Sources */,
@@ -851,7 +921,9 @@
 				4F94F1882643DB5F00780413 /* customTextView.swift in Sources */,
 				4F94F1802643DB5F00780413 /* Data+Extensions.swift in Sources */,
 				4F94F16D2643DB5F00780413 /* NavigationItems.swift in Sources */,
+				849CE22C2646616800E76E5E /* HomeVC.swift in Sources */,
 				4F94F1A52643DB7500780413 /* UserInfo.swift in Sources */,
+				84A5D11E2646B83900AAFAB0 /* CancelRideVC.swift in Sources */,
 				4F94F1A32643DB7500780413 /* Method.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
