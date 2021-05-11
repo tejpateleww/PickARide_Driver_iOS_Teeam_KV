@@ -102,7 +102,7 @@ class MyRidesView : UIView {
     override func awakeFromNib() {
         if isShadow{
             self.clipsToBounds = false
-            self.backgroundColor = UIColor.white
+            self.backgroundColor = UIColor(hexString: "#F7F9FC")
             self.layer.shadowColor = colors.loginViewColor.value.cgColor
             self.layer.shadowOpacity = 1
             self.layer.shadowOffset = CGSize(width: 4.0, height: 4.0)

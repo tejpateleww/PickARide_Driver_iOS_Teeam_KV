@@ -14,11 +14,7 @@ class HomeVC: BaseVC {
     @IBOutlet weak var lblOffline: themeLabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        SetNavigationBar(controller : self,Left:false,Right:true,Title:"",IsSettingVC:false,IsGreen:true, IsShadow :false)
-//        SetNavigationBar(controller: self, Left: true, Right: true, Title: "", IsSettingVC: false, IsGreen: false, IsShadow: false)
-//        SetNavigationBar(controller: self, Left: false , Right: false, Title: "")
-//        navigationController.
+        setNavigationBarInViewController(controller: self, naviColor: colors.appColor.value, naviTitle: NavTitles.none.value, leftImage: NavItemsLeft.menu.value, rightImages: [NavItemsRight.sos.value], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
         // Do any additional setup after loading the view.
     }
     @IBAction func btnOnClick(_ sender: Any) {

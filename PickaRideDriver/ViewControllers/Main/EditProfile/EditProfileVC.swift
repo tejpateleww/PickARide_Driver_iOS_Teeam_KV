@@ -7,7 +7,7 @@
 
 import UIKit
 
-class EditProfileVC: UIViewController {
+class EditProfileVC: BaseVC {
     let arrEditProfile = ["Edit Bank Details","Edit Personal Details","Edit Vehicle Details","Edit Vehicle Documents"]
     var selectedImage : UIImage?
     private var imagePicker : ImagePicker!
@@ -23,6 +23,7 @@ class EditProfileVC: UIViewController {
     @IBOutlet weak var txtPassword: themeTextField!
     override func viewDidLoad() {
         super.viewDidLoad()
+        setNavigationBarInViewController(controller: self, naviColor: colors.appColor.value, naviTitle: NavTitles.none.value, leftImage: NavItemsLeft.cancel.value, rightImages: [NavItemsRight.EditProfile.value], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
         tblEditProfile.delegate = self
         tblEditProfile.dataSource = self
         tblEditProfile.reloadData()

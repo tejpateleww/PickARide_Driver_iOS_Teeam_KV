@@ -35,7 +35,7 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupLocalization()
+//        setupLocalization()
         // Do any additional setup after loading the view.
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -65,14 +65,14 @@ class LoginViewController: UIViewController {
     //MARK: -IBActions
     
     @IBAction func signUP(_ sender: Any) {
-        //self.navigationController?.navigationBar.isHidden = false
-//        let controller = AppStoryboard.Login.instance.instantiateViewController(withIdentifier: RegisterViewController.storyboardID)
-//        self.navigationController?.pushViewController(controller, animated: true)
+        self.navigationController?.navigationBar.isHidden = false
+        let controller = AppStoryboard.Login.instance.instantiateViewController(withIdentifier: SignUpVC.storyboardID)
+        self.navigationController?.pushViewController(controller, animated: true)
     }
     
     @IBAction func btnSignInClicked(_ sender: Any) {
-//        userDefault.setValue(true, forKey: UserDefaultsKey.isUserLogin.rawValue)
-//        appDel.navigateToMain()
+        userDefault.setValue(true, forKey: UserDefaultsKey.isUserLogin.rawValue)
+        appDel.navigateToMain()
     }
     
     @IBAction func ForgotPassword(_ sender: Any) {

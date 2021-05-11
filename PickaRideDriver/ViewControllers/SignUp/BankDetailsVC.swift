@@ -26,8 +26,8 @@ class BankDetailsVC: BaseVC {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        SetNavigationBar(controller: self, Left: true , Right: false, Title: "Bank Details")
+        setNavigationBarInViewController(controller: self, naviColor: colors.appColor.value, naviTitle: NavTitles.none.value, leftImage: NavItemsLeft.back.value, rightImages: [NavItemsRight.login.value], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
+//        SetNavigationBar(controller: self, Left: true , Right: false, Title: "Bank Details")
 //        addMenuButton()
        
 //        addNavBarImage(isLeft: false, isRight: false)
@@ -38,8 +38,7 @@ class BankDetailsVC: BaseVC {
     
     //MARK:- IBACrions
     @IBAction func btnNextTap(_ sender: UIButton) {
-        let vc : HomeVC = HomeVC.instantiate(fromAppStoryboard: .Login)
-        self.navigationController?.pushViewController(vc, animated: true)
+       
     }
     
 }

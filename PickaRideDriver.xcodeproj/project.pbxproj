@@ -76,12 +76,30 @@
 		4F94F1CC2643FE1B00780413 /* Storyboards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F94F1CB2643FE1B00780413 /* Storyboards.swift */; };
 		4F94F1CE2643FEE500780413 /* AppInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F94F1CD2643FEE500780413 /* AppInfo.swift */; };
 		63306643E0B7E70ABC5DB425 /* Pods_PickaRideDriver_PickaRideDriverUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2829DD5CEA22E4198B109D0A /* Pods_PickaRideDriver_PickaRideDriverUITests.framework */; };
+		843F8053264A6F3E00BCBDB8 /* SideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843F8052264A6F3E00BCBDB8 /* SideMenuController.swift */; };
+		843F805C264A6FB300BCBDB8 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843F805B264A6FB300BCBDB8 /* MenuViewController.swift */; };
+		843F806A264A706400BCBDB8 /* StatusBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843F8060264A706400BCBDB8 /* StatusBar.swift */; };
+		843F806B264A706400BCBDB8 /* UIViewController+SideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843F8062264A706400BCBDB8 /* UIViewController+SideMenu.swift */; };
+		843F806C264A706400BCBDB8 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843F8063264A706400BCBDB8 /* Preferences.swift */; };
+		843F806D264A706400BCBDB8 /* UIView+Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843F8064264A706400BCBDB8 /* UIView+Container.swift */; };
+		843F806E264A706400BCBDB8 /* UIViewController+Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843F8065264A706400BCBDB8 /* UIViewController+Container.swift */; };
+		843F806F264A706400BCBDB8 /* Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843F8066264A706400BCBDB8 /* Delegate.swift */; };
+		843F8070264A706400BCBDB8 /* Segue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843F8067264A706400BCBDB8 /* Segue.swift */; };
+		843F8071264A706400BCBDB8 /* TransitionContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843F8068264A706400BCBDB8 /* TransitionContext.swift */; };
+		843F8072264A706400BCBDB8 /* BasicTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843F8069264A706400BCBDB8 /* BasicTransitionAnimator.swift */; };
+		847607062648FC340019CE1F /* SettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847607052648FC340019CE1F /* SettingVC.swift */; };
+		8476070B264909500019CE1F /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8476070A264909500019CE1F /* SettingCell.swift */; };
+		8476071026491B660019CE1F /* MyRidesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8476070F26491B660019CE1F /* MyRidesVC.swift */; };
+		84760715264927130019CE1F /* MyRideCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84760714264927130019CE1F /* MyRideCell.swift */; };
+		8476071A264933A90019CE1F /* pastUpcomingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84760719264933A90019CE1F /* pastUpcomingCell.swift */; };
+		848FE833264A38E4008B6586 /* RideReceiptDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848FE832264A38E4008B6586 /* RideReceiptDetailsVC.swift */; };
 		849CE22C2646616800E76E5E /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849CE22B2646616800E76E5E /* HomeVC.swift */; };
 		84A5D09D2646876F00AAFAB0 /* EditProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A5D09C2646876F00AAFAB0 /* EditProfileVC.swift */; };
 		84A5D0CE2646940A00AAFAB0 /* EditProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A5D0CD2646940A00AAFAB0 /* EditProfileCell.swift */; };
 		84A5D1002646A67200AAFAB0 /* AddVehicleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A5D0FF2646A67200AAFAB0 /* AddVehicleVC.swift */; };
 		84A5D11E2646B83900AAFAB0 /* CancelRideVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A5D11D2646B83900AAFAB0 /* CancelRideVC.swift */; };
 		84A5D1262646B89D00AAFAB0 /* CancelRideCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A5D1252646B89D00AAFAB0 /* CancelRideCell.swift */; };
+		84DD717B264957850014AF60 /* RideDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DD717A264957850014AF60 /* RideDetailsVC.swift */; };
 		D41F99CBEDC0DD0DCC09EFAF /* Pods_PickaRideDriver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 346F3E876BF629DA2DD488C0 /* Pods_PickaRideDriver.framework */; };
 		E13924697974A4271CEFAD63 /* Pods_PickaRideDriverTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2365D99843CD5DA3E6579C86 /* Pods_PickaRideDriverTests.framework */; };
 /* End PBXBuildFile section */
@@ -181,12 +199,31 @@
 		4F94F1C92643F30800780413 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		4F94F1CB2643FE1B00780413 /* Storyboards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboards.swift; sourceTree = "<group>"; };
 		4F94F1CD2643FEE500780413 /* AppInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppInfo.swift; sourceTree = "<group>"; };
+		843F8052264A6F3E00BCBDB8 /* SideMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuController.swift; sourceTree = "<group>"; };
+		843F805B264A6FB300BCBDB8 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		843F8060264A706400BCBDB8 /* StatusBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusBar.swift; sourceTree = "<group>"; };
+		843F8061264A706400BCBDB8 /* SideMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideMenu.h; sourceTree = "<group>"; };
+		843F8062264A706400BCBDB8 /* UIViewController+SideMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+SideMenu.swift"; sourceTree = "<group>"; };
+		843F8063264A706400BCBDB8 /* Preferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
+		843F8064264A706400BCBDB8 /* UIView+Container.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Container.swift"; sourceTree = "<group>"; };
+		843F8065264A706400BCBDB8 /* UIViewController+Container.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Container.swift"; sourceTree = "<group>"; };
+		843F8066264A706400BCBDB8 /* Delegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Delegate.swift; sourceTree = "<group>"; };
+		843F8067264A706400BCBDB8 /* Segue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Segue.swift; sourceTree = "<group>"; };
+		843F8068264A706400BCBDB8 /* TransitionContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionContext.swift; sourceTree = "<group>"; };
+		843F8069264A706400BCBDB8 /* BasicTransitionAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicTransitionAnimator.swift; sourceTree = "<group>"; };
+		847607052648FC340019CE1F /* SettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingVC.swift; sourceTree = "<group>"; };
+		8476070A264909500019CE1F /* SettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
+		8476070F26491B660019CE1F /* MyRidesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRidesVC.swift; sourceTree = "<group>"; };
+		84760714264927130019CE1F /* MyRideCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRideCell.swift; sourceTree = "<group>"; };
+		84760719264933A90019CE1F /* pastUpcomingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pastUpcomingCell.swift; sourceTree = "<group>"; };
+		848FE832264A38E4008B6586 /* RideReceiptDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideReceiptDetailsVC.swift; sourceTree = "<group>"; };
 		849CE22B2646616800E76E5E /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		84A5D09C2646876F00AAFAB0 /* EditProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileVC.swift; sourceTree = "<group>"; };
 		84A5D0CD2646940A00AAFAB0 /* EditProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileCell.swift; sourceTree = "<group>"; };
 		84A5D0FF2646A67200AAFAB0 /* AddVehicleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVehicleVC.swift; sourceTree = "<group>"; };
 		84A5D11D2646B83900AAFAB0 /* CancelRideVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelRideVC.swift; sourceTree = "<group>"; };
 		84A5D1252646B89D00AAFAB0 /* CancelRideCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelRideCell.swift; sourceTree = "<group>"; };
+		84DD717A264957850014AF60 /* RideDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideDetailsVC.swift; sourceTree = "<group>"; };
 		93E1C17C15C20F6DE6ECFCD9 /* Pods-PickaRideDriver.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PickaRideDriver.debug.xcconfig"; path = "Target Support Files/Pods-PickaRideDriver/Pods-PickaRideDriver.debug.xcconfig"; sourceTree = "<group>"; };
 		95CA4A3D3E669B672AE3B1E6 /* Pods-PickaRideDriverTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PickaRideDriverTests.debug.xcconfig"; path = "Target Support Files/Pods-PickaRideDriverTests/Pods-PickaRideDriverTests.debug.xcconfig"; sourceTree = "<group>"; };
 		ADAA6BC735A10CDF1515D667 /* Pods-PickaRideDriver-PickaRideDriverUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PickaRideDriver-PickaRideDriverUITests.release.xcconfig"; path = "Target Support Files/Pods-PickaRideDriver-PickaRideDriverUITests/Pods-PickaRideDriver-PickaRideDriverUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -520,6 +557,25 @@
 			path = StoryBoards;
 			sourceTree = "<group>";
 		};
+		843F8057264A6F4700BCBDB8 /* SideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				843F8069264A706400BCBDB8 /* BasicTransitionAnimator.swift */,
+				843F8066264A706400BCBDB8 /* Delegate.swift */,
+				843F8063264A706400BCBDB8 /* Preferences.swift */,
+				843F8067264A706400BCBDB8 /* Segue.swift */,
+				843F8061264A706400BCBDB8 /* SideMenu.h */,
+				843F8060264A706400BCBDB8 /* StatusBar.swift */,
+				843F8068264A706400BCBDB8 /* TransitionContext.swift */,
+				843F8064264A706400BCBDB8 /* UIView+Container.swift */,
+				843F8065264A706400BCBDB8 /* UIViewController+Container.swift */,
+				843F8062264A706400BCBDB8 /* UIViewController+SideMenu.swift */,
+				843F805B264A6FB300BCBDB8 /* MenuViewController.swift */,
+				843F8052264A6F3E00BCBDB8 /* SideMenuController.swift */,
+			);
+			path = SideMenu;
+			sourceTree = "<group>";
+		};
 		849CE22A2646612D00E76E5E /* HomeScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -541,6 +597,9 @@
 			children = (
 				84A5D0CD2646940A00AAFAB0 /* EditProfileCell.swift */,
 				84A5D1252646B89D00AAFAB0 /* CancelRideCell.swift */,
+				8476070A264909500019CE1F /* SettingCell.swift */,
+				84760714264927130019CE1F /* MyRideCell.swift */,
+				84760719264933A90019CE1F /* pastUpcomingCell.swift */,
 			);
 			path = TableviewCell;
 			sourceTree = "<group>";
@@ -548,10 +607,15 @@
 		84A5D0FD2646A63800AAFAB0 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				843F8057264A6F4700BCBDB8 /* SideMenu */,
 				84A5D11C2646B81B00AAFAB0 /* CancelRide */,
 				84A5D0FE2646A64D00AAFAB0 /* AddVehicle */,
 				84A5D09B2646875800AAFAB0 /* EditProfile */,
 				849CE22A2646612D00E76E5E /* HomeScreen */,
+				847607052648FC340019CE1F /* SettingVC.swift */,
+				8476070F26491B660019CE1F /* MyRidesVC.swift */,
+				84DD717A264957850014AF60 /* RideDetailsVC.swift */,
+				848FE832264A38E4008B6586 /* RideReceiptDetailsVC.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -868,25 +932,32 @@
 			buildActionMask = 2147483647;
 			files = (
 				4F94F1AA2643DB7600780413 /* LoginReqModel.swift in Sources */,
+				843F8053264A6F3E00BCBDB8 /* SideMenuController.swift in Sources */,
 				4F1A763D26450ED6003F00CF /* BaseVC.swift in Sources */,
 				4F94F1842643DB5F00780413 /* CustomButton.swift in Sources */,
+				843F806E264A706400BCBDB8 /* UIViewController+Container.swift in Sources */,
 				4F94F1A42643DB7500780413 /* ResposneInitClass.swift in Sources */,
 				4F94F1A92643DB7600780413 /* RequestModel.swift in Sources */,
 				4F94F17A2643DB5F00780413 /* UIViewController+Extension.swift in Sources */,
+				843F8072264A706400BCBDB8 /* BasicTransitionAnimator.swift in Sources */,
 				4F94F1CE2643FEE500780413 /* AppInfo.swift in Sources */,
 				4F94F1872643DB5F00780413 /* CustomImageVIew.swift in Sources */,
 				4F94F1A22643DB7500780413 /* ApiPaths.swift in Sources */,
 				4F94F11D2643D76500780413 /* ViewController.swift in Sources */,
 				4F94F1782643DB5F00780413 /* UIImage+Extension.swift in Sources */,
+				843F806F264A706400BCBDB8 /* Delegate.swift in Sources */,
 				4F94F1AD2643DB7600780413 /* Singleton.swift in Sources */,
 				4F94F1AF2643DB7600780413 /* WebServicesSubClass.swift in Sources */,
 				4F94F1772643DB5F00780413 /* UIView+Extension.swift in Sources */,
 				4F94F1752643DB5F00780413 /* String+Extensions.swift in Sources */,
 				84A5D1002646A67200AAFAB0 /* AddVehicleVC.swift in Sources */,
+				843F8071264A706400BCBDB8 /* TransitionContext.swift in Sources */,
 				4F1A76372644FC67003F00CF /* LoginViewController.swift in Sources */,
+				84DD717B264957850014AF60 /* RideDetailsVC.swift in Sources */,
 				4F94F17F2643DB5F00780413 /* UISearchbar+Extension.swift in Sources */,
 				4F94F17E2643DB5F00780413 /* UITextField+Extension.swift in Sources */,
 				4F94F1A82643DB7600780413 /* ProfileUpdateReqModel.swift in Sources */,
+				843F806C264A706400BCBDB8 /* Preferences.swift in Sources */,
 				4F94F1852643DB5F00780413 /* customTextField.swift in Sources */,
 				4F94F1812643DB5F00780413 /* UICollectionViewCell+Extension.swift in Sources */,
 				84A5D0CE2646940A00AAFAB0 /* EditProfileCell.swift in Sources */,
@@ -898,29 +969,40 @@
 				4F94F1A62643DB7600780413 /* Datum.swift in Sources */,
 				4F94F17C2643DB5F00780413 /* UIStoryboard+Extension.swift in Sources */,
 				4F94F1B02643DB7600780413 /* WebServices.swift in Sources */,
+				843F806B264A706400BCBDB8 /* UIViewController+SideMenu.swift in Sources */,
+				8476071026491B660019CE1F /* MyRidesVC.swift in Sources */,
 				4F94F1A72643DB7600780413 /* RegisterReqModel.swift in Sources */,
 				4F94F16F2643DB5F00780413 /* AuthenticationToken.swift in Sources */,
 				84A5D1262646B89D00AAFAB0 /* CancelRideCell.swift in Sources */,
 				4F94F1AB2643DB7600780413 /* Constants.swift in Sources */,
 				4F94F1892643DB5F00780413 /* CustomLabel.swift in Sources */,
 				4F94F1762643DB5F00780413 /* UIButton+Extension.swift in Sources */,
+				8476071A264933A90019CE1F /* pastUpcomingCell.swift in Sources */,
 				4F94F1792643DB5F00780413 /* extension+String.swift in Sources */,
+				843F805C264A6FB300BCBDB8 /* MenuViewController.swift in Sources */,
+				8476070B264909500019CE1F /* SettingCell.swift in Sources */,
 				4F94F1AE2643DB7600780413 /* ImagePicker.swift in Sources */,
 				4F94F1732643DB5F00780413 /* UIColor+Extension.swift in Sources */,
 				4F94F16E2643DB5F00780413 /* Fonts.swift in Sources */,
+				843F806D264A706400BCBDB8 /* UIView+Container.swift in Sources */,
+				847607062648FC340019CE1F /* SettingVC.swift in Sources */,
 				4F94F1AC2643DB7600780413 /* Utilities.swift in Sources */,
 				4F94F1702643DB5F00780413 /* Colors.swift in Sources */,
 				4F1A763A26450E78003F00CF /* SignUpVC.swift in Sources */,
+				843F806A264A706400BCBDB8 /* StatusBar.swift in Sources */,
 				4F94F1CC2643FE1B00780413 /* Storyboards.swift in Sources */,
 				4F94F1862643DB5F00780413 /* GradientButton.swift in Sources */,
+				84760715264927130019CE1F /* MyRideCell.swift in Sources */,
 				4F94F1822643DB5F00780413 /* CustomSlider.swift in Sources */,
 				4F94F1832643DB5F00780413 /* CustomView.swift in Sources */,
 				4F94F1192643D76500780413 /* AppDelegate.swift in Sources */,
+				848FE833264A38E4008B6586 /* RideReceiptDetailsVC.swift in Sources */,
 				4F1A763F26455C7B003F00CF /* BankDetailsVC.swift in Sources */,
 				4F94F1B12643DB7600780413 /* Validators.swift in Sources */,
 				4F94F1882643DB5F00780413 /* customTextView.swift in Sources */,
 				4F94F1802643DB5F00780413 /* Data+Extensions.swift in Sources */,
 				4F94F16D2643DB5F00780413 /* NavigationItems.swift in Sources */,
+				843F8070264A706400BCBDB8 /* Segue.swift in Sources */,
 				849CE22C2646616800E76E5E /* HomeVC.swift in Sources */,
 				4F94F1A52643DB7500780413 /* UserInfo.swift in Sources */,
 				84A5D11E2646B83900AAFAB0 /* CancelRideVC.swift in Sources */,

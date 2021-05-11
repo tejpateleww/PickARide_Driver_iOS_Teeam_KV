@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CancelRideVC: UIViewController {
+class CancelRideVC: BaseVC {
     var isselected = true    //MARK: -IBOutlets
     var selectIndex = 0
     var arrReason = ["Rider isn't here","Wrong address shown","Don't charge rider"]
@@ -15,6 +15,7 @@ class CancelRideVC: UIViewController {
     @IBOutlet weak var tblReasonForCancel: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        setNavigationBarInViewController(controller: self, naviColor: colors.appColor.value, naviTitle: NavTitles.none.value, leftImage: NavItemsLeft.back.value, rightImages: [NavItemsRight.login.value], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
         tblReasonForCancel.delegate = self
         tblReasonForCancel.dataSource = self
         tblReasonForCancel.reloadData()

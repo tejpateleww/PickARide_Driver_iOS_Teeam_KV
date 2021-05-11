@@ -66,6 +66,50 @@ class BGColor : UILabel{
         self.backgroundColor = UIColor.init(hexString: "#F2F2F2")
     }
 }
+class myLocationLabel : UILabel {
+    
+    @IBInspectable var isHeader:Bool = false
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        if isHeader {
+            self.textColor = colors.black.value.withAlphaComponent(0.8)
+            self.font = CustomFont.bold.returnFont(16)
+        } else {
+            self.textColor = colors.black.value
+            self.font = CustomFont.regular.returnFont(14)
+        }
+    }
+}
+class navigationTitleLabel : UILabel {
+    @IBInspectable var topInset: CGFloat = 1.0
+    @IBInspectable var bottomInset: CGFloat = 3.0
+    @IBInspectable var leftInset: CGFloat = 0.0
+    @IBInspectable var rightInset: CGFloat = 0.0
+    
+    override func drawText(in rect: CGRect) {
+        let insets = UIEdgeInsets(top: topInset, left: leftInset, bottom: bottomInset, right: rightInset)
+        super.drawText(in: rect.inset(by: insets))
+    }
+    
+    override var intrinsicContentSize: CGSize {
+        let size = super.intrinsicContentSize
+        return CGSize(width: size.width + leftInset + rightInset,
+                      height: size.height + topInset + bottomInset)
+    }
+    
+    override var bounds: CGRect {
+        didSet {
+            // ensures this works within stack views if multi-line
+            preferredMaxLayoutWidth = bounds.width - (leftInset + rightInset)
+        }
+    }
+    override func awakeFromNib() {
+        self.textColor = colors.black.value
+        self.font = CustomFont.bold.returnFont(20)
+        self.textAlignment = .center
+    }
+}
 class loginScreenLabel : UILabel {
     @IBInspectable var isWelcome : Bool = false
     @IBInspectable var istitle : Bool = false

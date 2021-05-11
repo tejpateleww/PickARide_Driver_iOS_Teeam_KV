@@ -11,11 +11,11 @@ target 'PickaRideDriver' do
   pod 'GooglePlaces'
   pod 'GooglePlacePicker'
   pod 'GoogleMaps'
-pod 'Cosmos', '~> 23.0'
-pod 'SideMenuSwift'
-pod 'SkyFloatingLabelTextField'
-pod 'MaterialComponents'
-pod 'SDWebImage'
+  pod 'Cosmos', '~> 23.0'
+  pod 'SideMenuSwift'
+  pod 'SkyFloatingLabelTextField'
+  pod 'MaterialComponents'
+  pod 'SDWebImage'
 
   # Pods for PickaRideDriver
 
