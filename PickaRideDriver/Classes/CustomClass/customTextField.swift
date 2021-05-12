@@ -8,6 +8,9 @@
 
 import UIKit
 import SkyFloatingLabelTextField
+import MaterialComponents.MaterialTextControls_OutlinedTextFields
+import MaterialComponents.MaterialTextFields
+import MaterialComponents.MaterialTextFields_ColorThemer
 
 
 class themeTextField : UITextField{
@@ -42,6 +45,78 @@ class themeTextField : UITextField{
         super.layoutSubviews()
     }
 }
+
+class themeMeterialFloatingTextfield: UIView {
+    
+    private var textFieldControllerFloating: MDCTextInputControllerOutlined!
+    var textField: MDCTextField!
+
+    @IBInspectable var Font_Size : CGFloat = 16.0
+    @IBInspectable public var isbold: Bool = false
+    @IBInspectable public var isMedium: Bool = false
+    @IBInspectable public var islight: Bool = false
+    @IBInspectable var isSecure : Bool = false
+    @IBInspectable var placeHolder: String!
+    @IBInspectable var value: String!
+    @IBInspectable var placeholderFont: UIFont!
+    @IBInspectable var titleFont: UIFont!
+    @IBInspectable var placeholdercolor : Bool = false
+    
+
+    override open func draw(_ rect: CGRect) {
+        super.draw(rect)
+
+        textField.frame = CGRect(x: 0, y: 0, width: self.frame.size.width, height: self.frame.size.height)
+
+    }
+    open override func awakeFromNib() {
+        
+        super.awakeFromNib()
+        setUpProperty()
+        
+    }
+    func setUpProperty() {
+        //Change this properties to change the propperties of text
+        textField = MDCTextField(frame: CGRect(x: 0, y: 0, width: self.frame.size.width, height: self.frame.size.height))
+        textField.placeholder = placeHolder
+        textField.text = value
+//        self.titleFont = CustomFont.bold.returnFont(14.0)
+//        self.placeholderFont = CustomFont.regular.returnFont(16.0)
+//        if placeholdercolor == true {
+//            textFieldControllerFloating.floatingPlaceholderActiveColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.47)
+//        }
+        
+        if isSecure == true{
+            textField.isSecureTextEntry = true
+        }else{
+            textField.isSecureTextEntry = false
+        }
+        if isbold{
+            self.textField?.font = CustomFont.bold.returnFont(Font_Size)
+        }else if isMedium{
+            self.textField?.font = CustomFont.medium.returnFont(Font_Size)
+        }else if islight {
+            self.textField?.font = CustomFont.light.returnFont(Font_Size)
+        }else{
+            self.textField?.font = CustomFont.regular.returnFont(Font_Size)
+        }
+
+        //Change this properties to change the colors of border around text
+        textFieldControllerFloating = MDCTextInputControllerOutlined(textInput: textField)
+
+//        textFieldControllerFloating.activeColor = borderGrayColor
+//        textFieldControllerFloating.floatingPlaceholderActiveColor = borderGrayColor
+//        textFieldControllerFloating.normalColor = borderGrayColor
+        textFieldControllerFloating.inlinePlaceholderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.47)
+
+        //Change this font to make borderRect bigger
+        textFieldControllerFloating.inlinePlaceholderFont = CustomFont.regular.returnFont(16.0)
+        textFieldControllerFloating.textInsets(UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0))
+
+        self.addSubview(textField)
+    }
+}
+
 class themeWBorderTextField : UITextField{
     
     @IBInspectable var Font_Size : CGFloat = 16.0
