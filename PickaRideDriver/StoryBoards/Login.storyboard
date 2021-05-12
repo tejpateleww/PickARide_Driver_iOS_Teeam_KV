@@ -17,192 +17,208 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EGr-zh-ohL">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GI8-66-5YW">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u2X-Xj-LEj">
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EGr-zh-ohL">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash_img_top" translatesAutoresizingMaskIntoConstraints="NO" id="Ro4-gm-fBX">
-                                                <rect key="frame" x="220.5" y="-60" width="154.5" height="281.5"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="154.34" id="Ycw-0g-b3O"/>
-                                                    <constraint firstAttribute="height" constant="281.30000000000001" id="pO0-gn-wya"/>
-                                                </constraints>
-                                            </imageView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash_img_center" translatesAutoresizingMaskIntoConstraints="NO" id="bQz-ec-Nfr">
-                                                <rect key="frame" x="100" y="78" width="175" height="175"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="bQz-ec-Nfr" secondAttribute="height" multiplier="1:1" id="ovd-Dv-9zE"/>
-                                                </constraints>
-                                            </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome Back! " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Veb-tb-4Bi" customClass="loginScreenLabel" customModule="PickaRideDriver" customModuleProvider="target">
-                                                <rect key="frame" x="21" y="274" width="333" height="20.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isWelcome" value="YES"/>
-                                                </userDefinedRuntimeAttributes>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign In" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8nv-GS-Peu" customClass="loginScreenLabel" customModule="PickaRideDriver" customModuleProvider="target">
-                                                <rect key="frame" x="21" y="299.5" width="333" height="20.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="istitle" value="YES"/>
-                                                </userDefinedRuntimeAttributes>
-                                            </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XcY-UG-ztG" customClass="loginView" customModule="PickaRideDriver" customModuleProvider="target">
-                                                <rect key="frame" x="21" y="348" width="333" height="49"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u2X-Xj-LEj">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="706"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email ID/Phone Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ho7-23-NTT" customClass="emailPasswordTextField" customModule="PickaRideDriver" customModuleProvider="target">
-                                                        <rect key="frame" x="18" y="15.5" width="297" height="18.5"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
-                                                    </textField>
-                                                </subviews>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="49" id="AJY-lI-V2H"/>
-                                                    <constraint firstItem="Ho7-23-NTT" firstAttribute="centerY" secondItem="XcY-UG-ztG" secondAttribute="centerY" id="PXK-qA-68J"/>
-                                                    <constraint firstItem="Ho7-23-NTT" firstAttribute="leading" secondItem="XcY-UG-ztG" secondAttribute="leading" constant="18" id="arH-TU-hce"/>
-                                                    <constraint firstAttribute="trailing" secondItem="Ho7-23-NTT" secondAttribute="trailing" constant="18" id="oZ3-6O-wqR"/>
-                                                </constraints>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xw7-nI-AVI" customClass="loginView" customModule="PickaRideDriver" customModuleProvider="target">
-                                                <rect key="frame" x="21" y="434" width="333" height="49"/>
-                                                <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Al8-jC-Q8l" customClass="emailPasswordTextField" customModule="PickaRideDriver" customModuleProvider="target">
-                                                        <rect key="frame" x="18" y="15.5" width="297" height="18.5"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
-                                                    </textField>
-                                                </subviews>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="trailing" secondItem="Al8-jC-Q8l" secondAttribute="trailing" constant="18" id="MkM-mD-nSk"/>
-                                                    <constraint firstAttribute="height" constant="49" id="Z0B-nF-UBp"/>
-                                                    <constraint firstItem="Al8-jC-Q8l" firstAttribute="leading" secondItem="Xw7-nI-AVI" secondAttribute="leading" constant="18" id="Zdr-w3-b1u"/>
-                                                    <constraint firstItem="Al8-jC-Q8l" firstAttribute="centerY" secondItem="Xw7-nI-AVI" secondAttribute="centerY" id="rd8-tp-clW"/>
-                                                </constraints>
-                                            </view>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vbh-YP-hN7" customClass="loginScreenButton" customModule="PickaRideDriver" customModuleProvider="target">
-                                                <rect key="frame" x="231" y="498" width="123" height="14"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="14" id="Yj9-wZ-cOp"/>
-                                                </constraints>
-                                                <state key="normal" title="Forgot Password?"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isForgotPassword" value="YES"/>
-                                                </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <action selector="ForgotPassword:" destination="hdv-88-biQ" eventType="touchUpInside" id="NNL-oG-QkO"/>
-                                                </connections>
-                                            </button>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vfr-aB-WZW">
-                                                <rect key="frame" x="21" y="544" width="333" height="46"/>
-                                                <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mWa-VE-ltd" customClass="themeButton" customModule="PickaRideDriver" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="333" height="46"/>
-                                                        <state key="normal" title="SIGN IN"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isthemeBg" value="YES"/>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="Font_Size">
-                                                                <real key="value" value="18"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isMedium" value="YES"/>
-                                                        </userDefinedRuntimeAttributes>
-                                                        <connections>
-                                                            <action selector="btnSignInClicked:" destination="hdv-88-biQ" eventType="touchUpInside" id="snk-MQ-4Iq"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                <constraints>
-                                                    <constraint firstItem="mWa-VE-ltd" firstAttribute="top" secondItem="Vfr-aB-WZW" secondAttribute="top" id="Rb7-EC-KbZ"/>
-                                                    <constraint firstAttribute="height" constant="46" id="cAR-7G-emU"/>
-                                                    <constraint firstItem="mWa-VE-ltd" firstAttribute="leading" secondItem="Vfr-aB-WZW" secondAttribute="leading" id="gEa-3J-PKX"/>
-                                                    <constraint firstAttribute="trailing" secondItem="mWa-VE-ltd" secondAttribute="trailing" id="jMv-uI-z4W"/>
-                                                    <constraint firstAttribute="bottom" secondItem="mWa-VE-ltd" secondAttribute="bottom" id="qou-23-1oF"/>
-                                                </constraints>
-                                            </view>
-                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="EOg-Su-yxc">
-                                                <rect key="frame" x="66.5" y="611" width="242" height="16"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wJe-nU-pd2" customClass="loginScreenLabel" customModule="PickaRideDriver" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="179" height="16"/>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash_img_top" translatesAutoresizingMaskIntoConstraints="NO" id="Ro4-gm-fBX">
+                                                        <rect key="frame" x="220.5" y="-60" width="154.5" height="281.5"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="16" id="Xow-5d-ohd"/>
+                                                            <constraint firstAttribute="width" constant="154.34" id="Ycw-0g-b3O"/>
+                                                            <constraint firstAttribute="height" constant="281.30000000000001" id="pO0-gn-wya"/>
                                                         </constraints>
+                                                    </imageView>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash_img_center" translatesAutoresizingMaskIntoConstraints="NO" id="bQz-ec-Nfr">
+                                                        <rect key="frame" x="100" y="78" width="175" height="175"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="bQz-ec-Nfr" secondAttribute="height" multiplier="1:1" id="ovd-Dv-9zE"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome Back! " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Veb-tb-4Bi" customClass="loginScreenLabel" customModule="PickaRideDriver" customModuleProvider="target">
+                                                        <rect key="frame" x="21" y="274" width="333" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                         <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isDontHaveAccount" value="YES"/>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isWelcome" value="YES"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OF8-An-A8k" customClass="loginScreenButton" customModule="PickaRideDriver" customModuleProvider="target">
-                                                        <rect key="frame" x="182" y="0.0" width="60" height="16"/>
-                                                        <state key="normal" title="SIGN UP"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign In" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8nv-GS-Peu" customClass="loginScreenLabel" customModule="PickaRideDriver" customModuleProvider="target">
+                                                        <rect key="frame" x="21" y="299.5" width="333" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
                                                         <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="issignUp" value="YES"/>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="istitle" value="YES"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </label>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="37" translatesAutoresizingMaskIntoConstraints="NO" id="BjM-OQ-oxa">
+                                                        <rect key="frame" x="21" y="348" width="333" height="135"/>
+                                                        <subviews>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XcY-UG-ztG" customClass="loginView" customModule="PickaRideDriver" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="0.0" width="333" height="49"/>
+                                                                <subviews>
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email ID/Phone Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ho7-23-NTT" customClass="emailPasswordTextField" customModule="PickaRideDriver" customModuleProvider="target">
+                                                                        <rect key="frame" x="18" y="15.5" width="297" height="18.5"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                        <textInputTraits key="textInputTraits"/>
+                                                                    </textField>
+                                                                </subviews>
+                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="49" id="AJY-lI-V2H"/>
+                                                                    <constraint firstItem="Ho7-23-NTT" firstAttribute="centerY" secondItem="XcY-UG-ztG" secondAttribute="centerY" id="PXK-qA-68J"/>
+                                                                    <constraint firstItem="Ho7-23-NTT" firstAttribute="leading" secondItem="XcY-UG-ztG" secondAttribute="leading" constant="18" id="arH-TU-hce"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="Ho7-23-NTT" secondAttribute="trailing" constant="18" id="oZ3-6O-wqR"/>
+                                                                </constraints>
+                                                            </view>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xw7-nI-AVI" customClass="loginView" customModule="PickaRideDriver" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="86" width="333" height="49"/>
+                                                                <subviews>
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Al8-jC-Q8l" customClass="emailPasswordTextField" customModule="PickaRideDriver" customModuleProvider="target">
+                                                                        <rect key="frame" x="18" y="15.5" width="297" height="18.5"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                        <textInputTraits key="textInputTraits"/>
+                                                                    </textField>
+                                                                </subviews>
+                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="trailing" secondItem="Al8-jC-Q8l" secondAttribute="trailing" constant="18" id="MkM-mD-nSk"/>
+                                                                    <constraint firstAttribute="height" constant="49" id="Z0B-nF-UBp"/>
+                                                                    <constraint firstItem="Al8-jC-Q8l" firstAttribute="leading" secondItem="Xw7-nI-AVI" secondAttribute="leading" constant="18" id="Zdr-w3-b1u"/>
+                                                                    <constraint firstItem="Al8-jC-Q8l" firstAttribute="centerY" secondItem="Xw7-nI-AVI" secondAttribute="centerY" id="rd8-tp-clW"/>
+                                                                </constraints>
+                                                            </view>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vbh-YP-hN7" customClass="loginScreenButton" customModule="PickaRideDriver" customModuleProvider="target">
+                                                        <rect key="frame" x="231" y="498" width="123" height="14"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="14" id="Yj9-wZ-cOp"/>
+                                                        </constraints>
+                                                        <state key="normal" title="Forgot Password?"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isForgotPassword" value="YES"/>
                                                         </userDefinedRuntimeAttributes>
                                                         <connections>
-                                                            <action selector="signUP:" destination="hdv-88-biQ" eventType="touchUpInside" id="7tS-XG-HFC"/>
+                                                            <action selector="ForgotPassword:" destination="hdv-88-biQ" eventType="touchUpInside" id="NNL-oG-QkO"/>
                                                         </connections>
                                                     </button>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vfr-aB-WZW">
+                                                        <rect key="frame" x="21" y="544" width="333" height="46"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mWa-VE-ltd" customClass="themeButton" customModule="PickaRideDriver" customModuleProvider="target">
+                                                                <rect key="frame" x="5" y="0.0" width="328" height="46"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="46" id="Vt8-Ez-kRb"/>
+                                                                </constraints>
+                                                                <state key="normal" title="SIGN IN"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isthemeBg" value="YES"/>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="Font_Size">
+                                                                        <real key="value" value="18"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isMedium" value="YES"/>
+                                                                </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="btnSignInClicked:" destination="hdv-88-biQ" eventType="touchUpInside" id="snk-MQ-4Iq"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstItem="mWa-VE-ltd" firstAttribute="centerY" secondItem="Vfr-aB-WZW" secondAttribute="centerY" id="TsU-Dn-XPz"/>
+                                                            <constraint firstAttribute="height" constant="46" id="cAR-7G-emU"/>
+                                                            <constraint firstItem="mWa-VE-ltd" firstAttribute="leading" secondItem="Vfr-aB-WZW" secondAttribute="leading" constant="5" id="gEa-3J-PKX"/>
+                                                            <constraint firstAttribute="trailing" secondItem="mWa-VE-ltd" secondAttribute="trailing" id="jMv-uI-z4W"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="EOg-Su-yxc">
+                                                        <rect key="frame" x="66.5" y="670" width="242" height="16"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wJe-nU-pd2" customClass="loginScreenLabel" customModule="PickaRideDriver" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="0.0" width="179" height="16"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="16" id="Xow-5d-ohd"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isDontHaveAccount" value="YES"/>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </label>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OF8-An-A8k" customClass="loginScreenButton" customModule="PickaRideDriver" customModuleProvider="target">
+                                                                <rect key="frame" x="182" y="0.0" width="60" height="16"/>
+                                                                <state key="normal" title="SIGN UP"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="issignUp" value="YES"/>
+                                                                </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="signUP:" destination="hdv-88-biQ" eventType="touchUpInside" id="7tS-XG-HFC"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                    </stackView>
                                                 </subviews>
-                                            </stackView>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstItem="bQz-ec-Nfr" firstAttribute="top" secondItem="u2X-Xj-LEj" secondAttribute="top" constant="78" id="3rx-c7-bVA"/>
+                                                    <constraint firstItem="Vfr-aB-WZW" firstAttribute="leading" secondItem="u2X-Xj-LEj" secondAttribute="leading" constant="21" id="3tb-Ew-u0C"/>
+                                                    <constraint firstItem="8nv-GS-Peu" firstAttribute="trailing" secondItem="Veb-tb-4Bi" secondAttribute="trailing" id="Cwb-65-c1n"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Veb-tb-4Bi" secondAttribute="trailing" constant="21" id="KBu-4S-gC7"/>
+                                                    <constraint firstItem="Veb-tb-4Bi" firstAttribute="leading" secondItem="u2X-Xj-LEj" secondAttribute="leading" constant="21" id="MlN-K8-yub"/>
+                                                    <constraint firstItem="EOg-Su-yxc" firstAttribute="centerX" secondItem="u2X-Xj-LEj" secondAttribute="centerX" id="NLn-sW-Dju"/>
+                                                    <constraint firstItem="Ro4-gm-fBX" firstAttribute="top" secondItem="u2X-Xj-LEj" secondAttribute="top" constant="-60" id="Y20-Ar-Utb"/>
+                                                    <constraint firstItem="vbh-YP-hN7" firstAttribute="top" secondItem="BjM-OQ-oxa" secondAttribute="bottom" constant="15" id="Za4-L4-Iim"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Ro4-gm-fBX" secondAttribute="trailing" id="aJX-db-Flu"/>
+                                                    <constraint firstItem="bQz-ec-Nfr" firstAttribute="centerX" secondItem="u2X-Xj-LEj" secondAttribute="centerX" id="b3z-Ry-saj"/>
+                                                    <constraint firstItem="bQz-ec-Nfr" firstAttribute="leading" secondItem="u2X-Xj-LEj" secondAttribute="leading" constant="100" id="d9e-hL-3Bd"/>
+                                                    <constraint firstItem="EOg-Su-yxc" firstAttribute="top" secondItem="Vfr-aB-WZW" secondAttribute="bottom" constant="80" id="egw-3T-fTG"/>
+                                                    <constraint firstAttribute="trailing" secondItem="vbh-YP-hN7" secondAttribute="trailing" constant="21" id="hau-Nr-Nz4"/>
+                                                    <constraint firstItem="Vfr-aB-WZW" firstAttribute="top" secondItem="vbh-YP-hN7" secondAttribute="bottom" constant="32" id="jnM-sH-a51"/>
+                                                    <constraint firstItem="BjM-OQ-oxa" firstAttribute="leading" secondItem="u2X-Xj-LEj" secondAttribute="leading" constant="21" id="jrh-04-hC7"/>
+                                                    <constraint firstItem="8nv-GS-Peu" firstAttribute="top" secondItem="Veb-tb-4Bi" secondAttribute="bottom" constant="5" id="nwE-pv-Ff7"/>
+                                                    <constraint firstItem="Veb-tb-4Bi" firstAttribute="top" secondItem="bQz-ec-Nfr" secondAttribute="bottom" constant="21" id="rKi-ye-49D"/>
+                                                    <constraint firstAttribute="trailing" secondItem="BjM-OQ-oxa" secondAttribute="trailing" constant="21" id="ssm-qs-Tmm"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Vfr-aB-WZW" secondAttribute="trailing" constant="21" id="t52-AB-vr4"/>
+                                                    <constraint firstAttribute="trailing" secondItem="bQz-ec-Nfr" secondAttribute="trailing" constant="100" id="vtn-sC-FdJ"/>
+                                                    <constraint firstItem="BjM-OQ-oxa" firstAttribute="top" secondItem="8nv-GS-Peu" secondAttribute="bottom" constant="28" id="wWw-vI-GrM"/>
+                                                    <constraint firstAttribute="bottom" secondItem="EOg-Su-yxc" secondAttribute="bottom" constant="20" id="x4G-As-yWj"/>
+                                                    <constraint firstItem="8nv-GS-Peu" firstAttribute="leading" secondItem="Veb-tb-4Bi" secondAttribute="leading" id="zsE-p7-LsU"/>
+                                                </constraints>
+                                            </view>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstItem="bQz-ec-Nfr" firstAttribute="top" secondItem="u2X-Xj-LEj" secondAttribute="top" constant="78" id="3rx-c7-bVA"/>
-                                            <constraint firstItem="XcY-UG-ztG" firstAttribute="top" secondItem="8nv-GS-Peu" secondAttribute="bottom" constant="28" id="4jC-0S-VfZ"/>
-                                            <constraint firstItem="8nv-GS-Peu" firstAttribute="trailing" secondItem="Veb-tb-4Bi" secondAttribute="trailing" id="Cwb-65-c1n"/>
-                                            <constraint firstItem="vbh-YP-hN7" firstAttribute="top" secondItem="Xw7-nI-AVI" secondAttribute="bottom" constant="15" id="G4E-2r-Lze"/>
-                                            <constraint firstAttribute="trailing" secondItem="Veb-tb-4Bi" secondAttribute="trailing" constant="21" id="KBu-4S-gC7"/>
-                                            <constraint firstItem="Veb-tb-4Bi" firstAttribute="leading" secondItem="u2X-Xj-LEj" secondAttribute="leading" constant="21" id="MlN-K8-yub"/>
-                                            <constraint firstItem="Xw7-nI-AVI" firstAttribute="top" secondItem="XcY-UG-ztG" secondAttribute="bottom" constant="37" id="MsJ-bM-kuF"/>
-                                            <constraint firstItem="EOg-Su-yxc" firstAttribute="centerX" secondItem="u2X-Xj-LEj" secondAttribute="centerX" id="NLn-sW-Dju"/>
-                                            <constraint firstItem="Ro4-gm-fBX" firstAttribute="top" secondItem="u2X-Xj-LEj" secondAttribute="top" constant="-60" id="Y20-Ar-Utb"/>
-                                            <constraint firstItem="XcY-UG-ztG" firstAttribute="trailing" secondItem="8nv-GS-Peu" secondAttribute="trailing" id="ZAU-nd-S25"/>
-                                            <constraint firstAttribute="trailing" secondItem="Ro4-gm-fBX" secondAttribute="trailing" id="aJX-db-Flu"/>
-                                            <constraint firstItem="XcY-UG-ztG" firstAttribute="leading" secondItem="8nv-GS-Peu" secondAttribute="leading" id="ajO-qS-wxN"/>
-                                            <constraint firstItem="bQz-ec-Nfr" firstAttribute="centerX" secondItem="u2X-Xj-LEj" secondAttribute="centerX" id="b3z-Ry-saj"/>
-                                            <constraint firstItem="Vfr-aB-WZW" firstAttribute="trailing" secondItem="Xw7-nI-AVI" secondAttribute="trailing" id="bHw-Do-sZx"/>
-                                            <constraint firstItem="bQz-ec-Nfr" firstAttribute="leading" secondItem="u2X-Xj-LEj" secondAttribute="leading" constant="100" id="d9e-hL-3Bd"/>
-                                            <constraint firstAttribute="bottom" secondItem="EOg-Su-yxc" secondAttribute="bottom" constant="40" id="dwo-bf-8HC"/>
-                                            <constraint firstAttribute="trailing" secondItem="vbh-YP-hN7" secondAttribute="trailing" constant="21" id="hau-Nr-Nz4"/>
-                                            <constraint firstItem="Vfr-aB-WZW" firstAttribute="top" secondItem="vbh-YP-hN7" secondAttribute="bottom" constant="32" id="jnM-sH-a51"/>
-                                            <constraint firstItem="Xw7-nI-AVI" firstAttribute="trailing" secondItem="XcY-UG-ztG" secondAttribute="trailing" id="n1f-ni-T6u"/>
-                                            <constraint firstItem="8nv-GS-Peu" firstAttribute="top" secondItem="Veb-tb-4Bi" secondAttribute="bottom" constant="5" id="nwE-pv-Ff7"/>
-                                            <constraint firstItem="Veb-tb-4Bi" firstAttribute="top" secondItem="bQz-ec-Nfr" secondAttribute="bottom" constant="21" id="rKi-ye-49D"/>
-                                            <constraint firstItem="Xw7-nI-AVI" firstAttribute="leading" secondItem="XcY-UG-ztG" secondAttribute="leading" id="sMz-2E-pdF"/>
-                                            <constraint firstAttribute="trailing" secondItem="bQz-ec-Nfr" secondAttribute="trailing" constant="100" id="vtn-sC-FdJ"/>
-                                            <constraint firstItem="Vfr-aB-WZW" firstAttribute="leading" secondItem="Xw7-nI-AVI" secondAttribute="leading" id="yBH-Zc-ZeY"/>
-                                            <constraint firstItem="8nv-GS-Peu" firstAttribute="leading" secondItem="Veb-tb-4Bi" secondAttribute="leading" id="zsE-p7-LsU"/>
+                                            <constraint firstAttribute="bottom" secondItem="u2X-Xj-LEj" secondAttribute="bottom" id="E89-dZ-J5b"/>
+                                            <constraint firstAttribute="trailing" secondItem="u2X-Xj-LEj" secondAttribute="trailing" id="hSU-pZ-CdF"/>
+                                            <constraint firstItem="u2X-Xj-LEj" firstAttribute="leading" secondItem="EGr-zh-ohL" secondAttribute="leading" id="rwB-OL-W3g"/>
+                                            <constraint firstItem="u2X-Xj-LEj" firstAttribute="width" secondItem="EGr-zh-ohL" secondAttribute="width" id="sZl-tP-D52"/>
+                                            <constraint firstItem="u2X-Xj-LEj" firstAttribute="top" secondItem="EGr-zh-ohL" secondAttribute="top" id="y69-7D-wmC"/>
                                         </constraints>
-                                    </view>
+                                    </scrollView>
                                 </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="u2X-Xj-LEj" secondAttribute="bottom" id="E89-dZ-J5b"/>
-                                    <constraint firstItem="u2X-Xj-LEj" firstAttribute="height" secondItem="EGr-zh-ohL" secondAttribute="height" id="V71-cZ-9kV"/>
-                                    <constraint firstAttribute="trailing" secondItem="u2X-Xj-LEj" secondAttribute="trailing" id="hSU-pZ-CdF"/>
-                                    <constraint firstItem="u2X-Xj-LEj" firstAttribute="leading" secondItem="EGr-zh-ohL" secondAttribute="leading" id="rwB-OL-W3g"/>
-                                    <constraint firstItem="u2X-Xj-LEj" firstAttribute="width" secondItem="EGr-zh-ohL" secondAttribute="width" id="sZl-tP-D52"/>
-                                    <constraint firstItem="u2X-Xj-LEj" firstAttribute="top" secondItem="EGr-zh-ohL" secondAttribute="top" id="y69-7D-wmC"/>
+                                    <constraint firstAttribute="bottom" secondItem="EGr-zh-ohL" secondAttribute="bottom" id="Jcn-aI-lkv"/>
+                                    <constraint firstAttribute="trailing" secondItem="EGr-zh-ohL" secondAttribute="trailing" id="QWX-Z2-o0S"/>
+                                    <constraint firstItem="EGr-zh-ohL" firstAttribute="top" secondItem="GI8-66-5YW" secondAttribute="top" id="cZd-zp-TDA"/>
+                                    <constraint firstItem="EGr-zh-ohL" firstAttribute="leading" secondItem="GI8-66-5YW" secondAttribute="leading" id="hbw-ob-RA3"/>
                                 </constraints>
-                            </scrollView>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="26U-53-Zdx"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="EGr-zh-ohL" firstAttribute="top" secondItem="tWU-7F-dYm" secondAttribute="top" id="1EK-Rw-BF4"/>
-                            <constraint firstAttribute="bottom" secondItem="EGr-zh-ohL" secondAttribute="bottom" id="QbZ-7s-rrk"/>
-                            <constraint firstItem="EGr-zh-ohL" firstAttribute="leading" secondItem="26U-53-Zdx" secondAttribute="leading" id="WFe-md-8hJ"/>
-                            <constraint firstItem="26U-53-Zdx" firstAttribute="trailing" secondItem="EGr-zh-ohL" secondAttribute="trailing" id="ZoI-Nu-Z2f"/>
+                            <constraint firstAttribute="trailing" secondItem="GI8-66-5YW" secondAttribute="trailing" id="042-pC-hlj"/>
+                            <constraint firstItem="GI8-66-5YW" firstAttribute="top" secondItem="tWU-7F-dYm" secondAttribute="top" id="Xur-Zi-Wrg"/>
+                            <constraint firstAttribute="bottom" secondItem="GI8-66-5YW" secondAttribute="bottom" id="p5Z-tK-9UE"/>
+                            <constraint firstItem="GI8-66-5YW" firstAttribute="leading" secondItem="tWU-7F-dYm" secondAttribute="leading" id="tPo-g8-3SE"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="EIB-Oy-37Q"/>
