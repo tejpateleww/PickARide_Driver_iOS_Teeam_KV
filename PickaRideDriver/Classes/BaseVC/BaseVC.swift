@@ -168,6 +168,18 @@ class BaseVC: UIViewController, UIGestureRecognizerDelegate{
                 let btnLeftBar : UIBarButtonItem = UIBarButtonItem.init(customView: LeftView)
                 btnLeftBar.style = .plain
                 controller.navigationItem.leftBarButtonItem = btnLeftBar
+            } else if leftImage == NavItemsLeft.QuestionFalse.value {
+                let btnLeft = UIButton(frame: CGRect(x: 0, y: 0, width: 44, height: 44))
+                btnLeft.setImage(UIImage.init(named: "imgQuestionFalse"), for: .normal)
+                btnLeft.layer.setValue(controller, forKey: "controller")
+                btnLeft.addTarget(self, action: #selector(self.btnBackAction), for: .touchUpInside)
+                btnLeft.contentHorizontalAlignment = .left
+                let LeftView = UIView(frame: CGRect(x: 0, y: 0, width: 44, height: 44))
+                LeftView.addSubview(btnLeft)
+            
+                let btnLeftBar : UIBarButtonItem = UIBarButtonItem.init(customView: LeftView)
+                btnLeftBar.style = .plain
+                controller.navigationItem.leftBarButtonItem = btnLeftBar
             }
         }
         else {
@@ -255,6 +267,22 @@ class BaseVC: UIViewController, UIGestureRecognizerDelegate{
                     btnProfileEdit.frame = CGRect(x: 0, y: 0, width: 60, height: 40)
                     btnProfileEdit.setImage(UIImage.init(named: "ic_SOSBtn"), for: .normal)
                     btnProfileEdit.addTarget(self, action: #selector(EditUserProfile(_:)), for: .touchUpInside)
+                   // btnProfile.addTarget(self, action: #selector(openLoginVC(_:)), for: .touchUpInside)
+                    btnProfileEdit.layer.setValue(controller, forKey: "controller")
+                    viewProfileEdit.addSubview(btnProfileEdit)
+
+
+                    let btnRightBar : UIBarButtonItem = UIBarButtonItem.init(customView: viewProfileEdit)
+                    btnRightBar.style = .plain
+                    arrButtons.append(btnRightBar)
+                }else if title == NavItemsRight.help.value {
+                    
+                    let viewProfileEdit = UIView(frame: CGRect(x: 0, y: 0, width: 44, height: 44))
+
+                    let btnProfileEdit = UIButton.init()
+                    btnProfileEdit.frame = CGRect(x: 0, y: 0, width: 44, height: 44)
+                    btnProfileEdit.setImage(UIImage.init(named: "ic_Help"), for: .normal)
+//                    btnProfileEdit.addTarget(self, action: #selector(EditUserProfile(_:)), for: .touchUpInside)
                    // btnProfile.addTarget(self, action: #selector(openLoginVC(_:)), for: .touchUpInside)
                     btnProfileEdit.layer.setValue(controller, forKey: "controller")
                     viewProfileEdit.addSubview(btnProfileEdit)

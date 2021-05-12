@@ -15,7 +15,7 @@ class CancelRideVC: BaseVC {
     @IBOutlet weak var tblReasonForCancel: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        setNavigationBarInViewController(controller: self, naviColor: colors.appColor.value, naviTitle: NavTitles.none.value, leftImage: NavItemsLeft.back.value, rightImages: [NavItemsRight.login.value], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
+        setNavigationBarInViewController(controller: self, naviColor: colors.appColor.value, naviTitle: NavTitles.CancelRide.value, leftImage: NavItemsLeft.cancel.value, rightImages: [NavItemsRight.login.value], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
         tblReasonForCancel.delegate = self
         tblReasonForCancel.dataSource = self
         tblReasonForCancel.reloadData()

@@ -33,7 +33,7 @@ class RideReceiptDetailsVC: BaseVC {
     @IBOutlet weak var lblYourPayment: themeLabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-        setNavigationBarInViewController(controller: self, naviColor: colors.submitButtonColor.value, naviTitle: NavTitles.none.value, leftImage: NavItemsLeft.back.value, rightImages: [NavItemsRight.none.value], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
+        setNavigationBarInViewController(controller: self, naviColor: colors.appColor.value, naviTitle: NavTitles.RideDetails.value, leftImage: NavItemsLeft.back.value, rightImages: [NavItemsRight.help.value], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
         let attributedString = NSMutableAttributedString(string: lblDiscription.text ?? "")
 
         // *** Create instance of `NSMutableParagraphStyle`

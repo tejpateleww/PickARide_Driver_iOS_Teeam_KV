@@ -3104,7 +3104,7 @@
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cxV-tw-ntn">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                                                                                 <subviews>
-                                                                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pm4-RB-TA9">
+                                                                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pm4-RB-TA9">
                                                                                         <rect key="frame" x="20" y="0.0" width="335" height="50"/>
                                                                                         <subviews>
                                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q1G-Kq-6Fm">
@@ -3182,10 +3182,10 @@
                                                                                                     <constraint firstItem="ESB-sf-mxa" firstAttribute="centerY" secondItem="HU1-Sh-vgq" secondAttribute="centerY" id="lBy-UH-DwT"/>
                                                                                                 </constraints>
                                                                                             </view>
-                                                                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OUR-ad-ckw">
+                                                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OUR-ad-ckw">
                                                                                                 <rect key="frame" x="190" y="0.0" width="145" height="50"/>
                                                                                                 <subviews>
-                                                                                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5oa-p0-5AR" customClass="CosmosView" customModule="Cosmos">
+                                                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5oa-p0-5AR" customClass="CosmosView" customModule="Cosmos">
                                                                                                         <rect key="frame" x="5" y="15" width="140" height="20"/>
                                                                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                                                         <userDefinedRuntimeAttributes>
@@ -3216,7 +3216,7 @@
                                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S0a-co-IxO">
                                                                                         <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                                                                                         <subviews>
-                                                                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gQY-Nm-Yp1">
+                                                                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gQY-Nm-Yp1">
                                                                                                 <rect key="frame" x="20" y="0.0" width="335" height="50"/>
                                                                                                 <subviews>
                                                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Up7-fE-Jcg">
@@ -3294,10 +3294,10 @@
                                                                                                             <constraint firstItem="bD5-QH-POJ" firstAttribute="centerY" secondItem="HEA-xm-bIU" secondAttribute="centerY" id="kZm-Hr-TrF"/>
                                                                                                         </constraints>
                                                                                                     </view>
-                                                                                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2hO-ut-BBb">
+                                                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2hO-ut-BBb">
                                                                                                         <rect key="frame" x="190" y="0.0" width="145" height="50"/>
                                                                                                         <subviews>
-                                                                                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZRv-BA-FTA" customClass="CosmosView" customModule="Cosmos">
+                                                                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZRv-BA-FTA" customClass="CosmosView" customModule="Cosmos">
                                                                                                                 <rect key="frame" x="5" y="15" width="140" height="20"/>
                                                                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                                                                 <userDefinedRuntimeAttributes>
@@ -4015,7 +4015,7 @@
                                                                 <rect key="frame" x="0.0" y="153" width="275" height="484"/>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                 <prototypes>
-                                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="sideCell" id="WUl-dP-sui" customClass="sideCell" customModule="PickARide_User" customModuleProvider="target">
+                                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="sideCell" id="WUl-dP-sui" customClass="sideCell" customModule="PickaRideDriver" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="28" width="275" height="83"/>
                                                                         <autoresizingMask key="autoresizingMask"/>
                                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="WUl-dP-sui" id="Kci-Q0-w77">
@@ -4086,7 +4086,7 @@
                                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="hsN-2V-wlC">
                                                                         <rect key="frame" x="21" y="0.0" width="243" height="20"/>
                                                                         <subviews>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qBp-J1-VsE" customClass="versionLabel" customModule="PickARide_User" customModuleProvider="target">
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qBp-J1-VsE" customClass="versionLabel" customModule="PickaRideDriver" customModuleProvider="target">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="121.5" height="20"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                 <nil key="textColor"/>
@@ -4095,7 +4095,7 @@
                                                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isLegalText" value="YES"/>
                                                                                 </userDefinedRuntimeAttributes>
                                                                             </label>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eh6-NW-Ygp" customClass="versionLabel" customModule="PickARide_User" customModuleProvider="target">
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eh6-NW-Ygp" customClass="versionLabel" customModule="PickaRideDriver" customModuleProvider="target">
                                                                                 <rect key="frame" x="121.5" y="0.0" width="121.5" height="20"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" constant="20" id="bsf-t3-fFW"/>
@@ -4167,6 +4167,14 @@
             <point key="canvasLocation" x="5646" y="931"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="5oa-p0-5AR">
+            <size key="intrinsicContentSize" width="120" height="20"/>
+        </designable>
+        <designable name="ZRv-BA-FTA">
+            <size key="intrinsicContentSize" width="120" height="20"/>
+        </designable>
+    </designables>
     <resources>
         <image name="Dummy-Map" width="375" height="812"/>
         <image name="Dummy-Profile" width="100" height="100"/>
