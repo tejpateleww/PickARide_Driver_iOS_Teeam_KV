@@ -7,10 +7,13 @@
 //
 import Foundation
 import UIKit
-enum CustomFont{
+enum CustomFont
+{
     case italic,lightitalic,medium,light,mediumitalic,bold,bolditalic,regular
-    func returnFont(_ font:CGFloat)->UIFont{
-        switch self {
+    func returnFont(_ font:CGFloat)->UIFont
+    {
+        switch self
+        {
         case .italic:
             return UIFont(name: "Ubuntu-Italic", size: font)!
         case .lightitalic:
@@ -27,7 +30,34 @@ enum CustomFont{
             return UIFont(name: "Ubuntu-BoldItalic", size: font)!
         case .regular:
             return UIFont(name: "Ubuntu-Regular", size: font)!
-            
         }
     }
 }
+
+enum FontsSize
+{
+    static let ExtraLarge : CGFloat = 40
+    static let Large : CGFloat = 33
+    static let MediumLarge : CGFloat = 26
+    static let Medium : CGFloat = 25
+    static let Regular : CGFloat = 18
+    static let Small : CGFloat = 16
+    static let ExtraSmall : CGFloat = 15
+    static let Tiny :CGFloat = 14
+}
+
+extension UIFont
+{
+    class func regular(ofSize size: CGFloat) -> UIFont {
+        return UIFont(name: "Ubuntu-Regular", size: size)!
+    }
+    
+    class func medium(ofSize size: CGFloat) -> UIFont {
+        return UIFont(name: "Ubuntu-Medium", size: size)!
+    }
+    
+    class func bold(ofSize size: CGFloat) -> UIFont {
+        return UIFont(name: "Ubuntu-Regular", size: size)!
+    }
+}
+

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SafariServices
 
 class SignUpVC: BaseVC {
     
@@ -28,7 +29,7 @@ class SignUpVC: BaseVC {
     @IBOutlet weak var txtLastName: themeTextField!
     
     //MARK:- Variables and properties
-
+    
     //MARK:- View life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +37,6 @@ class SignUpVC: BaseVC {
         
         vwMobile.layer.borderWidth = 1
         vwMobile.layer.borderColor = colors.textfieldbordercolor.value.cgColor
-        
         setupTextfields(textfield: txtPassword)
     }
     
@@ -53,26 +53,37 @@ class SignUpVC: BaseVC {
         button.addTarget(self, action: #selector(self.showHidePassword), for: .touchUpInside)
         textfield.rightView = button
         textfield.rightViewMode = .always
-        
     }
     
     @IBAction func showHidePassword(_ sender : UIButton) {
-        
-       
-            sender.isSelected = !sender.isSelected
-            self.txtPassword.isSecureTextEntry = sender.isSelected
-        
+        sender.isSelected = !sender.isSelected
+        self.txtPassword.isSecureTextEntry = sender.isSelected
     }
     
     //MARK:- IBAction
     @IBAction func btnPrivicyPolicyTap(_ sender: UIButton) {
-        
+        previewDocument(strURL: AppPrivacyPolicy)
     }
+    
+    @IBAction func btnTermsAndConditionTap(_ sender: UIButton) {
+        previewDocument(strURL: AppTermAndConditions)
+    }
+    
     @IBAction func btnNextTap(_ sender: UIButton) {
         let vc : BankDetailsVC = BankDetailsVC.instantiate(fromAppStoryboard: .Login)
         self.navigationController?.pushViewController(vc, animated: true)
     }
-    @IBAction func btnTermsAndConditionTap(_ sender: UIButton) {
-    }
     
+}
+
+extension SignUpVC
+{
+    func previewDocument(strURL : String)
+    {
+        guard let url = URL(string: strURL) else {
+            return
+        }
+        let svc = SFSafariViewController(url: url)
+        present(svc, animated: true, completion: nil)
+    }
 }

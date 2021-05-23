@@ -397,6 +397,38 @@ class ReasonforLabel : UILabel {
     }
 }
 
+class EarningDetailLabel : UILabel
+{
+    @IBInspectable var RideBalance : Bool = false
+    @IBInspectable var RideCount : Bool = false
+    @IBInspectable var TotalBalance : Bool = false
+    @IBInspectable var Common : Bool = true
+    
+    override func awakeFromNib()
+    {
+        if RideBalance
+        {
+            self.font = CustomFont.bold.returnFont(25)
+            self.textColor = themeColorBlack
+            
+        }else if RideCount
+        {
+            self.font = CustomFont.regular.returnFont(18)
+            self.textColor = themeColorBlack
+        }
+        else if TotalBalance
+        {
+            self.font = CustomFont.bold.returnFont(15)
+            self.textColor = themeColor
+        }else
+        {
+            self.font = CustomFont.regular.returnFont(16)
+            self.textColor = themeColorDarkGrey
+        }
+    }
+}
+
+
 class RideDetailLabel : UILabel{
     @IBInspectable var isRideDetails : Bool = false
     @IBInspectable var isDate : Bool = false
@@ -693,5 +725,11 @@ class versionLabel : UILabel {
             self.font = CustomFont.medium.returnFont(18)
             self.textAlignment = .right
         }
+    }
+}
+
+class CommonLabel : UILabel {
+    override func awakeFromNib() {
+        self.numberOfLines = 0
     }
 }

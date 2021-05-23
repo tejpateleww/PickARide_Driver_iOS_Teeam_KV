@@ -54,11 +54,14 @@ enum NavItemsRight {
         }
     }
 }
-enum NavTitles {
-    case none, Home,reasonForCancle,rating, CommonView,BankDetails,RideDetails,Addvehicle,CancelRide
+enum NavTitles
+{
+    case none, Home,reasonForCancle,rating, CommonView,BankDetails,RideDetails,Addvehicle,CancelRide,Earning
     
-    var value:String {
-        switch self {
+    var value:String
+    {
+        switch self
+        {
         case .none:
             return ""
         case .Home:
@@ -66,7 +69,7 @@ enum NavTitles {
         case .reasonForCancle:
             return "NavigationTitle_reasonForCancle".Localized()
         case .rating:
-        return "NavigationTitle_Rating".Localized()
+            return "NavigationTitle_Rating".Localized()
         case .CommonView:
             return "CommonView"
         case .BankDetails:
@@ -77,6 +80,8 @@ enum NavTitles {
             return "Add Vehicle"
         case .CancelRide:
             return "Cancel Ride"
+        case .Earning:
+            return "Earning"
         }
     }
 }

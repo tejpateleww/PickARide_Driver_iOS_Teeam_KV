@@ -96,8 +96,10 @@ struct PasswordValidator: ValidatorConvertible {
     }
 }
 
-struct EmailValidator: ValidatorConvertible {
-    func validated(_ value: String)  -> (Bool,String) {
+struct EmailValidator: ValidatorConvertible
+{
+    func validated(_ value: String)  -> (Bool,String)
+    {
         do {
             if try NSRegularExpression(pattern: "^[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}$", options: .caseInsensitive).firstMatch(in: value, options: [], range: NSRange(location: 0, length: value.count)) == nil {
                 return (false,ValidationError("Invalid e-mail Address").message)

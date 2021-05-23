@@ -16,19 +16,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return UIApplication.shared.delegate as! AppDelegate
     }
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool
+    {
         // Override point for customization after application launch.
 //        navigateToLogin()
+        
+        checkAndSetDefaultLanguage()
         SideMenuController.preferences.basic.menuWidth = UIScreen.main.bounds.width - 100
         SideMenuController.preferences.basic.defaultCacheKey = "0"
-        if userDefault.object(forKey: UserDefaultsKey.isUserLogin.rawValue) as? Bool == true{
+        if userDefault.object(forKey: UserDefaultsKey.isUserLogin.rawValue) as? Bool == true
+        {
             self.navigateToMain()
-        } else {
+        } else
+        {
             self.navigateToLogin()
         }
         return true
     }
-    func navigateToLogin(){
+  
+    func navigateToLogin()
+    {
         let storyborad = UIStoryboard(name: "Login", bundle: nil)
         let Login = storyborad.instantiateViewController(withIdentifier: LoginViewController.className) as! LoginViewController
         
@@ -36,14 +43,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         NavHomeVC.navigationBar.isHidden = true
         self.window?.rootViewController = NavHomeVC
     }
-    func navigateToHome() {
+   
+    func navigateToHome()
+    {
         let controller = AppStoryboard.Main.instance.instantiateViewController(withIdentifier: HomeVC.storyboardID) as! HomeVC
         let nav = UINavigationController(rootViewController: controller)
         nav.navigationBar.isHidden = true
         self.window?.rootViewController = nav
     }
-    func navigateToMain(){
-        
+    func navigateToMain()
+    {
         //SideMenuController
         let storyborad = UIStoryboard(name: "Main", bundle: nil)
         let Home = storyborad.instantiateViewController(withIdentifier: SideMenuController.className) as! SideMenuController
@@ -72,6 +81,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        self.window?.rootViewController = Login
 //    }
 
+    
+    func checkAndSetDefaultLanguage() {
+        if userDefault.value(forKey: UserDefaultsKey.selLanguage.rawValue) == nil {
+            setLanguageEnglish()
+        }
+    }
+    func setLanguageEnglish() {
+        userDefault.setValue("en", forKey: UserDefaultsKey.selLanguage.rawValue)
+    }
 
 }
 

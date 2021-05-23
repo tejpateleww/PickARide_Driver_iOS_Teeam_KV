@@ -252,4 +252,30 @@ extension String{
         let bundle = Bundle(path: path!)!
         return NSLocalizedString(self, tableName: nil, bundle: bundle, value: "", comment: "")
     }
+    
+    //MARK: - ================================
+    //MARK: For Validation string
+    //MARK: ==================================
+    
+    func isValidEmailAddress() -> Bool
+    {
+        var returnValue = true
+        let emailRegEx = "^[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}$"
+        
+        do {
+            let regex = try NSRegularExpression(pattern: emailRegEx)
+            let results = regex.matches(in: self, range: NSRange(location: 0, length: self.length))
+            
+            if results.count == 0
+            {
+                returnValue = false
+            }
+            
+        } catch let error as NSError {
+            print("invalid regex: \(error.localizedDescription)")
+            returnValue = false
+        }
+        return returnValue
+    }
+    
 }

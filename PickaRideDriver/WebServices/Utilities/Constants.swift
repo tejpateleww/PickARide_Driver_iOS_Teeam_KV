@@ -16,10 +16,19 @@ let appDel = UIApplication.shared.delegate as! AppDelegate
 let kAPPVesion = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as! String
 let AppName = ""
 let AppURL = "itms-apps://itunes.apple.com/app/id1488928328"
+let AppPrivacyPolicy = ""
+let AppTermAndConditions = ""
 
 let themeColor = hexStringToUIColor(hex: "#00AA7E")
 let themeColorOrange = hexStringToUIColor(hex: "ff8b7b")
-let themeColorOffWhite = hexStringToUIColor(hex: "efecef")
+let themeColorOffWhite = hexStringToUIColor(hex: "#F2F5F7")
+let themeColorOffGrey = hexStringToUIColor(hex: "#DADEE3")
+let themeColorDarkGrey = hexStringToUIColor(hex: "#7F7F7F")
+let themeColorBlack = hexStringToUIColor(hex: "#282F39")
+
+
+
+
 
 let themeStatusRed = hexStringToUIColor(hex: "DF1A49")
 let themeStatusYellow = hexStringToUIColor(hex: "EFB818")

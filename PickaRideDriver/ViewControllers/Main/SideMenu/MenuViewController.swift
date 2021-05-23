@@ -80,8 +80,8 @@ class MenuViewController: UIViewController {
         }
     }
     func setupLocalization() {
-        lblLegal.text = "MenuVC_lblLegal".Localized()
-        lblVersion.text = String(format: "MenuVC_lblVersion".Localized(), kAPPVesion)
+        //lblLegal.text = "MenuVC_lblLegal".Localized()
+        //lblVersion.text = String(format: "MenuVC_lblVersion".Localized(), kAPPVesion)
     }
     
     private func configureView() {
@@ -150,34 +150,42 @@ extension MenuViewController: SideMenuControllerDelegate {
     }
 }
 
-extension MenuViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+extension MenuViewController: UITableViewDelegate, UITableViewDataSource
+{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    {
         return mylblarr.count
-        
     }
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+    {
         let cell:sideCell = tblSidemenuData.dequeueReusableCell(withIdentifier: "sideCell", for: indexPath)as! sideCell
         cell.lblData?.text = mylblarr[indexPath.row]
-        
         return cell
     }
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+    {
         selectedMenuIndex = indexPath.row
         tblSidemenuData.reloadData()
         sideMenuController?.hideMenu()
-       
+        
         let homeVC = self.parent?.children.first?.children.first as? HomeVC
-       // let homeVC = HomeViewController()
-     
+        // let homeVC = HomeViewController()
+        
         let strCellItemTitle = mylblarr[indexPath.row] // aryItemNames[indexPath.row]
         // let currentItem = aryList[indexPath.row]
         
-        if strCellItemTitle == MyType.MyRides.value {
-            
+        if strCellItemTitle == MyType.MyRides.value
+        {
             let controller = AppStoryboard.Main.instance.instantiateViewController(withIdentifier: MyRidesVC.storyboardID)
             homeVC?.navigationController?.pushViewController(controller, animated: true)
-        } else if strCellItemTitle == MyType.Earnings.value {
-        
+            
+        } else if strCellItemTitle == MyType.Earnings.value
+        {
+            let controller = AppStoryboard.Main.instance.instantiateViewController(withIdentifier: EarningViewController.storyboardID)
+            homeVC?.navigationController?.pushViewController(controller, animated: true)
+            
         } else if strCellItemTitle == MyType.Logout.value {
             let alert = UIAlertController(title: "Logout", message: "Are you sure you want to logout?", preferredStyle: .alert)
             let ok = UIAlertAction(title: "OK", style: .default) { (action) in

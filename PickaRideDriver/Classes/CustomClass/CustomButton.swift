@@ -127,6 +127,17 @@ class MyRidesButton : UIButton
         self.titleLabel?.font = CustomFont.medium.returnFont(15)
     }
 }
+
+class SegmentButton : UIButton
+{
+    override func awakeFromNib() {
+        self.setTitleColor(colors.white.value, for: .normal)
+        self.setTitleColor(themeColor, for: .selected)
+        self.setTitleColor(themeColorOffGrey, for: .normal)
+        self.titleLabel?.font = CustomFont.medium.returnFont(15)
+    }
+}
+
 class SavedPlaceButton : UIButton
 {
     @IBInspectable var isAddButton : Bool = false
@@ -134,7 +145,6 @@ class SavedPlaceButton : UIButton
         if isAddButton {
             self.setTitleColor(colors.submitButtonColor.value, for: .normal)
             self.titleLabel?.font = CustomFont.medium.returnFont(17)
-            
         }
     }
 }
@@ -174,7 +184,17 @@ class paymentSucessFullyButton : UIButton {
         self.layer.borderWidth = 1
         self.layer.borderColor = colors.loginPlaceHolderColor.value.withAlphaComponent(0.14).cgColor
         self.setTitleColorFont(title: self.titleLabel?.text ?? "", color: colors.submitButtonColor, font: CustomFont.regular.returnFont(17))
-        
-       
     }
+}
+
+class SubmitButton : UIButton {
+    
+    override func awakeFromNib() {
+        self.titleLabel?.font = UIFont.bold(ofSize: FontsSize.Tiny)
+        self.backgroundColor = themeColor
+        self.cornerRadius = 5
+    }
+}
+class CommonButton : UIButton {
+    override func awakeFromNib() {}
 }

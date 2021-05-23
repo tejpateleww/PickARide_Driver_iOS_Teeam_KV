@@ -76,6 +76,16 @@
 		4F94F1CC2643FE1B00780413 /* Storyboards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F94F1CB2643FE1B00780413 /* Storyboards.swift */; };
 		4F94F1CE2643FEE500780413 /* AppInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F94F1CD2643FEE500780413 /* AppInfo.swift */; };
 		63306643E0B7E70ABC5DB425 /* Pods_PickaRideDriver_PickaRideDriverUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2829DD5CEA22E4198B109D0A /* Pods_PickaRideDriver_PickaRideDriverUITests.framework */; };
+		8120ED2F264C2407004E0206 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8120ED2D264C2407004E0206 /* Localizable.strings */; };
+		81891DA1264FDA1B00E8741E /* MSBBarChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81891D9F264FDA1B00E8741E /* MSBBarChartView.swift */; };
+		81891DA72652DD9800E8741E /* IncomingRideRequestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81891DA62652DD9800E8741E /* IncomingRideRequestView.swift */; };
+		81891DA92652DDC200E8741E /* IncomingRideRequestView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81891DA82652DDC200E8741E /* IncomingRideRequestView.xib */; };
+		81891DAB2654466A00E8741E /* AcceptedRideDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81891DAA2654466A00E8741E /* AcceptedRideDetailsView.swift */; };
+		81891DAD2654468A00E8741E /* AcceptedRideDetailsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81891DAC2654468A00E8741E /* AcceptedRideDetailsView.xib */; };
+		81A55389264B9E5500698413 /* ConstantString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A55388264B9E5500698413 /* ConstantString.swift */; };
+		81A5538E264BC5A600698413 /* EarningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A5538D264BC5A600698413 /* EarningViewController.swift */; };
+		81A55390264BC5CF00698413 /* TodayEarningChildViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A5538F264BC5CF00698413 /* TodayEarningChildViewController.swift */; };
+		81A55392264BC5DD00698413 /* WeeklyEarningChildViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A55391264BC5DD00698413 /* WeeklyEarningChildViewController.swift */; };
 		843F8053264A6F3E00BCBDB8 /* SideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843F8052264A6F3E00BCBDB8 /* SideMenuController.swift */; };
 		843F805C264A6FB300BCBDB8 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843F805B264A6FB300BCBDB8 /* MenuViewController.swift */; };
 		843F806A264A706400BCBDB8 /* StatusBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843F8060264A706400BCBDB8 /* StatusBar.swift */; };
@@ -199,6 +209,16 @@
 		4F94F1C92643F30800780413 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		4F94F1CB2643FE1B00780413 /* Storyboards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboards.swift; sourceTree = "<group>"; };
 		4F94F1CD2643FEE500780413 /* AppInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppInfo.swift; sourceTree = "<group>"; };
+		8120ED2E264C2407004E0206 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		81891D9F264FDA1B00E8741E /* MSBBarChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSBBarChartView.swift; sourceTree = "<group>"; };
+		81891DA62652DD9800E8741E /* IncomingRideRequestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomingRideRequestView.swift; sourceTree = "<group>"; };
+		81891DA82652DDC200E8741E /* IncomingRideRequestView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IncomingRideRequestView.xib; sourceTree = "<group>"; };
+		81891DAA2654466A00E8741E /* AcceptedRideDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcceptedRideDetailsView.swift; sourceTree = "<group>"; };
+		81891DAC2654468A00E8741E /* AcceptedRideDetailsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AcceptedRideDetailsView.xib; sourceTree = "<group>"; };
+		81A55388264B9E5500698413 /* ConstantString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantString.swift; sourceTree = "<group>"; };
+		81A5538D264BC5A600698413 /* EarningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarningViewController.swift; sourceTree = "<group>"; };
+		81A5538F264BC5CF00698413 /* TodayEarningChildViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayEarningChildViewController.swift; sourceTree = "<group>"; };
+		81A55391264BC5DD00698413 /* WeeklyEarningChildViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyEarningChildViewController.swift; sourceTree = "<group>"; };
 		843F8052264A6F3E00BCBDB8 /* SideMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuController.swift; sourceTree = "<group>"; };
 		843F805B264A6FB300BCBDB8 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		843F8060264A706400BCBDB8 /* StatusBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusBar.swift; sourceTree = "<group>"; };
@@ -343,6 +363,7 @@
 				4F94F18A2643DB7500780413 /* WebServices */,
 				4F94F1482643DB5F00780413 /* Classes */,
 				4F94F1212643D76700780413 /* Assets.xcassets */,
+				8120ED2D264C2407004E0206 /* Localizable.strings */,
 				4F94F1262643D76700780413 /* Info.plist */,
 			);
 			path = PickaRideDriver;
@@ -369,6 +390,7 @@
 		4F94F1482643DB5F00780413 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				81891D9C264FDA1B00E8741E /* MSBBarChart */,
 				4F1A763B26450EC0003F00CF /* BaseVC */,
 				4F94F14B2643DB5F00780413 /* Enum */,
 				4F94F1502643DB5F00780413 /* navigationCommonView */,
@@ -503,6 +525,7 @@
 				4F94F19B2643DB7500780413 /* Utilities.swift */,
 				4F94F19C2643DB7500780413 /* Singleton.swift */,
 				4F94F19D2643DB7500780413 /* ImagePicker.swift */,
+				81A55388264B9E5500698413 /* ConstantString.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -557,6 +580,35 @@
 			path = StoryBoards;
 			sourceTree = "<group>";
 		};
+		81891D9C264FDA1B00E8741E /* MSBBarChart */ = {
+			isa = PBXGroup;
+			children = (
+				81891D9F264FDA1B00E8741E /* MSBBarChartView.swift */,
+			);
+			path = MSBBarChart;
+			sourceTree = "<group>";
+		};
+		81891DA32651887C00E8741E /* Arrived Rides Steps */ = {
+			isa = PBXGroup;
+			children = (
+				81891DA62652DD9800E8741E /* IncomingRideRequestView.swift */,
+				81891DA82652DDC200E8741E /* IncomingRideRequestView.xib */,
+				81891DAA2654466A00E8741E /* AcceptedRideDetailsView.swift */,
+				81891DAC2654468A00E8741E /* AcceptedRideDetailsView.xib */,
+			);
+			path = "Arrived Rides Steps";
+			sourceTree = "<group>";
+		};
+		81A5538C264BC56D00698413 /* Earnings */ = {
+			isa = PBXGroup;
+			children = (
+				81A5538D264BC5A600698413 /* EarningViewController.swift */,
+				81A5538F264BC5CF00698413 /* TodayEarningChildViewController.swift */,
+				81A55391264BC5DD00698413 /* WeeklyEarningChildViewController.swift */,
+			);
+			path = Earnings;
+			sourceTree = "<group>";
+		};
 		843F8057264A6F4700BCBDB8 /* SideMenu */ = {
 			isa = PBXGroup;
 			children = (
@@ -607,6 +659,8 @@
 		84A5D0FD2646A63800AAFAB0 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				81891DA32651887C00E8741E /* Arrived Rides Steps */,
+				81A5538C264BC56D00698413 /* Earnings */,
 				843F8057264A6F4700BCBDB8 /* SideMenu */,
 				84A5D11C2646B81B00AAFAB0 /* CancelRide */,
 				84A5D0FE2646A64D00AAFAB0 /* AddVehicle */,
@@ -765,7 +819,10 @@
 				4F94F1C52643E72800780413 /* Ubuntu-Light.ttf in Resources */,
 				4F94F1222643D76700780413 /* Assets.xcassets in Resources */,
 				4F94F1C12643E72800780413 /* Ubuntu-Bold.ttf in Resources */,
+				81891DA92652DDC200E8741E /* IncomingRideRequestView.xib in Resources */,
 				4F94F1BF2643E72800780413 /* Ubuntu-LightItalic.ttf in Resources */,
+				81891DAD2654468A00E8741E /* AcceptedRideDetailsView.xib in Resources */,
+				8120ED2F264C2407004E0206 /* Localizable.strings in Resources */,
 				4F94F1C32643E72800780413 /* Ubuntu-BoldItalic.ttf in Resources */,
 				4F94F1C02643E72800780413 /* Ubuntu-Regular.ttf in Resources */,
 				4F94F1202643D76500780413 /* Main.storyboard in Resources */,
@@ -956,6 +1013,7 @@
 				84DD717B264957850014AF60 /* RideDetailsVC.swift in Sources */,
 				4F94F17F2643DB5F00780413 /* UISearchbar+Extension.swift in Sources */,
 				4F94F17E2643DB5F00780413 /* UITextField+Extension.swift in Sources */,
+				81891DA1264FDA1B00E8741E /* MSBBarChartView.swift in Sources */,
 				4F94F1A82643DB7600780413 /* ProfileUpdateReqModel.swift in Sources */,
 				843F806C264A706400BCBDB8 /* Preferences.swift in Sources */,
 				4F94F1852643DB5F00780413 /* customTextField.swift in Sources */,
@@ -969,6 +1027,7 @@
 				4F94F1A62643DB7600780413 /* Datum.swift in Sources */,
 				4F94F17C2643DB5F00780413 /* UIStoryboard+Extension.swift in Sources */,
 				4F94F1B02643DB7600780413 /* WebServices.swift in Sources */,
+				81891DAB2654466A00E8741E /* AcceptedRideDetailsView.swift in Sources */,
 				843F806B264A706400BCBDB8 /* UIViewController+SideMenu.swift in Sources */,
 				8476071026491B660019CE1F /* MyRidesVC.swift in Sources */,
 				4F94F1A72643DB7600780413 /* RegisterReqModel.swift in Sources */,
@@ -977,6 +1036,7 @@
 				4F94F1AB2643DB7600780413 /* Constants.swift in Sources */,
 				4F94F1892643DB5F00780413 /* CustomLabel.swift in Sources */,
 				4F94F1762643DB5F00780413 /* UIButton+Extension.swift in Sources */,
+				81A55390264BC5CF00698413 /* TodayEarningChildViewController.swift in Sources */,
 				8476071A264933A90019CE1F /* pastUpcomingCell.swift in Sources */,
 				4F94F1792643DB5F00780413 /* extension+String.swift in Sources */,
 				843F805C264A6FB300BCBDB8 /* MenuViewController.swift in Sources */,
@@ -987,7 +1047,9 @@
 				843F806D264A706400BCBDB8 /* UIView+Container.swift in Sources */,
 				847607062648FC340019CE1F /* SettingVC.swift in Sources */,
 				4F94F1AC2643DB7600780413 /* Utilities.swift in Sources */,
+				81A55392264BC5DD00698413 /* WeeklyEarningChildViewController.swift in Sources */,
 				4F94F1702643DB5F00780413 /* Colors.swift in Sources */,
+				81891DA72652DD9800E8741E /* IncomingRideRequestView.swift in Sources */,
 				4F1A763A26450E78003F00CF /* SignUpVC.swift in Sources */,
 				843F806A264A706400BCBDB8 /* StatusBar.swift in Sources */,
 				4F94F1CC2643FE1B00780413 /* Storyboards.swift in Sources */,
@@ -1002,6 +1064,8 @@
 				4F94F1882643DB5F00780413 /* customTextView.swift in Sources */,
 				4F94F1802643DB5F00780413 /* Data+Extensions.swift in Sources */,
 				4F94F16D2643DB5F00780413 /* NavigationItems.swift in Sources */,
+				81A5538E264BC5A600698413 /* EarningViewController.swift in Sources */,
+				81A55389264B9E5500698413 /* ConstantString.swift in Sources */,
 				843F8070264A706400BCBDB8 /* Segue.swift in Sources */,
 				849CE22C2646616800E76E5E /* HomeVC.swift in Sources */,
 				4F94F1A52643DB7500780413 /* UserInfo.swift in Sources */,
@@ -1058,6 +1122,14 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
+		8120ED2D264C2407004E0206 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8120ED2E264C2407004E0206 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -1065,6 +1137,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -1126,6 +1199,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

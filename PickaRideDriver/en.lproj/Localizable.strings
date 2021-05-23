@@ -1,0 +1,45 @@
+/* 
+  Localize.strings
+  PickARide User
+
+  Created by Apple on 14/12/20.
+  Copyright © 2020 EWW071. All rights reserved.
+*/
+
+// LoginScreen_
+
+"LoginScreen_lblSignIN" = "Sign In";
+"LoginScreen_lblWelcomeBack" = "Welcome Back!";
+"LoginScreen_textFieldEmailID_place" = "Email ID/Phone Number";
+"LoginScreen_textFieldPassword_place" = "Password";
+"LoginScreen_btnForgotPassword" = "Forgot Password?";
+"LoginScreen_btnSignIN" = "SIGN IN";
+"LoginScreen_lblOR" = "OR";
+"LoginScreen_lblDontHaveanAccount" = "Don't have an account? ";
+"LoginScreen_btnSIgnUP" = "SIGN UP";
+"LoginScreen_msgEmailMissing" = "Please enter your register email or mobile number";
+"LoginScreen_msgEmailInvalid" = "Please valid email address";
+"LoginScreen_msgPasswordMissing" = "Please enter your password";
+
+
+// EarningScreen_
+
+"EarningScreen_btnToday" = "Today";
+"EarningScreen_btnWeekly" = "Weekly";
+
+"EarningScreen_lblRideFares" = "Ride fares";
+"EarningScreen_lblRideTaxiFee" = "Taxi Fee";
+"EarningScreen_lblRideTax" = "+Tax";
+"EarningScreen_lblRideTolls" = "+Tolls";
+"EarningScreen_lblRideSurge" = "Surge";
+"EarningScreen_lblRideDiscount" = "Discount(-)";
+"EarningScreen_lblTotalEarnings" = "Total Earnings";
+
+
+
+
+
+
+
+
+

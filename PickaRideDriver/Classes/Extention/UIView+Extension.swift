@@ -9,21 +9,21 @@ import Foundation
 import UIKit
 
 extension UIView {
-
-@IBInspectable
-var cornerRadius: CGFloat {
-  get {
-    return layer.cornerRadius
-  }
-  set {
-    layer.cornerRadius = newValue
-  }
-}
+    
+    @IBInspectable
+    var cornerRadius: CGFloat {
+        get {
+            return layer.cornerRadius
+        }
+        set {
+            layer.cornerRadius = newValue
+        }
+    }
     func setUpAutomaticRadius(){
         layer.cornerRadius = layer.frame.height/2
     }
     public func setGradientView(topGradientColor: UIColor?, bottomGradientColor: UIColor?) {
-         let gradientLayer = CAGradientLayer()
+        let gradientLayer = CAGradientLayer()
         if let topGradientColor = topGradientColor, let bottomGradientColor = bottomGradientColor {
             gradientLayer.startPoint = CGPoint(x: 0.0, y: 1.0)
             gradientLayer.endPoint = CGPoint(x: 1.0, y: 1.0)
@@ -39,8 +39,71 @@ var cornerRadius: CGFloat {
     }
     
     func setBorderColor(bcolor:colors){
-          self.layer.borderColor  = bcolor.value.cgColor
-          self.layer.borderWidth = 1
-      }
+        self.layer.borderColor  = bcolor.value.cgColor
+        self.layer.borderWidth = 1
+    }
 }
 
+extension UIView
+{
+    func addTopBorderWithColor(color: UIColor, width: CGFloat) {
+        let border = CALayer()
+        border.backgroundColor = color.cgColor
+        border.frame = CGRect(x:0,y: 0, width:self.frame.size.width, height:width)
+        self.layer.addSublayer(border)
+    }
+    
+    func addRightBorderWithColor(color: UIColor, width: CGFloat) {
+        let border = CALayer()
+        border.backgroundColor = color.cgColor
+        border.frame = CGRect(x: self.frame.size.width - width,y: 0, width:width, height:self.frame.size.height)
+        self.layer.addSublayer(border)
+    }
+    
+    func addBottomBorderWithColor(color: UIColor, width: CGFloat) {
+        let border = CALayer()
+        border.backgroundColor = color.cgColor
+        border.frame = CGRect(x:0, y:self.frame.size.height - width, width:self.frame.size.width, height:width)
+        self.layer.addSublayer(border)
+    }
+    
+    func addLeftBorderWithColor(color: UIColor, width: CGFloat) {
+        let border = CALayer()
+        border.backgroundColor = color.cgColor
+        border.frame = CGRect(x:0, y:0, width:width, height:self.frame.size.height)
+        self.layer.addSublayer(border)
+    }
+    
+    func addMiddleBorderWithColor(color: UIColor, width: CGFloat) {
+        let border = CALayer()
+        border.backgroundColor = color.cgColor
+        border.frame = CGRect(x:self.frame.size.width/2, y:0, width:width, height:self.frame.size.height)
+        self.layer.addSublayer(border)
+    }
+}
+
+extension UIViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+}
+
+extension UIView {
+    func addBottomShadow() {
+        layer.masksToBounds = false
+        layer.shadowRadius = 4
+        layer.shadowOpacity = 0.7
+        layer.shadowColor = hexStringToUIColor(hex: "#32384D").cgColor
+        layer.shadowOffset = CGSize(width: 0 , height: 0.5)
+        layer.shadowPath = UIBezierPath(rect: CGRect(x: 0,
+                                                     y: bounds.maxY - layer.shadowRadius,
+                                                     width: bounds.width,
+                                                     height: layer.shadowRadius)).cgPath
+    }
+}

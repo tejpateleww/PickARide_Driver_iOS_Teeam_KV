@@ -87,4 +87,23 @@ extension UIViewController {
             
         }
     }
+    
+    func showAlert(title: String = "", message: String, alertActions : [UIAlertAction])
+    {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        if alertActions.count <= 0
+        {
+            let okAlert = UIAlertAction(title: "Ok".Localized(), style: .cancel, handler: nil)
+            alertController.addAction(okAlert)
+            
+        }else
+        {
+            for alert in alertActions {
+                alertController.addAction(alert)
+            }
+        }
+        
+        self.present(alertController, animated: true, completion: nil)
+    }
 }
