@@ -26,16 +26,27 @@ class IncomingRideRequestView: UIView {
     @IBOutlet weak var imageViewProfilePic: UIImageView!
     @IBOutlet weak var lblName: CommonLabel!
     @IBOutlet weak var lblRatings: CommonLabel!
+    @IBOutlet weak var viewCount: UIView!
     @IBOutlet weak var lblCount: CommonLabel!
+    @IBOutlet weak var lblNoThanks: CommonLabel!
     
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        //setupView()
+    override func awakeFromNib() {
+        super.awakeFromNib()
+         setupView()
     }
     
-    init() {
-        super.init(frame: CGRect.zero)
-        setupView()
+//
+//    required init?(coder aDecoder: NSCoder) {
+//        super.init(coder: aDecoder)
+//    }
+//
+//    init() {
+//        super.init(frame: CGRect.zero)
+//    }
+    
+    override func layoutSubviews() {
+        viewCount.cornerRadius = viewCount.frame.size.height / 2
+        imageViewProfilePic.cornerRadius = imageViewProfilePic.frame.size.height / 2
     }
     
     @IBAction func btnAcceptRequestClickAction(_ sender: Any) {
@@ -45,8 +56,20 @@ class IncomingRideRequestView: UIView {
     @IBAction func btnCancelRideClickAction(_ sender: Any) {
         delegate?.onCancelRideRequest()
     }
+    
+    func setRideDetails(/*Pass model class here*/)
+    {
+        lblName.text = "James smith"
+        lblRatings.text = "⭑ 3.5"
+        lblDuration.text = "~ 25 min"
+        lblFare.text = "~ $12.50"
+        lblDistance.text = "4.5 km"
+        lblPickUpAddress.text = "1 Ash Park, Pembroke Dock, SA72"
+        lblDropUpAddress.text = "54 Hollybank Rd, Southampton"
+        lblCount.text = "15"
+    }
 }
-
+    
 fileprivate extension IncomingRideRequestView {
     
     func setupView() {
@@ -72,19 +95,17 @@ fileprivate extension IncomingRideRequestView {
         lblPickUpAddress.text = ""
         lblPickUpAddress.font = UIFont.regular(ofSize: FontsSize.ExtraSmall)
         
+        viewCount.backgroundColor = themeColorBlack.withAlphaComponent(0.2)
+        
+        lblCount.text = ""
+        lblCount.font = UIFont.bold(ofSize: FontsSize.Tiny)
+        lblCount.textColor = UIColor.white
+
+
+        lblNoThanks.text = ConstantString.LABEL_TITLE_HOME_NO_THANKS
+        lblNoThanks.font = UIFont.regular(ofSize: FontsSize.ExtraSmall)
+        
         btnAcceptRequest.setTitle(ConstantString.BUTTON_TITLE_HOME_TAP_TO_ACCCEPT, for: .normal)
     }
-    
-    func setRideDetails(/*Pass model class here*/)
-    {
-        lblName.text = "James smith"
-        lblRatings.text = "⭑ 3.5"
-        lblDuration.text = "~ 25 min"
-        lblFare.text = "~ $12.50"
-        lblDistance.text = "4.5 km"
-        lblPickUpAddress.text = "1 Ash Park, Pembroke Dock, SA72"
-        lblDropUpAddress.text = "54 Hollybank Rd, Southampton"
-        lblCount.text = "15"
-    }
-    
+        
 }

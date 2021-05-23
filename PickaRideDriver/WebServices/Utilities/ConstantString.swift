@@ -49,5 +49,8 @@ struct ConstantString
     static let LABEL_TITLE_HOME_NO_THANKS = "HomeScreen_lblNoThanks".Localized()
     static let BUTTON_TITLE_HOME_ARRIVED = "HomeScreen_btnArrived".Localized()
     static let LABEL_TITLE_HOME_ENTER_TRIP_CODE = "HomeScreen_lblEnterTripCode".Localized()
+    static let BUTTON_TITLE_OK = "lblOk".Localized()
+
+
 }
 
