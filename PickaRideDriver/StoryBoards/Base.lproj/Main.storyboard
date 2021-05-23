@@ -2232,9 +2232,6 @@
                                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                         <nil key="textColor"/>
                                                                                         <nil key="highlightedColor"/>
-                                                                                        <userDefinedRuntimeAttributes>
-                                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isTotal" value="YES"/>
-                                                                                        </userDefinedRuntimeAttributes>
                                                                                     </label>
                                                                                 </subviews>
                                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -4362,9 +4359,6 @@
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
-                                                                <userDefinedRuntimeAttributes>
-                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isName" value="YES"/>
-                                                                </userDefinedRuntimeAttributes>
                                                             </label>
                                                         </subviews>
                                                     </stackView>
@@ -4397,9 +4391,6 @@
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
-                                                                <userDefinedRuntimeAttributes>
-                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isName" value="YES"/>
-                                                                </userDefinedRuntimeAttributes>
                                                             </label>
                                                         </subviews>
                                                     </stackView>
@@ -4432,9 +4423,6 @@
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
-                                                                <userDefinedRuntimeAttributes>
-                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isName" value="YES"/>
-                                                                </userDefinedRuntimeAttributes>
                                                             </label>
                                                         </subviews>
                                                     </stackView>
@@ -4475,9 +4463,6 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isDate" value="YES"/>
-                                                </userDefinedRuntimeAttributes>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zY0-CF-xaz" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
                                                 <rect key="frame" x="167" y="20.5" width="41.5" height="20.5"/>
@@ -4516,18 +4501,12 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isRideDetails" value="YES"/>
-                                                        </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="woe-8R-N7u" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
                                                         <rect key="frame" x="159.5" y="0.0" width="159.5" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isRideDetails" value="YES"/>
-                                                        </userDefinedRuntimeAttributes>
                                                     </label>
                                                 </subviews>
                                             </stackView>
@@ -4539,18 +4518,12 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isRideDetails" value="YES"/>
-                                                        </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="758-9n-5qx" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
                                                         <rect key="frame" x="159.5" y="0.0" width="159.5" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isRideDetails" value="YES"/>
-                                                        </userDefinedRuntimeAttributes>
                                                     </label>
                                                 </subviews>
                                             </stackView>
@@ -4562,18 +4535,12 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isRideDetails" value="YES"/>
-                                                        </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wvm-j2-4Ej" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
                                                         <rect key="frame" x="159.5" y="0.0" width="159.5" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isRideDetails" value="YES"/>
-                                                        </userDefinedRuntimeAttributes>
                                                     </label>
                                                 </subviews>
                                             </stackView>
@@ -4585,18 +4552,12 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isRideDetails" value="YES"/>
-                                                        </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WyF-1p-STJ" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
                                                         <rect key="frame" x="159.5" y="0.0" width="159.5" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isRideDetails" value="YES"/>
-                                                        </userDefinedRuntimeAttributes>
                                                     </label>
                                                 </subviews>
                                             </stackView>
@@ -4608,18 +4569,12 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isRideDetails" value="YES"/>
-                                                        </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cwq-Bt-KvI" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
                                                         <rect key="frame" x="159.5" y="0.0" width="159.5" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isRideDetails" value="YES"/>
-                                                        </userDefinedRuntimeAttributes>
                                                     </label>
                                                 </subviews>
                                             </stackView>
@@ -4631,18 +4586,12 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isRideDetails" value="YES"/>
-                                                        </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rk0-SW-6A7" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
                                                         <rect key="frame" x="159.5" y="0.0" width="159.5" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isRideDetails" value="YES"/>
-                                                        </userDefinedRuntimeAttributes>
                                                     </label>
                                                 </subviews>
                                             </stackView>
@@ -4668,7 +4617,6 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                         <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isTotal" value="YES"/>
                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="TotalBalance" value="YES"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
@@ -4678,7 +4626,6 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                         <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isTotal" value="YES"/>
                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="TotalBalance" value="YES"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
@@ -4775,9 +4722,6 @@
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
-                                                                                <userDefinedRuntimeAttributes>
-                                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isName" value="YES"/>
-                                                                                </userDefinedRuntimeAttributes>
                                                                             </label>
                                                                         </subviews>
                                                                     </stackView>
@@ -4810,9 +4754,6 @@
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
-                                                                                <userDefinedRuntimeAttributes>
-                                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isName" value="YES"/>
-                                                                                </userDefinedRuntimeAttributes>
                                                                             </label>
                                                                         </subviews>
                                                                     </stackView>
@@ -4845,9 +4786,6 @@
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
-                                                                                <userDefinedRuntimeAttributes>
-                                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isName" value="YES"/>
-                                                                                </userDefinedRuntimeAttributes>
                                                                             </label>
                                                                         </subviews>
                                                                     </stackView>
@@ -4888,9 +4826,6 @@
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
-                                                                <userDefinedRuntimeAttributes>
-                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isDate" value="YES"/>
-                                                                </userDefinedRuntimeAttributes>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IMo-s0-nuu" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
                                                                 <rect key="frame" x="167" y="25.5" width="41.5" height="20.5"/>
@@ -4939,18 +4874,12 @@
                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
-                                                                        <userDefinedRuntimeAttributes>
-                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isRideDetails" value="YES"/>
-                                                                        </userDefinedRuntimeAttributes>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VVN-KM-JiR" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
                                                                         <rect key="frame" x="163.5" y="0.0" width="163.5" height="20.5"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
-                                                                        <userDefinedRuntimeAttributes>
-                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isRideDetails" value="YES"/>
-                                                                        </userDefinedRuntimeAttributes>
                                                                     </label>
                                                                 </subviews>
                                                             </stackView>
@@ -4962,18 +4891,12 @@
                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
-                                                                        <userDefinedRuntimeAttributes>
-                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isRideDetails" value="YES"/>
-                                                                        </userDefinedRuntimeAttributes>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8JH-cu-tCN" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
                                                                         <rect key="frame" x="163.5" y="0.0" width="163.5" height="20.5"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
-                                                                        <userDefinedRuntimeAttributes>
-                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isRideDetails" value="YES"/>
-                                                                        </userDefinedRuntimeAttributes>
                                                                     </label>
                                                                 </subviews>
                                                             </stackView>
@@ -4985,18 +4908,12 @@
                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
-                                                                        <userDefinedRuntimeAttributes>
-                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isRideDetails" value="YES"/>
-                                                                        </userDefinedRuntimeAttributes>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eNo-MM-q1b" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
                                                                         <rect key="frame" x="163.5" y="0.0" width="163.5" height="20.5"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
-                                                                        <userDefinedRuntimeAttributes>
-                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isRideDetails" value="YES"/>
-                                                                        </userDefinedRuntimeAttributes>
                                                                     </label>
                                                                 </subviews>
                                                             </stackView>
@@ -5008,18 +4925,12 @@
                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
-                                                                        <userDefinedRuntimeAttributes>
-                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isRideDetails" value="YES"/>
-                                                                        </userDefinedRuntimeAttributes>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eo3-zF-KuT" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
                                                                         <rect key="frame" x="163.5" y="0.0" width="163.5" height="20.5"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
-                                                                        <userDefinedRuntimeAttributes>
-                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isRideDetails" value="YES"/>
-                                                                        </userDefinedRuntimeAttributes>
                                                                     </label>
                                                                 </subviews>
                                                             </stackView>
@@ -5031,18 +4942,12 @@
                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
-                                                                        <userDefinedRuntimeAttributes>
-                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isRideDetails" value="YES"/>
-                                                                        </userDefinedRuntimeAttributes>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eBJ-g5-a42" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
                                                                         <rect key="frame" x="163.5" y="0.0" width="163.5" height="20.5"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
-                                                                        <userDefinedRuntimeAttributes>
-                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isRideDetails" value="YES"/>
-                                                                        </userDefinedRuntimeAttributes>
                                                                     </label>
                                                                 </subviews>
                                                             </stackView>
@@ -5054,18 +4959,12 @@
                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
-                                                                        <userDefinedRuntimeAttributes>
-                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isRideDetails" value="YES"/>
-                                                                        </userDefinedRuntimeAttributes>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rTb-6H-zeb" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
                                                                         <rect key="frame" x="163.5" y="0.0" width="163.5" height="20.5"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
-                                                                        <userDefinedRuntimeAttributes>
-                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isRideDetails" value="YES"/>
-                                                                        </userDefinedRuntimeAttributes>
                                                                     </label>
                                                                 </subviews>
                                                             </stackView>
@@ -5091,7 +4990,6 @@
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                         <userDefinedRuntimeAttributes>
-                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isTotal" value="YES"/>
                                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="TotalBalance" value="YES"/>
                                                                         </userDefinedRuntimeAttributes>
                                                                     </label>
@@ -5101,7 +4999,6 @@
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                         <userDefinedRuntimeAttributes>
-                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isTotal" value="YES"/>
                                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="TotalBalance" value="YES"/>
                                                                         </userDefinedRuntimeAttributes>
                                                                     </label>

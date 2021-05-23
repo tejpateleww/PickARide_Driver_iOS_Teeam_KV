@@ -186,7 +186,14 @@ extension MenuViewController: UITableViewDelegate, UITableViewDataSource
             let controller = AppStoryboard.Main.instance.instantiateViewController(withIdentifier: EarningViewController.storyboardID)
             homeVC?.navigationController?.pushViewController(controller, animated: true)
             
-        } else if strCellItemTitle == MyType.Logout.value {
+        }
+        else if strCellItemTitle == MyType.Help.value
+        {
+          
+            let controller = AppStoryboard.Chat.instance.instantiateViewController(withIdentifier: ChatViewController.storyboardID) as! ChatViewController
+            homeVC?.navigationController?.pushViewController(controller, animated: true)
+        }
+        else if strCellItemTitle == MyType.Logout.value {
             let alert = UIAlertController(title: "Logout", message: "Are you sure you want to logout?", preferredStyle: .alert)
             let ok = UIAlertAction(title: "OK", style: .default) { (action) in
                 userDefault.setValue(false, forKey: UserDefaultsKey.isUserLogin.rawValue)

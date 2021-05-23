@@ -72,9 +72,11 @@
 		4F94F1C42643E72800780413 /* Ubuntu-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4F94F1BB2643E72800780413 /* Ubuntu-Italic.ttf */; };
 		4F94F1C52643E72800780413 /* Ubuntu-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4F94F1BC2643E72800780413 /* Ubuntu-Light.ttf */; };
 		4F94F1C62643E72800780413 /* UFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4F94F1BD2643E72800780413 /* UFL.txt */; };
-		4F94F1CA2643F30800780413 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F94F1C92643F30800780413 /* Login.storyboard */; };
 		4F94F1CC2643FE1B00780413 /* Storyboards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F94F1CB2643FE1B00780413 /* Storyboards.swift */; };
 		4F94F1CE2643FEE500780413 /* AppInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F94F1CD2643FEE500780413 /* AppInfo.swift */; };
+		547D83D6265A500E00887C9C /* Chat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 547D83D5265A500E00887C9C /* Chat.storyboard */; };
+		547D83D8265A502A00887C9C /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 547D83D7265A502A00887C9C /* Login.storyboard */; };
+		547D83DE265A509800887C9C /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547D83DD265A509800887C9C /* ChatViewController.swift */; };
 		63306643E0B7E70ABC5DB425 /* Pods_PickaRideDriver_PickaRideDriverUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2829DD5CEA22E4198B109D0A /* Pods_PickaRideDriver_PickaRideDriverUITests.framework */; };
 		8120ED2F264C2407004E0206 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8120ED2D264C2407004E0206 /* Localizable.strings */; };
 		81891DA1264FDA1B00E8741E /* MSBBarChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81891D9F264FDA1B00E8741E /* MSBBarChartView.swift */; };
@@ -206,9 +208,11 @@
 		4F94F1BB2643E72800780413 /* Ubuntu-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-Italic.ttf"; sourceTree = "<group>"; };
 		4F94F1BC2643E72800780413 /* Ubuntu-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-Light.ttf"; sourceTree = "<group>"; };
 		4F94F1BD2643E72800780413 /* UFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = UFL.txt; sourceTree = "<group>"; };
-		4F94F1C92643F30800780413 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		4F94F1CB2643FE1B00780413 /* Storyboards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboards.swift; sourceTree = "<group>"; };
 		4F94F1CD2643FEE500780413 /* AppInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppInfo.swift; sourceTree = "<group>"; };
+		547D83D5265A500E00887C9C /* Chat.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Chat.storyboard; sourceTree = "<group>"; };
+		547D83D7265A502A00887C9C /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		547D83DD265A509800887C9C /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		8120ED2E264C2407004E0206 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		81891D9F264FDA1B00E8741E /* MSBBarChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSBBarChartView.swift; sourceTree = "<group>"; };
 		81891DA62652DD9800E8741E /* IncomingRideRequestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomingRideRequestView.swift; sourceTree = "<group>"; };
@@ -575,9 +579,18 @@
 			children = (
 				4F94F11E2643D76500780413 /* Main.storyboard */,
 				4F94F1232643D76700780413 /* LaunchScreen.storyboard */,
-				4F94F1C92643F30800780413 /* Login.storyboard */,
+				547D83D5265A500E00887C9C /* Chat.storyboard */,
+				547D83D7265A502A00887C9C /* Login.storyboard */,
 			);
 			path = StoryBoards;
+			sourceTree = "<group>";
+		};
+		547D83DC265A509800887C9C /* ChatVC */ = {
+			isa = PBXGroup;
+			children = (
+				547D83DD265A509800887C9C /* ChatViewController.swift */,
+			);
+			path = ChatVC;
 			sourceTree = "<group>";
 		};
 		81891D9C264FDA1B00E8741E /* MSBBarChart */ = {
@@ -659,6 +672,7 @@
 		84A5D0FD2646A63800AAFAB0 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				547D83DC265A509800887C9C /* ChatVC */,
 				81891DA32651887C00E8741E /* Arrived Rides Steps */,
 				81A5538C264BC56D00698413 /* Earnings */,
 				843F8057264A6F4700BCBDB8 /* SideMenu */,
@@ -810,14 +824,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				547D83D6265A500E00887C9C /* Chat.storyboard in Resources */,
 				4F94F1C42643E72800780413 /* Ubuntu-Italic.ttf in Resources */,
 				4F94F1252643D76700780413 /* LaunchScreen.storyboard in Resources */,
 				4F94F1C62643E72800780413 /* UFL.txt in Resources */,
 				4F94F1BE2643E72800780413 /* Ubuntu-Medium.ttf in Resources */,
 				4F94F1722643DB5F00780413 /* navigationCommonView.xib in Resources */,
-				4F94F1CA2643F30800780413 /* Login.storyboard in Resources */,
 				4F94F1C52643E72800780413 /* Ubuntu-Light.ttf in Resources */,
 				4F94F1222643D76700780413 /* Assets.xcassets in Resources */,
+				547D83D8265A502A00887C9C /* Login.storyboard in Resources */,
 				4F94F1C12643E72800780413 /* Ubuntu-Bold.ttf in Resources */,
 				81891DA92652DDC200E8741E /* IncomingRideRequestView.xib in Resources */,
 				4F94F1BF2643E72800780413 /* Ubuntu-LightItalic.ttf in Resources */,
@@ -1004,6 +1019,7 @@
 				4F94F1782643DB5F00780413 /* UIImage+Extension.swift in Sources */,
 				843F806F264A706400BCBDB8 /* Delegate.swift in Sources */,
 				4F94F1AD2643DB7600780413 /* Singleton.swift in Sources */,
+				547D83DE265A509800887C9C /* ChatViewController.swift in Sources */,
 				4F94F1AF2643DB7600780413 /* WebServicesSubClass.swift in Sources */,
 				4F94F1772643DB5F00780413 /* UIView+Extension.swift in Sources */,
 				4F94F1752643DB5F00780413 /* String+Extensions.swift in Sources */,

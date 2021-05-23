@@ -56,7 +56,7 @@ enum NavItemsRight {
 }
 enum NavTitles
 {
-    case none, Home,reasonForCancle,rating, CommonView,BankDetails,RideDetails,Addvehicle,CancelRide,Earning
+    case none, Home,reasonForCancle,rating, CommonView,BankDetails,RideDetails,Addvehicle,CancelRide,Earning,Chat
     
     var value:String
     {
@@ -82,6 +82,8 @@ enum NavTitles
             return "Cancel Ride"
         case .Earning:
             return "Earning"
+        case .Chat:
+            return "Chat"
         }
     }
 }
