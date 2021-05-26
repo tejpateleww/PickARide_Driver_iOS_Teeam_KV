@@ -26,7 +26,6 @@
 
 "EarningScreen_btnToday" = "Today";
 "EarningScreen_btnWeekly" = "Weekly";
-
 "EarningScreen_lblRideFares" = "Ride fares";
 "EarningScreen_lblRideTaxiFee" = "Taxi Fee";
 "EarningScreen_lblRideTax" = "+Tax";
@@ -36,10 +35,10 @@
 "EarningScreen_lblTotalEarnings" = "Total Earnings";
 
 
+//Home Screen
 
-
-
-
-
-
-
+"HomeScreen_btnTapToAccept" = "TAP TO ACCEPT";
+"HomeScreen_lblNoThanks" = "No Thanks";
+"HomeScreen_btnArrived" = "ARRIVED";
+"HomeScreen_lblEnterTripCode" = "Enter Trip Code";
+"lblOk" = "OK";

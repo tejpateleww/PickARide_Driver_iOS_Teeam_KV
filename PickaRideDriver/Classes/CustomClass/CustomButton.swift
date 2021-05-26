@@ -192,6 +192,8 @@ class SubmitButton : UIButton {
     override func awakeFromNib() {
         self.titleLabel?.font = UIFont.bold(ofSize: FontsSize.Tiny)
         self.backgroundColor = themeColor
+        self.setTitleColor(.white, for: .normal)
+        self.setTitleColor(.white, for: .selected)
         self.cornerRadius = 5
     }
 }

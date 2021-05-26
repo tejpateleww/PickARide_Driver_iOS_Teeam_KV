@@ -9,13 +9,15 @@ import UIKit
 
 protocol AcceptedRideDetailsViewDelgate {
     func onArrivedUserLocation()
-    func onCancelRideRequest()
+    func onCancelAcceptedRideRequest()
 }
 
 class AcceptedRideDetailsView: UIView {
     
+    var delegate : AcceptedRideDetailsViewDelgate?
+    
     @IBOutlet weak var btnSubmit: CommonButton!
-    @IBOutlet weak var stackViewTripCode: UIStackView!
+    @IBOutlet weak var ViewTripCode: UIView!
     @IBOutlet weak var lblTime: CommonLabel!
     @IBOutlet weak var imageViewProfile: UIImageView!
     @IBOutlet weak var lblExtraTime: CommonLabel!
@@ -23,24 +25,35 @@ class AcceptedRideDetailsView: UIView {
     @IBOutlet weak var viewDropLocation: UIView!
     @IBOutlet weak var lbDropLocation: UILabel!
     @IBOutlet weak var lblEnterTripCode: CommonLabel!
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        //setupView()
+    @IBOutlet weak var viewContactOptions: UIView!
+    @IBOutlet weak var txtfieldTripCode: UITextField!
+    override func awakeFromNib() {
+        super.awakeFromNib()
+         setupView()
     }
     
-    init() {
-        super.init(frame: CGRect.zero)
-        setupView()
-    }
+//    required init?(coder aDecoder: NSCoder) {
+//        super.init(coder: aDecoder)
+//    }
+//    
+//    init() {
+//        super.init(frame: CGRect.zero)
+//    }
     
     override func layoutSubviews() {
         viewDropLocation.cornerRadius = viewDropLocation.frame.size.height / 2
     }
     
+    func setRideDetails(/*Pass model class here*/) {
+        lblTime.text = "2 min"
+        lblExtraTime.text = "0.5 min"
+        lblMessage.text = "Picking up James smith"
+        lbDropLocation.text = "1 Ash Park, Pembroke Dock, SA7254, Drury Lane, Oldham, OL9 7PH"
+    }
     
     @IBAction func btnSubmitButtonClickAction(_ sender: Any) {
-        
+        ViewTripCode.isHidden = false
+        btnSubmit.setTitle(ConstantString.BUTTON_TITLE_OK, for: .normal)
     }
     
     @IBAction func btnCallClickAction(_ sender: Any) {
@@ -57,8 +70,7 @@ class AcceptedRideDetailsView: UIView {
     
     @IBAction func btnArrowUpDownClickAction(_ sender: Any) {
         UIView.animate(withDuration: 0.3, animations: { [unowned self] in
-            self.stackViewTripCode.isHidden = !self.stackViewTripCode.isHidden
-            self.layoutIfNeeded()
+            self.ViewTripCode.isHidden = !self.ViewTripCode.isHidden
         })
     }
 }
@@ -67,6 +79,13 @@ extension AcceptedRideDetailsView {
     
     func setupView() {
         
+        ViewTripCode.isHidden = true
+        txtfieldTripCode.defaultTextAttributes.updateValue(31.0, forKey: NSAttributedString.Key.kern)
+        txtfieldTripCode.font = UIFont.regular(ofSize: FontsSize.Medium)
+        txtfieldTripCode.textAlignment = .center
+        txtfieldTripCode.textColor = themeColor
+        txtfieldTripCode.delegate = self
+
         lblTime.font = UIFont.bold(ofSize: FontsSize.Regular)
         lblTime.text = ""
         
@@ -79,15 +98,21 @@ extension AcceptedRideDetailsView {
         lbDropLocation.font = UIFont.regular(ofSize: FontsSize.ExtraSmall)
         lbDropLocation.text = ""
         
+        lblEnterTripCode.font = UIFont.bold(ofSize: FontsSize.Medium)
         lblEnterTripCode.text = ConstantString.LABEL_TITLE_HOME_ENTER_TRIP_CODE
         
-        btnSubmit.setTitle(ConstantString.BUTTON_TITLE_EARNING_WEEKLY.Localized(), for: .normal)
+        btnSubmit.setTitle(ConstantString.BUTTON_TITLE_HOME_ARRIVED, for: .normal)
     }
+        
+}
+
+extension AcceptedRideDetailsView : UITextFieldDelegate {
     
-    func setRideDetails(/*Pass model class here*/) {
-        lblTime.text = "2 min"
-        lblExtraTime.text = "0.5 min"
-        lblMessage.text = "Picking up James smith"
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool
+    {
+        let currentText = textField.text ?? ""
+        guard let stringRange = Range(range, in: currentText) else { return false }
+        let updatedText = currentText.replacingCharacters(in: stringRange, with: string)
+        return updatedText.count <= 4
     }
-    
 }

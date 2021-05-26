@@ -731,5 +731,6 @@ class versionLabel : UILabel {
 class CommonLabel : UILabel {
     override func awakeFromNib() {
         self.numberOfLines = 0
+        self.textColor = themeColorBlack
     }
 }

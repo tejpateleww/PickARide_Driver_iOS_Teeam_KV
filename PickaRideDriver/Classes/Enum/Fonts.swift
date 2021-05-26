@@ -57,7 +57,7 @@ extension UIFont
     }
     
     class func bold(ofSize size: CGFloat) -> UIFont {
-        return UIFont(name: "Ubuntu-Regular", size: size)!
+        return UIFont(name: "Ubuntu-Bold", size: size)!
     }
 }
 
