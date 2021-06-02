@@ -19,10 +19,11 @@ class HomeVC: BaseVC {
         static let None = 0
         static let NewRequest = 1
         static let RequestAccepted = 2
-        static let RequestCanceled = 2
-        static let ArrivedAtLocation = 3
-        static let StartRide = 4
-        static let EndRide = 5
+        static let RequestCancel = 3
+        static let CancelAcceptedRide = 4
+        static let ArrivedAtLocation = 5
+        static let StartRide = 6
+        static let EndRide = 7
     }
     
     @IBOutlet weak var vwMap: UIView!
@@ -30,15 +31,17 @@ class HomeVC: BaseVC {
     @IBOutlet weak var lblOffline: themeLabel!
     
     lazy var incomingRideRequestView : IncomingRideRequestView = IncomingRideRequestView.fromNib()
-
     lazy var acceptedRideDetailsView : AcceptedRideDetailsView = AcceptedRideDetailsView.fromNib()
+    lazy var cancelRideView : CancelRideView = CancelRideView.fromNib()
 
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
         setNavigationBarInViewController(controller: self, naviColor: colors.appColor.value, naviTitle: NavTitles.none.value, leftImage: NavItemsLeft.menu.value, rightImages: [NavItemsRight.sos.value], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
         handleRideFlow(state: RideState.None)
     }
+    
     
     @IBAction func btnOnClick(_ sender: Any)
     {
@@ -65,23 +68,40 @@ fileprivate extension HomeVC {
             acceptedRideDetailsView.removeFromSuperview()
             self.view.addSubview(acceptedRideDetailsView)
             
+            cancelRideView.delegate = self
+            cancelRideView.isUserInteractionEnabled = true
+            cancelRideView.frame = self.view.frame
+            cancelRideView.removeFromSuperview()
+            self.view.addSubview(cancelRideView)
+            
             incomingRideRequestView.isHidden = true
             acceptedRideDetailsView.isHidden = true
+            cancelRideView.isHidden = true
         
         }else if (state == RideState.NewRequest)
         {
-            incomingRideRequestView.setRideDetails()
             incomingRideRequestView.isHidden = false
             acceptedRideDetailsView.isHidden = true
+            cancelRideView.isHidden = true
+            incomingRideRequestView.setRideDetails()
+
 
         }else if (state == RideState.RequestAccepted)
         {
-            acceptedRideDetailsView.setRideDetails()
             incomingRideRequestView.isHidden = true
             acceptedRideDetailsView.isHidden = false
+            cancelRideView.isHidden = true
+            acceptedRideDetailsView.setRideDetails()
 
-        }
         
+        }else if (state == RideState.CancelAcceptedRide)
+        {
+            incomingRideRequestView.isHidden = true
+            acceptedRideDetailsView.isHidden = true
+            cancelRideView.isHidden = false
+            cancelRideView.setRideDetails()
+        }
+    
     }
     
 }
@@ -89,6 +109,7 @@ fileprivate extension HomeVC {
 extension HomeVC : IncomingRideRequestViewDelegate
 {
     func onCancelRideRequest() {
+        
     }
     
     func onAcceptRideRequest() {
@@ -102,6 +123,27 @@ extension HomeVC : AcceptedRideDetailsViewDelgate
     }
     
     func onCancelAcceptedRideRequest() {
-        
+        handleRideFlow(state: RideState.CancelAcceptedRide)
+    }
+}
+
+extension HomeVC : CancelRideViewDelgate
+{
+    func onRideCanelDecision(decision: Int)
+    {
+        if (decision == 1) //Yes
+        {
+            let controller = AppStoryboard.Main.instance.instantiateViewController(withIdentifier: CancelRideVC.storyboardID) as! CancelRideVC
+            self.navigationController?.pushViewController(controller, animated: true)
+            
+        }else //No
+        {
+            handleRideFlow(state: RideState.RequestAccepted)
+        }
+    }
+    
+    func onSubmitCancelReason()
+    {
+        handleRideFlow(state: RideState.None)
     }
 }

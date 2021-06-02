@@ -25,6 +25,7 @@ let themeColorOffWhite = hexStringToUIColor(hex: "#F2F5F7")
 let themeColorOffGrey = hexStringToUIColor(hex: "#DADEE3")
 let themeColorDarkGrey = hexStringToUIColor(hex: "#7F7F7F")
 let themeColorBlack = hexStringToUIColor(hex: "#282F39")
+let themeColorRed = hexStringToUIColor(hex: "#F4586C")
 
 
 

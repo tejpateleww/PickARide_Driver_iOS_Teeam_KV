@@ -65,7 +65,7 @@ class AcceptedRideDetailsView: UIView {
     }
     
     @IBAction func btnCancelClickAction(_ sender: Any) {
-        
+        delegate?.onCancelAcceptedRideRequest()
     }
     
     @IBAction func btnArrowUpDownClickAction(_ sender: Any) {

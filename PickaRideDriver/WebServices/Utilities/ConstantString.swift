@@ -50,6 +50,10 @@ struct ConstantString
     static let BUTTON_TITLE_HOME_ARRIVED = "HomeScreen_btnArrived".Localized()
     static let LABEL_TITLE_HOME_ENTER_TRIP_CODE = "HomeScreen_lblEnterTripCode".Localized()
     static let BUTTON_TITLE_OK = "lblOk".Localized()
+    static let NAVIGATION_TITLE_CANCEL_RIDE = "HomeScreen_CancelRide".Localized()
+    static let BUTTON_TITLE_DONE = "HomeScreen_btnDone".Localized()
+    static let BUTTON_TITLE_YES_CANCEL = "HomeScreen_btnYesCancel".Localized()
+    static let BUTTON_TITLE_NO = "HomeScreen_btnNo".Localized()
 
 
 }

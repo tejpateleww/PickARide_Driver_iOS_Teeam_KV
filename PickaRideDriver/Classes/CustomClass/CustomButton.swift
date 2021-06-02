@@ -157,7 +157,7 @@ class scheduleRideButton : UIButton {
         self.titleLabel?.font = CustomFont.medium.returnFont(18)
     }
 }
-class cancelButton : UIButton
+class CancelButton : UIButton
 {
     @IBInspectable var isCancel : Bool = false
     @IBInspectable var isNotCancel : Bool = false

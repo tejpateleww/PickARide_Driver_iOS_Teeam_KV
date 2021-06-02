@@ -76,7 +76,6 @@
 		4F94F1CE2643FEE500780413 /* AppInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F94F1CD2643FEE500780413 /* AppInfo.swift */; };
 		547D83D6265A500E00887C9C /* Chat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 547D83D5265A500E00887C9C /* Chat.storyboard */; };
 		547D83D8265A502A00887C9C /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 547D83D7265A502A00887C9C /* Login.storyboard */; };
-		547D83DE265A509800887C9C /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547D83DD265A509800887C9C /* ChatViewController.swift */; };
 		63306643E0B7E70ABC5DB425 /* Pods_PickaRideDriver_PickaRideDriverUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2829DD5CEA22E4198B109D0A /* Pods_PickaRideDriver_PickaRideDriverUITests.framework */; };
 		8120ED2F264C2407004E0206 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8120ED2D264C2407004E0206 /* Localizable.strings */; };
 		81891DA1264FDA1B00E8741E /* MSBBarChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81891D9F264FDA1B00E8741E /* MSBBarChartView.swift */; };
@@ -84,6 +83,9 @@
 		81891DA92652DDC200E8741E /* IncomingRideRequestView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81891DA82652DDC200E8741E /* IncomingRideRequestView.xib */; };
 		81891DAB2654466A00E8741E /* AcceptedRideDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81891DAA2654466A00E8741E /* AcceptedRideDetailsView.swift */; };
 		81891DAD2654468A00E8741E /* AcceptedRideDetailsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81891DAC2654468A00E8741E /* AcceptedRideDetailsView.xib */; };
+		81891DAF265E749C00E8741E /* CancelRideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81891DAE265E749C00E8741E /* CancelRideView.swift */; };
+		81891DB1265E74B300E8741E /* CancelRideView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81891DB0265E74B300E8741E /* CancelRideView.xib */; };
+		81891DB4265E880600E8741E /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81891DB3265E880600E8741E /* ChatViewController.swift */; };
 		81A55389264B9E5500698413 /* ConstantString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A55388264B9E5500698413 /* ConstantString.swift */; };
 		81A5538E264BC5A600698413 /* EarningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A5538D264BC5A600698413 /* EarningViewController.swift */; };
 		81A55390264BC5CF00698413 /* TodayEarningChildViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A5538F264BC5CF00698413 /* TodayEarningChildViewController.swift */; };
@@ -212,13 +214,15 @@
 		4F94F1CD2643FEE500780413 /* AppInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppInfo.swift; sourceTree = "<group>"; };
 		547D83D5265A500E00887C9C /* Chat.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Chat.storyboard; sourceTree = "<group>"; };
 		547D83D7265A502A00887C9C /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
-		547D83DD265A509800887C9C /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		8120ED2E264C2407004E0206 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		81891D9F264FDA1B00E8741E /* MSBBarChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSBBarChartView.swift; sourceTree = "<group>"; };
 		81891DA62652DD9800E8741E /* IncomingRideRequestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomingRideRequestView.swift; sourceTree = "<group>"; };
 		81891DA82652DDC200E8741E /* IncomingRideRequestView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IncomingRideRequestView.xib; sourceTree = "<group>"; };
 		81891DAA2654466A00E8741E /* AcceptedRideDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcceptedRideDetailsView.swift; sourceTree = "<group>"; };
 		81891DAC2654468A00E8741E /* AcceptedRideDetailsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AcceptedRideDetailsView.xib; sourceTree = "<group>"; };
+		81891DAE265E749C00E8741E /* CancelRideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelRideView.swift; sourceTree = "<group>"; };
+		81891DB0265E74B300E8741E /* CancelRideView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CancelRideView.xib; sourceTree = "<group>"; };
+		81891DB3265E880600E8741E /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		81A55388264B9E5500698413 /* ConstantString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantString.swift; sourceTree = "<group>"; };
 		81A5538D264BC5A600698413 /* EarningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarningViewController.swift; sourceTree = "<group>"; };
 		81A5538F264BC5CF00698413 /* TodayEarningChildViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayEarningChildViewController.swift; sourceTree = "<group>"; };
@@ -585,14 +589,6 @@
 			path = StoryBoards;
 			sourceTree = "<group>";
 		};
-		547D83DC265A509800887C9C /* ChatVC */ = {
-			isa = PBXGroup;
-			children = (
-				547D83DD265A509800887C9C /* ChatViewController.swift */,
-			);
-			path = ChatVC;
-			sourceTree = "<group>";
-		};
 		81891D9C264FDA1B00E8741E /* MSBBarChart */ = {
 			isa = PBXGroup;
 			children = (
@@ -608,8 +604,18 @@
 				81891DA82652DDC200E8741E /* IncomingRideRequestView.xib */,
 				81891DAA2654466A00E8741E /* AcceptedRideDetailsView.swift */,
 				81891DAC2654468A00E8741E /* AcceptedRideDetailsView.xib */,
+				81891DAE265E749C00E8741E /* CancelRideView.swift */,
+				81891DB0265E74B300E8741E /* CancelRideView.xib */,
 			);
 			path = "Arrived Rides Steps";
+			sourceTree = "<group>";
+		};
+		81891DB2265E880600E8741E /* ChatVC */ = {
+			isa = PBXGroup;
+			children = (
+				81891DB3265E880600E8741E /* ChatViewController.swift */,
+			);
+			path = ChatVC;
 			sourceTree = "<group>";
 		};
 		81A5538C264BC56D00698413 /* Earnings */ = {
@@ -672,7 +678,7 @@
 		84A5D0FD2646A63800AAFAB0 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				547D83DC265A509800887C9C /* ChatVC */,
+				81891DB2265E880600E8741E /* ChatVC */,
 				81891DA32651887C00E8741E /* Arrived Rides Steps */,
 				81A5538C264BC56D00698413 /* Earnings */,
 				843F8057264A6F4700BCBDB8 /* SideMenu */,
@@ -827,6 +833,7 @@
 				547D83D6265A500E00887C9C /* Chat.storyboard in Resources */,
 				4F94F1C42643E72800780413 /* Ubuntu-Italic.ttf in Resources */,
 				4F94F1252643D76700780413 /* LaunchScreen.storyboard in Resources */,
+				81891DB1265E74B300E8741E /* CancelRideView.xib in Resources */,
 				4F94F1C62643E72800780413 /* UFL.txt in Resources */,
 				4F94F1BE2643E72800780413 /* Ubuntu-Medium.ttf in Resources */,
 				4F94F1722643DB5F00780413 /* navigationCommonView.xib in Resources */,
@@ -1019,7 +1026,6 @@
 				4F94F1782643DB5F00780413 /* UIImage+Extension.swift in Sources */,
 				843F806F264A706400BCBDB8 /* Delegate.swift in Sources */,
 				4F94F1AD2643DB7600780413 /* Singleton.swift in Sources */,
-				547D83DE265A509800887C9C /* ChatViewController.swift in Sources */,
 				4F94F1AF2643DB7600780413 /* WebServicesSubClass.swift in Sources */,
 				4F94F1772643DB5F00780413 /* UIView+Extension.swift in Sources */,
 				4F94F1752643DB5F00780413 /* String+Extensions.swift in Sources */,
@@ -1032,6 +1038,7 @@
 				81891DA1264FDA1B00E8741E /* MSBBarChartView.swift in Sources */,
 				4F94F1A82643DB7600780413 /* ProfileUpdateReqModel.swift in Sources */,
 				843F806C264A706400BCBDB8 /* Preferences.swift in Sources */,
+				81891DB4265E880600E8741E /* ChatViewController.swift in Sources */,
 				4F94F1852643DB5F00780413 /* customTextField.swift in Sources */,
 				4F94F1812643DB5F00780413 /* UICollectionViewCell+Extension.swift in Sources */,
 				84A5D0CE2646940A00AAFAB0 /* EditProfileCell.swift in Sources */,
@@ -1076,6 +1083,7 @@
 				4F94F1192643D76500780413 /* AppDelegate.swift in Sources */,
 				848FE833264A38E4008B6586 /* RideReceiptDetailsVC.swift in Sources */,
 				4F1A763F26455C7B003F00CF /* BankDetailsVC.swift in Sources */,
+				81891DAF265E749C00E8741E /* CancelRideView.swift in Sources */,
 				4F94F1B12643DB7600780413 /* Validators.swift in Sources */,
 				4F94F1882643DB5F00780413 /* customTextView.swift in Sources */,
 				4F94F1802643DB5F00780413 /* Data+Extensions.swift in Sources */,

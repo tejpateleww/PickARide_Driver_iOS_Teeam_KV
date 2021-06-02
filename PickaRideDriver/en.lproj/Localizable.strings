@@ -42,3 +42,7 @@
 "HomeScreen_btnArrived" = "ARRIVED";
 "HomeScreen_lblEnterTripCode" = "Enter Trip Code";
 "lblOk" = "OK";
+"HomeScreen_CancelRide" = "Cancel Ride";
+"HomeScreen_btnDone" = "DONE";
+"HomeScreen_btnYesCancel" = "YES, CANCEL";
+"HomeScreen_btnNo" = "NO";
