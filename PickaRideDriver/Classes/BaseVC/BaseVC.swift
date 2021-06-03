@@ -28,6 +28,7 @@ class BaseVC: UIViewController, UIGestureRecognizerDelegate{
     var navBtnProfile = UIButton()
     var navBtnDone = UIButton()
     
+    
 //    override func viewDidLayoutSubviews() {
 //        super.viewDidLayoutSubviews()
 //        let bounds = self.navigationController!.navigationBar.bounds
@@ -589,6 +590,20 @@ class PlayerViewController: AVPlayerViewController, UIGestureRecognizerDelegate{
             
         }
     }
+    func textfieldRightbtn(image : UIImage, textfield : UITextField){
+        let btn = UIButton(frame: CGRect(x: textfield.frame.width - 30, y: textfield.frame.height / 2 - 15, width: 30, height: 30))
+        btn.setImage(image, for: .normal)
+        btn.tag = textfield.tag
+                btn.addTarget(self, action: #selector(iconAction(sender:)), for: .touchUpInside)
+        textfield.rightView = btn
+        textfield.rightViewMode = .always
+    }
+    
+    @objc func iconAction(sender: UIButton){
+//        self.onTxtBtnPressed!(sender.tag)
+    }
+    
+    
     @objc func EditProfile()
     {
     print("Edit Profile")
