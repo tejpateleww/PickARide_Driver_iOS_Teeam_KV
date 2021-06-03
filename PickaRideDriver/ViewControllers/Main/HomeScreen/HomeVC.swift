@@ -40,6 +40,7 @@ class HomeVC: BaseVC {
         super.viewDidLoad()
         setNavigationBarInViewController(controller: self, naviColor: colors.appColor.value, naviTitle: NavTitles.none.value, leftImage: NavItemsLeft.menu.value, rightImages: [NavItemsRight.sos.value], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
         handleRideFlow(state: RideState.None)
+//        vwMap
     }
     
     
@@ -134,6 +135,9 @@ extension HomeVC : CancelRideViewDelgate
         if (decision == 1) //Yes
         {
             let controller = AppStoryboard.Main.instance.instantiateViewController(withIdentifier: CancelRideVC.storyboardID) as! CancelRideVC
+            controller.cancelReqClosure = {
+                self.handleRideFlow(state: RideState.None)
+            }
             self.navigationController?.pushViewController(controller, animated: true)
             
         }else //No

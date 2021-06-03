@@ -1,6 +1,7 @@
 PODS:
   - Alamofire (5.0.0)
   - Cosmos (23.0.0)
+  - DropDown (2.3.13)
   - Firebase/CoreOnly (7.11.0):
     - FirebaseCore (= 7.11.0)
   - Firebase/Messaging (7.11.0):
@@ -726,6 +727,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire
   - Cosmos (~> 23.0)
+  - DropDown
   - Firebase/Messaging
   - GoogleMaps
   - GooglePlacePicker
@@ -741,6 +743,7 @@ SPEC REPOS:
   trunk:
     - Alamofire
     - Cosmos
+    - DropDown
     - Firebase
     - FirebaseCore
     - FirebaseCoreDiagnostics
@@ -768,6 +771,7 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Alamofire: 58ff2bfb8daaacaa233d5c36e37b10a5248f59b1
   Cosmos: b5c6a9a637e28a061b54c8f8b1d8529d7d4db73f
+  DropDown: 8a2116376c1981888557f72ec2ffc9a5e0e456ec
   Firebase: c121feb35e4126c0b355e3313fa9b487d47319fd
   FirebaseCore: 907447d8917a4d3eb0cce2829c5a0ad21d90b432
   FirebaseCoreDiagnostics: 68ad972f99206cef818230f3f3179d52ccfb7f8c
@@ -792,6 +796,6 @@ SPEC CHECKSUMS:
   SkyFloatingLabelTextField: 79ddc40e4ad59707fedbb48d605417aee48bb78a
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
 
-PODFILE CHECKSUM: 7b06d0b498a5ca968a989cfce5300cc73c6d87fd
+PODFILE CHECKSUM: 9690d0df7615cd162382ffa4d88d814611e19c1c
 
 COCOAPODS: 1.10.1

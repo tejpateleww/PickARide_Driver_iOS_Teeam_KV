@@ -16,6 +16,7 @@ target 'PickaRideDriver' do
   pod 'SkyFloatingLabelTextField'
   pod 'MaterialComponents'
   pod 'SDWebImage'
+  pod 'DropDown'
 
   # Pods for PickaRideDriver
 

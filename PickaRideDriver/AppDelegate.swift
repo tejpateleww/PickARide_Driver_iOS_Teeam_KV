@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import IQKeyboardManagerSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -20,7 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     {
         // Override point for customization after application launch.
 //        navigateToLogin()
-        
+        IQKeyboardManager.shared.enable = true
+        IQKeyboardManager.shared.shouldResignOnTouchOutside = true
         checkAndSetDefaultLanguage()
         SideMenuController.preferences.basic.menuWidth = UIScreen.main.bounds.width - 100
         SideMenuController.preferences.basic.defaultCacheKey = "0"

@@ -29,7 +29,7 @@ class themeTextField : UITextField{
         self.leftViewMode = .always
         self.layer.borderWidth = 1
         self.layer.borderColor = colors.textfieldbordercolor.value.cgColor
-        self.tintColor = Font_Color
+        self.tintColor = themeColor
         if isbold{
             self.font = CustomFont.bold.returnFont(Font_Size)
         }else if isMedium{
@@ -39,7 +39,6 @@ class themeTextField : UITextField{
         }else{
             self.font = CustomFont.regular.returnFont(Font_Size)
         }
-        
     }
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -104,9 +103,9 @@ class themeMeterialFloatingTextfield: UIView {
         //Change this properties to change the colors of border around text
         textFieldControllerFloating = MDCTextInputControllerOutlined(textInput: textField)
 
-//        textFieldControllerFloating.activeColor = borderGrayColor
-//        textFieldControllerFloating.floatingPlaceholderActiveColor = borderGrayColor
-//        textFieldControllerFloating.normalColor = borderGrayColor
+        textFieldControllerFloating.activeColor = themeColor
+        textFieldControllerFloating.floatingPlaceholderActiveColor = themeColor
+        textFieldControllerFloating.normalColor = themeColor
         textFieldControllerFloating.inlinePlaceholderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.47)
 
         //Change this font to make borderRect bigger

@@ -30,6 +30,7 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         setupLocalization()
         hideKeyboardWhenTappedAround()
+        setupTextfields(textfield: mViewPassword.textField)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -52,6 +53,24 @@ class LoginViewController: UIViewController {
     }
     
     //MARK: -IBActions
+    
+    func setupTextfields(textfield : UITextField) {
+        let button = UIButton(type: .custom)
+        button.isSelected = true
+        button.setImage(UIImage(named: "showpassword"), for: .normal)
+        button.setImage(UIImage(named: "hidepassword"), for: .selected)
+        button.imageEdgeInsets = UIEdgeInsets(top: 5, left: -16, bottom: -5, right: 0)
+        button.frame = CGRect(x: CGFloat(textfield.frame.size.width - 25), y: CGFloat(5), width: CGFloat(25), height: CGFloat(25))
+        button.tag = textfield.tag
+        button.addTarget(self, action: #selector(self.showHidePassword), for: .touchUpInside)
+        textfield.rightView = button
+        textfield.rightViewMode = .always
+    }
+    
+    @IBAction func showHidePassword(_ sender : UIButton) {
+        sender.isSelected = !sender.isSelected
+        self.mViewPassword.textField.isSecureTextEntry = sender.isSelected
+    }
     
     @IBAction func signUP(_ sender: Any)
     {

@@ -443,7 +443,7 @@
                                                                             <constraint firstAttribute="height" constant="40" id="gL5-6u-qlK"/>
                                                                         </constraints>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                        <textInputTraits key="textInputTraits"/>
+                                                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                                                     </textField>
                                                                 </subviews>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -724,7 +724,7 @@
                                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u8D-jT-aMZ">
                                                                                         <rect key="frame" x="289" y="0.0" width="50" height="20.5"/>
                                                                                         <subviews>
-                                                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_UpReg" translatesAutoresizingMaskIntoConstraints="NO" id="MBt-Lt-694">
+                                                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_DownReg" translatesAutoresizingMaskIntoConstraints="NO" id="MBt-Lt-694">
                                                                                                 <rect key="frame" x="25" y="3" width="15" height="15"/>
                                                                                                 <constraints>
                                                                                                     <constraint firstAttribute="width" secondItem="MBt-Lt-694" secondAttribute="height" multiplier="1:1" id="C2J-jI-BMS"/>
@@ -830,7 +830,7 @@
                                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oqQ-7T-Jl9">
                                                                                         <rect key="frame" x="289" y="0.0" width="50" height="20.5"/>
                                                                                         <subviews>
-                                                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_UpReg" translatesAutoresizingMaskIntoConstraints="NO" id="sMW-wA-tHl">
+                                                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_DownReg" translatesAutoresizingMaskIntoConstraints="NO" id="sMW-wA-tHl">
                                                                                                 <rect key="frame" x="25" y="3" width="15" height="15"/>
                                                                                                 <constraints>
                                                                                                     <constraint firstAttribute="height" constant="15" id="9Ps-l1-HZR"/>
@@ -1044,7 +1044,7 @@
                                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rIe-xD-vMx">
                                                                                         <rect key="frame" x="289" y="0.0" width="50" height="20.5"/>
                                                                                         <subviews>
-                                                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_UpReg" translatesAutoresizingMaskIntoConstraints="NO" id="R4f-5j-zMU">
+                                                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_DownReg" translatesAutoresizingMaskIntoConstraints="NO" id="R4f-5j-zMU">
                                                                                                 <rect key="frame" x="25" y="3" width="15" height="15"/>
                                                                                                 <constraints>
                                                                                                     <constraint firstAttribute="width" secondItem="R4f-5j-zMU" secondAttribute="height" multiplier="1:1" id="ueF-5c-tYb"/>
@@ -1252,7 +1252,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Wxw-gg-9JG">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="467"/>
                                         <inset key="separatorInset" minX="65" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CancelRideCell" id="unk-FN-Zho" customClass="CancelRideCell" customModule="PickaRideDriver" customModuleProvider="target">
@@ -1309,12 +1309,33 @@
                                             </tableViewCell>
                                         </prototypes>
                                     </tableView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kkb-LU-Vnq" customClass="themeButton" customModule="PickaRideDriver" customModuleProvider="target">
+                                        <rect key="frame" x="18" y="607" width="339" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="8Jp-Wz-3mD"/>
+                                        </constraints>
+                                        <state key="normal" title="Done"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isthemeBg" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="Font_Size">
+                                                <real key="value" value="14"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isbold" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="btnDoneTap:" destination="Yhv-1i-iXl" eventType="touchUpInside" id="xBc-vI-xmh"/>
+                                            <action selector="btnNextTap:" destination="7gq-TC-y65" eventType="touchUpInside" id="umF-fa-32f"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="Wxw-gg-9JG" secondAttribute="bottom" id="71j-ps-xel"/>
+                                    <constraint firstAttribute="bottom" secondItem="Wxw-gg-9JG" secondAttribute="bottom" constant="200" id="71j-ps-xel"/>
                                     <constraint firstItem="Wxw-gg-9JG" firstAttribute="leading" secondItem="yLd-zo-Klf" secondAttribute="leading" id="8lp-Q1-XhC"/>
                                     <constraint firstItem="Wxw-gg-9JG" firstAttribute="top" secondItem="yLd-zo-Klf" secondAttribute="top" id="Ns4-EI-HgC"/>
+                                    <constraint firstAttribute="trailing" secondItem="Kkb-LU-Vnq" secondAttribute="trailing" constant="18" id="cpL-XK-ld3"/>
+                                    <constraint firstItem="Kkb-LU-Vnq" firstAttribute="leading" secondItem="yLd-zo-Klf" secondAttribute="leading" constant="18" id="kMC-1B-ZXR"/>
+                                    <constraint firstAttribute="bottom" secondItem="Kkb-LU-Vnq" secondAttribute="bottom" constant="20" id="nPc-3r-iWP"/>
                                     <constraint firstAttribute="trailing" secondItem="Wxw-gg-9JG" secondAttribute="trailing" id="xdD-Id-ENt"/>
                                 </constraints>
                             </view>
@@ -1329,6 +1350,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="btnDone" destination="Kkb-LU-Vnq" id="H0V-nJ-ce0"/>
                         <outlet property="tblReasonForCancel" destination="Wxw-gg-9JG" id="V1D-Ol-vyn"/>
                     </connections>
                 </viewController>
@@ -5097,7 +5119,6 @@
         <image name="ic_DownReg" width="14" height="8"/>
         <image name="ic_OnButton" width="100" height="100"/>
         <image name="ic_SOSBtn" width="77" height="36"/>
-        <image name="ic_UpReg" width="14" height="8"/>
         <image name="ic_camera" width="12" height="9"/>
         <image name="ic_done" width="45" height="45"/>
         <image name="ic_sideMenu" width="48" height="48"/>
