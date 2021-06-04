@@ -20,6 +20,7 @@ class PersonalDocumentCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         btnUpload.tintColor = themeColor
+        btnRight.tintColor = themeColor
         // Initialization code
     }
     @IBOutlet weak var btnUpload: themeButton!

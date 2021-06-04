@@ -190,8 +190,8 @@ extension MenuViewController: UITableViewDelegate, UITableViewDataSource
         else if strCellItemTitle == MyType.Help.value
         {
           
-            let controller = AppStoryboard.Chat.instance.instantiateViewController(withIdentifier: ChatViewController.storyboardID) as! ChatViewController
-            homeVC?.navigationController?.pushViewController(controller, animated: true)
+//            let controller = AppStoryboard.Chat.instance.instantiateViewController(withIdentifier: ChatViewController.storyboardID) as! ChatViewController
+//            homeVC?.navigationController?.pushViewController(controller, animated: true)
         }
         else if strCellItemTitle == MyType.Logout.value {
             let alert = UIAlertController(title: "Logout", message: "Are you sure you want to logout?", preferredStyle: .alert)

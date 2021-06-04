@@ -536,7 +536,7 @@
                                                             </tableViewCell>
                                                         </prototypes>
                                                     </tableView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="am1-XB-xdc" customClass="themeButton" customModule="PickaRideDriver" customModuleProvider="target">
+                                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="am1-XB-xdc" customClass="themeButton" customModule="PickaRideDriver" customModuleProvider="target">
                                                         <rect key="frame" x="18" y="637" width="339" height="48"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="48" id="AKp-jq-rkQ"/>
@@ -549,6 +549,9 @@
                                                             </userDefinedRuntimeAttribute>
                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="isbold" value="YES"/>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="btnSaveTap:" destination="SkH-wI-lWi" eventType="touchUpInside" id="Ut9-wS-f8t"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -597,6 +600,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="btnSave" destination="am1-XB-xdc" id="r3O-XH-RNt"/>
                         <outlet property="btnUpdatePicture" destination="UZd-0b-rcS" id="UL5-YN-Vvd"/>
                         <outlet property="imgProfile" destination="vKp-nl-7IX" id="f6c-RB-3Uc"/>
                         <outlet property="tblEditProfile" destination="BNs-Te-RoG" id="ya5-Aw-ooF"/>

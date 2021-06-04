@@ -77,6 +77,9 @@ fileprivate extension HomeVC {
             
             incomingRideRequestView.isHidden = true
             acceptedRideDetailsView.isHidden = true
+//            incomingRideRequestView.noThanksTapClosure = {
+//
+//            }
             cancelRideView.isHidden = true
         
         }else if (state == RideState.NewRequest)
@@ -113,6 +116,10 @@ extension HomeVC : IncomingRideRequestViewDelegate
         
     }
     
+    func onNoThanksRequest(){
+        handleRideFlow(state: RideState.None)
+    }
+    
     func onAcceptRideRequest() {
         handleRideFlow(state: RideState.RequestAccepted)
     }
@@ -138,6 +145,7 @@ extension HomeVC : CancelRideViewDelgate
             controller.cancelReqClosure = {
                 self.handleRideFlow(state: RideState.None)
             }
+            
             self.navigationController?.pushViewController(controller, animated: true)
             
         }else //No

@@ -71,8 +71,9 @@ class PersonalDocumentVC: BaseVC {
         }else{
             let vc : WaitingForApprovalVC = WaitingForApprovalVC.instantiate(fromAppStoryboard: .Login)
             vc.NavigatetoHomeClosure = {
-                userDefault.setValue(true, forKey: UserDefaultsKey.isUserLogin.rawValue)
-                appDel.navigateToMain()
+//                userDefault.setValue(true, forKey: UserDefaultsKey.isUserLogin.rawValue)
+//                appDel.navigateToMain()
+                self.navigationController?.popToRootViewController(animated: true)
             }
         self.present(vc, animated: false, completion: nil)
         }

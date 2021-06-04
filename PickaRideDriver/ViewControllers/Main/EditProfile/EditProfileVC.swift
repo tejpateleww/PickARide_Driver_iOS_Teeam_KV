@@ -21,6 +21,7 @@ class EditProfileVC: BaseVC {
     @IBOutlet weak var txtEmail: themeTextField!
     @IBOutlet weak var txtPhoneNumber: UITextField!
     @IBOutlet weak var txtPassword: themeTextField!
+    @IBOutlet weak var btnSave: themeButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         setNavigationBarInViewController(controller: self, naviColor: colors.appColor.value, naviTitle: NavTitles.none.value, leftImage: NavItemsLeft.cancel.value, rightImages: [NavItemsRight.EditProfile.value], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
@@ -43,7 +44,9 @@ class EditProfileVC: BaseVC {
             self.imagePicker.present(from: self.imgProfile, viewPresented: self.view, isRemove: false)
         }
     }
-    
+    override func EditProfileBtn(_ sender: UIButton?) {
+        btnSave.isHidden = false
+    }
     
     func setupTextfields(textfield : UITextField) {
         let button = UIButton(type: .custom)
@@ -58,6 +61,8 @@ class EditProfileVC: BaseVC {
         textfield.rightViewMode = .always
     }
     
+    @IBAction func btnSaveTap(_ sender: UIButton) {
+    }
     @IBAction func showHidePassword(_ sender : UIButton) {
         
         sender.isSelected = !sender.isSelected
@@ -79,6 +84,24 @@ extension EditProfileVC : UITableViewDelegate,UITableViewDataSource{
         cell.lblEditProfile.text = arrEditProfile[indexPath.row]
         cell.selectionStyle = .none
         return cell
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if arrEditProfile[indexPath.row] == "Edit Bank Details"{
+            let vc : BankDetailsVC = BankDetailsVC.instantiate(fromAppStoryboard: .Login)
+            self.navigationController?.pushViewController(vc, animated: true)
+        }else if arrEditProfile[indexPath.row] == "Edit Personal Details"{
+            let vc : PersonalDocumentVC = PersonalDocumentVC.instantiate(fromAppStoryboard: .Login)
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+        else if arrEditProfile[indexPath.row] == "Edit Vehicle Details"{
+            let vc : AddVehicleVC = AddVehicleVC.instantiate(fromAppStoryboard: .Main)
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+        else if arrEditProfile[indexPath.row] == "Edit Vehicle Documents"{
+            let vc : PersonalDocumentVC = PersonalDocumentVC.instantiate(fromAppStoryboard: .Login)
+            vc.isVehicleDocument = true
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
 }
 // MARK: - ImagePickerDelegate

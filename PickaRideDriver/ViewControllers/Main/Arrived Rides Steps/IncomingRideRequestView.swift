@@ -10,12 +10,14 @@ import UIKit
 protocol IncomingRideRequestViewDelegate {
     func onAcceptRideRequest()
     func onCancelRideRequest()
+    func onNoThanksRequest()
 }
 
 class IncomingRideRequestView: UIView {
     
     var delegate : IncomingRideRequestViewDelegate?
     
+    @IBOutlet weak var btnNoThanks: UIButton!
     @IBOutlet weak var viewContainer: UIView!
     @IBOutlet weak var lblDropUpAddress: CommonLabel!
     @IBOutlet weak var lblPickUpAddress: CommonLabel!
@@ -29,6 +31,8 @@ class IncomingRideRequestView: UIView {
     @IBOutlet weak var viewCount: UIView!
     @IBOutlet weak var lblCount: CommonLabel!
     @IBOutlet weak var lblNoThanks: CommonLabel!
+    
+    var noThanksTapClosure : (()->())?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -67,6 +71,9 @@ class IncomingRideRequestView: UIView {
         lblPickUpAddress.text = "1 Ash Park, Pembroke Dock, SA72"
         lblDropUpAddress.text = "54 Hollybank Rd, Southampton"
         lblCount.text = "15"
+    }
+    @IBAction func btnNoThanksTap(_ sender: UIButton) {
+        delegate?.onNoThanksRequest()
     }
 }
     

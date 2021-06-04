@@ -219,7 +219,7 @@ class BaseVC: UIViewController, UIGestureRecognizerDelegate{
                    // btnProfile.addTarget(self, action: #selector(openLoginVC(_:)), for: .touchUpInside)
                     navBtnProfile.layer.setValue(controller, forKey: "controller")
                     viewProfile.addSubview(navBtnProfile)
-
+                    navBtnProfile.addTarget(self, action: #selector(EditProfileBtn(_:)), for: .touchUpInside)
                     navBtnProfile.layer.shadowColor = colors.black.value.cgColor
                     navBtnProfile.layer.shadowOffset = CGSize(width: 0, height: 0)
                     navBtnProfile.layer.shadowRadius = 3
@@ -402,6 +402,11 @@ class BaseVC: UIViewController, UIGestureRecognizerDelegate{
 //        let notifVc = AppStoryboard.Login.instance.instantiateViewController(withIdentifier: NotificationsListVC.storyboardID)
         controller?.navigationController?.popViewController(animated: true)
     }
+    
+    @objc func EditProfileBtn(_ sender: UIButton?){
+        
+    }
+    
     @objc func OpenMailVC(_ sender: UIButton?) {
    
 //        controller?.navigationController?.pushViewController(docInfoVc, animated: true)
