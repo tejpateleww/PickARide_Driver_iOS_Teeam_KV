@@ -50,7 +50,7 @@ enum NavItemsRight {
         case .sos:
             return "ic_SOSBtn"
         case .help:
-            return "ic_Help"
+            return "imgHelp"
         }
     }
 }

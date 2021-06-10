@@ -282,7 +282,7 @@ class BaseVC: UIViewController, UIGestureRecognizerDelegate{
 
                     let btnProfileEdit = UIButton.init()
                     btnProfileEdit.frame = CGRect(x: 0, y: 0, width: 44, height: 44)
-                    btnProfileEdit.setImage(UIImage.init(named: "ic_Help"), for: .normal)
+                    btnProfileEdit.setImage(UIImage.init(named: "imgHelp"), for: .normal)
 //                    btnProfileEdit.addTarget(self, action: #selector(EditUserProfile(_:)), for: .touchUpInside)
                    // btnProfile.addTarget(self, action: #selector(openLoginVC(_:)), for: .touchUpInside)
                     btnProfileEdit.layer.setValue(controller, forKey: "controller")

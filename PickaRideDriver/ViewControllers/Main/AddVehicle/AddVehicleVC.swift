@@ -29,8 +29,12 @@ class AddVehicleVC: BaseVC, UITextFieldDelegate {
     var modelDropDown = ["Tata Harrier","Hundai i20"]
     var carYearDropDown = ["2020","2021"]
     var onTxtBtnPressed: ( (Int) -> () )?
+    var isFromEditProfile : Bool = false
     override func viewDidLoad() {
         super.viewDidLoad()
+        if isFromEditProfile{
+            btnNext.setTitle("SAVE", for: .normal)
+        }
         
         self.Dropdown(Dropdown: self.BrandDropDown, StringArray: self.brandDropDown, control: self.txtBrand, displayView: lblBrandLine)
         self.Dropdown(Dropdown: self.ModelDropDown, StringArray: self.modelDropDown, control: self.txtModel, displayView: lblModelLine)
@@ -77,8 +81,12 @@ class AddVehicleVC: BaseVC, UITextFieldDelegate {
     }
     
     @IBAction func btnNextTap(_ sender: Any) {
+        if isFromEditProfile{
+            self.navigationController?.popViewController(animated: true)
+        }else{
         let vc : PersonalDocumentVC = PersonalDocumentVC.instantiate(fromAppStoryboard: .Login)
         vc.isVehicleDocument = true
         self.navigationController?.pushViewController(vc, animated: true)
-    }
+        }
+        }
 }

@@ -20,13 +20,19 @@ class AcceptedRideDetailsView: UIView {
     @IBOutlet weak var ViewTripCode: UIView!
     @IBOutlet weak var lblTime: CommonLabel!
     @IBOutlet weak var imageViewProfile: UIImageView!
+    @IBOutlet weak var btnSos: UIButton!
     @IBOutlet weak var lblExtraTime: CommonLabel!
+    @IBOutlet weak var btnNavigate: UIButton!
     @IBOutlet weak var lblMessage: CommonLabel!
     @IBOutlet weak var viewDropLocation: UIView!
     @IBOutlet weak var lbDropLocation: UILabel!
     @IBOutlet weak var lblEnterTripCode: CommonLabel!
     @IBOutlet weak var viewContactOptions: UIView!
     @IBOutlet weak var txtfieldTripCode: UITextField!
+    
+    var isArrived : Bool = false
+    var isComplete : Bool = false
+    var isCompleteClicked : Bool = false
     override func awakeFromNib() {
         super.awakeFromNib()
          setupView()
@@ -51,9 +57,40 @@ class AcceptedRideDetailsView: UIView {
         lbDropLocation.text = "1 Ash Park, Pembroke Dock, SA7254, Drury Lane, Oldham, OL9 7PH"
     }
     
+    @IBAction func btnNavigateTap(_ sender: Any) {
+        
+    }
     @IBAction func btnSubmitButtonClickAction(_ sender: Any) {
-        ViewTripCode.isHidden = false
-        btnSubmit.setTitle(ConstantString.BUTTON_TITLE_OK, for: .normal)
+        if  isCompleteClicked{
+            isComplete = false
+            isCompleteClicked = false
+            delegate?.onArrivedUserLocation()
+            btnSubmit.setTitle("ARRIVED", for: .normal)
+            btnNavigate.isHidden = false
+        }else if isComplete{
+            btnSubmit.setTitle("COMPLETE", for: .normal)
+            isComplete = false
+            isCompleteClicked = true
+            btnNavigate.isHidden = true
+//            delegate?.onArrivedUserLocation()
+        }else if isArrived{
+            
+            ViewTripCode.isHidden = true
+            btnSubmit.setTitle("START RIDE", for: .normal)
+            btnNavigate.isHidden = false
+            lblMessage.text = "Arrived Rockden"
+            isArrived = false
+            isComplete = true
+        }else{
+            ViewTripCode.isHidden = false
+            btnSubmit.setTitle(ConstantString.BUTTON_TITLE_OK, for: .normal)
+            if btnSubmit.title(for: .normal) == ConstantString.BUTTON_TITLE_OK{
+                isArrived = true
+            }
+        }
+        
+    }
+    @IBAction func btnSosTap(_ sender: Any) {
     }
     
     @IBAction func btnCallClickAction(_ sender: Any) {

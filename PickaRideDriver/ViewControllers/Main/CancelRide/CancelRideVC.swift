@@ -55,4 +55,7 @@ extension  CancelRideVC : UITableViewDelegate,UITableViewDataSource{
         selectIndex = indexPath.row
         tblReasonForCancel.reloadData()
     }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
 }

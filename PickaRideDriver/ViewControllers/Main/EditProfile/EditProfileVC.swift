@@ -13,6 +13,7 @@ class EditProfileVC: BaseVC {
     private var imagePicker : ImagePicker!
     var isRemovePhoto = false
     @IBOutlet weak var vwMobile: UIView!
+    @IBOutlet weak var lblName: themeLabel!
     @IBOutlet weak var tblEditProfile: UITableView!
     @IBOutlet weak var tblEditProfileHeight: NSLayoutConstraint!
     @IBOutlet weak var btnUpdatePicture: UIButton!
@@ -33,7 +34,17 @@ class EditProfileVC: BaseVC {
         self.imagePicker = ImagePicker(presentationController: self, delegate: self, allowsEditing: false)
         self.imagePicker = ImagePicker(presentationController: self, delegate: self, allowsEditing: true)
         tblEditProfile.addObserver(self, forKeyPath: "contentSize", options: .new, context: nil)
-        setupTextfields(textfield: txtPassword)
+//        setupTextfields(textfield: txtPassword)
+        varifiedTextFields(textfield: txtEmail)
+        varifiedTextFields(textfield: txtPhoneNumber)
+        txtName.isUserInteractionEnabled = false
+        txtPassword.isUserInteractionEnabled = false
+        txtEmail.textColor = .lightGray
+        txtPhoneNumber.textColor = .lightGray
+        txtName.textColor = .lightGray
+        txtPassword.textColor = .lightGray
+        txtEmail.isUserInteractionEnabled = false
+        txtPhoneNumber.isUserInteractionEnabled = false
         // Do any additional setup after loading the view.
     }
     @IBAction func btnEditProfile(_ sender: Any) {
@@ -46,13 +57,30 @@ class EditProfileVC: BaseVC {
     }
     override func EditProfileBtn(_ sender: UIButton?) {
         btnSave.isHidden = false
+        setNavigationBarInViewController(controller: self, naviColor: colors.appColor.value, naviTitle: NavTitles.none.value, leftImage: NavItemsLeft.cancel.value, rightImages: [NavItemsRight.none.value], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
+        txtName.isUserInteractionEnabled = true
+        txtPassword.isUserInteractionEnabled = true
+        txtName.textColor = .black
+        txtPassword.textColor = .black
     }
     
     func setupTextfields(textfield : UITextField) {
         let button = UIButton(type: .custom)
         button.isSelected = true
-        button.setImage(UIImage(named: "showpassword"), for: .normal)
-        button.setImage(UIImage(named: "hidepassword"), for: .selected)
+        button.setImage(#imageLiteral(resourceName: "ImgGraterThen"), for: .normal)
+        button.tintColor = .gray
+//        button.setImage(UIImage(named: "hidepassword"), for: .selected)
+        button.imageEdgeInsets = UIEdgeInsets(top: 0, left: -16, bottom: 0, right: 0)
+        button.frame = CGRect(x: CGFloat(textfield.frame.size.width - 25), y: CGFloat(5), width: CGFloat(25), height: CGFloat(25))
+        button.tag = textfield.tag
+        button.addTarget(self, action: #selector(self.showHidePassword), for: .touchUpInside)
+        textfield.rightView = button
+        textfield.rightViewMode = .always
+    }
+    func varifiedTextFields(textfield : UITextField) {
+        let button = UIButton(type: .custom)
+        button.isSelected = true
+        button.setImage(#imageLiteral(resourceName: "ImgRightArrow"), for: .normal)
         button.imageEdgeInsets = UIEdgeInsets(top: 0, left: -16, bottom: 0, right: 0)
         button.frame = CGRect(x: CGFloat(textfield.frame.size.width - 25), y: CGFloat(5), width: CGFloat(25), height: CGFloat(25))
         button.tag = textfield.tag
@@ -62,16 +90,22 @@ class EditProfileVC: BaseVC {
     }
     
     @IBAction func btnSaveTap(_ sender: UIButton) {
+        btnSave.isHidden = true
+        setNavigationBarInViewController(controller: self, naviColor: colors.appColor.value, naviTitle: NavTitles.none.value, leftImage: NavItemsLeft.cancel.value, rightImages: [NavItemsRight.EditProfile.value], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
+        txtName.isUserInteractionEnabled = false
+        txtPassword.isUserInteractionEnabled = false
+        txtName.textColor = .lightGray
+        txtPassword.textColor = .lightGray
     }
     @IBAction func showHidePassword(_ sender : UIButton) {
-        
-        sender.isSelected = !sender.isSelected
-        self.txtPassword.isSecureTextEntry = sender.isSelected
-        
+//
+//        sender.isSelected = !sender.isSelected
+//        self.txtPassword.isSecureTextEntry = sender.isSelected
+//
     }
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?){
         if(keyPath == "contentSize"){
-            self.tblEditProfileHeight.constant = tblEditProfile.contentSize.height < 122.5 ? 122.5: tblEditProfile.contentSize.height
+            self.tblEditProfileHeight.constant = tblEditProfile.contentSize.height < 34 ? 34: tblEditProfile.contentSize.height
         }
     }
 }
@@ -88,20 +122,27 @@ extension EditProfileVC : UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if arrEditProfile[indexPath.row] == "Edit Bank Details"{
             let vc : BankDetailsVC = BankDetailsVC.instantiate(fromAppStoryboard: .Login)
+            vc.isFromEditProfile = true
             self.navigationController?.pushViewController(vc, animated: true)
         }else if arrEditProfile[indexPath.row] == "Edit Personal Details"{
             let vc : PersonalDocumentVC = PersonalDocumentVC.instantiate(fromAppStoryboard: .Login)
+            vc.isFromEditProfile = true
             self.navigationController?.pushViewController(vc, animated: true)
         }
         else if arrEditProfile[indexPath.row] == "Edit Vehicle Details"{
             let vc : AddVehicleVC = AddVehicleVC.instantiate(fromAppStoryboard: .Main)
+            vc.isFromEditProfile = true
             self.navigationController?.pushViewController(vc, animated: true)
         }
         else if arrEditProfile[indexPath.row] == "Edit Vehicle Documents"{
             let vc : PersonalDocumentVC = PersonalDocumentVC.instantiate(fromAppStoryboard: .Login)
+            vc.isFromEditProfile = true
             vc.isVehicleDocument = true
             self.navigationController?.pushViewController(vc, animated: true)
         }
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
     }
 }
 // MARK: - ImagePickerDelegate

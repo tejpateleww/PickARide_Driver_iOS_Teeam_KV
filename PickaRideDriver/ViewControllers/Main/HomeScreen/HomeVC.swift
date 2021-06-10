@@ -47,6 +47,7 @@ class HomeVC: BaseVC {
     @IBAction func btnOnClick(_ sender: Any)
     {
         handleRideFlow(state: RideState.NewRequest)
+        setNavigationBarInViewController(controller: self, naviColor: colors.appColor.value, naviTitle: NavTitles.none.value, leftImage: NavItemsLeft.menu.value, rightImages: [NavItemsRight.none.value], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
     }
         
 }
@@ -118,9 +119,11 @@ extension HomeVC : IncomingRideRequestViewDelegate
     
     func onNoThanksRequest(){
         handleRideFlow(state: RideState.None)
+        setNavigationBarInViewController(controller: self, naviColor: colors.appColor.value, naviTitle: NavTitles.none.value, leftImage: NavItemsLeft.menu.value, rightImages: [NavItemsRight.sos.value], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
     }
     
     func onAcceptRideRequest() {
+        setNavigationBarInViewController(controller: self, naviColor: colors.appColor.value, naviTitle: NavTitles.none.value, leftImage: NavItemsLeft.menu.value, rightImages: [NavItemsRight.none.value], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
         handleRideFlow(state: RideState.RequestAccepted)
     }
 }
@@ -128,6 +131,14 @@ extension HomeVC : IncomingRideRequestViewDelegate
 extension HomeVC : AcceptedRideDetailsViewDelgate
 {
     func onArrivedUserLocation() {
+        self.handleRideFlow(state: RideState.None)
+        let vc : RatingAndReviewVC = RatingAndReviewVC.instantiate(fromAppStoryboard: .Main)
+        vc.modalPresentationStyle = .overFullScreen
+        vc.reviewBtnTapClosure = {
+//            self.handleRideFlow(state: RideState.None)
+            self.setNavigationBarInViewController(controller: self, naviColor: colors.appColor.value, naviTitle: NavTitles.none.value, leftImage: NavItemsLeft.menu.value, rightImages: [NavItemsRight.sos.value], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
+        }
+        self.navigationController?.present(vc, animated: false, completion: nil)
     }
     
     func onCancelAcceptedRideRequest() {

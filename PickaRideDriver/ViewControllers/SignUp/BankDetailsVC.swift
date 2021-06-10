@@ -21,11 +21,14 @@ class BankDetailsVC: BaseVC {
     @IBOutlet weak var txtBankName: themeTextField!
     
     //MARK:- Variables and properties
-    
+    var isFromEditProfile : Bool = false
     //MARK:- View LifeCycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        if isFromEditProfile{
+            btnNext.setTitle("SAVE", for: .normal)
+        }
         setNavigationBarInViewController(controller: self, naviColor: colors.appColor.value, naviTitle: NavTitles.BankDetails.value, leftImage: NavItemsLeft.back.value, rightImages: [NavItemsRight.none.value], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
 //        SetNavigationBar(controller: self, Left: true , Right: false, Title: "Bank Details")
 //        addMenuButton()
@@ -38,8 +41,12 @@ class BankDetailsVC: BaseVC {
     
     //MARK:- IBACrions
     @IBAction func btnNextTap(_ sender: UIButton) {
+        if isFromEditProfile{
+            self.navigationController?.popViewController(animated: true)
+        }else{
         let vc : PersonalDocumentVC = PersonalDocumentVC.instantiate(fromAppStoryboard: .Login)
         self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
 }

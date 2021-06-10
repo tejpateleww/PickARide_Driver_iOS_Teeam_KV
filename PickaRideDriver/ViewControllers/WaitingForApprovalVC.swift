@@ -20,6 +20,7 @@ class WaitingForApprovalVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        btnOK.setTitle("OK", for: .normal)
         
     }
    

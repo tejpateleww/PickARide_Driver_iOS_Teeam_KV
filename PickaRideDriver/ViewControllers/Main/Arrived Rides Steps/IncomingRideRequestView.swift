@@ -17,6 +17,9 @@ class IncomingRideRequestView: UIView {
     
     var delegate : IncomingRideRequestViewDelegate?
     
+    @IBOutlet weak var viewCancelRide: UIView!
+    @IBOutlet weak var btnSos: UIButton!
+    @IBOutlet weak var btnNavigate: UIButton!
     @IBOutlet weak var btnNoThanks: UIButton!
     @IBOutlet weak var viewContainer: UIView!
     @IBOutlet weak var lblDropUpAddress: CommonLabel!
@@ -36,6 +39,8 @@ class IncomingRideRequestView: UIView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        viewCancelRide.backgroundColor = themeColor
+       
          setupView()
     }
     
@@ -61,6 +66,12 @@ class IncomingRideRequestView: UIView {
         delegate?.onCancelRideRequest()
     }
     
+    @IBAction func btnNavigateTap(_ sender: Any) {
+        
+    }
+    @IBAction func btnSosTap(_ sender: Any) {
+        
+    }
     func setRideDetails(/*Pass model class here*/)
     {
         lblName.text = "James smith"
@@ -111,7 +122,7 @@ fileprivate extension IncomingRideRequestView {
 
         lblNoThanks.text = ConstantString.LABEL_TITLE_HOME_NO_THANKS
         lblNoThanks.font = UIFont.regular(ofSize: FontsSize.ExtraSmall)
-        
+        lblNoThanks.textColor = .white
         btnAcceptRequest.setTitle(ConstantString.BUTTON_TITLE_HOME_TAP_TO_ACCCEPT, for: .normal)
     }
         

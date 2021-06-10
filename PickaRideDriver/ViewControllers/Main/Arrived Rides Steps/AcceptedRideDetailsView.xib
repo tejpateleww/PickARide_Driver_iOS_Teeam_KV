@@ -175,7 +175,7 @@
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tfJ-Rh-WMa" customClass="CommonLabel" customModule="PickaRideDriver" customModuleProvider="target">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tfJ-Rh-WMa" customClass="themeLabel" customModule="PickaRideDriver" customModuleProvider="target">
                                     <rect key="frame" x="16" y="50" width="382" height="21"/>
                                     <constraints>
                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="UYG-sF-CHJ"/>
@@ -183,6 +183,14 @@
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="Font_Size">
+                                            <real key="value" value="16"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="fontColor">
+                                            <color key="value" red="0.49803921568627452" green="0.49803921568627452" blue="0.49803921568627452" alpha="1" colorSpace="calibratedRGB"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
                                 </label>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IEo-yS-pb0">
                                     <rect key="frame" x="16" y="26.5" width="30" height="30"/>
@@ -239,7 +247,7 @@
                     </userDefinedRuntimeAttributes>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FXi-lf-NXB">
-                    <rect key="frame" x="24" y="44" width="366" height="40"/>
+                    <rect key="frame" x="24" y="74" width="366" height="40"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vMZ-AK-aM8">
                             <rect key="frame" x="54" y="8" width="296" height="24"/>
@@ -266,19 +274,47 @@
                         <constraint firstItem="WuA-dv-mXW" firstAttribute="centerY" secondItem="vMZ-AK-aM8" secondAttribute="centerY" id="rF0-p0-bIL"/>
                     </constraints>
                 </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fTQ-G8-UUD">
+                    <rect key="frame" x="282" y="437" width="108" height="36"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="36" id="PRu-WO-Iji"/>
+                        <constraint firstAttribute="width" constant="108" id="Z0O-OE-p7Z"/>
+                    </constraints>
+                    <state key="normal" title="Navigate" image="imgNavigate"/>
+                    <connections>
+                        <action selector="btnNavigateTap:" destination="iN0-l3-epB" eventType="touchUpInside" id="C4f-0Q-XfT"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DTL-5B-Yz9">
+                    <rect key="frame" x="24" y="437" width="77" height="36"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="77" id="Pag-eD-mIa"/>
+                        <constraint firstAttribute="height" constant="36" id="y8N-K2-3C1"/>
+                    </constraints>
+                    <state key="normal" image="ic_SOSBtn"/>
+                    <connections>
+                        <action selector="btnSosTap:" destination="iN0-l3-epB" eventType="touchUpInside" id="9wY-NO-Uzc"/>
+                    </connections>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="FXi-lf-NXB" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="44" id="Dth-Xc-CBr"/>
+                <constraint firstItem="FXi-lf-NXB" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="74" id="Dth-Xc-CBr"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="FXi-lf-NXB" secondAttribute="trailing" constant="24" id="GRl-zr-N6F"/>
                 <constraint firstItem="FXi-lf-NXB" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="24" id="KLf-0r-st2"/>
                 <constraint firstItem="ZbI-bh-pSC" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="QQw-7r-Sdi"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="ZbI-bh-pSC" secondAttribute="bottom" id="WYv-yH-NGH"/>
+                <constraint firstItem="DTL-5B-Yz9" firstAttribute="centerY" secondItem="fTQ-G8-UUD" secondAttribute="centerY" id="Y46-Oq-mrQ"/>
+                <constraint firstItem="DTL-5B-Yz9" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="24" id="dQs-ZQ-lSV"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="fTQ-G8-UUD" secondAttribute="trailing" constant="24" id="dqv-u6-gOS"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="ZbI-bh-pSC" secondAttribute="trailing" id="mH6-Hg-wF4"/>
+                <constraint firstItem="ZbI-bh-pSC" firstAttribute="top" secondItem="fTQ-G8-UUD" secondAttribute="bottom" constant="20" id="pit-Vn-3lP"/>
             </constraints>
             <connections>
                 <outlet property="ViewTripCode" destination="oA2-HB-1TV" id="A7S-fh-mbn"/>
+                <outlet property="btnNavigate" destination="fTQ-G8-UUD" id="PEy-Fu-Idv"/>
+                <outlet property="btnSos" destination="DTL-5B-Yz9" id="2Eg-1c-mKD"/>
                 <outlet property="btnSubmit" destination="tH6-51-Jxc" id="rXb-lb-2nh"/>
                 <outlet property="imageViewProfile" destination="H3E-lQ-QpC" id="jzy-Dt-67X"/>
                 <outlet property="lbDropLocation" destination="vMZ-AK-aM8" id="Yyt-Yi-zrw"/>
@@ -296,10 +332,12 @@
     <resources>
         <image name="ic_CancelRide" width="46" height="46"/>
         <image name="ic_DownReg" width="14" height="8"/>
+        <image name="ic_SOSBtn" width="77" height="36"/>
         <image name="ic_dp" width="55" height="55"/>
         <image name="ic_drop_location" width="24" height="27.5"/>
         <image name="ic_message" width="46" height="46"/>
         <image name="ic_phonecall" width="46" height="46"/>
+        <image name="imgNavigate" width="108" height="36"/>
         <systemColor name="separatorColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

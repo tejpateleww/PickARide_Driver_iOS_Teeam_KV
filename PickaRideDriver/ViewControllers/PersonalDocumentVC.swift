@@ -21,17 +21,20 @@ class PersonalDocumentVC: BaseVC {
     @IBOutlet weak var tblPersonalDetailsHeight: NSLayoutConstraint!
     
     //MARK:- Properties
+    var isFromEditProfile : Bool = false
     var isVehicleDocument : Bool = false
     var ArrPersonaldetails = [PersonalDetails]()
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        if isFromEditProfile{
+            btnNext.setTitle("SAVE", for: .normal)
+        }
         if isVehicleDocument{
             setNavigationBarInViewController(controller: self, naviColor: colors.appColor.value, naviTitle: "Vehicle Document", leftImage: NavItemsLeft.back.value, rightImages: [NavItemsRight.none.value], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
             ArrPersonaldetails.append(PersonalDetails(header: "RC Book", message: "Vehicle Registration", dateofExp: "Date of expiry : 22/08/ 2022"))
             ArrPersonaldetails.append(PersonalDetails(header: "Insurance policy", message: "Insurance policy", dateofExp: "Date of expiry : 22/08/ 2022"))
             ArrPersonaldetails.append(PersonalDetails(header: "Owner certificate", message: "A passport is a travel document", dateofExp: "Date of expiry : 22/08/ 2022"))
-            btnNext.setTitle("REGISTER", for: .normal)
+            btnNext.setTitle(isFromEditProfile ? "SAVE" : "REGISTER", for: .normal)
             
         }else{
             setNavigationBarInViewController(controller: self, naviColor: colors.appColor.value, naviTitle: "Personal Document", leftImage: NavItemsLeft.back.value, rightImages: [NavItemsRight.none.value], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
@@ -65,6 +68,9 @@ class PersonalDocumentVC: BaseVC {
     }
     //MARK:- IBActions
     @IBAction func btnNextTap(_ sender: Any) {
+        if isFromEditProfile{
+            self.navigationController?.popViewController(animated: true)
+        }else{
         if !isVehicleDocument{
             let vc : AddVehicleVC = AddVehicleVC.instantiate(fromAppStoryboard: .Main)
             self.navigationController?.pushViewController(vc, animated: true)
@@ -76,6 +82,7 @@ class PersonalDocumentVC: BaseVC {
                 self.navigationController?.popToRootViewController(animated: true)
             }
         self.present(vc, animated: false, completion: nil)
+        }
         }
     }
 }

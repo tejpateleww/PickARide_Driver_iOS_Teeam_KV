@@ -34,10 +34,10 @@ class SignUpVC: BaseVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         setNavigationBarInViewController(controller: self, naviColor: colors.appColor.value, naviTitle: NavTitles.none.value, leftImage: NavItemsLeft.back.value, rightImages: [NavItemsRight.none.value], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
-        
         vwMobile.layer.borderWidth = 1
         vwMobile.layer.borderColor = colors.textfieldbordercolor.value.cgColor
         setupTextfields(textfield: txtPassword)
+        txtHomeAddress.isUserInteractionEnabled = false
     }
     
     //MARK:- Custom Methods
@@ -70,8 +70,12 @@ class SignUpVC: BaseVC {
     }
     
     @IBAction func btnNextTap(_ sender: UIButton) {
-        let vc : BankDetailsVC = BankDetailsVC.instantiate(fromAppStoryboard: .Login)
+        
+        let vc : OtpVC = OtpVC.instantiate(fromAppStoryboard: .Login)
         self.navigationController?.pushViewController(vc, animated: true)
+        
+//        let vc : BankDetailsVC = BankDetailsVC.instantiate(fromAppStoryboard: .Login)
+//        self.navigationController?.pushViewController(vc, animated: true)
     }
     
 }

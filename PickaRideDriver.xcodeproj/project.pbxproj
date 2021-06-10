@@ -11,6 +11,8 @@
 		185DEEDC2668DBD7008BA95C /* PersonalDocumentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185DEEDA2668DBD7008BA95C /* PersonalDocumentCell.swift */; };
 		185DEEDD2668DBD7008BA95C /* PersonalDocumentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 185DEEDB2668DBD7008BA95C /* PersonalDocumentCell.xib */; };
 		185DEEDF2669113B008BA95C /* WaitingForApprovalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185DEEDE2669113B008BA95C /* WaitingForApprovalVC.swift */; };
+		18E2E139267223570054E351 /* OtpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E2E138267223570054E351 /* OtpVC.swift */; };
+		18E2E13B267240360054E351 /* RatingAndReviewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E2E13A267240360054E351 /* RatingAndReviewVC.swift */; };
 		4F1A76372644FC67003F00CF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1A76362644FC67003F00CF /* LoginViewController.swift */; };
 		4F1A763A26450E78003F00CF /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1A763926450E78003F00CF /* SignUpVC.swift */; };
 		4F1A763D26450ED6003F00CF /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1A763C26450ED6003F00CF /* BaseVC.swift */; };
@@ -144,6 +146,8 @@
 		185DEEDA2668DBD7008BA95C /* PersonalDocumentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalDocumentCell.swift; sourceTree = "<group>"; };
 		185DEEDB2668DBD7008BA95C /* PersonalDocumentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PersonalDocumentCell.xib; sourceTree = "<group>"; };
 		185DEEDE2669113B008BA95C /* WaitingForApprovalVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingForApprovalVC.swift; sourceTree = "<group>"; };
+		18E2E138267223570054E351 /* OtpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtpVC.swift; sourceTree = "<group>"; };
+		18E2E13A267240360054E351 /* RatingAndReviewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingAndReviewVC.swift; sourceTree = "<group>"; };
 		2365D99843CD5DA3E6579C86 /* Pods_PickaRideDriverTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PickaRideDriverTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2829DD5CEA22E4198B109D0A /* Pods_PickaRideDriver_PickaRideDriverUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PickaRideDriver_PickaRideDriverUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		346F3E876BF629DA2DD488C0 /* Pods_PickaRideDriver.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PickaRideDriver.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -312,12 +316,14 @@
 		4F1A76342644EF99003F00CF /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				18E2E138267223570054E351 /* OtpVC.swift */,
 				84A5D0FD2646A63800AAFAB0 /* Main */,
 				84A5D0CC264693E100AAFAB0 /* TableviewCell */,
 				4F1A763826450E4F003F00CF /* SignUp */,
 				4F1A76352644FC56003F00CF /* Login */,
 				185DEED82668DAF2008BA95C /* PersonalDocumentVC.swift */,
 				185DEEDE2669113B008BA95C /* WaitingForApprovalVC.swift */,
+				18E2E13A267240360054E351 /* RatingAndReviewVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -1046,6 +1052,7 @@
 				843F8071264A706400BCBDB8 /* TransitionContext.swift in Sources */,
 				185DEEDF2669113B008BA95C /* WaitingForApprovalVC.swift in Sources */,
 				4F1A76372644FC67003F00CF /* LoginViewController.swift in Sources */,
+				18E2E139267223570054E351 /* OtpVC.swift in Sources */,
 				84DD717B264957850014AF60 /* RideDetailsVC.swift in Sources */,
 				185DEED92668DAF2008BA95C /* PersonalDocumentVC.swift in Sources */,
 				4F94F17F2643DB5F00780413 /* UISearchbar+Extension.swift in Sources */,
@@ -1107,6 +1114,7 @@
 				81A5538E264BC5A600698413 /* EarningViewController.swift in Sources */,
 				81A55389264B9E5500698413 /* ConstantString.swift in Sources */,
 				843F8070264A706400BCBDB8 /* Segue.swift in Sources */,
+				18E2E13B267240360054E351 /* RatingAndReviewVC.swift in Sources */,
 				849CE22C2646616800E76E5E /* HomeVC.swift in Sources */,
 				4F94F1A52643DB7500780413 /* UserInfo.swift in Sources */,
 				84A5D11E2646B83900AAFAB0 /* CancelRideVC.swift in Sources */,
