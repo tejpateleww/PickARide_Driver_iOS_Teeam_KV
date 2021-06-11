@@ -3878,10 +3878,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Hx-li-Clk" customClass="selectDestinationView" customModule="PickARide_User" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Hx-li-Clk" customClass="selectDestinationView" customModule="PickaRideDriver" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="282.5" width="375" height="384.5"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rate Your Customer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZOE-tW-pdq" customClass="RatingYourTripLabel" customModule="PickARide_User" customModuleProvider="target">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rate Your Customer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZOE-tW-pdq" customClass="RatingYourTripLabel" customModule="PickaRideDriver" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="10" width="375" height="21.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <nil key="textColor"/>
@@ -3940,7 +3940,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="UNe-Wz-5ig" customClass="ratingTextview" customModule="PickARide_User" customModuleProvider="target">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="UNe-Wz-5ig" customClass="ratingTextview" customModule="PickaRideDriver" customModuleProvider="target">
                                         <rect key="frame" x="16" y="174.5" width="343" height="125"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -5278,17 +5278,6 @@
             <point key="canvasLocation" x="7400.8000000000002" y="2083.8080959520244"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="5oa-p0-5AR">
-            <size key="intrinsicContentSize" width="120" height="20"/>
-        </designable>
-        <designable name="ABX-eq-teA">
-            <size key="intrinsicContentSize" width="189.35000000000002" height="26.670000000000002"/>
-        </designable>
-        <designable name="ZRv-BA-FTA">
-            <size key="intrinsicContentSize" width="120" height="20"/>
-        </designable>
-    </designables>
     <resources>
         <image name="Dummy-Map" width="375" height="812"/>
         <image name="Dummy-Profile" width="100" height="100"/>
