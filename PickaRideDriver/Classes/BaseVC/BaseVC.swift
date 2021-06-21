@@ -319,7 +319,7 @@ class BaseVC: UIViewController, UIGestureRecognizerDelegate{
     
     func UpdateView() {
         
-        if let lang = userDefault.value(forKey: "language") as? String {
+        if let lang = user_defaults.value(forKey: "language") as? String {
 //            if lang == LanguageKey.EnglishLanguage {
 //                UIView.appearance().semanticContentAttribute = .forceLeftToRight
 //                UITableView.appearance().semanticContentAttribute = .forceLeftToRight
@@ -341,7 +341,7 @@ class BaseVC: UIViewController, UIGestureRecognizerDelegate{
     
     func LanguageUpdate() {
         
-        if let lang = userDefault.value(forKey: "language") as? String {
+        if let lang = user_defaults.value(forKey: "language") as? String {
 //            if lang == LanguageKey.EnglishLanguage {
 //                self.navigationController?.navigationBar.semanticContentAttribute = .forceLeftToRight
 //                if let NavController = self.navigationController?.children {

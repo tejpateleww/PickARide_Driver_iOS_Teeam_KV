@@ -40,7 +40,6 @@ class LoginViewController: UIViewController {
     //MARK: -Other Methods
     
     func setupLocalization() {
-        
         lblSignIN.text = ConstantString.LABEL_LOGIN_SIGN_IN
         lblWelcomeBack.text = ConstantString.LABEL_LOGIN_WELCOME_BACK
         mViewEmail.textField.placeholder = ConstantString.PLACE_HOLDER_LOGIN_EMAILID
@@ -51,7 +50,7 @@ class LoginViewController: UIViewController {
         lblDontHaveanAccount.text = ConstantString.LABEL_LOGIN_DONT_HAVE_ACCOUNT
         btnSIgnUP.setTitle(ConstantString.BUTTON_TITLE_LOGIN_SIGN_UP, for: .normal)
     }
-    
+
     //MARK: -IBActions
     
     func setupTextfields(textfield : UITextField) {
@@ -81,7 +80,7 @@ class LoginViewController: UIViewController {
     
     @IBAction func btnSignInClicked(_ sender: Any)
     {
-        userDefault.setValue(true, forKey: UserDefaultsKey.isUserLogin.rawValue)
+        user_defaults.setValue(true, forKey: UserDefaultsKey.isUserLogin.rawValue)
         appDel.navigateToMain()
     }
     

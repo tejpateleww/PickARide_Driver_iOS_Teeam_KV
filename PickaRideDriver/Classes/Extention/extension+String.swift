@@ -84,6 +84,11 @@ extension String {
     }
     
 }
+extension NSObject {
+    static var className : String {
+        return String(describing: self)
+    }
+}
 extension StringProtocol {
     
     /// Returns the string with only [0-9], all other characters are filtered out

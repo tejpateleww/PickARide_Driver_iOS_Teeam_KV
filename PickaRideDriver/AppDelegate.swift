@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         checkAndSetDefaultLanguage()
         SideMenuController.preferences.basic.menuWidth = UIScreen.main.bounds.width - 100
         SideMenuController.preferences.basic.defaultCacheKey = "0"
-        if userDefault.object(forKey: UserDefaultsKey.isUserLogin.rawValue) as? Bool == true
+        if user_defaults.object(forKey: UserDefaultsKey.isUserLogin.rawValue) as? Bool == true
         {
             self.navigateToMain()
         } else
@@ -85,12 +85,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     
     func checkAndSetDefaultLanguage() {
-        if userDefault.value(forKey: UserDefaultsKey.selLanguage.rawValue) == nil {
+        if user_defaults.value(forKey: UserDefaultsKey.selLanguage.rawValue) == nil {
             setLanguageEnglish()
         }
     }
     func setLanguageEnglish() {
-        userDefault.setValue("en", forKey: UserDefaultsKey.selLanguage.rawValue)
+        user_defaults.setValue("en", forKey: UserDefaultsKey.selLanguage.rawValue)
     }
 
 }

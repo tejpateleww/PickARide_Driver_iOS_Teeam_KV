@@ -196,7 +196,7 @@ extension MenuViewController: UITableViewDelegate, UITableViewDataSource
         else if strCellItemTitle == MyType.Logout.value {
             let alert = UIAlertController(title: "Logout", message: "Are you sure you want to logout?", preferredStyle: .alert)
             let ok = UIAlertAction(title: "OK", style: .default) { (action) in
-                userDefault.setValue(false, forKey: UserDefaultsKey.isUserLogin.rawValue)
+                user_defaults.setValue(false, forKey: UserDefaultsKey.isUserLogin.rawValue)
                 appDel.navigateToLogin()
                 // (UIApplication.shared.delegate as! AppDelegate).GoToLogout()
                 
