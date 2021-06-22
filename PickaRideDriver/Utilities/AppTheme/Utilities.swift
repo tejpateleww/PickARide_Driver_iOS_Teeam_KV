@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import MKProgress
 //import NVActivityIndicatorView
 
 // ----------------------------------------------------
@@ -53,6 +54,29 @@ class Utilities:NSObject{
     //MARK: - ================================
     //MARK: ALERT MESSAGE
     //MARK: ==================================
+    
+    static func showAlertWithTitleFromWindow(title:String?, andMessage message:String, buttons:[String], completion:((_ index:Int) -> Void)!) -> Void {
+        
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        for index in 0..<buttons.count
+        {
+            let action = UIAlertAction(title: buttons[index], style: .default, handler: {
+                (alert: UIAlertAction!) in
+                
+                if(completion != nil) {
+                    completion(index)
+                }
+            })
+            
+            alertController.addAction(action)
+        }
+        
+        appDel.window?.rootViewController?.present(alertController, animated: true, completion: nil)
+        
+    }
+    
+    
     static func displayAlert(_ title: String, message: String, completion:((_ index: Int) -> Void)?, otherTitles: String? ...) {
         
         if message.trimmedString == "" {
@@ -248,19 +272,34 @@ class Utilities:NSObject{
         }
     }
     
-    
-    class func showHud()
-    {
-//        let size = CGSize(width: 40, height: 40)
-//        let activityData = ActivityData(size: size, message: "", messageFont: nil, messageSpacing: nil, type: .lineScale, color: colors.btnColor.value, padding: nil, displayTimeThreshold: nil, minimumDisplayTime: nil, backgroundColor: UIColor.black.withAlphaComponent(0.5), textColor: nil)
-//        NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData)
-        
+    class func showHUD() {
+        MKProgress.config.hudType = .radial
+        MKProgress.config.hudColor = .clear
+        MKProgress.config.width = 65.0
+        MKProgress.config.height = 65.0
+        MKProgress.config.circleRadius = 30.0
+        MKProgress.config.cornerRadius = 16.0
+        MKProgress.config.circleBorderColor = themeColor
+        MKProgress.config.circleBorderWidth = 3.0
+        MKProgress.config.backgroundColor = .clear
+        MKProgress.show()
     }
-    
-    class func hideHud()
-    {
-//        NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
+    class func hideHUD() {
+        MKProgress.hide()
     }
+//    class func showHud()
+//    {
+//        //        let size = CGSize(width: 40, height: 40)
+//        //        let activityData = ActivityData(size: size, message: "", messageFont: nil, messageSpacing: nil, type: .lineScale, color: colors.btnColor.value, padding: nil, displayTimeThreshold: nil, minimumDisplayTime: nil, backgroundColor: UIColor.black.withAlphaComponent(0.5), textColor: nil)
+//        //        NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData)
+//
+//    }
+//
+//    class func hideHud()
+//    {
+//        //        NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
+//    }
+
     
     /*
      class func showHUDWithoutLottie(with mainView: UIView?) {
@@ -444,25 +483,25 @@ class Utilities:NSObject{
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         return paths[0]
     }
-
+    
     class func archiveData(data : Any?)
     {
         guard let documentURL = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first else { return  }
-
+        
         let filePath = "MyArchive.data"
         let fileURL = documentURL.appendingPathComponent(filePath)
         
         
         let randomFilename = UUID().uuidString
         let fullPath = getDocumentsDirectory().appendingPathComponent(randomFilename)
-
+        
         do {
             let data = try NSKeyedArchiver.archivedData(withRootObject: data ?? Data(), requiringSecureCoding: false)
             try data.write(to: fullPath)
         } catch {
             print("Couldn't write file")
         }
-
+        
         // Archive
         if let dataToBeArchived = try? NSKeyedArchiver.archivedData(withRootObject: data ?? Data(), requiringSecureCoding: true) {
             
@@ -481,7 +520,7 @@ class Utilities:NSObject{
     {
         // Unarchive
         if let archivedData = try? Data(contentsOf: URL(string: fileURL)!),
-                let myObject = (try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(archivedData)) as? UserInfo {
+           let myObject = (try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(archivedData)) as? RegisterFinal {
             return myObject
         }
         
@@ -504,29 +543,31 @@ class Utilities:NSObject{
     }
     
     
-      //MARK:- Custom Method
+    
+    
+    //MARK:- Custom Method
     class  func getAudioFromDocumentDirectory(audioStr : String , documentsFolderUrl : URL) -> Data?
+    {
+        guard let audioUrl = URL(string: audioStr) else { return nil}
+        let destinationUrl = documentsFolderUrl.appendingPathComponent(audioUrl.lastPathComponent)
+        
+        if FileManager().fileExists(atPath: destinationUrl.path)
         {
-            guard let audioUrl = URL(string: audioStr) else { return nil}
-            let destinationUrl = documentsFolderUrl.appendingPathComponent(audioUrl.lastPathComponent)
-              
-            if FileManager().fileExists(atPath: destinationUrl.path)
-            {
-    //            let assets = AVAsset(url: audioUrl)
-    //           print(assets)
-                do {
-                    let GetAudioFromDirectory = try Data(contentsOf: destinationUrl)
-                     print("audio : ", GetAudioFromDirectory)
-                    return GetAudioFromDirectory
-                }catch(let error){
-                    print(error.localizedDescription)
-                }
+            //            let assets = AVAsset(url: audioUrl)
+            //           print(assets)
+            do {
+                let GetAudioFromDirectory = try Data(contentsOf: destinationUrl)
+                print("audio : ", GetAudioFromDirectory)
+                return GetAudioFromDirectory
+            }catch(let error){
+                print(error.localizedDescription)
             }
-            else{
-                print("No Audio Found")
-            }
-            return nil
         }
+        else{
+            print("No Audio Found")
+        }
+        return nil
+    }
     
     class func GetDestinationUrlOfSong(audioStr : String , documentsFolderUrl : URL) -> URL?
     {
@@ -594,18 +635,18 @@ class Utilities:NSObject{
 extension UIImage {
     
     func normalizedImage() -> UIImage {
-
+        
         if (self.imageOrientation == UIImage.Orientation.up) {
-          return self;
-      }
-
-      UIGraphicsBeginImageContextWithOptions(self.size, false, self.scale);
-      let rect = CGRect(x: 0, y: 0, width: self.size.width, height: self.size.height)
+            return self;
+        }
+        
+        UIGraphicsBeginImageContextWithOptions(self.size, false, self.scale);
+        let rect = CGRect(x: 0, y: 0, width: self.size.width, height: self.size.height)
         self.draw(in: rect)
-
+        
         let normalizedImage : UIImage = UIGraphicsGetImageFromCurrentImageContext()!
-      UIGraphicsEndImageContext();
-      return normalizedImage;
+        UIGraphicsEndImageContext();
+        return normalizedImage;
     }
     
 }

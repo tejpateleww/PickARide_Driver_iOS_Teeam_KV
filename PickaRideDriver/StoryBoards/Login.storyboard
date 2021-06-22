@@ -23,10 +23,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GI8-66-5YW">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
                                 <subviews>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EGr-zh-ohL">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u2X-Xj-LEj" customClass="IQPreviousNextView" customModule="IQKeyboardManagerSwift">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="723"/>
@@ -192,7 +192,7 @@
                                                             </button>
                                                         </subviews>
                                                     </stackView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HKa-GM-neg" customClass="themeButton" customModule="PickaRideDriver" customModuleProvider="target">
+                                                    <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HKa-GM-neg" customClass="themeButton" customModule="PickaRideDriver" customModuleProvider="target">
                                                         <rect key="frame" x="21" y="515" width="143" height="14"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="14" id="EZP-5s-voB"/>
@@ -264,7 +264,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="GI8-66-5YW" secondAttribute="trailing" id="042-pC-hlj"/>
-                            <constraint firstItem="GI8-66-5YW" firstAttribute="top" secondItem="tWU-7F-dYm" secondAttribute="top" id="Xur-Zi-Wrg"/>
+                            <constraint firstItem="GI8-66-5YW" firstAttribute="top" secondItem="26U-53-Zdx" secondAttribute="top" id="Xur-Zi-Wrg"/>
                             <constraint firstAttribute="bottom" secondItem="GI8-66-5YW" secondAttribute="bottom" id="p5Z-tK-9UE"/>
                             <constraint firstItem="GI8-66-5YW" firstAttribute="leading" secondItem="tWU-7F-dYm" secondAttribute="leading" id="tPo-g8-3SE"/>
                         </constraints>
@@ -299,10 +299,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VyF-M5-jXq">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="573"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f2F-sz-OQk" customClass="IQPreviousNextView" customModule="IQKeyboardManagerSwift">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="573"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="599"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create profile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Olo-p4-JnH" customClass="themeLabel" customModule="PickaRideDriver" customModuleProvider="target">
                                                         <rect key="frame" x="24" y="10" width="103" height="20.5"/>
@@ -612,21 +612,43 @@
                                                             </button>
                                                         </subviews>
                                                     </stackView>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WZe-P8-RC1" customClass="themeButton" customModule="PickaRideDriver" customModuleProvider="target">
+                                                        <rect key="frame" x="24" y="539" width="327" height="40"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="40" id="ilK-B1-Rro"/>
+                                                        </constraints>
+                                                        <state key="normal" title="NEXT"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isthemeBg" value="YES"/>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="Font_Size">
+                                                                <real key="value" value="14"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isbold" value="YES"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="btnNextTap:" destination="Yxg-PK-U4i" eventType="touchUpInside" id="6Ty-0Y-Fwu"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="bottom" secondItem="ePo-te-InA" secondAttribute="bottom" constant="66" id="5Ei-xA-eWS"/>
+                                                    <constraint firstItem="WZe-P8-RC1" firstAttribute="top" secondItem="ePo-te-InA" secondAttribute="bottom" constant="32" id="3ky-Kt-Lby"/>
                                                     <constraint firstItem="Olo-p4-JnH" firstAttribute="top" secondItem="f2F-sz-OQk" secondAttribute="top" constant="10" id="BTb-gk-Zqx"/>
                                                     <constraint firstItem="fRC-dQ-9xR" firstAttribute="centerX" secondItem="f2F-sz-OQk" secondAttribute="centerX" id="DgM-Jk-Yac"/>
                                                     <constraint firstAttribute="trailing" secondItem="9O0-L1-e2x" secondAttribute="trailing" constant="24" id="Ouq-WS-QDr"/>
                                                     <constraint firstItem="Olo-p4-JnH" firstAttribute="leading" secondItem="f2F-sz-OQk" secondAttribute="leading" constant="24" id="VB8-we-fTu"/>
+                                                    <constraint firstAttribute="trailing" secondItem="WZe-P8-RC1" secondAttribute="trailing" constant="24" id="asl-vz-vLn"/>
+                                                    <constraint firstItem="WZe-P8-RC1" firstAttribute="leading" secondItem="f2F-sz-OQk" secondAttribute="leading" constant="24" id="bN1-Yz-3wv"/>
                                                     <constraint firstItem="ePo-te-InA" firstAttribute="top" secondItem="fRC-dQ-9xR" secondAttribute="bottom" constant="4" id="cGu-Nw-2dY"/>
+                                                    <constraint firstAttribute="bottom" secondItem="WZe-P8-RC1" secondAttribute="bottom" constant="20" id="cdP-1Q-Eug"/>
                                                     <constraint firstItem="9O0-L1-e2x" firstAttribute="leading" secondItem="f2F-sz-OQk" secondAttribute="leading" constant="24" id="gvo-vc-doO"/>
                                                     <constraint firstItem="ePo-te-InA" firstAttribute="centerX" secondItem="f2F-sz-OQk" secondAttribute="centerX" id="jVu-Mc-IsI"/>
                                                     <constraint firstItem="fRC-dQ-9xR" firstAttribute="leading" secondItem="RRR-i1-xIY" secondAttribute="leading" id="kfN-6Q-wao"/>
                                                     <constraint firstItem="fRC-dQ-9xR" firstAttribute="top" secondItem="9O0-L1-e2x" secondAttribute="bottom" constant="22" id="lBo-wl-ezM"/>
                                                     <constraint firstItem="9O0-L1-e2x" firstAttribute="top" secondItem="Olo-p4-JnH" secondAttribute="bottom" constant="20" id="lJd-2j-W52"/>
                                                     <constraint firstItem="fRC-dQ-9xR" firstAttribute="trailing" secondItem="RRR-i1-xIY" secondAttribute="trailing" id="rWK-d7-naK"/>
+                                                    <constraint firstItem="WZe-P8-RC1" firstAttribute="leading" secondItem="f2F-sz-OQk" secondAttribute="leading" constant="24" id="wjh-h2-4UH"/>
+                                                    <constraint firstAttribute="trailing" secondItem="WZe-P8-RC1" secondAttribute="trailing" constant="24" id="zWH-de-0Hx"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
@@ -639,28 +661,10 @@
                                             <constraint firstItem="f2F-sz-OQk" firstAttribute="top" secondItem="VyF-M5-jXq" secondAttribute="top" id="xDl-5P-oXR"/>
                                         </constraints>
                                     </scrollView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WZe-P8-RC1" customClass="themeButton" customModule="PickaRideDriver" customModuleProvider="target">
-                                        <rect key="frame" x="24" y="607" width="327" height="40"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="ilK-B1-Rro"/>
-                                        </constraints>
-                                        <state key="normal" title="NEXT"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isthemeBg" value="YES"/>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="Font_Size">
-                                                <real key="value" value="14"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isbold" value="YES"/>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="btnNextTap:" destination="Yxg-PK-U4i" eventType="touchUpInside" id="6Ty-0Y-Fwu"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstItem="WZe-P8-RC1" firstAttribute="leading" secondItem="LV4-0Z-pPU" secondAttribute="leading" constant="24" id="5wq-bJ-6k9"/>
-                                    <constraint firstAttribute="trailing" secondItem="WZe-P8-RC1" secondAttribute="trailing" constant="24" id="ewn-Lk-eqh"/>
+                                    <constraint firstAttribute="bottom" secondItem="VyF-M5-jXq" secondAttribute="bottom" id="Sfo-Mz-2Ld"/>
                                     <constraint firstAttribute="trailing" secondItem="VyF-M5-jXq" secondAttribute="trailing" id="fXd-sx-4dI"/>
                                     <constraint firstItem="VyF-M5-jXq" firstAttribute="top" secondItem="LV4-0Z-pPU" secondAttribute="top" id="rIE-q3-cba"/>
                                     <constraint firstItem="VyF-M5-jXq" firstAttribute="leading" secondItem="LV4-0Z-pPU" secondAttribute="leading" id="yWK-fF-kWe"/>
@@ -671,7 +675,6 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="LV4-0Z-pPU" secondAttribute="trailing" id="3CT-Hm-CMk"/>
-                            <constraint firstItem="r5P-zV-28x" firstAttribute="bottom" secondItem="WZe-P8-RC1" secondAttribute="bottom" constant="20" id="3l0-Re-fgb"/>
                             <constraint firstItem="LV4-0Z-pPU" firstAttribute="top" secondItem="r5P-zV-28x" secondAttribute="top" id="4PQ-V3-Kr1"/>
                             <constraint firstAttribute="bottom" secondItem="LV4-0Z-pPU" secondAttribute="bottom" id="JdW-l2-1HB"/>
                             <constraint firstItem="LV4-0Z-pPU" firstAttribute="leading" secondItem="xKE-xE-HOV" secondAttribute="leading" id="ZNv-oz-EXl"/>
@@ -1095,7 +1098,7 @@ adminnistrator!</string>
         <!--OtpVC-->
         <scene sceneID="zpl-Eq-IYz">
             <objects>
-                <viewController storyboardIdentifier="OtpVC" id="q9p-Bj-3P6" customClass="OtpVC" customModule="Cluttrfly_HAULER" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OtpVC" id="q9p-Bj-3P6" customClass="OtpVC" customModule="PickaRideDriver" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="93U-tb-2Go">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1103,7 +1106,7 @@ adminnistrator!</string>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2rW-Wm-siE">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jgg-UB-PGG" customClass="themeLabel" customModule="Cluttrfly_HAULER" customModuleProvider="target">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jgg-UB-PGG" customClass="themeLabel" customModule="PickaRideDriver" customModuleProvider="target">
                                         <rect key="frame" x="52.5" y="20" width="270" height="41"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="270" id="qZm-An-5Wk"/>
@@ -1124,7 +1127,7 @@ sent to you at *** **** 633</string>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="yUg-3o-fD6">
                                         <rect key="frame" x="67.5" y="85" width="240" height="54"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="he0-jL-cug" customClass="OTPTextField" customModule="Cluttrfly_HAULER" customModuleProvider="target">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="he0-jL-cug" customClass="OTPTextField" customModule="PickaRideDriver" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="54" height="54"/>
                                                 <color key="backgroundColor" red="0.93725490199999995" green="0.95294117649999999" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
@@ -1137,7 +1140,7 @@ sent to you at *** **** 633</string>
                                                     <outlet property="delegate" destination="q9p-Bj-3P6" id="IVp-8D-tOI"/>
                                                 </connections>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qNR-CE-Mfe" customClass="OTPTextField" customModule="Cluttrfly_HAULER" customModuleProvider="target">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qNR-CE-Mfe" customClass="OTPTextField" customModule="PickaRideDriver" customModuleProvider="target">
                                                 <rect key="frame" x="62" y="0.0" width="54" height="54"/>
                                                 <color key="backgroundColor" red="0.93725490199999995" green="0.95294117649999999" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
@@ -1150,7 +1153,7 @@ sent to you at *** **** 633</string>
                                                     <outlet property="delegate" destination="q9p-Bj-3P6" id="YQZ-yh-SSG"/>
                                                 </connections>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pOn-BG-tQT" customClass="OTPTextField" customModule="Cluttrfly_HAULER" customModuleProvider="target">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pOn-BG-tQT" customClass="OTPTextField" customModule="PickaRideDriver" customModuleProvider="target">
                                                 <rect key="frame" x="124" y="0.0" width="54" height="54"/>
                                                 <color key="backgroundColor" red="0.93725490199999995" green="0.95294117649999999" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
@@ -1163,7 +1166,7 @@ sent to you at *** **** 633</string>
                                                     <outlet property="delegate" destination="q9p-Bj-3P6" id="HhU-wa-jgu"/>
                                                 </connections>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="abG-bE-6kG" customClass="OTPTextField" customModule="Cluttrfly_HAULER" customModuleProvider="target">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="abG-bE-6kG" customClass="OTPTextField" customModule="PickaRideDriver" customModuleProvider="target">
                                                 <rect key="frame" x="186" y="0.0" width="54" height="54"/>
                                                 <color key="backgroundColor" red="0.93725490199999995" green="0.95294117649999999" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
@@ -1178,7 +1181,7 @@ sent to you at *** **** 633</string>
                                             </textField>
                                         </subviews>
                                     </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R5U-Yp-1uo" customClass="themeButton" customModule="Cluttrfly_HAULER" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R5U-Yp-1uo" customClass="themeButton" customModule="PickaRideDriver" customModuleProvider="target">
                                         <rect key="frame" x="295" y="587" width="60" height="60"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="bwR-ys-AZV"/>
@@ -1193,7 +1196,7 @@ sent to you at *** **** 633</string>
                                             <action selector="btnAeeroTap:" destination="q9p-Bj-3P6" eventType="touchUpInside" id="wx5-1Z-ROI"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:08" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wew-Zx-7v2" customClass="themeLabel" customModule="Cluttrfly_HAULER" customModuleProvider="target">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:08" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wew-Zx-7v2" customClass="themeLabel" customModule="PickaRideDriver" customModuleProvider="target">
                                         <rect key="frame" x="149" y="607" width="36" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>

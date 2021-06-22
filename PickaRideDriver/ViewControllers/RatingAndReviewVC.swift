@@ -17,8 +17,10 @@ class RatingAndReviewVC: UIViewController, UITextViewDelegate {
     @IBOutlet weak var vwCosmos: CosmosView!
     @IBOutlet weak var txtviewReview: ratingTextview!
     @IBOutlet weak var btnReviewYourOrder: themeButton!
+    @IBOutlet weak var btnDone: loginScreenButton!
     //MARK:- Variables
     var reviewBtnTapClosure : (()->())?
+    var btnDoneTapClosure : (()->())?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +31,7 @@ class RatingAndReviewVC: UIViewController, UITextViewDelegate {
     
     //MARK:- Custom Methods
     func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
-        vwLine.backgroundColor = themeColor
+        vwLine.backgroundColor = hexStringToUIColor(hex: "#EBEDF0")
         return true
     }
     func textViewDidEndEditing(_ textView: UITextView) {
@@ -44,5 +46,11 @@ class RatingAndReviewVC: UIViewController, UITextViewDelegate {
         self.dismiss(animated: false, completion: nil)
     }
     
+    @IBAction func btnDoneTap(_ sender: Any) {
+        if let obj = btnDoneTapClosure{
+            obj()
+        }
+        self.dismiss(animated: false, completion: nil)
+    }
     
 }

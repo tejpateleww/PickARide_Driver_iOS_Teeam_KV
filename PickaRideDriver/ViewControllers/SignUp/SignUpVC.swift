@@ -38,6 +38,7 @@ class SignUpVC: BaseVC {
         vwMobile.layer.borderColor = colors.textfieldbordercolor.value.cgColor
         setupTextfields(textfield: txtPassword)
         txtHomeAddress.isUserInteractionEnabled = false
+        txtMobile.tintColor = themeColor
     }
     
     //MARK:- Custom Methods

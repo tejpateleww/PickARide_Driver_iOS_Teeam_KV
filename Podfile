@@ -17,6 +17,7 @@ target 'PickaRideDriver' do
   pod 'MaterialComponents'
   pod 'SDWebImage'
   pod 'DropDown'
+  pod 'MKProgress'
 
   # Pods for PickaRideDriver
 

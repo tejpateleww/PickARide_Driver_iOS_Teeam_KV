@@ -7,6 +7,16 @@
 
 import Foundation
 class WebServiceSubClass{
+    
+    class func Login(reqModel : LoginReqModel , completion: @escaping (Bool,RegisterFinal?,Any) -> ()){
+        URLSessionRequestManager.makePostRequest(urlString: ApiKey.login.rawValue, requestModel: reqModel, responseModel: RegisterFinal.self) { (status, response, error) in
+            completion(status, response, error)
+        }
+    }
+    
+    
+    
+    //----------------//
 
     class func InitApi(keyPath : String , completion: @escaping (Bool,InitResponseModel?,Any) -> ()) {
         URLSessionRequestManager.makeGetRequest(urlString: keyPath, responseModel: InitResponseModel.self) { (status, response, error) in
@@ -32,8 +42,8 @@ class WebServiceSubClass{
         }
     }
     
-    class func FinalRegistration(reqModel : RegisterFinalRequestModel , completion: @escaping (Bool,RegisterFinalResponseModel?,Any) -> ()){
-        URLSessionRequestManager.makePostRequest(urlString: ApiKey.register.rawValue, requestModel: reqModel, responseModel: RegisterFinalResponseModel.self) { (status, response, error) in
+    class func FinalRegistration(reqModel : RegisterFinalRequestModel , completion: @escaping (Bool,RegisterFinal?,Any) -> ()){
+        URLSessionRequestManager.makePostRequest(urlString: ApiKey.register.rawValue, requestModel: reqModel, responseModel: RegisterFinal.self) { (status, response, error) in
             completion(status, response, error)
         }
     }

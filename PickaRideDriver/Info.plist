@@ -52,5 +52,13 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Pick A Ride Driver Would like to Access Your  Location</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Pick A Ride Driver Would like to Access Your  Location</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Pick A Ride Driver Would like to Access Your  Location</string>
+	<key>NSLocationUsageDescription</key>
+	<string>Pick A Ride Driver Would like to Access Your  Location</string>
 </dict>
 </plist>

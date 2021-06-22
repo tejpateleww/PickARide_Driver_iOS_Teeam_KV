@@ -28,8 +28,10 @@ class BankDetailsVC: BaseVC {
         super.viewDidLoad()
         if isFromEditProfile{
             btnNext.setTitle("SAVE", for: .normal)
-        }
+            setNavigationBarInViewController(controller: self, naviColor: colors.appColor.value, naviTitle: "Edit Bank Details", leftImage: NavItemsLeft.back.value, rightImages: [NavItemsRight.none.value], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
+        }else{
         setNavigationBarInViewController(controller: self, naviColor: colors.appColor.value, naviTitle: NavTitles.BankDetails.value, leftImage: NavItemsLeft.back.value, rightImages: [NavItemsRight.none.value], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
+        }
 //        SetNavigationBar(controller: self, Left: true , Right: false, Title: "Bank Details")
 //        addMenuButton()
        

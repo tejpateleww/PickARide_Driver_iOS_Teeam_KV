@@ -7,16 +7,18 @@
 //
 
 import Foundation
+import CoreLocation
 class SingletonClass: NSObject
 {
     static let sharedInstance = SingletonClass()
     
     
     var UserId = String()
-    var LoginRegisterUpdateData : UserInfo?
+    var LoginRegisterUpdateData : RegisterFinal?
     var Api_Key = String()
     var DeviceToken : String = ""
     var isPresented = false
+    var userCurrentLocation = CLLocation()
 //    var currentLat = Double()
 //    var currentLong = Double()
     

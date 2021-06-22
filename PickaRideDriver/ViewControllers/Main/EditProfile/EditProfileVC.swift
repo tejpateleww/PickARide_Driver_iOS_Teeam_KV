@@ -7,7 +7,7 @@
 
 import UIKit
 
-class EditProfileVC: BaseVC {
+class EditProfileVC: BaseVC, UITextFieldDelegate {
     let arrEditProfile = ["Edit Bank Details","Edit Personal Details","Edit Vehicle Details","Edit Vehicle Documents"]
     var selectedImage : UIImage?
     private var imagePicker : ImagePicker!
@@ -34,7 +34,7 @@ class EditProfileVC: BaseVC {
         self.imagePicker = ImagePicker(presentationController: self, delegate: self, allowsEditing: false)
         self.imagePicker = ImagePicker(presentationController: self, delegate: self, allowsEditing: true)
         tblEditProfile.addObserver(self, forKeyPath: "contentSize", options: .new, context: nil)
-//        setupTextfields(textfield: txtPassword)
+        setupTextfields(textfield: txtPassword)
         varifiedTextFields(textfield: txtEmail)
         varifiedTextFields(textfield: txtPhoneNumber)
         txtName.isUserInteractionEnabled = false
@@ -45,6 +45,7 @@ class EditProfileVC: BaseVC {
         txtPassword.textColor = .lightGray
         txtEmail.isUserInteractionEnabled = false
         txtPhoneNumber.isUserInteractionEnabled = false
+        txtPassword.delegate = self
         // Do any additional setup after loading the view.
     }
     @IBAction func btnEditProfile(_ sender: Any) {
@@ -63,13 +64,15 @@ class EditProfileVC: BaseVC {
         txtName.textColor = .black
         txtPassword.textColor = .black
     }
+
     
     func setupTextfields(textfield : UITextField) {
         let button = UIButton(type: .custom)
         button.isSelected = true
         button.setImage(#imageLiteral(resourceName: "ImgGraterThen"), for: .normal)
         button.tintColor = .gray
-//        button.setImage(UIImage(named: "hidepassword"), for: .selected)
+        button.isUserInteractionEnabled = false
+//        button.setImage(#imageLiteral(resourceName: <#T##String#>), for: .selected)
         button.imageEdgeInsets = UIEdgeInsets(top: 0, left: -16, bottom: 0, right: 0)
         button.frame = CGRect(x: CGFloat(textfield.frame.size.width - 25), y: CGFloat(5), width: CGFloat(25), height: CGFloat(25))
         button.tag = textfield.tag
@@ -89,6 +92,8 @@ class EditProfileVC: BaseVC {
         textfield.rightViewMode = .always
     }
     
+    
+    
     @IBAction func btnSaveTap(_ sender: UIButton) {
         btnSave.isHidden = true
         setNavigationBarInViewController(controller: self, naviColor: colors.appColor.value, naviTitle: NavTitles.none.value, leftImage: NavItemsLeft.cancel.value, rightImages: [NavItemsRight.EditProfile.value], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
@@ -107,6 +112,14 @@ class EditProfileVC: BaseVC {
         if(keyPath == "contentSize"){
             self.tblEditProfileHeight.constant = tblEditProfile.contentSize.height < 34 ? 34: tblEditProfile.contentSize.height
         }
+    }
+    
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        if textField == txtPassword{
+            let vc : ChangePasswordVC = ChangePasswordVC.instantiate(fromAppStoryboard: .Main)
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+        return false
     }
 }
 extension EditProfileVC : UITableViewDelegate,UITableViewDataSource{

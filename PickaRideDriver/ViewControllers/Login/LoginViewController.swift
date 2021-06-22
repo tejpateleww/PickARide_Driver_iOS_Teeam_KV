@@ -26,9 +26,14 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var btnSIgnUP: loginScreenButton!
     
     //MARK: -View Life Cycle Methods
+    var loginusermodel = LoginUserModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupLocalization()
+        mViewEmail.textField.autocapitalizationType = .none
+        mViewEmail.textField.keyboardType = .emailAddress
+        mViewPassword.textField.isSecureTextEntry = true
         hideKeyboardWhenTappedAround()
         setupTextfields(textfield: mViewPassword.textField)
     }
@@ -80,8 +85,11 @@ class LoginViewController: UIViewController {
     
     @IBAction func btnSignInClicked(_ sender: Any)
     {
-        user_defaults.setValue(true, forKey: UserDefaultsKey.isUserLogin.rawValue)
-        appDel.navigateToMain()
+        if isValidForLogin(){
+            self.loginusermodel.loginvc = self
+            self.loginusermodel.webserviceForLogin()
+        }
+      
     }
     
     @IBAction func ForgotPassword(_ sender: Any)
@@ -94,7 +102,7 @@ fileprivate extension LoginViewController
 {
     func isValidForLogin() -> Bool
     {
-        guard let email = self.textFieldEmailID.text, let password = self.textFieldPassword.text else {
+        guard let email = self.mViewEmail.textField.text, let password = self.mViewPassword.textField.text else {
             return false
         }
         

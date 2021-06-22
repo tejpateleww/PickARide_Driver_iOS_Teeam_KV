@@ -34,10 +34,10 @@ extension UserDefaults{
         return objResponse ?? nil
     }
     func setUserData() {
-//        try? UserDefaults.standard.set(object: SingletonClass.sharedInstance., forKey: UserDefaultsKey.userProfile.rawValue)
+        try? UserDefaults.standard.set(object: SingletonClass.sharedInstance.LoginRegisterUpdateData, forKey: UserDefaultsKey.userProfile.rawValue)
     }
-    func getUserData() -> RegisterData? {
-        let objResponse = try? UserDefaults.standard.get(objectType: RegisterData.self, forKey:  UserDefaultsKey.userProfile.rawValue)
+    func getUserData() -> RegisterFinal? {
+        let objResponse = try? UserDefaults.standard.get(objectType: RegisterFinal.self, forKey:  UserDefaultsKey.userProfile.rawValue)
         return objResponse ?? nil
     }
 

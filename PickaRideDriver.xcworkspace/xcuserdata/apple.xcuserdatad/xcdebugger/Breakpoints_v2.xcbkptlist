@@ -30,8 +30,8 @@
             filePath = "PickaRideDriver/ViewControllers/PersonalDocumentVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "74"
-            endingLineNumber = "74"
+            startingLineNumber = "89"
+            endingLineNumber = "89"
             landmarkName = "btnNextTap(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -46,8 +46,8 @@
             filePath = "PickaRideDriver/ViewControllers/PersonalDocumentVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "32"
-            endingLineNumber = "32"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
@@ -76,8 +76,8 @@
             filePath = "PickaRideDriver/ViewControllers/Main/AddVehicle/AddVehicleVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "73"
-            endingLineNumber = "73"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
             landmarkName = "textFieldShouldBeginEditing(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -108,8 +108,8 @@
             filePath = "PickaRideDriver/ViewControllers/Main/EditProfile/EditProfileVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "58"
-            endingLineNumber = "58"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
             landmarkName = "EditProfileBtn(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -197,64 +197,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "8309F399-BA06-4531-8226-3E5C8419AADD"
+            uuid = "B952EF19-C713-4BE5-A650-90C9BC60DDA5"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "PickaRideDriver/Utilities/ConstantString.swift"
+            filePath = "PickaRideDriver/ViewControllers/Login/LoginViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "21"
-            endingLineNumber = "21"
-            landmarkName = "ConstantString"
-            landmarkType = "14">
-            <Locations>
-               <Location
-                  uuid = "8309F399-BA06-4531-8226-3E5C8419AADD - bb162b805e2922d8"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "one-time initialization function for BUTTON_TITLE_LOGIN_SIGN_IN"
-                  moduleName = "PickaRideDriver"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/apple/Documents/Harsh/Projects/PickaRideDriver/PickaRideDriver/Utilities/ConstantString.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "21"
-                  endingLineNumber = "21"
-                  offsetFromSymbolStart = "44">
-               </Location>
-               <Location
-                  uuid = "8309F399-BA06-4531-8226-3E5C8419AADD - 7bab363d9be62be9"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "PickaRideDriver.ConstantString.BUTTON_TITLE_LOGIN_SIGN_IN.unsafeMutableAddressor : Swift.String"
-                  moduleName = "PickaRideDriver"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/apple/Documents/Harsh/Projects/PickaRideDriver/PickaRideDriver/Utilities/ConstantString.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "21"
-                  endingLineNumber = "21"
-                  offsetFromSymbolStart = "8">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "2FF9AF62-DD24-471B-8044-777D2D462992"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PickaRideDriver/Classes/Extention/String+Extensions.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "251"
-            endingLineNumber = "251"
-            landmarkName = "Localized()"
+            startingLineNumber = "90"
+            endingLineNumber = "90"
+            landmarkName = "btnSignInClicked(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

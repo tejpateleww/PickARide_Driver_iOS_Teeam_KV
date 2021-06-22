@@ -9,12 +9,12 @@
 //class RegisterUserModel{
 //    weak var registerVC : RegisterVC? = nil
 //    var registerRequestModel : RegisterFinalRequestModel?
-//    
+//
 //    func webserviceRegisterOTP(){
 //        let makeReq = RegisterOTPRequestModel()
 //        makeReq.email = registerVC?.txtEmail.text ?? ""
 //        makeReq.mobile_no = registerVC?.txtMobileNumber.text ?? ""
-//        
+//
 //        Utility.showHUD()
 //        WebServiceSubClass.RegisterToGetOTP( reqModel: makeReq) { (status, response, error) in
 //            Utility.hideHUD()
@@ -36,16 +36,16 @@
 //
 //class RegisterOTPUserModel{
 //    weak var registerOTPVC: OTP_VC? = nil
-//    
+//
 //    func webserviceTORegister(){
 //        if let reqModel = registerOTPVC?.registerRequestModel {
-//            
+//
 //            Utility.showHUD()
 //            WebServiceSubClass.FinalRegistration(reqModel: reqModel) { (status, response, error) in
-//               
+//
 //                Utility.hideHUD()
 //                if status{
-//                   
+//
 //                        user_defaults.set(true, forKey: UserDefaultsKey.isUserLogin.rawValue)
 //                        Singleton.shared.userProfileData = response?.data
 //                        if let apikey =  response?.data?.xAPIKey{
@@ -57,17 +57,17 @@
 //                        }
 //                        user_defaults.setUserData()
 //                        appDel.GoToHome()
-//                   
+//
 //                }else{
-//                  
+//
 //                        if let registervc = self.registerOTPVC{
 //                            Utility.showAlertOfAPIResponse(param: error, vc: registervc)
 //                        }
 //                    }
-//              
+//
 //            }
 //        }
-//        
+//
 //    }
-//    
+//
 //}

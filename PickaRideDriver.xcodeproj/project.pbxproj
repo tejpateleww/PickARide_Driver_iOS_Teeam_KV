@@ -27,6 +27,9 @@
 		1865CFAC267C7B4E00379A40 /* CardValidatorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1865CFA9267C7B4D00379A40 /* CardValidatorType.swift */; };
 		1865CFAD267C7B4E00379A40 /* MonthPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1865CFAA267C7B4D00379A40 /* MonthPickerView.swift */; };
 		1865CFB1267C7D4400379A40 /* Validators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1865CFB0267C7D4400379A40 /* Validators.swift */; };
+		18720F5C2681B70F008EE191 /* LoginModuleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18720F5B2681B70F008EE191 /* LoginModuleViewModel.swift */; };
+		18720F5E2681BABD008EE191 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18720F5D2681BABD008EE191 /* LocationService.swift */; };
+		18720F602681F2ED008EE191 /* ChangePasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18720F5F2681F2ED008EE191 /* ChangePasswordVC.swift */; };
 		187B8412267B5B1000D3BFDA /* RegisterRequestResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187B8411267B5B1000D3BFDA /* RegisterRequestResponseModel.swift */; };
 		187B8413267B5B1000D3BFDA /* InitRequestResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187B840F267B5B1000D3BFDA /* InitRequestResponseModel.swift */; };
 		187B8414267B5B1000D3BFDA /* WalletRequestResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187B840E267B5B1000D3BFDA /* WalletRequestResponseModel.swift */; };
@@ -40,7 +43,6 @@
 		187B8430267B5BA100D3BFDA /* AppStoryboards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187B8424267B5BA100D3BFDA /* AppStoryboards.swift */; };
 		187B8434267B5BA100D3BFDA /* ThemeShadowAndViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187B842A267B5BA100D3BFDA /* ThemeShadowAndViews.swift */; };
 		187B8435267B5BA100D3BFDA /* Themes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187B842B267B5BA100D3BFDA /* Themes.swift */; };
-		187B8437267B5BA100D3BFDA /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187B842D267B5BA100D3BFDA /* Enums.swift */; };
 		187B8439267B64EB00D3BFDA /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187B8438267B64EB00D3BFDA /* Utilities.swift */; };
 		187B843B267B65E900D3BFDA /* userDefaults+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187B843A267B65E900D3BFDA /* userDefaults+Extension.swift */; };
 		18CB32BD267B77B500EC1A7B /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CB32BB267B77B500EC1A7B /* UserInfo.swift */; };
@@ -181,6 +183,9 @@
 		1865CFA9267C7B4D00379A40 /* CardValidatorType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardValidatorType.swift; sourceTree = "<group>"; };
 		1865CFAA267C7B4D00379A40 /* MonthPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthPickerView.swift; sourceTree = "<group>"; };
 		1865CFB0267C7D4400379A40 /* Validators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validators.swift; sourceTree = "<group>"; };
+		18720F5B2681B70F008EE191 /* LoginModuleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModuleViewModel.swift; sourceTree = "<group>"; };
+		18720F5D2681BABD008EE191 /* LocationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
+		18720F5F2681F2ED008EE191 /* ChangePasswordVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePasswordVC.swift; sourceTree = "<group>"; };
 		187B840D267B5B1000D3BFDA /* CardRequestResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardRequestResponseModel.swift; sourceTree = "<group>"; };
 		187B840E267B5B1000D3BFDA /* WalletRequestResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletRequestResponseModel.swift; sourceTree = "<group>"; };
 		187B840F267B5B1000D3BFDA /* InitRequestResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitRequestResponseModel.swift; sourceTree = "<group>"; };
@@ -194,7 +199,6 @@
 		187B8424267B5BA100D3BFDA /* AppStoryboards.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppStoryboards.swift; sourceTree = "<group>"; };
 		187B842A267B5BA100D3BFDA /* ThemeShadowAndViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeShadowAndViews.swift; sourceTree = "<group>"; };
 		187B842B267B5BA100D3BFDA /* Themes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Themes.swift; sourceTree = "<group>"; };
-		187B842D267B5BA100D3BFDA /* Enums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		187B8438267B64EB00D3BFDA /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		187B843A267B65E900D3BFDA /* userDefaults+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "userDefaults+Extension.swift"; sourceTree = "<group>"; };
 		18CB32BB267B77B500EC1A7B /* UserInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
@@ -397,6 +401,7 @@
 				187B8419267B5B2B00D3BFDA /* SideMenuViewModel.swift */,
 				187B841A267B5B2B00D3BFDA /* CardModuleViewModel.swift */,
 				187B841B267B5B2B00D3BFDA /* RegisterViewModel.swift */,
+				18720F5B2681B70F008EE191 /* LoginModuleViewModel.swift */,
 			);
 			path = "View Model";
 			sourceTree = "<group>";
@@ -447,6 +452,7 @@
 		4F1A76342644EF99003F00CF /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				18720F5F2681F2ED008EE191 /* ChangePasswordVC.swift */,
 				18E2E138267223570054E351 /* OtpVC.swift */,
 				84A5D0FD2646A63800AAFAB0 /* Main */,
 				84A5D0CC264693E100AAFAB0 /* TableviewCell */,
@@ -512,13 +518,14 @@
 				4F94F1CD2643FEE500780413 /* AppInfo.swift */,
 				4F94F1182643D76500780413 /* AppDelegate.swift */,
 				4F94F11C2643D76500780413 /* ViewController.swift */,
+				18720F5D2681BABD008EE191 /* LocationService.swift */,
 				1865CF58267C767600379A40 /* Webservices */,
+				187B840C267B5B1000D3BFDA /* Models */,
+				187B8417267B5B2B00D3BFDA /* View Model */,
 				4F1A76342644EF99003F00CF /* ViewControllers */,
 				4F94F1C82643F2EB00780413 /* StoryBoards */,
 				4F94F1B22643E72800780413 /* Resources */,
 				4F94F1992643DB7500780413 /* Utilities */,
-				187B840C267B5B1000D3BFDA /* Models */,
-				187B8417267B5B2B00D3BFDA /* View Model */,
 				4F94F1482643DB5F00780413 /* Classes */,
 				4F94F1212643D76700780413 /* Assets.xcassets */,
 				8120ED2D264C2407004E0206 /* Localizable.strings */,
@@ -624,7 +631,6 @@
 				187B8424267B5BA100D3BFDA /* AppStoryboards.swift */,
 				187B8429267B5BA100D3BFDA /* AppTheme */,
 				187B8425267B5BA100D3BFDA /* CardValidator */,
-				187B842D267B5BA100D3BFDA /* Enums.swift */,
 				187B8422267B5BA100D3BFDA /* Toast.swift */,
 				4F94F1A02643DB7500780413 /* Validation */,
 				4F94F19A2643DB7500780413 /* Constants.swift */,
@@ -1123,6 +1129,7 @@
 				4F94F11D2643D76500780413 /* ViewController.swift in Sources */,
 				4F94F1782643DB5F00780413 /* UIImage+Extension.swift in Sources */,
 				843F806F264A706400BCBDB8 /* Delegate.swift in Sources */,
+				18720F5E2681BABD008EE191 /* LocationService.swift in Sources */,
 				4F94F1AD2643DB7600780413 /* Singleton.swift in Sources */,
 				4F94F1772643DB5F00780413 /* UIView+Extension.swift in Sources */,
 				1865CFAD267C7B4E00379A40 /* MonthPickerView.swift in Sources */,
@@ -1168,6 +1175,7 @@
 				8476071026491B660019CE1F /* MyRidesVC.swift in Sources */,
 				4F94F16F2643DB5F00780413 /* AuthenticationToken.swift in Sources */,
 				84A5D1262646B89D00AAFAB0 /* CancelRideCell.swift in Sources */,
+				18720F602681F2ED008EE191 /* ChangePasswordVC.swift in Sources */,
 				187B8412267B5B1000D3BFDA /* RegisterRequestResponseModel.swift in Sources */,
 				4F94F1AB2643DB7600780413 /* Constants.swift in Sources */,
 				4F94F1892643DB5F00780413 /* CustomLabel.swift in Sources */,
@@ -1214,10 +1222,10 @@
 				81A5538E264BC5A600698413 /* EarningViewController.swift in Sources */,
 				187B841C267B5B2B00D3BFDA /* WalletModuleViewModel.swift in Sources */,
 				843F8070264A706400BCBDB8 /* Segue.swift in Sources */,
-				187B8437267B5BA100D3BFDA /* Enums.swift in Sources */,
 				187B8430267B5BA100D3BFDA /* AppStoryboards.swift in Sources */,
 				18E2E13B267240360054E351 /* RatingAndReviewVC.swift in Sources */,
 				849CE22C2646616800E76E5E /* HomeVC.swift in Sources */,
+				18720F5C2681B70F008EE191 /* LoginModuleViewModel.swift in Sources */,
 				84A5D11E2646B83900AAFAB0 /* CancelRideVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

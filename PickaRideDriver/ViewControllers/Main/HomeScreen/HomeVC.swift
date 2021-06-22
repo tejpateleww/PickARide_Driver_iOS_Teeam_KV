@@ -138,6 +138,9 @@ extension HomeVC : AcceptedRideDetailsViewDelgate
 //            self.handleRideFlow(state: RideState.None)
             self.setNavigationBarInViewController(controller: self, naviColor: colors.appColor.value, naviTitle: NavTitles.none.value, leftImage: NavItemsLeft.menu.value, rightImages: [NavItemsRight.sos.value], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
         }
+        vc.btnDoneTapClosure = {
+            self.setNavigationBarInViewController(controller: self, naviColor: colors.appColor.value, naviTitle: NavTitles.none.value, leftImage: NavItemsLeft.menu.value, rightImages: [NavItemsRight.sos.value], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
+        }
         self.navigationController?.present(vc, animated: false, completion: nil)
     }
     

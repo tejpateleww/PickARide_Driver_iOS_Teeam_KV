@@ -122,7 +122,7 @@ class themeWBorderTextField : UITextField{
     @IBInspectable public var isbold: Bool = false
     @IBInspectable public var isMedium: Bool = false
     @IBInspectable public var islight: Bool = false
-    @IBInspectable var Font_Color = UIColor.white
+    @IBInspectable var Font_Color = themeColor
     override func awakeFromNib() {
         super.awakeFromNib()
         //            self.font = CustomFont.regular.returnFont(16.0)

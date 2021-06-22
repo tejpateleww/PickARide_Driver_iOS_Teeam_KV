@@ -8,16 +8,22 @@
 
 import Foundation
 import UIKit
+import MKProgress
 
 extension UIViewController {
     
-    class var storyboardID : String {
-        return "\(self)"
-    }
     
-    static func instantiate(fromAppStoryboard appStoryboard: AppStoryboard) -> Self {
-        return appStoryboard.viewController(viewControllerClass: self)
-    }
+    //---Activity Indicator
+
+    //------
+    
+    class var storyboardID : String {
+            return "\(self)"
+        }
+        
+        static func instantiate(fromAppStoryboard appStoryboard: AppStoryboard) -> Self {
+            return appStoryboard.viewController(viewControllerClass: self)
+        }
     
     func setNavBarWithMenuORBack(Title:String,LetfBtn : String, IsNeedRightButton:Bool , RightButton : String,isTranslucent : Bool , TintColour : UIColor = UIColor.white , TitleColour : UIColor)
     {

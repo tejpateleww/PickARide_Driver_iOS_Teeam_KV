@@ -7,8 +7,27 @@
 
 import Foundation
 import UIKit
-// MARK: - Welcome
 
+//MARK:- Login Screen
+class LoginReqModel : Encodable{
+    var username: String?
+    var password: String?
+    var lat: String?
+    var lng: String?
+    var device_type: String = "ios"
+    var device_token: String = "abc"
+//    var profile_image : UIImage?
+    
+    enum CodingKeys: String, CodingKey {
+        case username = "username"
+        case lat = "lat"
+        case lng = "lng"
+        case device_type = "device_type"
+        case device_token = "device_token"
+        case password = "password"
+//        case profile_image = "profile_image"
+    }
+}
 
 //MARK: - Register screen
 class RegisterOTPRequestModel : Encodable{
