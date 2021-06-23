@@ -22,10 +22,15 @@ class RideDetailsVC: BaseVC {
     @IBOutlet weak var imgProfilw: ProfileView!
     @IBOutlet weak var lblRideCustomerName: RideDetailLabel!
     @IBOutlet weak var imgRating: UIImageView!
+    @IBOutlet weak var btnRepeateRide: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-        MyOfferView.dropShadow2(color: .gray, opacity: 0.5, offSet: CGSize(width: -1, height: 1), radius: 3, scale: true)
+        btnRepeateRide.isUserInteractionEnabled = false
+//        MyOfferView.dropShadow2(color: .gray, opacity: 0.5, offSet: CGSize(width: 1, height: 1), radius: 3, scale: true)
+//        MyOfferView.
+        
         setNavigationBarInViewController(controller: self, naviColor: colors.white.value, naviTitle: NavTitles.none.value, leftImage: NavItemsLeft.back.value, rightImages: [NavItemsRight.none.value], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
+        shadowView(view: MyOfferView)
         // Do any additional setup after loading the view.
     }
     @IBAction func btnReceiptTap(_ sender: Any) {
@@ -36,6 +41,13 @@ class RideDetailsVC: BaseVC {
     @IBAction func btnRepeatRideTap(_ sender: Any) {
     }
     @IBAction func btnHelpTap(_ sender: Any) {
+    }
+    
+    func shadowView(view : UIView){
+        view.layer.shadowColor = UIColor.gray.cgColor
+        view.layer.shadowOpacity = 0.3
+        view.layer.shadowOffset = CGSize.zero
+        view.layer.shadowRadius = 6
     }
 }
 extension UIView {

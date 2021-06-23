@@ -146,7 +146,7 @@ class BaseVC: UIViewController, UIGestureRecognizerDelegate{
                 btnLeftBar.style = .plain
                 controller.navigationItem.leftBarButtonItem = btnLeftBar
             } else if leftImage == NavItemsLeft.cancel.value {
-                let btnLeft = UIButton(frame: CGRect(x: 0, y: 0, width: 44, height: 44))
+                let btnLeft = UIButton(frame: CGRect(x: -14, y: 0, width: 44, height: 44))
                 btnLeft.setImage(UIImage.init(named: "ic_Cancel"), for: .normal)
                 btnLeft.layer.setValue(controller, forKey: "controller")
                 

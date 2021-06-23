@@ -54,7 +54,6 @@
 		4F1A763D26450ED6003F00CF /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1A763C26450ED6003F00CF /* BaseVC.swift */; };
 		4F1A763F26455C7B003F00CF /* BankDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1A763E26455C7B003F00CF /* BankDetailsVC.swift */; };
 		4F94F1192643D76500780413 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F94F1182643D76500780413 /* AppDelegate.swift */; };
-		4F94F11D2643D76500780413 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F94F11C2643D76500780413 /* ViewController.swift */; };
 		4F94F1202643D76500780413 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F94F11E2643D76500780413 /* Main.storyboard */; };
 		4F94F1222643D76700780413 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F94F1212643D76700780413 /* Assets.xcassets */; };
 		4F94F1252643D76700780413 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F94F1232643D76700780413 /* LaunchScreen.storyboard */; };
@@ -214,7 +213,6 @@
 		4F1A763E26455C7B003F00CF /* BankDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankDetailsVC.swift; sourceTree = "<group>"; };
 		4F94F1152643D76500780413 /* PickaRideDriver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PickaRideDriver.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F94F1182643D76500780413 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4F94F11C2643D76500780413 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4F94F11F2643D76500780413 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4F94F1212643D76700780413 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4F94F1242643D76700780413 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -345,9 +343,8 @@
 		1865CF58267C767600379A40 /* Webservices */ = {
 			isa = PBXGroup;
 			children = (
-				1865CF59267C767600379A40 /* Service Request */,
-				1865CF5C267C767600379A40 /* Models */,
 				1865CF5D267C767600379A40 /* Helper */,
+				1865CF59267C767600379A40 /* Service Request */,
 			);
 			path = Webservices;
 			sourceTree = "<group>";
@@ -361,24 +358,25 @@
 			path = "Service Request";
 			sourceTree = "<group>";
 		};
-		1865CF5C267C767600379A40 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
 		1865CF5D267C767600379A40 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
 				1865CF5E267C767600379A40 /* UrlServiceConstant.swift */,
 				1865CF5F267C767600379A40 /* RequestBodyParamService.swift */,
-				1865CF60267C767600379A40 /* apiPaths.swift */,
 				1865CF61267C767600379A40 /* UploadMediaModel.swift */,
 				1865CF62267C767600379A40 /* CodableResponseServiceClass.swift */,
 				1865CF63267C767600379A40 /* Webservices+Extension.swift */,
+				1865CF60267C767600379A40 /* apiPaths.swift */,
 			);
 			path = Helper;
+			sourceTree = "<group>";
+		};
+		186CBF4C268355D000245B7C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4F94F1502643DB5F00780413 /* navigationCommonView */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		187B840C267B5B1000D3BFDA /* Models */ = {
@@ -452,6 +450,7 @@
 		4F1A76342644EF99003F00CF /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				4F1A763B26450EC0003F00CF /* BaseVC */,
 				18720F5F2681F2ED008EE191 /* ChangePasswordVC.swift */,
 				18E2E138267223570054E351 /* OtpVC.swift */,
 				84A5D0FD2646A63800AAFAB0 /* Main */,
@@ -515,21 +514,18 @@
 		4F94F1172643D76500780413 /* PickaRideDriver */ = {
 			isa = PBXGroup;
 			children = (
-				4F94F1CD2643FEE500780413 /* AppInfo.swift */,
 				4F94F1182643D76500780413 /* AppDelegate.swift */,
-				4F94F11C2643D76500780413 /* ViewController.swift */,
-				18720F5D2681BABD008EE191 /* LocationService.swift */,
+				4F94F1212643D76700780413 /* Assets.xcassets */,
+				4F94F1262643D76700780413 /* Info.plist */,
 				1865CF58267C767600379A40 /* Webservices */,
 				187B840C267B5B1000D3BFDA /* Models */,
 				187B8417267B5B2B00D3BFDA /* View Model */,
 				4F1A76342644EF99003F00CF /* ViewControllers */,
+				186CBF4C268355D000245B7C /* Views */,
 				4F94F1C82643F2EB00780413 /* StoryBoards */,
-				4F94F1B22643E72800780413 /* Resources */,
+				4F94F1532643DB5F00780413 /* Extention */,
 				4F94F1992643DB7500780413 /* Utilities */,
-				4F94F1482643DB5F00780413 /* Classes */,
-				4F94F1212643D76700780413 /* Assets.xcassets */,
-				8120ED2D264C2407004E0206 /* Localizable.strings */,
-				4F94F1262643D76700780413 /* Info.plist */,
+				4F94F1B22643E72800780413 /* Resources */,
 			);
 			path = PickaRideDriver;
 			sourceTree = "<group>";
@@ -550,19 +546,6 @@
 				4F94F13C2643D76700780413 /* Info.plist */,
 			);
 			path = PickaRideDriverUITests;
-			sourceTree = "<group>";
-		};
-		4F94F1482643DB5F00780413 /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				81891D9C264FDA1B00E8741E /* MSBBarChart */,
-				4F1A763B26450EC0003F00CF /* BaseVC */,
-				4F94F14B2643DB5F00780413 /* Enum */,
-				4F94F1502643DB5F00780413 /* navigationCommonView */,
-				4F94F1532643DB5F00780413 /* Extention */,
-				4F94F1632643DB5F00780413 /* CustomClass */,
-			);
-			path = Classes;
 			sourceTree = "<group>";
 		};
 		4F94F14B2643DB5F00780413 /* Enum */ = {
@@ -609,7 +592,7 @@
 			path = Extention;
 			sourceTree = "<group>";
 		};
-		4F94F1632643DB5F00780413 /* CustomClass */ = {
+		4F94F1632643DB5F00780413 /* Themes */ = {
 			isa = PBXGroup;
 			children = (
 				4F94F1642643DB5F00780413 /* CustomSlider.swift */,
@@ -621,18 +604,23 @@
 				4F94F16A2643DB5F00780413 /* customTextView.swift */,
 				4F94F16B2643DB5F00780413 /* CustomLabel.swift */,
 			);
-			path = CustomClass;
+			path = Themes;
 			sourceTree = "<group>";
 		};
 		4F94F1992643DB7500780413 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				1865CF92267C795100379A40 /* Enums.swift */,
-				187B8424267B5BA100D3BFDA /* AppStoryboards.swift */,
+				18720F5D2681BABD008EE191 /* LocationService.swift */,
+				4F94F1CD2643FEE500780413 /* AppInfo.swift */,
+				81891D9C264FDA1B00E8741E /* MSBBarChart */,
+				4F94F1A02643DB7500780413 /* Validation */,
+				4F94F14B2643DB5F00780413 /* Enum */,
+				4F94F1632643DB5F00780413 /* Themes */,
 				187B8429267B5BA100D3BFDA /* AppTheme */,
 				187B8425267B5BA100D3BFDA /* CardValidator */,
 				187B8422267B5BA100D3BFDA /* Toast.swift */,
-				4F94F1A02643DB7500780413 /* Validation */,
+				1865CF92267C795100379A40 /* Enums.swift */,
+				187B8424267B5BA100D3BFDA /* AppStoryboards.swift */,
 				4F94F19A2643DB7500780413 /* Constants.swift */,
 				4F94F19C2643DB7500780413 /* Singleton.swift */,
 				1865CFA2267C7A8400379A40 /* ConstantString.swift */,
@@ -652,6 +640,7 @@
 		4F94F1B22643E72800780413 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				8120ED2D264C2407004E0206 /* Localizable.strings */,
 				4F94F1B32643E72800780413 /* Fonts */,
 			);
 			path = Resources;
@@ -1126,7 +1115,6 @@
 				4F94F1CE2643FEE500780413 /* AppInfo.swift in Sources */,
 				1865CF6B267C767600379A40 /* Webservices+Extension.swift in Sources */,
 				4F94F1872643DB5F00780413 /* CustomImageVIew.swift in Sources */,
-				4F94F11D2643D76500780413 /* ViewController.swift in Sources */,
 				4F94F1782643DB5F00780413 /* UIImage+Extension.swift in Sources */,
 				843F806F264A706400BCBDB8 /* Delegate.swift in Sources */,
 				18720F5E2681BABD008EE191 /* LocationService.swift in Sources */,
