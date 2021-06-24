@@ -11,10 +11,11 @@ import UIKit
 class ChangePasswordVC: BaseVC, UITextFieldDelegate {
 
     //MARK:- IBOutlets
-    @IBOutlet weak var txtCurrentPassword: themeTextField!
-    @IBOutlet weak var txtNewPassword: themeTextField!
-    @IBOutlet weak var txtConfirmPassword: themeTextField!
-    @IBOutlet weak var btnSave: themeButton!
+    @IBOutlet weak var txtCurrentPassword: ChangePasswordTextField!
+    @IBOutlet weak var txtNewPassword: ChangePasswordTextField!
+    @IBOutlet weak var txtConfirmPassword: ChangePasswordTextField!
+    @IBOutlet weak var btnSave: submitButton!
+    @IBOutlet weak var lblChangePassword: changePasswordLabel!
     
     //MARK:- Variables
     
@@ -122,11 +123,15 @@ class ChangePasswordVC: BaseVC, UITextFieldDelegate {
     }
     
     //MARK:- IBActions
+    @IBAction func btnCancelTap(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
     @IBAction func btnSaveTap(_ sender: Any) {
         //login view controller root
         if (validations()){
 //            webserviceForChangePasswod()
 //            self.navigationController?.popViewController(animated: true)
+            self.dismiss(animated: true, completion: nil)
         }
         
     }

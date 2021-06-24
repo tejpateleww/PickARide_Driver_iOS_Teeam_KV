@@ -27,6 +27,8 @@
 		1865CFAC267C7B4E00379A40 /* CardValidatorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1865CFA9267C7B4D00379A40 /* CardValidatorType.swift */; };
 		1865CFAD267C7B4E00379A40 /* MonthPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1865CFAA267C7B4D00379A40 /* MonthPickerView.swift */; };
 		1865CFB1267C7D4400379A40 /* Validators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1865CFB0267C7D4400379A40 /* Validators.swift */; };
+		187197FC26848E3200B4DAAF /* PopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187197FB26848E3200B4DAAF /* PopUpVC.swift */; };
+		187197FE2684B91F00B4DAAF /* ForgotPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187197FD2684B91F00B4DAAF /* ForgotPasswordVC.swift */; };
 		18720F5C2681B70F008EE191 /* LoginModuleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18720F5B2681B70F008EE191 /* LoginModuleViewModel.swift */; };
 		18720F5E2681BABD008EE191 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18720F5D2681BABD008EE191 /* LocationService.swift */; };
 		18720F602681F2ED008EE191 /* ChangePasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18720F5F2681F2ED008EE191 /* ChangePasswordVC.swift */; };
@@ -182,6 +184,8 @@
 		1865CFA9267C7B4D00379A40 /* CardValidatorType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardValidatorType.swift; sourceTree = "<group>"; };
 		1865CFAA267C7B4D00379A40 /* MonthPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthPickerView.swift; sourceTree = "<group>"; };
 		1865CFB0267C7D4400379A40 /* Validators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validators.swift; sourceTree = "<group>"; };
+		187197FB26848E3200B4DAAF /* PopUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpVC.swift; sourceTree = "<group>"; };
+		187197FD2684B91F00B4DAAF /* ForgotPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordVC.swift; sourceTree = "<group>"; };
 		18720F5B2681B70F008EE191 /* LoginModuleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModuleViewModel.swift; sourceTree = "<group>"; };
 		18720F5D2681BABD008EE191 /* LocationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		18720F5F2681F2ED008EE191 /* ChangePasswordVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePasswordVC.swift; sourceTree = "<group>"; };
@@ -460,6 +464,7 @@
 				185DEED82668DAF2008BA95C /* PersonalDocumentVC.swift */,
 				185DEEDE2669113B008BA95C /* WaitingForApprovalVC.swift */,
 				18E2E13A267240360054E351 /* RatingAndReviewVC.swift */,
+				187197FB26848E3200B4DAAF /* PopUpVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -468,6 +473,7 @@
 			isa = PBXGroup;
 			children = (
 				4F1A76362644FC67003F00CF /* LoginViewController.swift */,
+				187197FD2684B91F00B4DAAF /* ForgotPasswordVC.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -1111,6 +1117,7 @@
 				843F806E264A706400BCBDB8 /* UIViewController+Container.swift in Sources */,
 				1865CF6A267C767600379A40 /* CodableResponseServiceClass.swift in Sources */,
 				4F94F17A2643DB5F00780413 /* UIViewController+Extension.swift in Sources */,
+				187197FC26848E3200B4DAAF /* PopUpVC.swift in Sources */,
 				843F8072264A706400BCBDB8 /* BasicTransitionAnimator.swift in Sources */,
 				4F94F1CE2643FEE500780413 /* AppInfo.swift in Sources */,
 				1865CF6B267C767600379A40 /* Webservices+Extension.swift in Sources */,
@@ -1182,6 +1189,7 @@
 				843F806D264A706400BCBDB8 /* UIView+Container.swift in Sources */,
 				187B841F267B5B2B00D3BFDA /* RegisterViewModel.swift in Sources */,
 				847607062648FC340019CE1F /* SettingVC.swift in Sources */,
+				187197FE2684B91F00B4DAAF /* ForgotPasswordVC.swift in Sources */,
 				81A55392264BC5DD00698413 /* WeeklyEarningChildViewController.swift in Sources */,
 				4F94F1702643DB5F00780413 /* Colors.swift in Sources */,
 				81891DA72652DD9800E8741E /* IncomingRideRequestView.swift in Sources */,

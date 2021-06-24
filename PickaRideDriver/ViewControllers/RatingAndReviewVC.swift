@@ -52,5 +52,4 @@ class RatingAndReviewVC: UIViewController, UITextViewDelegate {
         }
         self.dismiss(animated: false, completion: nil)
     }
-    
 }

@@ -35,6 +35,14 @@ class AddVehicleVC: BaseVC, UITextFieldDelegate {
         if isFromEditProfile{
             btnNext.setTitle("SAVE", for: .normal)
             setNavigationBarInViewController(controller: self, naviColor: colors.appColor.value, naviTitle: "Edit Vehicle Details", leftImage: NavItemsLeft.back.value, rightImages: [NavItemsRight.none.value], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
+            txtServiceType.text = "Micro"
+            txtBrand.text = "BMW"
+            txtModel.text = "ABC"
+            txtManufacturer.text = "BMW"
+            txtNumberPlate.text = "YT1234"
+            txtCarYear.text = "2012"
+            carColor.text = "Red"
+            
         }else{
             setNavigationBarInViewController(controller: self, naviColor: colors.appColor.value, naviTitle: NavTitles.Addvehicle.value, leftImage: NavItemsLeft.back.value, rightImages: [NavItemsRight.none.value], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
         }

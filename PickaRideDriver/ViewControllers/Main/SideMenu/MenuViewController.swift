@@ -32,7 +32,7 @@ class MenuViewController: UIViewController {
     }
 //    var myimgarr = [#imageLiteral(resourceName: "imgHome"),#imageLiteral(resourceName: "imgMyrides"),#imageLiteral(resourceName: "imgPayment"),#imageLiteral(resourceName: "imgNotification"),#imageLiteral(resourceName: "imgSettings"),#imageLiteral(resourceName: "imgAddFrind"),#imageLiteral(resourceName: "imgHelp"),#imageLiteral(resourceName: "imgLogout")]
     var myarray = [MyType]()
-    let mylblarr = [MyType.MyRides.value,MyType.Earnings.value,MyType.Account.value,MyType.Help.value,MyType.Logout.value]
+    let mylblarr = [MyType.MyRides.value,MyType.Earnings.value,MyType.Account.value,MyType.MyRating.value,MyType.withdraw.value,MyType.Help.value,MyType.Logout.value]
     
     @IBOutlet weak var selectionTableViewHeader: UILabel!
 
@@ -104,6 +104,10 @@ class MenuViewController: UIViewController {
         //tableView.backgroundColor = themeColor
     }
 
+    @IBAction func btnProfileTap(_ sender: Any) {
+//        let vc : EditProfileVC = EditProfileVC.instantiate(fromAppStoryboard: .Main)
+//        self.navigationController?.pushViewController(vc, animated: true)
+    }
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
 
@@ -219,7 +223,7 @@ class sideCell:UITableViewCell{
 }
 
 enum MyType{
-    case MyRides,Earnings,Account,Help,Logout
+    case MyRides,Earnings,Account,MyRating,withdraw,Help,Logout
     
     var value:String{
         switch self{
@@ -233,6 +237,10 @@ enum MyType{
             return "Logout"
         case .Account:
             return "Account"
+        case .MyRating :
+            return "My Rating & Reviews"
+        case .withdraw :
+            return "Withdraw History"
         }
     }
 }

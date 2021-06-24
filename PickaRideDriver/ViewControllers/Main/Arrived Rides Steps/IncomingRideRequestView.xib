@@ -207,26 +207,47 @@
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sn8-8q-IjC" customClass="CommonLabel" customModule="PickaRideDriver" customModuleProvider="target">
-                                    <rect key="frame" x="79" y="52" width="263" height="21"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sn8-8q-IjC" customClass="themeLabel" customModule="PickaRideDriver" customModuleProvider="target">
+                                    <rect key="frame" x="203" y="52" width="139" height="21"/>
                                     <constraints>
                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="2Te-hm-8BL"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="Font_Size">
+                                            <real key="value" value="18"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isgray" value="YES"/>
+                                    </userDefinedRuntimeAttributes>
                                 </label>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VNp-Hx-F6o" customClass="CosmosView" customModule="Cosmos">
+                                    <rect key="frame" x="79" y="52" width="120" height="20"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="120" id="faA-Rd-3uo"/>
+                                        <constraint firstAttribute="height" constant="20" id="ptl-jA-gBk"/>
+                                    </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="fillMode">
+                                            <integer key="value" value="3"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </view>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
                                 <constraint firstItem="z2g-0Y-kQJ" firstAttribute="top" secondItem="1bV-40-zGj" secondAttribute="top" constant="16" id="Djy-px-xwn"/>
+                                <constraint firstItem="VNp-Hx-F6o" firstAttribute="top" secondItem="Sn8-8q-IjC" secondAttribute="top" id="IV2-S6-RFh"/>
+                                <constraint firstItem="VNp-Hx-F6o" firstAttribute="leading" secondItem="Xt3-1b-Wsa" secondAttribute="leading" id="XPi-Ko-cMX"/>
                                 <constraint firstItem="Xt3-1b-Wsa" firstAttribute="leading" secondItem="z2g-0Y-kQJ" secondAttribute="trailing" constant="12" id="XqS-rm-Cgu"/>
                                 <constraint firstAttribute="trailing" secondItem="Xt3-1b-Wsa" secondAttribute="trailing" constant="24" id="c9F-QQ-U9c"/>
+                                <constraint firstItem="Sn8-8q-IjC" firstAttribute="leading" secondItem="VNp-Hx-F6o" secondAttribute="trailing" constant="4" id="fFy-S4-A5w"/>
                                 <constraint firstAttribute="height" constant="80" id="tfy-8k-LZr"/>
                                 <constraint firstItem="Xt3-1b-Wsa" firstAttribute="top" secondItem="z2g-0Y-kQJ" secondAttribute="top" multiplier="1.2" id="yP0-3r-qdD"/>
                                 <constraint firstItem="Sn8-8q-IjC" firstAttribute="trailing" secondItem="Xt3-1b-Wsa" secondAttribute="trailing" id="yb8-f0-8LJ"/>
                                 <constraint firstItem="z2g-0Y-kQJ" firstAttribute="leading" secondItem="1bV-40-zGj" secondAttribute="leading" constant="12" id="ypK-Kg-7fM"/>
-                                <constraint firstItem="Sn8-8q-IjC" firstAttribute="leading" secondItem="Xt3-1b-Wsa" secondAttribute="leading" id="ytI-WZ-N2x"/>
                                 <constraint firstItem="Sn8-8q-IjC" firstAttribute="top" secondItem="Xt3-1b-Wsa" secondAttribute="bottom" constant="12" id="zoe-qf-itu"/>
                             </constraints>
                         </view>
@@ -366,6 +387,7 @@
                 <outlet property="viewCancelRide" destination="cGk-fA-YUx" id="K29-f9-Z7R"/>
                 <outlet property="viewContainer" destination="JPZ-Y5-Yfc" id="Fba-Zg-9Qx"/>
                 <outlet property="viewCount" destination="V3Z-Bd-ObO" id="DrU-4W-2Wf"/>
+                <outlet property="vwRating" destination="VNp-Hx-F6o" id="XmV-PS-VkU"/>
             </connections>
             <point key="canvasLocation" x="34.782608695652179" y="68.973214285714278"/>
         </view>

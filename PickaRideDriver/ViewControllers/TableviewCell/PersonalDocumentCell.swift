@@ -17,6 +17,7 @@ class PersonalDocumentCell: UITableViewCell {
     @IBOutlet weak var lblMessage: themeLabel!
     @IBOutlet weak var vwLoder: UIView!
     @IBOutlet weak var lblDateOfExpiry: themeLabel!
+    var uploadBtnClouser : (()->())?
     override func awakeFromNib() {
         super.awakeFromNib()
         btnUpload.tintColor = themeColor
@@ -38,5 +39,9 @@ class PersonalDocumentCell: UITableViewCell {
         
     }
     @IBAction func btnUploadClick(_ sender: Any) {
+        if let obj = uploadBtnClouser{
+            obj()
+        }
+        
     }
 }

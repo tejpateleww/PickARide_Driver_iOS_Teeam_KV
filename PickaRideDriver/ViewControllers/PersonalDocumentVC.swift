@@ -59,15 +59,15 @@ class PersonalDocumentVC: BaseVC {
 
     func personalDetails(){
         ArrPersonaldetails.append(PersonalDetails(header: "Profile Photo", message: "Clear photo of yours", dateofExp: ""))
-        ArrPersonaldetails.append(PersonalDetails(header: "Goverment ID", message: "ID is an offical Document", dateofExp: "Date of expiry : 22/08/ 2022"))
-        ArrPersonaldetails.append(PersonalDetails(header: "Driving License", message: "A driving license is an offical Document", dateofExp: "Date of expiry : 22/08/ 2022"))
-        ArrPersonaldetails.append(PersonalDetails(header: "Vehicle Registration", message: "Vehicle Registration", dateofExp: "Date of expiry : 22/08/ 2022"))
-        ArrPersonaldetails.append(PersonalDetails(header: "Insurance policy", message: "Insurance policy", dateofExp: "Date of expiry : 22/08/ 2022"))
+        ArrPersonaldetails.append(PersonalDetails(header: "Goverment ID", message: "ID is an offical Document", dateofExp: "Date of expiry : 22/08/2022"))
+        ArrPersonaldetails.append(PersonalDetails(header: "Driving License", message: "A driving license is an offical Document", dateofExp: "Date of expiry : 22/08/2022"))
+        ArrPersonaldetails.append(PersonalDetails(header: "Vehicle Registration", message: "Vehicle Registration", dateofExp: "Date of expiry : 22/08/2022"))
+        ArrPersonaldetails.append(PersonalDetails(header: "Insurance policy", message: "Insurance policy", dateofExp: "Date of expiry : 22/08/2022"))
     }
     func vehicleDocuments(){
-        ArrPersonaldetails.append(PersonalDetails(header: "RC Book", message: "Vehicle Registration", dateofExp: "Date of expiry : 22/08/ 2022"))
-        ArrPersonaldetails.append(PersonalDetails(header: "Insurance policy", message: "Insurance policy", dateofExp: "Date of expiry : 22/08/ 2022"))
-        ArrPersonaldetails.append(PersonalDetails(header: "Owner certificate", message: "A passport is a travel document", dateofExp: "Date of expiry : 22/08/ 2022"))
+        ArrPersonaldetails.append(PersonalDetails(header: "RC Book", message: "Vehicle Registration", dateofExp: "Date of expiry : 22/08/2022"))
+        ArrPersonaldetails.append(PersonalDetails(header: "Insurance policy", message: "Insurance policy", dateofExp: "Date of expiry : 22/08/2022"))
+        ArrPersonaldetails.append(PersonalDetails(header: "Owner certificate", message: "A passport is a travel document", dateofExp: "Date of expiry : 22/08/2022"))
     }
     //MARK:- Custom Methods
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?){
@@ -117,6 +117,11 @@ extension PersonalDocumentVC : UITableViewDelegate, UITableViewDataSource{
             cell.btnUpload.isHidden = ArrPersonaldetails[indexPath.row].header == "Profile Photo" ? false : true
             cell.vwMoreButtons.isHidden = ArrPersonaldetails[indexPath.row].header == "Profile Photo" ? true : false
            
+        }
+        cell.uploadBtnClouser = {
+            let vc : PopUpVC = PopUpVC.instantiate(fromAppStoryboard: .Main)
+            vc.modalPresentationStyle = .overFullScreen
+            self.navigationController?.present(vc, animated: true, completion: nil)
         }
         cell.lblHeading.text = ArrPersonaldetails[indexPath.row].header
         cell.lblMessage.text = ArrPersonaldetails[indexPath.row].message

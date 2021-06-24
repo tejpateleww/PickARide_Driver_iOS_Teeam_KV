@@ -79,7 +79,7 @@ class MyRidesVC: BaseVC,UITableViewDelegate,UITableViewDataSource {
         
         switch tableView {
         case tblMyRides:
-            if selectedMyRideState == 0 {
+            if selectedMyRideState == 1 {
                 let vc : RideDetailsVC = RideDetailsVC.instantiate(fromAppStoryboard: .Main)
                 self.navigationController?.pushViewController(vc, animated: true)
             }

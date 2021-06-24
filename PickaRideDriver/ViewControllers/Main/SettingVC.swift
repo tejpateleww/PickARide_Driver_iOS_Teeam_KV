@@ -20,9 +20,12 @@ class SettingVC: BaseVC, UITextFieldDelegate {
     @IBOutlet weak var tblSettingHeight: NSLayoutConstraint!
     @IBOutlet weak var btnPicker: UIButton!
     @IBOutlet weak var txtLanguage: UITextField!
+    @IBOutlet weak var lblLanguage: themeLabel!
+    @IBOutlet weak var lblLanguageName: themeLabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-        txtLanguage.text = arrLanguage[0]
+        txtLanguage.tintColor = .white
+        lblLanguageName.text = arrLanguage[0]
         txtLanguage.delegate = self
         setNavigationBarInViewController(controller: self, naviColor: colors.appColor.value, naviTitle: NavTitles.none.value, leftImage: NavItemsLeft.back.value, rightImages: [NavItemsRight.none.value], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
         pickerView.delegate = self
@@ -49,9 +52,9 @@ class SettingVC: BaseVC, UITextFieldDelegate {
         tblSetting.dataSource = self
         tblSetting.reloadData()
         tblSetting.addObserver(self, forKeyPath: "contentSize", options: .new, context: nil)
-        txtLanguage.text = arrLanguage[0]
-        setupTextfields(textfield: txtLanguage)
-        txtLanguage.textColor = hexStringToUIColor(hex: "222B45")
+        lblLanguageName.text = arrLanguage[0]
+//        setupTextfields(textfield: txtLanguage)
+        lblLanguageName.textColor = hexStringToUIColor(hex: "222B45")
    
         // Do any additional setup after loading the view.
     }
@@ -75,7 +78,7 @@ class SettingVC: BaseVC, UITextFieldDelegate {
         txtLanguage.endEditing(true)
     }
     @objc func doneAction(_ sender: UIBarButtonItem) {
-        txtLanguage.text = arrLanguage[self.selectedIndexOfPicker]
+        lblLanguageName.text = arrLanguage[self.selectedIndexOfPicker]
         txtLanguage.endEditing(true)
     }
     

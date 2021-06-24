@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Cosmos
 
 protocol IncomingRideRequestViewDelegate {
     func onAcceptRideRequest()
@@ -22,6 +23,7 @@ class IncomingRideRequestView: UIView {
     @IBOutlet weak var btnNavigate: UIButton!
     @IBOutlet weak var btnNoThanks: UIButton!
     @IBOutlet weak var viewContainer: UIView!
+    @IBOutlet weak var vwRating: CosmosView!
     @IBOutlet weak var lblDropUpAddress: CommonLabel!
     @IBOutlet weak var lblPickUpAddress: CommonLabel!
     @IBOutlet weak var btnAcceptRequest: SubmitButton!
@@ -39,6 +41,7 @@ class IncomingRideRequestView: UIView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        vwRating.isUserInteractionEnabled = false
         viewCancelRide.backgroundColor = themeColor
        
          setupView()
@@ -75,7 +78,7 @@ class IncomingRideRequestView: UIView {
     func setRideDetails(/*Pass model class here*/)
     {
         lblName.text = "James smith"
-        lblRatings.text = "⭑ 3.5"
+        lblRatings.text = "(3)"
         lblDuration.text = "~ 25 min"
         lblFare.text = "~ $12.50"
         lblDistance.text = "4.5 km"

@@ -124,7 +124,7 @@ class EditProfileVC: BaseVC, UITextFieldDelegate {
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         if textField == txtPassword{
             let vc : ChangePasswordVC = ChangePasswordVC.instantiate(fromAppStoryboard: .Main)
-            self.navigationController?.pushViewController(vc, animated: true)
+            self.navigationController?.present(vc, animated: true, completion: nil)
         }
         return false
     }

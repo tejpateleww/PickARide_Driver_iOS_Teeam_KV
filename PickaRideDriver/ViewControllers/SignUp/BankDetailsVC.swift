@@ -29,6 +29,11 @@ class BankDetailsVC: BaseVC {
         if isFromEditProfile{
             btnNext.setTitle("SAVE", for: .normal)
             setNavigationBarInViewController(controller: self, naviColor: colors.appColor.value, naviTitle: "Edit Bank Details", leftImage: NavItemsLeft.back.value, rightImages: [NavItemsRight.none.value], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
+            txtBankName.text = "Standard Chartered"
+            txtAccountHolderName.text = "Joh smitn"
+            txtAccountNumber.text = "ACNO123456789"
+            txtIfscCode.text = "YT1234"
+            
         }else{
         setNavigationBarInViewController(controller: self, naviColor: colors.appColor.value, naviTitle: NavTitles.BankDetails.value, leftImage: NavItemsLeft.back.value, rightImages: [NavItemsRight.none.value], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
         }

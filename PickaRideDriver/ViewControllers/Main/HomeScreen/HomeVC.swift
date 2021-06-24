@@ -147,6 +147,10 @@ extension HomeVC : AcceptedRideDetailsViewDelgate
     func onCancelAcceptedRideRequest() {
         handleRideFlow(state: RideState.CancelAcceptedRide)
     }
+    func onChatRideRequest() {
+        let vc : ChatViewController = ChatViewController.instantiate(fromAppStoryboard: .Chat)
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
 extension HomeVC : CancelRideViewDelgate

@@ -17,8 +17,8 @@ class LoginUserModel{
         let loginReqModel = LoginReqModel()
         loginReqModel.lat = String(SingletonClass.sharedInstance.userCurrentLocation.coordinate.latitude)
         loginReqModel.lng = String(SingletonClass.sharedInstance.userCurrentLocation.coordinate.longitude)
-        loginReqModel.username = loginvc?.mViewEmail.textField.text ?? ""
-        loginReqModel.password = loginvc?.mViewPassword.textField.text ?? ""
+        loginReqModel.username = loginvc?.txtEmailOrPhoneNumber.text ?? ""
+        loginReqModel.password = loginvc?.txtPassword.text ?? ""
         
         Utilities.showHUD()
         WebServiceSubClass.Login(reqModel: loginReqModel) { (status, response, error) in
