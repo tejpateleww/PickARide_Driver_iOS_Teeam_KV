@@ -105,8 +105,11 @@ class MenuViewController: UIViewController {
     }
 
     @IBAction func btnProfileTap(_ sender: Any) {
-//        let vc : EditProfileVC = EditProfileVC.instantiate(fromAppStoryboard: .Main)
-//        self.navigationController?.pushViewController(vc, animated: true)
+        sideMenuController?.hideMenu()
+        let homeVC = self.parent?.children.first?.children.first as? HomeVC
+        
+        let vc : EditProfileVC = EditProfileVC.instantiate(fromAppStoryboard: .Main)
+        homeVC?.navigationController?.pushViewController(vc, animated: true)
     }
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
@@ -193,7 +196,10 @@ extension MenuViewController: UITableViewDelegate, UITableViewDataSource
         }
         else if strCellItemTitle == MyType.Help.value
         {
-          
+            let vc : DummyVC = DummyVC.instantiate(fromAppStoryboard: .Main)
+            vc.strTitle = "Help"
+            vc.dataText = "This is Help Page"
+            homeVC?.navigationController?.pushViewController(vc, animated: true)
 //            let controller = AppStoryboard.Chat.instance.instantiateViewController(withIdentifier: ChatViewController.storyboardID) as! ChatViewController
 //            homeVC?.navigationController?.pushViewController(controller, animated: true)
         }
@@ -212,9 +218,12 @@ extension MenuViewController: UITableViewDelegate, UITableViewDataSource
         } else if strCellItemTitle == MyType.Account.value {
             let controller = AppStoryboard.Main.instance.instantiateViewController(withIdentifier: SettingVC.storyboardID)
             homeVC?.navigationController?.pushViewController(controller, animated: true)
-        } else if strCellItemTitle == MyType.Help.value {
-            
         }
+//        else if strCellItemTitle == MyType.Help.value {
+//            let vc : DummyVC = DummyVC.instantiate(fromAppStoryboard: .Main)
+//            vc.strTitle = "Help"
+//            homeVC?.navigationController?.pushViewController(vc, animated: true)
+//        }
     }
 }
 class sideCell:UITableViewCell{
@@ -223,7 +232,7 @@ class sideCell:UITableViewCell{
 }
 
 enum MyType{
-    case MyRides,Earnings,Account,MyRating,withdraw,Help,Logout
+    case MyRides,Earnings,Account,MyRating,withdraw,Privacy,Help,Logout
     
     var value:String{
         switch self{
@@ -241,6 +250,8 @@ enum MyType{
             return "My Rating & Reviews"
         case .withdraw :
             return "Withdraw History"
+        case .Privacy :
+            return "Privacy Policy"
         }
     }
 }

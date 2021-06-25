@@ -9,6 +9,8 @@ import UIKit
 import Cosmos
 class RideReceiptDetailsVC: BaseVC {
 
+    @IBOutlet weak var vwRatingTop: NSLayoutConstraint!
+    @IBOutlet weak var vwRatingBottom: NSLayoutConstraint!
     @IBOutlet weak var lblDiscription: themeLabel!
     @IBOutlet weak var lblAddres: themeLabel!
     @IBOutlet weak var lblArea: themeLabel!
@@ -33,6 +35,8 @@ class RideReceiptDetailsVC: BaseVC {
     @IBOutlet weak var lblYourPayment: themeLabel!
     override func viewDidLoad() {
         super.viewDidLoad()
+        vwRatingBottom.constant = 0
+        vwRatingTop.constant = 0
         setNavigationBarInViewController(controller: self, naviColor: colors.appColor.value, naviTitle: NavTitles.RideDetails.value, leftImage: NavItemsLeft.back.value, rightImages: [NavItemsRight.help.value], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
         let attributedString = NSMutableAttributedString(string: lblDiscription.text ?? "")
 

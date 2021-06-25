@@ -35,7 +35,7 @@ class BaseVC: UIViewController, UIGestureRecognizerDelegate{
 //        self.navigationController?.navigationBar.frame = CGRect(x: 0, y: 0, width: bounds.width, height: 48)
 //    }
     
-    func setNavigationBarInViewController (controller : UIViewController,naviColor : UIColor, naviTitle : String, leftImage : String , rightImages : [String], isTranslucent : Bool, CommonViewTitles : [String], isTwoLabels:Bool, isDisableBack:Bool = false)
+    func setNavigationBarInViewController (controller : UIViewController,naviColor : UIColor, naviTitle : String, leftImage : String , rightImages : [String], isTranslucent : Bool, CommonViewTitles : [String], isTwoLabels:Bool, isDisableBack:Bool = false, leftimageLeftAllign : Double = 0)
     {
         UIApplication.shared.statusBarStyle = .lightContent
         controller.navigationController?.isNavigationBarHidden = false
@@ -116,7 +116,7 @@ class BaseVC: UIViewController, UIGestureRecognizerDelegate{
 
         if leftImage != "" {
             if leftImage == NavItemsLeft.back.value {
-                let btnLeft = UIButton(frame: CGRect(x: 0, y: 0, width: 44, height: 44))
+                let btnLeft = UIButton(frame: CGRect(x: leftimageLeftAllign, y: 0, width: 44, height: 44))
                 btnLeft.setImage(UIImage.init(named: "nav_back"), for: .normal)
                 btnLeft.layer.setValue(controller, forKey: "controller")
                 btnLeft.addTarget(self, action: #selector(self.btnBackAction), for: .touchUpInside)

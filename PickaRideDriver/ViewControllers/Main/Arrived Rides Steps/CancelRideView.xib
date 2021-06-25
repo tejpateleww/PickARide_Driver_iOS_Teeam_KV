@@ -52,7 +52,7 @@
                             </constraints>
                         </view>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ueW-me-3Nc">
-                            <rect key="frame" x="0.0" y="71" width="414" height="741"/>
+                            <rect key="frame" x="0.0" y="66" width="414" height="746"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         </tableView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wbd-1o-ITy" customClass="SubmitButton" customModule="PickaRideDriver" customModuleProvider="target">
@@ -66,10 +66,10 @@
                             </connections>
                         </button>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B4Y-5N-01q" userLabel="Border View">
-                            <rect key="frame" x="0.0" y="66" width="414" height="5"/>
+                            <rect key="frame" x="0.0" y="66" width="414" height="0.0"/>
                             <color key="backgroundColor" systemColor="systemGray5Color"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="5" id="dh0-HW-7Rc"/>
+                                <constraint firstAttribute="height" id="dh0-HW-7Rc"/>
                             </constraints>
                         </view>
                     </subviews>
@@ -123,7 +123,7 @@
                         </button>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cGQ-Kn-Vxh">
                             <rect key="frame" x="24" y="68.5" width="366" height="1"/>
-                            <color key="backgroundColor" red="0.4392156862745098" green="0.4392156862745098" blue="0.4392156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="backgroundColor" systemColor="systemGray5Color"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="1" id="aFq-uM-Ef5"/>
                             </constraints>

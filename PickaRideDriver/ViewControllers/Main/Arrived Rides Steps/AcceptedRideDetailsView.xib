@@ -51,6 +51,9 @@
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
+                                            <connections>
+                                                <action selector="textEditingChanged:" destination="iN0-l3-epB" eventType="editingChanged" id="eoY-XU-vHJ"/>
+                                            </connections>
                                         </textField>
                                     </subviews>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>

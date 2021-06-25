@@ -23,6 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     {
         // Override point for customization after application launch.
         //        navigateToLogin()
+        Thread.sleep(forTimeInterval: 1.5)
         IQKeyboardManager.shared.enable = true
         IQKeyboardManager.shared.shouldResignOnTouchOutside = true
         checkAndSetDefaultLanguage()

@@ -23,6 +23,9 @@ class PopUpVC: UIViewController {
     @IBAction func btnOkTap(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
+    @IBAction func btnCloseTap(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
     
 }
 
@@ -40,7 +43,6 @@ class SettingForDatePicker: UITextField {
         self.font = CustomFont.regular.returnFont(22)
         self.textColor = .black
         datePicker.minimumDate = Date()
-
     }
     override func layoutSubviews() {
         super.layoutSubviews()

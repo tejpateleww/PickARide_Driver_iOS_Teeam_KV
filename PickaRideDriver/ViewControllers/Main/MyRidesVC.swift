@@ -82,6 +82,10 @@ class MyRidesVC: BaseVC,UITableViewDelegate,UITableViewDataSource {
             if selectedMyRideState == 1 {
                 let vc : RideDetailsVC = RideDetailsVC.instantiate(fromAppStoryboard: .Main)
                 self.navigationController?.pushViewController(vc, animated: true)
+            }else{
+                let vc : RideDetailsVC = RideDetailsVC.instantiate(fromAppStoryboard: .Main)
+                vc.isFromUpcomming = true
+                self.navigationController?.pushViewController(vc, animated: true)
             }
             
             break

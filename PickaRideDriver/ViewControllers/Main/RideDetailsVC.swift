@@ -9,6 +9,9 @@ import UIKit
 
 class RideDetailsVC: BaseVC {
 
+    @IBOutlet weak var stackviewRecieptBottom: NSLayoutConstraint!
+    @IBOutlet weak var stackviewRecieptTop: NSLayoutConstraint!
+    @IBOutlet weak var stackviewRecieptHeight: NSLayoutConstraint!
     @IBOutlet weak var vwMap: UIView!
     @IBOutlet weak var lblTime: RideDetailLabel!
     @IBOutlet weak var imgMapView: UIImageView!
@@ -23,14 +26,24 @@ class RideDetailsVC: BaseVC {
     @IBOutlet weak var lblRideCustomerName: RideDetailLabel!
     @IBOutlet weak var imgRating: UIImageView!
     @IBOutlet weak var btnRepeateRide: UIButton!
+    @IBOutlet weak var btnReceipt: RidesDetailsButton!
+    
+    var isFromUpcomming : Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         btnRepeateRide.isUserInteractionEnabled = false
 //        MyOfferView.dropShadow2(color: .gray, opacity: 0.5, offSet: CGSize(width: 1, height: 1), radius: 3, scale: true)
 //        MyOfferView.
-        
+        btnReceipt.isHidden = isFromUpcomming ? true : false
+        if isFromUpcomming{
+//            stackviewRecieptTop.constant = 10
+            stackviewRecieptBottom.constant = 0
+            stackviewRecieptHeight.constant = 0
+        }
         setNavigationBarInViewController(controller: self, naviColor: colors.white.value, naviTitle: NavTitles.none.value, leftImage: NavItemsLeft.back.value, rightImages: [NavItemsRight.none.value], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
         shadowView(view: MyOfferView)
+        MyOfferView.layer.cornerRadius = 4
         // Do any additional setup after loading the view.
     }
     @IBAction func btnReceiptTap(_ sender: Any) {
@@ -47,7 +60,7 @@ class RideDetailsVC: BaseVC {
         view.layer.shadowColor = UIColor.gray.cgColor
         view.layer.shadowOpacity = 0.3
         view.layer.shadowOffset = CGSize.zero
-        view.layer.shadowRadius = 6
+        view.layer.shadowRadius = 4
     }
 }
 extension UIView {

@@ -60,5 +60,7 @@
 	<string>Pick A Ride Driver Would like to Access Your  Location</string>
 	<key>NSLocationUsageDescription</key>
 	<string>Pick A Ride Driver Would like to Access Your  Location</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Pick A Ride Driver Would like to Access Your  Camera</string>
 </dict>
 </plist>

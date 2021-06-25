@@ -21,8 +21,10 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var lblOR: loginScreenLabel!
     @IBOutlet weak var lblDontHaveanAccount: loginScreenLabel!
     @IBOutlet weak var btnSIgnUP: loginScreenButton!
-    @IBOutlet weak var txtEmailOrPhoneNumber: ChangePasswordTextField!
-    @IBOutlet weak var txtPassword: ChangePasswordTextField!
+    @IBOutlet weak var txtEmailOrPhoneNumber: themeTextField!
+    @IBOutlet weak var txtPassword: themeTextField!
+    @IBOutlet weak var EmailView: changePasswordView!
+    @IBOutlet weak var vwPassword: changePasswordView!
     
     //MARK: -View Life Cycle Methods
     var loginusermodel = LoginUserModel()
@@ -33,6 +35,8 @@ class LoginViewController: UIViewController {
         hideKeyboardWhenTappedAround()
         setupTextfields(textfield: txtPassword)
         txtEmailOrPhoneNumber.autocapitalizationType = .none
+        vwPassword.layer.masksToBounds = true
+        EmailView.layer.masksToBounds = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -60,7 +64,7 @@ class LoginViewController: UIViewController {
         button.isSelected = true
         button.setImage(UIImage(named: "showpassword"), for: .normal)
         button.setImage(UIImage(named: "hidepassword"), for: .selected)
-        button.imageEdgeInsets = UIEdgeInsets(top: 5, left: -16, bottom: -5, right: 0)
+        button.imageEdgeInsets = UIEdgeInsets(top: 0, left: -16, bottom: 0, right: 0)
         button.frame = CGRect(x: CGFloat(textfield.frame.size.width - 25), y: CGFloat(5), width: CGFloat(25), height: CGFloat(25))
         button.tag = textfield.tag
         button.addTarget(self, action: #selector(self.showHidePassword), for: .touchUpInside)

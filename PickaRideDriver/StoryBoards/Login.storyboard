@@ -32,7 +32,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="666"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash_img_top" translatesAutoresizingMaskIntoConstraints="NO" id="Ro4-gm-fBX">
-                                                        <rect key="frame" x="220.5" y="-60" width="154.5" height="281.5"/>
+                                                        <rect key="frame" x="220.5" y="-30" width="154.5" height="281.5"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="154.34" id="Ycw-0g-b3O"/>
                                                             <constraint firstAttribute="height" constant="281.30000000000001" id="pO0-gn-wya"/>
@@ -68,33 +68,47 @@
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FMe-iR-Fkv" customClass="changePasswordView" customModule="PickaRideDriver" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="333" height="48"/>
                                                                 <subviews>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email ID/Phone Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HsG-gk-E8e" customClass="ChangePasswordTextField" customModule="PickaRideDriver" customModuleProvider="target">
-                                                                        <rect key="frame" x="16" y="15" width="301" height="18.5"/>
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email ID/Phone Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HsG-gk-E8e" customClass="themeTextField" customModule="PickaRideDriver" customModuleProvider="target">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="333" height="48"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                         <textInputTraits key="textInputTraits"/>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="Font_Size">
+                                                                                <real key="value" value="15"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                        </userDefinedRuntimeAttributes>
                                                                     </textField>
                                                                 </subviews>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="48" id="764-fb-mV4"/>
-                                                                    <constraint firstAttribute="trailing" secondItem="HsG-gk-E8e" secondAttribute="trailing" constant="16" id="9MQ-wU-qDH"/>
-                                                                    <constraint firstItem="HsG-gk-E8e" firstAttribute="leading" secondItem="FMe-iR-Fkv" secondAttribute="leading" constant="16" id="PHE-ma-Cpu"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="HsG-gk-E8e" secondAttribute="trailing" id="9MQ-wU-qDH"/>
+                                                                    <constraint firstItem="HsG-gk-E8e" firstAttribute="leading" secondItem="FMe-iR-Fkv" secondAttribute="leading" id="PHE-ma-Cpu"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="HsG-gk-E8e" secondAttribute="bottom" id="VrB-0i-zV6"/>
                                                                     <constraint firstItem="HsG-gk-E8e" firstAttribute="centerY" secondItem="FMe-iR-Fkv" secondAttribute="centerY" id="bbZ-bN-Hkj"/>
+                                                                    <constraint firstItem="HsG-gk-E8e" firstAttribute="top" secondItem="FMe-iR-Fkv" secondAttribute="top" id="qhc-Xm-D4a"/>
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ykY-c0-Rfs" customClass="changePasswordView" customModule="PickaRideDriver" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="85" width="333" height="48"/>
                                                                 <subviews>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4mH-pH-LTR" customClass="ChangePasswordTextField" customModule="PickaRideDriver" customModuleProvider="target">
-                                                                        <rect key="frame" x="16" y="15.5" width="301" height="17"/>
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4mH-pH-LTR" customClass="themeTextField" customModule="PickaRideDriver" customModuleProvider="target">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="333" height="48"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="Font_Size">
+                                                                                <real key="value" value="15"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                        </userDefinedRuntimeAttributes>
                                                                     </textField>
                                                                 </subviews>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                 <constraints>
-                                                                    <constraint firstItem="4mH-pH-LTR" firstAttribute="leading" secondItem="ykY-c0-Rfs" secondAttribute="leading" constant="16" id="H9W-Bk-rwn"/>
-                                                                    <constraint firstAttribute="trailing" secondItem="4mH-pH-LTR" secondAttribute="trailing" constant="16" id="Zb5-dd-jMs"/>
+                                                                    <constraint firstItem="4mH-pH-LTR" firstAttribute="leading" secondItem="ykY-c0-Rfs" secondAttribute="leading" id="H9W-Bk-rwn"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="4mH-pH-LTR" secondAttribute="bottom" id="Par-RZ-DQ4"/>
+                                                                    <constraint firstItem="4mH-pH-LTR" firstAttribute="top" secondItem="ykY-c0-Rfs" secondAttribute="top" id="Z5P-l5-mlq"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="4mH-pH-LTR" secondAttribute="trailing" id="Zb5-dd-jMs"/>
                                                                     <constraint firstItem="4mH-pH-LTR" firstAttribute="centerY" secondItem="ykY-c0-Rfs" secondAttribute="centerY" id="gv3-i2-C6s"/>
                                                                     <constraint firstAttribute="height" constant="48" id="yLZ-nf-whi"/>
                                                                 </constraints>
@@ -199,7 +213,7 @@
                                                     <constraint firstAttribute="trailing" secondItem="Veb-tb-4Bi" secondAttribute="trailing" constant="21" id="KBu-4S-gC7"/>
                                                     <constraint firstItem="Veb-tb-4Bi" firstAttribute="leading" secondItem="u2X-Xj-LEj" secondAttribute="leading" constant="21" id="MlN-K8-yub"/>
                                                     <constraint firstItem="EOg-Su-yxc" firstAttribute="centerX" secondItem="u2X-Xj-LEj" secondAttribute="centerX" id="NLn-sW-Dju"/>
-                                                    <constraint firstItem="Ro4-gm-fBX" firstAttribute="top" secondItem="u2X-Xj-LEj" secondAttribute="top" constant="-60" id="Y20-Ar-Utb"/>
+                                                    <constraint firstItem="Ro4-gm-fBX" firstAttribute="top" secondItem="u2X-Xj-LEj" secondAttribute="top" constant="-30" id="Y20-Ar-Utb"/>
                                                     <constraint firstItem="vbh-YP-hN7" firstAttribute="top" secondItem="BjM-OQ-oxa" secondAttribute="bottom" constant="17" id="Za4-L4-Iim"/>
                                                     <constraint firstAttribute="trailing" secondItem="Ro4-gm-fBX" secondAttribute="trailing" id="aJX-db-Flu"/>
                                                     <constraint firstItem="bQz-ec-Nfr" firstAttribute="centerX" secondItem="u2X-Xj-LEj" secondAttribute="centerX" id="b3z-Ry-saj"/>
@@ -250,6 +264,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="EIB-Oy-37Q"/>
                     <connections>
+                        <outlet property="EmailView" destination="FMe-iR-Fkv" id="6GS-l7-P4d"/>
                         <outlet property="btnForgotPassword" destination="vbh-YP-hN7" id="Cnk-rb-e2r"/>
                         <outlet property="btnSIgnUP" destination="OF8-An-A8k" id="l8k-tZ-xAf"/>
                         <outlet property="btnSignIN" destination="mWa-VE-ltd" id="dd6-v5-fV8"/>
@@ -258,6 +273,7 @@
                         <outlet property="lblWelcomeBack" destination="Veb-tb-4Bi" id="e1H-Qx-geB"/>
                         <outlet property="txtEmailOrPhoneNumber" destination="HsG-gk-E8e" id="TeE-2q-fJM"/>
                         <outlet property="txtPassword" destination="4mH-pH-LTR" id="pfj-pe-9AE"/>
+                        <outlet property="vwPassword" destination="ykY-c0-Rfs" id="Rfp-9r-QsF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yjg-TH-tva" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1250,7 +1266,7 @@ sent to you at *** **** 633</string>
         <!--Forgot PasswordVC-->
         <scene sceneID="RgL-MN-jqd">
             <objects>
-                <viewController storyboardIdentifier="ForgotPasswordVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="6FC-Hl-iRT" customClass="ForgotPasswordVC" customModule="Cluttrfly_HAULER" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ForgotPasswordVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="6FC-Hl-iRT" customClass="ForgotPasswordVC" customModule="PickaRideDriver" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UWx-kw-6kk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

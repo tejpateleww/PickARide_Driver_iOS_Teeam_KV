@@ -14,7 +14,8 @@ class ForgotPasswordVC: BaseVC {
     @IBOutlet weak var txtForgotPassword: themeTextField!
     override func viewDidLoad() {
         super.viewDidLoad()
-        setNavigationBarInViewController(controller: self, naviColor: colors.appColor.value, naviTitle: NavTitles.none.value, leftImage: NavItemsLeft.back.value, rightImages: [NavItemsRight.none.value], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
+        navigationController?.navigationBar.isHidden = false
+        setNavigationBarInViewController(controller: self, naviColor: colors.myride.value, naviTitle: NavTitles.none.value, leftImage: NavItemsLeft.back.value, rightImages: [NavItemsRight.none.value], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
         txtForgotPassword.placeholder = ConstantString.PLACE_HOLDER_LOGIN_EMAILID
     }
     @IBAction func btnSendTap(_ sender: Any) {

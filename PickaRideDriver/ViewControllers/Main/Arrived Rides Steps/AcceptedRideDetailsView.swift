@@ -11,6 +11,7 @@ protocol AcceptedRideDetailsViewDelgate {
     func onArrivedUserLocation()
     func onCancelAcceptedRideRequest()
     func onChatRideRequest()
+    func onCallRideRequest()
 }
 
 class AcceptedRideDetailsView: UIView {
@@ -38,10 +39,10 @@ class AcceptedRideDetailsView: UIView {
     var isComplete : Bool = false
     var isCompleteClicked : Bool = false
     var TextfieldCountIsFour = false
-    var space = "                               "
     override func awakeFromNib() {
         super.awakeFromNib()
          setupView()
+//        txtfieldTripCode.addTarget(self, action: #selector(textFieldEdidtingDidChange(_ :)), for: UIControl.Event.editingChanged)
     }
     
 //    required init?(coder aDecoder: NSCoder) {
@@ -112,7 +113,7 @@ class AcceptedRideDetailsView: UIView {
     }
     
     @IBAction func btnCallClickAction(_ sender: Any) {
-        
+        delegate?.onCallRideRequest()
     }
     
     @IBAction func btnMessageClickAction(_ sender: Any) {
@@ -136,15 +137,35 @@ class AcceptedRideDetailsView: UIView {
         self.txtfieldTripCode.endEditing(self.ViewTripCode.isHidden ? false : true)
     }
     }
+    
+    @IBAction func textEditingChanged(_ sender: UITextField) {
+        sender.text?.removeAll { !("0"..."9" ~= $0) }
+        let text = sender.text ?? ""
+        for index in text.indices.reversed() {
+            if text.distance(from: text.endIndex, to: index).isMultiple(of: 1) &&
+                index != text.startIndex &&
+                index != text.endIndex {
+                sender.text?.insert(" ", at: index)
+                sender.text?.insert(" ", at: index)
+            }
+        }
+        print(sender.text!)
+    }
 }
 
 extension AcceptedRideDetailsView {
+    
+//    @objc func textFieldEdidtingDidChange(_ textField :UITextField) {
+//        let attributedString = NSMutableAttributedString(string: textField.text ?? "")
+//        attributedString.addAttribute(NSAttributedString.Key.kern, value: CGFloat(31.0), range: NSRange(location: 0, length: attributedString.length))
+//        textField.attributedText = attributedString
+//    }
     
     func setupView() {
         
         ViewTripCode.isHidden = true
         txtfieldTripCode.tintColor = themeColor
-        txtfieldTripCode.defaultTextAttributes.updateValue(31.0, forKey: NSAttributedString.Key.kern)
+//        txtfieldTripCode.defaultTextAttributes.updateValue(31.0, forKey: NSAttributedString.Key.kern)
         txtfieldTripCode.font = UIFont.regular(ofSize: FontsSize.Medium)
         txtfieldTripCode.textAlignment = .center
         txtfieldTripCode.textColor = themeColor
@@ -178,6 +199,6 @@ extension AcceptedRideDetailsView : UITextFieldDelegate {
         guard let stringRange = Range(range, in: currentText) else { return false }
         let updatedText = currentText.replacingCharacters(in: stringRange, with: string)
         
-        return updatedText.count <= 4
+        return updatedText.count <= 10
     }
 }

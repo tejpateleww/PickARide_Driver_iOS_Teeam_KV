@@ -44,10 +44,17 @@ class HomeVC: BaseVC {
     }
     
     
-    @IBAction func btnOnClick(_ sender: Any)
+    @IBAction func btnOnClick(_ sender: UIButton)
     {
+        if lblOffline.text == "You're online"{
         handleRideFlow(state: RideState.NewRequest)
         setNavigationBarInViewController(controller: self, naviColor: colors.appColor.value, naviTitle: NavTitles.none.value, leftImage: NavItemsLeft.menu.value, rightImages: [NavItemsRight.none.value], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
+        }
+        sender.isSelected = !sender.isSelected
+        
+    
+//        lblOffline.text = "You're online"
+        lblOffline.text = sender.isSelected ? "You're online" : "You're offline"
     }
         
 }
@@ -137,9 +144,11 @@ extension HomeVC : AcceptedRideDetailsViewDelgate
         vc.reviewBtnTapClosure = {
 //            self.handleRideFlow(state: RideState.None)
             self.setNavigationBarInViewController(controller: self, naviColor: colors.appColor.value, naviTitle: NavTitles.none.value, leftImage: NavItemsLeft.menu.value, rightImages: [NavItemsRight.sos.value], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
+            self.lblOffline.text = "You're offline"
         }
         vc.btnDoneTapClosure = {
             self.setNavigationBarInViewController(controller: self, naviColor: colors.appColor.value, naviTitle: NavTitles.none.value, leftImage: NavItemsLeft.menu.value, rightImages: [NavItemsRight.sos.value], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
+            self.lblOffline.text = "You're offline"
         }
         self.navigationController?.present(vc, animated: false, completion: nil)
     }
@@ -150,6 +159,16 @@ extension HomeVC : AcceptedRideDetailsViewDelgate
     func onChatRideRequest() {
         let vc : ChatViewController = ChatViewController.instantiate(fromAppStoryboard: .Chat)
         self.navigationController?.pushViewController(vc, animated: true)
+    }
+    func onCallRideRequest() {
+//        if let url = URL(string: "tel:\("55698")") {
+//            UIApplication.shared.openURL(url)
+//        }
+//        if let url = URL(string: "tel://\(0123456789)") {
+//            UIApplication.shared.canOpenURL(url)
+//        }
+        guard let number = URL(string: "tel://" + "0123456789") else { return }
+        UIApplication.shared.open(number)
     }
 }
 
