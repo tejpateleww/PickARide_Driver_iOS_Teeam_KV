@@ -25,7 +25,7 @@ class loginView : UIView {
 class RegisterView : UIView {
     override func awakeFromNib() {
         self.layer.cornerRadius = 4
-        self.layer.borderColor = colors.loginViewColor.value.cgColor
+        self.layer.borderColor = hexStringToUIColor(hex: "#F0F0F0").cgColor
         self.layer.borderWidth = 1
     }
 }

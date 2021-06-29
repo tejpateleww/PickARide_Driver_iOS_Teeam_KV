@@ -17,6 +17,7 @@ class WeeklyEarningChildViewController: UIViewController {
     @IBOutlet weak var lblNumberOfRides: EarningDetailLabel!
     
     @IBOutlet weak var viewRideDetails: UIView!
+    @IBOutlet weak var lblCurrency: themeLabel!
     
     @IBOutlet weak var viewOnlineHours: UIView!
     @IBOutlet weak var lblOnlineHours: EarningDetailLabel!

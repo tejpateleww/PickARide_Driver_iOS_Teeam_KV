@@ -233,6 +233,8 @@
                                         <userDefinedRuntimeAttribute type="number" keyPath="fillMode">
                                             <integer key="value" value="3"/>
                                         </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="image" keyPath="filledImage" value="FillStar"/>
+                                        <userDefinedRuntimeAttribute type="image" keyPath="emptyImage" value="StarEmpty"/>
                                     </userDefinedRuntimeAttributes>
                                 </view>
                             </subviews>
@@ -392,7 +394,14 @@
             <point key="canvasLocation" x="34.782608695652179" y="68.973214285714278"/>
         </view>
     </objects>
+    <designables>
+        <designable name="VNp-Hx-F6o">
+            <size key="intrinsicContentSize" width="120" height="20"/>
+        </designable>
+    </designables>
     <resources>
+        <image name="FillStar" width="27" height="27"/>
+        <image name="StarEmpty" width="27" height="27"/>
         <image name="button:qts-W8-aef:image" width="108" height="36">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGBwpYJHZlcnNpb25ZJGFyY2hpdmVyVCR0b3BYJG9iamVjdHMSAAGGoF8QD05T

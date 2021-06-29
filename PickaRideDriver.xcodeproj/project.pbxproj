@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		184514E8268A145D00E8884A /* VerifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184514E7268A145D00E8884A /* VerifyViewController.swift */; };
 		185DEED92668DAF2008BA95C /* PersonalDocumentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185DEED82668DAF2008BA95C /* PersonalDocumentVC.swift */; };
 		185DEEDC2668DBD7008BA95C /* PersonalDocumentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185DEEDA2668DBD7008BA95C /* PersonalDocumentCell.swift */; };
 		185DEEDD2668DBD7008BA95C /* PersonalDocumentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 185DEEDB2668DBD7008BA95C /* PersonalDocumentCell.xib */; };
@@ -165,6 +166,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		184514E7268A145D00E8884A /* VerifyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerifyViewController.swift; sourceTree = "<group>"; };
 		185DEED82668DAF2008BA95C /* PersonalDocumentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalDocumentVC.swift; sourceTree = "<group>"; };
 		185DEEDA2668DBD7008BA95C /* PersonalDocumentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalDocumentCell.swift; sourceTree = "<group>"; };
 		185DEEDB2668DBD7008BA95C /* PersonalDocumentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PersonalDocumentCell.xib; sourceTree = "<group>"; };
@@ -456,6 +458,7 @@
 		4F1A76342644EF99003F00CF /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				184514E7268A145D00E8884A /* VerifyViewController.swift */,
 				1871C8B52685B1CC00D4D17D /* DummyVC.swift */,
 				4F1A763B26450EC0003F00CF /* BaseVC */,
 				18720F5F2681F2ED008EE191 /* ChangePasswordVC.swift */,
@@ -1225,6 +1228,7 @@
 				187B8430267B5BA100D3BFDA /* AppStoryboards.swift in Sources */,
 				18E2E13B267240360054E351 /* RatingAndReviewVC.swift in Sources */,
 				849CE22C2646616800E76E5E /* HomeVC.swift in Sources */,
+				184514E8268A145D00E8884A /* VerifyViewController.swift in Sources */,
 				18720F5C2681B70F008EE191 /* LoginModuleViewModel.swift in Sources */,
 				84A5D11E2646B83900AAFAB0 /* CancelRideVC.swift in Sources */,
 			);

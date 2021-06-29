@@ -1,10 +1,3 @@
-//
-//  OtpVC.swift
-//  Cluttrfly
-//
-//  Created by Raju Gupta on 19/03/21.
-//  Copyright © 2021 EWW071. All rights reserved.
-//
 
 import UIKit
 
@@ -24,7 +17,6 @@ class OtpVC: BaseVC, UITextFieldDelegate, OTPTextFieldDelegate {
     @IBOutlet weak var btnResendCode: UIButton!
     //MARK:- Variables
     var StringOTP : String = ""
-//    var objectRegister = RegisterReqModel()
     var clickBtnVerify : (() -> ())?
     var textFieldsIndexes:[OTPTextField:Int] = [:]
     var counter = 30
@@ -32,28 +24,16 @@ class OtpVC: BaseVC, UITextFieldDelegate, OTPTextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        let phone = objectRegister.mobileno
-//
-//               let splitedPhoneNoArr = phone.components(separatedBy: " ")
-//               let countryCode = splitedPhoneNoArr[0]
-//               let onlyNo: String? = splitedPhoneNoArr.count > 1 ? splitedPhoneNoArr[1] : nil
-//               let phoneNo: String? = countryCode + onlyNo!
-        
-//        let range = objectRegister.mobileno.range(of: "-")
-//        let LastDigit = objectRegister.mobileno[range!.upperBound...]
-//        let regularAttribute = [
-//                      NSAttributedString.Key.font: CustomFont.regular.returnFont(19)
-//                   ]
-//        let num = NSAttributedString(string: " (******\(LastDigit))?", attributes: regularAttribute)
-//        let newString = NSMutableAttributedString()
-//        newString.append(num)
-//        lblDisplayMesagewithNumber.te
+        lblDisplayMesagewithNumber.text = "Check your SMS messages. We've sent you the PIN at" + "    ******9999"
+        setNavigationBarInViewController(controller: self, naviColor: colors.appColor.value, naviTitle: "", leftImage: NavItemsLeft.back.value, rightImages: [NavItemsRight.none.value], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
+        txtOtp[0].becomeFirstResponder()
         reversetimer()
-//        lblDisplayMesagewithNumber.text = "Please enter the 4 digit code sent to you at ******" + objectRegister.mobileno.suffix(4)
-        btnAeero.layer.cornerRadius = 16
-//        SetNavigationBar(controller: self, Left: true, Right: false, Title: "", IsGreen: true)
         for i in txtOtp {
-            i.layer.cornerRadius = 16
+            i.backgroundColor = .clear
+            i.layer.cornerRadius = 4
+            i.layer.borderColor = colors.loginViewColor.value.cgColor
+            i.layer.borderWidth = 1
+            i.tintColor = themeColor
         }
         
         for index in 0 ..< txtOtp.count {
@@ -64,18 +44,17 @@ class OtpVC: BaseVC, UITextFieldDelegate, OTPTextFieldDelegate {
         txtOtp[2].myDelegate = self
         txtOtp[3].myDelegate = self
         
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(keyboardWillShow),
-            name: UIResponder.keyboardWillShowNotification,
-            object: nil
-        )
         
+    }
+    
+    override func btnBackAction() {
+        super.btnBackAction()
+        timer.invalidate()
     }
     
     func reversetimer(){
         timer.invalidate() // just in case this button is tapped multiple times
-        
+        //timer? = nil
         lblCountDown.isHidden = false
         btnResendCode.isUserInteractionEnabled = false
         btnResendCode.setTitle("Resend code in", for: .normal)
@@ -92,14 +71,6 @@ class OtpVC: BaseVC, UITextFieldDelegate, OTPTextFieldDelegate {
             lblCountDown.isHidden = true
             btnResendCode.isUserInteractionEnabled = true
             btnResendCode.setTitle("Resend code", for: .normal)
-        }
-    }
-    
-    @objc func keyboardWillShow(_ notification: Notification) {
-        if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
-            let keyboardRectangle = keyboardFrame.cgRectValue
-            let keyboardHeight = keyboardRectangle.height
-            self.btnArrowBottom.constant = keyboardHeight + 12
         }
     }
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
@@ -128,10 +99,9 @@ class OtpVC: BaseVC, UITextFieldDelegate, OTPTextFieldDelegate {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        self.btnArrowBottom.constant = 20
+//        self.btnArrowBottom.constant = 20
     }
     func validation() -> Bool {
-        //        let strEnteredOTP = "\(txtCode1.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? "")\(txtCode2.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? "")\(txtCode3.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? "")\(txtCode4.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? "")"
         var strEnteredOTP = ""
         for index in 0 ..< txtOtp.count {
             strEnteredOTP.append(txtOtp[index].text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? "")
@@ -168,11 +138,6 @@ class OtpVC: BaseVC, UITextFieldDelegate, OTPTextFieldDelegate {
                 for i in neIndex..<txtOtp.count {
                     txtOtp[i].text = ""
                 }
-                
-                //                let prevIndex = index - 1
-                //                for i in 0..<prevIndex {
-                //                    txtOtpOutletCollection[i].isUserInteractionEnabled = false
-                //                }
             }
         } else {
             index == txtOtp.count - 1 ?
@@ -195,18 +160,8 @@ class OtpVC: BaseVC, UITextFieldDelegate, OTPTextFieldDelegate {
     //MARK:- IBActions
     
     @IBAction func btnAeeroTap(_ sender: Any) {
-//        UserDefaults.standard.setValue(true, forKey: "login")
-//        appDel.navigateToHome()
-//        let vc : VehicalInformationVC = VehicalInformationVC.instantiate(fromAppStoryboard: .Main)
-//        self.navigationController?.pushViewController(vc, animated: true)
         let vc : BankDetailsVC = BankDetailsVC.instantiate(fromAppStoryboard: .Login)
         self.navigationController?.pushViewController(vc, animated: true)
-//        if (validation()){
-////            let vc : VehicalInformationVC = VehicalInformationVC.instantiate(fromAppStoryboard: .Main)
-////            vc.objectRegister = self.objectRegister
-////            self.navigationController?.pushViewController(vc, animated: true)
-//    
-//        }
         
     }
     @IBAction func btnResendCodeTap(_ sender: Any) {
@@ -226,57 +181,6 @@ class OtpVC: BaseVC, UITextFieldDelegate, OTPTextFieldDelegate {
     }
     
     
-}
-//MARK:- Api Call
-extension OtpVC{
-//    func webservicesForSignUp(){
-//        self.showHUD()
-//        WebServiceSubClass.register(UpdateProfileReq: objectRegister, img: UIImage()) { (json, status, response) in
-//            self.hideHUD()
-//            if status{
-//                let register  = RegisterMain.init(fromJson: json)
-//                print(json)
-//                SingletonClass.sharedInstance.userProfile = register
-//                userDefault.setValue(true, forKey: UserDefaultsKey.isUserLogin.rawValue)
-//                SingletonClass.sharedInstance.Api_Key = register.data.xApiKey
-//                userDefault.setUserData()
-////                UserDefaults.standard.setValue(true, forKey: "login")
-//                appDel.navigateToHome()
-//
-//            }else
-//            {
-//                if let strMessage = json["message"].string {
-//                    Utilities.showAlertOfAPIResponse(param: strMessage, vc: self)
-//                }else {
-//                    Utilities.showAlertOfAPIResponse(param: "Something went wrong", vc: self)
-//                }
-//            }
-//        }
-//    }
-    
-//    func webserviceForOtp(){
-//        var reqmodel = otpReqModel()
-//        reqmodel.countrycode = "+1"
-//        reqmodel.email = objectRegister.email
-//        reqmodel.mobileno = objectRegister.mobileno
-//
-//        self.showHUD()
-//        WebServiceSubClass.otp(otpModel: reqmodel) { (json, status, response) in
-//            self.hideHUD()
-//            if status{
-//                let otp = OtpMain.init(fromJson: json)
-//                print(json)
-//                self.StringOTP = String(otp.otp)
-//            }else
-//            {
-//                if let strMessage = json["message"].string {
-//                    Utilities.showAlertOfAPIResponse(param: strMessage, vc: self)
-//                }else {
-//                    Utilities.showAlertOfAPIResponse(param: "No internet found. Check your connection or try again", vc: self)
-//                }
-//            }
-//        }
-//    }
 }
 
 

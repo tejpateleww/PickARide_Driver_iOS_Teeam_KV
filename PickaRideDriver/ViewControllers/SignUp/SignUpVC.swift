@@ -27,6 +27,8 @@ class SignUpVC: BaseVC {
     @IBOutlet weak var lblCountrycode: themeLabel!
     @IBOutlet weak var btnNext: themeButton!
     @IBOutlet weak var txtLastName: themeTextField!
+    @IBOutlet weak var stackViewCountryCode: UIStackView!
+    @IBOutlet weak var btnCountryCode: UIButton!
     
     //MARK:- Variables and properties
     
@@ -34,10 +36,13 @@ class SignUpVC: BaseVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         setNavigationBarInViewController(controller: self, naviColor: colors.appColor.value, naviTitle: NavTitles.none.value, leftImage: NavItemsLeft.back.value, rightImages: [NavItemsRight.none.value], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
-        vwMobile.layer.borderWidth = 1
-        vwMobile.layer.borderColor = colors.textfieldbordercolor.value.cgColor
+        
+//        stackViewCountryCode.layer.borderWidth = 1
+//        stackViewCountryCode.layer.borderColor = UIColor.white.cgColor
+//        vwMobile.layer.borderWidth = 1
+//        vwMobile.layer.borderColor = colors.textfieldbordercolor.value.cgColor
         setupTextfields(textfield: txtPassword)
-        txtHomeAddress.isUserInteractionEnabled = false
+//        txtHomeAddress.isUserInteractionEnabled = false
         txtMobile.tintColor = themeColor
     }
     
@@ -56,6 +61,8 @@ class SignUpVC: BaseVC {
         textfield.rightViewMode = .always
     }
     
+    @IBAction func btnCountryCodeTap(_ sender: Any) {
+    }
     @IBAction func showHidePassword(_ sender : UIButton) {
         sender.isSelected = !sender.isSelected
         self.txtPassword.isSecureTextEntry = sender.isSelected

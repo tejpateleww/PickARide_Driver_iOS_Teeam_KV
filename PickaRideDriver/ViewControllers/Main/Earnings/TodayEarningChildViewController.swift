@@ -35,6 +35,7 @@ class TodayEarningChildViewController: UIViewController {
     @IBOutlet weak var lblSurgeAmount: EarningDetailLabel!
     @IBOutlet weak var lblTotalEarnings: EarningDetailLabel!
     @IBOutlet weak var lblTotalEarningAmount: EarningDetailLabel!
+    @IBOutlet weak var lblCurrency: themeLabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()

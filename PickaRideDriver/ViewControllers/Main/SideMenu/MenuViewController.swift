@@ -22,7 +22,6 @@ class MenuViewController: UIViewController {
     var isDarkModeEnabled = false
     var selectedMenuIndex = 0
     
-    
     @IBOutlet weak var tblSidemenuData: UITableView! {
         didSet {
             tblSidemenuData.dataSource = self
@@ -68,7 +67,6 @@ class MenuViewController: UIViewController {
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-      
         print("[Example] Menu will disappear")
     }
 

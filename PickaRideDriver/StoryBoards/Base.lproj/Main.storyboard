@@ -2185,12 +2185,12 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kEL-lY-Wef">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="588"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ride Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AD7-dM-NhY" customClass="RideDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
-                                                        <rect key="frame" x="16" y="32" width="343" height="48"/>
+                                                        <rect key="frame" x="16" y="0.0" width="343" height="80"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="48" id="xMX-o2-ZQY"/>
+                                                            <constraint firstAttribute="height" constant="80" id="xMX-o2-ZQY"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
@@ -2200,7 +2200,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R4D-Mv-QFq">
-                                                        <rect key="frame" x="16" y="103" width="343" height="240"/>
+                                                        <rect key="frame" x="16" y="88" width="343" height="240"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today, 10:30 AM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t9l-6q-aaO" customClass="RideDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
                                                                 <rect key="frame" x="16" y="17" width="311" height="15"/>
@@ -2377,7 +2377,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o4I-fU-Pdj">
-                                                        <rect key="frame" x="32" y="366" width="311" height="74"/>
+                                                        <rect key="frame" x="32" y="351" width="311" height="74"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="3oB-Gw-qPe">
                                                                 <rect key="frame" x="0.0" y="3" width="12" height="57"/>
@@ -2502,7 +2502,7 @@
                                                         </constraints>
                                                     </view>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="155" translatesAutoresizingMaskIntoConstraints="NO" id="J4B-5a-gA7">
-                                                        <rect key="frame" x="16" y="456" width="343" height="35"/>
+                                                        <rect key="frame" x="16" y="441" width="343" height="35"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5un-vx-GqX" customClass="RidesDetailsButton" customModule="PickaRideDriver" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="94" height="35"/>
@@ -2529,14 +2529,14 @@
                                                         </constraints>
                                                     </stackView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vGu-1F-6hh">
-                                                        <rect key="frame" x="0.0" y="516" width="375" height="2"/>
+                                                        <rect key="frame" x="0.0" y="501" width="375" height="2"/>
                                                         <color key="backgroundColor" red="0.96863657240000001" green="0.96861571069999997" blue="0.96861976390000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="2" id="nD5-0M-Pam"/>
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4ag-z0-f4X">
-                                                        <rect key="frame" x="16" y="540" width="217" height="43"/>
+                                                        <rect key="frame" x="16" y="525" width="217" height="43"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="sNt-Da-TYY">
                                                                 <rect key="frame" x="0.0" y="0.0" width="217" height="43"/>
@@ -2637,7 +2637,7 @@
                                                         </constraints>
                                                     </view>
                                                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ou3-ve-ykV" customClass="RidesDetailsButton" customModule="PickaRideDriver" customModuleProvider="target">
-                                                        <rect key="frame" x="16" y="603" width="343" height="0.0"/>
+                                                        <rect key="frame" x="16" y="588" width="343" height="0.0"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" id="fUG-ng-MeO"/>
                                                         </constraints>
@@ -2656,7 +2656,7 @@
                                                     <constraint firstItem="J4B-5a-gA7" firstAttribute="top" secondItem="o4I-fU-Pdj" secondAttribute="bottom" constant="16" id="8WO-3q-Ujg"/>
                                                     <constraint firstItem="ou3-ve-ykV" firstAttribute="leading" secondItem="kEL-lY-Wef" secondAttribute="leading" constant="16" id="Bke-xZ-3lr"/>
                                                     <constraint firstAttribute="trailing" secondItem="vGu-1F-6hh" secondAttribute="trailing" id="E7y-pM-JHc"/>
-                                                    <constraint firstItem="AD7-dM-NhY" firstAttribute="top" secondItem="kEL-lY-Wef" secondAttribute="top" constant="32" id="EVA-oe-Fgk"/>
+                                                    <constraint firstItem="AD7-dM-NhY" firstAttribute="top" secondItem="kEL-lY-Wef" secondAttribute="top" id="EVA-oe-Fgk"/>
                                                     <constraint firstAttribute="trailing" secondItem="o4I-fU-Pdj" secondAttribute="trailing" constant="32" id="Iut-UC-grU"/>
                                                     <constraint firstAttribute="bottom" secondItem="ou3-ve-ykV" secondAttribute="bottom" id="Mje-Qu-QYJ"/>
                                                     <constraint firstAttribute="trailing" secondItem="J4B-5a-gA7" secondAttribute="trailing" constant="16" id="N2x-hp-UbX"/>
@@ -2668,7 +2668,7 @@
                                                     <constraint firstItem="J4B-5a-gA7" firstAttribute="leading" secondItem="kEL-lY-Wef" secondAttribute="leading" constant="16" id="fHK-Rj-JtH"/>
                                                     <constraint firstAttribute="trailing" secondItem="ou3-ve-ykV" secondAttribute="trailing" constant="16" id="gPc-NX-X2x"/>
                                                     <constraint firstItem="AD7-dM-NhY" firstAttribute="leading" secondItem="kEL-lY-Wef" secondAttribute="leading" constant="16" id="lck-l0-QdW"/>
-                                                    <constraint firstItem="R4D-Mv-QFq" firstAttribute="top" secondItem="AD7-dM-NhY" secondAttribute="bottom" constant="23" id="o78-UU-FRp"/>
+                                                    <constraint firstItem="R4D-Mv-QFq" firstAttribute="top" secondItem="AD7-dM-NhY" secondAttribute="bottom" constant="8" id="o78-UU-FRp"/>
                                                     <constraint firstAttribute="trailing" secondItem="R4D-Mv-QFq" secondAttribute="trailing" constant="16" id="oJy-HE-YwC"/>
                                                     <constraint firstItem="o4I-fU-Pdj" firstAttribute="top" secondItem="R4D-Mv-QFq" secondAttribute="bottom" constant="23" id="tTx-tg-11O"/>
                                                     <constraint firstItem="vGu-1F-6hh" firstAttribute="leading" secondItem="kEL-lY-Wef" secondAttribute="leading" id="uGw-7r-0bB"/>
@@ -2743,10 +2743,10 @@
                                         <rect key="frame" x="0.0" y="2" width="375" height="665"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0B7-hQ-lDa">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="869.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="919.5"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ksh-7n-bhQ">
-                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="415.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="465.5"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="Dfq-qe-fm0">
                                                                 <rect key="frame" x="157" y="93" width="61.5" height="20.5"/>
@@ -3216,22 +3216,22 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="81K-gv-uqM">
-                                                                <rect key="frame" x="0.0" y="403.5" width="375" height="0.0"/>
+                                                                <rect key="frame" x="0.0" y="403.5" width="375" height="50"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="jhO-25-BNV">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="0.0"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                                                                         <subviews>
-                                                                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cxV-tw-ntn">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
+                                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cxV-tw-ntn">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                                                                                 <subviews>
-                                                                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pm4-RB-TA9">
-                                                                                        <rect key="frame" x="24" y="0.0" width="327" height="30"/>
+                                                                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pm4-RB-TA9">
+                                                                                        <rect key="frame" x="24" y="0.0" width="327" height="50"/>
                                                                                         <subviews>
                                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q1G-Kq-6Fm">
-                                                                                                <rect key="frame" x="0.0" y="0.0" width="80" height="30"/>
+                                                                                                <rect key="frame" x="0.0" y="0.0" width="80" height="50"/>
                                                                                                 <subviews>
                                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You Rated" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kCg-cY-bHo" customClass="themeLabel" customModule="PickaRideDriver" customModuleProvider="target">
-                                                                                                        <rect key="frame" x="0.0" y="0.0" width="80" height="30"/>
+                                                                                                        <rect key="frame" x="0.0" y="0.0" width="80" height="50"/>
                                                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                                         <nil key="textColor"/>
                                                                                                         <nil key="highlightedColor"/>
@@ -3255,10 +3255,10 @@
                                                                                                 </constraints>
                                                                                             </view>
                                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BVJ-2R-i9p">
-                                                                                                <rect key="frame" x="80" y="0.0" width="85" height="30"/>
+                                                                                                <rect key="frame" x="80" y="0.0" width="85" height="50"/>
                                                                                                 <subviews>
                                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&quot;JohnDoe&quot;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6fU-9Z-DnI" customClass="themeLabel" customModule="PickaRideDriver" customModuleProvider="target">
-                                                                                                        <rect key="frame" x="0.0" y="0.0" width="85" height="30"/>
+                                                                                                        <rect key="frame" x="0.0" y="0.0" width="85" height="50"/>
                                                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                                         <nil key="textColor"/>
                                                                                                         <nil key="highlightedColor"/>
@@ -3282,10 +3282,10 @@
                                                                                                 </constraints>
                                                                                             </view>
                                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HU1-Sh-vgq">
-                                                                                                <rect key="frame" x="165" y="0.0" width="25" height="30"/>
+                                                                                                <rect key="frame" x="165" y="0.0" width="25" height="50"/>
                                                                                                 <subviews>
                                                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Dummy-Profile" translatesAutoresizingMaskIntoConstraints="NO" id="ESB-sf-mxa" customClass="ProfileView" customModule="PickaRideDriver" customModuleProvider="target">
-                                                                                                        <rect key="frame" x="0.5" y="3" width="24" height="24"/>
+                                                                                                        <rect key="frame" x="0.5" y="13" width="24" height="24"/>
                                                                                                         <constraints>
                                                                                                             <constraint firstAttribute="height" constant="24" id="F1p-wG-hIS"/>
                                                                                                             <constraint firstAttribute="width" secondItem="ESB-sf-mxa" secondAttribute="height" multiplier="1:1" id="miK-sS-Scn"/>
@@ -3302,11 +3302,11 @@
                                                                                                     <constraint firstItem="ESB-sf-mxa" firstAttribute="centerY" secondItem="HU1-Sh-vgq" secondAttribute="centerY" id="lBy-UH-DwT"/>
                                                                                                 </constraints>
                                                                                             </view>
-                                                                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OUR-ad-ckw">
-                                                                                                <rect key="frame" x="190" y="0.0" width="137" height="30"/>
+                                                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OUR-ad-ckw">
+                                                                                                <rect key="frame" x="190" y="0.0" width="137" height="50"/>
                                                                                                 <subviews>
-                                                                                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5oa-p0-5AR" customClass="CosmosView" customModule="Cosmos">
-                                                                                                        <rect key="frame" x="5" y="15" width="132" height="0.0"/>
+                                                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5oa-p0-5AR" customClass="CosmosView" customModule="Cosmos">
+                                                                                                        <rect key="frame" x="5" y="15" width="132" height="20"/>
                                                                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                                                         <userDefinedRuntimeAttributes>
                                                                                                             <userDefinedRuntimeAttribute type="image" keyPath="emptyImage" value="StarEmpty"/>
@@ -3336,7 +3336,7 @@
                                                                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7fV-yX-0bt">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
                                                                                 <subviews>
-                                                                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gQY-Nm-Yp1">
+                                                                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gQY-Nm-Yp1">
                                                                                         <rect key="frame" x="24" y="0.0" width="327" height="30"/>
                                                                                         <subviews>
                                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Up7-fE-Jcg">
@@ -3414,10 +3414,10 @@
                                                                                                     <constraint firstItem="bD5-QH-POJ" firstAttribute="centerY" secondItem="HEA-xm-bIU" secondAttribute="centerY" id="kZm-Hr-TrF"/>
                                                                                                 </constraints>
                                                                                             </view>
-                                                                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2hO-ut-BBb">
+                                                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2hO-ut-BBb">
                                                                                                 <rect key="frame" x="190" y="0.0" width="137" height="30"/>
                                                                                                 <subviews>
-                                                                                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZRv-BA-FTA" customClass="CosmosView" customModule="Cosmos">
+                                                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZRv-BA-FTA" customClass="CosmosView" customModule="Cosmos">
                                                                                                         <rect key="frame" x="5" y="15" width="132" height="0.0"/>
                                                                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                                                         <userDefinedRuntimeAttributes>
@@ -3488,7 +3488,7 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0o7-S3-zV9">
-                                                        <rect key="frame" x="0.0" y="425.5" width="375" height="48"/>
+                                                        <rect key="frame" x="0.0" y="475.5" width="375" height="48"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RECEIPT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eMQ-ix-YVR" customClass="themeLabel" customModule="PickaRideDriver" customModuleProvider="target">
                                                                 <rect key="frame" x="24" y="17.5" width="327" height="20.5"/>
@@ -3515,7 +3515,7 @@
                                                         </constraints>
                                                     </view>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="GkD-1H-Csh">
-                                                        <rect key="frame" x="0.0" y="483.5" width="375" height="240"/>
+                                                        <rect key="frame" x="0.0" y="533.5" width="375" height="240"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0D4-BR-t6L">
                                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
@@ -3799,7 +3799,7 @@
                                                         </constraints>
                                                     </stackView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eMt-ZZ-6Xc">
-                                                        <rect key="frame" x="24" y="736.5" width="327" height="1"/>
+                                                        <rect key="frame" x="24" y="786.5" width="327" height="1"/>
                                                         <color key="backgroundColor" red="0.95294117647058818" green="0.95294117647058818" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="1" id="5Gz-xE-3Ow"/>
@@ -3809,7 +3809,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QoV-cW-xyz">
-                                                        <rect key="frame" x="0.0" y="750.5" width="375" height="40"/>
+                                                        <rect key="frame" x="0.0" y="800.5" width="375" height="40"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lLf-ws-lnx">
                                                                 <rect key="frame" x="24" y="9.5" width="327" height="21"/>
@@ -3857,7 +3857,7 @@
                                                         </constraints>
                                                     </view>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This ride was towards your destination you received Guaranteed fare" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gcW-aF-Eet" customClass="themeLabel" customModule="PickaRideDriver" customModuleProvider="target">
-                                                        <rect key="frame" x="24" y="808.5" width="327" height="41"/>
+                                                        <rect key="frame" x="24" y="858.5" width="327" height="41"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -3953,6 +3953,7 @@
                         <outlet property="lblTopupAdded" destination="UO5-ej-gmz" id="Vyc-9n-3Ra"/>
                         <outlet property="lblYourPayment" destination="30x-4h-FQL" id="9sp-sf-zUB"/>
                         <outlet property="lblYourRated" destination="y60-M9-Wse" id="DGR-tH-0C0"/>
+                        <outlet property="stackViewRating" destination="cxV-tw-ntn" id="U3t-dk-y7c"/>
                         <outlet property="vwCosmos" destination="5oa-p0-5AR" id="RFG-SY-Nsr"/>
                         <outlet property="vwCosmosRated" destination="ZRv-BA-FTA" id="MHB-jQ-MK5"/>
                         <outlet property="vwRatingBottom" destination="Qvg-ZV-Lfl" id="XD1-jU-LDx"/>
@@ -4669,6 +4670,41 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AUo-UJ-Xrp">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="151"/>
                                 <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Qds-au-GHe">
+                                        <rect key="frame" x="0.0" y="20" width="375" height="41"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mon, 18 Feb’19" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ooh-Um-zvx" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
+                                                <rect key="frame" x="129.5" y="0.0" width="116" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="54.75" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zY0-CF-xaz" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
+                                                <rect key="frame" x="166" y="20.5" width="43.5" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="RideBalance" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HtH-W9-lNE" customClass="themeLabel" customModule="PickaRideDriver" customModuleProvider="target">
+                                        <rect key="frame" x="155.5" y="40.5" width="10.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="Font_Size">
+                                                <real key="value" value="21"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="fontColor">
+                                                <color key="value" red="0.0" green="0.66666666669999997" blue="0.4941176471" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isMedium" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kh3-1f-LbT" userLabel="Ride Details">
                                         <rect key="frame" x="0.0" y="81" width="375" height="70"/>
                                         <subviews>
@@ -4678,8 +4714,8 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="p0r-SE-6ga">
                                                         <rect key="frame" x="0.0" y="0.0" width="125" height="70"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2co-qG-gys" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
-                                                                <rect key="frame" x="42" y="0.0" width="41.5" height="35"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="15" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2co-qG-gys" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
+                                                                <rect key="frame" x="53.5" y="0.0" width="18" height="35"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -4687,8 +4723,8 @@
                                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="RideCount" value="YES"/>
                                                                 </userDefinedRuntimeAttributes>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Zt-7X-fST" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
-                                                                <rect key="frame" x="42" y="35" width="41.5" height="35"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rides" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Zt-7X-fST" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
+                                                                <rect key="frame" x="41.5" y="35" width="42.5" height="35"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -4710,8 +4746,8 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="nvF-cK-Z5q">
                                                         <rect key="frame" x="0.0" y="0.0" width="125" height="70"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yOb-Bh-y4G" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
-                                                                <rect key="frame" x="42" y="0.0" width="41.5" height="35"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8:30" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yOb-Bh-y4G" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
+                                                                <rect key="frame" x="45" y="0.0" width="35.5" height="35"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -4719,8 +4755,8 @@
                                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="RideCount" value="YES"/>
                                                                 </userDefinedRuntimeAttributes>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y2p-87-IdJ" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
-                                                                <rect key="frame" x="42" y="35" width="41.5" height="35"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Online hrs" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y2p-87-IdJ" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
+                                                                <rect key="frame" x="24" y="35" width="77" height="35"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -4742,8 +4778,8 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="pYj-7l-ncA">
                                                         <rect key="frame" x="0.0" y="0.0" width="125" height="70"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W4q-PZ-iRZ" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
-                                                                <rect key="frame" x="42" y="0.0" width="41.5" height="35"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$22.48" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W4q-PZ-iRZ" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
+                                                                <rect key="frame" x="35" y="0.0" width="55" height="35"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -4751,8 +4787,8 @@
                                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="RideCount" value="YES"/>
                                                                 </userDefinedRuntimeAttributes>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J5P-tO-0j7" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
-                                                                <rect key="frame" x="42" y="35" width="41.5" height="35"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Card Rides" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J5P-tO-0j7" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
+                                                                <rect key="frame" x="21" y="35" width="83.5" height="35"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -4788,35 +4824,18 @@
                                             <constraint firstItem="Clh-YM-Ahy" firstAttribute="top" secondItem="Kh3-1f-LbT" secondAttribute="top" id="vgu-S3-1hl"/>
                                         </constraints>
                                     </view>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Qds-au-GHe">
-                                        <rect key="frame" x="0.0" y="20" width="375" height="41"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ooh-Um-zvx" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
-                                                <rect key="frame" x="167" y="0.0" width="41.5" height="20.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zY0-CF-xaz" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
-                                                <rect key="frame" x="167" y="20.5" width="41.5" height="20.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="RideBalance" value="YES"/>
-                                                </userDefinedRuntimeAttributes>
-                                            </label>
-                                        </subviews>
-                                    </stackView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="Kh3-1f-LbT" secondAttribute="bottom" id="0vf-vU-B9e"/>
                                     <constraint firstItem="Kh3-1f-LbT" firstAttribute="leading" secondItem="AUo-UJ-Xrp" secondAttribute="leading" id="6LZ-PL-UOL"/>
+                                    <constraint firstItem="HtH-W9-lNE" firstAttribute="top" secondItem="zY0-CF-xaz" secondAttribute="top" id="Abl-o0-Tqf"/>
                                     <constraint firstAttribute="trailing" secondItem="Qds-au-GHe" secondAttribute="trailing" id="H6E-ui-SoN"/>
                                     <constraint firstItem="Qds-au-GHe" firstAttribute="top" secondItem="AUo-UJ-Xrp" secondAttribute="top" constant="20" id="Kke-N9-CPL"/>
                                     <constraint firstItem="Qds-au-GHe" firstAttribute="leading" secondItem="AUo-UJ-Xrp" secondAttribute="leading" id="Lxp-4p-4i0"/>
                                     <constraint firstItem="Kh3-1f-LbT" firstAttribute="top" secondItem="Qds-au-GHe" secondAttribute="bottom" constant="20" id="bBf-FN-J5n"/>
+                                    <constraint firstItem="HtH-W9-lNE" firstAttribute="trailing" secondItem="zY0-CF-xaz" secondAttribute="leading" id="jNo-3K-2fE"/>
+                                    <constraint firstItem="HtH-W9-lNE" firstAttribute="bottom" secondItem="zY0-CF-xaz" secondAttribute="bottom" id="pdZ-dG-YWj"/>
                                     <constraint firstAttribute="trailing" secondItem="Kh3-1f-LbT" secondAttribute="trailing" id="zgj-iJ-7zF"/>
                                 </constraints>
                             </view>
@@ -4835,7 +4854,7 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="woe-8R-N7u" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$40.25" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="woe-8R-N7u" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
                                                         <rect key="frame" x="159.5" y="0.0" width="159.5" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
@@ -4852,7 +4871,7 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="758-9n-5qx" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$20.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="758-9n-5qx" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
                                                         <rect key="frame" x="159.5" y="0.0" width="159.5" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
@@ -4869,7 +4888,7 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wvm-j2-4Ej" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$400.50" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wvm-j2-4Ej" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
                                                         <rect key="frame" x="159.5" y="0.0" width="159.5" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
@@ -4886,7 +4905,7 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WyF-1p-STJ" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$400.50" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WyF-1p-STJ" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
                                                         <rect key="frame" x="159.5" y="0.0" width="159.5" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
@@ -4903,7 +4922,7 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cwq-Bt-KvI" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$40.25" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cwq-Bt-KvI" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
                                                         <rect key="frame" x="159.5" y="0.0" width="159.5" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
@@ -4920,7 +4939,7 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rk0-SW-6A7" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$20.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rk0-SW-6A7" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
                                                         <rect key="frame" x="159.5" y="0.0" width="159.5" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
@@ -4953,7 +4972,7 @@
                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="TotalBalance" value="YES"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zz4-tW-VjA" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$460.75" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zz4-tW-VjA" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
                                                         <rect key="frame" x="159.5" y="0.0" width="159.5" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
@@ -4989,6 +5008,7 @@
                     <connections>
                         <outlet property="lblAmount" destination="zY0-CF-xaz" id="2u5-3o-f5W"/>
                         <outlet property="lblCardRides" destination="W4q-PZ-iRZ" id="Lfj-Wi-r4K"/>
+                        <outlet property="lblCurrency" destination="HtH-W9-lNE" id="ZOR-cH-jfS"/>
                         <outlet property="lblDate" destination="ooh-Um-zvx" id="sai-dr-yvh"/>
                         <outlet property="lblDiscount" destination="aTy-T6-gR5" id="f51-Vj-aik"/>
                         <outlet property="lblDiscountAmount" destination="rk0-SW-6A7" id="uTo-Wv-5BW"/>
@@ -5041,8 +5061,8 @@
                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="X6g-6n-EVI">
                                                                         <rect key="frame" x="0.0" y="0.0" width="125" height="70"/>
                                                                         <subviews>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tPs-eJ-Q89" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
-                                                                                <rect key="frame" x="42" y="0.0" width="41.5" height="35"/>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="45" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tPs-eJ-Q89" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
+                                                                                <rect key="frame" x="52" y="0.0" width="21" height="35"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
@@ -5050,8 +5070,8 @@
                                                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="RideCount" value="YES"/>
                                                                                 </userDefinedRuntimeAttributes>
                                                                             </label>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J7U-BQ-uef" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
-                                                                                <rect key="frame" x="42" y="35" width="41.5" height="35"/>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rides" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J7U-BQ-uef" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
+                                                                                <rect key="frame" x="41.5" y="35" width="42.5" height="35"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
@@ -5073,8 +5093,8 @@
                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="uqV-GN-reI">
                                                                         <rect key="frame" x="0.0" y="0.0" width="125" height="70"/>
                                                                         <subviews>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mLP-Fv-M9C" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
-                                                                                <rect key="frame" x="42" y="0.0" width="41.5" height="35"/>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="38:30" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mLP-Fv-M9C" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
+                                                                                <rect key="frame" x="39.5" y="0.0" width="46" height="35"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
@@ -5082,8 +5102,8 @@
                                                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="RideCount" value="YES"/>
                                                                                 </userDefinedRuntimeAttributes>
                                                                             </label>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W6z-i3-kdi" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
-                                                                                <rect key="frame" x="42" y="35" width="41.5" height="35"/>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Online hrs" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W6z-i3-kdi" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
+                                                                                <rect key="frame" x="24" y="35" width="77" height="35"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
@@ -5105,8 +5125,8 @@
                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="kt8-Jk-CN1">
                                                                         <rect key="frame" x="0.0" y="0.0" width="125" height="70"/>
                                                                         <subviews>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sYr-ly-i3t" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
-                                                                                <rect key="frame" x="42" y="0.0" width="41.5" height="35"/>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$99.48" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sYr-ly-i3t" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
+                                                                                <rect key="frame" x="35" y="0.0" width="55.5" height="35"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
@@ -5114,8 +5134,8 @@
                                                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="RideCount" value="YES"/>
                                                                                 </userDefinedRuntimeAttributes>
                                                                             </label>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fyt-5J-38O" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
-                                                                                <rect key="frame" x="42" y="35" width="41.5" height="35"/>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Card Rides" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fyt-5J-38O" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
+                                                                                <rect key="frame" x="21" y="35" width="83.5" height="35"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
@@ -5154,14 +5174,14 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="ocy-eH-d3Y">
                                                         <rect key="frame" x="0.0" y="20" width="375" height="171"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yWk-wY-nvp" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
-                                                                <rect key="frame" x="167" y="0.0" width="41.5" height="20.5"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mon, 18 Feb’19" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yWk-wY-nvp" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
+                                                                <rect key="frame" x="129.5" y="0.0" width="116" height="20.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IMo-s0-nuu" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
-                                                                <rect key="frame" x="167" y="25.5" width="41.5" height="20.5"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="154.75" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IMo-s0-nuu" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
+                                                                <rect key="frame" x="162" y="25.5" width="51" height="20.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -5181,14 +5201,32 @@
                                                             <constraint firstItem="fMY-JH-SmY" firstAttribute="leading" secondItem="ocy-eH-d3Y" secondAttribute="leading" constant="10" id="vEZ-Fj-bW2"/>
                                                         </constraints>
                                                     </stackView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TDQ-HY-u7G" customClass="themeLabel" customModule="PickaRideDriver" customModuleProvider="target">
+                                                        <rect key="frame" x="151.5" y="45.5" width="10.5" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="fontColor">
+                                                                <color key="value" red="0.0" green="0.66666666669999997" blue="0.4941176471" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="Font_Size">
+                                                                <real key="value" value="21"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isMedium" value="YES"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </label>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
+                                                    <constraint firstItem="TDQ-HY-u7G" firstAttribute="top" secondItem="IMo-s0-nuu" secondAttribute="top" id="1fh-qB-Dyx"/>
+                                                    <constraint firstItem="TDQ-HY-u7G" firstAttribute="bottom" secondItem="IMo-s0-nuu" secondAttribute="bottom" id="3mr-v6-VWo"/>
                                                     <constraint firstItem="1Bp-5x-iBU" firstAttribute="leading" secondItem="5zn-3O-sIR" secondAttribute="leading" id="4DA-3y-U62"/>
                                                     <constraint firstItem="ocy-eH-d3Y" firstAttribute="top" secondItem="5zn-3O-sIR" secondAttribute="top" constant="20" id="8a7-dV-nAp"/>
                                                     <constraint firstAttribute="trailing" secondItem="1Bp-5x-iBU" secondAttribute="trailing" id="Dfx-3I-lH6"/>
                                                     <constraint firstAttribute="bottom" secondItem="1Bp-5x-iBU" secondAttribute="bottom" id="Lki-zf-tRn"/>
                                                     <constraint firstItem="1Bp-5x-iBU" firstAttribute="top" secondItem="ocy-eH-d3Y" secondAttribute="bottom" constant="20" id="Mcj-P1-ob9"/>
+                                                    <constraint firstItem="TDQ-HY-u7G" firstAttribute="trailing" secondItem="IMo-s0-nuu" secondAttribute="leading" id="aMv-g1-ilA"/>
                                                     <constraint firstItem="ocy-eH-d3Y" firstAttribute="leading" secondItem="5zn-3O-sIR" secondAttribute="leading" id="aZW-gj-B4R"/>
                                                     <constraint firstAttribute="trailing" secondItem="ocy-eH-d3Y" secondAttribute="trailing" id="kGP-ck-TWl"/>
                                                 </constraints>
@@ -5208,7 +5246,7 @@
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VVN-KM-JiR" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$40.25" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VVN-KM-JiR" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
                                                                         <rect key="frame" x="163.5" y="0.0" width="163.5" height="20.5"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                         <nil key="textColor"/>
@@ -5225,7 +5263,7 @@
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8JH-cu-tCN" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$20.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8JH-cu-tCN" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
                                                                         <rect key="frame" x="163.5" y="0.0" width="163.5" height="20.5"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                         <nil key="textColor"/>
@@ -5242,7 +5280,7 @@
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eNo-MM-q1b" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$400.50" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eNo-MM-q1b" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
                                                                         <rect key="frame" x="163.5" y="0.0" width="163.5" height="20.5"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                         <nil key="textColor"/>
@@ -5259,7 +5297,7 @@
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eo3-zF-KuT" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$400.50" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eo3-zF-KuT" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
                                                                         <rect key="frame" x="163.5" y="0.0" width="163.5" height="20.5"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                         <nil key="textColor"/>
@@ -5276,7 +5314,7 @@
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eBJ-g5-a42" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$40.25" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eBJ-g5-a42" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
                                                                         <rect key="frame" x="163.5" y="0.0" width="163.5" height="20.5"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                         <nil key="textColor"/>
@@ -5293,7 +5331,7 @@
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rTb-6H-zeb" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$20.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rTb-6H-zeb" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
                                                                         <rect key="frame" x="163.5" y="0.0" width="163.5" height="20.5"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                         <nil key="textColor"/>
@@ -5326,7 +5364,7 @@
                                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="TotalBalance" value="YES"/>
                                                                         </userDefinedRuntimeAttributes>
                                                                     </label>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xTj-Tm-kKc" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$460.75" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xTj-Tm-kKc" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
                                                                         <rect key="frame" x="163.5" y="0.0" width="163.5" height="20.5"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                         <nil key="textColor"/>
@@ -5384,6 +5422,7 @@
                         <outlet property="barChart" destination="fMY-JH-SmY" id="KvL-WE-NiP"/>
                         <outlet property="lblAmount" destination="IMo-s0-nuu" id="yOa-hU-7DX"/>
                         <outlet property="lblCardRides" destination="sYr-ly-i3t" id="exs-kU-IVN"/>
+                        <outlet property="lblCurrency" destination="TDQ-HY-u7G" id="l9s-mm-LJZ"/>
                         <outlet property="lblDate" destination="yWk-wY-nvp" id="Ipi-4e-Xew"/>
                         <outlet property="lblDiscount" destination="krG-cj-OMz" id="9PR-pB-oWw"/>
                         <outlet property="lblDiscountAmount" destination="eBJ-g5-a42" id="xfs-XQ-sMD"/>
@@ -5851,7 +5890,7 @@
         <!--DummyVC-->
         <scene sceneID="Xxm-YZ-SYv">
             <objects>
-                <viewController storyboardIdentifier="DummyVC" id="obj-zf-JFD" customClass="DummyVC" customModule="Cluttrfly" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DummyVC" id="obj-zf-JFD" customClass="DummyVC" customModule="PickaRideDriver" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DhH-wd-fld">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
