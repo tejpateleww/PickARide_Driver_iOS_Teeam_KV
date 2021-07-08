@@ -16,6 +16,10 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VB9-o5-pTu">
+                    <rect key="frame" x="0.0" y="544" width="414" height="352"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JPZ-Y5-Yfc" userLabel="ContainerView">
                     <rect key="frame" x="0.0" y="544" width="414" height="318"/>
                     <subviews>
@@ -364,12 +368,16 @@
                 <constraint firstItem="qts-W8-aef" firstAttribute="centerY" secondItem="e0l-AH-vWP" secondAttribute="centerY" id="4sC-U6-KHf"/>
                 <constraint firstItem="e0l-AH-vWP" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="24" id="5QK-mV-aBn"/>
                 <constraint firstItem="JPZ-Y5-Yfc" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="9Nv-VS-0pw"/>
+                <constraint firstAttribute="bottom" secondItem="VB9-o5-pTu" secondAttribute="bottom" id="DIR-PS-SFF"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="JPZ-Y5-Yfc" secondAttribute="bottom" id="F7L-3l-mC0"/>
                 <constraint firstItem="cGk-fA-YUx" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="lOO-MB-FXk"/>
                 <constraint firstItem="JPZ-Y5-Yfc" firstAttribute="top" secondItem="e0l-AH-vWP" secondAttribute="bottom" constant="20" id="oIM-P0-0Jv"/>
+                <constraint firstItem="VB9-o5-pTu" firstAttribute="trailing" secondItem="JPZ-Y5-Yfc" secondAttribute="trailing" id="qJT-Tf-flj"/>
+                <constraint firstItem="VB9-o5-pTu" firstAttribute="leading" secondItem="JPZ-Y5-Yfc" secondAttribute="leading" id="qxL-ZF-2ke"/>
                 <constraint firstItem="cGk-fA-YUx" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="46" id="sSj-mW-6cd"/>
                 <constraint firstItem="JPZ-Y5-Yfc" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="uFN-XA-Cf9"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="qts-W8-aef" secondAttribute="trailing" constant="24" id="wU1-hC-RJn"/>
+                <constraint firstItem="VB9-o5-pTu" firstAttribute="top" secondItem="JPZ-Y5-Yfc" secondAttribute="top" id="xvs-iH-o7u"/>
             </constraints>
             <connections>
                 <outlet property="btnAcceptRequest" destination="336-cW-TXX" id="VnK-wA-fW5"/>
@@ -394,11 +402,6 @@
             <point key="canvasLocation" x="34.782608695652179" y="68.973214285714278"/>
         </view>
     </objects>
-    <designables>
-        <designable name="VNp-Hx-F6o">
-            <size key="intrinsicContentSize" width="120" height="20"/>
-        </designable>
-    </designables>
     <resources>
         <image name="FillStar" width="27" height="27"/>
         <image name="StarEmpty" width="27" height="27"/>

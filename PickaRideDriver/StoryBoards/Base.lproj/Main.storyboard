@@ -29,7 +29,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QGm-n1-qTV">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cdA-wz-5gb">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cdA-wz-5gb" customClass="GMSMapView">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Dummy-Map" translatesAutoresizingMaskIntoConstraints="NO" id="lDN-1M-MgQ">
@@ -43,6 +43,11 @@
                                                     <constraint firstItem="lDN-1M-MgQ" firstAttribute="leading" secondItem="cdA-wz-5gb" secondAttribute="leading" id="nPu-VH-Goj"/>
                                                     <constraint firstAttribute="trailing" secondItem="lDN-1M-MgQ" secondAttribute="trailing" id="w9h-5U-Bzy"/>
                                                 </constraints>
+                                                <variation key="default">
+                                                    <mask key="subviews">
+                                                        <exclude reference="lDN-1M-MgQ"/>
+                                                    </mask>
+                                                </variation>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aqW-4I-sH4" customClass="HomescreenView" customModule="PickaRideDriver" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="586" width="375" height="81"/>
@@ -4134,9 +4139,9 @@
                         <constraints>
                             <constraint firstItem="Gwc-Rp-mtW" firstAttribute="top" secondItem="oIw-EV-pZH" secondAttribute="top" id="7ot-lZ-I0d"/>
                             <constraint firstItem="8Hx-li-Clk" firstAttribute="leading" secondItem="oIw-EV-pZH" secondAttribute="leading" id="JB2-Hx-zgq"/>
-                            <constraint firstItem="oIw-EV-pZH" firstAttribute="bottom" secondItem="8Hx-li-Clk" secondAttribute="bottom" id="Ont-ls-FWq"/>
+                            <constraint firstAttribute="bottom" secondItem="8Hx-li-Clk" secondAttribute="bottom" id="Ont-ls-FWq"/>
                             <constraint firstAttribute="trailing" secondItem="8Hx-li-Clk" secondAttribute="trailing" id="TlA-RZ-gH1"/>
-                            <constraint firstItem="oIw-EV-pZH" firstAttribute="bottom" secondItem="Gwc-Rp-mtW" secondAttribute="bottom" id="Zmg-st-vtk"/>
+                            <constraint firstAttribute="bottom" secondItem="Gwc-Rp-mtW" secondAttribute="bottom" id="Zmg-st-vtk"/>
                             <constraint firstItem="oIw-EV-pZH" firstAttribute="trailing" secondItem="Gwc-Rp-mtW" secondAttribute="trailing" id="b9s-JJ-bUF"/>
                             <constraint firstItem="Gwc-Rp-mtW" firstAttribute="leading" secondItem="oIw-EV-pZH" secondAttribute="leading" id="bf8-SI-brE"/>
                         </constraints>

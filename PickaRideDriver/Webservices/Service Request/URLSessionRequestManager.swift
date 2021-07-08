@@ -17,15 +17,15 @@ class URLSessionRequestManager {
         return  APIEnvironment.headers
     }
     
-    class func makeGetRequest<C:Codable>(urlString: String, responseModel: C.Type, completion: @escaping (_ status: Bool,_ modelObj: C?,_ dataDic: Any) -> ()) {
+    class func makeGetRequest<C:Codable>(urlString: String, responseModel: C.Type, completion: @escaping (_ status: Bool,_ apiMessage: String,_ modelObj: C?,_ dataDic: Any) -> ()) {
         
         if !Reachability.isConnectedToNetwork() {
-            completion(false, nil, NoInternetResponseDic)
+            completion(false, UrlConstant.NoInternetConnection, nil, NoInternetResponseDic)
             return
         }
         
         guard let url = URL(string: APIEnvironment.baseURL + urlString) else {
-            completion(false, nil, ErrorResponseDic)
+            completion(false, UrlConstant.SomethingWentWrong, nil, ErrorResponseDic)
             return
         }
         
@@ -37,23 +37,23 @@ class URLSessionRequestManager {
         
         print("the url is \(url) and the headers are \(BEARER_HEADER())")
         
-        CodableService.getResponseFromSession(request: request, codableObj: responseModel) { (status, obj, dic) in
+        CodableService.getResponseFromSession(request: request, codableObj: responseModel) { (status, apiMessage, obj, dic) in
             DispatchQueue.main.async {
-                completion(status,obj,dic)
+                completion(status, apiMessage,obj,dic)
             }
            
         }
     }
     
-    class func makePostRequest<C:Codable, P:Encodable>(urlString: String, requestModel: P, responseModel: C.Type, completion: @escaping (_ status: Bool,_ modelObj: C?,_ dataDic: Any) -> ()) {
+    class func makePostRequest<C:Codable, P:Encodable>(urlString: String, requestModel: P, responseModel: C.Type, completion: @escaping (_ status: Bool,_ apiMessage: String,_ modelObj: C?,_ dataDic: Any) -> ()) {
         
         if !Reachability.isConnectedToNetwork() {
-            completion(false, nil, NoInternetResponseDic)
+            completion(false, UrlConstant.NoInternetConnection, nil, NoInternetResponseDic)
             return
         }
         
         guard let url = URL(string: APIEnvironment.baseURL + urlString) else {
-            completion(false, nil, ErrorResponseDic)
+            completion(false, UrlConstant.SomethingWentWrong, nil, ErrorResponseDic)
             return
         }
 
@@ -68,21 +68,21 @@ class URLSessionRequestManager {
             print("the url is \(url) and the parameters are \n \(bodyDic) and the headers are \(BEARER_HEADER())")
         }
         
-        CodableService.getResponseFromSession(request: request, codableObj: responseModel) { (status, obj, dic) in
-            completion(status,obj,dic)
+        CodableService.getResponseFromSession(request: request, codableObj: responseModel) { (status, apiMessage, obj, dic) in
+            completion(status, apiMessage,obj,dic)
         }
     }
     
-    class func makeImageUploadRequest<C:Codable, P:Codable>(urlString: String, requestModel: P, responseModel: C.Type, image: UIImage, imageKey: String, completion: @escaping (_ status: Bool,_ modelObj: C?,_ dataDic: Any) -> ()){
+    class func makeImageUploadRequest<C:Codable, P:Codable>(urlString: String, requestModel: P, responseModel: C.Type, image: UIImage, imageKey: String, completion: @escaping (_ status: Bool,_ apiMessage: String,_ modelObj: C?,_ dataDic: Any) -> ()){
         var paramaterDic = [String: Any]()
         
         if !Reachability.isConnectedToNetwork() {
-            completion(false, nil, NoInternetResponseDic)
+            completion(false, UrlConstant.NoInternetConnection, nil, NoInternetResponseDic)
             return
         }
         
         guard let url = URL(string: APIEnvironment.baseURL + urlString) else {
-            completion(false, nil, ErrorResponseDic)
+            completion(false, UrlConstant.SomethingWentWrong, nil, ErrorResponseDic)
             return
         }
         
@@ -99,7 +99,7 @@ class URLSessionRequestManager {
         }
         
         guard let mediaImage = UploadMediaModel(mediaType: .Image, forKey: imageKey, withImage: image) else {
-            completion(false, nil, ErrorResponseDic)
+            completion(false, UrlConstant.SomethingWentWrong, nil, ErrorResponseDic)
             return
         }
         
@@ -110,22 +110,22 @@ class URLSessionRequestManager {
             
         print("the url is \(url) and the parameters are \n \(paramaterDic) and the headers are \(BEARER_HEADER())")
         
-        CodableService.getResponseFromSession(request: request, codableObj: responseModel) { (status, obj, dic) in
-            completion(status,obj,dic)
+        CodableService.getResponseFromSession(request: request, codableObj: responseModel) { (status, apiMessage, obj, dic) in
+            completion(status, apiMessage,obj,dic)
         }
         
     }
     
-    class func makeMultipleImageRequest<C:Codable, P:Codable>(urlString: String, requestModel: P, responseModel: C.Type, imageKey: String ,arrImageData : [UIImage]?, completion: @escaping (_ status: Bool,_ modelObj: Any?,_ dataDic: Any) -> ()){
+    class func makeMultipleImageRequest<C:Codable, P:Codable>(urlString: String, requestModel: P, responseModel: C.Type, imageKey: String ,arrImageData : [UIImage]?, completion: @escaping (_ status: Bool,_ apiMessage: String,_ modelObj: Any?,_ dataDic: Any) -> ()){
         var paramaterDic = [String: Any]()
         
         if !Reachability.isConnectedToNetwork() {
-            completion(false, nil, NoInternetResponseDic)
+            completion(false, UrlConstant.NoInternetConnection, nil, NoInternetResponseDic)
             return
         }
         
         guard let url = URL(string: APIEnvironment.baseURL + urlString) else {
-            completion(false, nil, ErrorResponseDic)
+            completion(false, UrlConstant.SomethingWentWrong, nil, ErrorResponseDic)
             return
         }
         
@@ -145,7 +145,7 @@ class URLSessionRequestManager {
         if let dataDic = arrImageData{
             for each in dataDic{
                 guard let mediaImage = UploadMediaModel(mediaType: .Image, forKey: imageKey, withImage: each) else {
-                    completion(false, nil, ErrorResponseDic)
+                    completion(false, UrlConstant.SomethingWentWrong, nil, ErrorResponseDic)
                     return
                 }
                 mediaArr.append(mediaImage)
@@ -159,21 +159,21 @@ class URLSessionRequestManager {
             
         print("the url is \(url) and the parameters are \n \(paramaterDic) and the headers are \(BEARER_HEADER())")
         
-        CodableService.getResponseFromSession(request: request, codableObj: responseModel) { (status, obj, dic) in
-            completion(status,obj,dic)
+        CodableService.getResponseFromSession(request: request, codableObj: responseModel) { (status, apiMessage, obj, dic) in
+            completion(status, apiMessage,obj,dic)
         }
     }
     
-    class func makeMediaUploadRequest<C:Codable, P:Codable>(urlString: String, requestModel: P, responseModel: C.Type, mediaType: MediaType,file_url: String, fileKey: String, completion: @escaping (_ status: Bool,_ modelObj: C?,_ dataDic: Any) -> ()){
+    class func makeMediaUploadRequest<C:Codable, P:Codable>(urlString: String, requestModel: P, responseModel: C.Type, mediaType: MediaType,file_url: String, fileKey: String, completion: @escaping (_ status: Bool,_ apiMessage: String,_ modelObj: C?,_ dataDic: Any) -> ()){
         var paramaterDic = [String: Any]()
         
         if !Reachability.isConnectedToNetwork() {
-            completion(false, nil, NoInternetResponseDic)
+            completion(false, UrlConstant.NoInternetConnection, nil, NoInternetResponseDic)
             return
         }
         
         guard let url = URL(string: APIEnvironment.baseURL + urlString) else {
-            completion(false, nil, ErrorResponseDic)
+            completion(false, UrlConstant.SomethingWentWrong, nil, ErrorResponseDic)
             return
         }
         
@@ -190,12 +190,12 @@ class URLSessionRequestManager {
         }
         
         guard let mediaUrl = URL(string: file_url) else {
-            completion(false, nil, ErrorResponseDic)
+            completion(false, UrlConstant.SomethingWentWrong, nil, ErrorResponseDic)
             return
         }
         
         guard let mediaImage = UploadMediaModel(mediaType: mediaType, forKey: fileKey, fileUrl: mediaUrl) else {
-            completion(false, nil, ErrorResponseDic)
+            completion(false, UrlConstant.SomethingWentWrong, nil, ErrorResponseDic)
             return
         }
         
@@ -209,21 +209,21 @@ class URLSessionRequestManager {
         
         print("REQUEST: \(request)")
         
-        CodableService.getResponseFromSession(request: request, codableObj: responseModel) { (status, obj, dic) in
-            completion(status,obj,dic)
+        CodableService.getResponseFromSession(request: request, codableObj: responseModel) { (status, apiMessage, obj, dic) in
+            completion(status, apiMessage,obj,dic)
         }
     }
     
-    class func makeMultipleMediaUploadRequest<C:Codable, P:Codable>(urlString: String, requestModel: P, responseModel: C.Type, mediaArr: [UploadMediaModel], completion: @escaping (_ status: Bool,_ modelObj: C?,_ dataDic: Any) -> ()){
+    class func makeMultipleMediaUploadRequest<C:Codable, P:Codable>(urlString: String, requestModel: P, responseModel: C.Type, mediaArr: [UploadMediaModel], completion: @escaping (_ status: Bool,_ apiMessage: String,_ modelObj: C?,_ dataDic: Any) -> ()){
         var paramaterDic = [String: Any]()
         
         if !Reachability.isConnectedToNetwork() {
-            completion(false, nil, NoInternetResponseDic)
+            completion(false, UrlConstant.NoInternetConnection, nil, NoInternetResponseDic)
             return
         }
         
         guard let url = URL(string: APIEnvironment.baseURL + urlString) else {
-            completion(false, nil, ErrorResponseDic)
+            completion(false, UrlConstant.SomethingWentWrong, nil, ErrorResponseDic)
             return
         }
         
@@ -250,8 +250,8 @@ class URLSessionRequestManager {
         
         print("REQUEST: \(request)")
         
-        CodableService.getResponseFromSession(request: request, codableObj: responseModel) { (status, obj, dic) in
-            completion(status,obj,dic)
+        CodableService.getResponseFromSession(request: request, codableObj: responseModel) { (status, apiMessage, obj, dic) in
+            completion(status, apiMessage,obj,dic)
         }
     }
 }

@@ -126,7 +126,8 @@ class LocationService: NSObject, CLLocationManagerDelegate {
         guard let delegate = self.delegate else {
             return
         }
-        SingletonClass.sharedInstance.userCurrentLocation = currentLocation
+        SingletonClass.sharedInstance.userCurrentLocation.latitude = currentLocation.coordinate.latitude
+        SingletonClass.sharedInstance.userCurrentLocation.longitude = currentLocation.coordinate.longitude
         delegate.tracingLocation(currentLocation: currentLocation)
        // delegate.tracingLocation(currentLocation)
     }

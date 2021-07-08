@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import GoogleMaps
 
 extension UIView {
     class func fromNib<T: UIView>() -> T {
@@ -26,7 +27,7 @@ class HomeVC: BaseVC {
         static let EndRide = 7
     }
     
-    @IBOutlet weak var vwMap: UIView!
+    @IBOutlet weak var vwMap: GMSMapView!
     @IBOutlet weak var btnOn: UIButton!
     @IBOutlet weak var lblOffline: themeLabel!
     
@@ -51,8 +52,6 @@ class HomeVC: BaseVC {
         setNavigationBarInViewController(controller: self, naviColor: colors.appColor.value, naviTitle: NavTitles.none.value, leftImage: NavItemsLeft.menu.value, rightImages: [NavItemsRight.none.value], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
         }
         sender.isSelected = !sender.isSelected
-        
-    
 //        lblOffline.text = "You're online"
         lblOffline.text = sender.isSelected ? "You're online" : "You're offline"
     }

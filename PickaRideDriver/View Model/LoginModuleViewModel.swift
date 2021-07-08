@@ -15,13 +15,13 @@ class LoginUserModel{
     
     func webserviceForLogin(){
         let loginReqModel = LoginReqModel()
-        loginReqModel.lat = String(SingletonClass.sharedInstance.userCurrentLocation.coordinate.latitude)
-        loginReqModel.lng = String(SingletonClass.sharedInstance.userCurrentLocation.coordinate.longitude)
+        loginReqModel.lat = String(SingletonClass.sharedInstance.userCurrentLocation.latitude)
+        loginReqModel.lng = String(SingletonClass.sharedInstance.userCurrentLocation.longitude)
         loginReqModel.username = loginvc?.txtEmailOrPhoneNumber.text ?? ""
         loginReqModel.password = loginvc?.txtPassword.text ?? ""
         
         Utilities.showHUD()
-        WebServiceSubClass.Login(reqModel: loginReqModel) { (status, response, error) in
+        WebServiceSubClass.Login(reqModel: loginReqModel) { (status, message, response, error) in
             Utilities.hideHUD()
             if status{
                 SingletonClass.sharedInstance.LoginRegisterUpdateData = response

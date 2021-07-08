@@ -15,6 +15,10 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WVf-Vv-ZNY">
+                    <rect key="frame" x="0.0" y="468" width="414" height="428"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZbI-bh-pSC" userLabel="Container View" customClass="ShadowedSnapshotView">
                     <rect key="frame" x="0.0" y="468" width="414" height="394"/>
                     <subviews>
@@ -305,14 +309,18 @@
             <constraints>
                 <constraint firstItem="FXi-lf-NXB" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="74" id="Dth-Xc-CBr"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="FXi-lf-NXB" secondAttribute="trailing" constant="24" id="GRl-zr-N6F"/>
+                <constraint firstItem="WVf-Vv-ZNY" firstAttribute="trailing" secondItem="ZbI-bh-pSC" secondAttribute="trailing" id="JWZ-Zy-Jd4"/>
                 <constraint firstItem="FXi-lf-NXB" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="24" id="KLf-0r-st2"/>
                 <constraint firstItem="ZbI-bh-pSC" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="QQw-7r-Sdi"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="ZbI-bh-pSC" secondAttribute="bottom" id="WYv-yH-NGH"/>
                 <constraint firstItem="DTL-5B-Yz9" firstAttribute="centerY" secondItem="fTQ-G8-UUD" secondAttribute="centerY" id="Y46-Oq-mrQ"/>
                 <constraint firstItem="DTL-5B-Yz9" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="24" id="dQs-ZQ-lSV"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="fTQ-G8-UUD" secondAttribute="trailing" constant="24" id="dqv-u6-gOS"/>
+                <constraint firstAttribute="bottom" secondItem="WVf-Vv-ZNY" secondAttribute="bottom" id="eqy-bZ-x04"/>
+                <constraint firstItem="WVf-Vv-ZNY" firstAttribute="leading" secondItem="ZbI-bh-pSC" secondAttribute="leading" id="fbU-L3-GA3"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="ZbI-bh-pSC" secondAttribute="trailing" id="mH6-Hg-wF4"/>
                 <constraint firstItem="ZbI-bh-pSC" firstAttribute="top" secondItem="fTQ-G8-UUD" secondAttribute="bottom" constant="20" id="pit-Vn-3lP"/>
+                <constraint firstItem="WVf-Vv-ZNY" firstAttribute="top" secondItem="ZbI-bh-pSC" secondAttribute="top" id="tnG-4o-jpx"/>
             </constraints>
             <connections>
                 <outlet property="ViewTripCode" destination="oA2-HB-1TV" id="A7S-fh-mbn"/>

@@ -28,6 +28,11 @@
 		1865CFAC267C7B4E00379A40 /* CardValidatorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1865CFA9267C7B4D00379A40 /* CardValidatorType.swift */; };
 		1865CFAD267C7B4E00379A40 /* MonthPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1865CFAA267C7B4D00379A40 /* MonthPickerView.swift */; };
 		1865CFB1267C7D4400379A40 /* Validators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1865CFB0267C7D4400379A40 /* Validators.swift */; };
+		186EC9322696D9C800314717 /* CountryListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186EC9312696D9C800314717 /* CountryListModel.swift */; };
+		186EC9342696E04C00314717 /* SplashVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186EC9332696E04C00314717 /* SplashVC.swift */; };
+		186EC9362696F2A300314717 /* otpResponseAndRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186EC9352696F2A300314717 /* otpResponseAndRequestModel.swift */; };
+		186EC9382696F64D00314717 /* PasswordRequestAndResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186EC9372696F64D00314717 /* PasswordRequestAndResponseModel.swift */; };
+		186F7D9F2693011300F3818C /* DemoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186F7D9E2693011300F3818C /* DemoVC.swift */; };
 		187197FC26848E3200B4DAAF /* PopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187197FB26848E3200B4DAAF /* PopUpVC.swift */; };
 		187197FE2684B91F00B4DAAF /* ForgotPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187197FD2684B91F00B4DAAF /* ForgotPasswordVC.swift */; };
 		1871C8B62685B1CC00D4D17D /* DummyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1871C8B52685B1CC00D4D17D /* DummyVC.swift */; };
@@ -187,6 +192,11 @@
 		1865CFA9267C7B4D00379A40 /* CardValidatorType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardValidatorType.swift; sourceTree = "<group>"; };
 		1865CFAA267C7B4D00379A40 /* MonthPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthPickerView.swift; sourceTree = "<group>"; };
 		1865CFB0267C7D4400379A40 /* Validators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validators.swift; sourceTree = "<group>"; };
+		186EC9312696D9C800314717 /* CountryListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CountryListModel.swift; path = ../../../../../../CountryListModel.swift; sourceTree = "<group>"; };
+		186EC9332696E04C00314717 /* SplashVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashVC.swift; sourceTree = "<group>"; };
+		186EC9352696F2A300314717 /* otpResponseAndRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = otpResponseAndRequestModel.swift; sourceTree = "<group>"; };
+		186EC9372696F64D00314717 /* PasswordRequestAndResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordRequestAndResponseModel.swift; sourceTree = "<group>"; };
+		186F7D9E2693011300F3818C /* DemoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoVC.swift; sourceTree = "<group>"; };
 		187197FB26848E3200B4DAAF /* PopUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpVC.swift; sourceTree = "<group>"; };
 		187197FD2684B91F00B4DAAF /* ForgotPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordVC.swift; sourceTree = "<group>"; };
 		1871C8B52685B1CC00D4D17D /* DummyVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DummyVC.swift; sourceTree = "<group>"; };
@@ -395,6 +405,9 @@
 				187B8411267B5B1000D3BFDA /* RegisterRequestResponseModel.swift */,
 				187B840E267B5B1000D3BFDA /* WalletRequestResponseModel.swift */,
 				187B8410267B5B1000D3BFDA /* CommonDataResponseModel.swift */,
+				186EC9312696D9C800314717 /* CountryListModel.swift */,
+				186EC9352696F2A300314717 /* otpResponseAndRequestModel.swift */,
+				186EC9372696F64D00314717 /* PasswordRequestAndResponseModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -471,6 +484,8 @@
 				185DEEDE2669113B008BA95C /* WaitingForApprovalVC.swift */,
 				18E2E13A267240360054E351 /* RatingAndReviewVC.swift */,
 				187197FB26848E3200B4DAAF /* PopUpVC.swift */,
+				186F7D9E2693011300F3818C /* DemoVC.swift */,
+				186EC9332696E04C00314717 /* SplashVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -1122,9 +1137,11 @@
 				4F94F1842643DB5F00780413 /* CustomButton.swift in Sources */,
 				843F806E264A706400BCBDB8 /* UIViewController+Container.swift in Sources */,
 				1865CF6A267C767600379A40 /* CodableResponseServiceClass.swift in Sources */,
+				186EC9382696F64D00314717 /* PasswordRequestAndResponseModel.swift in Sources */,
 				4F94F17A2643DB5F00780413 /* UIViewController+Extension.swift in Sources */,
 				187197FC26848E3200B4DAAF /* PopUpVC.swift in Sources */,
 				843F8072264A706400BCBDB8 /* BasicTransitionAnimator.swift in Sources */,
+				186EC9342696E04C00314717 /* SplashVC.swift in Sources */,
 				4F94F1CE2643FEE500780413 /* AppInfo.swift in Sources */,
 				1865CF6B267C767600379A40 /* Webservices+Extension.swift in Sources */,
 				4F94F1872643DB5F00780413 /* CustomImageVIew.swift in Sources */,
@@ -1148,8 +1165,10 @@
 				187B8414267B5B1000D3BFDA /* WalletRequestResponseModel.swift in Sources */,
 				185DEED92668DAF2008BA95C /* PersonalDocumentVC.swift in Sources */,
 				187B8435267B5BA100D3BFDA /* Themes.swift in Sources */,
+				186EC9362696F2A300314717 /* otpResponseAndRequestModel.swift in Sources */,
 				187B8415267B5B1000D3BFDA /* CardRequestResponseModel.swift in Sources */,
 				4F94F17F2643DB5F00780413 /* UISearchbar+Extension.swift in Sources */,
+				186F7D9F2693011300F3818C /* DemoVC.swift in Sources */,
 				4F94F17E2643DB5F00780413 /* UITextField+Extension.swift in Sources */,
 				81891DA1264FDA1B00E8741E /* MSBBarChartView.swift in Sources */,
 				843F806C264A706400BCBDB8 /* Preferences.swift in Sources */,
@@ -1186,6 +1205,7 @@
 				8476071A264933A90019CE1F /* pastUpcomingCell.swift in Sources */,
 				187B841D267B5B2B00D3BFDA /* SideMenuViewModel.swift in Sources */,
 				4F94F1792643DB5F00780413 /* extension+String.swift in Sources */,
+				186EC9322696D9C800314717 /* CountryListModel.swift in Sources */,
 				843F805C264A6FB300BCBDB8 /* MenuViewController.swift in Sources */,
 				8476070B264909500019CE1F /* SettingCell.swift in Sources */,
 				1865CF69267C767600379A40 /* UploadMediaModel.swift in Sources */,

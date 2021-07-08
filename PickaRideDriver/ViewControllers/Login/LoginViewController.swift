@@ -35,8 +35,8 @@ class LoginViewController: UIViewController {
         hideKeyboardWhenTappedAround()
         setupTextfields(textfield: txtPassword)
         txtEmailOrPhoneNumber.autocapitalizationType = .none
-        vwPassword.layer.masksToBounds = true
-        EmailView.layer.masksToBounds = true
+//        vwPassword.layer.masksToBounds = true
+//        EmailView.layer.masksToBounds = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -90,8 +90,9 @@ class LoginViewController: UIViewController {
 //            self.loginusermodel.loginvc = self
 //            self.loginusermodel.webserviceForLogin()
 //        }
-        user_defaults.setValue(true, forKey: UserDefaultsKey.isUserLogin.rawValue)
-        appDel.navigateToMain()
+//        user_defaults.setValue(true, forKey: UserDefaultsKey.isUserLogin.rawValue)
+//        appDel.navigateToMain()
+        Toast.show(message: "Required", state: .success)
       
     }
     

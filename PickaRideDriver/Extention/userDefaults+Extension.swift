@@ -26,11 +26,11 @@ extension UserDefaults{
     }
     
     func setCountryData() {
-//        try? UserDefaults.standard.set(object: Singleton.shared.countryList, forKey: UserDefaultsKey.countryList.rawValue)
+        try? UserDefaults.standard.set(object: SingletonClass.sharedInstance.CountryList, forKey: UserDefaultsKey.countryList.rawValue)
     }
     
-    func getCountryData() -> [CountryDetailModel]? {
-        let objResponse = try? UserDefaults.standard.get(objectType: [CountryDetailModel].self, forKey:  UserDefaultsKey.userProfile.rawValue)
+    func getCountryData() -> [CountryDetilsModel]? {
+        let objResponse = try? UserDefaults.standard.get(objectType: [CountryDetilsModel].self, forKey:  UserDefaultsKey.countryList.rawValue)
         return objResponse ?? nil
     }
     func setUserData() {

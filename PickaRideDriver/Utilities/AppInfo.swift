@@ -32,7 +32,7 @@ struct AppInfo {
     
     
     static var appStaticHeader:String{
-        return "CoreSound$951"
+        return "PickARide951*#*"
     }
     
     static var deviceType:String{

@@ -8,23 +8,31 @@
 
 import Foundation
 import CoreLocation
+
 class SingletonClass: NSObject
 {
     static let sharedInstance = SingletonClass()
     
-    
+    var AppInitModel : InitResponseModel?
     var UserId = String()
     var LoginRegisterUpdateData : RegisterFinal?
     var Api_Key = String()
     var DeviceToken : String = ""
     var isPresented = false
-    var userCurrentLocation = CLLocation()
+    var userCurrentLocation : CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 0.0, longitude: 0.0)
+    var CountryList = [CountryDetilsModel]()
+    var DeviceType : String = "ios"
 //    var currentLat = Double()
 //    var currentLong = Double()
     
     ///Owner Profile Info
 //    var OwnerProfileInfo : ResProfileRootClass?
     
+    //MARK:- User' Custom Details
+  
+    func locationString() -> (latitude: String, longitude: String){
+        return (String(format: "%4d", userCurrentLocation.latitude), String(format: "%4d", userCurrentLocation.longitude))
+    }
   
     var arrFutureYears:[String] {
         get {

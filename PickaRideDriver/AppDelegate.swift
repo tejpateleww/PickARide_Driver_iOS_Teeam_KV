@@ -8,6 +8,10 @@
 import UIKit
 import IQKeyboardManagerSwift
 import CoreLocation
+import GoogleMaps
+import GooglePlaces
+import Firebase
+import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -23,9 +27,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     {
         // Override point for customization after application launch.
         //        navigateToLogin()
+        DispatchQueue.global(qos: .background).async {
+            self.webserviceGetCountryList()
+        }
         Thread.sleep(forTimeInterval: 1.5)
         IQKeyboardManager.shared.enable = true
         IQKeyboardManager.shared.shouldResignOnTouchOutside = true
+        GMSServices.provideAPIKey(AppInfo.Google_API_Key)
+        GMSPlacesClient.provideAPIKey(AppInfo.Google_API_Key)
         checkAndSetDefaultLanguage()
         self.locationManager.delegate = self
         self.locationManager.startUpdatingLocation()
@@ -97,12 +106,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func setLanguageEnglish() {
         user_defaults.setValue("en", forKey: UserDefaultsKey.selLanguage.rawValue)
     }
+    func webserviceGetCountryList(){
+        WebServiceSubClass.GetCountryList {_, _, _, _ in}
+    }
     
 }
 
 extension AppDelegate:  CLLocationManagerDelegate, LocationServiceDelegate{
 func tracingLocation(currentLocation: CLLocation) {
-    SingletonClass.sharedInstance.userCurrentLocation = currentLocation
+    SingletonClass.sharedInstance.userCurrentLocation.latitude = currentLocation.coordinate.latitude
+    SingletonClass.sharedInstance.userCurrentLocation.longitude = currentLocation.coordinate.longitude
     
 }
 

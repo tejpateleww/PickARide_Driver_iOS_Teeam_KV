@@ -60,6 +60,15 @@ class IncomingRideRequestView: UIView {
         viewCount.cornerRadius = viewCount.frame.size.height / 2
         imageViewProfilePic.cornerRadius = imageViewProfilePic.frame.size.height / 2
     }
+    internal override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
+        for subview in subviews {
+            if !subview.isHidden && subview.isUserInteractionEnabled && subview.point(inside: convert(point, to: subview), with: event) {
+                return true
+            }
+        }
+        return false
+    }
+    
     
     @IBAction func btnAcceptRequestClickAction(_ sender: Any) {
         delegate?.onAcceptRideRequest()
@@ -128,5 +137,6 @@ fileprivate extension IncomingRideRequestView {
         lblNoThanks.textColor = .white
         btnAcceptRequest.setTitle(ConstantString.BUTTON_TITLE_HOME_TAP_TO_ACCCEPT, for: .normal)
     }
+  
         
 }

@@ -77,6 +77,33 @@ class Utilities:NSObject{
     }
     
     
+    static func showAlertWithTitleFromVC(vc:UIViewController, title:String?, message:String?, buttons:[String], isOkRed : Bool, completion:((_ index:Int) -> Void)!) -> Void{
+        
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        var style : UIAlertAction.Style
+        for index in 0..<buttons.count {
+            if isOkRed{
+                if buttons[index].lowercased() == UrlConstant.Ok.lowercased() || buttons[index].lowercased() == UrlConstant.Yes.lowercased(){
+                    style = .destructive
+                }else{
+                    style = .default
+                }
+            }else{
+                style = .default
+            }
+            
+            let action = UIAlertAction(title: buttons[index], style: style, handler: { (alert: UIAlertAction!) in
+                if(completion != nil) {
+                    completion(index)
+                }
+            })
+            alertController.addAction(action)
+        }
+        DispatchQueue.main.async {
+            vc.present(alertController, animated: true, completion: nil)
+        }
+    }
+    
     static func displayAlert(_ title: String, message: String, completion:((_ index: Int) -> Void)?, otherTitles: String? ...) {
         
         if message.trimmedString == "" {
@@ -108,6 +135,46 @@ class Utilities:NSObject{
         DispatchQueue.main.async {
             AppDelegate.shared.window?.rootViewController!.present(alert, animated: true, completion: nil)
         }
+    }
+    
+    
+    class func getMessageFromApiResponse(param: Any) -> String {
+        
+        if let res = param as? String {
+            return res
+            
+        }else if let resDict = param as? NSDictionary {
+            
+            if let msg = resDict.object(forKey: "message") as? String {
+                return msg
+                
+            }else if let msg = resDict.object(forKey: "msg") as? String {
+                return msg
+                
+            }else if let msg = resDict.object(forKey: "message") as? [String] {
+                return msg.first ?? ""
+                
+            }
+            
+        }else if let resAry = param as? NSArray {
+            
+            if let dictIndxZero = resAry.firstObject as? NSDictionary {
+                if let msg = dictIndxZero.object(forKey: "message") as? String {
+                    return msg
+                    
+                }else if let msg = dictIndxZero.object(forKey: "msg") as? String {
+                    return msg
+                    
+                }else if let msg = dictIndxZero.object(forKey: "message") as? [String] {
+                    return msg.first ?? ""
+                }
+                
+            }else if let msg = resAry as? [String] {
+                return msg.first ?? ""
+                
+            }
+        }
+        return UrlConstant.SomethingWentWrong
     }
     
     static func displayAlert(_ title: String, message: String, completion:((_ index: Int) -> Void)?, acceptTitle:String, otherTitles: String? ...) {
