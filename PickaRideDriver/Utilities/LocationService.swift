@@ -85,9 +85,14 @@ class LocationService: NSObject, CLLocationManagerDelegate {
             
             
             Utilities.showAlertWithTitleFromWindow(title: "Required", andMessage: "", buttons: ["Allow"]) { (index) in
-                if let settingsAppURL = URL(string: UIApplication.openSettingsURLString){
-                    UIApplication.shared.open(settingsAppURL, options: [:], completionHandler: nil)
-                }
+//                if let settingsAppURL = URL(string: UIApplication.openSettingsURLString){
+//                    UIApplication.shared.open(settingsAppURL, options: [:], completionHandler: nil)
+//                }
+                if let url = URL(string:UIApplication.openSettingsURLString) {
+                                if UIApplication.shared.canOpenURL(url) {
+                                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                                }
+                            }
             }
         }
         self.locationManager?.startUpdatingLocation()

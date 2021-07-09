@@ -12,10 +12,10 @@ import UIKit
 class LoginReqModel : Encodable{
     var username: String?
     var password: String?
-    var lat: String?
-    var lng: String?
+    var lat: String? = SingletonClass.sharedInstance.locationString().latitude
+    var lng: String? = SingletonClass.sharedInstance.locationString().longitude
     var device_type: String = "ios"
-    var device_token: String = "abc"
+    var device_token: String = SingletonClass.sharedInstance.DeviceToken
 //    var profile_image : UIImage?
     
     enum CodingKeys: String, CodingKey {
@@ -61,7 +61,7 @@ class RegisterFinalRequestModel : Encodable{
     var lat: String?
     var lng: String?
     var device_type: String = "ios"
-    var device_token: String?
+    var device_token: String? = SingletonClass.sharedInstance.UserId
     var country_code: String?
     var country_id: String?
     var vehicleType: String?
