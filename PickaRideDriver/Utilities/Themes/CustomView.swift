@@ -55,8 +55,19 @@ class seperatorView : UIView {
    
     override func awakeFromNib() {
         self.backgroundColor = colors.seperatorColor.value
+        self.cornerRadius = self.frame.height / 2
     }
 }
+
+class seperatorLabel : UILabel {
+   
+    override func awakeFromNib() {
+        self.backgroundColor = colors.seperatorColor.value
+        self.layer.cornerRadius = self.frame.height / 2
+        self.layer.masksToBounds = true
+    }
+}
+
 class selectDestinationView : UIView {
     override func awakeFromNib() {
         self.clipsToBounds = true

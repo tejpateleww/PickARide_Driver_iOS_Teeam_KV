@@ -39,6 +39,7 @@ class HomeVC: BaseVC {
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        self.btnOn.isEnabled = true
         setNavigationBarInViewController(controller: self, naviColor: colors.appColor.value, naviTitle: NavTitles.none.value, leftImage: NavItemsLeft.menu.value, rightImages: [NavItemsRight.sos.value], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
         handleRideFlow(state: RideState.None)
 //        vwMap
@@ -61,7 +62,7 @@ class HomeVC: BaseVC {
 fileprivate extension HomeVC {
     
     func handleRideFlow(state : Int) {
-        
+        self.btnOn.isEnabled = state == RideState.None
         if (state == RideState.None)
         {
             incomingRideRequestView.delegate = self

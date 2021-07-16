@@ -107,3 +107,53 @@ extension UIView {
                                                      height: layer.shadowRadius)).cgPath
     }
 }
+
+extension UIView {
+    
+    @IBInspectable var shadow: Bool {
+        get {
+            return layer.shadowOpacity > 0.0
+        }
+        set {
+            self.addShadow()
+            if newValue == true {
+                self.addShadow()
+            }else{
+                self.layer.shadowOpacity = 0.0
+            }
+        }
+    }
+    
+    @IBInspectable var AddBorder: Bool {
+        get {
+            return layer.borderWidth == 0
+        }
+        set {
+            self.addBorder()
+            if newValue == true {
+                self.addBorder()
+            }else{
+                self.layer.borderWidth = 0.0
+            }
+        }
+    }
+    
+    func addBorder(){
+        layer.borderWidth = 1.5
+        layer.cornerRadius = self.frame.height / 2
+        layer.backgroundColor = ThemeColorEnum.ThemeWhite.rawValue.cgColor
+        layer.borderColor = ThemeColorEnum.ImageBorder.rawValue.cgColor
+    }
+    
+    func addShadow(shadowColor: CGColor = UIColor.black.withAlphaComponent(0.7).cgColor,
+                   shadowOffset: CGSize = CGSize(width: 1.0, height: 2.0),
+                   shadowOpacity: Float = 0.4,
+                   shadowRadius: CGFloat = 3.0) {
+        layer.shadowColor = shadowColor
+        layer.shadowOffset = shadowOffset
+        layer.shadowOpacity = shadowOpacity
+        layer.shadowRadius = shadowRadius
+    }
+    
+}
+

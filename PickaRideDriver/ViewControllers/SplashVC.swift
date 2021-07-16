@@ -13,7 +13,14 @@ class SplashVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.webserviceInit()
+        
+        DispatchQueue.global(qos: .background).async {
+            self.webserviceGetCountryList()
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            self.setRootViewController()
+//            self.webserviceInit()
+        }
     }
 }
 

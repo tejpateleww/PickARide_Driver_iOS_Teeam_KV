@@ -8,14 +8,13 @@
 import Foundation
 import UIKit
 
+//MARK:- Toast Alert Images
+let AlertCheckImg = #imageLiteral(resourceName: "imgAlertCheck")
+let AlertCancelImg = #imageLiteral(resourceName: "imgAlertCancel")
+let AlertInfoImg = #imageLiteral(resourceName: "imgAlertInfo")
+
 enum MessageAlertState {
     case success , failure , info , theme
-}
-
-enum ToastMessagesString : String{
-    case SelectCard = "Please select card."
-    case MoneyAddedtoWallet = "Money added sucessfully."
-    case EnterAmount = "Please enter amount."
 }
 
 class Toast {
@@ -33,18 +32,18 @@ class Toast {
         let statusImage = UIImageView(frame: CGRect())
         switch state {
         case .success:
-            toastContainer.backgroundColor = UIColor(red: 97.0/255.0, green: 161.0/255.0, blue: 23.0/255.0, alpha: 1.0)// UIColor.green//.withAlphaComponent(0.9)
-            statusImage.image = UIImage(named: "imgAlertCheck")
+            toastContainer.backgroundColor = ThemeColorEnum.ThemeGreen.rawValue//UIColor(red: 97.0/255.0, green: 161.0/255.0, blue: 23.0/255.0, alpha: 1.0)// UIColor.green//.withAlphaComponent(0.9)
+            statusImage.image = AlertCheckImg
         case .failure:
-            toastContainer.backgroundColor = UIColor(red: 249.0/255.0, green: 66.0/255.0, blue: 47.0/255.0, alpha: 1.0)// UIColor.red//.withAlphaComponent(0.9)
-            statusImage.image = UIImage(named: "imgAlertCancel")
+            toastContainer.backgroundColor = ThemeColorEnum.ThemeRed.rawValue//UIColor(red: 249.0/255.0, green: 66.0/255.0, blue: 47.0/255.0, alpha: 1.0)// UIColor.red//.withAlphaComponent(0.9)
+            statusImage.image = AlertCancelImg
         case .info:
-            toastContainer.backgroundColor = UIColor.appColor(.themeSolidGray)//.withAlphaComponent(0.9) //UIColor(red: 225.0/255.0, green: 225.0/255.0, blue: 225.0/255.0, alpha: 1.0)
-            statusImage.image = UIImage(named: "imgAlertInfo")
+            toastContainer.backgroundColor = ThemeColorEnum.Info.rawValue//UIColor.appColor(.themeSolidGray)//.withAlphaComponent(0.9) //UIColor(red: 225.0/255.0, green: 225.0/255.0, blue: 225.0/255.0, alpha: 1.0)
+            statusImage.image = AlertInfoImg
             
         case .theme:
-            toastContainer.backgroundColor = UIColor.appColor(.themeGold)//.withAlphaComponent(0.9)
-            statusImage.image = UIImage(named: "imgAlertInfo")
+            toastContainer.backgroundColor = ThemeColorEnum.Theme.rawValue//UIColor.appColor(.themeGold)//.withAlphaComponent(0.9)
+            statusImage.image = AlertInfoImg
         }
         
         statusImage.layer.cornerRadius = 15
@@ -57,15 +56,14 @@ class Toast {
         
         toastLabel.textAlignment = .left;
         
-        let messagetoPrint = title != "" ?
+        if title != "" {
+            toastLabel.addInterlineSpacing(title: "\(title)\n", message: message, spacingValue: 1.5)
+        }else{
+            let messagetoPrint = NSMutableAttributedString()
+                .normal(message, fontSize: 15.0 , fontColor: .white)
             
-            NSMutableAttributedString()
-            .bold( "\(title)\n" , fontSize: 15.0 , fontColor: .white)
-            .normal(message, fontSize: 14.0 , fontColor: .white)
-            :
-            NSMutableAttributedString()
-            .normal(message, fontSize: 15.0 , fontColor: .white)
-        toastLabel.attributedText = messagetoPrint
+            toastLabel.attributedText = messagetoPrint
+        }
         
         toastLabel.clipsToBounds  =  true
         toastLabel.numberOfLines = 0
@@ -98,7 +96,6 @@ class Toast {
         let c3 = NSLayoutConstraint(item: toastContainer, attribute: .top, relatedBy: .equal, toItem: window, attribute: .top, multiplier: 1, constant: 0)
         window.addConstraints([c1,c2,c3])
         
-        
         DispatchQueue.main.async {
             c3.constant = 50
             
@@ -123,6 +120,41 @@ class Toast {
         }
     }
 }
+
+
+
+
+private extension UILabel {
+
+    // MARK: - spacingValue is spacing that you need
+    func addInterlineSpacing(title: String, message: String,spacingValue: CGFloat) {
+
+        // MARK: - Check if there's any text
+
+        // MARK: - Create "NSMutableAttributedString" with your text
+        let attributedString = NSMutableAttributedString()
+            .bold(title , fontSize: 15.0 , fontColor: .white)
+            .normal(message, fontSize: 14.0 , fontColor: .white)
+
+        // MARK: - Create instance of "NSMutableParagraphStyle"
+        let paragraphStyle = NSMutableParagraphStyle()
+
+        // MARK: - Actually adding spacing we need to ParagraphStyle
+        paragraphStyle.lineSpacing = spacingValue
+
+        // MARK: - Adding ParagraphStyle to your attributed String
+        attributedString.addAttribute(
+            .paragraphStyle,
+            value: paragraphStyle,
+            range: NSRange(location: 0, length: attributedString.length
+        ))
+
+        // MARK: - Assign string that you've modified to current attributed Text
+        attributedText = attributedString
+    }
+
+}
+
 
 
 extension NSMutableAttributedString {

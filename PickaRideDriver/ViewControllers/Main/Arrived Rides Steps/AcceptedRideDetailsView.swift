@@ -21,6 +21,7 @@ class AcceptedRideDetailsView: UIView {
     @IBOutlet weak var stackContackview: UIStackView!
     @IBOutlet weak var btnDownArrow: UIButton!
     @IBOutlet weak var btnSubmit: CommonButton!
+    @IBOutlet weak var btnCancel: CancelButton!
     @IBOutlet weak var ViewTripCode: UIView!
     @IBOutlet weak var lblTime: CommonLabel!
     @IBOutlet weak var imageViewProfile: UIImageView!
@@ -34,24 +35,63 @@ class AcceptedRideDetailsView: UIView {
     @IBOutlet weak var lblEnterTripCode: CommonLabel!
     @IBOutlet weak var viewContactOptions: UIView!
     @IBOutlet weak var txtfieldTripCode: UITextField!
+    @IBOutlet weak var topVW: UIView!
+    @IBOutlet weak var mainVW: UIView!
+    @IBOutlet weak var mainVWBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var timewVW: UIView!
     
     var isArrived : Bool = false
     var isComplete : Bool = false
     var isCompleteClicked : Bool = false
     var TextfieldCountIsFour = false
+    
+    var isExpandCategory:  Bool  = false {
+        didSet {
+            mainVWBottomConstraint.constant = isExpandCategory ? 0 : (-mainVW.frame.height + topVW.frame.height + timewVW.frame.height + 8)
+            UIView.animate(withDuration: 0.8, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: [.curveEaseInOut, .allowUserInteraction, .beginFromCurrentState], animations: {
+                self.layoutIfNeeded()
+            }) { (success) in
+                
+            }
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
          setupView()
+        self.setupViewCategory()
 //        txtfieldTripCode.addTarget(self, action: #selector(textFieldEdidtingDidChange(_ :)), for: UIControl.Event.editingChanged)
     }
     
-//    required init?(coder aDecoder: NSCoder) {
-//        super.init(coder: aDecoder)
-//    }
-//    
-//    init() {
-//        super.init(frame: CGRect.zero)
-//    }
+    func setupViewCategory() {
+        let swipeUp = UISwipeGestureRecognizer(target: self, action: #selector(respondToSwipeGesture(gesture:)))
+        swipeUp.direction = UISwipeGestureRecognizer.Direction.up
+        self.topVW.addGestureRecognizer(swipeUp)
+
+        let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(respondToSwipeGesture(gesture:)))
+        swipeDown.direction = UISwipeGestureRecognizer.Direction.down
+        self.topVW.addGestureRecognizer(swipeDown)
+    }
+    
+    @objc func respondToSwipeGesture(gesture: UIGestureRecognizer) {
+        if let swipeGesture = gesture as? UISwipeGestureRecognizer {
+            switch swipeGesture.direction {
+            case UISwipeGestureRecognizer.Direction.down:
+                print("Swiped down")
+                self.isExpandCategory = false
+            case UISwipeGestureRecognizer.Direction.up:
+                print("Swiped up")
+                self.isExpandCategory = true
+
+            default:
+                break
+            }
+        }
+    }
+    
+    @objc func setBottomViewOnclickofViewTop(){
+        self.isExpandCategory = !self.isExpandCategory
+    }
     
     override func layoutSubviews() {
         viewDropLocation.cornerRadius = viewDropLocation.frame.size.height / 2
@@ -68,6 +108,7 @@ class AcceptedRideDetailsView: UIView {
         
     }
     @IBAction func btnSubmitButtonClickAction(_ sender: Any) {
+        self.btnCancel.isHidden = !isComplete
         if  isCompleteClicked{
             isComplete = false
             isCompleteClicked = false

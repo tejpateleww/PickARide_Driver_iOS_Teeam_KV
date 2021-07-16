@@ -52,7 +52,7 @@ class BaseVC: UIViewController, UIGestureRecognizerDelegate{
         } else {
             if isTwoLabels {
                 let label = UILabel()
-                label.frame = CGRect(x: 0, y: 0, width: ((controller.navigationController?.navigationBar.frame.size.width)!), height: 44)
+                label.frame = CGRect(x: 0, y: 0, width: (controller.navigationController?.navigationBar.frame.size.width ?? 0), height: 44)
                 let newNavTitle = naviTitle.replacingOccurrences(of: "MultiLine", with: "")
                 let fullNameArr = newNavTitle.split{$0 == "\n"}.map(String.init)
                 print(fullNameArr)
@@ -81,7 +81,7 @@ class BaseVC: UIViewController, UIGestureRecognizerDelegate{
                     w = w - 10
                 }
                 let viewForTop = UIView()
-                viewForTop.frame = CGRect(x: 0, y: 0, width: ((controller.navigationController?.navigationBar.frame.size.width)!), height: 44)
+                viewForTop.frame = CGRect(x: 0, y: 0, width: (controller.navigationController?.navigationBar.frame.size.width ?? 0), height: 44)
                 viewForTop.backgroundColor = .clear
                 let xibView : navigationCommonView = navigationCommonView.loadFromXib()
                 xibView.frame = CGRect(x: 0, y: 0, width: w, height: 44)
@@ -128,23 +128,26 @@ class BaseVC: UIViewController, UIGestureRecognizerDelegate{
                 btnLeftBar.style = .plain
                 controller.navigationItem.leftBarButtonItem = btnLeftBar
             } else if leftImage == NavItemsLeft.menu.value {
-                let btnLeft = UIButton(frame: CGRect(x: 0, y: 0, width: 44, height: 44))
+                let btnLeft = UIButton(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
                 btnLeft.setImage(UIImage.init(named: "ic_menu"), for: .normal)
                 btnLeft.layer.setValue(controller, forKey: "controller")
                 btnLeft.addTarget(self, action: #selector(btMenuAction(_:)), for: .touchUpInside)
                 
-                btnLeft.layer.shadowColor = colors.black.value.cgColor
-                btnLeft.layer.shadowOffset = CGSize(width: 0, height: 0)
-                btnLeft.layer.shadowRadius = 3
-                btnLeft.layer.shadowOpacity = 0.4
+                btnLeft.shadow = true
+//                btnLeft.layer.shadowColor = colors.black.value.cgColor
+//                btnLeft.layer.shadowOffset = CGSize(width: 0, height: 0)
+//                btnLeft.layer.shadowRadius = 3
+//                btnLeft.layer.shadowOpacity = 0.4
                 
                 
-                let LeftView = UIView(frame: CGRect(x: 0, y: 0, width: 44, height: 44))
+                let LeftView = UIView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
                 LeftView.addSubview(btnLeft)
             
                 let btnLeftBar : UIBarButtonItem = UIBarButtonItem.init(customView: LeftView)
                 btnLeftBar.style = .plain
                 controller.navigationItem.leftBarButtonItem = btnLeftBar
+                
+                
             } else if leftImage == NavItemsLeft.cancel.value {
                 let btnLeft = UIButton(frame: CGRect(x: -14, y: 0, width: 44, height: 44))
                 btnLeft.setImage(UIImage.init(named: "ic_Cancel"), for: .normal)

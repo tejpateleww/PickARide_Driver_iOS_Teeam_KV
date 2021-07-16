@@ -86,13 +86,14 @@ class LoginViewController: UIViewController {
     
     @IBAction func btnSignInClicked(_ sender: Any)
     {
-//        if isValidForLogin(){
+        if isValidForLogin(){
 //            self.loginusermodel.loginvc = self
 //            self.loginusermodel.webserviceForLogin()
-//        }
-//        user_defaults.setValue(true, forKey: UserDefaultsKey.isUserLogin.rawValue)
-//        appDel.navigateToMain()
-        Toast.show(message: "Required", state: .success)
+            
+            
+            user_defaults.setValue(true, forKey: UserDefaultsKey.isUserLogin.rawValue)
+            appDel.navigateToMain()
+        }
       
     }
     
@@ -117,18 +118,19 @@ fileprivate extension LoginViewController
         
         if (email.count <= 0)
         {
-            self.showAlert(title: "", message: ConstantString.MESSAGE_LOGIN_EMAIL_MISSING, alertActions: [])
+            Toast.show(title: UrlConstant.Required, message: ConstantString.MESSAGE_LOGIN_EMAIL_MISSING, state: .failure)
             return false
         }
         
         if (!email.isValidEmailAddress())
         {
-            self.showAlert(title: "", message: ConstantString.MESSAGE_LOGIN_EMAIL_INVALID.Localized(), alertActions: [])
+            Toast.show(title: UrlConstant.Required, message: ConstantString.MESSAGE_LOGIN_EMAIL_INVALID, state: .failure)
+            return false
         }
         
         if (password.count <= 0)
         {
-            self.showAlert(title: "", message:ConstantString.MESSAGE_LOGIN_PASSWORD_MISSING, alertActions: [])
+            Toast.show(title: UrlConstant.Required, message: ConstantString.MESSAGE_LOGIN_PASSWORD_MISSING, state: .failure)
             return false
         }
         

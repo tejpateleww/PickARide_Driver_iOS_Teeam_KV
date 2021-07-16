@@ -36,8 +36,22 @@ class IncomingRideRequestView: UIView {
     @IBOutlet weak var viewCount: UIView!
     @IBOutlet weak var lblCount: CommonLabel!
     @IBOutlet weak var lblNoThanks: CommonLabel!
+    @IBOutlet weak var topVW: UIView!
+    @IBOutlet weak var driverInfoVW: UIView!
+    @IBOutlet weak var mainVWBottomConstraint: NSLayoutConstraint!
     
     var noThanksTapClosure : (()->())?
+    
+    var isExpandCategory:  Bool  = false {
+        didSet {
+            mainVWBottomConstraint.constant = isExpandCategory ? 0 : (-viewContainer.frame.height + topVW.frame.height + driverInfoVW.frame.height + 8)
+            UIView.animate(withDuration: 0.8, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: [.curveEaseInOut, .allowUserInteraction, .beginFromCurrentState], animations: {
+                self.layoutIfNeeded()
+            }) { (success) in
+                
+            }
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -45,6 +59,7 @@ class IncomingRideRequestView: UIView {
         viewCancelRide.backgroundColor = themeColor
        
          setupView()
+        self.setupViewCategory()
     }
     
 //
@@ -60,6 +75,38 @@ class IncomingRideRequestView: UIView {
         viewCount.cornerRadius = viewCount.frame.size.height / 2
         imageViewProfilePic.cornerRadius = imageViewProfilePic.frame.size.height / 2
     }
+    
+    func setupViewCategory() {
+        let swipeUp = UISwipeGestureRecognizer(target: self, action: #selector(respondToSwipeGesture(gesture:)))
+        swipeUp.direction = UISwipeGestureRecognizer.Direction.up
+        self.topVW.addGestureRecognizer(swipeUp)
+
+        let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(respondToSwipeGesture(gesture:)))
+        swipeDown.direction = UISwipeGestureRecognizer.Direction.down
+        self.topVW.addGestureRecognizer(swipeDown)
+    }
+    
+    @objc func respondToSwipeGesture(gesture: UIGestureRecognizer) {
+        if let swipeGesture = gesture as? UISwipeGestureRecognizer {
+            switch swipeGesture.direction {
+            case UISwipeGestureRecognizer.Direction.down:
+                print("Swiped down")
+                self.isExpandCategory = false
+            case UISwipeGestureRecognizer.Direction.up:
+                print("Swiped up")
+                self.isExpandCategory = true
+
+            default:
+                break
+            }
+        }
+    }
+    
+    @objc func setBottomViewOnclickofViewTop(){
+        self.isExpandCategory = !self.isExpandCategory
+    }
+    
+    
     internal override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
         for subview in subviews {
             if !subview.isHidden && subview.isUserInteractionEnabled && subview.point(inside: convert(point, to: subview), with: event) {

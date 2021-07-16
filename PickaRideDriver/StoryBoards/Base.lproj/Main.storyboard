@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Lem-p0-fp0">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Lem-p0-fp0">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -368,7 +368,7 @@
                                                         </constraints>
                                                         <prototypes>
                                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EditProfileCell" id="HHg-ej-rnu" customClass="EditProfileCell" customModule="PickaRideDriver" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="24.5" width="375" height="42"/>
+                                                                <rect key="frame" x="0.0" y="28" width="375" height="42"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="HHg-ej-rnu" id="vMB-pw-GLk">
                                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="42"/>
@@ -1257,7 +1257,7 @@
                                         <inset key="separatorInset" minX="65" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CancelRideCell" id="unk-FN-Zho" customClass="CancelRideCell" customModule="PickaRideDriver" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="24.5" width="375" height="54.5"/>
+                                                <rect key="frame" x="0.0" y="28" width="375" height="54.5"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="unk-FN-Zho" id="4AK-2a-swT">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="54.5"/>
@@ -1603,7 +1603,7 @@
                                                         </constraints>
                                                         <prototypes>
                                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SettingCell" id="CiY-VS-oPN" customClass="SettingCell" customModule="PickaRideDriver" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="24.5" width="375" height="119"/>
+                                                                <rect key="frame" x="0.0" y="28" width="375" height="119"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="CiY-VS-oPN" id="lkJ-UN-9Tk">
                                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="119"/>
@@ -1864,7 +1864,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MyRideCell" rowHeight="171" id="kYD-gX-U3v" customClass="MyRideCell" customModule="PickaRideDriver" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="24.5" width="375" height="171"/>
+                                                <rect key="frame" x="0.0" y="28" width="375" height="171"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kYD-gX-U3v" id="LXj-im-ODC">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="171"/>
@@ -2038,7 +2038,7 @@
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <prototypes>
                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="pastUpcomingCell" id="3z3-Be-Ekd" customClass="pastUpcomingCell" customModule="PickaRideDriver" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="24.5" width="376" height="50"/>
+                                                        <rect key="frame" x="0.0" y="28" width="376" height="50"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3z3-Be-Ekd" id="7eT-9M-FIN">
                                                             <rect key="frame" x="0.0" y="0.0" width="376" height="50"/>
@@ -4352,7 +4352,7 @@
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                 <prototypes>
                                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="sideCell" id="WUl-dP-sui" customClass="sideCell" customModule="PickaRideDriver" customModuleProvider="target">
-                                                                        <rect key="frame" x="0.0" y="24.5" width="275" height="83"/>
+                                                                        <rect key="frame" x="0.0" y="28" width="275" height="83"/>
                                                                         <autoresizingMask key="autoresizingMask"/>
                                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="WUl-dP-sui" id="Kci-Q0-w77">
                                                                             <rect key="frame" x="0.0" y="0.0" width="275" height="83"/>

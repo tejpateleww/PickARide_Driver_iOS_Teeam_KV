@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		184514E8268A145D00E8884A /* VerifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184514E7268A145D00E8884A /* VerifyViewController.swift */; };
+		1851032226A159A800D0BA49 /* CountryListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1851032126A159A800D0BA49 /* CountryListModel.swift */; };
 		185DEED92668DAF2008BA95C /* PersonalDocumentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185DEED82668DAF2008BA95C /* PersonalDocumentVC.swift */; };
 		185DEEDC2668DBD7008BA95C /* PersonalDocumentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185DEEDA2668DBD7008BA95C /* PersonalDocumentCell.swift */; };
 		185DEEDD2668DBD7008BA95C /* PersonalDocumentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 185DEEDB2668DBD7008BA95C /* PersonalDocumentCell.xib */; };
@@ -28,7 +29,6 @@
 		1865CFAC267C7B4E00379A40 /* CardValidatorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1865CFA9267C7B4D00379A40 /* CardValidatorType.swift */; };
 		1865CFAD267C7B4E00379A40 /* MonthPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1865CFAA267C7B4D00379A40 /* MonthPickerView.swift */; };
 		1865CFB1267C7D4400379A40 /* Validators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1865CFB0267C7D4400379A40 /* Validators.swift */; };
-		186EC9322696D9C800314717 /* CountryListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186EC9312696D9C800314717 /* CountryListModel.swift */; };
 		186EC9342696E04C00314717 /* SplashVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186EC9332696E04C00314717 /* SplashVC.swift */; };
 		186EC9362696F2A300314717 /* otpResponseAndRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186EC9352696F2A300314717 /* otpResponseAndRequestModel.swift */; };
 		186EC9382696F64D00314717 /* PasswordRequestAndResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186EC9372696F64D00314717 /* PasswordRequestAndResponseModel.swift */; };
@@ -172,6 +172,7 @@
 
 /* Begin PBXFileReference section */
 		184514E7268A145D00E8884A /* VerifyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerifyViewController.swift; sourceTree = "<group>"; };
+		1851032126A159A800D0BA49 /* CountryListModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryListModel.swift; sourceTree = "<group>"; };
 		185DEED82668DAF2008BA95C /* PersonalDocumentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalDocumentVC.swift; sourceTree = "<group>"; };
 		185DEEDA2668DBD7008BA95C /* PersonalDocumentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalDocumentCell.swift; sourceTree = "<group>"; };
 		185DEEDB2668DBD7008BA95C /* PersonalDocumentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PersonalDocumentCell.xib; sourceTree = "<group>"; };
@@ -192,7 +193,6 @@
 		1865CFA9267C7B4D00379A40 /* CardValidatorType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardValidatorType.swift; sourceTree = "<group>"; };
 		1865CFAA267C7B4D00379A40 /* MonthPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthPickerView.swift; sourceTree = "<group>"; };
 		1865CFB0267C7D4400379A40 /* Validators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validators.swift; sourceTree = "<group>"; };
-		186EC9312696D9C800314717 /* CountryListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CountryListModel.swift; path = ../../../../../../CountryListModel.swift; sourceTree = "<group>"; };
 		186EC9332696E04C00314717 /* SplashVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashVC.swift; sourceTree = "<group>"; };
 		186EC9352696F2A300314717 /* otpResponseAndRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = otpResponseAndRequestModel.swift; sourceTree = "<group>"; };
 		186EC9372696F64D00314717 /* PasswordRequestAndResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordRequestAndResponseModel.swift; sourceTree = "<group>"; };
@@ -400,12 +400,12 @@
 		187B840C267B5B1000D3BFDA /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				1851032126A159A800D0BA49 /* CountryListModel.swift */,
 				187B840D267B5B1000D3BFDA /* CardRequestResponseModel.swift */,
 				187B840F267B5B1000D3BFDA /* InitRequestResponseModel.swift */,
 				187B8411267B5B1000D3BFDA /* RegisterRequestResponseModel.swift */,
 				187B840E267B5B1000D3BFDA /* WalletRequestResponseModel.swift */,
 				187B8410267B5B1000D3BFDA /* CommonDataResponseModel.swift */,
-				186EC9312696D9C800314717 /* CountryListModel.swift */,
 				186EC9352696F2A300314717 /* otpResponseAndRequestModel.swift */,
 				186EC9372696F64D00314717 /* PasswordRequestAndResponseModel.swift */,
 			);
@@ -1145,6 +1145,7 @@
 				4F94F1CE2643FEE500780413 /* AppInfo.swift in Sources */,
 				1865CF6B267C767600379A40 /* Webservices+Extension.swift in Sources */,
 				4F94F1872643DB5F00780413 /* CustomImageVIew.swift in Sources */,
+				1851032226A159A800D0BA49 /* CountryListModel.swift in Sources */,
 				4F94F1782643DB5F00780413 /* UIImage+Extension.swift in Sources */,
 				843F806F264A706400BCBDB8 /* Delegate.swift in Sources */,
 				18720F5E2681BABD008EE191 /* LocationService.swift in Sources */,
@@ -1205,7 +1206,6 @@
 				8476071A264933A90019CE1F /* pastUpcomingCell.swift in Sources */,
 				187B841D267B5B2B00D3BFDA /* SideMenuViewModel.swift in Sources */,
 				4F94F1792643DB5F00780413 /* extension+String.swift in Sources */,
-				186EC9322696D9C800314717 /* CountryListModel.swift in Sources */,
 				843F805C264A6FB300BCBDB8 /* MenuViewController.swift in Sources */,
 				8476070B264909500019CE1F /* SettingCell.swift in Sources */,
 				1865CF69267C767600379A40 /* UploadMediaModel.swift in Sources */,

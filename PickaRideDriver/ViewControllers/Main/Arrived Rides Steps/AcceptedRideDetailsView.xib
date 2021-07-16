@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -15,132 +16,42 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WVf-Vv-ZNY">
-                    <rect key="frame" x="0.0" y="468" width="414" height="428"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WVf-Vv-ZNY" customClass="HomescreenView" customModule="PickaRideDriver" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="433" width="414" height="463"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZbI-bh-pSC" userLabel="Container View" customClass="ShadowedSnapshotView">
-                    <rect key="frame" x="0.0" y="468" width="414" height="394"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZbI-bh-pSC" userLabel="Container View" customClass="HomescreenView" customModule="PickaRideDriver" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="433" width="414" height="429"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tH6-51-Jxc" customClass="SubmitButton" customModule="PickaRideDriver" customModuleProvider="target">
-                            <rect key="frame" x="24" y="342" width="366" height="40"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="40" id="9gv-pL-sXT"/>
-                            </constraints>
-                            <state key="normal" title="Button"/>
-                            <connections>
-                                <action selector="btnSubmitButtonClickAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="0L5-og-rBh"/>
-                            </connections>
-                        </button>
-                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="QQN-qs-1tf">
-                            <rect key="frame" x="0.0" y="223" width="414" height="107"/>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bdo-8B-8uh">
+                            <rect key="frame" x="0.0" y="8" width="414" height="35"/>
                             <subviews>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oA2-HB-1TV" userLabel="Code View">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="107"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Edx-3B-Jbw" customClass="CommonLabel" customModule="PickaRideDriver" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="12" width="414" height="21"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="rz3-6A-BuR"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kZw-To-4sz">
-                                            <rect key="frame" x="106" y="49" width="202" height="42"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="202" id="NCA-6T-zbd"/>
-                                                <constraint firstAttribute="height" constant="42" id="l9h-y2-cgG"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
-                                            <connections>
-                                                <action selector="textEditingChanged:" destination="iN0-l3-epB" eventType="editingChanged" id="eoY-XU-vHJ"/>
-                                            </connections>
-                                        </textField>
-                                    </subviews>
-                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gUW-gG-7iL" customClass="seperatorLabel" customModule="PickaRideDriver" customModuleProvider="target">
+                                    <rect key="frame" x="182" y="13.5" width="50" height="8"/>
+                                    <color key="backgroundColor" name="SeperatorColor"/>
                                     <constraints>
-                                        <constraint firstItem="Edx-3B-Jbw" firstAttribute="leading" secondItem="oA2-HB-1TV" secondAttribute="leading" id="5XW-Ce-SXF"/>
-                                        <constraint firstAttribute="trailing" secondItem="Edx-3B-Jbw" secondAttribute="trailing" id="LLR-Ni-6Ra"/>
-                                        <constraint firstItem="kZw-To-4sz" firstAttribute="centerX" secondItem="oA2-HB-1TV" secondAttribute="centerX" id="ZgM-h4-1lS"/>
-                                        <constraint firstItem="Edx-3B-Jbw" firstAttribute="top" secondItem="oA2-HB-1TV" secondAttribute="top" constant="12" id="aF4-06-q7B"/>
-                                        <constraint firstAttribute="bottom" secondItem="kZw-To-4sz" secondAttribute="bottom" constant="16" id="tb4-fm-h4e"/>
-                                        <constraint firstItem="kZw-To-4sz" firstAttribute="top" secondItem="Edx-3B-Jbw" secondAttribute="bottom" constant="16" id="vWr-sm-DWA"/>
+                                        <constraint firstAttribute="height" constant="8" id="AtR-c2-PGC"/>
+                                        <constraint firstAttribute="width" constant="50" id="Avz-e1-1uk"/>
                                     </constraints>
-                                </view>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="4"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </label>
                             </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
-                                <constraint firstAttribute="trailing" secondItem="oA2-HB-1TV" secondAttribute="trailing" id="1Em-7R-qjC"/>
-                                <constraint firstItem="oA2-HB-1TV" firstAttribute="top" secondItem="QQN-qs-1tf" secondAttribute="top" id="ndF-Gd-Qma"/>
-                                <constraint firstItem="oA2-HB-1TV" firstAttribute="leading" secondItem="QQN-qs-1tf" secondAttribute="leading" id="wPj-dX-6Pl"/>
+                                <constraint firstItem="gUW-gG-7iL" firstAttribute="centerX" secondItem="Bdo-8B-8uh" secondAttribute="centerX" id="4v4-mo-BI6"/>
+                                <constraint firstAttribute="height" constant="35" id="At3-uc-X52"/>
+                                <constraint firstItem="gUW-gG-7iL" firstAttribute="centerY" secondItem="Bdo-8B-8uh" secondAttribute="centerY" id="eb6-bI-D4v"/>
                             </constraints>
-                        </stackView>
-                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="OU1-wp-Ajc">
-                            <rect key="frame" x="0.0" y="116" width="414" height="107"/>
-                            <subviews>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Sg-9S-sCy" userLabel="Contact View">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="107"/>
-                                    <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="qcW-s2-tb3">
-                                            <rect key="frame" x="16" y="24" width="382" height="59"/>
-                                            <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="rg7-P2-qmi">
-                                                    <rect key="frame" x="0.0" y="6.5" width="127.5" height="46"/>
-                                                    <subviews>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2XT-Vj-QNo" customClass="CommonButton" customModule="PickaRideDriver" customModuleProvider="target">
-                                                            <rect key="frame" x="81.5" y="0.0" width="46" height="46"/>
-                                                            <state key="normal" image="ic_phonecall"/>
-                                                            <connections>
-                                                                <action selector="btnCallClickAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="d5K-lq-Bne"/>
-                                                            </connections>
-                                                        </button>
-                                                    </subviews>
-                                                </stackView>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="6UT-kP-6Qw">
-                                                    <rect key="frame" x="127.5" y="6.5" width="127" height="46"/>
-                                                    <subviews>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZGB-kj-94b" customClass="CommonButton" customModule="PickaRideDriver" customModuleProvider="target">
-                                                            <rect key="frame" x="40.5" y="0.0" width="46" height="46"/>
-                                                            <state key="normal" image="ic_message"/>
-                                                            <connections>
-                                                                <action selector="btnMessageClickAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="GEZ-S8-61g"/>
-                                                            </connections>
-                                                        </button>
-                                                    </subviews>
-                                                </stackView>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="fIa-bN-cX4">
-                                                    <rect key="frame" x="254.5" y="6.5" width="127.5" height="46"/>
-                                                    <subviews>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vo8-tJ-dM3" customClass="CommonButton" customModule="PickaRideDriver" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="0.0" width="100" height="46"/>
-                                                            <state key="normal" title="Button" image="ic_CancelRide"/>
-                                                            <connections>
-                                                                <action selector="btnCancelClickAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="kaA-IE-B5i"/>
-                                                            </connections>
-                                                        </button>
-                                                    </subviews>
-                                                </stackView>
-                                            </subviews>
-                                        </stackView>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstAttribute="trailing" secondItem="qcW-s2-tb3" secondAttribute="trailing" constant="16" id="AbV-KZ-OR4"/>
-                                        <constraint firstItem="qcW-s2-tb3" firstAttribute="top" secondItem="2Sg-9S-sCy" secondAttribute="top" constant="24" id="EWP-DW-0Yk"/>
-                                        <constraint firstItem="qcW-s2-tb3" firstAttribute="leading" secondItem="2Sg-9S-sCy" secondAttribute="leading" constant="16" id="O8l-nK-j5a"/>
-                                        <constraint firstAttribute="bottom" secondItem="qcW-s2-tb3" secondAttribute="bottom" constant="24" id="mqS-Su-tgw"/>
-                                    </constraints>
-                                </view>
-                            </subviews>
-                            <constraints>
-                                <constraint firstAttribute="bottom" secondItem="2Sg-9S-sCy" secondAttribute="bottom" id="GFS-B8-Zyp"/>
-                                <constraint firstAttribute="trailing" secondItem="2Sg-9S-sCy" secondAttribute="trailing" id="Ujn-DM-2X9"/>
-                                <constraint firstItem="2Sg-9S-sCy" firstAttribute="leading" secondItem="OU1-wp-Ajc" secondAttribute="leading" id="zex-X2-WDR"/>
-                            </constraints>
-                        </stackView>
+                        </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C9i-xw-AZ8">
-                            <rect key="frame" x="0.0" y="8" width="414" height="83"/>
+                            <rect key="frame" x="0.0" y="43" width="414" height="83"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9sk-v5-VEs" customClass="CommonLabel" customModule="PickaRideDriver" customModuleProvider="target">
                                     <rect key="frame" x="244" y="16.5" width="154" height="21"/>
@@ -221,31 +132,169 @@
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ngp-RX-Qcu">
-                            <rect key="frame" x="22" y="115" width="370" height="1"/>
+                            <rect key="frame" x="22" y="150" width="370" height="1"/>
                             <color key="backgroundColor" systemColor="separatorColor"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="1" id="h4M-zK-cAT"/>
                             </constraints>
                         </view>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="OU1-wp-Ajc">
+                            <rect key="frame" x="0.0" y="151" width="414" height="107"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Sg-9S-sCy" userLabel="Contact View">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="107"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="qcW-s2-tb3">
+                                            <rect key="frame" x="16" y="24" width="382" height="59"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="rg7-P2-qmi">
+                                                    <rect key="frame" x="0.0" y="6.5" width="127.5" height="46"/>
+                                                    <subviews>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2XT-Vj-QNo" customClass="CommonButton" customModule="PickaRideDriver" customModuleProvider="target">
+                                                            <rect key="frame" x="81.5" y="0.0" width="46" height="46"/>
+                                                            <state key="normal" image="ic_phonecall"/>
+                                                            <connections>
+                                                                <action selector="btnCallClickAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="d5K-lq-Bne"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                </stackView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="6UT-kP-6Qw">
+                                                    <rect key="frame" x="127.5" y="6.5" width="127" height="46"/>
+                                                    <subviews>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZGB-kj-94b" customClass="CommonButton" customModule="PickaRideDriver" customModuleProvider="target">
+                                                            <rect key="frame" x="40.5" y="0.0" width="46" height="46"/>
+                                                            <state key="normal" image="ic_message"/>
+                                                            <connections>
+                                                                <action selector="btnMessageClickAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="GEZ-S8-61g"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                </stackView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="fIa-bN-cX4">
+                                                    <rect key="frame" x="254.5" y="6.5" width="127.5" height="46"/>
+                                                    <subviews>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vo8-tJ-dM3" customClass="CommonButton" customModule="PickaRideDriver" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="0.0" width="100" height="46"/>
+                                                            <state key="normal" title="Button" image="ic_CancelRide"/>
+                                                            <connections>
+                                                                <action selector="btnCancelClickAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="kaA-IE-B5i"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="qcW-s2-tb3" secondAttribute="trailing" constant="16" id="AbV-KZ-OR4"/>
+                                        <constraint firstItem="qcW-s2-tb3" firstAttribute="top" secondItem="2Sg-9S-sCy" secondAttribute="top" constant="24" id="EWP-DW-0Yk"/>
+                                        <constraint firstItem="qcW-s2-tb3" firstAttribute="leading" secondItem="2Sg-9S-sCy" secondAttribute="leading" constant="16" id="O8l-nK-j5a"/>
+                                        <constraint firstAttribute="bottom" secondItem="qcW-s2-tb3" secondAttribute="bottom" constant="24" id="mqS-Su-tgw"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="2Sg-9S-sCy" secondAttribute="bottom" id="GFS-B8-Zyp"/>
+                                <constraint firstAttribute="trailing" secondItem="2Sg-9S-sCy" secondAttribute="trailing" id="Ujn-DM-2X9"/>
+                                <constraint firstItem="2Sg-9S-sCy" firstAttribute="leading" secondItem="OU1-wp-Ajc" secondAttribute="leading" id="zex-X2-WDR"/>
+                            </constraints>
+                        </stackView>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="QQN-qs-1tf">
+                            <rect key="frame" x="0.0" y="258" width="414" height="107"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oA2-HB-1TV" userLabel="Code View">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="107"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Edx-3B-Jbw" customClass="CommonLabel" customModule="PickaRideDriver" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="12" width="414" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="rz3-6A-BuR"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kZw-To-4sz">
+                                            <rect key="frame" x="106" y="49" width="202" height="42"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="202" id="NCA-6T-zbd"/>
+                                                <constraint firstAttribute="height" constant="42" id="l9h-y2-cgG"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
+                                            <connections>
+                                                <action selector="textEditingChanged:" destination="iN0-l3-epB" eventType="editingChanged" id="eoY-XU-vHJ"/>
+                                            </connections>
+                                        </textField>
+                                    </subviews>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <constraints>
+                                        <constraint firstItem="Edx-3B-Jbw" firstAttribute="leading" secondItem="oA2-HB-1TV" secondAttribute="leading" id="5XW-Ce-SXF"/>
+                                        <constraint firstAttribute="trailing" secondItem="Edx-3B-Jbw" secondAttribute="trailing" id="LLR-Ni-6Ra"/>
+                                        <constraint firstItem="kZw-To-4sz" firstAttribute="centerX" secondItem="oA2-HB-1TV" secondAttribute="centerX" id="ZgM-h4-1lS"/>
+                                        <constraint firstItem="Edx-3B-Jbw" firstAttribute="top" secondItem="oA2-HB-1TV" secondAttribute="top" constant="12" id="aF4-06-q7B"/>
+                                        <constraint firstAttribute="bottom" secondItem="kZw-To-4sz" secondAttribute="bottom" constant="16" id="tb4-fm-h4e"/>
+                                        <constraint firstItem="kZw-To-4sz" firstAttribute="top" secondItem="Edx-3B-Jbw" secondAttribute="bottom" constant="16" id="vWr-sm-DWA"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="oA2-HB-1TV" secondAttribute="trailing" id="1Em-7R-qjC"/>
+                                <constraint firstItem="oA2-HB-1TV" firstAttribute="top" secondItem="QQN-qs-1tf" secondAttribute="top" id="ndF-Gd-Qma"/>
+                                <constraint firstItem="oA2-HB-1TV" firstAttribute="leading" secondItem="QQN-qs-1tf" secondAttribute="leading" id="wPj-dX-6Pl"/>
+                            </constraints>
+                        </stackView>
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="doW-Fg-fze">
+                            <rect key="frame" x="24" y="377" width="366" height="40"/>
+                            <subviews>
+                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i9u-y5-KN0" customClass="CancelButton" customModule="PickaRideDriver" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="0.0" height="40"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="40" id="wau-mc-Ma1"/>
+                                    </constraints>
+                                    <state key="normal" title="CANCEL"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isCancel" value="YES"/>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="btnCancelClickAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="OF2-DO-pby"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tH6-51-Jxc" customClass="SubmitButton" customModule="PickaRideDriver" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="366" height="40"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="40" id="9gv-pL-sXT"/>
+                                    </constraints>
+                                    <state key="normal" title="Button"/>
+                                    <connections>
+                                        <action selector="btnSubmitButtonClickAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="0L5-og-rBh"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                        </stackView>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
                         <constraint firstItem="Ngp-RX-Qcu" firstAttribute="top" secondItem="C9i-xw-AZ8" secondAttribute="bottom" constant="24" id="5TR-DF-eI9"/>
-                        <constraint firstAttribute="trailing" secondItem="tH6-51-Jxc" secondAttribute="trailing" constant="24" id="5pI-hq-QMM"/>
                         <constraint firstAttribute="trailing" secondItem="OU1-wp-Ajc" secondAttribute="trailing" id="7XA-zN-BZa"/>
-                        <constraint firstItem="C9i-xw-AZ8" firstAttribute="top" secondItem="ZbI-bh-pSC" secondAttribute="top" constant="8" id="8zA-3h-zoh"/>
+                        <constraint firstItem="C9i-xw-AZ8" firstAttribute="top" secondItem="Bdo-8B-8uh" secondAttribute="bottom" id="Ah5-eS-rIE"/>
                         <constraint firstAttribute="trailing" secondItem="QQN-qs-1tf" secondAttribute="trailing" id="BtT-u3-H5I"/>
                         <constraint firstAttribute="trailing" secondItem="C9i-xw-AZ8" secondAttribute="trailing" id="EMS-xH-oJC"/>
                         <constraint firstItem="C9i-xw-AZ8" firstAttribute="leading" secondItem="ZbI-bh-pSC" secondAttribute="leading" id="Ehn-5l-I4Y"/>
                         <constraint firstItem="OU1-wp-Ajc" firstAttribute="top" secondItem="Ngp-RX-Qcu" secondAttribute="bottom" id="I4D-On-7fn"/>
                         <constraint firstAttribute="trailing" secondItem="Ngp-RX-Qcu" secondAttribute="trailing" constant="22" id="I9e-pj-z6b"/>
+                        <constraint firstItem="Bdo-8B-8uh" firstAttribute="leading" secondItem="ZbI-bh-pSC" secondAttribute="leading" id="MXP-HH-azm"/>
                         <constraint firstItem="QQN-qs-1tf" firstAttribute="leading" secondItem="ZbI-bh-pSC" secondAttribute="leading" id="O2F-jy-6fd"/>
+                        <constraint firstItem="doW-Fg-fze" firstAttribute="top" secondItem="QQN-qs-1tf" secondAttribute="bottom" constant="12" id="Obx-ui-xlA"/>
+                        <constraint firstItem="Bdo-8B-8uh" firstAttribute="top" secondItem="ZbI-bh-pSC" secondAttribute="top" constant="8" id="Qdd-zt-rew"/>
                         <constraint firstItem="OU1-wp-Ajc" firstAttribute="leading" secondItem="ZbI-bh-pSC" secondAttribute="leading" id="RUa-Pj-bzY"/>
-                        <constraint firstAttribute="bottom" secondItem="tH6-51-Jxc" secondAttribute="bottom" constant="12" id="Tx4-vk-WAQ"/>
-                        <constraint firstItem="tH6-51-Jxc" firstAttribute="leading" secondItem="ZbI-bh-pSC" secondAttribute="leading" constant="24" id="W9g-fq-2Tx"/>
+                        <constraint firstAttribute="trailing" secondItem="doW-Fg-fze" secondAttribute="trailing" constant="24" id="TkL-54-Eib"/>
+                        <constraint firstItem="doW-Fg-fze" firstAttribute="leading" secondItem="ZbI-bh-pSC" secondAttribute="leading" constant="24" id="W8Z-b8-Igz"/>
                         <constraint firstItem="QQN-qs-1tf" firstAttribute="top" secondItem="OU1-wp-Ajc" secondAttribute="bottom" id="brZ-Cx-2fr"/>
+                        <constraint firstAttribute="trailing" secondItem="Bdo-8B-8uh" secondAttribute="trailing" id="fZo-4U-Sl7"/>
+                        <constraint firstAttribute="bottom" secondItem="doW-Fg-fze" secondAttribute="bottom" constant="12" id="fcy-2E-2bl"/>
                         <constraint firstItem="Ngp-RX-Qcu" firstAttribute="leading" secondItem="ZbI-bh-pSC" secondAttribute="leading" constant="22" id="hsz-xJ-cFb"/>
-                        <constraint firstItem="tH6-51-Jxc" firstAttribute="top" secondItem="QQN-qs-1tf" secondAttribute="bottom" constant="12" id="y72-K1-DyG"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -282,7 +331,7 @@
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fTQ-G8-UUD">
-                    <rect key="frame" x="282" y="412" width="108" height="36"/>
+                    <rect key="frame" x="282" y="377" width="108" height="36"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="36" id="PRu-WO-Iji"/>
                         <constraint firstAttribute="width" constant="108" id="Z0O-OE-p7Z"/>
@@ -293,7 +342,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DTL-5B-Yz9">
-                    <rect key="frame" x="24" y="412" width="77" height="36"/>
+                    <rect key="frame" x="24" y="377" width="77" height="36"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="77" id="Pag-eD-mIa"/>
                         <constraint firstAttribute="height" constant="36" id="y8N-K2-3C1"/>
@@ -324,6 +373,7 @@
             </constraints>
             <connections>
                 <outlet property="ViewTripCode" destination="oA2-HB-1TV" id="A7S-fh-mbn"/>
+                <outlet property="btnCancel" destination="i9u-y5-KN0" id="VG9-u9-cCq"/>
                 <outlet property="btnDownArrow" destination="IEo-yS-pb0" id="ohI-4Y-eag"/>
                 <outlet property="btnNavigate" destination="fTQ-G8-UUD" id="PEy-Fu-Idv"/>
                 <outlet property="btnSos" destination="DTL-5B-Yz9" id="2Eg-1c-mKD"/>
@@ -334,7 +384,11 @@
                 <outlet property="lblExtraTime" destination="9sk-v5-VEs" id="xKA-9A-J2Q"/>
                 <outlet property="lblMessage" destination="tfJ-Rh-WMa" id="HUM-VW-1j7"/>
                 <outlet property="lblTime" destination="Ld3-it-itz" id="YH5-Cv-R0g"/>
+                <outlet property="mainVW" destination="ZbI-bh-pSC" id="nvm-Cp-iUs"/>
+                <outlet property="mainVWBottomConstraint" destination="WYv-yH-NGH" id="5jd-fw-85G"/>
                 <outlet property="stackContackview" destination="qcW-s2-tb3" id="KVc-Mu-jCF"/>
+                <outlet property="timewVW" destination="C9i-xw-AZ8" id="Fnw-ZS-BNk"/>
+                <outlet property="topVW" destination="Bdo-8B-8uh" id="4rh-VR-wek"/>
                 <outlet property="txtfieldTripCode" destination="kZw-To-4sz" id="yHL-7a-dU7"/>
                 <outlet property="viewContactOptions" destination="2Sg-9S-sCy" id="Sh6-do-zlP"/>
                 <outlet property="viewDropLocation" destination="FXi-lf-NXB" id="W3V-FS-kcQ"/>
@@ -352,6 +406,9 @@
         <image name="ic_message" width="46" height="46"/>
         <image name="ic_phonecall" width="46" height="46"/>
         <image name="imgNavigate" width="108" height="36"/>
+        <namedColor name="SeperatorColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="0.029999999329447746" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="separatorColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

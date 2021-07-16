@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="JeT-XE-Xbc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="JeT-XE-Xbc">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -29,7 +29,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u2X-Xj-LEj" customClass="IQPreviousNextView" customModule="IQKeyboardManagerSwift">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="666"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="649"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash_img_top" translatesAutoresizingMaskIntoConstraints="NO" id="Ro4-gm-fBX">
                                                         <rect key="frame" x="220.5" y="-30" width="154.5" height="281.5"/>
@@ -62,13 +62,13 @@
                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="istitle" value="YES"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="37" translatesAutoresizingMaskIntoConstraints="NO" id="BjM-OQ-oxa">
-                                                        <rect key="frame" x="21" y="348" width="333" height="133"/>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="BjM-OQ-oxa">
+                                                        <rect key="frame" x="21" y="348" width="333" height="116"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FMe-iR-Fkv">
                                                                 <rect key="frame" x="0.0" y="0.0" width="333" height="48"/>
                                                                 <subviews>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email ID/Phone Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HsG-gk-E8e" customClass="themeTextField" customModule="PickaRideDriver" customModuleProvider="target">
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HsG-gk-E8e" customClass="themeTextField" customModule="PickaRideDriver" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.0" width="333" height="48"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                         <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
@@ -90,7 +90,7 @@
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ykY-c0-Rfs">
-                                                                <rect key="frame" x="0.0" y="85" width="333" height="48"/>
+                                                                <rect key="frame" x="0.0" y="68" width="333" height="48"/>
                                                                 <subviews>
                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4mH-pH-LTR" customClass="themeTextField" customModule="PickaRideDriver" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.0" width="333" height="48"/>
@@ -116,7 +116,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vbh-YP-hN7" customClass="loginScreenButton" customModule="PickaRideDriver" customModuleProvider="target">
-                                                        <rect key="frame" x="231" y="498" width="123" height="14"/>
+                                                        <rect key="frame" x="231" y="481" width="123" height="14"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="14" id="Yj9-wZ-cOp"/>
                                                         </constraints>
@@ -129,7 +129,7 @@
                                                         </connections>
                                                     </button>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vfr-aB-WZW">
-                                                        <rect key="frame" x="21" y="544" width="333" height="46"/>
+                                                        <rect key="frame" x="21" y="527" width="333" height="46"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mWa-VE-ltd" customClass="themeButton" customModule="PickaRideDriver" customModuleProvider="target">
                                                                 <rect key="frame" x="5" y="0.0" width="328" height="46"/>
@@ -158,7 +158,7 @@
                                                         </constraints>
                                                     </view>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="EOg-Su-yxc">
-                                                        <rect key="frame" x="66.5" y="630" width="242" height="16"/>
+                                                        <rect key="frame" x="66.5" y="613" width="242" height="16"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wJe-nU-pd2" customClass="loginScreenLabel" customModule="PickaRideDriver" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="179" height="16"/>
@@ -185,7 +185,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <button opaque="NO" tag="1" contentMode="scaleAspectFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HKa-GM-neg" customClass="themeButton" customModule="PickaRideDriver" customModuleProvider="target">
-                                                        <rect key="frame" x="21" y="497" width="143" height="16"/>
+                                                        <rect key="frame" x="21" y="480" width="143" height="16"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="16" id="EZP-5s-voB"/>
                                                         </constraints>
@@ -400,7 +400,7 @@
                                                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="E5b-0e-OkR">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="327" height="40"/>
                                                                                 <subviews>
-                                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BTp-oj-6Aj" customClass="RegisterView" customModule="PickARide_User" customModuleProvider="target">
+                                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BTp-oj-6Aj" customClass="RegisterView" customModule="PickaRideDriver" customModuleProvider="target">
                                                                                         <rect key="frame" x="0.0" y="0.0" width="70" height="40"/>
                                                                                         <subviews>
                                                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_DownReg" translatesAutoresizingMaskIntoConstraints="NO" id="IA1-wM-six">
@@ -472,8 +472,8 @@
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mDP-uZ-W5Z">
                                                                 <rect key="frame" x="0.0" y="241.5" width="327" height="58"/>
                                                                 <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email ID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HCG-b1-AeY" customClass="themeLabel" customModule="PickaRideDriver" customModuleProvider="target">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="61.5" height="20.5"/>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HCG-b1-AeY" customClass="themeLabel" customModule="PickaRideDriver" customModuleProvider="target">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="41" height="20.5"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
@@ -484,7 +484,7 @@
                                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="isgray" value="YES"/>
                                                                         </userDefinedRuntimeAttributes>
                                                                     </label>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email ID" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DeI-Ns-azl" customClass="themeTextField" customModule="PickaRideDriver" customModuleProvider="target">
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DeI-Ns-azl" customClass="themeTextField" customModule="PickaRideDriver" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="18" width="327" height="40"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="40" id="Pc6-FY-Tkf"/>
@@ -1669,10 +1669,10 @@ Number</string>
             </objects>
             <point key="canvasLocation" x="7908" y="115"/>
         </scene>
-        <!--View Controller-->
+        <!--SplashVC-->
         <scene sceneID="SS5-Im-uVF">
             <objects>
-                <viewController id="JeT-XE-Xbc" sceneMemberID="viewController">
+                <viewController id="JeT-XE-Xbc" customClass="SplashVC" customModule="PickaRideDriver" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="le7-xK-kva">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1706,11 +1706,72 @@ Number</string>
             </objects>
             <point key="canvasLocation" x="-748" y="54"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="xH9-hK-9Qt">
+            <objects>
+                <viewController storyboardIdentifier="SplashVC" id="D7k-od-Ud1" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5Dk-fg-T3y">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash_img_top" translatesAutoresizingMaskIntoConstraints="NO" id="mva-PZ-1cS">
+                                <rect key="frame" x="-15" y="-55" width="139" height="254"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="139" id="cwT-Ex-eF8"/>
+                                    <constraint firstAttribute="height" constant="254" id="f1D-fi-kSb"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash_img_center" translatesAutoresizingMaskIntoConstraints="NO" id="mHd-PG-kLu">
+                                <rect key="frame" x="64" y="159" width="247" height="247.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="mHd-PG-kLu" secondAttribute="height" multiplier="1:1" id="mL9-FF-e74"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash_img_bottom" translatesAutoresizingMaskIntoConstraints="NO" id="Hl3-Ns-9Vg">
+                                <rect key="frame" x="0.0" y="419" width="375" height="248"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Hl3-Ns-9Vg" secondAttribute="height" multiplier="414:274" id="w3d-Id-odn"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash_img_allInOne" translatesAutoresizingMaskIntoConstraints="NO" id="92R-9p-gkR">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="TMh-CY-FOg"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="92R-9p-gkR" firstAttribute="top" secondItem="5Dk-fg-T3y" secondAttribute="top" id="1Na-RP-oWq"/>
+                            <constraint firstAttribute="bottom" secondItem="Hl3-Ns-9Vg" secondAttribute="bottom" id="2qX-te-EZv"/>
+                            <constraint firstItem="mHd-PG-kLu" firstAttribute="top" secondItem="mva-PZ-1cS" secondAttribute="bottom" constant="-40" id="6z7-g2-xzQ"/>
+                            <constraint firstItem="mHd-PG-kLu" firstAttribute="height" secondItem="5Dk-fg-T3y" secondAttribute="width" multiplier="211:320" id="7x5-B7-Pba"/>
+                            <constraint firstItem="Hl3-Ns-9Vg" firstAttribute="leading" secondItem="TMh-CY-FOg" secondAttribute="leading" id="OSp-bA-9Mz"/>
+                            <constraint firstAttribute="bottom" secondItem="92R-9p-gkR" secondAttribute="bottom" id="azI-Pq-LYk"/>
+                            <constraint firstItem="92R-9p-gkR" firstAttribute="leading" secondItem="TMh-CY-FOg" secondAttribute="leading" id="cgs-vH-f1R"/>
+                            <constraint firstItem="mHd-PG-kLu" firstAttribute="centerX" secondItem="TMh-CY-FOg" secondAttribute="centerX" id="kn2-s4-qhg"/>
+                            <constraint firstItem="Hl3-Ns-9Vg" firstAttribute="trailing" secondItem="TMh-CY-FOg" secondAttribute="trailing" id="oGU-R5-42q"/>
+                            <constraint firstItem="mva-PZ-1cS" firstAttribute="top" secondItem="5Dk-fg-T3y" secondAttribute="topMargin" constant="-54.770000000000003" id="oTN-F3-5ET"/>
+                            <constraint firstItem="mva-PZ-1cS" firstAttribute="leading" secondItem="TMh-CY-FOg" secondAttribute="leading" constant="-14.77" id="rry-bm-EOT"/>
+                            <constraint firstItem="92R-9p-gkR" firstAttribute="trailing" secondItem="TMh-CY-FOg" secondAttribute="trailing" id="zNS-Px-vEB"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="92R-9p-gkR"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" id="nfb-ED-QTC"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rXL-0h-hdR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1903" y="907"/>
+        </scene>
     </scenes>
     <resources>
         <image name="ImgRightArrow" width="16" height="16"/>
         <image name="ic_DownReg" width="14" height="8"/>
         <image name="imgDeselect" width="16" height="16"/>
+        <image name="splash_img_allInOne" width="375" height="812"/>
+        <image name="splash_img_bottom" width="375.5" height="248"/>
         <image name="splash_img_center" width="274" height="274"/>
         <image name="splash_img_top" width="124" height="199.5"/>
         <systemColor name="systemBackgroundColor">
