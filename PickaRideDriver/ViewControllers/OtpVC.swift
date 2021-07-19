@@ -22,6 +22,9 @@ class OtpVC: BaseVC, UITextFieldDelegate, OTPTextFieldDelegate {
     var counter = 30
     var timer = Timer()
     
+    var otpUserModel = OTPUserModel()
+    var registerReqModel = RegisterFinalRequestModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         lblDisplayMesagewithNumber.text = "Check your SMS messages. We've sent you the PIN at" + "    ******9999"

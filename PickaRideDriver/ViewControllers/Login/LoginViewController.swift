@@ -153,10 +153,15 @@ fileprivate extension LoginViewController
 
 //MARK: - API
 
-extension LoginViewController
-{
-    
-    
-    
+extension LoginViewController{
+    func callLoginApi(){
+        self.loginusermodel.loginvc = self
+        
+        let reqModel = LoginReqModel()
+        reqModel.username = self.txtEmailOrPhoneNumber.text ?? ""
+        reqModel.password = self.txtPassword.text ?? ""
+        
+        self.loginusermodel.webserviceForLogin()
+    }
 }
 

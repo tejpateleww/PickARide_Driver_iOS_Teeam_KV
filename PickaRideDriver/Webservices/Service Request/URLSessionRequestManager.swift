@@ -73,7 +73,7 @@ class URLSessionRequestManager {
         }
     }
     
-    class func makeImageUploadRequest<C:Codable, P:Codable>(urlString: String, requestModel: P, responseModel: C.Type, image: UIImage, imageKey: String, completion: @escaping (_ status: Bool,_ apiMessage: String,_ modelObj: C?,_ dataDic: Any) -> ()){
+    class func makeImageUploadRequest<C:Codable, P:Encodable>(urlString: String, requestModel: P, responseModel: C.Type, image: UIImage, imageKey: String, completion: @escaping (_ status: Bool,_ apiMessage: String,_ modelObj: C?,_ dataDic: Any) -> ()){
         var paramaterDic = [String: Any]()
         
         if !Reachability.isConnectedToNetwork() {
@@ -116,7 +116,7 @@ class URLSessionRequestManager {
         
     }
     
-    class func makeMultipleImageRequest<C:Codable, P:Codable>(urlString: String, requestModel: P, responseModel: C.Type, imageKey: String ,arrImageData : [UIImage]?, completion: @escaping (_ status: Bool,_ apiMessage: String,_ modelObj: Any?,_ dataDic: Any) -> ()){
+    class func makeMultipleImageRequest<C:Codable, P:Encodable>(urlString: String, requestModel: P, responseModel: C.Type, imageKey: String ,arrImageData : [UIImage]?, completion: @escaping (_ status: Bool,_ apiMessage: String,_ modelObj: Any?,_ dataDic: Any) -> ()){
         var paramaterDic = [String: Any]()
         
         if !Reachability.isConnectedToNetwork() {
@@ -164,7 +164,7 @@ class URLSessionRequestManager {
         }
     }
     
-    class func makeMediaUploadRequest<C:Codable, P:Codable>(urlString: String, requestModel: P, responseModel: C.Type, mediaType: MediaType,file_url: String, fileKey: String, completion: @escaping (_ status: Bool,_ apiMessage: String,_ modelObj: C?,_ dataDic: Any) -> ()){
+    class func makeMediaUploadRequest<C:Codable, P:Encodable>(urlString: String, requestModel: P, responseModel: C.Type, mediaType: MediaType,file_url: String, fileKey: String, completion: @escaping (_ status: Bool,_ apiMessage: String,_ modelObj: C?,_ dataDic: Any) -> ()){
         var paramaterDic = [String: Any]()
         
         if !Reachability.isConnectedToNetwork() {
@@ -214,7 +214,7 @@ class URLSessionRequestManager {
         }
     }
     
-    class func makeMultipleMediaUploadRequest<C:Codable, P:Codable>(urlString: String, requestModel: P, responseModel: C.Type, mediaArr: [UploadMediaModel], completion: @escaping (_ status: Bool,_ apiMessage: String,_ modelObj: C?,_ dataDic: Any) -> ()){
+    class func makeMultipleMediaUploadRequest<C:Codable, P:Encodable>(urlString: String, requestModel: P, responseModel: C.Type, mediaArr: [UploadMediaModel], completion: @escaping (_ status: Bool,_ apiMessage: String,_ modelObj: C?,_ dataDic: Any) -> ()){
         var paramaterDic = [String: Any]()
         
         if !Reachability.isConnectedToNetwork() {

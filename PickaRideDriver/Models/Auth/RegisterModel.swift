@@ -14,28 +14,26 @@ class LoginReqModel : Encodable{
     var password: String?
     var lat: String? = SingletonClass.sharedInstance.locationString().latitude
     var lng: String? = SingletonClass.sharedInstance.locationString().longitude
-    var device_type: String = "ios"
-    var device_token: String = "abc"//SingletonClass.sharedInstance.DeviceToken
-//    var profile_image : UIImage?
+    var deviceType: String = "ios"
+    var deviceToken: String = SingletonClass.sharedInstance.DeviceToken
     
     enum CodingKeys: String, CodingKey {
         case username = "username"
         case lat = "lat"
         case lng = "lng"
-        case device_type = "device_type"
-        case device_token = "device_token"
+        case deviceType = "device_type"
+        case deviceToken = "device_token"
         case password = "password"
-//        case profile_image = "profile_image"
     }
 }
 
 //MARK: - Register screen
 class RegisterOTPRequestModel : Encodable{
     var email: String?
-    var mobile_no: String?
+    var mobileNo: String?
     enum CodingKeys: String, CodingKey {
         case email = "email"
-        case mobile_no = "mobile_no"
+        case mobileNo = "mobile_no"
     }
 }
 
@@ -53,17 +51,17 @@ class RegisterOTPResponseModel: Codable {
 //MARK: - OTP screen
 
 class RegisterFinalRequestModel : Encodable{
-    var first_name: String?
-    var last_name: String?
+    var firstName: String?
+    var lastName: String?
     var email: String?
     var password: String?
-    var mobile_no: String?
-    var lat: String?
-    var lng: String?
-    var device_type: String = "ios"
-    var device_token: String? = SingletonClass.sharedInstance.UserId
-    var country_code: String?
-    var country_id: String?
+    var mobileNo: String?
+    var latitude: String?
+    var longitude: String?
+    var deviceType: String? = "ios"
+    var deviceToken: String? = SingletonClass.sharedInstance.UserId
+    var countryCode: String?
+    var countryId: String?
     var vehicleType: String?
     var dob: String?
     var gender: String?
@@ -72,29 +70,28 @@ class RegisterFinalRequestModel : Encodable{
     var bankBranch: String?
     var accountNumber : String?
     var address: String?
-    var vehicle_insurance_certi: String?
-    var vehicle_insurance_exp_date: String?
-    var driver_licence_image: String?
-    var driver_licence_exp_date: String?
-    var vehicle_image: String?
-    var plate_number: String?
-    var year_of_manufacture: String?
-    var vehicle_type_manufacturer_name: String?
-    var vehicle_type_model_name: String?
-    var no_of_passenger: String?
-//    var profile_image : UIImage?
+    var vehicleInsuranceCerti: String?
+    var vehicleInsuranceExpDate: String?
+    var driverLicenceImage: String?
+    var driverLicenceExpDate: String?
+    var vehicleImage: String?
+    var plateNumber: String?
+    var yearOfManufacture: String?
+    var vehicleTypeManufacturerName: String?
+    var vehicleTypeModelName: String?
+    var noOfPassenger: String?
     
     enum CodingKeys: String, CodingKey {
-        case first_name = "first_name"
-        case last_name = "last_name"
+        case firstName = "first_name"
+        case lastName = "last_name"
         case email = "email"
-        case mobile_no = "mobile_no"
-        case lat = "lat"
-        case lng = "lng"
-        case device_type = "device_type"
-        case device_token = "device_token"
-        case country_code = "country_code"
-        case country_id = "country_id"
+        case mobileNo = "mobile_no"
+        case latitude = "lat"
+        case longitude = "lng"
+        case deviceType = "device_type"
+        case deviceToken = "device_token"
+        case countryCode = "country_code"
+        case countryId = "country_id"
         case vehicleType = "vehicle_type"
         case dob = "dob"
         case gender = "gender"
@@ -103,17 +100,16 @@ class RegisterFinalRequestModel : Encodable{
         case bankBranch = "bank_branch"
         case accountNumber = "account_number"
         case address = "address"
-        case vehicle_insurance_certi = "vehicle_insurance_certi"
-        case vehicle_insurance_exp_date = "vehicle_insurance_exp_date"
-        case driver_licence_image = "driver_licence_image"
-        case driver_licence_exp_date = "driver_licence_exp_date"
-        case vehicle_image = "vehicle_image"
-        case plate_number = "plate_number"
-        case year_of_manufacture = "year_of_manufacture"
-        case vehicle_type_manufacturer_name = "vehicle_type_manufacturer_name"
-        case vehicle_type_model_name = "vehicle_type_model_name"
-        case no_of_passenger = "no_of_passenger"
-//        case profile_image = "profile_image"
+        case vehicleInsuranceCerti = "vehicle_insurance_certi"
+        case vehicleInsuranceExpDate = "vehicle_insurance_exp_date"
+        case driverLicenceImage = "driver_licence_image"
+        case driverLicenceExpDate = "driver_licence_exp_date"
+        case vehicleImage = "vehicle_image"
+        case plateNumber = "plate_number"
+        case yearOfManufacture = "year_of_manufacture"
+        case vehicleTypeManufacturerName = "vehicle_type_manufacturer_name"
+        case vehicleTypeModelName = "vehicle_type_model_name"
+        case noOfPassenger = "no_of_passenger"
     }
 }
 
