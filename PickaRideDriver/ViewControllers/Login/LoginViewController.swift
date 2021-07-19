@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import CoreLocation
 class LoginViewController: UIViewController {
 
     //MARK: -Properties
@@ -28,6 +28,7 @@ class LoginViewController: UIViewController {
     
     //MARK: -View Life Cycle Methods
     var loginusermodel = LoginUserModel()
+    var locationManager : LocationService?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +36,7 @@ class LoginViewController: UIViewController {
         hideKeyboardWhenTappedAround()
         setupTextfields(textfield: txtPassword)
         txtEmailOrPhoneNumber.autocapitalizationType = .none
+        let _ = self.getLocation()
 //        vwPassword.layer.masksToBounds = true
 //        EmailView.layer.masksToBounds = true
     }
@@ -87,12 +89,13 @@ class LoginViewController: UIViewController {
     @IBAction func btnSignInClicked(_ sender: Any)
     {
         if isValidForLogin(){
-//            self.loginusermodel.loginvc = self
-//            self.loginusermodel.webserviceForLogin()
-            
+            self.loginusermodel.loginvc = self
+            self.loginusermodel.webserviceForLogin()
+            if self.getLocation(){
             
             user_defaults.setValue(true, forKey: UserDefaultsKey.isUserLogin.rawValue)
             appDel.navigateToMain()
+            }
         }
       
     }
@@ -104,6 +107,15 @@ class LoginViewController: UIViewController {
         }else{
             let vc : ForgotPasswordVC = ForgotPasswordVC.instantiate(fromAppStoryboard: .Login)
             self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    func getLocation() -> Bool {
+        if SingletonClass.sharedInstance.userCurrentLocation == nil{
+            self.locationManager = LocationService()
+            self.locationManager?.startUpdatingLocation()
+            return false
+        }else{
+            return true
         }
     }
 }

@@ -54,6 +54,9 @@
 		187B8435267B5BA100D3BFDA /* Themes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187B842B267B5BA100D3BFDA /* Themes.swift */; };
 		187B8439267B64EB00D3BFDA /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187B8438267B64EB00D3BFDA /* Utilities.swift */; };
 		187B843B267B65E900D3BFDA /* userDefaults+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187B843A267B65E900D3BFDA /* userDefaults+Extension.swift */; };
+		18C89EAA26A542490083D5C3 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 18C89EA926A542490083D5C3 /* Settings.bundle */; };
+		18C89EAC26A560360083D5C3 /* PasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C89EAB26A560360083D5C3 /* PasswordViewModel.swift */; };
+		18C89EAF26A5810B0083D5C3 /* AppDelegate+PushNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C89EAE26A5810B0083D5C3 /* AppDelegate+PushNotification.swift */; };
 		18CB32BD267B77B500EC1A7B /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CB32BB267B77B500EC1A7B /* UserInfo.swift */; };
 		18CB32BE267B77B500EC1A7B /* Datum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CB32BC267B77B500EC1A7B /* Datum.swift */; };
 		18E2E139267223570054E351 /* OtpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E2E138267223570054E351 /* OtpVC.swift */; };
@@ -218,6 +221,10 @@
 		187B842B267B5BA100D3BFDA /* Themes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Themes.swift; sourceTree = "<group>"; };
 		187B8438267B64EB00D3BFDA /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		187B843A267B65E900D3BFDA /* userDefaults+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "userDefaults+Extension.swift"; sourceTree = "<group>"; };
+		18C89EA926A542490083D5C3 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		18C89EAB26A560360083D5C3 /* PasswordViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordViewModel.swift; sourceTree = "<group>"; };
+		18C89EAD26A57F6C0083D5C3 /* PickaRideDriver.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PickaRideDriver.entitlements; sourceTree = "<group>"; };
+		18C89EAE26A5810B0083D5C3 /* AppDelegate+PushNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AppDelegate+PushNotification.swift"; sourceTree = "<group>"; };
 		18CB32BB267B77B500EC1A7B /* UserInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		18CB32BC267B77B500EC1A7B /* Datum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Datum.swift; sourceTree = "<group>"; };
 		18E2E138267223570054E351 /* OtpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtpVC.swift; sourceTree = "<group>"; };
@@ -417,6 +424,7 @@
 			children = (
 				18CB32BA267B77B500EC1A7B /* UserInfo */,
 				187B8418267B5B2B00D3BFDA /* WalletModuleViewModel.swift */,
+				18C89EAB26A560360083D5C3 /* PasswordViewModel.swift */,
 				187B8419267B5B2B00D3BFDA /* SideMenuViewModel.swift */,
 				187B841A267B5B2B00D3BFDA /* CardModuleViewModel.swift */,
 				187B841B267B5B2B00D3BFDA /* RegisterViewModel.swift */,
@@ -519,6 +527,7 @@
 		4F94F10C2643D76500780413 = {
 			isa = PBXGroup;
 			children = (
+				18C89EA926A542490083D5C3 /* Settings.bundle */,
 				4F94F1172643D76500780413 /* PickaRideDriver */,
 				4F94F12E2643D76700780413 /* PickaRideDriverTests */,
 				4F94F1392643D76700780413 /* PickaRideDriverUITests */,
@@ -541,7 +550,9 @@
 		4F94F1172643D76500780413 /* PickaRideDriver */ = {
 			isa = PBXGroup;
 			children = (
+				18C89EAD26A57F6C0083D5C3 /* PickaRideDriver.entitlements */,
 				4F94F1182643D76500780413 /* AppDelegate.swift */,
+				18C89EAE26A5810B0083D5C3 /* AppDelegate+PushNotification.swift */,
 				4F94F1212643D76700780413 /* Assets.xcassets */,
 				4F94F1262643D76700780413 /* Info.plist */,
 				1865CF58267C767600379A40 /* Webservices */,
@@ -964,6 +975,7 @@
 				547D83D8265A502A00887C9C /* Login.storyboard in Resources */,
 				4F94F1C12643E72800780413 /* Ubuntu-Bold.ttf in Resources */,
 				81891DA92652DDC200E8741E /* IncomingRideRequestView.xib in Resources */,
+				18C89EAA26A542490083D5C3 /* Settings.bundle in Resources */,
 				4F94F1BF2643E72800780413 /* Ubuntu-LightItalic.ttf in Resources */,
 				81891DAD2654468A00E8741E /* AcceptedRideDetailsView.xib in Resources */,
 				8120ED2F264C2407004E0206 /* Localizable.strings in Resources */,
@@ -1144,6 +1156,7 @@
 				186EC9342696E04C00314717 /* SplashVC.swift in Sources */,
 				4F94F1CE2643FEE500780413 /* AppInfo.swift in Sources */,
 				1865CF6B267C767600379A40 /* Webservices+Extension.swift in Sources */,
+				18C89EAF26A5810B0083D5C3 /* AppDelegate+PushNotification.swift in Sources */,
 				4F94F1872643DB5F00780413 /* CustomImageVIew.swift in Sources */,
 				1851032226A159A800D0BA49 /* CountryListModel.swift in Sources */,
 				4F94F1782643DB5F00780413 /* UIImage+Extension.swift in Sources */,
@@ -1181,6 +1194,7 @@
 				1865CF93267C795100379A40 /* Enums.swift in Sources */,
 				84A5D0CE2646940A00AAFAB0 /* EditProfileCell.swift in Sources */,
 				4F94F17D2643DB5F00780413 /* UITapGestureRecognizer+Extension.swift in Sources */,
+				18C89EAC26A560360083D5C3 /* PasswordViewModel.swift in Sources */,
 				1865CFB1267C7D4400379A40 /* Validators.swift in Sources */,
 				84A5D09D2646876F00AAFAB0 /* EditProfileVC.swift in Sources */,
 				1871C8B62685B1CC00D4D17D /* DummyVC.swift in Sources */,
@@ -1437,6 +1451,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = PickaRideDriver/PickaRideDriver.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LNR2265795;
 				INFOPLIST_FILE = PickaRideDriver/Info.plist;
@@ -1458,6 +1473,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = PickaRideDriver/PickaRideDriver.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LNR2265795;
 				INFOPLIST_FILE = PickaRideDriver/Info.plist;

@@ -75,6 +75,18 @@ class Utilities:NSObject{
         appDel.window?.rootViewController?.present(alertController, animated: true, completion: nil)
         
     }
+    class func showHud()
+    {
+//        let size = CGSize(width: 40, height: 40)
+//        let activityData = ActivityData(size: size, message: "", messageFont: nil, messageSpacing: nil, type: .lineScale, color: colors.btnColor.value, padding: nil, displayTimeThreshold: nil, minimumDisplayTime: nil, backgroundColor: UIColor.black.withAlphaComponent(0.5), textColor: nil)
+//        NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData)
+        
+    }
+    
+    class func hideHud()
+    {
+//        NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
+    }
     
     
     static func showAlertWithTitleFromVC(vc:UIViewController, title:String?, message:String?, buttons:[String], isOkRed : Bool, completion:((_ index:Int) -> Void)!) -> Void{

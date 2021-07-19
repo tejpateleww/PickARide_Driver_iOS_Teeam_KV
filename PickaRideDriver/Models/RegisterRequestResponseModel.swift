@@ -15,7 +15,7 @@ class LoginReqModel : Encodable{
     var lat: String? = SingletonClass.sharedInstance.locationString().latitude
     var lng: String? = SingletonClass.sharedInstance.locationString().longitude
     var device_type: String = "ios"
-    var device_token: String = SingletonClass.sharedInstance.DeviceToken
+    var device_token: String = "abc"//SingletonClass.sharedInstance.DeviceToken
 //    var profile_image : UIImage?
     
     enum CodingKeys: String, CodingKey {

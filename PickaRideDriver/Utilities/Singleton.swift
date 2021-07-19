@@ -19,7 +19,7 @@ class SingletonClass: NSObject
     var Api_Key = String()
     var DeviceToken : String = ""
     var isPresented = false
-    var userCurrentLocation : CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 0.0, longitude: 0.0)
+    var userCurrentLocation : CLLocationCoordinate2D?
     var CountryList = [CountryDetilsModel]()
     var DeviceType : String = "ios"
 //    var currentLat = Double()
@@ -31,7 +31,7 @@ class SingletonClass: NSObject
     //MARK:- User' Custom Details
   
     func locationString() -> (latitude: String, longitude: String){
-        return (String(format: "%4d", userCurrentLocation.latitude), String(format: "%4d", userCurrentLocation.longitude))
+        return (String(format: "%4d", userCurrentLocation?.latitude ?? 0.0), String(format: "%4d", userCurrentLocation?.longitude ?? 0.0))
     }
   
     var arrFutureYears:[String] {

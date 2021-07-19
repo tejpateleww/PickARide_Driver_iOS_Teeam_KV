@@ -47,6 +47,8 @@ class SignUpVC: BaseVC {
         setupTextfields(textfield: txtPassword)
 //        txtHomeAddress.isUserInteractionEnabled = false
         txtMobile.tintColor = themeColor
+        
+       
     }
     
     //MARK:- Custom Methods
@@ -116,14 +118,19 @@ extension SignUpVC
         toolBar.barTintColor = .black
         toolBar.barTintColor = .white
         toolBar.tintColor = themeColor
+        if SingletonClass.sharedInstance.CountryList.count == 0{
+            WebServiceSubClass.GetCountryList { _, _, _, _ in}
+        }else{
+            
+            self.txtCountryCode.inputAccessoryView = toolBar
+            self.txtCountryCode.text = SingletonClass.sharedInstance.CountryList[selectedIndexOfPicker].countryCode
+        }
         toolBar.sizeToFit()
         let done = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(doneAction))
         let space = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         let cancel = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelAction))
         toolBar.setItems([cancel,space,done], animated: false)
         
-        self.txtCountryCode.inputAccessoryView = toolBar
-        self.txtCountryCode.text = SingletonClass.sharedInstance.CountryList[selectedIndexOfPicker].countryCode
 //        self.textFieldPassword.setPasswordVisibility(vc: self, action: #selector(self.showHidePassword(_:)))
     }
 

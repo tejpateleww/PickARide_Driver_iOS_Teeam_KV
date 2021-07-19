@@ -15,8 +15,8 @@ class LoginUserModel{
     
     func webserviceForLogin(){
         let loginReqModel = LoginReqModel()
-        loginReqModel.lat = String(SingletonClass.sharedInstance.userCurrentLocation.latitude)
-        loginReqModel.lng = String(SingletonClass.sharedInstance.userCurrentLocation.longitude)
+        loginReqModel.lat = SingletonClass.sharedInstance.locationString().latitude
+        loginReqModel.lng = SingletonClass.sharedInstance.locationString().longitude
         loginReqModel.username = loginvc?.txtEmailOrPhoneNumber.text ?? ""
         loginReqModel.password = loginvc?.txtPassword.text ?? ""
         

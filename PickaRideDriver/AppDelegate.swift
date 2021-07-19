@@ -14,7 +14,7 @@ import Firebase
 import UserNotifications
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDelegate,MessagingDelegate{
     
     var locationManager = LocationService()
     let notificationCenter = UNUserNotificationCenter.current()
@@ -27,14 +27,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     {
         // Override point for customization after application launch.
         //        navigateToLogin()
-            self.webserviceGetCountryList()
+//        FirebaseApp.configure()
+        self.webserviceGetCountryList()
         Thread.sleep(forTimeInterval: 1.5)
         IQKeyboardManager.shared.enable = true
         IQKeyboardManager.shared.shouldResignOnTouchOutside = true
         GMSServices.provideAPIKey(AppInfo.Google_API_Key)
         GMSPlacesClient.provideAPIKey(AppInfo.Google_API_Key)
         checkAndSetDefaultLanguage()
-        self.locationManager.delegate = self
+        registerForPushNotifications()
+        //        self.locationManager.delegate = self
         self.locationManager.startUpdatingLocation()
         SideMenuController.preferences.basic.menuWidth = UIScreen.main.bounds.width - 100
         SideMenuController.preferences.basic.defaultCacheKey = "0"
@@ -47,6 +49,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         return true
     }
+    
+    
+    
     
     func navigateToLogin()
     {
@@ -107,17 +112,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func webserviceGetCountryList(){
         WebServiceSubClass.GetCountryList {_, _, _, _ in}
     }
+    func clearData(){
+        for (key, value) in UserDefaults.standard.dictionaryRepresentation() {
+            
+            if key != UserDefaultsKey.DeviceToken.rawValue && key  != "language"  {
+                print("\(key) = \(value) \n")
+                UserDefaults.standard.removeObject(forKey: key)
+            }
+        }
+        
+        
+        user_defaults.set(false, forKey: UserDefaultsKey.isUserLogin.rawValue)
+        SingletonClass.sharedInstance.clearSingletonClass()
+        user_defaults.setUserData()
+    }
     
 }
 
-extension AppDelegate:  CLLocationManagerDelegate, LocationServiceDelegate{
-func tracingLocation(currentLocation: CLLocation) {
-    SingletonClass.sharedInstance.userCurrentLocation.latitude = currentLocation.coordinate.latitude
-    SingletonClass.sharedInstance.userCurrentLocation.longitude = currentLocation.coordinate.longitude
-    
-}
-
-func tracingLocationDidFailWithError(error: Error) {
-    self.locationManager.startUpdatingLocation()
-}
-}

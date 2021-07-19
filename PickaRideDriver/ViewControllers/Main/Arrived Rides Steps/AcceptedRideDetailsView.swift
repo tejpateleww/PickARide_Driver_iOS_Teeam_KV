@@ -114,12 +114,14 @@ class AcceptedRideDetailsView: UIView {
             isCompleteClicked = false
             delegate?.onArrivedUserLocation()
             btnSubmit.setTitle("ARRIVED", for: .normal)
+            btnDownArrow.isHidden = false
             viewContactOptions.isHidden = false
             btnNavigate.isHidden = false
 //            btnDownArrow.isHidden = false
         }else if isComplete{
             btnSubmit.setTitle("COMPLETE", for: .normal)
             isComplete = false
+            btnDownArrow.isHidden = true
             isCompleteClicked = true
             ViewTripCode.isHidden = true
             viewContactOptions.isHidden = true
@@ -168,6 +170,7 @@ class AcceptedRideDetailsView: UIView {
     
     @IBAction func btnArrowUpDownClickAction(_ sender: Any) {
         if btnSubmit.title(for: .normal) == "COMPLETE"{
+           
 //            UIView.animate(withDuration: 0.3, animations: { [unowned self] in
 //                self.vwLine.isHidden = !self.vwLine.isHidden
 //            })
@@ -237,7 +240,6 @@ extension AcceptedRideDetailsView {
         }
         return false
     }
-        
 }
 
 extension AcceptedRideDetailsView : UITextFieldDelegate {

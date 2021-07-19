@@ -18,7 +18,11 @@ class ChangePasswordVC: BaseVC, UITextFieldDelegate {
     @IBOutlet weak var lblChangePassword: changePasswordLabel!
     
     //MARK:- Variables
-    
+    var submitButtonText = ""
+    var isChangePassword : Bool = false
+    var btnSubmitClosure : (() -> ())?
+
+    var changePasswordUserModel = PasswordUserModel()
     //MARK:- View Life Cycles
     
     override func viewDidLoad() {
@@ -138,27 +142,39 @@ class ChangePasswordVC: BaseVC, UITextFieldDelegate {
 }
 
 
-//MARK:- Api Call
+//MARK:- Validation & Api
 extension ChangePasswordVC{
-//    func webserviceForChangePasswod(){
-//        let reqmodel = ChangePasswordReqModel()
-//        reqmodel.new_password = txtNewPassword.text ?? ""
-//        reqmodel.old_password = txtCurrentPassword.text ?? ""
-//        reqmodel.customer_id = SingletonClass.sharedInstance.userProfile.data.id
-//
-//        self.showHUD()
-//        WebServiceSubClass.ChangePassword(changepassModel: reqmodel) { (json, status, error) in
-//            self.hideHUD()
-//            if status{
-//                self.navigationController?.popViewController(animated: true)
-//            }else
-//            {
-//                if let strMessage = json["message"].string {
-//                    Utilities.showAlertOfAPIResponse(param: strMessage, vc: self)
-//                }else {
-//                    Utilities.showAlertOfAPIResponse(param: "No internet found. Check your connection or try again", vc: self)
-//                }
-//            }
-//        }
-//    }
+    func validation()->Bool{
+        var strTitle : String?
+        let oldPassword = self.txtCurrentPassword.validatedText(validationType: .password(field: self.txtCurrentPassword.placeholder?.lowercased() ?? ""))
+        let newPassword = txtNewPassword.validatedText(validationType: .password(field: self.txtNewPassword.placeholder?.lowercased() ?? ""))
+        let confirmPassword = txtConfirmPassword.validatedText(validationType: .requiredField(field: self.txtConfirmPassword.placeholder?.lowercased() ?? ""))
+         
+        if isChangePassword && !oldPassword.0{
+            strTitle = oldPassword.1
+        }else if !newPassword.0{
+            strTitle = newPassword.1
+        }else if !confirmPassword.0{
+            strTitle = confirmPassword.1
+        }else if txtNewPassword.text != txtConfirmPassword.text{
+            strTitle = "New password & confirm password should be same."
+        }
+
+        if let str = strTitle{
+            Toast.show(title: UrlConstant.Required, message: str, state: .failure)
+            return false
+        }
+        
+        return true
+    }
+    
+    func callChangePasswordApi(){
+        self.changePasswordUserModel.changePasswordVC = self
+        
+        let reqModel = ChangePasswordReqModel()
+        reqModel.oldPassword = self.txtCurrentPassword.text ?? ""
+        reqModel.newPassword = self.txtNewPassword.text ?? ""
+        
+        self.changePasswordUserModel.webserviceChangePassword(reqModel: reqModel)
+    }
 }
