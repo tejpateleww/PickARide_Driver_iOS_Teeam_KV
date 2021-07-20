@@ -92,7 +92,7 @@ extension SplashVC{
         
         if isLogin, let userData = user_defaults.getUserData() {
             SingletonClass.sharedInstance.LoginRegisterUpdateData = userData
-            SingletonClass.sharedInstance.UserId = userData.data.id ?? ""
+            SingletonClass.sharedInstance.UserId = userData.data?.id ?? ""
             appDel.navigateToMain()
         }else{
             appDel.navigateToLogin()

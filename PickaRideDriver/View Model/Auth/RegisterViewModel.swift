@@ -43,11 +43,11 @@ class OTPUserModel{
                     
                     user_defaults.set(true, forKey: UserDefaultsKey.isUserLogin.rawValue)
                     SingletonClass.sharedInstance.LoginRegisterUpdateData = response
-                    if let apikey =  response?.data.xAPIKey{
+                    if let apikey =  response?.data?.xAPIKey{
                         SingletonClass.sharedInstance.Api_Key = apikey
                         user_defaults.set(apikey , forKey: UserDefaultsKey.X_API_KEY.rawValue)
                     }
-                    if let userID =  response?.data.id{
+                    if let userID =  response?.data?.id{
                         SingletonClass.sharedInstance.UserId = userID
                     }
                     user_defaults.setUserData()

@@ -25,7 +25,7 @@ class URLSessionRequestManager {
         }
         
         guard let url = URL(string: APIEnvironment.baseURL + urlString) else {
-            completion(false, UrlConstant.SomethingWentWrong, nil, ErrorResponseDic)
+            completion(false, UrlConstant.SomethingWentWrong, nil, SomethingWentWrongResponseDic)
             return
         }
         
@@ -53,7 +53,7 @@ class URLSessionRequestManager {
         }
         
         guard let url = URL(string: APIEnvironment.baseURL + urlString) else {
-            completion(false, UrlConstant.SomethingWentWrong, nil, ErrorResponseDic)
+            completion(false, UrlConstant.SomethingWentWrong, nil, SomethingWentWrongResponseDic)
             return
         }
 
@@ -82,7 +82,7 @@ class URLSessionRequestManager {
         }
         
         guard let url = URL(string: APIEnvironment.baseURL + urlString) else {
-            completion(false, UrlConstant.SomethingWentWrong, nil, ErrorResponseDic)
+            completion(false, UrlConstant.SomethingWentWrong, nil, SomethingWentWrongResponseDic)
             return
         }
         
@@ -99,7 +99,7 @@ class URLSessionRequestManager {
         }
         
         guard let mediaImage = UploadMediaModel(mediaType: .Image, forKey: imageKey, withImage: image) else {
-            completion(false, UrlConstant.SomethingWentWrong, nil, ErrorResponseDic)
+            completion(false, UrlConstant.SomethingWentWrong, nil, SomethingWentWrongResponseDic)
             return
         }
         
@@ -125,7 +125,7 @@ class URLSessionRequestManager {
         }
         
         guard let url = URL(string: APIEnvironment.baseURL + urlString) else {
-            completion(false, UrlConstant.SomethingWentWrong, nil, ErrorResponseDic)
+            completion(false, UrlConstant.SomethingWentWrong, nil, SomethingWentWrongResponseDic)
             return
         }
         
@@ -145,7 +145,7 @@ class URLSessionRequestManager {
         if let dataDic = arrImageData{
             for each in dataDic{
                 guard let mediaImage = UploadMediaModel(mediaType: .Image, forKey: imageKey, withImage: each) else {
-                    completion(false, UrlConstant.SomethingWentWrong, nil, ErrorResponseDic)
+                    completion(false, UrlConstant.SomethingWentWrong, nil, SomethingWentWrongResponseDic)
                     return
                 }
                 mediaArr.append(mediaImage)
@@ -173,7 +173,7 @@ class URLSessionRequestManager {
         }
         
         guard let url = URL(string: APIEnvironment.baseURL + urlString) else {
-            completion(false, UrlConstant.SomethingWentWrong, nil, ErrorResponseDic)
+            completion(false, UrlConstant.SomethingWentWrong, nil, SomethingWentWrongResponseDic)
             return
         }
         
@@ -190,12 +190,12 @@ class URLSessionRequestManager {
         }
         
         guard let mediaUrl = URL(string: file_url) else {
-            completion(false, UrlConstant.SomethingWentWrong, nil, ErrorResponseDic)
+            completion(false, UrlConstant.SomethingWentWrong, nil, SomethingWentWrongResponseDic)
             return
         }
         
         guard let mediaImage = UploadMediaModel(mediaType: mediaType, forKey: fileKey, fileUrl: mediaUrl) else {
-            completion(false, UrlConstant.SomethingWentWrong, nil, ErrorResponseDic)
+            completion(false, UrlConstant.SomethingWentWrong, nil, SomethingWentWrongResponseDic)
             return
         }
         
@@ -223,7 +223,7 @@ class URLSessionRequestManager {
         }
         
         guard let url = URL(string: APIEnvironment.baseURL + urlString) else {
-            completion(false, UrlConstant.SomethingWentWrong, nil, ErrorResponseDic)
+            completion(false, UrlConstant.SomethingWentWrong, nil, SomethingWentWrongResponseDic)
             return
         }
         

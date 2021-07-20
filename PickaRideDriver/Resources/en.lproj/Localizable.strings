@@ -51,6 +51,7 @@
 "UrlConstant_Required" = "Required";
 "UrlConstant_Success" = "Success";
 "UrlConstant_Failed" = "Failed";
+"UrlConstant_SessionExpired" = "Your session is expired! Please login again.";
 "UrlConstant_SomethingWentWrong" = "There is some server side error, Please try again after some time!";
 "UrlConstant_NoInternetConnection" = "The Internet connection appears to be offline, Please connect to the internet.";
 "UrlConstant_RequestTimeOut" = "Poor internet connection, Check your internet connection or try again.";
