@@ -31,6 +31,7 @@ class LoginReqModel : Encodable{
 class RegisterOTPRequestModel : Encodable{
     var email: String?
     var mobileNo: String?
+    
     enum CodingKeys: String, CodingKey {
         case email = "email"
         case mobileNo = "mobile_no"
@@ -41,11 +42,18 @@ class RegisterOTPResponseModel: Codable {
     var status: Bool?
     var otp: Int?
     var message: String?
-
+    
     init(status: Bool?, otp: Int?, message: String?) {
         self.status = status
         self.otp = otp
         self.message = message
+    }
+    
+    required init(from decoder: Decoder) throws {
+        let values = try? decoder.container(keyedBy: CodingKeys.self)
+        status = try? values?.decodeIfPresent(Bool.self, forKey: .status)
+        otp = try? values?.decodeIfPresent(Int.self, forKey: .otp)
+        message = try? values?.decodeIfPresent(String.self, forKey: .message)
     }
 }
 //MARK: - OTP screen
@@ -115,32 +123,39 @@ class RegisterFinalRequestModel : Encodable{
 
 
 class RegisterFinal: Codable {
-    let status: Bool
-    let message: String
-    let data: RegisterData
-
+    let status: Bool?
+    let message: String?
+    let data: RegisterData?
+    
     init(status: Bool, message: String, data: RegisterData) {
         self.status = status
         self.message = message
         self.data = data
     }
+    
+    required init(from decoder: Decoder) throws {
+        let values = try? decoder.container(keyedBy: CodingKeys.self)
+        status = try? values?.decodeIfPresent(Bool.self, forKey: .status)
+        message = try? values?.decodeIfPresent(String.self, forKey: .message)
+        data = try? values?.decodeIfPresent(RegisterData.self, forKey: .data)
+    }
 }
 
 // MARK: - DataClass
 class RegisterData: Codable {
-    let id, vehicleType, companyID, firstName: String
-    let lastName, email, countryID, countryCode: String
-    let mobileNo, dob, gender, walletBalance: String
-    let profileImage, qrCode, accountHolderName, bankName: String
-    let bankBranch, accountNumber, lat, lng: String
-    let deviceType, deviceToken, address, status: String
-    let verify, busy, duty, createdAt: String
-    let trash, referralCode, inviteCode, rememberToken: String
-    let rating: String
-    let vehicleInfo: [VehicleInfo]
-    let driverDocs: DriverDocs
-    let xAPIKey: String
-
+    let id, vehicleType, companyID, firstName: String?
+    let lastName, email, countryID, countryCode: String?
+    let mobileNo, dob, gender, walletBalance: String?
+    let profileImage, qrCode, accountHolderName, bankName: String?
+    let bankBranch, accountNumber, lat, lng: String?
+    let deviceType, deviceToken, address, status: String?
+    let verify, busy, duty, createdAt: String?
+    let trash, referralCode, inviteCode, rememberToken: String?
+    let rating: String?
+    let vehicleInfo: [VehicleInfo]?
+    let driverDocs: DriverDocs?
+    let xAPIKey: String?
+    
     enum CodingKeys: String, CodingKey {
         case id
         case vehicleType = "vehicle_type"
@@ -173,7 +188,7 @@ class RegisterData: Codable {
         case driverDocs = "driver_docs"
         case xAPIKey = "x-api-key"
     }
-
+    
     init(id: String, vehicleType: String, companyID: String, firstName: String, lastName: String, email: String, countryID: String, countryCode: String, mobileNo: String, dob: String, gender: String, walletBalance: String, profileImage: String, qrCode: String, accountHolderName: String, bankName: String, bankBranch: String, accountNumber: String, lat: String, lng: String, deviceType: String, deviceToken: String, address: String, status: String, verify: String, busy: String, duty: String, createdAt: String, trash: String, referralCode: String, inviteCode: String, rememberToken: String, rating: String, vehicleInfo: [VehicleInfo], driverDocs: DriverDocs, xAPIKey: String) {
         self.id = id
         self.vehicleType = vehicleType
@@ -212,13 +227,54 @@ class RegisterData: Codable {
         self.driverDocs = driverDocs
         self.xAPIKey = xAPIKey
     }
+    
+    required init(from decoder: Decoder) throws {
+        let values = try? decoder.container(keyedBy: CodingKeys.self)
+        accountHolderName = try? values?.decodeIfPresent(String.self, forKey: .accountHolderName)
+        accountNumber = try? values?.decodeIfPresent(String.self, forKey: .accountNumber)
+        address = try? values?.decodeIfPresent(String.self, forKey: .address)
+        bankBranch = try? values?.decodeIfPresent(String.self, forKey: .bankBranch)
+        bankName = try? values?.decodeIfPresent(String.self, forKey: .bankName)
+        busy = try? values?.decodeIfPresent(String.self, forKey: .busy)
+        companyID = try? values?.decodeIfPresent(String.self, forKey: .companyID)
+        countryCode = try? values?.decodeIfPresent(String.self, forKey: .countryCode)
+        countryID = try? values?.decodeIfPresent(String.self, forKey: .countryID)
+        createdAt = try? values?.decodeIfPresent(String.self, forKey: .createdAt)
+        deviceToken = try? values?.decodeIfPresent(String.self, forKey: .deviceToken)
+        deviceType = try? values?.decodeIfPresent(String.self, forKey: .deviceType)
+        dob = try? values?.decodeIfPresent(String.self, forKey: .dob)
+        driverDocs = try? DriverDocs(from: decoder)
+        duty = try? values?.decodeIfPresent(String.self, forKey: .duty)
+        email = try? values?.decodeIfPresent(String.self, forKey: .email)
+        firstName = try? values?.decodeIfPresent(String.self, forKey: .firstName)
+        gender = try? values?.decodeIfPresent(String.self, forKey: .gender)
+        id = try? values?.decodeIfPresent(String.self, forKey: .id)
+        inviteCode = try? values?.decodeIfPresent(String.self, forKey: .inviteCode)
+        lastName = try? values?.decodeIfPresent(String.self, forKey: .lastName)
+        lat = try? values?.decodeIfPresent(String.self, forKey: .lat)
+        lng = try? values?.decodeIfPresent(String.self, forKey: .lng)
+        mobileNo = try? values?.decodeIfPresent(String.self, forKey: .mobileNo)
+        profileImage = try? values?.decodeIfPresent(String.self, forKey: .profileImage)
+        qrCode = try? values?.decodeIfPresent(String.self, forKey: .qrCode)
+        rating = try? values?.decodeIfPresent(String.self, forKey: .rating)
+        referralCode = try? values?.decodeIfPresent(String.self, forKey: .referralCode)
+        rememberToken = try? values?.decodeIfPresent(String.self, forKey: .rememberToken)
+        status = try? values?.decodeIfPresent(String.self, forKey: .status)
+        trash = try? values?.decodeIfPresent(String.self, forKey: .trash)
+        vehicleInfo = try? values?.decodeIfPresent([VehicleInfo].self, forKey: .vehicleInfo)
+        vehicleType = try? values?.decodeIfPresent(String.self, forKey: .vehicleType)
+        verify = try? values?.decodeIfPresent(String.self, forKey: .verify)
+        walletBalance = try? values?.decodeIfPresent(String.self, forKey: .walletBalance)
+        xAPIKey = try? values?.decodeIfPresent(String.self, forKey: .xAPIKey)
+    }
+    
 }
 
 // MARK: - DriverDocs
 class DriverDocs: Codable {
-    let id, driverID, vehicleInsuranceCerti, vehicleInsuranceExpDate: String
-    let isVerifyVehicleInsurance, driverLicenceImage, driverLicenceExpDate, isVerifyDriverLicence: String
-
+    let id, driverID, vehicleInsuranceCerti, vehicleInsuranceExpDate: String?
+    let isVerifyVehicleInsurance, driverLicenceImage, driverLicenceExpDate, isVerifyDriverLicence: String?
+    
     enum CodingKeys: String, CodingKey {
         case id
         case driverID = "driver_id"
@@ -229,7 +285,7 @@ class DriverDocs: Codable {
         case driverLicenceExpDate = "driver_licence_exp_date"
         case isVerifyDriverLicence = "is_verify_driver_licence"
     }
-
+    
     init(id: String, driverID: String, vehicleInsuranceCerti: String, vehicleInsuranceExpDate: String, isVerifyVehicleInsurance: String, driverLicenceImage: String, driverLicenceExpDate: String, isVerifyDriverLicence: String) {
         self.id = id
         self.driverID = driverID
@@ -240,15 +296,27 @@ class DriverDocs: Codable {
         self.driverLicenceExpDate = driverLicenceExpDate
         self.isVerifyDriverLicence = isVerifyDriverLicence
     }
+    
+    required init(from decoder: Decoder) throws {
+        let values = try? decoder.container(keyedBy: CodingKeys.self)
+        driverID = try? values?.decodeIfPresent(String.self, forKey: .driverID)
+        driverLicenceExpDate = try values?.decodeIfPresent(String.self, forKey: .driverLicenceExpDate)
+        driverLicenceImage = try values?.decodeIfPresent(String.self, forKey: .driverLicenceImage)
+        id = try values?.decodeIfPresent(String.self, forKey: .id)
+        isVerifyDriverLicence = try values?.decodeIfPresent(String.self, forKey: .isVerifyDriverLicence)
+        isVerifyVehicleInsurance = try values?.decodeIfPresent(String.self, forKey: .isVerifyVehicleInsurance)
+        vehicleInsuranceCerti = try values?.decodeIfPresent(String.self, forKey: .vehicleInsuranceCerti)
+        vehicleInsuranceExpDate = try values?.decodeIfPresent(String.self, forKey: .vehicleInsuranceExpDate)
+    }
 }
 
 // MARK: - VehicleInfo
 class VehicleInfo: Codable {
-    let id, companyID, vehicleType, driverID: String
-    let plateNumber, yearOfManufacture, vehicleTypeModelName, vehicleTypeManufacturerName: String
-    let noOfPassenger, vehicleImage, carLeft, carRight: String
-    let carFront, carBack, vehicleTypeName: String
-
+    let id, companyID, vehicleType, driverID: String?
+    let plateNumber, yearOfManufacture, vehicleTypeModelName, vehicleTypeManufacturerName: String?
+    let noOfPassenger, vehicleImage, carLeft, carRight: String?
+    let carFront, carBack, vehicleTypeName: String?
+    
     enum CodingKeys: String, CodingKey {
         case id
         case companyID = "company_id"
@@ -266,7 +334,7 @@ class VehicleInfo: Codable {
         case carBack = "car_back"
         case vehicleTypeName = "vehicle_type_name"
     }
-
+    
     init(id: String, companyID: String, vehicleType: String, driverID: String, plateNumber: String, yearOfManufacture: String, vehicleTypeModelName: String, vehicleTypeManufacturerName: String, noOfPassenger: String, vehicleImage: String, carLeft: String, carRight: String, carFront: String, carBack: String, vehicleTypeName: String) {
         self.id = id
         self.companyID = companyID
@@ -283,6 +351,25 @@ class VehicleInfo: Codable {
         self.carFront = carFront
         self.carBack = carBack
         self.vehicleTypeName = vehicleTypeName
+    }
+    
+    required init(from decoder: Decoder) throws {
+        let values = try? decoder.container(keyedBy: CodingKeys.self)
+        carBack = try values?.decodeIfPresent(String.self, forKey: .carBack)
+        carFront = try values?.decodeIfPresent(String.self, forKey: .carFront)
+        carLeft = try values?.decodeIfPresent(String.self, forKey: .carLeft)
+        carRight = try values?.decodeIfPresent(String.self, forKey: .carRight)
+        companyID = try values?.decodeIfPresent(String.self, forKey: .companyID)
+        driverID = try values?.decodeIfPresent(String.self, forKey: .driverID)
+        id = try values?.decodeIfPresent(String.self, forKey: .id)
+        noOfPassenger = try values?.decodeIfPresent(String.self, forKey: .noOfPassenger)
+        plateNumber = try values?.decodeIfPresent(String.self, forKey: .plateNumber)
+        vehicleImage = try values?.decodeIfPresent(String.self, forKey: .vehicleImage)
+        vehicleType = try values?.decodeIfPresent(String.self, forKey: .vehicleType)
+        vehicleTypeManufacturerName = try values?.decodeIfPresent(String.self, forKey: .vehicleTypeManufacturerName)
+        vehicleTypeModelName = try values?.decodeIfPresent(String.self, forKey: .vehicleTypeModelName)
+        vehicleTypeName = try values?.decodeIfPresent(String.self, forKey: .vehicleTypeName)
+        yearOfManufacture = try values?.decodeIfPresent(String.self, forKey: .yearOfManufacture)
     }
 }
 

@@ -10,7 +10,7 @@ import Foundation
 class InitResponseModel: Codable {
     var status : Bool? = false, update: Int? = 0
     var message: String?
-      let vehicleTypeList: [VehicleTypeListResponseModel]?
+    let vehicleTypeList: [VehicleTypeListResponseModel]?
     
     enum CodingKeys: String, CodingKey {
         case message = "message"
@@ -20,11 +20,11 @@ class InitResponseModel: Codable {
     }
     
     init(status: Bool, update: Int, message: String, vehicleTypeList: [VehicleTypeListResponseModel]) {
-           self.status = status
-           self.update = update
-           self.message = message
-           self.vehicleTypeList = vehicleTypeList
-       }
+        self.status = status
+        self.update = update
+        self.message = message
+        self.vehicleTypeList = vehicleTypeList
+    }
 }
 
 class VehicleTypeListResponseModel : Codable {
@@ -36,7 +36,7 @@ class VehicleTypeListResponseModel : Codable {
     
     
     init(vehicleModel: String) {
-           self.vehicleModel = vehicleModel
-       }
+        self.vehicleModel = vehicleModel
+    }
     
 }

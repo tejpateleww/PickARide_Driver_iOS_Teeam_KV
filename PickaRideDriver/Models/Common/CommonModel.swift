@@ -12,15 +12,14 @@ import Foundation
 // MARK: - CardListReqModel
 class CommonUserIdRequestModel: Codable {
     var customerID: String?
-
+    
     enum CodingKeys: String, CodingKey {
         case customerID = "customer_id"
     }
-
+    
     init(customerID: String?) {
         self.customerID = customerID
     }
-    init() { }
 }
 
 class LogoutReponseModel: Codable {

@@ -22,5 +22,4 @@ class UploadSingleDocResponseModel : Codable {
         status = try? values?.decodeIfPresent(Bool.self, forKey: .status) ?? Bool()
         url = try? values?.decodeIfPresent(String.self, forKey: .url) ?? ""
     }
-    
 }

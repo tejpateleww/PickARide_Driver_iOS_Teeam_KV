@@ -57,7 +57,6 @@
 		18E2E139267223570054E351 /* OtpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E2E138267223570054E351 /* OtpVC.swift */; };
 		18E2E13B267240360054E351 /* RatingAndReviewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E2E13A267240360054E351 /* RatingAndReviewVC.swift */; };
 		18ECF0BC26A5B1AD00B7F1C1 /* UploadDocModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ECF0BB26A5B1AD00B7F1C1 /* UploadDocModel.swift */; };
-		18ECF0C226A5B38C00B7F1C1 /* UpdateVehicleInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ECF0C126A5B38C00B7F1C1 /* UpdateVehicleInfoModel.swift */; };
 		4F1A76372644FC67003F00CF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1A76362644FC67003F00CF /* LoginViewController.swift */; };
 		4F1A763A26450E78003F00CF /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1A763926450E78003F00CF /* SignUpVC.swift */; };
 		4F1A763D26450ED6003F00CF /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1A763C26450ED6003F00CF /* BaseVC.swift */; };
@@ -222,7 +221,6 @@
 		18E2E138267223570054E351 /* OtpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtpVC.swift; sourceTree = "<group>"; };
 		18E2E13A267240360054E351 /* RatingAndReviewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingAndReviewVC.swift; sourceTree = "<group>"; };
 		18ECF0BB26A5B1AD00B7F1C1 /* UploadDocModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadDocModel.swift; sourceTree = "<group>"; };
-		18ECF0C126A5B38C00B7F1C1 /* UpdateVehicleInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateVehicleInfoModel.swift; sourceTree = "<group>"; };
 		2365D99843CD5DA3E6579C86 /* Pods_PickaRideDriverTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PickaRideDriverTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2829DD5CEA22E4198B109D0A /* Pods_PickaRideDriver_PickaRideDriverUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PickaRideDriver_PickaRideDriverUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		346F3E876BF629DA2DD488C0 /* Pods_PickaRideDriver.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PickaRideDriver.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -497,7 +495,6 @@
 		18ECF0C026A5B37100B7F1C1 /* Vehicle */ = {
 			isa = PBXGroup;
 			children = (
-				18ECF0C126A5B38C00B7F1C1 /* UpdateVehicleInfoModel.swift */,
 			);
 			path = Vehicle;
 			sourceTree = "<group>";
@@ -1200,7 +1197,6 @@
 				1851032226A159A800D0BA49 /* CountryModel.swift in Sources */,
 				4F94F1782643DB5F00780413 /* UIImage+Extension.swift in Sources */,
 				843F806F264A706400BCBDB8 /* Delegate.swift in Sources */,
-				18ECF0C226A5B38C00B7F1C1 /* UpdateVehicleInfoModel.swift in Sources */,
 				18720F5E2681BABD008EE191 /* LocationService.swift in Sources */,
 				4F94F1AD2643DB7600780413 /* Singleton.swift in Sources */,
 				4F94F1772643DB5F00780413 /* UIView+Extension.swift in Sources */,

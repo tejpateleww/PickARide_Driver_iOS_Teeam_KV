@@ -34,7 +34,7 @@ struct AddCard: Codable {
 struct Card: Codable {
     let id, cardNo, formatedCardNo, cardHolderName: String
     let cardType, expDateMonth, expDateYear: String
-
+    
     enum CodingKeys: String, CodingKey {
         case id
         case cardNo = "card_no"
