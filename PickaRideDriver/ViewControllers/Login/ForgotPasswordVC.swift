@@ -12,6 +12,7 @@ class ForgotPasswordVC: BaseVC {
     @IBOutlet weak var btnSend: themeButton!
     @IBOutlet weak var lblForgotPassword: themeLabel!
     @IBOutlet weak var txtForgotPassword: themeTextField!
+    
     var forgotPasswordUserModel = PasswordUserModel()
     
     override func viewDidLoad() {

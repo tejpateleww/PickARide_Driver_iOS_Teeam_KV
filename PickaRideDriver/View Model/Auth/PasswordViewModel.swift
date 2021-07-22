@@ -16,7 +16,8 @@ class PasswordUserModel{
         WebServiceSubClass.ForgotPasswordApi(reqModel: reqModel) { (status, apiMessage, response, error) in
             Utilities.hideHud()
             Toast.show(title: status ? UrlConstant.Success : UrlConstant.Failed, message: apiMessage, state: .success) {
-                self.forgotPasswordVC?.navigationController?.popViewController(animated: true)
+                let controller = OtpVC.instantiate(fromAppStoryboard: .Login)
+                self.forgotPasswordVC?.navigationController?.pushViewController(controller, animated: true)
             }
         }
     }

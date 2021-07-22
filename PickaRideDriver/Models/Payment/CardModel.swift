@@ -6,7 +6,7 @@
 //
 
 import Foundation
-class AddCardRequestModel : Codable{
+class AddCardRequestModel : Encodable{
     var driver_id : String? = SingletonClass.sharedInstance.UserId
     var exp_date_year : String?
     var exp_date_month : String?
@@ -24,7 +24,7 @@ class AddCardRequestModel : Codable{
     }
 }
 // MARK: - CardListResponseModel
-struct AddCard: Codable {
+struct AddCard: Encodable {
     let status: Bool
     let message: String
     let cards: [Card]

@@ -104,24 +104,29 @@ class OtpVC: BaseVC, UITextFieldDelegate, OTPTextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
 //        self.btnArrowBottom.constant = 20
     }
+    
     func validation() -> Bool {
+        var strTitle : String?
         var strEnteredOTP = ""
         for index in 0 ..< txtOtp.count {
             strEnteredOTP.append(txtOtp[index].text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? "")
         }
         
         if strEnteredOTP == "" {
-            //                Utilities.ShowAlert(OfMessage: "validMsg_RequiredOtp".Localized())
-            Utilities.ShowAlert(OfMessage: "Please enter verification code")
-            return false
-        } else if self.StringOTP != strEnteredOTP {
+            strTitle = UrlConstant.RequiredVerificationCode
+        }else if self.StringOTP != strEnteredOTP {
             self.clearAllFields()
-            //                Utilities.ShowAlert(OfMessage: "validMsg_InvalidOtp".Localized())
-            Utilities.ShowAlert(OfMessage: "Please enter valid verification code")
+            strTitle = UrlConstant.InvalidVerificationCode
+        }
+        
+        if let str = strTitle{
+            Toast.show(title: UrlConstant.Required, message: str, state: .failure)
             return false
         }
+        
         return true
     }
+    
     
     func clearAllFields() {
         for index in 0 ..< txtOtp.count {

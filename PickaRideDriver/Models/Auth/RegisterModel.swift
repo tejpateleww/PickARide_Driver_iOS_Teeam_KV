@@ -243,7 +243,7 @@ class RegisterData: Codable {
         deviceToken = try? values?.decodeIfPresent(String.self, forKey: .deviceToken)
         deviceType = try? values?.decodeIfPresent(String.self, forKey: .deviceType)
         dob = try? values?.decodeIfPresent(String.self, forKey: .dob)
-        driverDocs = try? DriverDocs(from: decoder)
+        driverDocs = try? values?.decodeIfPresent(DriverDocs.self, forKey: .driverDocs)
         duty = try? values?.decodeIfPresent(String.self, forKey: .duty)
         email = try? values?.decodeIfPresent(String.self, forKey: .email)
         firstName = try? values?.decodeIfPresent(String.self, forKey: .firstName)

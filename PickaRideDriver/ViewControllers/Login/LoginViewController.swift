@@ -9,7 +9,7 @@
 import UIKit
 import CoreLocation
 class LoginViewController: UIViewController {
-
+    
     //MARK: -Properties
     
     //MARK: -IBOutlets
@@ -37,8 +37,8 @@ class LoginViewController: UIViewController {
         setupTextfields(textfield: txtPassword)
         txtEmailOrPhoneNumber.autocapitalizationType = .none
         let _ = self.getLocation()
-//        vwPassword.layer.masksToBounds = true
-//        EmailView.layer.masksToBounds = true
+        //        vwPassword.layer.masksToBounds = true
+        //        EmailView.layer.masksToBounds = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -58,7 +58,7 @@ class LoginViewController: UIViewController {
         lblDontHaveanAccount.text = ConstantString.LABEL_LOGIN_DONT_HAVE_ACCOUNT
         btnSIgnUP.setTitle(ConstantString.BUTTON_TITLE_LOGIN_SIGN_UP, for: .normal)
     }
-
+    
     //MARK: -IBActions
     
     func setupTextfields(textfield : UITextField) {
@@ -89,15 +89,13 @@ class LoginViewController: UIViewController {
     @IBAction func btnSignInClicked(_ sender: Any)
     {
         if isValidForLogin(){
-            self.loginusermodel.loginvc = self
-            self.loginusermodel.webserviceForLogin()
             if self.getLocation(){
-            
-            user_defaults.setValue(true, forKey: UserDefaultsKey.isUserLogin.rawValue)
-            appDel.navigateToMain()
+//                self.callLoginApi()
+                user_defaults.setValue(true, forKey: UserDefaultsKey.isUserLogin.rawValue)
+                appDel.navigateToMain()
             }
         }
-      
+        
     }
     
     @IBAction func ForgotPassword(_ sender: UIButton)
@@ -120,35 +118,25 @@ class LoginViewController: UIViewController {
     }
 }
 
-fileprivate extension LoginViewController
-{
-    func isValidForLogin() -> Bool
-    {
-        guard let email = self.txtEmailOrPhoneNumber.text, let password = self.txtPassword.text else {
-            return false
-        }
+extension LoginViewController{
+    func isValidForLogin() -> Bool{
+        var strTitle : String?
+        let checkEmail = txtEmailOrPhoneNumber.validatedText(validationType: .email)
+        let password = txtPassword.validatedText(validationType: .password(field: self.txtPassword.placeholder?.lowercased() ?? ""))
         
-        if (email.count <= 0)
-        {
-            Toast.show(title: UrlConstant.Required, message: ConstantString.MESSAGE_LOGIN_EMAIL_MISSING, state: .failure)
-            return false
+        if !checkEmail.0{
+            strTitle = checkEmail.1
+        }else if !password.0{
+            strTitle = password.1
         }
-        
-        if (!email.isValidEmailAddress())
-        {
-            Toast.show(title: UrlConstant.Required, message: ConstantString.MESSAGE_LOGIN_EMAIL_INVALID, state: .failure)
-            return false
-        }
-        
-        if (password.count <= 0)
-        {
-            Toast.show(title: UrlConstant.Required, message: ConstantString.MESSAGE_LOGIN_PASSWORD_MISSING, state: .failure)
+
+        if let str = strTitle{
+            Toast.show(title: UrlConstant.Required, message: str, state: .failure)
             return false
         }
         
         return true
     }
-    
 }
 
 //MARK: - API

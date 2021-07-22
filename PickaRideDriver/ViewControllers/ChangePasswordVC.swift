@@ -71,31 +71,6 @@ class ChangePasswordVC: BaseVC, UITextFieldDelegate {
         
     }
     
-    //MARK:- Validations
-    func validations()->Bool{
-        
-        let currentPW = txtCurrentPassword.validatedText(validationType: ValidatorType.password(field: txtCurrentPassword.placeholder?.lowercased() ?? ""))
-        let newPW = txtNewPassword.validatedText(validationType: ValidatorType.password(field: txtNewPassword.placeholder?.lowercased() ?? ""))
-        let confirmPW = txtConfirmPassword.validatedText(validationType: ValidatorType.password(field: txtConfirmPassword.placeholder?.lowercased() ?? ""))
-        if (!currentPW.0){
-            Utilities.ShowAlert(OfMessage: currentPW.1)
-            return currentPW.0
-        }else if (!newPW.0){
-            Utilities.ShowAlert(OfMessage: newPW.1)
-            return newPW.0
-        }
-        // 11
-        else if (!confirmPW.0){
-            Utilities.ShowAlert(OfMessage: confirmPW.1)
-            return confirmPW.0
-        } else if txtNewPassword.text?.lowercased() != txtConfirmPassword.text?.lowercased(){
-            Utilities.ShowAlert(OfMessage: "New password & confirm password should be same")
-            return false
-        }
-        return true
-        
-    }
-    
     //MARK:- Textfield delegate method
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
@@ -132,7 +107,7 @@ class ChangePasswordVC: BaseVC, UITextFieldDelegate {
     }
     @IBAction func btnSaveTap(_ sender: Any) {
         //login view controller root
-        if (validations()){
+        if (!self.validation()){
 //            webserviceForChangePasswod()
 //            self.navigationController?.popViewController(animated: true)
             self.dismiss(animated: true, completion: nil)

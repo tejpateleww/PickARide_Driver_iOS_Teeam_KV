@@ -31,7 +31,7 @@
 		<key>DropDown.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>81</integer>
+			<integer>82</integer>
 		</dict>
 		<key>Firebase.xcscheme</key>
 		<dict>
@@ -200,6 +200,11 @@
 		<dict>
 			<key>orderHint</key>
 			<integer>69</integer>
+		</dict>
+		<key>MKProgress.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>81</integer>
 		</dict>
 		<key>MaterialComponents-MaterialIcons_ic_arrow_back.xcscheme</key>
 		<dict>
