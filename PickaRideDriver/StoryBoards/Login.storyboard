@@ -332,7 +332,7 @@
                                                                             <constraint firstAttribute="height" constant="40" id="NJa-2E-0hv"/>
                                                                         </constraints>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                        <textInputTraits key="textInputTraits"/>
+                                                                        <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                                                     </textField>
                                                                 </subviews>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -366,7 +366,7 @@
                                                                             <constraint firstAttribute="height" constant="40" id="4vG-oa-v5z"/>
                                                                         </constraints>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                        <textInputTraits key="textInputTraits"/>
+                                                                        <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                                                     </textField>
                                                                 </subviews>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -436,7 +436,7 @@
                                                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Phone Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mQq-fo-99D">
                                                                                                 <rect key="frame" x="16" y="11" width="209" height="18.5"/>
                                                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                                                <textInputTraits key="textInputTraits"/>
+                                                                                                <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                                                                                             </textField>
                                                                                         </subviews>
                                                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -524,7 +524,7 @@
                                                                             <constraint firstAttribute="height" constant="40" id="UHx-xH-GiD"/>
                                                                         </constraints>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                        <textInputTraits key="textInputTraits"/>
+                                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                                     </textField>
                                                                 </subviews>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -733,10 +733,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="22.5" translatesAutoresizingMaskIntoConstraints="NO" id="RX5-CG-JjW">
-                                        <rect key="frame" x="24" y="30" width="327" height="299.5"/>
+                                        <rect key="frame" x="18" y="30" width="339" height="299.5"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fJa-SC-o15">
-                                                <rect key="frame" x="0.0" y="0.0" width="327" height="58"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="339" height="58"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bank Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GLn-xR-m1K" customClass="themeLabel" customModule="PickaRideDriver" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="87.5" height="20.5"/>
@@ -751,12 +751,12 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Bank Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ipZ-PK-9KL" customClass="themeTextField" customModule="PickaRideDriver" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="18" width="327" height="40"/>
+                                                        <rect key="frame" x="0.0" y="18" width="339" height="40"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="tcH-Dx-ldb"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                                     </textField>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -770,7 +770,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qFe-sH-fdr">
-                                                <rect key="frame" x="0.0" y="80.5" width="327" height="58"/>
+                                                <rect key="frame" x="0.0" y="80.5" width="339" height="58"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Account Holder Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vXt-o7-7Ol" customClass="themeLabel" customModule="PickaRideDriver" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="167.5" height="20.5"/>
@@ -785,12 +785,12 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Account Holder Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xKa-wz-SYj" customClass="themeTextField" customModule="PickaRideDriver" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="18" width="327" height="40"/>
+                                                        <rect key="frame" x="0.0" y="18" width="339" height="40"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="7FB-cQ-ya3"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                                     </textField>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -804,7 +804,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hsq-Vw-cMV">
-                                                <rect key="frame" x="0.0" y="161" width="327" height="58"/>
+                                                <rect key="frame" x="0.0" y="161" width="339" height="58"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Account Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BVs-vj-XZZ" customClass="themeLabel" customModule="PickaRideDriver" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="129" height="20.5"/>
@@ -819,12 +819,12 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Account Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sUV-ga-Rl5" customClass="themeTextField" customModule="PickaRideDriver" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="18" width="327" height="40"/>
+                                                        <rect key="frame" x="0.0" y="18" width="339" height="40"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="nNM-BR-BY0"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                                                     </textField>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -838,7 +838,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m3T-3B-eYZ">
-                                                <rect key="frame" x="0.0" y="241.5" width="327" height="58"/>
+                                                <rect key="frame" x="0.0" y="241.5" width="339" height="58"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swift/IFSC Code" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qkr-rT-kq7" customClass="themeLabel" customModule="PickaRideDriver" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="124" height="20.5"/>
@@ -853,12 +853,12 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Swift/IFSC Code" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8yg-iu-NII" customClass="themeTextField" customModule="PickaRideDriver" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="18" width="327" height="40"/>
+                                                        <rect key="frame" x="0.0" y="18" width="339" height="40"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="8vq-oY-4xi"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                                                     </textField>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -894,10 +894,10 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="RX5-CG-JjW" firstAttribute="top" secondItem="5TO-4I-0de" secondAttribute="top" constant="30" id="0mr-Og-uqm"/>
-                                    <constraint firstItem="RX5-CG-JjW" firstAttribute="leading" secondItem="5TO-4I-0de" secondAttribute="leading" constant="24" id="81b-3K-neO"/>
+                                    <constraint firstItem="RX5-CG-JjW" firstAttribute="leading" secondItem="5TO-4I-0de" secondAttribute="leading" constant="18" id="81b-3K-neO"/>
                                     <constraint firstItem="0gF-gA-6em" firstAttribute="top" secondItem="RX5-CG-JjW" secondAttribute="bottom" constant="60" id="Qdb-fa-xeA"/>
                                     <constraint firstAttribute="trailing" secondItem="0gF-gA-6em" secondAttribute="trailing" constant="24" id="TkP-qQ-ARm"/>
-                                    <constraint firstAttribute="trailing" secondItem="RX5-CG-JjW" secondAttribute="trailing" constant="24" id="g64-f1-8Q9"/>
+                                    <constraint firstAttribute="trailing" secondItem="RX5-CG-JjW" secondAttribute="trailing" constant="18" id="g64-f1-8Q9"/>
                                     <constraint firstItem="0gF-gA-6em" firstAttribute="leading" secondItem="5TO-4I-0de" secondAttribute="leading" constant="24" id="gOu-gm-wSS"/>
                                 </constraints>
                             </view>

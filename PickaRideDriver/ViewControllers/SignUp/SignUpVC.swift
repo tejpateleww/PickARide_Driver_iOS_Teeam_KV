@@ -40,15 +40,9 @@ class SignUpVC: BaseVC {
         super.viewDidLoad()
         setNavigationBarInViewController(controller: self, naviColor: colors.appColor.value, naviTitle: NavTitles.none.value, leftImage: NavItemsLeft.back.value, rightImages: [NavItemsRight.none.value], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
         self.setUpUI()
-//        stackViewCountryCode.layer.borderWidth = 1
-//        stackViewCountryCode.layer.borderColor = UIColor.white.cgColor
-//        vwMobile.layer.borderWidth = 1
-//        vwMobile.layer.borderColor = colors.textfieldbordercolor.value.cgColor
         setupTextfields(textfield: txtPassword)
-//        txtHomeAddress.isUserInteractionEnabled = false
         txtMobile.tintColor = themeColor
-        
-       
+        self.setTextFieldDelegate()
     }
     
     //MARK:- Custom Methods
@@ -83,9 +77,10 @@ class SignUpVC: BaseVC {
     }
     
     @IBAction func btnNextTap(_ sender: UIButton) {
-        
-        let vc : OtpVC = OtpVC.instantiate(fromAppStoryboard: .Login)
-        self.navigationController?.pushViewController(vc, animated: true)
+        if self.validation(){
+            let vc : OtpVC = OtpVC.instantiate(fromAppStoryboard: .Login)
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
         
 //        let vc : BankDetailsVC = BankDetailsVC.instantiate(fromAppStoryboard: .Login)
 //        self.navigationController?.pushViewController(vc, animated: true)
@@ -102,8 +97,8 @@ class SignUpVC: BaseVC {
     
 }
 
-extension SignUpVC
-{
+
+extension SignUpVC{
     func setUpUI(){
         self.pickerView.delegate = self
         self.pickerView.dataSource = self
@@ -134,7 +129,15 @@ extension SignUpVC
 //        self.textFieldPassword.setPasswordVisibility(vc: self, action: #selector(self.showHidePassword(_:)))
     }
 
-
+    func setTextFieldDelegate(){
+        self.txtFirstName.delegate = self
+        self.txtLastName.delegate = self
+        self.txtCountryCode.delegate = self
+        self.txtMobile.delegate = self
+        self.txtHomeAddress.delegate = self
+        self.txtPassword.delegate = self
+    }
+    
     func previewDocument(strURL : String)
     {
         guard let url = URL(string: strURL) else {
@@ -144,8 +147,65 @@ extension SignUpVC
         present(svc, animated: true, completion: nil)
     }
 }
+
+//MARK:- Validation & Api
+extension SignUpVC{
+    func validation()->Bool{
+        var strTitle : String?
+        let firstName = self.txtFirstName.validatedText(validationType: .username(field: self.txtFirstName.placeholder?.lowercased() ?? ""))
+        let lastName = self.txtLastName.validatedText(validationType: .username(field: self.txtLastName.placeholder?.lowercased() ?? ""))
+        let checkEmail = self.txtEmail.validatedText(validationType: .email)
+        let mobileNo = self.txtMobile.validatedText(validationType: .requiredField(field: self.txtMobile.placeholder?.lowercased() ?? ""))
+        let address = self.txtHomeAddress.validatedText(validationType: .requiredField(field: self.txtHomeAddress.placeholder?.lowercased() ?? ""))
+        let password = self.txtPassword.validatedText(validationType: .password(field: self.txtPassword.placeholder?.lowercased() ?? ""))
+        
+        if !firstName.0{
+            strTitle = firstName.1
+        }else if !lastName.0{
+            strTitle = lastName.1
+        }else if !checkEmail.0{
+            strTitle = checkEmail.1
+        }else if !mobileNo.0{
+            strTitle = mobileNo.1
+        }else if self.txtMobile.text?.count != 10 {
+            strTitle = UrlConstant.ValidPhoneNo
+        }else if !address.0{
+            strTitle = address.1
+        }else if !password.0{
+            strTitle = password.1
+        }
+        
+        if let str = strTitle{
+            Toast.show(title: UrlConstant.Required, message: str, state: .failure)
+            return false
+        }
+        
+        return true
+    }
+}
+
 //MARK:- TextField Delegate
 extension SignUpVC: UITextFieldDelegate{
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        if textField == self.txtCountryCode{
+            if SingletonClass.sharedInstance.CountryList.count == 0{
+                WebServiceSubClass.GetCountryList {_, _, _, _ in}
+                return false
+            }
+        }
+        
+        return true
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if textField == txtMobile || textField == txtFirstName || textField == txtLastName || textField == txtPassword{
+            let currentString: NSString = textField.text as NSString? ?? ""
+            let newString: NSString = currentString.replacingCharacters(in: range, with: string) as NSString
+            return string == "" || (newString.length <= ((textField == txtMobile) ? MAX_PHONE_DIGITS : TEXTFIELD_MaximumLimit))
+        }
+        
+        return true
+    }
 }
 
 //MARK:- Country Code Picker Set Up
@@ -168,7 +228,7 @@ extension SignUpVC : UIPickerViewDelegate,UIPickerViewDataSource {
 }
 
 //MARK:- TextView Delegate
-//extension SignUpVC: UITextViewDelegate{
+extension SignUpVC: UITextViewDelegate{
 //    func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {
 //
 //        let controller = CommonWebViewVC.instantiate(fromAppStoryboard: .Main)
@@ -183,4 +243,4 @@ extension SignUpVC : UIPickerViewDelegate,UIPickerViewDataSource {
 //        self.navigationController?.pushViewController(controller, animated: true)
 //        return false
 //    }
-//}
+}

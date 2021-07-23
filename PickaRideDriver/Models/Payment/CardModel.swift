@@ -45,4 +45,3 @@ struct Card: Codable {
         case expDateYear = "exp_date_year"
     }
 }
-

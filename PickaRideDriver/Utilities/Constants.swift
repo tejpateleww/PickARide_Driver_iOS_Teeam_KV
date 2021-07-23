@@ -28,9 +28,6 @@ let themeColorBlack = hexStringToUIColor(hex: "#282F39")
 let themeColorRed = hexStringToUIColor(hex: "#F4586C")
 
 
-
-
-
 let themeStatusRed = hexStringToUIColor(hex: "DF1A49")
 let themeStatusYellow = hexStringToUIColor(hex: "EFB818")
 let themeStatusGreen = hexStringToUIColor(hex: "1AC62F")
@@ -71,3 +68,7 @@ struct ScreenSize {
 
 }
 
+
+let TEXTFIELD_MaximumLimit = 25
+let TEXTFIELD_MinimumLimit = 2
+let MAX_PHONE_DIGITS = 10

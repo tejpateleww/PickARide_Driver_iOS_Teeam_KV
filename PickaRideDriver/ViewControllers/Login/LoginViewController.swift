@@ -37,8 +37,7 @@ class LoginViewController: UIViewController {
         setupTextfields(textfield: txtPassword)
         txtEmailOrPhoneNumber.autocapitalizationType = .none
         let _ = self.getLocation()
-        //        vwPassword.layer.masksToBounds = true
-        //        EmailView.layer.masksToBounds = true
+        self.txtPassword.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -139,8 +138,21 @@ extension LoginViewController{
     }
 }
 
-//MARK: - API
+//MARK:- TextField Delegate
+extension LoginViewController: UITextFieldDelegate{
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if textField == txtPassword {
+            let currentString: NSString = textField.text as NSString? ?? ""
+            let newString: NSString = currentString.replacingCharacters(in: range, with: string) as NSString
+            return string == "" || newString.length <=  TEXTFIELD_MaximumLimit
+        }
+        
+        return true
+    }
+}
 
+//MARK: - API
 extension LoginViewController{
     func callLoginApi(){
         self.loginusermodel.loginvc = self

@@ -73,6 +73,25 @@ class ChangePasswordVC: BaseVC, UITextFieldDelegate {
     
     //MARK:- Textfield delegate method
     
+    
+    //MARK:- IBActions
+    @IBAction func btnCancelTap(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    @IBAction func btnSaveTap(_ sender: Any) {
+        //login view controller root
+        if (!self.validation()){
+//            webserviceForChangePasswod()
+//            self.navigationController?.popViewController(animated: true)
+            self.dismiss(animated: true, completion: nil)
+        }
+        
+    }
+}
+
+
+//MARK:- TxtField Delegate
+extension ChangePasswordVC{
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if textField == txtCurrentPassword{
             if (string == " ") {
@@ -101,19 +120,6 @@ class ChangePasswordVC: BaseVC, UITextFieldDelegate {
         return true
     }
     
-    //MARK:- IBActions
-    @IBAction func btnCancelTap(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
-    }
-    @IBAction func btnSaveTap(_ sender: Any) {
-        //login view controller root
-        if (!self.validation()){
-//            webserviceForChangePasswod()
-//            self.navigationController?.popViewController(animated: true)
-            self.dismiss(animated: true, completion: nil)
-        }
-        
-    }
 }
 
 
