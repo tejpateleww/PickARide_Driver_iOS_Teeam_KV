@@ -19,6 +19,7 @@ class IncomingRideRequestView: UIView {
     var delegate : IncomingRideRequestViewDelegate?
     
     @IBOutlet weak var viewCancelRide: UIView!
+    @IBOutlet weak var btnNavigateWidth: NSLayoutConstraint!
     @IBOutlet weak var btnSos: UIButton!
     @IBOutlet weak var btnNavigate: UIButton!
     @IBOutlet weak var btnNoThanks: UIButton!
@@ -57,7 +58,8 @@ class IncomingRideRequestView: UIView {
         super.awakeFromNib()
         vwRating.isUserInteractionEnabled = false
         viewCancelRide.backgroundColor = themeColor
-       
+//        btnNavigateWidth.constant = 36
+//        btnNavigate.setImage(#imageLiteral(resourceName: "iconGPS"), for: .normal)
          setupView()
         self.setupViewCategory()
     }
@@ -119,6 +121,8 @@ class IncomingRideRequestView: UIView {
     
     @IBAction func btnAcceptRequestClickAction(_ sender: Any) {
         delegate?.onAcceptRideRequest()
+//        btnNavigateWidth.constant = 108
+//        btnNavigate.setImage(UIImage(named: "imgNavigate"), for: .normal)
     }
     
     @IBAction func btnCancelRideClickAction(_ sender: Any) {
@@ -183,7 +187,5 @@ fileprivate extension IncomingRideRequestView {
         lblNoThanks.font = UIFont.regular(ofSize: FontsSize.ExtraSmall)
         lblNoThanks.textColor = .white
         btnAcceptRequest.setTitle(ConstantString.BUTTON_TITLE_HOME_TAP_TO_ACCCEPT, for: .normal)
-    }
-  
-        
+    }    
 }

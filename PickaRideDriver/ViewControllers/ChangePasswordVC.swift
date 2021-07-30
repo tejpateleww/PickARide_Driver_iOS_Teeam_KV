@@ -15,7 +15,10 @@ class ChangePasswordVC: BaseVC, UITextFieldDelegate {
     @IBOutlet weak var txtNewPassword: ChangePasswordTextField!
     @IBOutlet weak var txtConfirmPassword: ChangePasswordTextField!
     @IBOutlet weak var btnSave: submitButton!
+    @IBOutlet weak var lblCurrentPassword: themeLabel!
     @IBOutlet weak var lblChangePassword: changePasswordLabel!
+    @IBOutlet weak var lblNewPassword: themeLabel!
+    @IBOutlet weak var lblConfirmPassword: themeLabel!
     
     //MARK:- Variables
     var submitButtonText = ""
@@ -48,7 +51,7 @@ class ChangePasswordVC: BaseVC, UITextFieldDelegate {
         button.isSelected = true
         button.setImage(UIImage(named: "showpassword"), for: .normal)
         button.setImage(UIImage(named: "hidepassword"), for: .selected)
-        button.imageEdgeInsets = UIEdgeInsets(top: 5, left: -16, bottom: -5, right: 0)
+        button.imageEdgeInsets = UIEdgeInsets(top: 0, left: -16, bottom: -0, right: 0)
         button.frame = CGRect(x: CGFloat(textfield.frame.size.width - 25), y: CGFloat(5), width: CGFloat(25), height: CGFloat(25))
         button.tag = textfield.tag
         button.addTarget(self, action: #selector(self.showHidePassword), for: .touchUpInside)
@@ -80,11 +83,11 @@ class ChangePasswordVC: BaseVC, UITextFieldDelegate {
     }
     @IBAction func btnSaveTap(_ sender: Any) {
         //login view controller root
-        if (!self.validation()){
+//        if (!self.validation()){
 //            webserviceForChangePasswod()
 //            self.navigationController?.popViewController(animated: true)
             self.dismiss(animated: true, completion: nil)
-        }
+//        }
         
     }
 }

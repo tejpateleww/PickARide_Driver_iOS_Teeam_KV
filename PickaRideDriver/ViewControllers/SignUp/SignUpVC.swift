@@ -38,7 +38,7 @@ class SignUpVC: BaseVC {
     //MARK:- View life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        setNavigationBarInViewController(controller: self, naviColor: colors.appColor.value, naviTitle: NavTitles.none.value, leftImage: NavItemsLeft.back.value, rightImages: [NavItemsRight.none.value], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
+        setNavigationBarInViewController(controller: self, naviColor: colors.appColor.value, naviTitle: "Create profile", leftImage: NavItemsLeft.back.value, rightImages: [NavItemsRight.none.value], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
         self.setUpUI()
         setupTextfields(textfield: txtPassword)
         txtMobile.tintColor = themeColor
@@ -77,10 +77,10 @@ class SignUpVC: BaseVC {
     }
     
     @IBAction func btnNextTap(_ sender: UIButton) {
-        if self.validation(){
+//        if self.validation(){
             let vc : OtpVC = OtpVC.instantiate(fromAppStoryboard: .Login)
             self.navigationController?.pushViewController(vc, animated: true)
-        }
+//        }
         
 //        let vc : BankDetailsVC = BankDetailsVC.instantiate(fromAppStoryboard: .Login)
 //        self.navigationController?.pushViewController(vc, animated: true)

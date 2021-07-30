@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="JeT-XE-Xbc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="JeT-XE-Xbc">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -29,7 +30,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u2X-Xj-LEj" customClass="IQPreviousNextView" customModule="IQKeyboardManagerSwift">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="649"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="689"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash_img_top" translatesAutoresizingMaskIntoConstraints="NO" id="Ro4-gm-fBX">
                                                         <rect key="frame" x="220.5" y="-30" width="154.5" height="281.5"/>
@@ -63,13 +64,16 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="BjM-OQ-oxa">
-                                                        <rect key="frame" x="21" y="348" width="333" height="116"/>
+                                                        <rect key="frame" x="21" y="348" width="333" height="156"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FMe-iR-Fkv">
-                                                                <rect key="frame" x="0.0" y="0.0" width="333" height="48"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="333" height="68"/>
                                                                 <subviews>
                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HsG-gk-E8e" customClass="themeTextField" customModule="PickaRideDriver" customModuleProvider="target">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="333" height="48"/>
+                                                                        <rect key="frame" x="0.0" y="20" width="333" height="48"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" constant="48" id="fee-7J-mPy"/>
+                                                                        </constraints>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                         <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                                                         <userDefinedRuntimeAttributes>
@@ -78,22 +82,37 @@
                                                                             </userDefinedRuntimeAttribute>
                                                                         </userDefinedRuntimeAttributes>
                                                                     </textField>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qSo-VI-egx" customClass="themeLabel" customModule="PickaRideDriver" customModuleProvider="target">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="41" height="20.5"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                        <nil key="textColor"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="Font_Size">
+                                                                                <real key="value" value="13"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isgray" value="YES"/>
+                                                                        </userDefinedRuntimeAttributes>
+                                                                    </label>
                                                                 </subviews>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="height" constant="48" id="764-fb-mV4"/>
+                                                                    <constraint firstAttribute="height" constant="68" id="764-fb-mV4"/>
                                                                     <constraint firstAttribute="trailing" secondItem="HsG-gk-E8e" secondAttribute="trailing" id="9MQ-wU-qDH"/>
+                                                                    <constraint firstItem="qSo-VI-egx" firstAttribute="top" secondItem="FMe-iR-Fkv" secondAttribute="top" id="N4i-si-CuH"/>
                                                                     <constraint firstItem="HsG-gk-E8e" firstAttribute="leading" secondItem="FMe-iR-Fkv" secondAttribute="leading" id="PHE-ma-Cpu"/>
                                                                     <constraint firstAttribute="bottom" secondItem="HsG-gk-E8e" secondAttribute="bottom" id="VrB-0i-zV6"/>
-                                                                    <constraint firstItem="HsG-gk-E8e" firstAttribute="centerY" secondItem="FMe-iR-Fkv" secondAttribute="centerY" id="bbZ-bN-Hkj"/>
-                                                                    <constraint firstItem="HsG-gk-E8e" firstAttribute="top" secondItem="FMe-iR-Fkv" secondAttribute="top" id="qhc-Xm-D4a"/>
+                                                                    <constraint firstItem="qSo-VI-egx" firstAttribute="leading" secondItem="FMe-iR-Fkv" secondAttribute="leading" id="Zs3-CR-a0d"/>
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ykY-c0-Rfs">
-                                                                <rect key="frame" x="0.0" y="68" width="333" height="48"/>
+                                                                <rect key="frame" x="0.0" y="88" width="333" height="68"/>
                                                                 <subviews>
                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4mH-pH-LTR" customClass="themeTextField" customModule="PickaRideDriver" customModuleProvider="target">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="333" height="48"/>
+                                                                        <rect key="frame" x="0.0" y="20" width="333" height="48"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" constant="48" id="LNq-UB-FsE"/>
+                                                                        </constraints>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                                                         <userDefinedRuntimeAttributes>
@@ -102,21 +121,33 @@
                                                                             </userDefinedRuntimeAttribute>
                                                                         </userDefinedRuntimeAttributes>
                                                                     </textField>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KtY-7T-pRi" customClass="themeLabel" customModule="PickaRideDriver" customModuleProvider="target">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="73.5" height="20.5"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                        <nil key="textColor"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="Font_Size">
+                                                                                <real key="value" value="13"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isgray" value="YES"/>
+                                                                        </userDefinedRuntimeAttributes>
+                                                                    </label>
                                                                 </subviews>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                 <constraints>
                                                                     <constraint firstItem="4mH-pH-LTR" firstAttribute="leading" secondItem="ykY-c0-Rfs" secondAttribute="leading" id="H9W-Bk-rwn"/>
+                                                                    <constraint firstItem="KtY-7T-pRi" firstAttribute="top" secondItem="ykY-c0-Rfs" secondAttribute="top" id="Ohv-bN-3Ro"/>
                                                                     <constraint firstAttribute="bottom" secondItem="4mH-pH-LTR" secondAttribute="bottom" id="Par-RZ-DQ4"/>
-                                                                    <constraint firstItem="4mH-pH-LTR" firstAttribute="top" secondItem="ykY-c0-Rfs" secondAttribute="top" id="Z5P-l5-mlq"/>
                                                                     <constraint firstAttribute="trailing" secondItem="4mH-pH-LTR" secondAttribute="trailing" id="Zb5-dd-jMs"/>
-                                                                    <constraint firstItem="4mH-pH-LTR" firstAttribute="centerY" secondItem="ykY-c0-Rfs" secondAttribute="centerY" id="gv3-i2-C6s"/>
-                                                                    <constraint firstAttribute="height" constant="48" id="yLZ-nf-whi"/>
+                                                                    <constraint firstItem="KtY-7T-pRi" firstAttribute="leading" secondItem="ykY-c0-Rfs" secondAttribute="leading" id="xg1-SZ-Rlp"/>
+                                                                    <constraint firstAttribute="height" constant="68" id="yLZ-nf-whi"/>
                                                                 </constraints>
                                                             </view>
                                                         </subviews>
                                                     </stackView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vbh-YP-hN7" customClass="loginScreenButton" customModule="PickaRideDriver" customModuleProvider="target">
-                                                        <rect key="frame" x="231" y="481" width="123" height="14"/>
+                                                        <rect key="frame" x="231" y="521" width="123" height="14"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="14" id="Yj9-wZ-cOp"/>
                                                         </constraints>
@@ -129,7 +160,7 @@
                                                         </connections>
                                                     </button>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vfr-aB-WZW">
-                                                        <rect key="frame" x="21" y="527" width="333" height="46"/>
+                                                        <rect key="frame" x="21" y="567" width="333" height="46"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mWa-VE-ltd" customClass="themeButton" customModule="PickaRideDriver" customModuleProvider="target">
                                                                 <rect key="frame" x="5" y="0.0" width="328" height="46"/>
@@ -158,7 +189,7 @@
                                                         </constraints>
                                                     </view>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="EOg-Su-yxc">
-                                                        <rect key="frame" x="66.5" y="613" width="242" height="16"/>
+                                                        <rect key="frame" x="66.5" y="653" width="242" height="16"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wJe-nU-pd2" customClass="loginScreenLabel" customModule="PickaRideDriver" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="179" height="16"/>
@@ -185,7 +216,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <button opaque="NO" tag="1" contentMode="scaleAspectFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HKa-GM-neg" customClass="themeButton" customModule="PickaRideDriver" customModuleProvider="target">
-                                                        <rect key="frame" x="21" y="480" width="143" height="16"/>
+                                                        <rect key="frame" x="21" y="520" width="143" height="16"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="16" id="EZP-5s-voB"/>
                                                         </constraints>
@@ -269,6 +300,8 @@
                         <outlet property="btnSIgnUP" destination="OF8-An-A8k" id="l8k-tZ-xAf"/>
                         <outlet property="btnSignIN" destination="mWa-VE-ltd" id="dd6-v5-fV8"/>
                         <outlet property="lblDontHaveanAccount" destination="wJe-nU-pd2" id="Cfy-0A-Lpq"/>
+                        <outlet property="lblEmail" destination="qSo-VI-egx" id="v8n-wW-vTn"/>
+                        <outlet property="lblPassword" destination="KtY-7T-pRi" id="oiR-MI-AmA"/>
                         <outlet property="lblSignIN" destination="8nv-GS-Peu" id="Rda-22-VA4"/>
                         <outlet property="lblWelcomeBack" destination="Veb-tb-4Bi" id="e1H-Qx-geB"/>
                         <outlet property="txtEmailOrPhoneNumber" destination="HsG-gk-E8e" id="TeE-2q-fJM"/>
@@ -295,10 +328,13 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f2F-sz-OQk" customClass="IQPreviousNextView" customModule="IQKeyboardManagerSwift">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="679.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="649"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create profile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Olo-p4-JnH" customClass="themeLabel" customModule="PickaRideDriver" customModuleProvider="target">
-                                                        <rect key="frame" x="24" y="10" width="103" height="20.5"/>
+                                                        <rect key="frame" x="24" y="10" width="103" height="0.0"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" id="VM1-uT-tLe"/>
+                                                        </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -309,7 +345,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="22.5" translatesAutoresizingMaskIntoConstraints="NO" id="9O0-L1-e2x">
-                                                        <rect key="frame" x="24" y="50.5" width="327" height="460.5"/>
+                                                        <rect key="frame" x="24" y="20" width="327" height="460.5"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RYl-Qh-Rpc">
                                                                 <rect key="frame" x="0.0" y="0.0" width="327" height="58"/>
@@ -574,7 +610,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="By continuing, I confirm that i have read &amp; agree to the" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fRC-dQ-9xR" customClass="themeLabel" customModule="PickaRideDriver" customModuleProvider="target">
-                                                        <rect key="frame" x="24" y="533" width="327" height="20.5"/>
+                                                        <rect key="frame" x="24" y="502.5" width="327" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -586,7 +622,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="ePo-te-InA">
-                                                        <rect key="frame" x="55" y="557.5" width="265.5" height="30"/>
+                                                        <rect key="frame" x="55" y="527" width="265.5" height="30"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c4H-DB-HYX" customClass="themeButton" customModule="PickaRideDriver" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="132" height="30"/>
@@ -629,7 +665,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WZe-P8-RC1" customClass="themeButton" customModule="PickaRideDriver" customModuleProvider="target">
-                                                        <rect key="frame" x="24" y="619.5" width="327" height="40"/>
+                                                        <rect key="frame" x="24" y="589" width="327" height="40"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="ilK-B1-Rro"/>
                                                         </constraints>
@@ -661,7 +697,7 @@
                                                     <constraint firstItem="ePo-te-InA" firstAttribute="centerX" secondItem="f2F-sz-OQk" secondAttribute="centerX" id="jVu-Mc-IsI"/>
                                                     <constraint firstItem="fRC-dQ-9xR" firstAttribute="leading" secondItem="RRR-i1-xIY" secondAttribute="leading" id="kfN-6Q-wao"/>
                                                     <constraint firstItem="fRC-dQ-9xR" firstAttribute="top" secondItem="9O0-L1-e2x" secondAttribute="bottom" constant="22" id="lBo-wl-ezM"/>
-                                                    <constraint firstItem="9O0-L1-e2x" firstAttribute="top" secondItem="Olo-p4-JnH" secondAttribute="bottom" constant="20" id="lJd-2j-W52"/>
+                                                    <constraint firstItem="9O0-L1-e2x" firstAttribute="top" secondItem="Olo-p4-JnH" secondAttribute="bottom" constant="10" id="lJd-2j-W52"/>
                                                     <constraint firstItem="fRC-dQ-9xR" firstAttribute="trailing" secondItem="RRR-i1-xIY" secondAttribute="trailing" id="rWK-d7-naK"/>
                                                     <constraint firstItem="WZe-P8-RC1" firstAttribute="leading" secondItem="f2F-sz-OQk" secondAttribute="leading" constant="24" id="wjh-h2-4UH"/>
                                                     <constraint firstAttribute="trailing" secondItem="WZe-P8-RC1" secondAttribute="trailing" constant="24" id="zWH-de-0Hx"/>
@@ -1124,7 +1160,7 @@ adminnistrator!</string>
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Check your SMS messages. We've sent you the PIN at" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jgg-UB-PGG" customClass="themeLabel" customModule="PickaRideDriver" customModuleProvider="target">
-                                        <rect key="frame" x="16" y="93" width="343.5" height="41"/>
+                                        <rect key="frame" x="16" y="32" width="343.5" height="41"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -1137,7 +1173,7 @@ adminnistrator!</string>
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="yUg-3o-fD6">
-                                        <rect key="frame" x="15.5" y="158" width="344" height="80"/>
+                                        <rect key="frame" x="15.5" y="97" width="344" height="80"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="he0-jL-cug" customClass="OTPTextField" customModule="PickaRideDriver" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
@@ -1230,7 +1266,10 @@ adminnistrator!</string>
                                         </userDefinedRuntimeAttributes>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vi7-sa-isP" customClass="verifyVcLabel" customModule="PickaRideDriver" customModuleProvider="target">
-                                        <rect key="frame" x="16" y="32" width="343" height="41"/>
+                                        <rect key="frame" x="16" y="32" width="343" height="0.0"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" id="ic2-6M-OTj"/>
+                                        </constraints>
                                         <string key="text">Verify Phone
 Number</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -1241,7 +1280,7 @@ Number</string>
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="YOw-l3-8iw">
-                                        <rect key="frame" x="15.5" y="271" width="344" height="22"/>
+                                        <rect key="frame" x="15.5" y="210" width="344" height="22"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Didn't receive SMS?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MPN-2Y-vmx" customClass="verifyVcLabel" customModule="PickaRideDriver" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="153" height="22"/>
@@ -1282,7 +1321,7 @@ Number</string>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="R5U-Yp-1uo" firstAttribute="leading" secondItem="2rW-Wm-siE" secondAttribute="leading" constant="20" id="1Zu-ee-gvP"/>
-                                    <constraint firstItem="Jgg-UB-PGG" firstAttribute="top" secondItem="Vi7-sa-isP" secondAttribute="bottom" constant="20" id="8Kx-Jr-TBM"/>
+                                    <constraint firstItem="Jgg-UB-PGG" firstAttribute="top" secondItem="Vi7-sa-isP" secondAttribute="bottom" id="8Kx-Jr-TBM"/>
                                     <constraint firstItem="Jgg-UB-PGG" firstAttribute="leading" secondItem="Vi7-sa-isP" secondAttribute="leading" id="8hz-d6-twd"/>
                                     <constraint firstItem="8Xy-bg-BIZ" firstAttribute="top" secondItem="YOw-l3-8iw" secondAttribute="bottom" constant="20" id="D9u-Gv-ycg"/>
                                     <constraint firstAttribute="bottom" secondItem="R5U-Yp-1uo" secondAttribute="bottom" constant="20" id="Fbh-QZ-TCp"/>
@@ -1329,10 +1368,10 @@ Number</string>
             </objects>
             <point key="canvasLocation" x="7055" y="100"/>
         </scene>
-        <!--Forgot PasswordVC-->
+        <!--View Controller-->
         <scene sceneID="RgL-MN-jqd">
             <objects>
-                <viewController storyboardIdentifier="ForgotPasswordVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="6FC-Hl-iRT" customClass="ForgotPasswordVC" customModule="PickaRideDriver" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="6FC-Hl-iRT" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UWx-kw-6kk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1366,20 +1405,36 @@ Number</string>
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ceu-09-Ocl">
-                                                <rect key="frame" x="0.0" y="233" width="335" height="60"/>
+                                                <rect key="frame" x="0.0" y="233" width="335" height="80"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gVV-Eq-gPb" customClass="themeTextField" customModule="PickaRideDriver" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="335" height="60"/>
+                                                        <rect key="frame" x="0.0" y="20" width="335" height="60"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="60" id="Tvm-pF-p2O"/>
+                                                        </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bnl-Tw-LoR" customClass="themeLabel" customModule="PickaRideDriver" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="41" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="Font_Size">
+                                                                <real key="value" value="13"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isgray" value="YES"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </label>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
+                                                    <constraint firstItem="bnl-Tw-LoR" firstAttribute="leading" secondItem="Ceu-09-Ocl" secondAttribute="leading" id="OcL-hM-myY"/>
                                                     <constraint firstAttribute="trailing" secondItem="gVV-Eq-gPb" secondAttribute="trailing" id="P1f-Ou-YG8"/>
                                                     <constraint firstAttribute="bottom" secondItem="gVV-Eq-gPb" secondAttribute="bottom" id="VKG-L7-ayY"/>
-                                                    <constraint firstAttribute="height" constant="60" id="ahE-ep-ziL"/>
-                                                    <constraint firstItem="gVV-Eq-gPb" firstAttribute="top" secondItem="Ceu-09-Ocl" secondAttribute="top" id="eaV-b2-zQW"/>
+                                                    <constraint firstAttribute="height" constant="80" id="ahE-ep-ziL"/>
+                                                    <constraint firstItem="bnl-Tw-LoR" firstAttribute="top" secondItem="Ceu-09-Ocl" secondAttribute="top" id="cdc-6e-IcD"/>
                                                     <constraint firstItem="gVV-Eq-gPb" firstAttribute="leading" secondItem="Ceu-09-Ocl" secondAttribute="leading" id="qaY-0M-zWI"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
@@ -1390,7 +1445,7 @@ Number</string>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="326-dc-HKb" customClass="themeButton" customModule="PickaRideDriver" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="325" width="335" height="48"/>
+                                                <rect key="frame" x="0.0" y="345" width="335" height="48"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="48" id="SSk-yy-gzE"/>
                                                 </constraints>
@@ -1442,6 +1497,7 @@ Number</string>
                     </view>
                     <connections>
                         <outlet property="btnSend" destination="326-dc-HKb" id="Qam-Hp-GXZ"/>
+                        <outlet property="lblEmail" destination="bnl-Tw-LoR" id="XkV-Qw-9xT"/>
                         <outlet property="lblForgotPassword" destination="hwy-ml-5rc" id="94R-wd-ypt"/>
                         <outlet property="txtForgotPassword" destination="gVV-Eq-gPb" id="pM3-8h-ajS"/>
                     </connections>
@@ -1765,6 +1821,224 @@ Number</string>
             </objects>
             <point key="canvasLocation" x="1903" y="907"/>
         </scene>
+        <!--Forgot PasswordVC-->
+        <scene sceneID="TmT-wL-qKI">
+            <objects>
+                <viewController storyboardIdentifier="ForgotPasswordVC" id="dwQ-vq-GVp" customClass="ForgotPasswordVC" customModule="PickaRideDriver" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="uU9-wK-xBj">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="50G-Ak-L0H">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="if2-UM-i37">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iYU-eY-r4S">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                                <subviews>
+                                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m9F-2b-3F7" customClass="ForgotPasswordLabel" customModule="PickARide_User" customModuleProvider="target">
+                                                        <rect key="frame" x="16" y="0.0" width="0.0" height="0.0"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isForgot" value="YES"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IR7-jc-piu" customClass="ForgotPasswordLabel" customModule="PickARide_User" customModuleProvider="target">
+                                                        <rect key="frame" x="16" y="16" width="343" height="0.0"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isquestion" value="YES"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nbi-g6-qfZ" customClass="ForgotPasswordLabel" customModule="PickARide_User" customModuleProvider="target">
+                                                        <rect key="frame" x="16" y="23" width="343" height="0.0"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isDescription" value="YES"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="drW-m8-Xm0" customClass="ProfileLabel" customModule="PickARide_User" customModuleProvider="target">
+                                                        <rect key="frame" x="16" y="47" width="0.0" height="0.0"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="iscountryCode" value="YES"/>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isProfileLabel" value="YES"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </label>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="7AF-Lw-Wkj">
+                                                        <rect key="frame" x="16" y="53" width="343" height="49"/>
+                                                        <subviews>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6dT-S3-lOC" customClass="loginView" customModule="PickARide_User" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="0.0" width="343" height="49"/>
+                                                                <subviews>
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email " textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uUJ-TX-TEV" customClass="emailPasswordTextField" customModule="PickARide_User" customModuleProvider="target">
+                                                                        <rect key="frame" x="18" y="15.5" width="307" height="18.5"/>
+                                                                        <color key="tintColor" name="ThemeColor"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                                                                    </textField>
+                                                                </subviews>
+                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="49" id="1fW-BH-coU"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="uUJ-TX-TEV" secondAttribute="trailing" constant="18" id="Yyx-lc-EUf"/>
+                                                                    <constraint firstItem="uUJ-TX-TEV" firstAttribute="leading" secondItem="6dT-S3-lOC" secondAttribute="leading" constant="18" id="gRS-zT-fUF"/>
+                                                                    <constraint firstItem="uUJ-TX-TEV" firstAttribute="centerY" secondItem="6dT-S3-lOC" secondAttribute="centerY" id="hiH-7K-54c"/>
+                                                                </constraints>
+                                                            </view>
+                                                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pi0-dK-gMx" customClass="viewBorder" customModule="PickARide_User" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="0.0" width="114" height="49"/>
+                                                                <subviews>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+49" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LIk-iG-85R">
+                                                                        <rect key="frame" x="16" y="15" width="31.5" height="19"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                        <nil key="textColor"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_DownReg" translatesAutoresizingMaskIntoConstraints="NO" id="SGB-oO-fAn">
+                                                                        <rect key="frame" x="90" y="15" width="12" height="19"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="width" constant="12" id="DEB-oP-HEs"/>
+                                                                        </constraints>
+                                                                    </imageView>
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oZ9-nX-xCU">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="114" height="49"/>
+                                                                    </button>
+                                                                </subviews>
+                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="trailing" secondItem="oZ9-nX-xCU" secondAttribute="trailing" id="E8j-F1-f7N"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="LIk-iG-85R" secondAttribute="bottom" constant="15" id="GwQ-dV-RGj"/>
+                                                                    <constraint firstItem="oZ9-nX-xCU" firstAttribute="top" secondItem="pi0-dK-gMx" secondAttribute="top" id="NQw-TP-ojM"/>
+                                                                    <constraint firstItem="oZ9-nX-xCU" firstAttribute="leading" secondItem="pi0-dK-gMx" secondAttribute="leading" id="NS9-Bk-28k"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="SGB-oO-fAn" secondAttribute="bottom" constant="15" id="PKY-Nu-YeR"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="oZ9-nX-xCU" secondAttribute="bottom" id="W3l-mq-vtu"/>
+                                                                    <constraint firstItem="SGB-oO-fAn" firstAttribute="top" secondItem="pi0-dK-gMx" secondAttribute="top" constant="15" id="WgN-xC-04c"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="SGB-oO-fAn" secondAttribute="trailing" constant="12" id="dUx-6V-4dQ"/>
+                                                                    <constraint firstItem="LIk-iG-85R" firstAttribute="top" secondItem="pi0-dK-gMx" secondAttribute="top" constant="15" id="fF4-jE-cc4"/>
+                                                                    <constraint firstItem="LIk-iG-85R" firstAttribute="leading" secondItem="pi0-dK-gMx" secondAttribute="leading" constant="16" id="sDN-UX-lOO"/>
+                                                                    <constraint firstAttribute="width" constant="114" id="wpG-2o-H6y"/>
+                                                                </constraints>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isViewRadius" value="YES"/>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </view>
+                                                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DtB-lg-hN3" customClass="viewBorder" customModule="PickARide_User" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="0.0" width="32" height="49"/>
+                                                                <subviews>
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="I8V-Uf-rC8" customClass="phonenumberTextField" customModule="PickARide_User" customModuleProvider="target">
+                                                                        <rect key="frame" x="16" y="15.5" width="0.0" height="18.5"/>
+                                                                        <color key="tintColor" name="ThemeColor"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                                    </textField>
+                                                                </subviews>
+                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                <constraints>
+                                                                    <constraint firstItem="I8V-Uf-rC8" firstAttribute="leading" secondItem="DtB-lg-hN3" secondAttribute="leading" constant="16" id="8jE-Pe-0NB"/>
+                                                                    <constraint firstItem="I8V-Uf-rC8" firstAttribute="centerX" secondItem="DtB-lg-hN3" secondAttribute="centerX" id="ICa-Vs-A0i"/>
+                                                                    <constraint firstItem="I8V-Uf-rC8" firstAttribute="centerY" secondItem="DtB-lg-hN3" secondAttribute="centerY" id="Kcy-iy-ILR"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="I8V-Uf-rC8" secondAttribute="trailing" constant="16" id="eEd-gp-Vwp"/>
+                                                                </constraints>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isViewRadius" value="YES"/>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </view>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ia8-ce-URc" customClass="viewWithClearBg" customModule="PickARide_User" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="102" width="375" height="497"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    </view>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sdf-Ex-k1J" customClass="submitButton" customModule="PickARide_User" customModuleProvider="target">
+                                                        <rect key="frame" x="16" y="599" width="343" height="48"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="48" id="jFE-bf-hco"/>
+                                                        </constraints>
+                                                        <state key="normal" title="CONTINUE"/>
+                                                        <connections>
+                                                            <action selector="btnContinue:" destination="dwQ-vq-GVp" eventType="touchUpInside" id="L7P-QV-l7I"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstItem="sdf-Ex-k1J" firstAttribute="leading" secondItem="iYU-eY-r4S" secondAttribute="leading" constant="16" id="0Om-hA-6t2"/>
+                                                    <constraint firstItem="IR7-jc-piu" firstAttribute="leading" secondItem="iYU-eY-r4S" secondAttribute="leading" constant="16" id="2bM-VG-If8"/>
+                                                    <constraint firstItem="sdf-Ex-k1J" firstAttribute="top" secondItem="Ia8-ce-URc" secondAttribute="bottom" id="2x0-yp-4Lq"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Ia8-ce-URc" secondAttribute="trailing" id="Co6-KE-eNp"/>
+                                                    <constraint firstItem="7AF-Lw-Wkj" firstAttribute="leading" secondItem="iYU-eY-r4S" secondAttribute="leading" constant="16" id="EY6-5J-INe"/>
+                                                    <constraint firstAttribute="trailing" secondItem="7AF-Lw-Wkj" secondAttribute="trailing" constant="16" id="F2B-D0-EBb"/>
+                                                    <constraint firstItem="Ia8-ce-URc" firstAttribute="top" secondItem="7AF-Lw-Wkj" secondAttribute="bottom" id="IUS-6R-gE3"/>
+                                                    <constraint firstItem="drW-m8-Xm0" firstAttribute="leading" secondItem="iYU-eY-r4S" secondAttribute="leading" constant="16" id="L1v-hA-TKT"/>
+                                                    <constraint firstItem="Nbi-g6-qfZ" firstAttribute="leading" secondItem="iYU-eY-r4S" secondAttribute="leading" constant="16" id="Nxw-pG-mp8"/>
+                                                    <constraint firstAttribute="trailing" secondItem="IR7-jc-piu" secondAttribute="trailing" constant="16" id="QdH-ya-O8J"/>
+                                                    <constraint firstItem="drW-m8-Xm0" firstAttribute="top" secondItem="Nbi-g6-qfZ" secondAttribute="bottom" constant="24" id="TRs-um-qpI"/>
+                                                    <constraint firstAttribute="trailing" secondItem="sdf-Ex-k1J" secondAttribute="trailing" constant="16" id="XTB-AK-QWE"/>
+                                                    <constraint firstItem="Nbi-g6-qfZ" firstAttribute="top" secondItem="IR7-jc-piu" secondAttribute="bottom" constant="7" id="bzy-Bg-pyd"/>
+                                                    <constraint firstItem="Ia8-ce-URc" firstAttribute="leading" secondItem="iYU-eY-r4S" secondAttribute="leading" id="ciR-jb-seA"/>
+                                                    <constraint firstAttribute="bottom" secondItem="sdf-Ex-k1J" secondAttribute="bottom" constant="20" id="gzB-lE-Fgw"/>
+                                                    <constraint firstItem="m9F-2b-3F7" firstAttribute="top" secondItem="iYU-eY-r4S" secondAttribute="top" id="nsB-8v-okW"/>
+                                                    <constraint firstItem="7AF-Lw-Wkj" firstAttribute="top" secondItem="drW-m8-Xm0" secondAttribute="bottom" constant="6" id="saX-IC-PZS"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Nbi-g6-qfZ" secondAttribute="trailing" constant="16" id="yZp-CQ-raP"/>
+                                                    <constraint firstItem="IR7-jc-piu" firstAttribute="top" secondItem="m9F-2b-3F7" secondAttribute="bottom" constant="16" id="yzR-Nb-77H"/>
+                                                    <constraint firstItem="m9F-2b-3F7" firstAttribute="leading" secondItem="iYU-eY-r4S" secondAttribute="leading" constant="16" id="zut-IF-Oqw"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="iYU-eY-r4S" secondAttribute="trailing" id="AiV-Xd-g2L"/>
+                                            <constraint firstItem="iYU-eY-r4S" firstAttribute="top" secondItem="if2-UM-i37" secondAttribute="top" id="FwI-Cu-7HO"/>
+                                            <constraint firstItem="iYU-eY-r4S" firstAttribute="width" secondItem="if2-UM-i37" secondAttribute="width" id="Mwb-he-A8o"/>
+                                            <constraint firstItem="iYU-eY-r4S" firstAttribute="leading" secondItem="if2-UM-i37" secondAttribute="leading" id="hpe-wL-5ht"/>
+                                            <constraint firstItem="iYU-eY-r4S" firstAttribute="height" secondItem="if2-UM-i37" secondAttribute="height" id="pkV-Jv-VBQ"/>
+                                            <constraint firstAttribute="bottom" secondItem="iYU-eY-r4S" secondAttribute="bottom" id="qar-gH-f0m"/>
+                                        </constraints>
+                                    </scrollView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="if2-UM-i37" secondAttribute="bottom" id="Y4W-vh-Kt9"/>
+                                    <constraint firstItem="if2-UM-i37" firstAttribute="leading" secondItem="50G-Ak-L0H" secondAttribute="leading" id="mKW-jZ-UPK"/>
+                                    <constraint firstItem="if2-UM-i37" firstAttribute="top" secondItem="50G-Ak-L0H" secondAttribute="top" id="wOz-bh-lKF"/>
+                                    <constraint firstAttribute="trailing" secondItem="if2-UM-i37" secondAttribute="trailing" id="xKq-32-nPF"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="pH1-VG-cq8"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="pH1-VG-cq8" firstAttribute="bottom" secondItem="50G-Ak-L0H" secondAttribute="bottom" id="8xQ-GX-G7d"/>
+                            <constraint firstItem="50G-Ak-L0H" firstAttribute="top" secondItem="pH1-VG-cq8" secondAttribute="top" id="NIu-sM-Ate"/>
+                            <constraint firstItem="50G-Ak-L0H" firstAttribute="leading" secondItem="pH1-VG-cq8" secondAttribute="leading" id="Tnu-5X-kfE"/>
+                            <constraint firstItem="pH1-VG-cq8" firstAttribute="trailing" secondItem="50G-Ak-L0H" secondAttribute="trailing" id="amW-D7-v7m"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="oQr-Iy-kJI"/>
+                    <connections>
+                        <outlet property="btnContinue" destination="sdf-Ex-k1J" id="oXL-Nb-6a2"/>
+                        <outlet property="lblDescription" destination="Nbi-g6-qfZ" id="NC8-sA-TFY"/>
+                        <outlet property="lblEmailTitle" destination="drW-m8-Xm0" id="LV5-Z5-aUm"/>
+                        <outlet property="lblForgotPassword" destination="m9F-2b-3F7" id="eWD-Ov-Trn"/>
+                        <outlet property="lblQuestion" destination="IR7-jc-piu" id="Ko4-n5-4TQ"/>
+                        <outlet property="textFieldPhoneNumber" destination="I8V-Uf-rC8" id="KfU-wy-Ix9"/>
+                        <outlet property="txtEmail" destination="uUJ-TX-TEV" id="XSb-fh-tlq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="61A-RI-Xm6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7039" y="770"/>
+        </scene>
     </scenes>
     <resources>
         <image name="ImgRightArrow" width="16" height="16"/>
@@ -1774,6 +2048,9 @@ Number</string>
         <image name="splash_img_bottom" width="375.5" height="248"/>
         <image name="splash_img_center" width="274" height="274"/>
         <image name="splash_img_top" width="124" height="199.5"/>
+        <namedColor name="ThemeColor">
+            <color red="0.32899999618530273" green="0.32400000095367432" blue="0.4779999852180481" alpha="0.33000001311302185" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

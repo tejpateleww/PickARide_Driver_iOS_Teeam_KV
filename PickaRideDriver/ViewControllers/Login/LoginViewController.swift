@@ -13,7 +13,9 @@ class LoginViewController: UIViewController {
     //MARK: -Properties
     
     //MARK: -IBOutlets
+    @IBOutlet weak var lblPassword: themeLabel!
     @IBOutlet weak var btnRememberMe: themeButton!
+    @IBOutlet weak var lblEmail: themeLabel!
     @IBOutlet weak var lblSignIN: loginScreenLabel!
     @IBOutlet weak var lblWelcomeBack: loginScreenLabel!
     @IBOutlet weak var btnForgotPassword: loginScreenButton!
@@ -23,8 +25,8 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var btnSIgnUP: loginScreenButton!
     @IBOutlet weak var txtEmailOrPhoneNumber: themeTextField!
     @IBOutlet weak var txtPassword: themeTextField!
-    @IBOutlet weak var EmailView: changePasswordView!
-    @IBOutlet weak var vwPassword: changePasswordView!
+    @IBOutlet weak var EmailView: UIView!
+    @IBOutlet weak var vwPassword: UIView!
     
     //MARK: -View Life Cycle Methods
     var loginusermodel = LoginUserModel()
@@ -87,13 +89,13 @@ class LoginViewController: UIViewController {
     
     @IBAction func btnSignInClicked(_ sender: Any)
     {
-        if isValidForLogin(){
-            if self.getLocation(){
-//                self.callLoginApi()
+//        if isValidForLogin(){
+//            if self.getLocation(){
+////                self.callLoginApi()
                 user_defaults.setValue(true, forKey: UserDefaultsKey.isUserLogin.rawValue)
                 appDel.navigateToMain()
-            }
-        }
+//            }
+//        }
         
     }
     

@@ -41,7 +41,7 @@ class RideDetailsVC: BaseVC {
             stackviewRecieptBottom.constant = 0
             stackviewRecieptHeight.constant = 0
         }
-        setNavigationBarInViewController(controller: self, naviColor: colors.white.value, naviTitle: NavTitles.none.value, leftImage: NavItemsLeft.back.value, rightImages: [NavItemsRight.none.value], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
+        setNavigationBarInViewController(controller: self, naviColor: colors.white.value, naviTitle: "Ride Details", leftImage: NavItemsLeft.back.value, rightImages: [NavItemsRight.none.value], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
         shadowView(view: MyOfferView)
         MyOfferView.layer.cornerRadius = 4
         // Do any additional setup after loading the view.

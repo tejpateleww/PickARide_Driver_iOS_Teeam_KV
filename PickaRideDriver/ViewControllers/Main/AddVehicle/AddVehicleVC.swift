@@ -9,14 +9,14 @@ import UIKit
 import DropDown
 
 class AddVehicleVC: BaseVC, UITextFieldDelegate {
-
-    @IBOutlet weak var txtServiceType: themeWBorderTextField!
-    @IBOutlet weak var txtBrand: themeWBorderTextField!
-    @IBOutlet weak var txtModel: themeWBorderTextField!
-    @IBOutlet weak var txtManufacturer: themeWBorderTextField!
-    @IBOutlet weak var txtNumberPlate: themeWBorderTextField!
-    @IBOutlet weak var txtCarYear: themeWBorderTextField!
-    @IBOutlet weak var carColor: themeWBorderTextField!
+    
+    @IBOutlet weak var txtServiceType: themeTextField!
+    @IBOutlet weak var txtBrand: themeTextField!
+    @IBOutlet weak var txtModel: themeTextField!
+    @IBOutlet weak var txtManufacturer: themeTextField!
+    @IBOutlet weak var txtNumberPlate: themeTextField!
+    @IBOutlet weak var txtCarYear: themeTextField!
+    @IBOutlet weak var carColor: themeTextField!
     @IBOutlet weak var btnNext: themeButton!
     @IBOutlet weak var lblBrandLine: BGColor!
     @IBOutlet weak var lblModelLine: BGColor!
@@ -50,7 +50,7 @@ class AddVehicleVC: BaseVC, UITextFieldDelegate {
         self.Dropdown(Dropdown: self.BrandDropDown, StringArray: self.brandDropDown, control: self.txtBrand, displayView: lblBrandLine)
         self.Dropdown(Dropdown: self.ModelDropDown, StringArray: self.modelDropDown, control: self.txtModel, displayView: lblModelLine)
         self.Dropdown(Dropdown: self.CarYearDropDown, StringArray: self.carYearDropDown, control: self.txtCarYear, displayView: lblCarYearLine)
-       
+        
         setupTextfields(textfield: txtBrand)
         setupTextfields(textfield: txtModel)
         setupTextfields(textfield: txtCarYear)
@@ -80,14 +80,14 @@ class AddVehicleVC: BaseVC, UITextFieldDelegate {
         }
     }
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-       
-            if textField == self.txtBrand{
-                self.BrandDropDown.show()
-            }else if textField == self.txtModel{
-                self.ModelDropDown.show()
-            }else if textField == self.txtCarYear{
-                self.CarYearDropDown.show()
-            }
+        
+        if textField == self.txtBrand{
+            self.BrandDropDown.show()
+        }else if textField == self.txtModel{
+            self.ModelDropDown.show()
+        }else if textField == self.txtCarYear{
+            self.CarYearDropDown.show()
+        }
         return !(textField == self.txtBrand || textField == self.txtModel || textField == self.txtCarYear)
     }
     
@@ -95,9 +95,9 @@ class AddVehicleVC: BaseVC, UITextFieldDelegate {
         if isFromEditProfile{
             self.navigationController?.popViewController(animated: true)
         }else{
-        let vc : PersonalDocumentVC = PersonalDocumentVC.instantiate(fromAppStoryboard: .Login)
-        vc.isVehicleDocument = true
-        self.navigationController?.pushViewController(vc, animated: true)
+            let vc : PersonalDocumentVC = PersonalDocumentVC.instantiate(fromAppStoryboard: .Login)
+            vc.isVehicleDocument = true
+            self.navigationController?.pushViewController(vc, animated: true)
         }
-        }
+    }
 }

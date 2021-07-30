@@ -11,6 +11,7 @@
 "LoginScreen_lblSignIN" = "Sign In";
 "LoginScreen_lblWelcomeBack" = "Welcome Back!";
 "LoginScreen_textFieldEmailID_place" = "Email";
+"LoginScreen_lblEmail" = "EMAIL";
 "LoginScreen_textFieldPassword_place" = "Password";
 "LoginScreen_btnForgotPassword" = "Forgot Password?";
 "LoginScreen_btnSignIN" = "SIGN IN";
@@ -79,3 +80,11 @@
 "UrlConstant_LogoutMessage" = "Are you sure you want to logout?";
 "UrlConstant_EnterEmailMessage" = "Please enter email";
 "UrlConstant_InvalidCardNumber" = "Your card number is invalid";
+
+//Forgot Password Screen
+"ForgotPasswordScreen_lblForgotPassword" = "Forgot \nPassword";
+"ForgotPasswordScreen_lblQuestion" = "What is your email address?";
+"ForgotPasswordScreen_lblDescription" = "Tap \"Get Started\" to get an SMS confirmation to help you use PICK A RIDE. We would like your email address.";
+"ForgotPasswordScreen_lblCountryCode" = "COUNTRY CODE";
+"ForgotPasswordScreen_textFieldPhoneNumber" = "Phone number";
+"ForgotPasswordScreen_btnContinue" = "CONTINUE";

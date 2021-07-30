@@ -382,12 +382,12 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qts-W8-aef">
-                    <rect key="frame" x="282" y="457" width="108" height="36"/>
+                    <rect key="frame" x="354" y="457" width="36" height="36"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="36" id="Hwp-VY-NkZ"/>
-                        <constraint firstAttribute="width" constant="108" id="pN2-jY-f6G"/>
+                        <constraint firstAttribute="width" constant="36" id="pN2-jY-f6G"/>
                     </constraints>
-                    <state key="normal" title="Navigate" image="imgNavigate"/>
+                    <state key="normal" title="Navigate" image="iconGPS"/>
                     <connections>
                         <action selector="btnNavigateTap:" destination="iN0-l3-epB" eventType="touchUpInside" id="blx-52-iCR"/>
                     </connections>
@@ -413,6 +413,7 @@
             <connections>
                 <outlet property="btnAcceptRequest" destination="336-cW-TXX" id="VnK-wA-fW5"/>
                 <outlet property="btnNavigate" destination="qts-W8-aef" id="gr9-al-aN8"/>
+                <outlet property="btnNavigateWidth" destination="pN2-jY-f6G" id="faA-AH-XfP"/>
                 <outlet property="btnNoThanks" destination="I9v-HO-Rbo" id="2C9-gt-4af"/>
                 <outlet property="btnSos" destination="e0l-AH-vWP" id="szR-F3-yzu"/>
                 <outlet property="driverInfoVW" destination="1bV-40-zGj" id="QAg-vM-kQk"/>
@@ -444,7 +445,7 @@
         <image name="ic_ellipse" width="7" height="7"/>
         <image name="ic_rectangle" width="7" height="7"/>
         <image name="ic_x_cross" width="24" height="24"/>
-        <image name="imgNavigate" width="108" height="36"/>
+        <image name="iconGPS" width="38" height="38"/>
         <namedColor name="SeperatorColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="0.029999999329447746" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

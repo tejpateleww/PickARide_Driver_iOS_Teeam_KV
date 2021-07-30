@@ -13,6 +13,7 @@ class EditProfileVC: BaseVC, UITextFieldDelegate {
     private var imagePicker : ImagePicker!
     var isRemovePhoto = false
     @IBOutlet weak var vwMobile: UIView!
+    @IBOutlet weak var scrollViewEditProfile: UIScrollView!
     @IBOutlet weak var vwEditProfileCamera: settingsView!
     @IBOutlet weak var lblName: themeLabel!
     @IBOutlet weak var tblEditProfile: UITableView!
@@ -26,7 +27,7 @@ class EditProfileVC: BaseVC, UITextFieldDelegate {
     @IBOutlet weak var btnSave: themeButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-        setNavigationBarInViewController(controller: self, naviColor: colors.appColor.value, naviTitle: NavTitles.none.value, leftImage: NavItemsLeft.cancel.value, rightImages: [NavItemsRight.EditProfile.value], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
+        setNavigationBarInViewController(controller: self, naviColor: colors.appColor.value, naviTitle: "View Profile", leftImage: NavItemsLeft.cancel.value, rightImages: [NavItemsRight.EditProfile.value], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
         vwEditProfileCamera.isHidden = true
         tblEditProfile.delegate = self
         tblEditProfile.dataSource = self
@@ -37,7 +38,7 @@ class EditProfileVC: BaseVC, UITextFieldDelegate {
         self.imagePicker = ImagePicker(presentationController: self, delegate: self, allowsEditing: false)
         self.imagePicker = ImagePicker(presentationController: self, delegate: self, allowsEditing: true)
         tblEditProfile.addObserver(self, forKeyPath: "contentSize", options: .new, context: nil)
-        setupTextfields(textfield: txtPassword)
+        setupTextfields(textfield: txtPassword, isEdit: false)
         varifiedTextFields(textfield: txtEmail)
         varifiedTextFields(textfield: txtPhoneNumber)
         txtName.isUserInteractionEnabled = false
@@ -60,6 +61,7 @@ class EditProfileVC: BaseVC, UITextFieldDelegate {
         }
     }
     override func EditProfileBtn(_ sender: UIButton?) {
+      
         btnSave.isHidden = false
         setNavigationBarInViewController(controller: self, naviColor: colors.appColor.value, naviTitle: NavTitles.none.value, leftImage: NavItemsLeft.cancel.value, rightImages: [NavItemsRight.none.value], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
         vwEditProfileCamera.isHidden = false
@@ -68,13 +70,18 @@ class EditProfileVC: BaseVC, UITextFieldDelegate {
         txtPassword.isUserInteractionEnabled = true
         txtName.textColor = .black
         txtPassword.textColor = .black
+        let bottomOffset = CGPoint(x: 0, y: scrollViewEditProfile.contentSize.height - scrollViewEditProfile.bounds.height + scrollViewEditProfile.contentInset.bottom)
+        scrollViewEditProfile.setContentOffset(bottomOffset, animated: true)
+        setupTextfields(textfield: txtPassword, isEdit: true)
+        setNavigationBarInViewController(controller: self, naviColor: colors.appColor.value, naviTitle: "Edit Profile", leftImage: NavItemsLeft.cancel.value, rightImages: [NavItemsRight.EditProfile.value], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
+        
     }
 
     
-    func setupTextfields(textfield : UITextField) {
+    func setupTextfields(textfield : UITextField, isEdit : Bool = false) {
         let button = UIButton(type: .custom)
         button.isSelected = true
-        button.setImage(#imageLiteral(resourceName: "ImgGraterThen"), for: .normal)
+        button.setImage(isEdit ? #imageLiteral(resourceName: "ImgGraterThen") : UIImage(named: ""), for: .normal)
         button.tintColor = .gray
         button.isUserInteractionEnabled = false
 //        button.setImage(#imageLiteral(resourceName: <#T##String#>), for: .selected)
@@ -100,6 +107,7 @@ class EditProfileVC: BaseVC, UITextFieldDelegate {
     
     
     @IBAction func btnSaveTap(_ sender: UIButton) {
+     
         btnSave.isHidden = true
         setNavigationBarInViewController(controller: self, naviColor: colors.appColor.value, naviTitle: NavTitles.none.value, leftImage: NavItemsLeft.cancel.value, rightImages: [NavItemsRight.EditProfile.value], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
         txtName.isUserInteractionEnabled = false
@@ -108,6 +116,8 @@ class EditProfileVC: BaseVC, UITextFieldDelegate {
         txtPassword.textColor = .lightGray
         vwEditProfileCamera.isHidden = true
         btnUpdatePicture.isUserInteractionEnabled = false
+        setupTextfields(textfield: txtPassword, isEdit: false)
+        setNavigationBarInViewController(controller: self, naviColor: colors.appColor.value, naviTitle: "View Profile", leftImage: NavItemsLeft.cancel.value, rightImages: [NavItemsRight.EditProfile.value], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
     }
     @IBAction func showHidePassword(_ sender : UIButton) {
 //

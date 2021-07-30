@@ -37,7 +37,7 @@ class MyRidesVC: BaseVC,UITableViewDelegate,UITableViewDataSource {
         
         self.tblMyRideType.frame.origin.y = -8
         self.tblMyRideType.frame.size.height = 0
-        setNavigationBarInViewController(controller: self, naviColor: colors.myride.value, naviTitle: NavTitles.none.value, leftImage: NavItemsLeft.back.value, rightImages: [NavItemsRight.none.value], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
+        setNavigationBarInViewController(controller: self, naviColor: colors.myride.value, naviTitle: "My Rides", leftImage: NavItemsLeft.back.value, rightImages: [NavItemsRight.none.value], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
         self.btnUpcoming.setTitle(myRideArr[selectedMyRideState], for: .normal)
     }
     //MARK: -Other Methods

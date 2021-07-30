@@ -54,6 +54,7 @@
 		18C89EAA26A542490083D5C3 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 18C89EA926A542490083D5C3 /* Settings.bundle */; };
 		18C89EAC26A560360083D5C3 /* PasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C89EAB26A560360083D5C3 /* PasswordViewModel.swift */; };
 		18C89EAF26A5810B0083D5C3 /* AppDelegate+PushNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C89EAE26A5810B0083D5C3 /* AppDelegate+PushNotification.swift */; };
+		18D1691E26B4061A0074FBEA /* ForgotPasswordVC1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D1691D26B4061A0074FBEA /* ForgotPasswordVC1.swift */; };
 		18E2E139267223570054E351 /* OtpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E2E138267223570054E351 /* OtpVC.swift */; };
 		18E2E13B267240360054E351 /* RatingAndReviewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E2E13A267240360054E351 /* RatingAndReviewVC.swift */; };
 		18ECF0BC26A5B1AD00B7F1C1 /* UploadDocModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ECF0BB26A5B1AD00B7F1C1 /* UploadDocModel.swift */; };
@@ -218,6 +219,7 @@
 		18C89EAB26A560360083D5C3 /* PasswordViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordViewModel.swift; sourceTree = "<group>"; };
 		18C89EAD26A57F6C0083D5C3 /* PickaRideDriver.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PickaRideDriver.entitlements; sourceTree = "<group>"; };
 		18C89EAE26A5810B0083D5C3 /* AppDelegate+PushNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AppDelegate+PushNotification.swift"; sourceTree = "<group>"; };
+		18D1691D26B4061A0074FBEA /* ForgotPasswordVC1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ForgotPasswordVC1.swift; path = "../../../../PickARideCustomer/PickARide User/Controllers/Password/ForgotPasswordVC1.swift"; sourceTree = "<group>"; };
 		18E2E138267223570054E351 /* OtpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtpVC.swift; sourceTree = "<group>"; };
 		18E2E13A267240360054E351 /* RatingAndReviewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingAndReviewVC.swift; sourceTree = "<group>"; };
 		18ECF0BB26A5B1AD00B7F1C1 /* UploadDocModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadDocModel.swift; sourceTree = "<group>"; };
@@ -538,6 +540,7 @@
 			isa = PBXGroup;
 			children = (
 				4F1A76362644FC67003F00CF /* LoginViewController.swift */,
+				18D1691D26B4061A0074FBEA /* ForgotPasswordVC1.swift */,
 				187197FD2684B91F00B4DAAF /* ForgotPasswordVC.swift */,
 			);
 			path = Login;
@@ -1192,6 +1195,7 @@
 				186EC9342696E04C00314717 /* SplashVC.swift in Sources */,
 				4F94F1CE2643FEE500780413 /* AppInfo.swift in Sources */,
 				1865CF6B267C767600379A40 /* Webservices+Extension.swift in Sources */,
+				18D1691E26B4061A0074FBEA /* ForgotPasswordVC1.swift in Sources */,
 				18C89EAF26A5810B0083D5C3 /* AppDelegate+PushNotification.swift in Sources */,
 				4F94F1872643DB5F00780413 /* CustomImageVIew.swift in Sources */,
 				1851032226A159A800D0BA49 /* CountryModel.swift in Sources */,
