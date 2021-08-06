@@ -44,10 +44,12 @@ class AcceptedRideDetailsView: UIView {
     var isComplete : Bool = false
     var isCompleteClicked : Bool = false
     var TextfieldCountIsFour = false
+    var isNoTapFromCancelRide = false
     
     var isExpandCategory:  Bool  = false {
         didSet {
-            mainVWBottomConstraint.constant = isExpandCategory ? 0 : (-mainVW.frame.height + topVW.frame.height + timewVW.frame.height + 8)
+            mainVWBottomConstraint.constant = isExpandCategory ? 0 : (-mainVW.frame.height + topVW.frame.height + timewVW.frame.height + 35)
+            btnDownArrow.isHidden = !isExpandCategory
             UIView.animate(withDuration: 0.8, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: [.curveEaseInOut, .allowUserInteraction, .beginFromCurrentState], animations: {
                 self.layoutIfNeeded()
             }) { (success) in
@@ -75,9 +77,11 @@ class AcceptedRideDetailsView: UIView {
     
     @objc func respondToSwipeGesture(gesture: UIGestureRecognizer) {
         if let swipeGesture = gesture as? UISwipeGestureRecognizer {
+            self.endEditing(true)
             switch swipeGesture.direction {
             case UISwipeGestureRecognizer.Direction.down:
                 print("Swiped down")
+//                ViewTripCode.isHidden = true
                 self.isExpandCategory = false
             case UISwipeGestureRecognizer.Direction.up:
                 print("Swiped up")
@@ -152,6 +156,31 @@ class AcceptedRideDetailsView: UIView {
         }
         
     }
+    
+    func completeTap(){
+        self.btnCancel.isHidden = !isComplete
+        isComplete = false
+        isCompleteClicked = false
+//        delegate?.onArrivedUserLocation()
+        btnSubmit.setTitle("ARRIVED", for: .normal)
+        btnDownArrow.isHidden = false
+        viewContactOptions.isHidden = false
+        btnNavigate.isHidden = false
+    }
+    
+    func isCompleted(){
+//        if isNoTapFromCancelRide{
+            self.btnCancel.isHidden = false
+//        }
+//        self.btnCancel.isHidden = !isComplete
+        btnSubmit.setTitle("COMPLETE", for: .normal)
+        isComplete = false
+        btnDownArrow.isHidden = true
+        isCompleteClicked = true
+        ViewTripCode.isHidden = true
+        viewContactOptions.isHidden = true
+        btnNavigate.isHidden = false
+    }
     @IBAction func btnSosTap(_ sender: Any) {
     }
     
@@ -165,6 +194,7 @@ class AcceptedRideDetailsView: UIView {
     }
     
     @IBAction func btnCancelClickAction(_ sender: Any) {
+        
         delegate?.onCancelAcceptedRideRequest()
     }
     

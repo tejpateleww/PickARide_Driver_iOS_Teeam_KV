@@ -17,6 +17,7 @@ class PopUpVC: UIViewController {
         super.viewDidLoad()
         txtDate.textColor = themeColor
         vwContainer.layer.cornerRadius = 8
+        txtDate.tintColor = themeColor
         
     }
     

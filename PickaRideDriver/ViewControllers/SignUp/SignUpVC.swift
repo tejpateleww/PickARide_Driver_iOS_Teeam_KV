@@ -15,7 +15,7 @@ class SignUpVC: BaseVC {
     @IBOutlet weak var btnTermsandConditions: themeButton!
     @IBOutlet weak var lblPassword: themeLabel!
     @IBOutlet weak var lblFirstName: themeLabel!
-    @IBOutlet weak var txtHomeAddress: themeTextField!
+    @IBOutlet weak var txtviewHomeAddress: themeTextview!
     @IBOutlet weak var btnPrivacyPolicy: themeButton!
     @IBOutlet weak var lblHomeAddress: themeLabel!
     @IBOutlet weak var vwMobile: UIView!
@@ -39,10 +39,15 @@ class SignUpVC: BaseVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         setNavigationBarInViewController(controller: self, naviColor: colors.appColor.value, naviTitle: "Create profile", leftImage: NavItemsLeft.back.value, rightImages: [NavItemsRight.none.value], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
+        txtviewHomeAddress.delegate = self
         self.setUpUI()
         setupTextfields(textfield: txtPassword)
         txtMobile.tintColor = themeColor
         self.setTextFieldDelegate()
+        txtviewHomeAddress.textColor = txtviewHomeAddress.text == "Home Address" ? colors.gray.value : .black
+        txtMobile.layer.borderColor = UIColor.white.cgColor
+        txtviewHomeAddress.leftSpace()
+//        txtviewHomeAddress.font = CustomFont.
     }
     
     //MARK:- Custom Methods
@@ -52,7 +57,7 @@ class SignUpVC: BaseVC {
         button.isSelected = true
         button.setImage(UIImage(named: "showpassword"), for: .normal)
         button.setImage(UIImage(named: "hidepassword"), for: .selected)
-        button.imageEdgeInsets = UIEdgeInsets(top: 0, left: -16, bottom: 0, right: 0)
+        button.imageEdgeInsets = UIEdgeInsets(top: 0, left: -32, bottom: 0, right: 0)
         button.frame = CGRect(x: CGFloat(textfield.frame.size.width - 25), y: CGFloat(5), width: CGFloat(25), height: CGFloat(25))
         button.tag = textfield.tag
         button.addTarget(self, action: #selector(self.showHidePassword), for: .touchUpInside)
@@ -97,6 +102,24 @@ class SignUpVC: BaseVC {
     
 }
 
+//MARK:- UITextview Delegate methods
+extension SignUpVC : UITextViewDelegate{
+    func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
+         txtviewHomeAddress.text = ""
+        txtviewHomeAddress.textColor = .black
+        return true
+    }
+    func textViewDidChangeSelection(_ textView: UITextView) {
+//        self.txtviewComment.text = txtviewComment.text
+        
+        
+    }
+    func textViewDidEndEditing(_ textView: UITextView) {
+        txtviewHomeAddress.text = txtviewHomeAddress.text == "" ? "Home Address" : txtviewHomeAddress.text
+        txtviewHomeAddress.textColor = txtviewHomeAddress.text == "Home Address" ? colors.lightGrey.value : .black
+    }
+}
+
 
 extension SignUpVC{
     func setUpUI(){
@@ -134,7 +157,6 @@ extension SignUpVC{
         self.txtLastName.delegate = self
         self.txtCountryCode.delegate = self
         self.txtMobile.delegate = self
-        self.txtHomeAddress.delegate = self
         self.txtPassword.delegate = self
     }
     
@@ -156,7 +178,7 @@ extension SignUpVC{
         let lastName = self.txtLastName.validatedText(validationType: .username(field: self.txtLastName.placeholder?.lowercased() ?? ""))
         let checkEmail = self.txtEmail.validatedText(validationType: .email)
         let mobileNo = self.txtMobile.validatedText(validationType: .requiredField(field: self.txtMobile.placeholder?.lowercased() ?? ""))
-        let address = self.txtHomeAddress.validatedText(validationType: .requiredField(field: self.txtHomeAddress.placeholder?.lowercased() ?? ""))
+//        let address = self.txtviewHomeAddress.validatedText(validationType: .requiredField(field: self.txtHomeAddress.placeholder?.lowercased() ?? ""))
         let password = self.txtPassword.validatedText(validationType: .password(field: self.txtPassword.placeholder?.lowercased() ?? ""))
         
         if !firstName.0{
@@ -169,8 +191,9 @@ extension SignUpVC{
             strTitle = mobileNo.1
         }else if self.txtMobile.text?.count != 10 {
             strTitle = UrlConstant.ValidPhoneNo
-        }else if !address.0{
-            strTitle = address.1
+        }else if txtviewHomeAddress.text == "Home Address" || txtviewHomeAddress.text == ""{
+            strTitle = "Please enter home address"
+            return false
         }else if !password.0{
             strTitle = password.1
         }
@@ -227,20 +250,25 @@ extension SignUpVC : UIPickerViewDelegate,UIPickerViewDataSource {
     }
 }
 
-//MARK:- TextView Delegate
-extension SignUpVC: UITextViewDelegate{
-//    func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {
-//
-//        let controller = CommonWebViewVC.instantiate(fromAppStoryboard: .Main)
-//        if (URL.absoluteString ==  "SignUpPage_textViewText2".Localized().replacingOccurrences(of: " ", with: "")) {
-//            print("Print termsAndConditions")
-//            controller.strNavTitle = "SignUpPage_textViewText2".Localized().capitalized
-//        } else if (URL.absoluteString ==  "SignUpPage_textViewText4".Localized().replacingOccurrences(of: " ", with: "")) {
-//            print("Print privacypolicy")
-//            controller.strNavTitle = "SignUpPage_textViewText4".Localized().capitalized
-//        }
-//
-//        self.navigationController?.pushViewController(controller, animated: true)
-//        return false
-//    }
+////MARK:- TextView Delegate
+//extension SignUpVC: UITextViewDelegate{
+////    func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {
+////
+////        let controller = CommonWebViewVC.instantiate(fromAppStoryboard: .Main)
+////        if (URL.absoluteString ==  "SignUpPage_textViewText2".Localized().replacingOccurrences(of: " ", with: "")) {
+////            print("Print termsAndConditions")
+////            controller.strNavTitle = "SignUpPage_textViewText2".Localized().capitalized
+////        } else if (URL.absoluteString ==  "SignUpPage_textViewText4".Localized().replacingOccurrences(of: " ", with: "")) {
+////            print("Print privacypolicy")
+////            controller.strNavTitle = "SignUpPage_textViewText4".Localized().capitalized
+////        }
+////
+////        self.navigationController?.pushViewController(controller, animated: true)
+////        return false
+////    }
+//}
+extension UITextView {
+func leftSpace() {
+    self.textContainerInset = UIEdgeInsets(top: 4, left: 6, bottom: 4, right: 4)
+}
 }

@@ -24,6 +24,7 @@ class SettingVC: BaseVC, UITextFieldDelegate {
     @IBOutlet weak var lblLanguageName: themeLabel!
     override func viewDidLoad() {
         super.viewDidLoad()
+        selectedIndexOfPicker = 0
         txtLanguage.tintColor = .white
         lblLanguageName.text = arrLanguage[0]
         txtLanguage.delegate = self

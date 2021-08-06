@@ -40,7 +40,7 @@ class PersonalDocumentVC: BaseVC {
         if isVehicleDocument{
             setNavigationBarInViewController(controller: self, naviColor: colors.appColor.value, naviTitle: "Vehicle Document", leftImage: NavItemsLeft.back.value, rightImages: [NavItemsRight.none.value], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
             vehicleDocuments()
-            btnNext.setTitle(isFromEditProfile ? "SAVE" : "REGISTER", for: .normal)
+            btnNext.setTitle(isFromEditProfile ? "SAVE" : "SIGN UP", for: .normal)
             
         }else{
             setNavigationBarInViewController(controller: self, naviColor: colors.appColor.value, naviTitle: "Personal Document", leftImage: NavItemsLeft.back.value, rightImages: [NavItemsRight.none.value], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)

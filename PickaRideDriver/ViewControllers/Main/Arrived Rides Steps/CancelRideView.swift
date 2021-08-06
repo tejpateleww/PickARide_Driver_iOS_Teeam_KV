@@ -33,6 +33,10 @@ class CancelRideView: UIView {
     @IBOutlet weak var btnNo: CancelButton!
     @IBOutlet weak var lblCancelActionTitle: CommonLabel!
     
+    var noCancelClosure : (()->())?
+    var YesCancelClosure : (()->())?
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
          setupView()
@@ -44,11 +48,22 @@ class CancelRideView: UIView {
     
     @IBAction func btnYesCancelClickAction(_ sender: Any)
     {
+        if let obj = YesCancelClosure{
+            obj()
+        }
         delegate?.onRideCanelDecision(decision: 1)
     }
     
+    @IBAction func btnCrossTap(_ sender: Any) {
+        if let obj = noCancelClosure{
+            obj()
+        }
+    }
     @IBAction func btnNoClickAction(_ sender: Any)
     {
+        if let obj = noCancelClosure{
+            obj()
+        }
         delegate?.onRideCanelDecision(decision: 2)
     }
     

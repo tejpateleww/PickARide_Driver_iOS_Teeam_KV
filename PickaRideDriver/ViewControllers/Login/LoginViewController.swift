@@ -67,7 +67,7 @@ class LoginViewController: UIViewController {
         button.isSelected = true
         button.setImage(UIImage(named: "showpassword"), for: .normal)
         button.setImage(UIImage(named: "hidepassword"), for: .selected)
-        button.imageEdgeInsets = UIEdgeInsets(top: 0, left: -16, bottom: 0, right: 0)
+        button.imageEdgeInsets = UIEdgeInsets(top: 0, left: -32, bottom: 0, right: 0)
         button.frame = CGRect(x: CGFloat(textfield.frame.size.width - 25), y: CGFloat(5), width: CGFloat(25), height: CGFloat(25))
         button.tag = textfield.tag
         button.addTarget(self, action: #selector(self.showHidePassword), for: .touchUpInside)

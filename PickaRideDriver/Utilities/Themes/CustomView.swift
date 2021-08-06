@@ -22,9 +22,10 @@ class loginView : UIView {
         self.layer.borderWidth = 1
     }
 }
+/// <#Description#>
 class RegisterView : UIView {
     override func awakeFromNib() {
-        self.layer.cornerRadius = 4
+//        self.layer.cornerRadius = 4
         self.layer.borderColor = hexStringToUIColor(hex: "#F0F0F0").cgColor
         self.layer.borderWidth = 1
     }
@@ -453,6 +454,28 @@ class chatScreenView : UIView {
     }
 }
 class HomescreenView : UIView {
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        roundCorners(corners: [.topLeft, .topRight], radius: 12.0)
+        
+    }
+}
+class HomescreenView1 : UIView {
+    
+//    @IBInspectable var isShadow : Bool = false
+    override func awakeFromNib() {
+//         if isShadow{
+//            self.layer.cornerRadius = 12
+//            self.clipsToBounds = false
+//            self.layer.masksToBounds = true
+//            self.backgroundColor = UIColor.white
+//            self.layer.shadowColor = colors.black.value.cgColor
+//            self.layer.shadowOpacity = 4
+//            self.layer.shadowOffset = CGSize(width: 4.0, height: 4.0)
+//            self.layer.shadowRadius = 12.0
+//            self.layer.masksToBounds = false
+//        }
+    }
     override func layoutSubviews() {
         super.layoutSubviews()
         roundCorners(corners: [.topLeft, .topRight], radius: 12.0)

@@ -34,6 +34,7 @@ class HomeVC: BaseVC {
     lazy var incomingRideRequestView : IncomingRideRequestView = IncomingRideRequestView.fromNib()
     lazy var acceptedRideDetailsView : AcceptedRideDetailsView = AcceptedRideDetailsView.fromNib()
     lazy var cancelRideView : CancelRideView = CancelRideView.fromNib()
+    var isCloseTap = false
 
     
     override func viewDidLoad()
@@ -43,6 +44,7 @@ class HomeVC: BaseVC {
 //        btnOn.tintColor = UIColor.init(hexString: "F34938")
         setNavigationBarInViewController(controller: self, naviColor: colors.appColor.value, naviTitle: NavTitles.none.value, leftImage: NavItemsLeft.menu.value, rightImages: [NavItemsRight.sos.value], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
         handleRideFlow(state: RideState.None)
+//        vwMap.isMyLocationEnabled = true
 //        vwMap
     }
     
@@ -51,6 +53,7 @@ class HomeVC: BaseVC {
     {
         if lblOffline.text == "You're online"{
         handleRideFlow(state: RideState.NewRequest)
+            btnOn.isHidden = true
         setNavigationBarInViewController(controller: self, naviColor: colors.appColor.value, naviTitle: NavTitles.none.value, leftImage: NavItemsLeft.menu.value, rightImages: [NavItemsRight.none.value], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
         }
         sender.isSelected = !sender.isSelected
@@ -63,6 +66,7 @@ class HomeVC: BaseVC {
 fileprivate extension HomeVC {
     
     func handleRideFlow(state : Int) {
+       
         self.btnOn.isEnabled = state == RideState.None
         if (state == RideState.None)
         {
@@ -104,6 +108,18 @@ fileprivate extension HomeVC {
             incomingRideRequestView.isHidden = true
             acceptedRideDetailsView.isHidden = false
             cancelRideView.isHidden = true
+            cancelRideView.noCancelClosure = {
+//                self.acceptedRideDetailsView.awakeFromNib()
+                if self.isCloseTap{
+                self.acceptedRideDetailsView.isNoTapFromCancelRide = true
+                }
+                self.acceptedRideDetailsView.isCompleted()
+                
+            }
+            cancelRideView.YesCancelClosure = {
+                self.acceptedRideDetailsView.completeTap()
+            }
+            
             acceptedRideDetailsView.setRideDetails()
 
         
@@ -114,20 +130,19 @@ fileprivate extension HomeVC {
             cancelRideView.isHidden = false
             cancelRideView.setRideDetails()
         }
-    
     }
-    
 }
 
 extension HomeVC : IncomingRideRequestViewDelegate
 {
     func onCancelRideRequest() {
-        
+        self.btnOn.isHidden = false
     }
     
     func onNoThanksRequest(){
         handleRideFlow(state: RideState.None)
         setNavigationBarInViewController(controller: self, naviColor: colors.appColor.value, naviTitle: NavTitles.none.value, leftImage: NavItemsLeft.menu.value, rightImages: [NavItemsRight.sos.value], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
+        self.btnOn.isHidden = false
     }
     
     func onAcceptRideRequest() {
@@ -145,17 +160,22 @@ extension HomeVC : AcceptedRideDetailsViewDelgate
         vc.reviewBtnTapClosure = {
 //            self.handleRideFlow(state: RideState.None)
             self.setNavigationBarInViewController(controller: self, naviColor: colors.appColor.value, naviTitle: NavTitles.none.value, leftImage: NavItemsLeft.menu.value, rightImages: [NavItemsRight.sos.value], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
+            self.btnOn.isHidden = false
             self.lblOffline.text = "You're offline"
         }
         vc.btnDoneTapClosure = {
             self.setNavigationBarInViewController(controller: self, naviColor: colors.appColor.value, naviTitle: NavTitles.none.value, leftImage: NavItemsLeft.menu.value, rightImages: [NavItemsRight.sos.value], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
+            self.btnOn.isHidden = false
             self.lblOffline.text = "You're offline"
         }
+        
         self.navigationController?.present(vc, animated: false, completion: nil)
     }
     
     func onCancelAcceptedRideRequest() {
+        
         handleRideFlow(state: RideState.CancelAcceptedRide)
+        self.btnOn.isHidden = false
     }
     func onChatRideRequest() {
         let vc : ChatViewController = ChatViewController.instantiate(fromAppStoryboard: .Chat)
@@ -180,8 +200,12 @@ extension HomeVC : CancelRideViewDelgate
         if (decision == 1) //Yes
         {
             let controller = AppStoryboard.Main.instance.instantiateViewController(withIdentifier: CancelRideVC.storyboardID) as! CancelRideVC
+            controller.doneCancelClosure = {
+                self.isCloseTap = true
+            }
             controller.cancelReqClosure = {
                 self.handleRideFlow(state: RideState.None)
+                
             }
             
             self.navigationController?.pushViewController(controller, animated: true)

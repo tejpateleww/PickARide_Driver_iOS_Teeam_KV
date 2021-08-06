@@ -12,6 +12,36 @@ import MaterialComponents.MaterialTextControls_OutlinedTextFields
 import MaterialComponents.MaterialTextFields
 import MaterialComponents.MaterialTextFields_ColorThemer
 
+class themeTextview : UITextView{
+    @IBInspectable var Font_Size : CGFloat = 16.0
+    @IBInspectable public var isbold: Bool = false
+    @IBInspectable public var isMedium: Bool = false
+    @IBInspectable public var islight: Bool = false
+    @IBInspectable var Font_Color = UIColor.white
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        //            self.font = CustomFont.regular.returnFont(16.0)
+        //            self.placeHolderColor = colors.lightGrey.value
+        //            self.textColor = colors.lightGrey.value
+//        self.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: self.frame.height))
+//        self.leftViewMode = .always
+        self.layer.borderWidth = 1
+        self.layer.borderColor = colors.textfieldbordercolor.value.cgColor
+        self.tintColor = themeColor
+        if isbold{
+            self.font = CustomFont.bold.returnFont(Font_Size)
+        }else if isMedium{
+            self.font = CustomFont.medium.returnFont(Font_Size)
+        }else if islight {
+            self.font = CustomFont.light.returnFont(Font_Size)
+        }else{
+            self.font = CustomFont.regular.returnFont(Font_Size)
+        }
+    }
+    override func layoutSubviews() {
+        super.layoutSubviews()
+    }
+}
 
 class themeTextField : UITextField{
     

@@ -32,9 +32,9 @@ class EditProfileVC: BaseVC, UITextFieldDelegate {
         tblEditProfile.delegate = self
         tblEditProfile.dataSource = self
         tblEditProfile.reloadData()
-        vwMobile.layer.borderWidth = 1
+//        vwMobile.layer.borderWidth = 1
         btnUpdatePicture.isUserInteractionEnabled = false
-        vwMobile.layer.borderColor = colors.textfieldbordercolor.value.cgColor
+//        vwMobile.layer.borderColor = colors.textfieldbordercolor.value.cgColor
         self.imagePicker = ImagePicker(presentationController: self, delegate: self, allowsEditing: false)
         self.imagePicker = ImagePicker(presentationController: self, delegate: self, allowsEditing: true)
         tblEditProfile.addObserver(self, forKeyPath: "contentSize", options: .new, context: nil)
@@ -73,7 +73,7 @@ class EditProfileVC: BaseVC, UITextFieldDelegate {
         let bottomOffset = CGPoint(x: 0, y: scrollViewEditProfile.contentSize.height - scrollViewEditProfile.bounds.height + scrollViewEditProfile.contentInset.bottom)
         scrollViewEditProfile.setContentOffset(bottomOffset, animated: true)
         setupTextfields(textfield: txtPassword, isEdit: true)
-        setNavigationBarInViewController(controller: self, naviColor: colors.appColor.value, naviTitle: "Edit Profile", leftImage: NavItemsLeft.cancel.value, rightImages: [NavItemsRight.EditProfile.value], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
+        setNavigationBarInViewController(controller: self, naviColor: colors.appColor.value, naviTitle: "Edit Profile", leftImage: NavItemsLeft.cancel.value, rightImages: [NavItemsRight.none.value], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
         
     }
 

@@ -28,7 +28,7 @@ class OtpVC: BaseVC, UITextFieldDelegate, OTPTextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         lblDisplayMesagewithNumber.text = "Check your SMS messages. We've sent you the PIN at" + "    ******9999"
-        setNavigationBarInViewController(controller: self, naviColor: colors.appColor.value, naviTitle: "Verify Phone Number", leftImage: NavItemsLeft.back.value, rightImages: [NavItemsRight.none.value], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
+        setNavigationBarInViewController(controller: self, naviColor: colors.appColor.value, naviTitle: "Verify", leftImage: NavItemsLeft.back.value, rightImages: [NavItemsRight.none.value], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
         txtOtp[0].becomeFirstResponder()
         reversetimer()
         for i in txtOtp {

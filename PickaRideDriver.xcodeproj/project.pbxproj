@@ -34,11 +34,12 @@
 		186EC9382696F64D00314717 /* PasswordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186EC9372696F64D00314717 /* PasswordModel.swift */; };
 		186F7D9F2693011300F3818C /* DemoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186F7D9E2693011300F3818C /* DemoVC.swift */; };
 		187197FC26848E3200B4DAAF /* PopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187197FB26848E3200B4DAAF /* PopUpVC.swift */; };
-		187197FE2684B91F00B4DAAF /* ForgotPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187197FD2684B91F00B4DAAF /* ForgotPasswordVC.swift */; };
+		187197FE2684B91F00B4DAAF /* ForgotPasswordVC1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187197FD2684B91F00B4DAAF /* ForgotPasswordVC1.swift */; };
 		1871C8B62685B1CC00D4D17D /* DummyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1871C8B52685B1CC00D4D17D /* DummyVC.swift */; };
 		18720F5C2681B70F008EE191 /* LoginModuleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18720F5B2681B70F008EE191 /* LoginModuleViewModel.swift */; };
 		18720F5E2681BABD008EE191 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18720F5D2681BABD008EE191 /* LocationService.swift */; };
 		18720F602681F2ED008EE191 /* ChangePasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18720F5F2681F2ED008EE191 /* ChangePasswordVC.swift */; };
+		187B163126B80E5A00314650 /* ChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187B163026B80E5A00314650 /* ChatVC.swift */; };
 		187B8412267B5B1000D3BFDA /* RegisterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187B8411267B5B1000D3BFDA /* RegisterModel.swift */; };
 		187B8413267B5B1000D3BFDA /* InitModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187B840F267B5B1000D3BFDA /* InitModel.swift */; };
 		187B8414267B5B1000D3BFDA /* WalletModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187B840E267B5B1000D3BFDA /* WalletModel.swift */; };
@@ -54,7 +55,6 @@
 		18C89EAA26A542490083D5C3 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 18C89EA926A542490083D5C3 /* Settings.bundle */; };
 		18C89EAC26A560360083D5C3 /* PasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C89EAB26A560360083D5C3 /* PasswordViewModel.swift */; };
 		18C89EAF26A5810B0083D5C3 /* AppDelegate+PushNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C89EAE26A5810B0083D5C3 /* AppDelegate+PushNotification.swift */; };
-		18D1691E26B4061A0074FBEA /* ForgotPasswordVC1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D1691D26B4061A0074FBEA /* ForgotPasswordVC1.swift */; };
 		18E2E139267223570054E351 /* OtpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E2E138267223570054E351 /* OtpVC.swift */; };
 		18E2E13B267240360054E351 /* RatingAndReviewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E2E13A267240360054E351 /* RatingAndReviewVC.swift */; };
 		18ECF0BC26A5B1AD00B7F1C1 /* UploadDocModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ECF0BB26A5B1AD00B7F1C1 /* UploadDocModel.swift */; };
@@ -198,11 +198,12 @@
 		186EC9372696F64D00314717 /* PasswordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordModel.swift; sourceTree = "<group>"; };
 		186F7D9E2693011300F3818C /* DemoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoVC.swift; sourceTree = "<group>"; };
 		187197FB26848E3200B4DAAF /* PopUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpVC.swift; sourceTree = "<group>"; };
-		187197FD2684B91F00B4DAAF /* ForgotPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordVC.swift; sourceTree = "<group>"; };
+		187197FD2684B91F00B4DAAF /* ForgotPasswordVC1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordVC1.swift; sourceTree = "<group>"; };
 		1871C8B52685B1CC00D4D17D /* DummyVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DummyVC.swift; sourceTree = "<group>"; };
 		18720F5B2681B70F008EE191 /* LoginModuleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModuleViewModel.swift; sourceTree = "<group>"; };
 		18720F5D2681BABD008EE191 /* LocationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		18720F5F2681F2ED008EE191 /* ChangePasswordVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePasswordVC.swift; sourceTree = "<group>"; };
+		187B163026B80E5A00314650 /* ChatVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatVC.swift; sourceTree = "<group>"; };
 		187B840D267B5B1000D3BFDA /* CardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardModel.swift; sourceTree = "<group>"; };
 		187B840E267B5B1000D3BFDA /* WalletModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletModel.swift; sourceTree = "<group>"; };
 		187B840F267B5B1000D3BFDA /* InitModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitModel.swift; sourceTree = "<group>"; };
@@ -219,7 +220,6 @@
 		18C89EAB26A560360083D5C3 /* PasswordViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordViewModel.swift; sourceTree = "<group>"; };
 		18C89EAD26A57F6C0083D5C3 /* PickaRideDriver.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PickaRideDriver.entitlements; sourceTree = "<group>"; };
 		18C89EAE26A5810B0083D5C3 /* AppDelegate+PushNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AppDelegate+PushNotification.swift"; sourceTree = "<group>"; };
-		18D1691D26B4061A0074FBEA /* ForgotPasswordVC1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ForgotPasswordVC1.swift; path = "../../../../PickARideCustomer/PickARide User/Controllers/Password/ForgotPasswordVC1.swift"; sourceTree = "<group>"; };
 		18E2E138267223570054E351 /* OtpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtpVC.swift; sourceTree = "<group>"; };
 		18E2E13A267240360054E351 /* RatingAndReviewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingAndReviewVC.swift; sourceTree = "<group>"; };
 		18ECF0BB26A5B1AD00B7F1C1 /* UploadDocModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadDocModel.swift; sourceTree = "<group>"; };
@@ -531,6 +531,7 @@
 				18E2E13A267240360054E351 /* RatingAndReviewVC.swift */,
 				187197FB26848E3200B4DAAF /* PopUpVC.swift */,
 				186F7D9E2693011300F3818C /* DemoVC.swift */,
+				187B163026B80E5A00314650 /* ChatVC.swift */,
 				186EC9332696E04C00314717 /* SplashVC.swift */,
 			);
 			path = ViewControllers;
@@ -540,8 +541,7 @@
 			isa = PBXGroup;
 			children = (
 				4F1A76362644FC67003F00CF /* LoginViewController.swift */,
-				18D1691D26B4061A0074FBEA /* ForgotPasswordVC1.swift */,
-				187197FD2684B91F00B4DAAF /* ForgotPasswordVC.swift */,
+				187197FD2684B91F00B4DAAF /* ForgotPasswordVC1.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -1195,7 +1195,6 @@
 				186EC9342696E04C00314717 /* SplashVC.swift in Sources */,
 				4F94F1CE2643FEE500780413 /* AppInfo.swift in Sources */,
 				1865CF6B267C767600379A40 /* Webservices+Extension.swift in Sources */,
-				18D1691E26B4061A0074FBEA /* ForgotPasswordVC1.swift in Sources */,
 				18C89EAF26A5810B0083D5C3 /* AppDelegate+PushNotification.swift in Sources */,
 				4F94F1872643DB5F00780413 /* CustomImageVIew.swift in Sources */,
 				1851032226A159A800D0BA49 /* CountryModel.swift in Sources */,
@@ -1268,13 +1267,14 @@
 				18ECF0BC26A5B1AD00B7F1C1 /* UploadDocModel.swift in Sources */,
 				187B841F267B5B2B00D3BFDA /* RegisterViewModel.swift in Sources */,
 				847607062648FC340019CE1F /* SettingVC.swift in Sources */,
-				187197FE2684B91F00B4DAAF /* ForgotPasswordVC.swift in Sources */,
+				187197FE2684B91F00B4DAAF /* ForgotPasswordVC1.swift in Sources */,
 				81A55392264BC5DD00698413 /* WeeklyEarningChildViewController.swift in Sources */,
 				4F94F1702643DB5F00780413 /* Colors.swift in Sources */,
 				81891DA72652DD9800E8741E /* IncomingRideRequestView.swift in Sources */,
 				187B843B267B65E900D3BFDA /* userDefaults+Extension.swift in Sources */,
 				4F1A763A26450E78003F00CF /* SignUpVC.swift in Sources */,
 				843F806A264A706400BCBDB8 /* StatusBar.swift in Sources */,
+				187B163126B80E5A00314650 /* ChatVC.swift in Sources */,
 				187B8413267B5B1000D3BFDA /* InitModel.swift in Sources */,
 				4F94F1CC2643FE1B00780413 /* Storyboards.swift in Sources */,
 				4F94F1862643DB5F00780413 /* GradientButton.swift in Sources */,
@@ -1489,17 +1489,19 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = PickaRideDriver/PickaRideDriver.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = LNR2265795;
+				CURRENT_PROJECT_VERSION = 1.0.0;
+				DEVELOPMENT_TEAM = 8L8KR4GKUG;
 				INFOPLIST_FILE = PickaRideDriver/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.CountryPicker.PickaRideDriver;
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.eww.PickaRideDriver;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1511,17 +1513,19 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = PickaRideDriver/PickaRideDriver.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = LNR2265795;
+				CURRENT_PROJECT_VERSION = 1.0.0;
+				DEVELOPMENT_TEAM = 8L8KR4GKUG;
 				INFOPLIST_FILE = PickaRideDriver/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.CountryPicker.PickaRideDriver;
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.eww.PickaRideDriver;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

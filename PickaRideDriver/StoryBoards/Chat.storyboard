@@ -24,29 +24,48 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="714"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="chatHeaderCell" id="gPU-kS-now" customClass="chatHeaderCell" customModule="PickARide_User" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="24.5" width="414" height="36.5"/>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="chatHeaderCell" id="gPU-kS-now" customClass="chatHeaderCell" customModule="PickaRideDriver" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="24.5" width="414" height="39"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gPU-kS-now" id="gp5-qA-847">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="36.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="39"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today at 5:03 PM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ye-Qr-qgk" customClass="chatScreenLabel" customModule="PickARide_User" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="8" width="414" height="20.5"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0RT-Rm-5FH">
+                                                            <rect key="frame" x="132.5" y="8" width="149.5" height="26.5"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today at 5:03 PM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ye-Qr-qgk" customClass="chatScreenLabel" customModule="PickaRideDriver" customModuleProvider="target">
+                                                                    <rect key="frame" x="8" y="3" width="133.5" height="20.5"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                    <userDefinedRuntimeAttributes>
+                                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="lblHeader" value="YES"/>
+                                                                    </userDefinedRuntimeAttributes>
+                                                                </label>
+                                                            </subviews>
+                                                            <color key="backgroundColor" red="0.89411764705882346" green="0.9137254901960784" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="trailing" secondItem="9Ye-Qr-qgk" secondAttribute="trailing" constant="8" id="Yys-fL-GHJ"/>
+                                                                <constraint firstItem="9Ye-Qr-qgk" firstAttribute="centerX" secondItem="0RT-Rm-5FH" secondAttribute="centerX" id="hgR-ok-7Tm"/>
+                                                                <constraint firstItem="9Ye-Qr-qgk" firstAttribute="centerX" secondItem="0RT-Rm-5FH" secondAttribute="centerX" id="htv-ej-O89"/>
+                                                                <constraint firstItem="9Ye-Qr-qgk" firstAttribute="top" secondItem="0RT-Rm-5FH" secondAttribute="top" constant="3" id="idj-6y-u7U"/>
+                                                                <constraint firstItem="9Ye-Qr-qgk" firstAttribute="leading" secondItem="0RT-Rm-5FH" secondAttribute="leading" constant="8" id="pI6-f8-FOc"/>
+                                                                <constraint firstAttribute="bottom" secondItem="9Ye-Qr-qgk" secondAttribute="bottom" constant="3" id="y5s-id-AAg"/>
+                                                            </constraints>
                                                             <userDefinedRuntimeAttributes>
-                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="lblHeader" value="YES"/>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                    <real key="value" value="5"/>
+                                                                </userDefinedRuntimeAttribute>
                                                             </userDefinedRuntimeAttributes>
-                                                        </label>
+                                                        </view>
                                                     </subviews>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
-                                                        <constraint firstItem="9Ye-Qr-qgk" firstAttribute="top" secondItem="gp5-qA-847" secondAttribute="top" constant="8" id="ReA-t8-Rw2"/>
-                                                        <constraint firstAttribute="trailing" secondItem="9Ye-Qr-qgk" secondAttribute="trailing" id="TZV-PY-mmf"/>
-                                                        <constraint firstAttribute="bottom" secondItem="9Ye-Qr-qgk" secondAttribute="bottom" constant="8" id="baB-aS-GRX"/>
-                                                        <constraint firstItem="9Ye-Qr-qgk" firstAttribute="leading" secondItem="gp5-qA-847" secondAttribute="leading" id="mYB-qj-cuJ"/>
+                                                        <constraint firstItem="0RT-Rm-5FH" firstAttribute="centerX" secondItem="gp5-qA-847" secondAttribute="centerX" id="0iT-eI-Rh4"/>
+                                                        <constraint firstItem="0RT-Rm-5FH" firstAttribute="top" secondItem="gp5-qA-847" secondAttribute="top" constant="8" id="ALO-Yo-zyG"/>
+                                                        <constraint firstAttribute="bottom" secondItem="0RT-Rm-5FH" secondAttribute="bottom" constant="4.5" id="Zo5-dO-QNd"/>
+                                                        <constraint firstItem="0RT-Rm-5FH" firstAttribute="centerX" secondItem="gp5-qA-847" secondAttribute="centerX" id="hFG-XM-MkV"/>
                                                     </constraints>
                                                 </tableViewCellContentView>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -54,8 +73,8 @@
                                                     <outlet property="lblDateTime" destination="9Ye-Qr-qgk" id="21L-4y-jb4"/>
                                                 </connections>
                                             </tableViewCell>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="chatSenderCell" id="ElB-gV-bZt" customClass="chatSenderCell" customModule="PickARide_User" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="61" width="414" height="76"/>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="chatSenderCell" id="ElB-gV-bZt" customClass="chatSenderCell" customModule="PickaRideDriver" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="63.5" width="414" height="76"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ElB-gV-bZt" id="1Ku-0X-6t1">
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="76"/>
@@ -67,10 +86,10 @@
                                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="NiQ-fT-pg4">
                                                                     <rect key="frame" x="0.0" y="0.0" width="318" height="60"/>
                                                                     <subviews>
-                                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1tp-Ag-NX8" customClass="chatScreenView" customModule="PickARide_User" customModuleProvider="target">
+                                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1tp-Ag-NX8" customClass="chatScreenView" customModule="PickaRideDriver" customModuleProvider="target">
                                                                             <rect key="frame" x="0.0" y="0.0" width="318" height="50"/>
                                                                             <subviews>
-                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qyY-cP-6T9" customClass="chatScreenLabel" customModule="PickARide_User" customModuleProvider="target">
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qyY-cP-6T9" customClass="chatScreenLabel" customModule="PickaRideDriver" customModuleProvider="target">
                                                                                     <rect key="frame" x="15" y="13" width="288" height="24"/>
                                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                     <nil key="textColor"/>
@@ -136,8 +155,8 @@
                                                     <outlet property="lblSenderView" destination="1tp-Ag-NX8" id="lSY-K9-hVg"/>
                                                 </connections>
                                             </tableViewCell>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="chatReciverCell" id="rOF-xJ-fCd" customClass="chatReciverCell" customModule="PickARide_User" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="137" width="414" height="80"/>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="chatReciverCell" id="rOF-xJ-fCd" customClass="chatReciverCell" customModule="PickaRideDriver" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="139.5" width="414" height="80"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rOF-xJ-fCd" id="3cw-9h-nnN">
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
@@ -149,10 +168,10 @@
                                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="g70-ph-hca">
                                                                     <rect key="frame" x="0.0" y="0.0" width="318" height="60"/>
                                                                     <subviews>
-                                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j5f-1B-Znz" customClass="chatScreenView" customModule="PickARide_User" customModuleProvider="target">
+                                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j5f-1B-Znz" customClass="chatScreenView" customModule="PickaRideDriver" customModuleProvider="target">
                                                                             <rect key="frame" x="0.0" y="0.0" width="318" height="50"/>
                                                                             <subviews>
-                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6MD-73-6qW" customClass="chatScreenLabel" customModule="PickARide_User" customModuleProvider="target">
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6MD-73-6qW" customClass="chatScreenLabel" customModule="PickaRideDriver" customModuleProvider="target">
                                                                                     <rect key="frame" x="15" y="10" width="288" height="30"/>
                                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                     <nil key="textColor"/>
@@ -247,7 +266,7 @@
                                                 </constraints>
                                                 <state key="normal" image="ic_Send"/>
                                             </button>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="pq7-5f-giv" customClass="ratingTextview" customModule="PickaRideDriver" customModuleProvider="target">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Type a message..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="pq7-5f-giv" customClass="ratingTextview" customModule="PickaRideDriver" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="352" height="40"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <color key="textColor" systemColor="labelColor"/>
@@ -291,10 +310,60 @@
                     <navigationItem key="navigationItem" id="Dbg-yI-TxX"/>
                     <connections>
                         <outlet property="keyboardHeightLayoutConstraint" destination="sR0-Xh-XQi" id="Km9-cR-g1s"/>
+                        <outlet property="lblInfo" destination="4cf-uD-tOs" id="axV-xo-gxi"/>
+                        <outlet property="lblName" destination="wmy-3J-cuK" id="efA-fo-GPY"/>
                         <outlet property="tblChat" destination="gNZ-JC-ov8" id="odl-tx-pO0"/>
+                        <outlet property="txtviewComment" destination="pq7-5f-giv" id="u68-mG-d1v"/>
+                        <outlet property="vwNavBar" destination="RJe-uc-p5R" id="Mwi-Ju-KI3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LCp-0V-seU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="RJe-uc-p5R">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="BAD-P1-8XC">
+                            <rect key="frame" x="99.5" y="44" width="41.5" height="36"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wmy-3J-cuK" customClass="themeLabel" customModule="PickaRideDriver" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="41.5" height="18"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="18" id="Wh7-qy-Tcg"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isbold" value="YES"/>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isblack" value="YES"/>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="Font_Size">
+                                            <real key="value" value="14"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4cf-uD-tOs" customClass="themeLabel" customModule="PickaRideDriver" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="18" width="41.5" height="18"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="Font_Size">
+                                            <real key="value" value="13"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isMedium" value="YES"/>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isgray" value="YES"/>
+                                    </userDefinedRuntimeAttributes>
+                                </label>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <viewLayoutGuide key="safeArea" id="01y-tK-PcM"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="BAD-P1-8XC" firstAttribute="centerX" secondItem="RJe-uc-p5R" secondAttribute="centerX" id="HOH-hh-KQG"/>
+                        <constraint firstItem="BAD-P1-8XC" firstAttribute="centerY" secondItem="RJe-uc-p5R" secondAttribute="centerY" constant="-2" id="m8z-ur-DUY"/>
+                    </constraints>
+                </view>
             </objects>
             <point key="canvasLocation" x="8531.8840579710159" y="908.70535714285711"/>
         </scene>

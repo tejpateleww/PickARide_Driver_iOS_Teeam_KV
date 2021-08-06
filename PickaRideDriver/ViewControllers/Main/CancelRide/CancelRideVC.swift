@@ -11,8 +11,10 @@ class CancelRideVC: BaseVC {
     var isselected = true    //MARK: -IBOutlets
     var selectIndex = 0
     var arrReason = ["Rider isn't here","Wrong address shown","Don't charge rider"]
+    var doneClosure : (()->())?
     let footerView = UIView()
     var cancelReqClosure : (()->())?
+    var doneCancelClosure : (()->())?
     @IBOutlet weak var tblReasonForCancel: UITableView!
     @IBOutlet weak var btnDone: themeButton!
     override func viewDidLoad() {
@@ -31,6 +33,12 @@ class CancelRideVC: BaseVC {
         }
         self.navigationController?.popToRootViewController(animated: true)
      
+    }
+    override func btnBackAction() {
+        if let obj = doneCancelClosure{
+            obj()
+        }
+        self.navigationController?.popViewController(animated: true)
     }
     
 }
