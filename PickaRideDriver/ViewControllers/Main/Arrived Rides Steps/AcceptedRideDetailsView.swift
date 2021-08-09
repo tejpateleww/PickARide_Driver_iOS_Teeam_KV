@@ -7,6 +7,10 @@
 
 import UIKit
 
+enum status{
+    case arrived, startride, complete
+}
+
 protocol AcceptedRideDetailsViewDelgate {
     func onArrivedUserLocation()
     func onCancelAcceptedRideRequest()
@@ -45,6 +49,10 @@ class AcceptedRideDetailsView: UIView {
     var isCompleteClicked : Bool = false
     var TextfieldCountIsFour = false
     var isNoTapFromCancelRide = false
+    var isFromCloseBtn = false
+    var isCancelFromArrived = false
+    var isfrom = status.arrived
+    
     
     var isExpandCategory:  Bool  = false {
         didSet {
@@ -114,15 +122,19 @@ class AcceptedRideDetailsView: UIView {
     @IBAction func btnSubmitButtonClickAction(_ sender: Any) {
         self.btnCancel.isHidden = !isComplete
         if  isCompleteClicked{
+            isFromCloseBtn = true
             isComplete = false
             isCompleteClicked = false
             delegate?.onArrivedUserLocation()
+            isfrom = status.arrived
             btnSubmit.setTitle("ARRIVED", for: .normal)
             btnDownArrow.isHidden = false
             viewContactOptions.isHidden = false
             btnNavigate.isHidden = false
 //            btnDownArrow.isHidden = false
         }else if isComplete{
+            isFromCloseBtn = false
+            isfrom = status.complete
             btnSubmit.setTitle("COMPLETE", for: .normal)
             isComplete = false
             btnDownArrow.isHidden = true
@@ -141,7 +153,9 @@ class AcceptedRideDetailsView: UIView {
 //            isArrived = false
 //            isComplete = true
         }else{
+            isFromCloseBtn = true
             ViewTripCode.isHidden = false
+            isfrom = status.startride
             btnSubmit.setTitle("START RIDE", for: .normal)
             btnNavigate.isHidden = false
             lblMessage.text = "Arrived Rockden"
@@ -157,7 +171,31 @@ class AcceptedRideDetailsView: UIView {
         
     }
     
+    func strtRide(){
+        self.btnCancel.isHidden = true
+        ViewTripCode.isHidden = false
+        isfrom = status.startride
+        btnSubmit.setTitle("START RIDE", for: .normal)
+        btnNavigate.isHidden = false
+        lblMessage.text = "Arrived Rockden"
+        isArrived = false
+        isComplete = true
+    }
+    
+    func isFromArrived(){
+        isFromCloseBtn = true
+        isComplete = false
+        isCompleteClicked = false
+        isfrom = status.arrived
+        delegate?.onArrivedUserLocation()
+        btnSubmit.setTitle("ARRIVED", for: .normal)
+        btnDownArrow.isHidden = false
+        viewContactOptions.isHidden = false
+        btnNavigate.isHidden = false
+    }
+    
     func completeTap(){
+//        if isFromCloseBtn{
         self.btnCancel.isHidden = !isComplete
         isComplete = false
         isCompleteClicked = false
@@ -166,20 +204,28 @@ class AcceptedRideDetailsView: UIView {
         btnDownArrow.isHidden = false
         viewContactOptions.isHidden = false
         btnNavigate.isHidden = false
+//        }
     }
     
     func isCompleted(){
-//        if isNoTapFromCancelRide{
-            self.btnCancel.isHidden = false
-//        }
-//        self.btnCancel.isHidden = !isComplete
-        btnSubmit.setTitle("COMPLETE", for: .normal)
-        isComplete = false
-        btnDownArrow.isHidden = true
-        isCompleteClicked = true
-        ViewTripCode.isHidden = true
-        viewContactOptions.isHidden = true
-        btnNavigate.isHidden = false
+        if btnSubmit.titleLabel?.text == "ARRIVED"{
+            completeTap()
+        }else if btnSubmit.titleLabel?.text == "START RIDE"{
+            strtRide()
+
+        }else{
+            //        if isNoTapFromCancelRide{
+                        self.btnCancel.isHidden = false
+            //        }
+            //        self.btnCancel.isHidden = !isComplete
+                    btnSubmit.setTitle("COMPLETE", for: .normal)
+                    isComplete = false
+                    btnDownArrow.isHidden = true
+                    isCompleteClicked = true
+                    ViewTripCode.isHidden = true
+                    viewContactOptions.isHidden = true
+                    btnNavigate.isHidden = false
+        }
     }
     @IBAction func btnSosTap(_ sender: Any) {
     }
@@ -194,7 +240,7 @@ class AcceptedRideDetailsView: UIView {
     }
     
     @IBAction func btnCancelClickAction(_ sender: Any) {
-        
+        isFromCloseBtn = true
         delegate?.onCancelAcceptedRideRequest()
     }
     
