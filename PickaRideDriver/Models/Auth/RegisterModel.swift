@@ -75,7 +75,7 @@ class RegisterFinalRequestModel : Encodable{
     var gender: String?
     var accountHolderName: String?
     var bankName: String?
-    var bankBranch: String?
+    var ifscCode: String?
     var accountNumber : String?
     var address: String?
     var vehicleInsuranceCerti: String?
@@ -105,7 +105,7 @@ class RegisterFinalRequestModel : Encodable{
         case gender = "gender"
         case accountHolderName = "account_holder_name"
         case bankName = "bank_name"
-        case bankBranch = "bank_branch"
+        case ifscCode = "ifsc_code"
         case accountNumber = "account_number"
         case address = "address"
         case vehicleInsuranceCerti = "vehicle_insurance_certi"

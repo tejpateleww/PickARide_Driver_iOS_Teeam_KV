@@ -20,10 +20,11 @@ class BankDetailsVC: BaseVC {
     @IBOutlet weak var lblIfscCode: themeLabel!
     @IBOutlet weak var txtBankName: themeTextField!
     
-    //MARK:- Variables and properties
+    //MARK:- Variables
     var isFromEditProfile : Bool = false
+    var registerRequestModel = RegisterFinalRequestModel()
+    
     //MARK:- View LifeCycle
-
     override func viewDidLoad() {
         super.viewDidLoad()
         if isFromEditProfile{
@@ -37,22 +38,50 @@ class BankDetailsVC: BaseVC {
         }else{
         setNavigationBarInViewController(controller: self, naviColor: colors.appColor.value, naviTitle: NavTitles.BankDetails.value, leftImage: NavItemsLeft.back.value, rightImages: [NavItemsRight.none.value], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
         }
-//        SetNavigationBar(controller: self, Left: true , Right: false, Title: "Bank Details")
-//        addMenuButton()
-       
-//        addNavBarImage(isLeft: false, isRight: false)
-        // Do any additional setup after loading the view.
+
     }
   
     //MARK:- Custom Methods
+    func validation()->Bool{
+        var strTitle : String?
+        let BankName = self.txtBankName.validatedText(validationType: .requiredField(field: self.txtBankName.placeholder?.lowercased() ?? ""))
+        let AccountHolderName = self.txtAccountHolderName.validatedText(validationType: .requiredField(field: self.txtAccountHolderName.placeholder?.lowercased() ?? ""))
+        let AccountNumber = self.txtAccountNumber.validatedText(validationType: .requiredField(field: self.txtAccountNumber.placeholder?.lowercased() ?? ""))
+        let IFSCCode = self.txtIfscCode.validatedText(validationType: .requiredField(field: self.txtIfscCode.placeholder?.lowercased() ?? ""))
+
+        if !BankName.0{
+            strTitle = BankName.1
+        }else if !AccountHolderName.0{
+            strTitle = AccountHolderName.1
+        }else if !AccountNumber.0{
+            strTitle = AccountNumber.1
+        }else if !IFSCCode.0{
+            strTitle = IFSCCode.1
+        }
+        
+        if let str = strTitle{
+            Toast.show(title: UrlConstant.Required, message: str, state: .failure)
+            return false
+        }
+        
+        return true
+    }
+    
+    func storeDataInRegisterModel(){
+        self.registerRequestModel.bankName = self.txtBankName.text ?? ""
+        self.registerRequestModel.accountHolderName = self.txtAccountHolderName.text ?? ""
+        self.registerRequestModel.accountNumber = self.txtAccountNumber.text ?? ""
+        self.registerRequestModel.ifscCode = self.txtIfscCode.text ?? ""
+        
+        let vc : PersonalDocumentVC = PersonalDocumentVC.instantiate(fromAppStoryboard: .Login)
+        vc.registerRequestModel = self.registerRequestModel
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
     
     //MARK:- IBACrions
     @IBAction func btnNextTap(_ sender: UIButton) {
-        if isFromEditProfile{
-            self.navigationController?.popViewController(animated: true)
-        }else{
-        let vc : PersonalDocumentVC = PersonalDocumentVC.instantiate(fromAppStoryboard: .Login)
-        self.navigationController?.pushViewController(vc, animated: true)
+        if validation(){
+            self.storeDataInRegisterModel()
         }
     }
     

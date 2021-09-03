@@ -24,6 +24,8 @@ class PersonalDocumentVC: BaseVC {
     var isFromEditProfile : Bool = false
     var isVehicleDocument : Bool = false
     var ArrPersonaldetails = [PersonalDetails]()
+    var registerRequestModel = RegisterFinalRequestModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         if isFromEditProfile{

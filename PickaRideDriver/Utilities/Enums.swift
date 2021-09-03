@@ -14,6 +14,8 @@ enum RequestString : String{
     case contentType = "Content-Type"
 }
 
+enum Direction { case left, right }
+
 enum GetRequestType: String{
     case GET
     case POST

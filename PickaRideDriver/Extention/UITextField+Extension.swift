@@ -9,7 +9,7 @@
 import UIKit
 extension UITextField{
     //MARK:- Placeholder Color
-   @IBInspectable var placeHolderColor: UIColor? {
+    @IBInspectable var placeHolderColor: UIColor? {
         get {
             return self.placeHolderColor
         }
@@ -24,11 +24,13 @@ extension UITextField{
     }
     
     func validatedText(validationType: ValidatorType) -> (Bool,String) {
-          let validator = VaildatorFactory.validatorFor(type: validationType)
-          return validator.validated(self.text!)
-      }
-    
+        let validator = VaildatorFactory.validatorFor(type: validationType)
+        return validator.validated(self.text!)
+    }
+}
 
-
-    
+extension UITextView {
+    func leftSpace() {
+        self.textContainerInset = UIEdgeInsets(top: 4, left: 6, bottom: 4, right: 4)
+    }
 }

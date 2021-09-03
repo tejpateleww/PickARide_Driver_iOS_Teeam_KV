@@ -25,53 +25,39 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool
     {
-        // Override point for customization after application launch.
-        //        navigateToLogin()
-//        FirebaseApp.configure()
-        self.webserviceGetCountryList()
-        Thread.sleep(forTimeInterval: 1.5)
+
         IQKeyboardManager.shared.enable = true
         IQKeyboardManager.shared.shouldResignOnTouchOutside = true
         GMSServices.provideAPIKey(AppInfo.Google_API_Key)
         GMSPlacesClient.provideAPIKey(AppInfo.Google_API_Key)
         checkAndSetDefaultLanguage()
         registerForPushNotifications()
-        //        self.locationManager.delegate = self
         self.locationManager.startUpdatingLocation()
         SideMenuController.preferences.basic.menuWidth = UIScreen.main.bounds.width - 100
         SideMenuController.preferences.basic.defaultCacheKey = "0"
-        if user_defaults.object(forKey: UserDefaultsKey.isUserLogin.rawValue) as? Bool == true
-        {
-            self.navigateToMain()
-        } else
-        {
-            self.navigateToLogin()
-        }
+
         return true
     }
     
-    
-    
-    
-    func navigateToLogin()
-    {
+    func navigateToLogin(){
+        
         let storyborad = UIStoryboard(name: "Login", bundle: nil)
         let Login = storyborad.instantiateViewController(withIdentifier: LoginViewController.className) as! LoginViewController
-        
         let NavHomeVC = UINavigationController(rootViewController: Login)
         NavHomeVC.navigationBar.isHidden = true
         self.window?.rootViewController = NavHomeVC
     }
     
-    func navigateToHome()
-    {
+    func navigateToHome(){
+        
         let controller = AppStoryboard.Main.instance.instantiateViewController(withIdentifier: HomeVC.storyboardID) as! HomeVC
         let nav = UINavigationController(rootViewController: controller)
         nav.navigationBar.isHidden = true
         self.window?.rootViewController = nav
     }
-    func navigateToMain()
-    {
+    
+    func navigateToMain(){
+        
         //SideMenuController
         let storyborad = UIStoryboard(name: "Main", bundle: nil)
         let Home = storyborad.instantiateViewController(withIdentifier: SideMenuController.className) as! SideMenuController
@@ -79,39 +65,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
         HomeVC.navigationBar.isHidden = true
         self.window?.rootViewController = HomeVC
     }
-    func navigateToMainLogin() {
+    
+    func navigateToMainLogin(){
         let controller = AppStoryboard.Login.instance.instantiateViewController(withIdentifier: LoginViewController.storyboardID) as? LoginViewController
         let nav = UINavigationController(rootViewController: controller!)
         nav.navigationBar.isHidden = true
         self.window?.rootViewController = nav
     }
-    //    func navigateToLogin(){
-    //        let storyborad = UIStoryboard(name: "Login", bundle: nil)
-    //        let Login = storyborad.instantiateViewController(withIdentifier: LoginViewController.className) as! LoginViewController
-    //        let NavHomeVC = UINavigationController(rootViewController: Login)
-    //        NavHomeVC.navigationBar.isHidden = true
-    //        self.window?.rootViewController = NavHomeVC
-    //    }
     
-    //    func navigateToHome(){
-    //        let storyborad = UIStoryboard(name: "Main", bundle: nil)
-    //        let Login = storyborad.instantiateViewController(withIdentifier: MainViewController.className) as! MainViewController
-    ////        let NavHomeVC = UINavigationController(rootViewController: Login)
-    //        self.window?.rootViewController = Login
-    //    }
-    
-    
-    func checkAndSetDefaultLanguage() {
+    func checkAndSetDefaultLanguage(){
         if user_defaults.value(forKey: UserDefaultsKey.selLanguage.rawValue) == nil {
             setLanguageEnglish()
         }
     }
-    func setLanguageEnglish() {
+    
+    func setLanguageEnglish(){
         user_defaults.setValue("en", forKey: UserDefaultsKey.selLanguage.rawValue)
     }
+    
     func webserviceGetCountryList(){
         WebServiceSubClass.GetCountryList {_, _, _, _ in}
     }
+    
     func clearData(){
         for (key, value) in UserDefaults.standard.dictionaryRepresentation() {
             
@@ -120,8 +95,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
                 UserDefaults.standard.removeObject(forKey: key)
             }
         }
-        
-        
         user_defaults.set(false, forKey: UserDefaultsKey.isUserLogin.rawValue)
         SingletonClass.sharedInstance.clearSingletonClass()
         user_defaults.setUserData()

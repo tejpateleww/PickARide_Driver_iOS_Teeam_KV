@@ -1351,14 +1351,14 @@ Number</string>
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ot2-Yt-7C4" customClass="ResendCodeButton" customModule="PickaRideDriver" customModuleProvider="target">
-                                                <rect key="frame" x="156" y="0.0" width="149" height="22"/>
+                                                <rect key="frame" x="156" y="0.0" width="149.5" height="22"/>
                                                 <state key="normal" title="Resend Code"/>
                                                 <connections>
                                                     <action selector="btnResendCodeTap:" destination="q9p-Bj-3P6" eventType="touchUpInside" id="KEH-6y-XbU"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="751" verticalHuggingPriority="251" text="0:08" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wew-Zx-7v2" customClass="themeLabel" customModule="PickaRideDriver" customModuleProvider="target">
-                                                <rect key="frame" x="308" y="0.0" width="36" height="22"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="751" verticalHuggingPriority="251" text="0:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wew-Zx-7v2" customClass="themeLabel" customModule="PickaRideDriver" customModuleProvider="target">
+                                                <rect key="frame" x="308.5" y="0.0" width="35.5" height="22"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -1783,7 +1783,7 @@ Number</string>
         <!--SplashVC-->
         <scene sceneID="SS5-Im-uVF">
             <objects>
-                <viewController id="JeT-XE-Xbc" customClass="SplashVC" customModule="PickaRideDriver" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SplashVC" id="JeT-XE-Xbc" customClass="SplashVC" customModule="PickaRideDriver" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="le7-xK-kva">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1816,65 +1816,6 @@ Number</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LSi-qE-jNg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-748" y="54"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="xH9-hK-9Qt">
-            <objects>
-                <viewController storyboardIdentifier="SplashVC" id="D7k-od-Ud1" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="5Dk-fg-T3y">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash_img_top" translatesAutoresizingMaskIntoConstraints="NO" id="mva-PZ-1cS">
-                                <rect key="frame" x="-15" y="-55" width="139" height="254"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="139" id="cwT-Ex-eF8"/>
-                                    <constraint firstAttribute="height" constant="254" id="f1D-fi-kSb"/>
-                                </constraints>
-                            </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash_img_center" translatesAutoresizingMaskIntoConstraints="NO" id="mHd-PG-kLu">
-                                <rect key="frame" x="64" y="159" width="247" height="247.5"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="mHd-PG-kLu" secondAttribute="height" multiplier="1:1" id="mL9-FF-e74"/>
-                                </constraints>
-                            </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash_img_bottom" translatesAutoresizingMaskIntoConstraints="NO" id="Hl3-Ns-9Vg">
-                                <rect key="frame" x="0.0" y="419" width="375" height="248"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="Hl3-Ns-9Vg" secondAttribute="height" multiplier="414:274" id="w3d-Id-odn"/>
-                                </constraints>
-                            </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash_img_allInOne" translatesAutoresizingMaskIntoConstraints="NO" id="92R-9p-gkR">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                            </imageView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="TMh-CY-FOg"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="92R-9p-gkR" firstAttribute="top" secondItem="5Dk-fg-T3y" secondAttribute="top" id="1Na-RP-oWq"/>
-                            <constraint firstAttribute="bottom" secondItem="Hl3-Ns-9Vg" secondAttribute="bottom" id="2qX-te-EZv"/>
-                            <constraint firstItem="mHd-PG-kLu" firstAttribute="top" secondItem="mva-PZ-1cS" secondAttribute="bottom" constant="-40" id="6z7-g2-xzQ"/>
-                            <constraint firstItem="mHd-PG-kLu" firstAttribute="height" secondItem="5Dk-fg-T3y" secondAttribute="width" multiplier="211:320" id="7x5-B7-Pba"/>
-                            <constraint firstItem="Hl3-Ns-9Vg" firstAttribute="leading" secondItem="TMh-CY-FOg" secondAttribute="leading" id="OSp-bA-9Mz"/>
-                            <constraint firstAttribute="bottom" secondItem="92R-9p-gkR" secondAttribute="bottom" id="azI-Pq-LYk"/>
-                            <constraint firstItem="92R-9p-gkR" firstAttribute="leading" secondItem="TMh-CY-FOg" secondAttribute="leading" id="cgs-vH-f1R"/>
-                            <constraint firstItem="mHd-PG-kLu" firstAttribute="centerX" secondItem="TMh-CY-FOg" secondAttribute="centerX" id="kn2-s4-qhg"/>
-                            <constraint firstItem="Hl3-Ns-9Vg" firstAttribute="trailing" secondItem="TMh-CY-FOg" secondAttribute="trailing" id="oGU-R5-42q"/>
-                            <constraint firstItem="mva-PZ-1cS" firstAttribute="top" secondItem="5Dk-fg-T3y" secondAttribute="topMargin" constant="-54.770000000000003" id="oTN-F3-5ET"/>
-                            <constraint firstItem="mva-PZ-1cS" firstAttribute="leading" secondItem="TMh-CY-FOg" secondAttribute="leading" constant="-14.77" id="rry-bm-EOT"/>
-                            <constraint firstItem="92R-9p-gkR" firstAttribute="trailing" secondItem="TMh-CY-FOg" secondAttribute="trailing" id="zNS-Px-vEB"/>
-                        </constraints>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="92R-9p-gkR"/>
-                            </mask>
-                        </variation>
-                    </view>
-                    <navigationItem key="navigationItem" id="nfb-ED-QTC"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="rXL-0h-hdR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1903" y="907"/>
         </scene>
         <!--Forgot PasswordVC-->
         <scene sceneID="TmT-wL-qKI">
@@ -2098,8 +2039,6 @@ Number</string>
         <image name="ImgRightArrow" width="16" height="16"/>
         <image name="ic_DownReg" width="14" height="8"/>
         <image name="imgDeselect" width="16" height="16"/>
-        <image name="splash_img_allInOne" width="375" height="812"/>
-        <image name="splash_img_bottom" width="375.5" height="248"/>
         <image name="splash_img_center" width="274" height="274"/>
         <image name="splash_img_top" width="124" height="199.5"/>
         <namedColor name="ThemeColor">

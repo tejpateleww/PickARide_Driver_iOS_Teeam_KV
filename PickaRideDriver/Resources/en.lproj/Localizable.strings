@@ -80,6 +80,9 @@
 "UrlConstant_LogoutMessage" = "Are you sure you want to logout?";
 "UrlConstant_EnterEmailMessage" = "Please enter email";
 "UrlConstant_InvalidCardNumber" = "Your card number is invalid";
+"UrlConstant_OtpSent" = "Your Otp for Varification";
+"UrlConstant_OtpInvalid" = "Please enter valid otp.";
+
 
 //Forgot Password Screen
 "ForgotPasswordScreen_lblForgotPassword" = "Forgot \nPassword";

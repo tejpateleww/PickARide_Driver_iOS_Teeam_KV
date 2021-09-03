@@ -77,17 +77,37 @@ class Utilities:NSObject{
     }
     class func showHud()
     {
-//        let size = CGSize(width: 40, height: 40)
-//        let activityData = ActivityData(size: size, message: "", messageFont: nil, messageSpacing: nil, type: .lineScale, color: colors.btnColor.value, padding: nil, displayTimeThreshold: nil, minimumDisplayTime: nil, backgroundColor: UIColor.black.withAlphaComponent(0.5), textColor: nil)
-//        NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData)
-        
+        MKProgress.config.backgroundColor = .white
+        MKProgress.config.hudType = .radial
+        MKProgress.config.hudColor = .white
+        MKProgress.config.width = 80.0
+        MKProgress.config.height = 80.0
+        MKProgress.config.circleRadius = 30.0
+        MKProgress.config.cornerRadius = 16.0
+        MKProgress.config.circleBorderColor = themeColor
+        MKProgress.config.circleBorderWidth = 3.0
+        MKProgress.config.backgroundColor = .clear
+        MKProgress.show()
     }
     
     class func hideHud()
     {
-//        NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
+        MKProgress.hide()
     }
     
+    class func showAlertAction(_ title: String = "", message: String, vc: UIViewController, completionHandler: (() -> Void)? = nil ) -> Void
+    {
+        let alert = UIAlertController(title: title,
+                                      message: message,
+                                      preferredStyle: UIAlertController.Style.alert)
+        let cancelAction = UIAlertAction(title: "OK", style: .cancel, handler: {  (action) in
+            print("ok button tapped")
+            completionHandler?()
+        })
+        alert.addAction(cancelAction)
+  
+        vc.present(alert, animated: true, completion: nil)
+    }
     
     static func showAlertWithTitleFromVC(vc:UIViewController, title:String?, message:String?, buttons:[String], isOkRed : Bool, completion:((_ index:Int) -> Void)!) -> Void{
         

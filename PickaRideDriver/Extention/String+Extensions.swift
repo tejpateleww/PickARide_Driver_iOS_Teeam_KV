@@ -285,4 +285,9 @@ extension String{
     self = self.capitalizingFirstLetter()
     }
     
+    func masked(_ n: Int = 5, reversed: Bool = false) -> String {
+        let mask = String(repeating: "•", count: Swift.max(0, count-n))
+        return reversed ? mask + suffix(n) : prefix(n) + mask
+    }
+    
 }

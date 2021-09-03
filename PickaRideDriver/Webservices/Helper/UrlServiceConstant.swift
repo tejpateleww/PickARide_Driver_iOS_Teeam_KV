@@ -24,6 +24,8 @@ class UrlConstant{
     static let NoInternetConnection =  "UrlConstant_NoInternetConnection".Localized()
     static let RequestTimeOut = "UrlConstant_RequestTimeOut".Localized()
     static let LocationRequired = "UrlConstant_LocationRequiredMessage".Localized()
+    static let OtpSent = "UrlConstant_OtpSent".Localized()
+    static let OtpInvalid = "UrlConstant_OtpInvalid".Localized()
     
     static let Ok = "UrlConstant_Ok".Localized()
     static let Yes = "UrlConstant_Yes".Localized()

@@ -5,9 +5,12 @@ import Foundation
 class OTPRequestModel : Encodable{
     var email: String?
     var phone: String?
+    var countryCode: String?
+    
     enum CodingKeys: String, CodingKey {
         case email = "email"
         case phone = "mobile_no"
+        case countryCode = "country_code"
     }
 }
 

@@ -413,7 +413,6 @@
 		187B8417267B5B2B00D3BFDA /* View Model */ = {
 			isa = PBXGroup;
 			children = (
-				18ECF05226A59BB300B7F1C1 /* Payment */,
 				18ECF05126A59BA200B7F1C1 /* Auth */,
 			);
 			path = "View Model";
@@ -476,13 +475,6 @@
 				18720F5B2681B70F008EE191 /* LoginModuleViewModel.swift */,
 			);
 			path = Auth;
-			sourceTree = "<group>";
-		};
-		18ECF05226A59BB300B7F1C1 /* Payment */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Payment;
 			sourceTree = "<group>";
 		};
 		18ECF0AF26A5B0E000B7F1C1 /* Common */ = {

@@ -34,7 +34,6 @@ enum APIEnvironment : String {
                     do {
                         if UserDefaults.standard.value(forKey: UserDefaultsKey.X_API_KEY.rawValue) != nil,UserDefaults.standard.value(forKey:  UserDefaultsKey.isUserLogin.rawValue) as! Bool
                         {
-                            
                             return ["x-api-key":SingletonClass.sharedInstance.Api_Key]
                             
                         }else{
@@ -49,30 +48,30 @@ enum APIEnvironment : String {
 }
 
 enum ApiKey: String {
-    case Init                                 = "init/"
+    case Init                                 = "init/ios_driver/"
     case getCountryList                       = "country_list"
     case registerOTP                          = "register_otp"
-    case uploadDocs                          = "upload_docs"
+    case uploadDocs                           = "upload_docs"
     case register                             = "register"
     case vehicleTypeList                      = "vehicle_type_list"
     case login                                = "login"
-    case updateBasicInfo                        = "update_basic_info"
-    case updateBankInfo                    = "update_bank_info"
-    case vehicleInfo                      = "update_vehicle_info"
-    case updateDocs                      = "update_docs"
-    case changePassword                   = "change_password"
-    case forgotPassword                   = "forgot_password"
-    case logout                         = "logout/"
+    case updateBasicInfo                      = "update_basic_info"
+    case updateBankInfo                       = "update_bank_info"
+    case vehicleInfo                          = "update_vehicle_info"
+    case updateDocs                           = "update_docs"
+    case changePassword                       = "change_password"
+    case forgotPassword                       = "forgot_password"
+    case logout                               = "logout/"
     case addCard                              = "add_card"
     case cardlist                             = "card_list"
     case removeCard                           = "remove_card"
-    case qrCodeDetail                       = "qr_code_detail"
-    case addMoney                           = "add_money"
-    case transferMoney                     = "transfer_money"
+    case qrCodeDetail                         = "qr_code_detail"
+    case addMoney                             = "add_money"
+    case transferMoney                        = "transfer_money"
     case transferMoneyToMobileNum             = "transfer_money_with_mobile_no"
-    case transferMoneyToBank                = "transfer_money_to_bank"
+    case transferMoneyToBank                  = "transfer_money_to_bank"
     case walletHistory                        = "wallet_history"
-    case changeDuty                         = "change_duty"
+    case changeDuty                           = "change_duty"
     
     
     
