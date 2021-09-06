@@ -78,10 +78,7 @@ class RegisterFinalRequestModel : Encodable{
     var ifscCode: String?
     var accountNumber : String?
     var address: String?
-    var vehicleInsuranceCerti: String?
-    var vehicleInsuranceExpDate: String?
-    var driverLicenceImage: String?
-    var driverLicenceExpDate: String?
+    
     var vehicleImage: String?
     var plateNumber: String?
     var yearOfManufacture: String?
@@ -89,10 +86,21 @@ class RegisterFinalRequestModel : Encodable{
     var vehicleTypeModelName: String?
     var noOfPassenger: String?
     
+    var profileImage: String?
+    var govermentIdImage: String?
+    var govermentIdExpDate: String?
+    var driverLicenceImage: String?
+    var driverLicenceExpDate: String?
+    var vehicleRegistrationImage: String?
+    var vehicleRegistrationExpDate: String?
+    var vehicleInsuranceImage: String?
+    var vehicleInsuranceExpDate: String?
+    
     enum CodingKeys: String, CodingKey {
         case firstName = "first_name"
         case lastName = "last_name"
         case email = "email"
+        case password = "password"
         case mobileNo = "mobile_no"
         case latitude = "lat"
         case longitude = "lng"
@@ -108,16 +116,23 @@ class RegisterFinalRequestModel : Encodable{
         case ifscCode = "ifsc_code"
         case accountNumber = "account_number"
         case address = "address"
-        case vehicleInsuranceCerti = "vehicle_insurance_certi"
-        case vehicleInsuranceExpDate = "vehicle_insurance_exp_date"
-        case driverLicenceImage = "driver_licence_image"
-        case driverLicenceExpDate = "driver_licence_exp_date"
+        
         case vehicleImage = "vehicle_image"
         case plateNumber = "plate_number"
         case yearOfManufacture = "year_of_manufacture"
         case vehicleTypeManufacturerName = "vehicle_type_manufacturer_name"
         case vehicleTypeModelName = "vehicle_type_model_name"
         case noOfPassenger = "no_of_passenger"
+        
+        case profileImage = "profile_image"
+        case govermentIdImage = "government_id_certi"
+        case govermentIdExpDate = "government_id_certi_exp_date"
+        case driverLicenceImage = "driver_licence_image"
+        case driverLicenceExpDate = "driver_licence_exp_date"
+        case vehicleRegistrationImage = "vehicle_registration_certi"
+        case vehicleRegistrationExpDate = "vehicle_registration_exp_date"
+        case vehicleInsuranceImage = "driver_insurance_certi"
+        case vehicleInsuranceExpDate = "driver_insurance_policy_exp_date"
     }
 }
 

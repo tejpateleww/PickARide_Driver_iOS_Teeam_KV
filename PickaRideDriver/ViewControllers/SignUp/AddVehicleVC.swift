@@ -25,11 +25,17 @@ class AddVehicleVC: BaseVC, UITextFieldDelegate {
     let BrandDropDown = DropDown()
     let ModelDropDown = DropDown()
     let CarYearDropDown = DropDown()
-    var brandDropDown = ["Tata","Neno"]
-    var modelDropDown = ["Tata Harrier","Hundai i20"]
-    var carYearDropDown = ["2020","2021"]
+    var brandDropDown : [String] = []
+    var modelDropDown : [String] = []
+    var carYearDropDown : [String] = []
     var onTxtBtnPressed: ( (Int) -> () )?
     var isFromEditProfile : Bool = false
+    
+    var addVehicleUserModel = AddVehicleUserModel()
+    var registerRequestModel = RegisterFinalRequestModel()
+    
+    var ManufacturerList : ManufacturerListModel?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         if isFromEditProfile{
@@ -47,16 +53,16 @@ class AddVehicleVC: BaseVC, UITextFieldDelegate {
             setNavigationBarInViewController(controller: self, naviColor: colors.appColor.value, naviTitle: NavTitles.Addvehicle.value, leftImage: NavItemsLeft.back.value, rightImages: [NavItemsRight.none.value], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
         }
         
-        self.Dropdown(Dropdown: self.BrandDropDown, StringArray: self.brandDropDown, control: self.txtBrand, displayView: lblBrandLine)
-        self.Dropdown(Dropdown: self.ModelDropDown, StringArray: self.modelDropDown, control: self.txtModel, displayView: lblModelLine)
-        self.Dropdown(Dropdown: self.CarYearDropDown, StringArray: self.carYearDropDown, control: self.txtCarYear, displayView: lblCarYearLine)
+        self.txtServiceType.isUserInteractionEnabled = false
+        self.txtManufacturer.isUserInteractionEnabled = false
         
         setupTextfields(textfield: txtBrand)
         setupTextfields(textfield: txtModel)
         setupTextfields(textfield: txtCarYear)
         
-        
+        self.GetManufacturerList()
     }
+    
     func setupTextfields(textfield : UITextField) {
         let button = UIButton(type: .custom)
         button.isSelected = true
@@ -77,6 +83,17 @@ class AddVehicleVC: BaseVC, UITextFieldDelegate {
             print("Selected Item: \(item) at index: \(index)")
             control.text = Dropdown?.selectedItem
             control.textColor = .black
+            
+            if(Dropdown == self.BrandDropDown){
+                self.setupModelData(strBrand: item)
+                self.txtManufacturer.text = item
+                self.txtModel.text = ""
+                self.txtServiceType.text = ""
+            }
+            
+            if(Dropdown == self.ModelDropDown){
+                self.setupModelServiceType(strModel: item)
+            }
         }
     }
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
@@ -91,6 +108,49 @@ class AddVehicleVC: BaseVC, UITextFieldDelegate {
         return !(textField == self.txtBrand || textField == self.txtModel || textField == self.txtCarYear)
     }
     
+    func setupData(){
+        let yearData = self.ManufacturerList?.yearList
+        for year in yearData ?? [] {
+            self.carYearDropDown.append(String(year))
+        }
+        
+        let Brand = self.ManufacturerList?.data
+        for brand in Brand ?? [] {
+            self.brandDropDown.append(brand.manufacturerName ?? "")
+        }
+        
+        self.Dropdown(Dropdown: self.BrandDropDown, StringArray: self.brandDropDown, control: self.txtBrand, displayView: lblBrandLine)
+        self.Dropdown(Dropdown: self.CarYearDropDown, StringArray: self.carYearDropDown, control: self.txtCarYear, displayView: lblCarYearLine)
+        
+    }
+    
+    func setupModelData(strBrand : String){
+        self.modelDropDown = []
+        let Brand = self.ManufacturerList?.data
+        for brand in Brand ?? [] {
+            let Model = brand.vehicleModel
+            for model in Model ?? [] {
+                if(brand.manufacturerName == strBrand){
+                    self.modelDropDown.append(model.vehicleTypeModelName ?? "")
+                }
+            }
+            self.Dropdown(Dropdown: self.ModelDropDown, StringArray: self.modelDropDown, control: self.txtModel, displayView: lblModelLine)
+        }
+    }
+    
+    func setupModelServiceType(strModel : String){
+        let Brand = self.ManufacturerList?.data
+        for brand in Brand ?? [] {
+            let Model = brand.vehicleModel
+            for model in Model ?? [] {
+                if(model.vehicleTypeModelName == strModel){
+                    self.txtServiceType.text = model.vehicleTypeName ?? ""
+                }
+            }
+            self.Dropdown(Dropdown: self.ModelDropDown, StringArray: self.modelDropDown, control: self.txtModel, displayView: lblModelLine)
+        }
+    }
+    
     @IBAction func btnNextTap(_ sender: Any) {
         if isFromEditProfile{
             self.navigationController?.popViewController(animated: true)
@@ -100,4 +160,15 @@ class AddVehicleVC: BaseVC, UITextFieldDelegate {
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
+}
+
+//MARK:- Api Call
+extension AddVehicleVC{
+    
+    func GetManufacturerList(){
+        self.addVehicleUserModel.addVehicleVC = self
+        self.addVehicleUserModel.registerRequestModel = self.registerRequestModel
+        self.addVehicleUserModel.webserviceGetManufacturerList()
+    }
+    
 }

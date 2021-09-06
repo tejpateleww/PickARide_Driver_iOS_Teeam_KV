@@ -40,3 +40,14 @@ class PasswordResponseModel: Codable {
         message = try? values?.decodeIfPresent(String.self, forKey: .message)
     }
 }
+
+//MARK:- Upload Single Doc Request Model
+class UploadDocReqModel: Encodable{
+    var email : String?
+    var mobileNo : String?
+    
+    enum CodingKeys: String, CodingKey {
+        case email = "email"
+        case mobileNo = "mobile_no"
+    }
+}

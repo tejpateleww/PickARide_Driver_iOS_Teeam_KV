@@ -160,7 +160,7 @@ extension EditProfileVC : UITableViewDelegate,UITableViewDataSource{
             self.navigationController?.pushViewController(vc, animated: true)
         }
         else if arrEditProfile[indexPath.row] == "Edit Vehicle Details"{
-            let vc : AddVehicleVC = AddVehicleVC.instantiate(fromAppStoryboard: .Main)
+            let vc : AddVehicleVC = AddVehicleVC.instantiate(fromAppStoryboard: .Login)
             vc.isFromEditProfile = true
             self.navigationController?.pushViewController(vc, animated: true)
         }

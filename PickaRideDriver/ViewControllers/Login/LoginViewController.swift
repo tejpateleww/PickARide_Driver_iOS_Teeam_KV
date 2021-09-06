@@ -83,7 +83,9 @@ class LoginViewController: UIViewController {
     @IBAction func signUP(_ sender: Any)
     {
         self.navigationController?.navigationBar.isHidden = false
-        let controller = AppStoryboard.Login.instance.instantiateViewController(withIdentifier: SignUpVC.storyboardID)
+//        let controller = AppStoryboard.Login.instance.instantiateViewController(withIdentifier: SignUpVC.storyboardID)
+//        self.navigationController?.pushViewController(controller, animated: true)
+        let controller = AddVehicleVC.instantiate(fromAppStoryboard: .Login)
         self.navigationController?.pushViewController(controller, animated: true)
     }
     
@@ -94,6 +96,7 @@ class LoginViewController: UIViewController {
 ////                self.callLoginApi()
                 user_defaults.setValue(true, forKey: UserDefaultsKey.isUserLogin.rawValue)
                 appDel.navigateToMain()
+      
 //            }
 //        }
         

@@ -53,6 +53,7 @@ enum ApiKey: String {
     case registerOTP                          = "register_otp"
     case uploadDocs                           = "upload_docs"
     case register                             = "register"
+    case vehicleTypeManufacturerList          = "vehicle_type_manufacturer_list"
     case vehicleTypeList                      = "vehicle_type_list"
     case login                                = "login"
     case updateBasicInfo                      = "update_basic_info"

@@ -25,6 +25,12 @@ class WebServiceSubClass{
         }
     }
     
+    class func GetManufacturerList(completion: @escaping (Bool,String,ManufacturerListModel?,Any) -> ()){
+        URLSessionRequestManager.makeGetRequest(urlString: ApiKey.vehicleTypeManufacturerList.rawValue, responseModel: ManufacturerListModel.self){ (status, message, response, error) in
+            completion(status, message, response, error)
+        }
+    }
+    
     class func Logout(completion: @escaping (Bool,String,LogoutReponseModel?,Any) -> ()){
         URLSessionRequestManager.makeGetRequest(urlString: ApiKey.logout.rawValue + "/" + SingletonClass.sharedInstance.UserId, responseModel: LogoutReponseModel.self) { (status, message, response, error) in
             completion(status, message, response, error)
@@ -61,8 +67,8 @@ class WebServiceSubClass{
         }
     }
     
-    class func UploadSingleDocsApi(imgKey: String, image: UIImage, completion: @escaping (Bool,String,UploadSingleDocResponseModel?,Any) -> ()){
-        URLSessionRequestManager.makeImageUploadRequest(urlString: ApiKey.changePassword.rawValue, requestModel: [String:String](), responseModel: UploadSingleDocResponseModel.self, image: image, imageKey: imgKey) { (status, message, response, error) in
+    class func UploadSingleDocsApi(reqModel : UploadDocReqModel , imgKey: String, image: UIImage, completion: @escaping (Bool,String,UploadSingleDocResponseModel?,Any) -> ()){
+        URLSessionRequestManager.makeImageUploadRequest(urlString: ApiKey.uploadDocs.rawValue, requestModel: reqModel, responseModel: UploadSingleDocResponseModel.self, image: image, imageKey: imgKey) { (status, message, response, error) in
             completion(status, message, response, error)
         }
     }

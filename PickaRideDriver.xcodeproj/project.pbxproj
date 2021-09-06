@@ -24,7 +24,6 @@
 		1865CF93267C795100379A40 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1865CF92267C795100379A40 /* Enums.swift */; };
 		1865CF9F267C7A3200379A40 /* AppTheme_FontColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1865CF9E267C7A3200379A40 /* AppTheme_FontColor.swift */; };
 		1865CFA4267C7A8400379A40 /* ConstantString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1865CFA2267C7A8400379A40 /* ConstantString.swift */; };
-		1865CFA5267C7A8400379A40 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1865CFA3267C7A8400379A40 /* ImagePicker.swift */; };
 		1865CFAB267C7B4E00379A40 /* CardValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1865CFA8267C7B4D00379A40 /* CardValidator.swift */; };
 		1865CFAC267C7B4E00379A40 /* CardValidatorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1865CFA9267C7B4D00379A40 /* CardValidatorType.swift */; };
 		1865CFAD267C7B4E00379A40 /* MonthPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1865CFAA267C7B4D00379A40 /* MonthPickerView.swift */; };
@@ -149,6 +148,12 @@
 		84A5D11E2646B83900AAFAB0 /* CancelRideVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A5D11D2646B83900AAFAB0 /* CancelRideVC.swift */; };
 		84A5D1262646B89D00AAFAB0 /* CancelRideCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A5D1252646B89D00AAFAB0 /* CancelRideCell.swift */; };
 		84DD717B264957850014AF60 /* RideDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DD717A264957850014AF60 /* RideDetailsVC.swift */; };
+		889E09F726E5EA4C00333AEA /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889E09F626E5EA4C00333AEA /* ImagePicker.swift */; };
+		889E09FA26E5F16900333AEA /* SingleDocUploadViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889E09F926E5F16900333AEA /* SingleDocUploadViewModel.swift */; };
+		889E0A0626E63F1800333AEA /* AddVehicleUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889E0A0526E63F1800333AEA /* AddVehicleUserModel.swift */; };
+		889E0A0A26E643E200333AEA /* ManufacturerListDatum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889E0A0726E643E200333AEA /* ManufacturerListDatum.swift */; };
+		889E0A0B26E643E200333AEA /* ManufacturerListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889E0A0826E643E200333AEA /* ManufacturerListModel.swift */; };
+		889E0A0C26E643E200333AEA /* ManufacturerListVehicleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889E0A0926E643E200333AEA /* ManufacturerListVehicleModel.swift */; };
 		D41F99CBEDC0DD0DCC09EFAF /* Pods_PickaRideDriver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 346F3E876BF629DA2DD488C0 /* Pods_PickaRideDriver.framework */; };
 		E13924697974A4271CEFAD63 /* Pods_PickaRideDriverTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2365D99843CD5DA3E6579C86 /* Pods_PickaRideDriverTests.framework */; };
 /* End PBXBuildFile section */
@@ -188,7 +193,6 @@
 		1865CF92267C795100379A40 /* Enums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		1865CF9E267C7A3200379A40 /* AppTheme_FontColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppTheme_FontColor.swift; sourceTree = "<group>"; };
 		1865CFA2267C7A8400379A40 /* ConstantString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstantString.swift; sourceTree = "<group>"; };
-		1865CFA3267C7A8400379A40 /* ImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		1865CFA8267C7B4D00379A40 /* CardValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardValidator.swift; sourceTree = "<group>"; };
 		1865CFA9267C7B4D00379A40 /* CardValidatorType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardValidatorType.swift; sourceTree = "<group>"; };
 		1865CFAA267C7B4D00379A40 /* MonthPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthPickerView.swift; sourceTree = "<group>"; };
@@ -323,6 +327,12 @@
 		84A5D11D2646B83900AAFAB0 /* CancelRideVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelRideVC.swift; sourceTree = "<group>"; };
 		84A5D1252646B89D00AAFAB0 /* CancelRideCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelRideCell.swift; sourceTree = "<group>"; };
 		84DD717A264957850014AF60 /* RideDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideDetailsVC.swift; sourceTree = "<group>"; };
+		889E09F626E5EA4C00333AEA /* ImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		889E09F926E5F16900333AEA /* SingleDocUploadViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleDocUploadViewModel.swift; sourceTree = "<group>"; };
+		889E0A0526E63F1800333AEA /* AddVehicleUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVehicleUserModel.swift; sourceTree = "<group>"; };
+		889E0A0726E643E200333AEA /* ManufacturerListDatum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManufacturerListDatum.swift; sourceTree = "<group>"; };
+		889E0A0826E643E200333AEA /* ManufacturerListModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManufacturerListModel.swift; sourceTree = "<group>"; };
+		889E0A0926E643E200333AEA /* ManufacturerListVehicleModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManufacturerListVehicleModel.swift; sourceTree = "<group>"; };
 		93E1C17C15C20F6DE6ECFCD9 /* Pods-PickaRideDriver.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PickaRideDriver.debug.xcconfig"; path = "Target Support Files/Pods-PickaRideDriver/Pods-PickaRideDriver.debug.xcconfig"; sourceTree = "<group>"; };
 		95CA4A3D3E669B672AE3B1E6 /* Pods-PickaRideDriverTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PickaRideDriverTests.debug.xcconfig"; path = "Target Support Files/Pods-PickaRideDriverTests/Pods-PickaRideDriverTests.debug.xcconfig"; sourceTree = "<group>"; };
 		ADAA6BC735A10CDF1515D667 /* Pods-PickaRideDriver-PickaRideDriverUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PickaRideDriver-PickaRideDriverUITests.release.xcconfig"; path = "Target Support Files/Pods-PickaRideDriver-PickaRideDriverUITests/Pods-PickaRideDriver-PickaRideDriverUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -401,7 +411,7 @@
 		187B840C267B5B1000D3BFDA /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				18ECF0C026A5B37100B7F1C1 /* Vehicle */,
+				889E09FC26E63D9300333AEA /* Response Models */,
 				18ECF0AF26A5B0E000B7F1C1 /* Common */,
 				18ECF04A26A59B5800B7F1C1 /* Auth */,
 				18ECF04926A59B3400B7F1C1 /* Payment */,
@@ -413,6 +423,8 @@
 		187B8417267B5B2B00D3BFDA /* View Model */ = {
 			isa = PBXGroup;
 			children = (
+				889E0A0426E63EFC00333AEA /* AddVehicleViewModel */,
+				889E09F826E5F14A00333AEA /* SingleDocUploadViewModel */,
 				18ECF05126A59BA200B7F1C1 /* Auth */,
 			);
 			path = "View Model";
@@ -486,13 +498,6 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
-		18ECF0C026A5B37100B7F1C1 /* Vehicle */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Vehicle;
-			sourceTree = "<group>";
-		};
 		20F48818602083C8C2F55B66 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -509,22 +514,20 @@
 		4F1A76342644EF99003F00CF /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				889E09FB26E630DD00333AEA /* Splash */,
+				4F1A76352644FC56003F00CF /* Login */,
+				4F1A763826450E4F003F00CF /* SignUp */,
 				184514E7268A145D00E8884A /* VerifyViewController.swift */,
 				1871C8B52685B1CC00D4D17D /* DummyVC.swift */,
 				4F1A763B26450EC0003F00CF /* BaseVC */,
 				18720F5F2681F2ED008EE191 /* ChangePasswordVC.swift */,
-				18E2E138267223570054E351 /* OtpVC.swift */,
 				84A5D0FD2646A63800AAFAB0 /* Main */,
 				84A5D0CC264693E100AAFAB0 /* TableviewCell */,
-				4F1A763826450E4F003F00CF /* SignUp */,
-				4F1A76352644FC56003F00CF /* Login */,
-				185DEED82668DAF2008BA95C /* PersonalDocumentVC.swift */,
 				185DEEDE2669113B008BA95C /* WaitingForApprovalVC.swift */,
 				18E2E13A267240360054E351 /* RatingAndReviewVC.swift */,
 				187197FB26848E3200B4DAAF /* PopUpVC.swift */,
 				186F7D9E2693011300F3818C /* DemoVC.swift */,
 				187B163026B80E5A00314650 /* ChatVC.swift */,
-				186EC9332696E04C00314717 /* SplashVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -542,7 +545,10 @@
 			isa = PBXGroup;
 			children = (
 				4F1A763926450E78003F00CF /* SignUpVC.swift */,
+				18E2E138267223570054E351 /* OtpVC.swift */,
 				4F1A763E26455C7B003F00CF /* BankDetailsVC.swift */,
+				185DEED82668DAF2008BA95C /* PersonalDocumentVC.swift */,
+				84A5D0FF2646A67200AAFAB0 /* AddVehicleVC.swift */,
 			);
 			path = SignUp;
 			sourceTree = "<group>";
@@ -693,7 +699,7 @@
 				4F94F19A2643DB7500780413 /* Constants.swift */,
 				4F94F19C2643DB7500780413 /* Singleton.swift */,
 				1865CFA2267C7A8400379A40 /* ConstantString.swift */,
-				1865CFA3267C7A8400379A40 /* ImagePicker.swift */,
+				889E09F626E5EA4C00333AEA /* ImagePicker.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -846,7 +852,6 @@
 				81A5538C264BC56D00698413 /* Earnings */,
 				843F8057264A6F4700BCBDB8 /* SideMenu */,
 				84A5D11C2646B81B00AAFAB0 /* CancelRide */,
-				84A5D0FE2646A64D00AAFAB0 /* AddVehicle */,
 				84A5D09B2646875800AAFAB0 /* EditProfile */,
 				849CE22A2646612D00E76E5E /* HomeScreen */,
 				847607052648FC340019CE1F /* SettingVC.swift */,
@@ -857,20 +862,54 @@
 			path = Main;
 			sourceTree = "<group>";
 		};
-		84A5D0FE2646A64D00AAFAB0 /* AddVehicle */ = {
-			isa = PBXGroup;
-			children = (
-				84A5D0FF2646A67200AAFAB0 /* AddVehicleVC.swift */,
-			);
-			path = AddVehicle;
-			sourceTree = "<group>";
-		};
 		84A5D11C2646B81B00AAFAB0 /* CancelRide */ = {
 			isa = PBXGroup;
 			children = (
 				84A5D11D2646B83900AAFAB0 /* CancelRideVC.swift */,
 			);
 			path = CancelRide;
+			sourceTree = "<group>";
+		};
+		889E09F826E5F14A00333AEA /* SingleDocUploadViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				889E09F926E5F16900333AEA /* SingleDocUploadViewModel.swift */,
+			);
+			path = SingleDocUploadViewModel;
+			sourceTree = "<group>";
+		};
+		889E09FB26E630DD00333AEA /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				186EC9332696E04C00314717 /* SplashVC.swift */,
+			);
+			path = Splash;
+			sourceTree = "<group>";
+		};
+		889E09FC26E63D9300333AEA /* Response Models */ = {
+			isa = PBXGroup;
+			children = (
+				889E09FD26E63D9D00333AEA /* Manufacturer List */,
+			);
+			path = "Response Models";
+			sourceTree = "<group>";
+		};
+		889E09FD26E63D9D00333AEA /* Manufacturer List */ = {
+			isa = PBXGroup;
+			children = (
+				889E0A0826E643E200333AEA /* ManufacturerListModel.swift */,
+				889E0A0726E643E200333AEA /* ManufacturerListDatum.swift */,
+				889E0A0926E643E200333AEA /* ManufacturerListVehicleModel.swift */,
+			);
+			path = "Manufacturer List";
+			sourceTree = "<group>";
+		};
+		889E0A0426E63EFC00333AEA /* AddVehicleViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				889E0A0526E63F1800333AEA /* AddVehicleUserModel.swift */,
+			);
+			path = AddVehicleViewModel;
 			sourceTree = "<group>";
 		};
 		9E21C437D1532847F7D8E45B /* Frameworks */ = {
@@ -1178,6 +1217,7 @@
 				843F8053264A6F3E00BCBDB8 /* SideMenuController.swift in Sources */,
 				4F1A763D26450ED6003F00CF /* BaseVC.swift in Sources */,
 				4F94F1842643DB5F00780413 /* CustomButton.swift in Sources */,
+				889E09F726E5EA4C00333AEA /* ImagePicker.swift in Sources */,
 				843F806E264A706400BCBDB8 /* UIViewController+Container.swift in Sources */,
 				1865CF6A267C767600379A40 /* CodableResponseServiceClass.swift in Sources */,
 				186EC9382696F64D00314717 /* PasswordModel.swift in Sources */,
@@ -1202,6 +1242,7 @@
 				84A5D1002646A67200AAFAB0 /* AddVehicleVC.swift in Sources */,
 				843F8071264A706400BCBDB8 /* TransitionContext.swift in Sources */,
 				187B8434267B5BA100D3BFDA /* ThemeShadowAndViews.swift in Sources */,
+				889E0A0626E63F1800333AEA /* AddVehicleUserModel.swift in Sources */,
 				185DEEDF2669113B008BA95C /* WaitingForApprovalVC.swift in Sources */,
 				4F1A76372644FC67003F00CF /* LoginViewController.swift in Sources */,
 				18E2E139267223570054E351 /* OtpVC.swift in Sources */,
@@ -1228,7 +1269,6 @@
 				1865CFB1267C7D4400379A40 /* Validators.swift in Sources */,
 				84A5D09D2646876F00AAFAB0 /* EditProfileVC.swift in Sources */,
 				1871C8B62685B1CC00D4D17D /* DummyVC.swift in Sources */,
-				1865CFA5267C7A8400379A40 /* ImagePicker.swift in Sources */,
 				4F94F17B2643DB5F00780413 /* UITableViewCell+Extension.swift in Sources */,
 				185DEEDC2668DBD7008BA95C /* PersonalDocumentCell.swift in Sources */,
 				4F94F1712643DB5F00780413 /* navigationCommonView.swift in Sources */,
@@ -1257,6 +1297,7 @@
 				4F94F16E2643DB5F00780413 /* Fonts.swift in Sources */,
 				843F806D264A706400BCBDB8 /* UIView+Container.swift in Sources */,
 				18ECF0BC26A5B1AD00B7F1C1 /* UploadDocModel.swift in Sources */,
+				889E09FA26E5F16900333AEA /* SingleDocUploadViewModel.swift in Sources */,
 				187B841F267B5B2B00D3BFDA /* RegisterViewModel.swift in Sources */,
 				847607062648FC340019CE1F /* SettingVC.swift in Sources */,
 				187197FE2684B91F00B4DAAF /* ForgotPasswordVC1.swift in Sources */,
@@ -1275,9 +1316,12 @@
 				4F94F1832643DB5F00780413 /* CustomView.swift in Sources */,
 				1865CF67267C767600379A40 /* RequestBodyParamService.swift in Sources */,
 				4F94F1192643D76500780413 /* AppDelegate.swift in Sources */,
+				889E0A0B26E643E200333AEA /* ManufacturerListModel.swift in Sources */,
 				1865CF64267C767600379A40 /* URLSessionRequestManager.swift in Sources */,
+				889E0A0A26E643E200333AEA /* ManufacturerListDatum.swift in Sources */,
 				848FE833264A38E4008B6586 /* RideReceiptDetailsVC.swift in Sources */,
 				1865CF65267C767600379A40 /* WebServicesSubclass.swift in Sources */,
+				889E0A0C26E643E200333AEA /* ManufacturerListVehicleModel.swift in Sources */,
 				4F1A763F26455C7B003F00CF /* BankDetailsVC.swift in Sources */,
 				81891DAF265E749C00E8741E /* CancelRideView.swift in Sources */,
 				187B8416267B5B1000D3BFDA /* CommonModel.swift in Sources */,

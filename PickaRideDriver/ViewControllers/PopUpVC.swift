@@ -7,21 +7,48 @@
 
 import UIKit
 
+protocol DatePickDelegate {
+    func refreshDocScrren(strExpDate:String)
+}
+
 class PopUpVC: UIViewController {
 
     @IBOutlet weak var vwContainer: UIView!
     @IBOutlet weak var btnOk: themeButton!
     @IBOutlet weak var txtDate: SettingForDatePicker!
     @IBOutlet weak var lblExpiryDate: themeLabel!
+    
+    var delegateDatePick: DatePickDelegate?
+    var strDate = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.PrepareView()
+    }
+    
+    func PrepareView(){
+        
+        if(self.strDate == ""){
+            self.txtDate.text = self.getCurrentShortDate()
+        }else{
+            self.txtDate.text = strDate
+        }
+        
         txtDate.textColor = themeColor
         vwContainer.layer.cornerRadius = 8
         txtDate.tintColor = themeColor
-        
+    }
+    
+    func getCurrentShortDate() -> String {
+        let todaysDate = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM/yyyy"
+        let DateInFormat = dateFormatter.string(from: todaysDate as Date)
+        return DateInFormat
     }
     
     @IBAction func btnOkTap(_ sender: Any) {
+        self.delegateDatePick?.refreshDocScrren(strExpDate : self.txtDate.text ?? "")
         self.dismiss(animated: true, completion: nil)
     }
     @IBAction func btnCloseTap(_ sender: Any) {
@@ -81,11 +108,5 @@ class SettingForDatePicker: UITextField {
         endEditing(true)
     }
     
-//    func getCurrentShortDate() -> String {
-//        let todaysDate = NSDate()
-//        let dateFormatter = DateFormatter()
-//        dateFormatter.dateFormat = "MMM d, yyyy"
-//        let DateInFormat = dateFormatter.string(from: todaysDate as Date)
-//        return DateInFormat
-//    }
+
 }
