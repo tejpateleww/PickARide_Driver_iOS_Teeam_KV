@@ -10,8 +10,6 @@ import UIKit
 import CoreLocation
 class LoginViewController: UIViewController {
     
-    //MARK: -Properties
-    
     //MARK: -IBOutlets
     @IBOutlet weak var lblPassword: themeLabel!
     @IBOutlet weak var btnRememberMe: themeButton!
@@ -83,10 +81,10 @@ class LoginViewController: UIViewController {
     @IBAction func signUP(_ sender: Any)
     {
         self.navigationController?.navigationBar.isHidden = false
-//        let controller = AppStoryboard.Login.instance.instantiateViewController(withIdentifier: SignUpVC.storyboardID)
-//        self.navigationController?.pushViewController(controller, animated: true)
-        let controller = AddVehicleVC.instantiate(fromAppStoryboard: .Login)
+        let controller = AppStoryboard.Login.instance.instantiateViewController(withIdentifier: SignUpVC.storyboardID)
         self.navigationController?.pushViewController(controller, animated: true)
+//        let controller = AddVehicleVC.instantiate(fromAppStoryboard: .Login)
+//        self.navigationController?.pushViewController(controller, animated: true)
     }
     
     @IBAction func btnSignInClicked(_ sender: Any)

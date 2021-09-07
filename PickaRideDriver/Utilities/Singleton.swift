@@ -8,6 +8,7 @@
 
 import Foundation
 import CoreLocation
+import UIKit
 
 class SingletonClass: NSObject
 {
@@ -17,7 +18,7 @@ class SingletonClass: NSObject
     var UserId = String()
     var LoginRegisterUpdateData : RegisterFinal?
     var Api_Key = String()
-    var DeviceToken : String = ""
+    var DeviceToken : String = UIDevice.current.identifierForVendor?.uuidString ?? ""
     var isPresented = false
     var userCurrentLocation : CLLocationCoordinate2D?
     var CountryList = [CountryDetilsModel]()

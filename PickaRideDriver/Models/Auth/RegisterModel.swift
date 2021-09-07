@@ -59,80 +59,93 @@ class RegisterOTPResponseModel: Codable {
 //MARK: - OTP screen
 
 class RegisterFinalRequestModel : Encodable{
+    
     var firstName: String?
     var lastName: String?
     var email: String?
     var password: String?
     var mobileNo: String?
-    var latitude: String?
-    var longitude: String?
-    var deviceType: String? = "ios"
-    var deviceToken: String? = SingletonClass.sharedInstance.UserId
-    var countryCode: String?
     var countryId: String?
-    var vehicleType: String?
-    var dob: String?
-    var gender: String?
+    var countryCode: String?
+    
     var accountHolderName: String?
     var bankName: String?
     var ifscCode: String?
     var accountNumber : String?
+    
+    var lat: String? = SingletonClass.sharedInstance.locationString().latitude
+    var lng: String? = SingletonClass.sharedInstance.locationString().longitude
+    var deviceType: String = "ios"
+    var deviceToken: String = SingletonClass.sharedInstance.DeviceToken
+    
     var address: String?
     
-    var vehicleImage: String?
-    var plateNumber: String?
-    var yearOfManufacture: String?
-    var vehicleTypeManufacturerName: String?
-    var vehicleTypeModelName: String?
-    var noOfPassenger: String?
-    
-    var profileImage: String?
     var govermentIdImage: String?
     var govermentIdExpDate: String?
     var driverLicenceImage: String?
     var driverLicenceExpDate: String?
     var vehicleRegistrationImage: String?
     var vehicleRegistrationExpDate: String?
+    var driverInsuranceImage: String?
+    var driverInsuranceExpDate: String?
+    var rcBookImage: String?
+    var rcBookExpDate: String?
     var vehicleInsuranceImage: String?
     var vehicleInsuranceExpDate: String?
+    var ownerCertificateImage: String?
+    
+    var plateNumber: String?
+    var yearOfManufacture: String?
+    var vehicleTypeManufacturerId: String?
+    var vehicleTypeModelId: String?
+    var vehicleType: String?
+    
+    var profileImage: String?
+    
     
     enum CodingKeys: String, CodingKey {
+        
         case firstName = "first_name"
         case lastName = "last_name"
         case email = "email"
         case password = "password"
         case mobileNo = "mobile_no"
-        case latitude = "lat"
-        case longitude = "lng"
-        case deviceType = "device_type"
-        case deviceToken = "device_token"
-        case countryCode = "country_code"
         case countryId = "country_id"
-        case vehicleType = "vehicle_type"
-        case dob = "dob"
-        case gender = "gender"
+        case countryCode = "country_code"
+        
         case accountHolderName = "account_holder_name"
         case bankName = "bank_name"
         case ifscCode = "ifsc_code"
         case accountNumber = "account_number"
+        
+        case lat = "lat"
+        case lng = "lng"
+        case deviceType = "device_type"
+        case deviceToken = "device_token"
+       
         case address = "address"
         
-        case vehicleImage = "vehicle_image"
-        case plateNumber = "plate_number"
-        case yearOfManufacture = "year_of_manufacture"
-        case vehicleTypeManufacturerName = "vehicle_type_manufacturer_name"
-        case vehicleTypeModelName = "vehicle_type_model_name"
-        case noOfPassenger = "no_of_passenger"
-        
-        case profileImage = "profile_image"
         case govermentIdImage = "government_id_certi"
         case govermentIdExpDate = "government_id_certi_exp_date"
         case driverLicenceImage = "driver_licence_image"
         case driverLicenceExpDate = "driver_licence_exp_date"
         case vehicleRegistrationImage = "vehicle_registration_certi"
         case vehicleRegistrationExpDate = "vehicle_registration_exp_date"
-        case vehicleInsuranceImage = "driver_insurance_certi"
-        case vehicleInsuranceExpDate = "driver_insurance_policy_exp_date"
+        case driverInsuranceImage = "driver_insurance_certi"
+        case driverInsuranceExpDate = "driver_insurance_policy_exp_date"
+        case rcBookImage = "rc_book_certi"
+        case rcBookExpDate = "rc_book_exp_date"
+        case vehicleInsuranceImage = "vehicle_insurance_certi"
+        case vehicleInsuranceExpDate = "vehicle_insurance_exp_date"
+        case ownerCertificateImage = "owner_certi"
+        
+        case plateNumber = "plate_number"
+        case yearOfManufacture = "year_of_manufacture"
+        case vehicleTypeManufacturerId = "vehicle_type_manufacturer_id"
+        case vehicleTypeModelId = "vehicle_type_model_id"
+        case vehicleType = "vehicle_type"
+        
+        case profileImage = "profile_image"
     }
 }
 

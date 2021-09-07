@@ -11,6 +11,7 @@ import UIKit
 class SingleDocUploadModel{
     
     weak var PersonalDocumentVC : PersonalDocumentVC? = nil
+    weak var vehicleDocumentVC : VehicleDocumentVC? = nil
     var registerRequestModel = RegisterFinalRequestModel()
     
     func webserviceSingleDocUpload(reqModel: UploadDocReqModel, reqImage : UIImage){
@@ -19,8 +20,13 @@ class SingleDocUploadModel{
             Utilities.hideHud()
             Toast.show(title: status ? UrlConstant.Success : UrlConstant.Failed, message: apiMessage, state: status ? .success : .failure)
             if status{
-                self.PersonalDocumentVC?.strImageURL = response?.url ?? ""
-                self.PersonalDocumentVC?.UpdateData()
+                if(self.PersonalDocumentVC == nil){
+                    self.vehicleDocumentVC?.strImageURL = response?.url ?? ""
+                    self.vehicleDocumentVC?.UpdateData()
+                }else{
+                    self.PersonalDocumentVC?.strImageURL = response?.url ?? ""
+                    self.PersonalDocumentVC?.UpdateData()
+                }
             }else{
                 Utilities.showAlertAction(AppName, message: apiMessage, vc: self.PersonalDocumentVC!)
             }

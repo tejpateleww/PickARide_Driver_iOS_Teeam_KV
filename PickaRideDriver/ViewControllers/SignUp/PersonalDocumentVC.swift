@@ -26,7 +26,6 @@ class PersonalDocumentVC: BaseVC {
     var isVehicleDocument : Bool = false
     var ArrPersonaldetails = [PersonalDetails]()
     var registerRequestModel = RegisterFinalRequestModel()
-    private var imagePicker1 : ImagePicker!
     var imagePicker = UIImagePickerController()
     var imagePicked = 0
     var datePicked = ""
@@ -79,7 +78,7 @@ class PersonalDocumentVC: BaseVC {
         self.ArrPersonaldetails.append(PersonalDetails(header: "Goverment ID", message: "ID is an offical Document", dateofExp: "Date of expiry : \(self.registerRequestModel.govermentIdExpDate ?? "")"))
         self.ArrPersonaldetails.append(PersonalDetails(header: "Driving License", message: "A driving license is an offical Document", dateofExp: "Date of expiry : \(self.registerRequestModel.driverLicenceExpDate ?? "")"))
         self.ArrPersonaldetails.append(PersonalDetails(header: "Vehicle Registration", message: "Vehicle Registration", dateofExp: "Date of expiry : \(self.registerRequestModel.vehicleRegistrationExpDate ?? "")"))
-        self.ArrPersonaldetails.append(PersonalDetails(header: "Insurance policy", message: "Insurance policy", dateofExp: "Date of expiry : \(self.registerRequestModel.vehicleInsuranceExpDate ?? "")"))
+        self.ArrPersonaldetails.append(PersonalDetails(header: "Insurance policy", message: "Insurance policy", dateofExp: "Date of expiry : \(self.registerRequestModel.driverInsuranceExpDate ?? "")"))
     }
     func vehicleDocuments(){
         self.ArrPersonaldetails.append(PersonalDetails(header: "RC Book", message: "Vehicle Registration", dateofExp: "Date of expiry : 22/08/2022"))
@@ -139,7 +138,7 @@ class PersonalDocumentVC: BaseVC {
             self.tblPersonalDetails.reloadData()
             self.openDatePicker()
         }else if self.imagePicked == 4 {
-            self.registerRequestModel.vehicleInsuranceImage = self.strImageURL
+            self.registerRequestModel.driverInsuranceImage = self.strImageURL
             self.tblPersonalDetails.reloadData()
             self.openDatePicker()
         }
@@ -160,8 +159,8 @@ class PersonalDocumentVC: BaseVC {
             self.ArrPersonaldetails[self.imagePicked].dateofExp = "Date of expiry : \(self.registerRequestModel.vehicleRegistrationExpDate ?? "Date of expiry : ")"
             self.tblPersonalDetails.reloadData()
         }else if self.imagePicked == 4 {
-            self.registerRequestModel.vehicleInsuranceExpDate = self.datePicked
-            self.ArrPersonaldetails[self.imagePicked].dateofExp = "Date of expiry : \(self.registerRequestModel.vehicleInsuranceExpDate ?? "Date of expiry : ")"
+            self.registerRequestModel.driverInsuranceExpDate = self.datePicked
+            self.ArrPersonaldetails[self.imagePicked].dateofExp = "Date of expiry : \(self.registerRequestModel.driverInsuranceExpDate ?? "Date of expiry : ")"
             self.tblPersonalDetails.reloadData()
         }
     }
@@ -174,7 +173,7 @@ class PersonalDocumentVC: BaseVC {
         }else if self.imagePicked == 3 {
             return self.registerRequestModel.vehicleRegistrationExpDate ?? ""
         }else if self.imagePicked == 4 {
-            return self.registerRequestModel.vehicleInsuranceExpDate ?? ""
+            return self.registerRequestModel.driverInsuranceExpDate ?? ""
         }
         return ""
     }
@@ -199,11 +198,17 @@ class PersonalDocumentVC: BaseVC {
             self.ArrPersonaldetails[self.imagePicked].dateofExp = "Date of expiry : "
             self.tblPersonalDetails.reloadData()
         }else if self.imagePicked == 4 {
-            self.registerRequestModel.vehicleInsuranceImage = ""
-            self.registerRequestModel.vehicleInsuranceExpDate = ""
+            self.registerRequestModel.driverInsuranceImage = ""
+            self.registerRequestModel.driverInsuranceExpDate = ""
             self.ArrPersonaldetails[self.imagePicked].dateofExp = "Date of expiry : "
             self.tblPersonalDetails.reloadData()
         }
+    }
+    
+    func storeDataInRegisterModel(){
+        let vc : AddVehicleVC = AddVehicleVC.instantiate(fromAppStoryboard: .Login)
+        vc.registerRequestModel = self.registerRequestModel
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     func openDatePicker(){
@@ -224,7 +229,7 @@ class PersonalDocumentVC: BaseVC {
         }
         else if(self.registerRequestModel.vehicleRegistrationImage == "" || self.registerRequestModel.vehicleRegistrationImage == nil || self.registerRequestModel.vehicleRegistrationExpDate == "" || self.registerRequestModel.vehicleRegistrationExpDate == nil){
             return false
-        }else if(self.registerRequestModel.vehicleInsuranceImage == "" || self.registerRequestModel.vehicleInsuranceImage == nil || self.registerRequestModel.vehicleInsuranceExpDate == "" || self.registerRequestModel.vehicleInsuranceExpDate == nil){
+        }else if(self.registerRequestModel.driverInsuranceImage == "" || self.registerRequestModel.driverInsuranceImage == nil || self.registerRequestModel.driverInsuranceExpDate == "" || self.registerRequestModel.driverInsuranceExpDate == nil){
             return false
         }
         return true
@@ -238,16 +243,7 @@ class PersonalDocumentVC: BaseVC {
             if self.isFromEditProfile{
                 self.navigationController?.popViewController(animated: true)
             }else{
-                if !isVehicleDocument{
-                    let vc : AddVehicleVC = AddVehicleVC.instantiate(fromAppStoryboard: .Login)
-                    self.navigationController?.pushViewController(vc, animated: true)
-                }else{
-                    let vc : WaitingForApprovalVC = WaitingForApprovalVC.instantiate(fromAppStoryboard: .Login)
-                    vc.NavigatetoHomeClosure = {
-                        self.navigationController?.popToRootViewController(animated: true)
-                    }
-                    self.present(vc, animated: false, completion: nil)
-                }
+                self.storeDataInRegisterModel()
             }
         }
     }
@@ -279,8 +275,8 @@ extension PersonalDocumentVC : UITableViewDelegate, UITableViewDataSource{
                 cell.btnUpload.isHidden = (self.registerRequestModel.vehicleRegistrationImage == "" || self.registerRequestModel.vehicleRegistrationImage == nil) ? false : true
                 cell.vwMoreButtons.isHidden = (self.registerRequestModel.vehicleRegistrationImage == "" || self.registerRequestModel.vehicleRegistrationImage == nil) ? true : false
             }else if(self.ArrPersonaldetails[indexPath.row].header == "Insurance policy"){
-                cell.btnUpload.isHidden = (self.registerRequestModel.vehicleInsuranceImage == "" || self.registerRequestModel.vehicleInsuranceImage == nil) ? false : true
-                cell.vwMoreButtons.isHidden = (self.registerRequestModel.vehicleInsuranceImage == "" || self.registerRequestModel.vehicleInsuranceImage == nil) ? true : false
+                cell.btnUpload.isHidden = (self.registerRequestModel.driverInsuranceImage == "" || self.registerRequestModel.driverInsuranceImage == nil) ? false : true
+                cell.vwMoreButtons.isHidden = (self.registerRequestModel.driverInsuranceImage == "" || self.registerRequestModel.driverInsuranceImage == nil) ? true : false
             }else{
                 
             }

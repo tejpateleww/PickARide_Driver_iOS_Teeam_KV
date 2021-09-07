@@ -27,3 +27,24 @@ class RegisterUserModel{
         }
     }
 }
+
+class RegisterUserFinalModel{
+    
+    weak var vehicleDocumentVC : VehicleDocumentVC? = nil
+    
+    func webserviceRegister(reqModel: RegisterFinalRequestModel){
+        Utilities.showHud()
+        WebServiceSubClass.Register(reqModel: reqModel) { (status, apiMessage, response, error) in
+            Utilities.hideHud()
+            Toast.show(title: status ? UrlConstant.Success : UrlConstant.Failed, message: apiMessage, state: status ? .success : .failure)
+            if status{
+                SingletonClass.sharedInstance.LoginRegisterUpdateData = response
+                user_defaults.setUserData()
+                user_defaults.setValue(true, forKey: UserDefaultsKey.isUserLogin.rawValue)
+                self.vehicleDocumentVC?.goToWaitingForApproval()
+            }else{
+                Utilities.showAlertOfAPIResponse(param: apiMessage, vc: self.vehicleDocumentVC!)
+            }
+        }
+    }
+}

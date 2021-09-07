@@ -106,6 +106,7 @@ class SignUpVC: BaseVC {
         self.registerRequestModel.firstName = self.txtFirstName.text ?? ""
         self.registerRequestModel.lastName = self.txtLastName.text ?? ""
         self.registerRequestModel.countryCode = self.txtCountryCode.text ?? ""
+        self.registerRequestModel.countryId = SingletonClass.sharedInstance.CountryList[selectedIndexOfPicker].id
         self.registerRequestModel.mobileNo = self.txtMobile.text ?? ""
         self.registerRequestModel.email = self.txtEmail.text ?? ""
         self.registerRequestModel.address = self.txtviewHomeAddress.text ?? ""

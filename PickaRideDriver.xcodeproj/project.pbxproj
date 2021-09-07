@@ -148,6 +148,7 @@
 		84A5D11E2646B83900AAFAB0 /* CancelRideVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A5D11D2646B83900AAFAB0 /* CancelRideVC.swift */; };
 		84A5D1262646B89D00AAFAB0 /* CancelRideCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A5D1252646B89D00AAFAB0 /* CancelRideCell.swift */; };
 		84DD717B264957850014AF60 /* RideDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DD717A264957850014AF60 /* RideDetailsVC.swift */; };
+		8864746526E732970049B41D /* VehicleDocumentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8864746426E732970049B41D /* VehicleDocumentVC.swift */; };
 		889E09F726E5EA4C00333AEA /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889E09F626E5EA4C00333AEA /* ImagePicker.swift */; };
 		889E09FA26E5F16900333AEA /* SingleDocUploadViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889E09F926E5F16900333AEA /* SingleDocUploadViewModel.swift */; };
 		889E0A0626E63F1800333AEA /* AddVehicleUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889E0A0526E63F1800333AEA /* AddVehicleUserModel.swift */; };
@@ -327,6 +328,7 @@
 		84A5D11D2646B83900AAFAB0 /* CancelRideVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelRideVC.swift; sourceTree = "<group>"; };
 		84A5D1252646B89D00AAFAB0 /* CancelRideCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelRideCell.swift; sourceTree = "<group>"; };
 		84DD717A264957850014AF60 /* RideDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideDetailsVC.swift; sourceTree = "<group>"; };
+		8864746426E732970049B41D /* VehicleDocumentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleDocumentVC.swift; sourceTree = "<group>"; };
 		889E09F626E5EA4C00333AEA /* ImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		889E09F926E5F16900333AEA /* SingleDocUploadViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleDocUploadViewModel.swift; sourceTree = "<group>"; };
 		889E0A0526E63F1800333AEA /* AddVehicleUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVehicleUserModel.swift; sourceTree = "<group>"; };
@@ -549,6 +551,7 @@
 				4F1A763E26455C7B003F00CF /* BankDetailsVC.swift */,
 				185DEED82668DAF2008BA95C /* PersonalDocumentVC.swift */,
 				84A5D0FF2646A67200AAFAB0 /* AddVehicleVC.swift */,
+				8864746426E732970049B41D /* VehicleDocumentVC.swift */,
 			);
 			path = SignUp;
 			sourceTree = "<group>";
@@ -1248,6 +1251,7 @@
 				18E2E139267223570054E351 /* OtpVC.swift in Sources */,
 				1865CF68267C767600379A40 /* apiPaths.swift in Sources */,
 				84DD717B264957850014AF60 /* RideDetailsVC.swift in Sources */,
+				8864746526E732970049B41D /* VehicleDocumentVC.swift in Sources */,
 				187B8414267B5B1000D3BFDA /* WalletModel.swift in Sources */,
 				185DEED92668DAF2008BA95C /* PersonalDocumentVC.swift in Sources */,
 				187B8435267B5BA100D3BFDA /* Themes.swift in Sources */,
