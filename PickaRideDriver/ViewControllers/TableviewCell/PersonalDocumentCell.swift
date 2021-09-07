@@ -16,11 +16,15 @@ class PersonalDocumentCell: UITableViewCell {
     @IBOutlet weak var btnRight: UIButton!
     @IBOutlet weak var lblHeading: themeLabel!
     @IBOutlet weak var lblMessage: themeLabel!
-    @IBOutlet weak var vwLoder: UIView!
     @IBOutlet weak var lblDateOfExpiry: themeLabel!
+    @IBOutlet weak var btnInfo: UIButton!
+    @IBOutlet weak var btnUpload: themeButton!
+    @IBOutlet weak var activity: UIActivityIndicatorView!
+    
     
     var uploadBtnClouser : (()->())?
     var MoreBtnClouser : (()->())?
+    var btnInfoClouser : (()->())?
     
     let ImageDropDown = DropDown()
     var optionsDropDown = ["Edit","Remove"]
@@ -32,10 +36,11 @@ class PersonalDocumentCell: UITableViewCell {
         btnRight.tintColor = themeColor
         // Initialization code
         
-        
+        self.activity.color = themeColor
+        self.activity.hidesWhenStopped = true
+        self.contentView.addSubview(self.activity)
     }
-    @IBOutlet weak var btnUpload: themeButton!
-    
+   
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
@@ -56,5 +61,12 @@ class PersonalDocumentCell: UITableViewCell {
             obj()
         }
     }
+    
+    @IBAction func btnInfoAction(_ sender: Any) {
+        if let obj = btnInfoClouser{
+            obj()
+        }
+    }
+    
   
 }

@@ -965,7 +965,7 @@
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0gF-gA-6em" customClass="themeButton" customModule="PickaRideDriver" customModuleProvider="target">
-                                        <rect key="frame" x="24" y="389.5" width="327" height="40"/>
+                                        <rect key="frame" x="24" y="607" width="327" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="0Nr-nI-FUI"/>
                                         </constraints>
@@ -986,10 +986,10 @@
                                 <constraints>
                                     <constraint firstItem="RX5-CG-JjW" firstAttribute="top" secondItem="5TO-4I-0de" secondAttribute="top" constant="30" id="0mr-Og-uqm"/>
                                     <constraint firstItem="RX5-CG-JjW" firstAttribute="leading" secondItem="5TO-4I-0de" secondAttribute="leading" constant="18" id="81b-3K-neO"/>
-                                    <constraint firstItem="0gF-gA-6em" firstAttribute="top" secondItem="RX5-CG-JjW" secondAttribute="bottom" constant="60" id="Qdb-fa-xeA"/>
                                     <constraint firstAttribute="trailing" secondItem="0gF-gA-6em" secondAttribute="trailing" constant="24" id="TkP-qQ-ARm"/>
                                     <constraint firstAttribute="trailing" secondItem="RX5-CG-JjW" secondAttribute="trailing" constant="18" id="g64-f1-8Q9"/>
                                     <constraint firstItem="0gF-gA-6em" firstAttribute="leading" secondItem="5TO-4I-0de" secondAttribute="leading" constant="24" id="gOu-gm-wSS"/>
+                                    <constraint firstAttribute="bottom" secondItem="0gF-gA-6em" secondAttribute="bottom" constant="20" id="nrQ-Qj-8mX"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -1016,7 +1016,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vg3-mC-dNG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4630" y="57"/>
+            <point key="canvasLocation" x="4626" y="46"/>
         </scene>
         <!--Personal DocumentVC-->
         <scene sceneID="3dq-aX-6cr">
@@ -1284,25 +1284,6 @@ adminnistrator!</string>
                                             </textField>
                                         </subviews>
                                     </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R5U-Yp-1uo" customClass="themeButton" customModule="PickaRideDriver" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="601" width="335" height="46"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="46" id="bwR-ys-AZV"/>
-                                        </constraints>
-                                        <state key="normal" title="VERIFY"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isShadow" value="NO"/>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isthemeBg" value="YES"/>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="Font_Size">
-                                                <real key="value" value="18"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isRound" value="NO"/>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isbold" value="YES"/>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="btnAeeroTap:" destination="q9p-Bj-3P6" eventType="touchUpInside" id="wx5-1Z-ROI"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Xy-bg-BIZ">
                                         <rect key="frame" x="24" y="313" width="120" height="30"/>
                                         <constraints>
@@ -1372,21 +1353,38 @@ Number</string>
                                             </label>
                                         </subviews>
                                     </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oWd-ll-BRC" customClass="themeButton" customModule="PickaRideDriver" customModuleProvider="target">
+                                        <rect key="frame" x="24" y="607" width="327" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="IsE-3p-fwi"/>
+                                        </constraints>
+                                        <state key="normal" title="NEXT"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isthemeBg" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="Font_Size">
+                                                <real key="value" value="14"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isbold" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="btnAeeroTap:" destination="q9p-Bj-3P6" eventType="touchUpInside" id="yuQ-Lg-HWs"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstItem="R5U-Yp-1uo" firstAttribute="leading" secondItem="2rW-Wm-siE" secondAttribute="leading" constant="20" id="1Zu-ee-gvP"/>
                                     <constraint firstItem="Jgg-UB-PGG" firstAttribute="top" secondItem="Vi7-sa-isP" secondAttribute="bottom" id="8Kx-Jr-TBM"/>
                                     <constraint firstItem="Jgg-UB-PGG" firstAttribute="leading" secondItem="Vi7-sa-isP" secondAttribute="leading" id="8hz-d6-twd"/>
                                     <constraint firstItem="8Xy-bg-BIZ" firstAttribute="top" secondItem="YOw-l3-8iw" secondAttribute="bottom" constant="20" id="D9u-Gv-ycg"/>
-                                    <constraint firstAttribute="bottom" secondItem="R5U-Yp-1uo" secondAttribute="bottom" constant="20" id="Fbh-QZ-TCp"/>
                                     <constraint firstItem="yUg-3o-fD6" firstAttribute="top" secondItem="Jgg-UB-PGG" secondAttribute="bottom" constant="24" id="Gx3-Bz-fhV"/>
-                                    <constraint firstAttribute="trailing" secondItem="R5U-Yp-1uo" secondAttribute="trailing" constant="20" id="NIL-ed-bME"/>
+                                    <constraint firstAttribute="bottom" secondItem="oWd-ll-BRC" secondAttribute="bottom" constant="20" id="Ir0-2g-2ay"/>
                                     <constraint firstItem="8Xy-bg-BIZ" firstAttribute="leading" secondItem="2rW-Wm-siE" secondAttribute="leading" constant="24" id="NtN-xQ-bKh"/>
                                     <constraint firstItem="Vi7-sa-isP" firstAttribute="leading" secondItem="2rW-Wm-siE" secondAttribute="leading" constant="16" id="QNE-jE-d4e"/>
+                                    <constraint firstAttribute="trailing" secondItem="oWd-ll-BRC" secondAttribute="trailing" constant="24" id="Rdz-uC-CnY"/>
                                     <constraint firstItem="YOw-l3-8iw" firstAttribute="leading" secondItem="yUg-3o-fD6" secondAttribute="leading" id="V9c-XQ-qCQ"/>
                                     <constraint firstAttribute="trailing" secondItem="Vi7-sa-isP" secondAttribute="trailing" constant="16" id="WII-O7-i8B"/>
                                     <constraint firstItem="Vi7-sa-isP" firstAttribute="top" secondItem="2rW-Wm-siE" secondAttribute="top" constant="32" id="ffR-9n-f7Z"/>
+                                    <constraint firstItem="oWd-ll-BRC" firstAttribute="leading" secondItem="2rW-Wm-siE" secondAttribute="leading" constant="24" id="niT-ew-EkC"/>
                                     <constraint firstItem="YOw-l3-8iw" firstAttribute="trailing" secondItem="yUg-3o-fD6" secondAttribute="trailing" id="ojC-HP-JOu"/>
                                     <constraint firstItem="yUg-3o-fD6" firstAttribute="centerX" secondItem="2rW-Wm-siE" secondAttribute="centerX" id="tNN-v5-z02"/>
                                     <constraint firstItem="YOw-l3-8iw" firstAttribute="top" secondItem="yUg-3o-fD6" secondAttribute="bottom" constant="33" id="uV8-NT-WPg"/>
@@ -1409,7 +1407,7 @@ Number</string>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="btnAeero" destination="R5U-Yp-1uo" id="6uR-sV-cbZ"/>
+                        <outlet property="btnAeero" destination="oWd-ll-BRC" id="hYo-vU-juX"/>
                         <outlet property="btnResendCode" destination="Ot2-Yt-7C4" id="wFY-Au-nrt"/>
                         <outlet property="lblCountDown" destination="Wew-Zx-7v2" id="mva-xe-Yng"/>
                         <outlet property="lblDisplayMesagewithNumber" destination="Jgg-UB-PGG" id="e4X-gT-3My"/>
@@ -1421,7 +1419,7 @@ Number</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="boJ-pD-5jo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3926" y="54"/>
+            <point key="canvasLocation" x="3921" y="36"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="RgL-MN-jqd">

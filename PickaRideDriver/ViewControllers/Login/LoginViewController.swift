@@ -83,7 +83,7 @@ class LoginViewController: UIViewController {
         self.navigationController?.navigationBar.isHidden = false
         let controller = AppStoryboard.Login.instance.instantiateViewController(withIdentifier: SignUpVC.storyboardID)
         self.navigationController?.pushViewController(controller, animated: true)
-//        let controller = AddVehicleVC.instantiate(fromAppStoryboard: .Login)
+//        let controller = PersonalDocumentVC.instantiate(fromAppStoryboard: .Login)
 //        self.navigationController?.pushViewController(controller, animated: true)
     }
     

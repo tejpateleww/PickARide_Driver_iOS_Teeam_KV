@@ -20,9 +20,10 @@ class LoginUserModel{
         loginReqModel.username = loginvc?.txtEmailOrPhoneNumber.text ?? ""
         loginReqModel.password = loginvc?.txtPassword.text ?? ""
         
-        Utilities.showHUD()
+        self.loginvc?.btnSignIN.showLoading()
+        
         WebServiceSubClass.Login(reqModel: loginReqModel) { (status, message, response, error) in
-            Utilities.hideHUD()
+            self.loginvc?.btnSignIN.hideLoading()
             if status{
                 SingletonClass.sharedInstance.LoginRegisterUpdateData = response
                 user_defaults.setUserData()

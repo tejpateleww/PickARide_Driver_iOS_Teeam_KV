@@ -15,10 +15,8 @@ class SingleDocUploadModel{
     var registerRequestModel = RegisterFinalRequestModel()
     
     func webserviceSingleDocUpload(reqModel: UploadDocReqModel, reqImage : UIImage){
-        Utilities.showHud()
+        
         WebServiceSubClass.UploadSingleDocsApi(reqModel: reqModel, imgKey: "image", image: reqImage) { (status, apiMessage, response, error) in
-            Utilities.hideHud()
-            Toast.show(title: status ? UrlConstant.Success : UrlConstant.Failed, message: apiMessage, state: status ? .success : .failure)
             if status{
                 if(self.PersonalDocumentVC == nil){
                     self.vehicleDocumentVC?.strImageURL = response?.url ?? ""

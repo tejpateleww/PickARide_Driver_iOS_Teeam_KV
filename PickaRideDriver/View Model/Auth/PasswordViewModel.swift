@@ -12,9 +12,9 @@ class PasswordUserModel{
     weak var changePasswordVC : ChangePasswordVC? = nil
     
     func webserviceForgotPassword(reqModel: ForgotPasswordReqModel){
-        Utilities.showHud()
+        self.forgotPasswordVC?.btnContinue.showLoading()
         WebServiceSubClass.ForgotPasswordApi(reqModel: reqModel) { (status, apiMessage, response, error) in
-            Utilities.hideHud()
+            self.forgotPasswordVC?.btnContinue.hideLoading()
             Toast.show(title: status ? UrlConstant.Success : UrlConstant.Failed, message: apiMessage, state: .success) {
                 let controller = OtpVC.instantiate(fromAppStoryboard: .Login)
                 self.forgotPasswordVC?.navigationController?.pushViewController(controller, animated: true)
@@ -24,9 +24,9 @@ class PasswordUserModel{
     
     func webserviceChangePassword(reqModel: ChangePasswordReqModel){
         Utilities.showHud()
-        
+        self.changePasswordVC?.btnSave.showLoading()
         WebServiceSubClass.ChangePasswordApi(reqModel: reqModel) { (status, apiMessage, response, error) in
-            Utilities.hideHud()
+            self.changePasswordVC?.btnSave.hideLoading()
             Toast.show(title: status ? UrlConstant.Success : UrlConstant.Failed, message: apiMessage, state: .success) {
                 self.changePasswordVC?.navigationController?.popViewController(animated: true)
             }

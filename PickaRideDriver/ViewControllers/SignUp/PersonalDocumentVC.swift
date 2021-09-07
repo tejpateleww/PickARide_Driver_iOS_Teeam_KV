@@ -7,6 +7,7 @@
 
 import UIKit
 import DropDown
+import EasyTipView
 
 struct PersonalDetails{
     var header : String?
@@ -30,7 +31,11 @@ class PersonalDocumentVC: BaseVC {
     var imagePicked = 0
     var datePicked = ""
     var strImageURL = ""
+    var selectedCellPath: IndexPath?
     var singleDocUploadModel = SingleDocUploadModel()
+    
+    var preferences = EasyTipView.Preferences()
+    var tipView: EasyTipView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,6 +71,7 @@ class PersonalDocumentVC: BaseVC {
         self.tblPersonalDetails.dataSource = self
         self.tblPersonalDetails.addObserver(self, forKeyPath: "contentSize", options: .new, context: nil)
         self.registerNib()
+        self.setUpPopTip()
     }
     
     func registerNib(){
@@ -114,7 +120,11 @@ class PersonalDocumentVC: BaseVC {
             self.imagePicked = index.row
             self.present(self.imagePicker, animated: true)
         })
-        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: { ACTION in
+            if(self.selectedCellPath != nil){
+                self.hideLoader()
+            }
+        })
         alert.addAction(Gallery)
         alert.addAction(Camera)
         alert.addAction(cancel)
@@ -181,28 +191,25 @@ class PersonalDocumentVC: BaseVC {
     func RemoveData(){
         if self.imagePicked == 0 {
             self.registerRequestModel.profileImage = ""
-            self.tblPersonalDetails.reloadData()
+            
         }else if self.imagePicked == 1 {
             self.registerRequestModel.govermentIdImage = ""
             self.registerRequestModel.govermentIdExpDate = ""
             self.ArrPersonaldetails[self.imagePicked].dateofExp = "Date of expiry : "
-            self.tblPersonalDetails.reloadData()
         }else if self.imagePicked == 2 {
             self.registerRequestModel.driverLicenceImage = ""
             self.registerRequestModel.driverLicenceExpDate = ""
             self.ArrPersonaldetails[self.imagePicked].dateofExp = "Date of expiry : "
-            self.tblPersonalDetails.reloadData()
         }else if self.imagePicked == 3 {
             self.registerRequestModel.vehicleRegistrationImage = ""
             self.registerRequestModel.vehicleRegistrationExpDate = ""
             self.ArrPersonaldetails[self.imagePicked].dateofExp = "Date of expiry : "
-            self.tblPersonalDetails.reloadData()
         }else if self.imagePicked == 4 {
             self.registerRequestModel.driverInsuranceImage = ""
             self.registerRequestModel.driverInsuranceExpDate = ""
             self.ArrPersonaldetails[self.imagePicked].dateofExp = "Date of expiry : "
-            self.tblPersonalDetails.reloadData()
         }
+        self.tblPersonalDetails.reloadData()
     }
     
     func storeDataInRegisterModel(){
@@ -235,6 +242,40 @@ class PersonalDocumentVC: BaseVC {
         return true
     }
     
+    func showPopTip(index : IndexPath, sender: UIButton){
+        if let tipView = self.tipView {
+            tipView.dismiss(withCompletion: {
+                print("Completion called!")
+                self.tipView = nil
+            })
+        } else {
+            let view = EasyTipView(text: self.ArrPersonaldetails[index.row].message ?? "", preferences: self.preferences)
+            view.show(forView: sender, withinSuperview: self.navigationController?.view)
+            self.tipView = view
+        }
+    }
+    
+    func setUpPopTip() {
+        self.preferences.drawing.font = CustomFont.regular.returnFont(14)
+        self.preferences.drawing.foregroundColor = UIColor.white
+        self.preferences.drawing.backgroundColor = themeColor
+        self.preferences.drawing.arrowPosition = EasyTipView.ArrowPosition.top
+    }
+    
+    func showLoader(){
+        let cell = self.tblPersonalDetails.cellForRow(at: self.selectedCellPath!) as! PersonalDocumentCell
+        cell.btnUpload.isHidden = true
+        cell.activity.startAnimating()
+    }
+    
+    func hideLoader(){
+        let cell = self.tblPersonalDetails.cellForRow(at: self.selectedCellPath!) as! PersonalDocumentCell
+        cell.activity.stopAnimating()
+        cell.btnUpload.isHidden = false
+        self.selectedCellPath = nil
+    }
+
+    
     //MARK:- IBActions
     @IBAction func btnNextTap(_ sender: Any) {
         if(!self.validate()){
@@ -256,38 +297,37 @@ extension PersonalDocumentVC : UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.tblPersonalDetails.dequeueReusableCell(withIdentifier: PersonalDocumentCell.className) as! PersonalDocumentCell
-        if self.isVehicleDocument{
-            cell.btnUpload.isHidden = self.ArrPersonaldetails[indexPath.row].header == "Owner certificate" ? false : true
-            cell.vwMoreButtons.isHidden = self.ArrPersonaldetails[indexPath.row].header == "Owner certificate" ? true : false
-            
+        
+        if(self.ArrPersonaldetails[indexPath.row].header == "Profile Photo"){
+            cell.btnUpload.isHidden = (self.registerRequestModel.profileImage == "" || self.registerRequestModel.profileImage == nil) ? false : true
+            cell.vwMoreButtons.isHidden = (self.registerRequestModel.profileImage == "" || self.registerRequestModel.profileImage == nil) ? true : false
+        }else if(self.ArrPersonaldetails[indexPath.row].header == "Goverment ID"){
+            cell.btnUpload.isHidden = (self.registerRequestModel.govermentIdImage == "" || self.registerRequestModel.govermentIdImage == nil) ? false : true
+            cell.vwMoreButtons.isHidden = (self.registerRequestModel.govermentIdImage == "" || self.registerRequestModel.govermentIdImage == nil) ? true : false
+        }else if(self.ArrPersonaldetails[indexPath.row].header == "Driving License"){
+            cell.btnUpload.isHidden = (self.registerRequestModel.driverLicenceImage == "" || self.registerRequestModel.driverLicenceImage == nil) ? false : true
+            cell.vwMoreButtons.isHidden = (self.registerRequestModel.driverLicenceImage == "" || self.registerRequestModel.driverLicenceImage == nil) ? true : false
+        }else if(self.ArrPersonaldetails[indexPath.row].header == "Vehicle Registration"){
+            cell.btnUpload.isHidden = (self.registerRequestModel.vehicleRegistrationImage == "" || self.registerRequestModel.vehicleRegistrationImage == nil) ? false : true
+            cell.vwMoreButtons.isHidden = (self.registerRequestModel.vehicleRegistrationImage == "" || self.registerRequestModel.vehicleRegistrationImage == nil) ? true : false
+        }else if(self.ArrPersonaldetails[indexPath.row].header == "Insurance policy"){
+            cell.btnUpload.isHidden = (self.registerRequestModel.driverInsuranceImage == "" || self.registerRequestModel.driverInsuranceImage == nil) ? false : true
+            cell.vwMoreButtons.isHidden = (self.registerRequestModel.driverInsuranceImage == "" || self.registerRequestModel.driverInsuranceImage == nil) ? true : false
         }else{
             
-            if(self.ArrPersonaldetails[indexPath.row].header == "Profile Photo"){
-                cell.btnUpload.isHidden = (self.registerRequestModel.profileImage == "" || self.registerRequestModel.profileImage == nil) ? false : true
-                cell.vwMoreButtons.isHidden = (self.registerRequestModel.profileImage == "" || self.registerRequestModel.profileImage == nil) ? true : false
-            }else if(self.ArrPersonaldetails[indexPath.row].header == "Goverment ID"){
-                cell.btnUpload.isHidden = (self.registerRequestModel.govermentIdImage == "" || self.registerRequestModel.govermentIdImage == nil) ? false : true
-                cell.vwMoreButtons.isHidden = (self.registerRequestModel.govermentIdImage == "" || self.registerRequestModel.govermentIdImage == nil) ? true : false
-            }else if(self.ArrPersonaldetails[indexPath.row].header == "Driving License"){
-                cell.btnUpload.isHidden = (self.registerRequestModel.driverLicenceImage == "" || self.registerRequestModel.driverLicenceImage == nil) ? false : true
-                cell.vwMoreButtons.isHidden = (self.registerRequestModel.driverLicenceImage == "" || self.registerRequestModel.driverLicenceImage == nil) ? true : false
-            }else if(self.ArrPersonaldetails[indexPath.row].header == "Vehicle Registration"){
-                cell.btnUpload.isHidden = (self.registerRequestModel.vehicleRegistrationImage == "" || self.registerRequestModel.vehicleRegistrationImage == nil) ? false : true
-                cell.vwMoreButtons.isHidden = (self.registerRequestModel.vehicleRegistrationImage == "" || self.registerRequestModel.vehicleRegistrationImage == nil) ? true : false
-            }else if(self.ArrPersonaldetails[indexPath.row].header == "Insurance policy"){
-                cell.btnUpload.isHidden = (self.registerRequestModel.driverInsuranceImage == "" || self.registerRequestModel.driverInsuranceImage == nil) ? false : true
-                cell.vwMoreButtons.isHidden = (self.registerRequestModel.driverInsuranceImage == "" || self.registerRequestModel.driverInsuranceImage == nil) ? true : false
-            }else{
-                
-            }
         }
+        
         cell.uploadBtnClouser = {
+            self.selectedCellPath = indexPath
             self.UploadImage(index: indexPath)
         }
         cell.MoreBtnClouser = {
             let options = (indexPath.row == 0) ? cell.optionsDropDown : cell.optionsDropDownwithExp
             self.Dropdown(Dropdown: cell.ImageDropDown, StringArray: options, control: cell.btnMore, displayView: cell.btnRight, cellIndex : indexPath)
             cell.ImageDropDown.show()
+        }
+        cell.btnInfoClouser = {
+            self.showPopTip(index: indexPath, sender: cell.btnInfo)
         }
         
         cell.lblHeading.text = self.ArrPersonaldetails[indexPath.row].header
@@ -323,6 +363,8 @@ extension PersonalDocumentVC : UIImagePickerControllerDelegate, UINavigationCont
     public func imagePickerController(_ picker: UIImagePickerController,
                                       didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
+        self.showLoader()
+        
         let pickedImage  = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
         if pickedImage == nil{
             Utilities.showAlert(AppName, message: "Please select image to upload", vc: self)
@@ -349,6 +391,9 @@ extension PersonalDocumentVC : UIImagePickerControllerDelegate, UINavigationCont
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        if(self.selectedCellPath != nil){
+            self.hideLoader()
+        }
         dismiss(animated: true, completion: nil)
     }
 }

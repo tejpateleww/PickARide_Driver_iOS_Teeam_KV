@@ -18,6 +18,8 @@ class themeButton : UIButton{
     @IBInspectable public var isRound: Bool = false
     @IBInspectable var isthemeBg : Bool = false
     
+    var activityIndicator: UIActivityIndicatorView!
+    var originalButtonText: String?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -64,10 +66,61 @@ class themeButton : UIButton{
         self.layer.shadowPath = shadowPath.cgPath
     }
     
+    func showLoading() {
+            isEnabled = false
+            originalButtonText = self.titleLabel?.text
+
+            self.setTitle("", for: .normal)
+            if (activityIndicator == nil) {
+                activityIndicator = createActivityIndicator()
+            }
+
+            showSpinning()
+        }
+
+        func hideLoading() {
+            isEnabled = true
+            self.setTitle(originalButtonText, for: .normal)
+            activityIndicator.stopAnimating()
+        }
+
+        private func createActivityIndicator() -> UIActivityIndicatorView {
+            let activityIndicator = UIActivityIndicatorView()
+            activityIndicator.hidesWhenStopped = true
+            activityIndicator.color = .white
+            return activityIndicator
+        }
+
+        private func showSpinning() {
+            activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+            self.addSubview(activityIndicator)
+            centerActivityIndicatorInButton()
+            activityIndicator.startAnimating()
+        }
+
+        private func centerActivityIndicatorInButton() {
+            let xCenterConstraint = NSLayoutConstraint(item: self, attribute: .centerX, relatedBy: .equal, toItem: activityIndicator, attribute: .centerX, multiplier: 1, constant: 0)
+            self.addConstraint(xCenterConstraint)
+
+            let yCenterConstraint = NSLayoutConstraint(item: self, attribute: .centerY, relatedBy: .equal, toItem: activityIndicator, attribute: .centerY, multiplier: 1, constant: 0)
+            self.addConstraint(yCenterConstraint)
+        }
+
+        override var isEnabled: Bool {
+            didSet {
+                UIView.animate(withDuration: 0.3) {
+                    self.backgroundColor = self.isEnabled ? themeColor : themeColor
+                }
+            }
+        }
+    
 }
 
 class submitButton : UIButton
 {
+    var activityIndicator: UIActivityIndicatorView!
+    var originalButtonText: String?
+    
     override func awakeFromNib() {
         self.layer.cornerRadius = 4
         self.backgroundColor = colors.submitButtonColor.value
@@ -75,6 +128,54 @@ class submitButton : UIButton
         self.setTitleColor(colors.white.value, for: .normal)
         self.titleLabel?.font = CustomFont.medium.returnFont(18)
     }
+    
+    func showLoading() {
+            isEnabled = false
+            originalButtonText = self.titleLabel?.text
+
+            self.setTitle("", for: .normal)
+            if (activityIndicator == nil) {
+                activityIndicator = createActivityIndicator()
+            }
+
+            showSpinning()
+        }
+
+        func hideLoading() {
+            isEnabled = true
+            self.setTitle(originalButtonText, for: .normal)
+            activityIndicator.stopAnimating()
+        }
+
+        private func createActivityIndicator() -> UIActivityIndicatorView {
+            let activityIndicator = UIActivityIndicatorView()
+            activityIndicator.hidesWhenStopped = true
+            activityIndicator.color = .white
+            return activityIndicator
+        }
+
+        private func showSpinning() {
+            activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+            self.addSubview(activityIndicator)
+            centerActivityIndicatorInButton()
+            activityIndicator.startAnimating()
+        }
+
+        private func centerActivityIndicatorInButton() {
+            let xCenterConstraint = NSLayoutConstraint(item: self, attribute: .centerX, relatedBy: .equal, toItem: activityIndicator, attribute: .centerX, multiplier: 1, constant: 0)
+            self.addConstraint(xCenterConstraint)
+
+            let yCenterConstraint = NSLayoutConstraint(item: self, attribute: .centerY, relatedBy: .equal, toItem: activityIndicator, attribute: .centerY, multiplier: 1, constant: 0)
+            self.addConstraint(yCenterConstraint)
+        }
+
+        override var isEnabled: Bool {
+            didSet {
+                UIView.animate(withDuration: 0.3) {
+                    self.backgroundColor = self.isEnabled ? themeColor : themeColor
+                }
+            }
+        }
 }
 
 class loginScreenButton : UIButton

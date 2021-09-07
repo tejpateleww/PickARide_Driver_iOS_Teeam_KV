@@ -52,6 +52,7 @@ class PopUpVC: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     @IBAction func btnCloseTap(_ sender: Any) {
+        self.delegateDatePick?.refreshDocScrren(strExpDate : self.txtDate.text ?? "")
         self.dismiss(animated: true, completion: nil)
     }
     

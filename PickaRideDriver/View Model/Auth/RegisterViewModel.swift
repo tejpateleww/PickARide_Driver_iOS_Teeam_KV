@@ -13,16 +13,17 @@ class RegisterUserModel{
     var registerRequestModel = RegisterFinalRequestModel()
     
     func webserviceRegisterOTP(reqModel: OTPRequestModel){
-        Utilities.showHud()
+        self.registerVC?.btnAeero.showLoading()
         WebServiceSubClass.OTPRequestApi(reqModel: reqModel) { (status, apiMessage, response, error) in
-            Utilities.hideHud()
-            Toast.show(title: status ? UrlConstant.Success : UrlConstant.Failed, message: apiMessage, state: status ? .success : .failure)
+            self.registerVC?.btnAeero.hideLoading()
             if status{
                 self.registerVC?.StringOTP = "\(response?.otp ?? 0)"
                 self.registerVC?.otpToastDisplay()
                 self.registerVC?.reversetimer()
             }else{
-                Utilities.showAlertAction(AppName, message: apiMessage, vc: self.registerVC!)
+                Toast.show(title: UrlConstant.Failed, message: apiMessage, state: .failure) {
+                    self.registerVC?.navigationController?.popViewController(animated: true)
+                }
             }
         }
     }
@@ -33,10 +34,9 @@ class RegisterUserFinalModel{
     weak var vehicleDocumentVC : VehicleDocumentVC? = nil
     
     func webserviceRegister(reqModel: RegisterFinalRequestModel){
-        Utilities.showHud()
+        self.vehicleDocumentVC?.btnNext.showLoading()
         WebServiceSubClass.Register(reqModel: reqModel) { (status, apiMessage, response, error) in
-            Utilities.hideHud()
-            Toast.show(title: status ? UrlConstant.Success : UrlConstant.Failed, message: apiMessage, state: status ? .success : .failure)
+            self.vehicleDocumentVC?.btnNext.hideLoading()
             if status{
                 SingletonClass.sharedInstance.LoginRegisterUpdateData = response
                 user_defaults.setUserData()

@@ -1,7 +1,9 @@
 PODS:
   - Alamofire (5.0.0)
+  - AMPopTip (4.5.3)
   - Cosmos (23.0.0)
   - DropDown (2.3.13)
+  - EasyTipView (2.1.0)
   - Firebase/CoreOnly (7.11.0):
     - FirebaseCore (= 7.11.0)
   - Firebase/Messaging (7.11.0):
@@ -727,8 +729,10 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
+  - AMPopTip
   - Cosmos (~> 23.0)
   - DropDown
+  - EasyTipView (~> 2.1)
   - Firebase/Messaging
   - GoogleMaps
   - GooglePlacePicker
@@ -744,8 +748,10 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Alamofire
+    - AMPopTip
     - Cosmos
     - DropDown
+    - EasyTipView
     - Firebase
     - FirebaseCore
     - FirebaseCoreDiagnostics
@@ -773,8 +779,10 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: 58ff2bfb8daaacaa233d5c36e37b10a5248f59b1
+  AMPopTip: 77eef4793d50709bef83825b72da4f501263b91d
   Cosmos: b5c6a9a637e28a061b54c8f8b1d8529d7d4db73f
   DropDown: 8a2116376c1981888557f72ec2ffc9a5e0e456ec
+  EasyTipView: a92b6edc377b81c5ac18e9fd35d5ee78e9409488
   Firebase: c121feb35e4126c0b355e3313fa9b487d47319fd
   FirebaseCore: 907447d8917a4d3eb0cce2829c5a0ad21d90b432
   FirebaseCoreDiagnostics: 68ad972f99206cef818230f3f3179d52ccfb7f8c
@@ -800,6 +808,6 @@ SPEC CHECKSUMS:
   SkyFloatingLabelTextField: 79ddc40e4ad59707fedbb48d605417aee48bb78a
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
 
-PODFILE CHECKSUM: ee7b11906fbe905847115d9e74efd97415bb64b9
+PODFILE CHECKSUM: a08416b89db3aa3eba8c5f34a8396d11ab090257
 
 COCOAPODS: 1.10.1

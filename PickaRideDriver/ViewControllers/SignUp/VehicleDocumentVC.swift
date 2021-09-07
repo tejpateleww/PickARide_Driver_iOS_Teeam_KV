@@ -7,6 +7,7 @@
 
 import UIKit
 import DropDown
+import EasyTipView
 
 struct VehicleDetails{
     var header : String?
@@ -31,6 +32,10 @@ class VehicleDocumentVC: BaseVC {
     var strImageURL = ""
     var singleDocUploadModel = SingleDocUploadModel()
     var registerUserFinalModel = RegisterUserFinalModel()
+    var selectedCellPath: IndexPath?
+    
+    var preferences = EasyTipView.Preferences()
+    var tipView: EasyTipView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,6 +70,7 @@ class VehicleDocumentVC: BaseVC {
         self.tblPersonalDetails.dataSource = self
         self.tblPersonalDetails.addObserver(self, forKeyPath: "contentSize", options: .new, context: nil)
         self.registerNib()
+        self.setUpPopTip()
     }
     
     func registerNib(){
@@ -95,7 +101,11 @@ class VehicleDocumentVC: BaseVC {
             self.imagePicked = index.row
             self.present(self.imagePicker, animated: true)
         })
-        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: { ACTION in
+            if(self.selectedCellPath != nil){
+                self.hideLoader()
+            }
+        })
         alert.addAction(Gallery)
         alert.addAction(Camera)
         alert.addAction(cancel)
@@ -180,6 +190,39 @@ class VehicleDocumentVC: BaseVC {
         self.present(vc, animated: false, completion: nil)
     }
     
+    func showPopTip(index : IndexPath, sender: UIButton){
+        if let tipView = self.tipView {
+            tipView.dismiss(withCompletion: {
+                print("Completion called!")
+                self.tipView = nil
+            })
+        } else {
+            let view = EasyTipView(text: self.ArrVehicleDetails[index.row].message ?? "", preferences: self.preferences)
+            view.show(forView: sender, withinSuperview: self.navigationController?.view)
+            self.tipView = view
+        }
+    }
+    
+    func setUpPopTip() {
+        self.preferences.drawing.font = CustomFont.regular.returnFont(14)
+        self.preferences.drawing.foregroundColor = UIColor.white
+        self.preferences.drawing.backgroundColor = themeColor
+        self.preferences.drawing.arrowPosition = EasyTipView.ArrowPosition.top
+    }
+    
+    func showLoader(){
+        let cell = self.tblPersonalDetails.cellForRow(at: self.selectedCellPath!) as! PersonalDocumentCell
+        cell.btnUpload.isHidden = true
+        cell.activity.startAnimating()
+    }
+    
+    func hideLoader(){
+        let cell = self.tblPersonalDetails.cellForRow(at: self.selectedCellPath!) as! PersonalDocumentCell
+        cell.activity.stopAnimating()
+        cell.btnUpload.isHidden = false
+        self.selectedCellPath = nil
+    }
+    
     //MARK:- IBActions
     @IBAction func btnNextTap(_ sender: Any) {
         if(!self.validate()){
@@ -219,12 +262,16 @@ extension VehicleDocumentVC : UITableViewDelegate, UITableViewDataSource{
         }
         
         cell.uploadBtnClouser = {
+            self.selectedCellPath = indexPath
             self.UploadImage(index: indexPath)
         }
         cell.MoreBtnClouser = {
             let options = (indexPath.row == 2) ? cell.optionsDropDown : cell.optionsDropDownwithExp
             self.Dropdown(Dropdown: cell.ImageDropDown, StringArray: options, control: cell.btnMore, displayView: cell.btnRight, cellIndex : indexPath)
             cell.ImageDropDown.show()
+        }
+        cell.btnInfoClouser = {
+            self.showPopTip(index: indexPath, sender: cell.btnInfo)
         }
         
         cell.lblHeading.text = self.ArrVehicleDetails[indexPath.row].header
@@ -261,6 +308,8 @@ extension VehicleDocumentVC : UIImagePickerControllerDelegate, UINavigationContr
     public func imagePickerController(_ picker: UIImagePickerController,
                                       didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
+        self.showLoader()
+        
         let pickedImage  = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
         if pickedImage == nil{
             Utilities.showAlert(AppName, message: "Please select image to upload", vc: self)
@@ -281,6 +330,9 @@ extension VehicleDocumentVC : UIImagePickerControllerDelegate, UINavigationContr
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        if(self.selectedCellPath != nil){
+            self.hideLoader()
+        }
         dismiss(animated: true, completion: nil)
     }
 }

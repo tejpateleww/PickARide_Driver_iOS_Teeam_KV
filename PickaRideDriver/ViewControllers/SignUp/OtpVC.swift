@@ -78,6 +78,10 @@ class OtpVC: BaseVC, OTPTextFieldDelegate {
         Utilities.showAlert(UrlConstant.OtpSent, message: self.StringOTP, vc: self)
     }
     
+    func popBack(){
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     @objc func timerAction() {
         if self.counter > 0{
             self.counter -= 1

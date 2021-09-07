@@ -13,9 +13,7 @@ class AddVehicleUserModel{
     var registerRequestModel = RegisterFinalRequestModel()
     
     func webserviceGetManufacturerList(){
-        Utilities.showHud()
         WebServiceSubClass.GetManufacturerList { (status, apiMessage, response, error) in
-            Utilities.hideHud()
             if status{
                 self.addVehicleVC?.ManufacturerList = response
                 self.addVehicleVC?.setupData()
