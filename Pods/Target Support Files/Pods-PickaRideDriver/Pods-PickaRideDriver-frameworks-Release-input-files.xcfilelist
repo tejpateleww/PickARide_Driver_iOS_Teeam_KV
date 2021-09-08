@@ -1,5 +1,4 @@
 ${PODS_ROOT}/Target Support Files/Pods-PickaRideDriver/Pods-PickaRideDriver-frameworks.sh
-${BUILT_PRODUCTS_DIR}/AMPopTip/AMPopTip.framework
 ${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework
 ${BUILT_PRODUCTS_DIR}/Cosmos/Cosmos.framework
 ${BUILT_PRODUCTS_DIR}/DropDown/DropDown.framework

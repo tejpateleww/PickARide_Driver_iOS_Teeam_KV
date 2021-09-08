@@ -148,6 +148,9 @@
 		84A5D11E2646B83900AAFAB0 /* CancelRideVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A5D11D2646B83900AAFAB0 /* CancelRideVC.swift */; };
 		84A5D1262646B89D00AAFAB0 /* CancelRideCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A5D1252646B89D00AAFAB0 /* CancelRideCell.swift */; };
 		84DD717B264957850014AF60 /* RideDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DD717A264957850014AF60 /* RideDetailsVC.swift */; };
+		883C9E6926E8D94E00FA1778 /* updatePersonalDocsReqModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883C9E6826E8D94E00FA1778 /* updatePersonalDocsReqModel.swift */; };
+		883C9E6D26E8EC6900FA1778 /* UpdateBankInfoReqModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883C9E6C26E8EC6900FA1778 /* UpdateBankInfoReqModel.swift */; };
+		883C9E7026E8EE5100FA1778 /* BankInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883C9E6F26E8EE5100FA1778 /* BankInfoViewModel.swift */; };
 		8864746526E732970049B41D /* VehicleDocumentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8864746426E732970049B41D /* VehicleDocumentVC.swift */; };
 		889E09F726E5EA4C00333AEA /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889E09F626E5EA4C00333AEA /* ImagePicker.swift */; };
 		889E09FA26E5F16900333AEA /* SingleDocUploadViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889E09F926E5F16900333AEA /* SingleDocUploadViewModel.swift */; };
@@ -328,6 +331,9 @@
 		84A5D11D2646B83900AAFAB0 /* CancelRideVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelRideVC.swift; sourceTree = "<group>"; };
 		84A5D1252646B89D00AAFAB0 /* CancelRideCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelRideCell.swift; sourceTree = "<group>"; };
 		84DD717A264957850014AF60 /* RideDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideDetailsVC.swift; sourceTree = "<group>"; };
+		883C9E6826E8D94E00FA1778 /* updatePersonalDocsReqModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = updatePersonalDocsReqModel.swift; sourceTree = "<group>"; };
+		883C9E6C26E8EC6900FA1778 /* UpdateBankInfoReqModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateBankInfoReqModel.swift; sourceTree = "<group>"; };
+		883C9E6F26E8EE5100FA1778 /* BankInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankInfoViewModel.swift; sourceTree = "<group>"; };
 		8864746426E732970049B41D /* VehicleDocumentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleDocumentVC.swift; sourceTree = "<group>"; };
 		889E09F626E5EA4C00333AEA /* ImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		889E09F926E5F16900333AEA /* SingleDocUploadViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleDocUploadViewModel.swift; sourceTree = "<group>"; };
@@ -413,6 +419,7 @@
 		187B840C267B5B1000D3BFDA /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				883C9E6726E8D91400FA1778 /* Request Models */,
 				889E09FC26E63D9300333AEA /* Response Models */,
 				18ECF0AF26A5B0E000B7F1C1 /* Common */,
 				18ECF04A26A59B5800B7F1C1 /* Auth */,
@@ -425,6 +432,7 @@
 		187B8417267B5B2B00D3BFDA /* View Model */ = {
 			isa = PBXGroup;
 			children = (
+				883C9E7126E8EE5700FA1778 /* BankInfoViewModel */,
 				889E0A0426E63EFC00333AEA /* AddVehicleViewModel */,
 				889E09F826E5F14A00333AEA /* SingleDocUploadViewModel */,
 				18ECF05126A59BA200B7F1C1 /* Auth */,
@@ -519,13 +527,13 @@
 				889E09FB26E630DD00333AEA /* Splash */,
 				4F1A76352644FC56003F00CF /* Login */,
 				4F1A763826450E4F003F00CF /* SignUp */,
+				883C9E6426E882A600FA1778 /* Forgot Password */,
+				883C9E6526E8AC1B00FA1778 /* Change Password */,
 				184514E7268A145D00E8884A /* VerifyViewController.swift */,
 				1871C8B52685B1CC00D4D17D /* DummyVC.swift */,
 				4F1A763B26450EC0003F00CF /* BaseVC */,
-				18720F5F2681F2ED008EE191 /* ChangePasswordVC.swift */,
 				84A5D0FD2646A63800AAFAB0 /* Main */,
 				84A5D0CC264693E100AAFAB0 /* TableviewCell */,
-				185DEEDE2669113B008BA95C /* WaitingForApprovalVC.swift */,
 				18E2E13A267240360054E351 /* RatingAndReviewVC.swift */,
 				187197FB26848E3200B4DAAF /* PopUpVC.swift */,
 				186F7D9E2693011300F3818C /* DemoVC.swift */,
@@ -538,7 +546,6 @@
 			isa = PBXGroup;
 			children = (
 				4F1A76362644FC67003F00CF /* LoginViewController.swift */,
-				187197FD2684B91F00B4DAAF /* ForgotPasswordVC1.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -552,6 +559,7 @@
 				185DEED82668DAF2008BA95C /* PersonalDocumentVC.swift */,
 				84A5D0FF2646A67200AAFAB0 /* AddVehicleVC.swift */,
 				8864746426E732970049B41D /* VehicleDocumentVC.swift */,
+				185DEEDE2669113B008BA95C /* WaitingForApprovalVC.swift */,
 			);
 			path = SignUp;
 			sourceTree = "<group>";
@@ -591,8 +599,7 @@
 			isa = PBXGroup;
 			children = (
 				18C89EAD26A57F6C0083D5C3 /* PickaRideDriver.entitlements */,
-				4F94F1182643D76500780413 /* AppDelegate.swift */,
-				18C89EAE26A5810B0083D5C3 /* AppDelegate+PushNotification.swift */,
+				883C9E6626E8AD2E00FA1778 /* AppDelegate */,
 				4F94F1212643D76700780413 /* Assets.xcassets */,
 				4F94F1262643D76700780413 /* Info.plist */,
 				1865CF58267C767600379A40 /* Webservices */,
@@ -871,6 +878,64 @@
 				84A5D11D2646B83900AAFAB0 /* CancelRideVC.swift */,
 			);
 			path = CancelRide;
+			sourceTree = "<group>";
+		};
+		883C9E6426E882A600FA1778 /* Forgot Password */ = {
+			isa = PBXGroup;
+			children = (
+				187197FD2684B91F00B4DAAF /* ForgotPasswordVC1.swift */,
+			);
+			path = "Forgot Password";
+			sourceTree = "<group>";
+		};
+		883C9E6526E8AC1B00FA1778 /* Change Password */ = {
+			isa = PBXGroup;
+			children = (
+				18720F5F2681F2ED008EE191 /* ChangePasswordVC.swift */,
+			);
+			path = "Change Password";
+			sourceTree = "<group>";
+		};
+		883C9E6626E8AD2E00FA1778 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				4F94F1182643D76500780413 /* AppDelegate.swift */,
+				18C89EAE26A5810B0083D5C3 /* AppDelegate+PushNotification.swift */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		883C9E6726E8D91400FA1778 /* Request Models */ = {
+			isa = PBXGroup;
+			children = (
+				883C9E6B26E8EC3800FA1778 /* Update Bank Info */,
+				883C9E6A26E8EC2B00FA1778 /* Update Docs */,
+			);
+			path = "Request Models";
+			sourceTree = "<group>";
+		};
+		883C9E6A26E8EC2B00FA1778 /* Update Docs */ = {
+			isa = PBXGroup;
+			children = (
+				883C9E6826E8D94E00FA1778 /* updatePersonalDocsReqModel.swift */,
+			);
+			path = "Update Docs";
+			sourceTree = "<group>";
+		};
+		883C9E6B26E8EC3800FA1778 /* Update Bank Info */ = {
+			isa = PBXGroup;
+			children = (
+				883C9E6C26E8EC6900FA1778 /* UpdateBankInfoReqModel.swift */,
+			);
+			path = "Update Bank Info";
+			sourceTree = "<group>";
+		};
+		883C9E7126E8EE5700FA1778 /* BankInfoViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				883C9E6F26E8EE5100FA1778 /* BankInfoViewModel.swift */,
+			);
+			path = BankInfoViewModel;
 			sourceTree = "<group>";
 		};
 		889E09F826E5F14A00333AEA /* SingleDocUploadViewModel */ = {
@@ -1224,6 +1289,7 @@
 				843F806E264A706400BCBDB8 /* UIViewController+Container.swift in Sources */,
 				1865CF6A267C767600379A40 /* CodableResponseServiceClass.swift in Sources */,
 				186EC9382696F64D00314717 /* PasswordModel.swift in Sources */,
+				883C9E6926E8D94E00FA1778 /* updatePersonalDocsReqModel.swift in Sources */,
 				4F94F17A2643DB5F00780413 /* UIViewController+Extension.swift in Sources */,
 				187197FC26848E3200B4DAAF /* PopUpVC.swift in Sources */,
 				843F8072264A706400BCBDB8 /* BasicTransitionAnimator.swift in Sources */,
@@ -1259,6 +1325,7 @@
 				187B8415267B5B1000D3BFDA /* CardModel.swift in Sources */,
 				4F94F17F2643DB5F00780413 /* UISearchbar+Extension.swift in Sources */,
 				186F7D9F2693011300F3818C /* DemoVC.swift in Sources */,
+				883C9E6D26E8EC6900FA1778 /* UpdateBankInfoReqModel.swift in Sources */,
 				4F94F17E2643DB5F00780413 /* UITextField+Extension.swift in Sources */,
 				81891DA1264FDA1B00E8741E /* MSBBarChartView.swift in Sources */,
 				843F806C264A706400BCBDB8 /* Preferences.swift in Sources */,
@@ -1303,6 +1370,7 @@
 				18ECF0BC26A5B1AD00B7F1C1 /* UploadDocModel.swift in Sources */,
 				889E09FA26E5F16900333AEA /* SingleDocUploadViewModel.swift in Sources */,
 				187B841F267B5B2B00D3BFDA /* RegisterViewModel.swift in Sources */,
+				883C9E7026E8EE5100FA1778 /* BankInfoViewModel.swift in Sources */,
 				847607062648FC340019CE1F /* SettingVC.swift in Sources */,
 				187197FE2684B91F00B4DAAF /* ForgotPasswordVC1.swift in Sources */,
 				81A55392264BC5DD00698413 /* WeeklyEarningChildViewController.swift in Sources */,

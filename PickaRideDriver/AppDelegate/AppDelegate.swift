@@ -100,5 +100,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
         user_defaults.setUserData()
     }
     
+    func dologout(){
+        for (key, _) in UserDefaults.standard.dictionaryRepresentation() {
+            
+            if key != UserDefaultsKey.DeviceToken.rawValue && key  != "language"  {
+                UserDefaults.standard.removeObject(forKey: key)
+            }
+        }
+        
+        user_defaults.setValue(false, forKey: UserDefaultsKey.isUserLogin.rawValue)
+        SingletonClass.sharedInstance.clearSingletonClass()
+        user_defaults.setUserData()
+        user_defaults.synchronize()
+        appDel.navigateToMainLogin()
+    }
+    
 }
 

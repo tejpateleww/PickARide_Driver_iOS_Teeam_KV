@@ -17,6 +17,8 @@ class SingletonClass: NSObject
     var AppInitModel : InitResponseModel?
     var UserId = String()
     var LoginRegisterUpdateData : RegisterFinal?
+    var UserProfilData : RegisterData?
+    
     var Api_Key = String()
     var DeviceToken : String = UIDevice.current.identifierForVendor?.uuidString ?? ""
     var isPresented = false
@@ -32,7 +34,7 @@ class SingletonClass: NSObject
     //MARK:- User' Custom Details
   
     func locationString() -> (latitude: String, longitude: String){
-        return (String(format: "%4d", userCurrentLocation?.latitude ?? 0.0), String(format: "%4d", userCurrentLocation?.longitude ?? 0.0))
+        return (String(userCurrentLocation?.latitude ?? 0.0), String(userCurrentLocation?.longitude ?? 0.0))
     }
   
     var arrFutureYears:[String] {
@@ -45,8 +47,9 @@ class SingletonClass: NSObject
     
     func clearSingletonClass() {
         SingletonClass.sharedInstance.UserId = ""
-//        SingletonClass.sharedInstance.LoginRegisterUpdateData = nil
         SingletonClass.sharedInstance.Api_Key = ""
+        SingletonClass.sharedInstance.UserProfilData = nil
+        SingletonClass.sharedInstance.LoginRegisterUpdateData = nil
     }
 }
 

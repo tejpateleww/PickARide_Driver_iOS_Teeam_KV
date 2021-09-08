@@ -38,10 +38,25 @@ class RegisterUserFinalModel{
         WebServiceSubClass.Register(reqModel: reqModel) { (status, apiMessage, response, error) in
             self.vehicleDocumentVC?.btnNext.hideLoading()
             if status{
-                SingletonClass.sharedInstance.LoginRegisterUpdateData = response
-                user_defaults.setUserData()
-                user_defaults.setValue(true, forKey: UserDefaultsKey.isUserLogin.rawValue)
+                
+//                  user_defaults.setValue(true, forKey: UserDefaultsKey.isUserLogin.rawValue)
+//                user_defaults.setValue(response?.data?.xAPIKey, forKey: UserDefaultsKey.X_API_KEY.rawValue)
+//                SingletonClass.sharedInstance.UserProfilData = response?.data
+//                user_defaults.setUserData()
+//
+//                if let apikey = response?.data?.xAPIKey{
+//                    SingletonClass.sharedInstance.Api_Key = apikey
+//                    SingletonClass.sharedInstance.UserProfilData?.xAPIKey = apikey
+//                    user_defaults.setValue(apikey, forKey: UserDefaultsKey.X_API_KEY.rawValue)
+//                }
+//
+//                if let userID = response?.data?.id{
+//                    SingletonClass.sharedInstance.UserId = userID
+//                }
+                
                 self.vehicleDocumentVC?.goToWaitingForApproval()
+                
+                
             }else{
                 Utilities.showAlertOfAPIResponse(param: apiMessage, vc: self.vehicleDocumentVC!)
             }

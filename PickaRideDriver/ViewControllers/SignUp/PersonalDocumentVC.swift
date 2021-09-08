@@ -44,24 +44,12 @@ class PersonalDocumentVC: BaseVC {
         
         if isFromEditProfile{
             self.btnNext.setTitle("SAVE", for: .normal)
-            if self.isVehicleDocument{
-                self.setNavigationBarInViewController(controller: self, naviColor: colors.appColor.value, naviTitle: "Edit Vehicle Document", leftImage: NavItemsLeft.back.value, rightImages: [NavItemsRight.none.value], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
-                self.vehicleDocuments()
-            }else{
-                self.setNavigationBarInViewController(controller: self, naviColor: colors.appColor.value, naviTitle: "Edit Personal Document", leftImage: NavItemsLeft.back.value, rightImages: [NavItemsRight.none.value], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
-                self.personalDetails()
-            }
+            self.setNavigationBarInViewController(controller: self, naviColor: colors.appColor.value, naviTitle: "Edit Personal Document", leftImage: NavItemsLeft.back.value, rightImages: [NavItemsRight.none.value], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
+            self.editPersonalDetails()
             
         }else{
-            if self.isVehicleDocument{
-                self.setNavigationBarInViewController(controller: self, naviColor: colors.appColor.value, naviTitle: "Vehicle Document", leftImage: NavItemsLeft.back.value, rightImages: [NavItemsRight.none.value], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
-                self.vehicleDocuments()
-                self.btnNext.setTitle(isFromEditProfile ? "SAVE" : "SIGN UP", for: .normal)
-                
-            }else{
-                self.setNavigationBarInViewController(controller: self, naviColor: colors.appColor.value, naviTitle: "Personal Document", leftImage: NavItemsLeft.back.value, rightImages: [NavItemsRight.none.value], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
-                self.personalDetails()
-            }
+            self.setNavigationBarInViewController(controller: self, naviColor: colors.appColor.value, naviTitle: "Personal Document", leftImage: NavItemsLeft.back.value, rightImages: [NavItemsRight.none.value], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
+            self.personalDetails()
         }
     }
     
@@ -86,11 +74,16 @@ class PersonalDocumentVC: BaseVC {
         self.ArrPersonaldetails.append(PersonalDetails(header: "Vehicle Registration", message: "Vehicle Registration", dateofExp: "Date of expiry : \(self.registerRequestModel.vehicleRegistrationExpDate ?? "")"))
         self.ArrPersonaldetails.append(PersonalDetails(header: "Insurance policy", message: "Insurance policy", dateofExp: "Date of expiry : \(self.registerRequestModel.driverInsuranceExpDate ?? "")"))
     }
-    func vehicleDocuments(){
-        self.ArrPersonaldetails.append(PersonalDetails(header: "RC Book", message: "Vehicle Registration", dateofExp: "Date of expiry : 22/08/2022"))
-        self.ArrPersonaldetails.append(PersonalDetails(header: "Insurance policy", message: "Insurance policy", dateofExp: "Date of expiry : 22/08/2022"))
-        self.ArrPersonaldetails.append(PersonalDetails(header: "Owner certificate", message: "A passport is a travel document", dateofExp: "Date of expiry : 22/08/2022"))
+    
+    func editPersonalDetails(){
+        self.ArrPersonaldetails.append(PersonalDetails(header: "Profile Photo", message: "Clear photo of yours", dateofExp: ""))
+        self.ArrPersonaldetails.append(PersonalDetails(header: "Goverment ID", message: "ID is an offical Document", dateofExp: "Date of expiry : \(SingletonClass.sharedInstance.UserProfilData?.driverDocs?.governmentIdExpiryDate ?? "")"))
+        self.ArrPersonaldetails.append(PersonalDetails(header: "Driving License", message: "A driving license is an offical Document", dateofExp: "Date of expiry : \(SingletonClass.sharedInstance.UserProfilData?.driverDocs?.drivingLicenceExpiryDate ?? "")"))
+        self.ArrPersonaldetails.append(PersonalDetails(header: "Vehicle Registration", message: "Vehicle Registration", dateofExp: "Date of expiry : \(SingletonClass.sharedInstance.UserProfilData?.driverDocs?.vehicleRegistrationExpiryDate ?? "")"))
+        self.ArrPersonaldetails.append(PersonalDetails(header: "Insurance policy", message: "Insurance policy", dateofExp: "Date of expiry : \(SingletonClass.sharedInstance.UserProfilData?.driverDocs?.driverInsurancePolicyExpiryDate ?? "")"))
     }
+    
+    
     //MARK:- Custom Methods
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?){
         if(keyPath == "contentSize"){
@@ -132,82 +125,145 @@ class PersonalDocumentVC: BaseVC {
     }
     
     func UpdateData(){
-        if self.imagePicked == 0 {
-            self.registerRequestModel.profileImage = self.strImageURL
-            self.tblPersonalDetails.reloadData()
-        }else if self.imagePicked == 1 {
-            self.registerRequestModel.govermentIdImage = self.strImageURL
-            self.tblPersonalDetails.reloadData()
-            self.openDatePicker()
-        }else if self.imagePicked == 2 {
-            self.registerRequestModel.driverLicenceImage = self.strImageURL
-            self.tblPersonalDetails.reloadData()
-            self.openDatePicker()
-        }else if self.imagePicked == 3 {
-            self.registerRequestModel.vehicleRegistrationImage = self.strImageURL
-            self.tblPersonalDetails.reloadData()
-            self.openDatePicker()
-        }else if self.imagePicked == 4 {
-            self.registerRequestModel.driverInsuranceImage = self.strImageURL
-            self.tblPersonalDetails.reloadData()
-            self.openDatePicker()
+        
+        if(isFromEditProfile){
+            if self.imagePicked == 0 {
+                SingletonClass.sharedInstance.UserProfilData?.profileImage = self.strImageURL
+            }else if self.imagePicked == 1 {
+                SingletonClass.sharedInstance.UserProfilData?.driverDocs?.governmentId = self.strImageURL
+                self.openDatePicker()
+            }else if self.imagePicked == 2 {
+                SingletonClass.sharedInstance.UserProfilData?.driverDocs?.drivingLicence = self.strImageURL
+                self.openDatePicker()
+            }else if self.imagePicked == 3 {
+                SingletonClass.sharedInstance.UserProfilData?.driverDocs?.vehicleRegistration = self.strImageURL
+                self.openDatePicker()
+            }else if self.imagePicked == 4 {
+                SingletonClass.sharedInstance.UserProfilData?.driverDocs?.driverInsurancePolicy = self.strImageURL
+                self.openDatePicker()
+            }
+        }else{
+            if self.imagePicked == 0 {
+                self.registerRequestModel.profileImage = self.strImageURL
+            }else if self.imagePicked == 1 {
+                self.registerRequestModel.govermentIdImage = self.strImageURL
+                self.openDatePicker()
+            }else if self.imagePicked == 2 {
+                self.registerRequestModel.driverLicenceImage = self.strImageURL
+                self.openDatePicker()
+            }else if self.imagePicked == 3 {
+                self.registerRequestModel.vehicleRegistrationImage = self.strImageURL
+                self.openDatePicker()
+            }else if self.imagePicked == 4 {
+                self.registerRequestModel.driverInsuranceImage = self.strImageURL
+                self.openDatePicker()
+            }
         }
+        self.tblPersonalDetails.reloadData()
     }
     
     func UpdateExpDate(){
-        if self.imagePicked == 0 {
-        }else if self.imagePicked == 1 {
-            self.registerRequestModel.govermentIdExpDate = self.datePicked
-            self.ArrPersonaldetails[self.imagePicked].dateofExp = "Date of expiry : \(self.registerRequestModel.govermentIdExpDate ?? "Date of expiry : ")"
-            self.tblPersonalDetails.reloadData()
-        }else if self.imagePicked == 2 {
-            self.registerRequestModel.driverLicenceExpDate = self.datePicked
-            self.ArrPersonaldetails[self.imagePicked].dateofExp = "Date of expiry : \(self.registerRequestModel.driverLicenceExpDate ?? "Date of expiry : ")"
-            self.tblPersonalDetails.reloadData()
-        }else if self.imagePicked == 3 {
-            self.registerRequestModel.vehicleRegistrationExpDate = self.datePicked
-            self.ArrPersonaldetails[self.imagePicked].dateofExp = "Date of expiry : \(self.registerRequestModel.vehicleRegistrationExpDate ?? "Date of expiry : ")"
-            self.tblPersonalDetails.reloadData()
-        }else if self.imagePicked == 4 {
-            self.registerRequestModel.driverInsuranceExpDate = self.datePicked
-            self.ArrPersonaldetails[self.imagePicked].dateofExp = "Date of expiry : \(self.registerRequestModel.driverInsuranceExpDate ?? "Date of expiry : ")"
-            self.tblPersonalDetails.reloadData()
+        if(isFromEditProfile){
+            if self.imagePicked == 0 {
+            }else if self.imagePicked == 1 {
+                SingletonClass.sharedInstance.UserProfilData?.driverDocs?.governmentIdExpiryDate = self.datePicked
+                self.ArrPersonaldetails[self.imagePicked].dateofExp = "Date of expiry : \(SingletonClass.sharedInstance.UserProfilData?.driverDocs?.governmentIdExpiryDate ?? "Date of expiry : ")"
+            }else if self.imagePicked == 2 {
+                SingletonClass.sharedInstance.UserProfilData?.driverDocs?.drivingLicenceExpiryDate = self.datePicked
+                self.ArrPersonaldetails[self.imagePicked].dateofExp = "Date of expiry : \(SingletonClass.sharedInstance.UserProfilData?.driverDocs?.drivingLicenceExpiryDate ?? "Date of expiry : ")"
+            }else if self.imagePicked == 3 {
+                SingletonClass.sharedInstance.UserProfilData?.driverDocs?.vehicleRegistrationExpiryDate = self.datePicked
+                self.ArrPersonaldetails[self.imagePicked].dateofExp = "Date of expiry : \(SingletonClass.sharedInstance.UserProfilData?.driverDocs?.vehicleRegistrationExpiryDate ?? "Date of expiry : ")"
+            }else if self.imagePicked == 4 {
+                SingletonClass.sharedInstance.UserProfilData?.driverDocs?.driverInsurancePolicyExpiryDate = self.datePicked
+                self.ArrPersonaldetails[self.imagePicked].dateofExp = "Date of expiry : \(SingletonClass.sharedInstance.UserProfilData?.driverDocs?.driverInsurancePolicyExpiryDate ?? "Date of expiry : ")"
+            }
+        }else{
+            if self.imagePicked == 0 {
+            }else if self.imagePicked == 1 {
+                self.registerRequestModel.govermentIdExpDate = self.datePicked
+                self.ArrPersonaldetails[self.imagePicked].dateofExp = "Date of expiry : \(self.registerRequestModel.govermentIdExpDate ?? "Date of expiry : ")"
+            }else if self.imagePicked == 2 {
+                self.registerRequestModel.driverLicenceExpDate = self.datePicked
+                self.ArrPersonaldetails[self.imagePicked].dateofExp = "Date of expiry : \(self.registerRequestModel.driverLicenceExpDate ?? "Date of expiry : ")"
+            }else if self.imagePicked == 3 {
+                self.registerRequestModel.vehicleRegistrationExpDate = self.datePicked
+                self.ArrPersonaldetails[self.imagePicked].dateofExp = "Date of expiry : \(self.registerRequestModel.vehicleRegistrationExpDate ?? "Date of expiry : ")"
+            }else if self.imagePicked == 4 {
+                self.registerRequestModel.driverInsuranceExpDate = self.datePicked
+                self.ArrPersonaldetails[self.imagePicked].dateofExp = "Date of expiry : \(self.registerRequestModel.driverInsuranceExpDate ?? "Date of expiry : ")"
+            }
         }
+        self.tblPersonalDetails.reloadData()
     }
     
     func getExpDate() -> String{
-        if self.imagePicked == 1 {
-            return self.registerRequestModel.govermentIdExpDate ?? ""
-        }else if self.imagePicked == 2 {
-            return self.registerRequestModel.driverLicenceExpDate ?? ""
-        }else if self.imagePicked == 3 {
-            return self.registerRequestModel.vehicleRegistrationExpDate ?? ""
-        }else if self.imagePicked == 4 {
-            return self.registerRequestModel.driverInsuranceExpDate ?? ""
+        if(isFromEditProfile){
+            if self.imagePicked == 1 {
+                return SingletonClass.sharedInstance.UserProfilData?.driverDocs?.governmentIdExpiryDate ?? ""
+            }else if self.imagePicked == 2 {
+                return SingletonClass.sharedInstance.UserProfilData?.driverDocs?.drivingLicenceExpiryDate ?? ""
+            }else if self.imagePicked == 3 {
+                return SingletonClass.sharedInstance.UserProfilData?.driverDocs?.vehicleRegistrationExpiryDate ?? ""
+            }else if self.imagePicked == 4 {
+                return SingletonClass.sharedInstance.UserProfilData?.driverDocs?.driverInsurancePolicyExpiryDate ?? ""
+            }
+        }else{
+            if self.imagePicked == 1 {
+                return self.registerRequestModel.govermentIdExpDate ?? ""
+            }else if self.imagePicked == 2 {
+                return self.registerRequestModel.driverLicenceExpDate ?? ""
+            }else if self.imagePicked == 3 {
+                return self.registerRequestModel.vehicleRegistrationExpDate ?? ""
+            }else if self.imagePicked == 4 {
+                return self.registerRequestModel.driverInsuranceExpDate ?? ""
+            }
         }
         return ""
     }
     
     func RemoveData(){
-        if self.imagePicked == 0 {
-            self.registerRequestModel.profileImage = ""
-            
-        }else if self.imagePicked == 1 {
-            self.registerRequestModel.govermentIdImage = ""
-            self.registerRequestModel.govermentIdExpDate = ""
-            self.ArrPersonaldetails[self.imagePicked].dateofExp = "Date of expiry : "
-        }else if self.imagePicked == 2 {
-            self.registerRequestModel.driverLicenceImage = ""
-            self.registerRequestModel.driverLicenceExpDate = ""
-            self.ArrPersonaldetails[self.imagePicked].dateofExp = "Date of expiry : "
-        }else if self.imagePicked == 3 {
-            self.registerRequestModel.vehicleRegistrationImage = ""
-            self.registerRequestModel.vehicleRegistrationExpDate = ""
-            self.ArrPersonaldetails[self.imagePicked].dateofExp = "Date of expiry : "
-        }else if self.imagePicked == 4 {
-            self.registerRequestModel.driverInsuranceImage = ""
-            self.registerRequestModel.driverInsuranceExpDate = ""
-            self.ArrPersonaldetails[self.imagePicked].dateofExp = "Date of expiry : "
+        
+        if(isFromEditProfile){
+            if self.imagePicked == 0 {
+                SingletonClass.sharedInstance.UserProfilData?.profileImage = ""
+            }else if self.imagePicked == 1 {
+                SingletonClass.sharedInstance.UserProfilData?.driverDocs?.governmentId = ""
+                SingletonClass.sharedInstance.UserProfilData?.driverDocs?.governmentIdExpiryDate = ""
+                self.ArrPersonaldetails[self.imagePicked].dateofExp = "Date of expiry : "
+            }else if self.imagePicked == 2 {
+                SingletonClass.sharedInstance.UserProfilData?.driverDocs?.drivingLicence = ""
+                SingletonClass.sharedInstance.UserProfilData?.driverDocs?.drivingLicenceExpiryDate = ""
+                self.ArrPersonaldetails[self.imagePicked].dateofExp = "Date of expiry : "
+            }else if self.imagePicked == 3 {
+                SingletonClass.sharedInstance.UserProfilData?.driverDocs?.vehicleRegistration = ""
+                SingletonClass.sharedInstance.UserProfilData?.driverDocs?.vehicleRegistrationExpiryDate = ""
+                self.ArrPersonaldetails[self.imagePicked].dateofExp = "Date of expiry : "
+            }else if self.imagePicked == 4 {
+                SingletonClass.sharedInstance.UserProfilData?.driverDocs?.driverInsurancePolicy = ""
+                SingletonClass.sharedInstance.UserProfilData?.driverDocs?.driverInsurancePolicyExpiryDate = ""
+                self.ArrPersonaldetails[self.imagePicked].dateofExp = "Date of expiry : "
+            }
+        }else{
+            if self.imagePicked == 0 {
+                self.registerRequestModel.profileImage = ""
+            }else if self.imagePicked == 1 {
+                self.registerRequestModel.govermentIdImage = ""
+                self.registerRequestModel.govermentIdExpDate = ""
+                self.ArrPersonaldetails[self.imagePicked].dateofExp = "Date of expiry : "
+            }else if self.imagePicked == 2 {
+                self.registerRequestModel.driverLicenceImage = ""
+                self.registerRequestModel.driverLicenceExpDate = ""
+                self.ArrPersonaldetails[self.imagePicked].dateofExp = "Date of expiry : "
+            }else if self.imagePicked == 3 {
+                self.registerRequestModel.vehicleRegistrationImage = ""
+                self.registerRequestModel.vehicleRegistrationExpDate = ""
+                self.ArrPersonaldetails[self.imagePicked].dateofExp = "Date of expiry : "
+            }else if self.imagePicked == 4 {
+                self.registerRequestModel.driverInsuranceImage = ""
+                self.registerRequestModel.driverInsuranceExpDate = ""
+                self.ArrPersonaldetails[self.imagePicked].dateofExp = "Date of expiry : "
+            }
         }
         self.tblPersonalDetails.reloadData()
     }
@@ -227,17 +283,33 @@ class PersonalDocumentVC: BaseVC {
     }
     
     func validate() -> Bool{
-        if(self.registerRequestModel.profileImage == "" || self.registerRequestModel.profileImage == nil){
-            return false
-        }else if(self.registerRequestModel.govermentIdImage == "" || self.registerRequestModel.govermentIdImage == nil || self.registerRequestModel.govermentIdExpDate == "" || self.registerRequestModel.govermentIdExpDate == nil){
-            return false
-        }else if(self.registerRequestModel.driverLicenceImage == "" || self.registerRequestModel.driverLicenceImage == nil || self.registerRequestModel.driverLicenceExpDate == "" || self.registerRequestModel.driverLicenceExpDate == nil){
-            return false
-        }
-        else if(self.registerRequestModel.vehicleRegistrationImage == "" || self.registerRequestModel.vehicleRegistrationImage == nil || self.registerRequestModel.vehicleRegistrationExpDate == "" || self.registerRequestModel.vehicleRegistrationExpDate == nil){
-            return false
-        }else if(self.registerRequestModel.driverInsuranceImage == "" || self.registerRequestModel.driverInsuranceImage == nil || self.registerRequestModel.driverInsuranceExpDate == "" || self.registerRequestModel.driverInsuranceExpDate == nil){
-            return false
+        
+        if(isFromEditProfile){
+            if(SingletonClass.sharedInstance.UserProfilData?.profileImage == "" || SingletonClass.sharedInstance.UserProfilData?.profileImage == nil){
+                return false
+            }else if(SingletonClass.sharedInstance.UserProfilData?.driverDocs?.governmentId == "" || SingletonClass.sharedInstance.UserProfilData?.driverDocs?.governmentId == nil || SingletonClass.sharedInstance.UserProfilData?.driverDocs?.governmentIdExpiryDate == "" || SingletonClass.sharedInstance.UserProfilData?.driverDocs?.governmentIdExpiryDate == nil){
+                return false
+            }else if(SingletonClass.sharedInstance.UserProfilData?.driverDocs?.drivingLicence == "" || SingletonClass.sharedInstance.UserProfilData?.driverDocs?.drivingLicence == nil || SingletonClass.sharedInstance.UserProfilData?.driverDocs?.drivingLicenceExpiryDate == "" || SingletonClass.sharedInstance.UserProfilData?.driverDocs?.drivingLicenceExpiryDate == nil){
+                return false
+            }
+            else if(SingletonClass.sharedInstance.UserProfilData?.driverDocs?.vehicleRegistration == "" || SingletonClass.sharedInstance.UserProfilData?.driverDocs?.vehicleRegistration == nil || SingletonClass.sharedInstance.UserProfilData?.driverDocs?.vehicleRegistrationExpiryDate == "" || SingletonClass.sharedInstance.UserProfilData?.driverDocs?.vehicleRegistrationExpiryDate == nil){
+                return false
+            }else if(SingletonClass.sharedInstance.UserProfilData?.driverDocs?.driverInsurancePolicy == "" || SingletonClass.sharedInstance.UserProfilData?.driverDocs?.driverInsurancePolicy == nil || SingletonClass.sharedInstance.UserProfilData?.driverDocs?.driverInsurancePolicyExpiryDate == "" || SingletonClass.sharedInstance.UserProfilData?.driverDocs?.driverInsurancePolicyExpiryDate == nil){
+                return false
+            }
+        }else{
+            if(self.registerRequestModel.profileImage == "" || self.registerRequestModel.profileImage == nil){
+                return false
+            }else if(self.registerRequestModel.govermentIdImage == "" || self.registerRequestModel.govermentIdImage == nil || self.registerRequestModel.govermentIdExpDate == "" || self.registerRequestModel.govermentIdExpDate == nil){
+                return false
+            }else if(self.registerRequestModel.driverLicenceImage == "" || self.registerRequestModel.driverLicenceImage == nil || self.registerRequestModel.driverLicenceExpDate == "" || self.registerRequestModel.driverLicenceExpDate == nil){
+                return false
+            }
+            else if(self.registerRequestModel.vehicleRegistrationImage == "" || self.registerRequestModel.vehicleRegistrationImage == nil || self.registerRequestModel.vehicleRegistrationExpDate == "" || self.registerRequestModel.vehicleRegistrationExpDate == nil){
+                return false
+            }else if(self.registerRequestModel.driverInsuranceImage == "" || self.registerRequestModel.driverInsuranceImage == nil || self.registerRequestModel.driverInsuranceExpDate == "" || self.registerRequestModel.driverInsuranceExpDate == nil){
+                return false
+            }
         }
         return true
     }
@@ -274,18 +346,19 @@ class PersonalDocumentVC: BaseVC {
         cell.btnUpload.isHidden = false
         self.selectedCellPath = nil
     }
-
+    
     
     //MARK:- IBActions
     @IBAction func btnNextTap(_ sender: Any) {
-        if(!self.validate()){
-            Utilities.showAlert(AppName, message: "Please provide all document details.", vc: self)
-        }else{
+        
+        if(self.validate()){
             if self.isFromEditProfile{
-                self.navigationController?.popViewController(animated: true)
+                self.callUpdatePersonalDocs()
             }else{
                 self.storeDataInRegisterModel()
             }
+        }else{
+            Utilities.showAlert(AppName, message: "Please provide all document details.", vc: self)
         }
     }
 }
@@ -299,20 +372,45 @@ extension PersonalDocumentVC : UITableViewDelegate, UITableViewDataSource{
         let cell = self.tblPersonalDetails.dequeueReusableCell(withIdentifier: PersonalDocumentCell.className) as! PersonalDocumentCell
         
         if(self.ArrPersonaldetails[indexPath.row].header == "Profile Photo"){
-            cell.btnUpload.isHidden = (self.registerRequestModel.profileImage == "" || self.registerRequestModel.profileImage == nil) ? false : true
-            cell.vwMoreButtons.isHidden = (self.registerRequestModel.profileImage == "" || self.registerRequestModel.profileImage == nil) ? true : false
+            if(isFromEditProfile){
+                cell.btnUpload.isHidden = (SingletonClass.sharedInstance.UserProfilData?.profileImage == "" || SingletonClass.sharedInstance.UserProfilData?.profileImage == nil) ? false : true
+                cell.vwMoreButtons.isHidden = (SingletonClass.sharedInstance.UserProfilData?.profileImage == "" || SingletonClass.sharedInstance.UserProfilData?.profileImage == nil) ? true : false
+            }else{
+                cell.btnUpload.isHidden = (self.registerRequestModel.profileImage == "" || self.registerRequestModel.profileImage == nil) ? false : true
+                cell.vwMoreButtons.isHidden = (self.registerRequestModel.profileImage == "" || self.registerRequestModel.profileImage == nil) ? true : false
+            }
         }else if(self.ArrPersonaldetails[indexPath.row].header == "Goverment ID"){
-            cell.btnUpload.isHidden = (self.registerRequestModel.govermentIdImage == "" || self.registerRequestModel.govermentIdImage == nil) ? false : true
-            cell.vwMoreButtons.isHidden = (self.registerRequestModel.govermentIdImage == "" || self.registerRequestModel.govermentIdImage == nil) ? true : false
+            if(isFromEditProfile){
+                cell.btnUpload.isHidden = (SingletonClass.sharedInstance.UserProfilData?.driverDocs?.governmentId == "" || SingletonClass.sharedInstance.UserProfilData?.driverDocs?.governmentId == nil) ? false : true
+                cell.vwMoreButtons.isHidden = (SingletonClass.sharedInstance.UserProfilData?.driverDocs?.governmentId == "" || SingletonClass.sharedInstance.UserProfilData?.driverDocs?.governmentId == nil) ? true : false
+            }else{
+                cell.btnUpload.isHidden = (self.registerRequestModel.govermentIdImage == "" || self.registerRequestModel.govermentIdImage == nil) ? false : true
+                cell.vwMoreButtons.isHidden = (self.registerRequestModel.govermentIdImage == "" || self.registerRequestModel.govermentIdImage == nil) ? true : false
+            }
         }else if(self.ArrPersonaldetails[indexPath.row].header == "Driving License"){
-            cell.btnUpload.isHidden = (self.registerRequestModel.driverLicenceImage == "" || self.registerRequestModel.driverLicenceImage == nil) ? false : true
-            cell.vwMoreButtons.isHidden = (self.registerRequestModel.driverLicenceImage == "" || self.registerRequestModel.driverLicenceImage == nil) ? true : false
+            if(isFromEditProfile){
+                cell.btnUpload.isHidden = (SingletonClass.sharedInstance.UserProfilData?.driverDocs?.drivingLicence == "" || SingletonClass.sharedInstance.UserProfilData?.driverDocs?.drivingLicence == nil) ? false : true
+                cell.vwMoreButtons.isHidden = (SingletonClass.sharedInstance.UserProfilData?.driverDocs?.drivingLicence == "" || SingletonClass.sharedInstance.UserProfilData?.driverDocs?.drivingLicence == nil) ? true : false
+            }else{
+                cell.btnUpload.isHidden = (self.registerRequestModel.driverLicenceImage == "" || self.registerRequestModel.driverLicenceImage == nil) ? false : true
+                cell.vwMoreButtons.isHidden = (self.registerRequestModel.driverLicenceImage == "" || self.registerRequestModel.driverLicenceImage == nil) ? true : false
+            }
         }else if(self.ArrPersonaldetails[indexPath.row].header == "Vehicle Registration"){
-            cell.btnUpload.isHidden = (self.registerRequestModel.vehicleRegistrationImage == "" || self.registerRequestModel.vehicleRegistrationImage == nil) ? false : true
-            cell.vwMoreButtons.isHidden = (self.registerRequestModel.vehicleRegistrationImage == "" || self.registerRequestModel.vehicleRegistrationImage == nil) ? true : false
+            if(isFromEditProfile){
+                cell.btnUpload.isHidden = (SingletonClass.sharedInstance.UserProfilData?.driverDocs?.vehicleRegistration == "" || SingletonClass.sharedInstance.UserProfilData?.driverDocs?.vehicleRegistration == nil) ? false : true
+                cell.vwMoreButtons.isHidden = (SingletonClass.sharedInstance.UserProfilData?.driverDocs?.vehicleRegistration == "" || SingletonClass.sharedInstance.UserProfilData?.driverDocs?.vehicleRegistration == nil) ? true : false
+            }else{
+                cell.btnUpload.isHidden = (self.registerRequestModel.vehicleRegistrationImage == "" || self.registerRequestModel.vehicleRegistrationImage == nil) ? false : true
+                cell.vwMoreButtons.isHidden = (self.registerRequestModel.vehicleRegistrationImage == "" || self.registerRequestModel.vehicleRegistrationImage == nil) ? true : false
+            }
         }else if(self.ArrPersonaldetails[indexPath.row].header == "Insurance policy"){
-            cell.btnUpload.isHidden = (self.registerRequestModel.driverInsuranceImage == "" || self.registerRequestModel.driverInsuranceImage == nil) ? false : true
-            cell.vwMoreButtons.isHidden = (self.registerRequestModel.driverInsuranceImage == "" || self.registerRequestModel.driverInsuranceImage == nil) ? true : false
+            if(isFromEditProfile){
+                cell.btnUpload.isHidden = (SingletonClass.sharedInstance.UserProfilData?.driverDocs?.driverInsurancePolicy == "" || SingletonClass.sharedInstance.UserProfilData?.driverDocs?.driverInsurancePolicy == nil) ? false : true
+                cell.vwMoreButtons.isHidden = (SingletonClass.sharedInstance.UserProfilData?.driverDocs?.driverInsurancePolicy == "" || SingletonClass.sharedInstance.UserProfilData?.driverDocs?.driverInsurancePolicy == nil) ? true : false
+            }else{
+                cell.btnUpload.isHidden = (self.registerRequestModel.driverInsuranceImage == "" || self.registerRequestModel.driverInsuranceImage == nil) ? false : true
+                cell.vwMoreButtons.isHidden = (self.registerRequestModel.driverInsuranceImage == "" || self.registerRequestModel.driverInsuranceImage == nil) ? true : false
+            }
         }else{
             
         }
@@ -409,6 +507,22 @@ extension PersonalDocumentVC{
         UploadDocReq.email = self.registerRequestModel.email ?? ""
         UploadDocReq.mobileNo = self.registerRequestModel.mobileNo ?? ""
         self.singleDocUploadModel.webserviceSingleDocUpload(reqModel: UploadDocReq, reqImage: uploadImage)
+    }
+    
+    
+    func callUpdatePersonalDocs(){
+        self.singleDocUploadModel.PersonalDocumentVC = self
+        
+        let UploadDocReq = UpdatePersonalDocsReqModel()
+        UploadDocReq.governmentIdCerti = SingletonClass.sharedInstance.UserProfilData?.driverDocs?.governmentId ?? ""
+        UploadDocReq.governmentIdCertiExpDate = SingletonClass.sharedInstance.UserProfilData?.driverDocs?.governmentIdExpiryDate ?? ""
+        UploadDocReq.driverLicenceImage = SingletonClass.sharedInstance.UserProfilData?.driverDocs?.drivingLicence ?? ""
+        UploadDocReq.driverLicenceExpDate = SingletonClass.sharedInstance.UserProfilData?.driverDocs?.drivingLicenceExpiryDate ?? ""
+        UploadDocReq.vehicleRegistrationCerti = SingletonClass.sharedInstance.UserProfilData?.driverDocs?.vehicleRegistration ?? ""
+        UploadDocReq.vehicleRegistrationExpDate = SingletonClass.sharedInstance.UserProfilData?.driverDocs?.vehicleRegistrationExpiryDate ?? ""
+        UploadDocReq.driverInsuranceCerti = SingletonClass.sharedInstance.UserProfilData?.driverDocs?.driverInsurancePolicy ?? ""
+        UploadDocReq.driverInsurancePolicyExpDate = SingletonClass.sharedInstance.UserProfilData?.driverDocs?.driverInsurancePolicyExpiryDate ?? ""
+        self.singleDocUploadModel.webserviceUpdatePersonalDocsAPI(reqModel: UploadDocReq)
     }
 }
 

@@ -13,26 +13,31 @@ class LoginUserModel{
     var loginReqModel : LoginReqModel?
    
     
-    func webserviceForLogin(){
-        let loginReqModel = LoginReqModel()
-        loginReqModel.lat = SingletonClass.sharedInstance.locationString().latitude
-        loginReqModel.lng = SingletonClass.sharedInstance.locationString().longitude
-        loginReqModel.username = loginvc?.txtEmailOrPhoneNumber.text ?? ""
-        loginReqModel.password = loginvc?.txtPassword.text ?? ""
-        
+    func webserviceForLogin(reqModel: LoginReqModel){
         self.loginvc?.btnSignIN.showLoading()
-        
-        WebServiceSubClass.Login(reqModel: loginReqModel) { (status, message, response, error) in
+        WebServiceSubClass.Login(reqModel: reqModel) { (status, message, response, error) in
             self.loginvc?.btnSignIN.hideLoading()
             if status{
-                SingletonClass.sharedInstance.LoginRegisterUpdateData = response
-                user_defaults.setUserData()
+                
                 user_defaults.setValue(true, forKey: UserDefaultsKey.isUserLogin.rawValue)
+                user_defaults.setValue(response?.data?.xApiKey, forKey: UserDefaultsKey.X_API_KEY.rawValue)
+                
+                SingletonClass.sharedInstance.UserProfilData = response?.data
+                user_defaults.setUserData()
+                
+                if let apikey = response?.data?.xApiKey{
+                    SingletonClass.sharedInstance.Api_Key = apikey
+                    SingletonClass.sharedInstance.UserProfilData?.xApiKey = apikey
+                    user_defaults.setValue(apikey, forKey: UserDefaultsKey.X_API_KEY.rawValue)
+                }
+                
+                if let userID = response?.data?.id{
+                    SingletonClass.sharedInstance.UserId = userID
+                }
+                
                 appDel.navigateToMain()
             }else{
-                if let loginvc  = self.loginvc{
-                    Utilities.showAlertOfAPIResponse(param: error, vc: loginvc)
-                }
+                Toast.show(title: UrlConstant.Failed, message: message, state: .failure)
             }
         }
     }

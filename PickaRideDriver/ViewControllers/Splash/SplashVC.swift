@@ -13,6 +13,7 @@ class SplashVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let _ = user_defaults.getUserData()
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             self.webserviceInit()
         }
@@ -85,9 +86,7 @@ extension SplashVC{
     func setRootViewController() {
         let isLogin = UserDefaults.standard.bool(forKey: UserDefaultsKey.isUserLogin.rawValue)
         
-        if isLogin, let userData = user_defaults.getUserData() {
-            SingletonClass.sharedInstance.LoginRegisterUpdateData = userData
-            SingletonClass.sharedInstance.UserId = userData.data?.id ?? ""
+        if isLogin, let _ = user_defaults.getUserData() {
             appDel.navigateToMain()
         }else{
             appDel.navigateToLogin()

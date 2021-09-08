@@ -15,20 +15,22 @@ class PasswordUserModel{
         self.forgotPasswordVC?.btnContinue.showLoading()
         WebServiceSubClass.ForgotPasswordApi(reqModel: reqModel) { (status, apiMessage, response, error) in
             self.forgotPasswordVC?.btnContinue.hideLoading()
-            Toast.show(title: status ? UrlConstant.Success : UrlConstant.Failed, message: apiMessage, state: .success) {
-                let controller = OtpVC.instantiate(fromAppStoryboard: .Login)
-                self.forgotPasswordVC?.navigationController?.pushViewController(controller, animated: true)
+            if status{
+                Toast.show(title: UrlConstant.Success, message: apiMessage, state: .success)
+            }else{
+                Toast.show(title: UrlConstant.Failed, message: apiMessage, state: .failure)
             }
         }
     }
     
     func webserviceChangePassword(reqModel: ChangePasswordReqModel){
-        Utilities.showHud()
         self.changePasswordVC?.btnSave.showLoading()
         WebServiceSubClass.ChangePasswordApi(reqModel: reqModel) { (status, apiMessage, response, error) in
             self.changePasswordVC?.btnSave.hideLoading()
-            Toast.show(title: status ? UrlConstant.Success : UrlConstant.Failed, message: apiMessage, state: .success) {
-                self.changePasswordVC?.navigationController?.popViewController(animated: true)
+            if status{
+                Toast.show(title: UrlConstant.Success, message: apiMessage, state: .success)
+            }else{
+                Toast.show(title: UrlConstant.Failed, message: apiMessage, state: .failure)
             }
         }
     }

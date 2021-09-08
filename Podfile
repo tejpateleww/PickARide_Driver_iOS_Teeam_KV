@@ -18,7 +18,6 @@ target 'PickaRideDriver' do
   pod 'SDWebImage'
   pod 'DropDown'
   pod 'MKProgress'
-  pod 'AMPopTip'
   pod 'EasyTipView', '~> 2.1'
 
   # Pods for PickaRideDriver

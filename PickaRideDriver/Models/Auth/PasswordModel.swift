@@ -15,12 +15,12 @@ class ForgotPasswordReqModel: Encodable{
 class ChangePasswordReqModel: Encodable{
     var oldPassword : String?
     var newPassword : String?
-    var customerId : String? = SingletonClass.sharedInstance.UserId
+    var driverId : String? = SingletonClass.sharedInstance.UserId
     
     enum CodingKeys: String, CodingKey {
         case oldPassword = "old_password"
         case newPassword = "new_password"
-        case customerId = "customer_id"
+        case driverId = "driver_id"
     }
 }
 

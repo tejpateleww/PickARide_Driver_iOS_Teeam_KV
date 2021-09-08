@@ -45,23 +45,11 @@ class SignUpVC: BaseVC {
     //MARK:- Custom Methods
     func PrepareView(){
         self.setUpUI()
+        self.setUpPicker()
         self.setupTextfields(textfield: txtPassword)
     }
     
-    func setUpUI(){
-        self.txtMobile.tintColor = themeColor
-        
-        self.txtFirstName.delegate = self
-        self.txtLastName.delegate = self
-        self.txtCountryCode.delegate = self
-        self.txtMobile.delegate = self
-        self.txtPassword.delegate = self
-        
-        self.txtviewHomeAddress.delegate = self
-        self.txtviewHomeAddress.textColor = txtviewHomeAddress.text == "Home Address" ? colors.gray.value : .black
-        self.txtMobile.layer.borderColor = UIColor.white.cgColor
-        self.txtviewHomeAddress.leftSpace()
-        
+    func setUpPicker(){
         self.pickerView.delegate = self
         self.pickerView.dataSource = self
         self.pickerView.showsSelectionIndicator = true
@@ -87,6 +75,22 @@ class SignUpVC: BaseVC {
             self.txtCountryCode.inputAccessoryView = toolBar
             self.txtCountryCode.text = SingletonClass.sharedInstance.CountryList[selectedIndexOfPicker].countryCode
         }
+    }
+    
+    func setUpUI(){
+        self.txtMobile.tintColor = themeColor
+        
+        self.txtFirstName.delegate = self
+        self.txtLastName.delegate = self
+        self.txtCountryCode.delegate = self
+        self.txtMobile.delegate = self
+        self.txtPassword.delegate = self
+        
+        self.txtviewHomeAddress.delegate = self
+        self.txtviewHomeAddress.textColor = txtviewHomeAddress.text == "Home Address" ? colors.gray.value : .black
+        self.txtMobile.layer.borderColor = UIColor.white.cgColor
+        self.txtviewHomeAddress.leftSpace()
+        
     }
     
     func setupTextfields(textfield : UITextField) {
@@ -135,15 +139,14 @@ class SignUpVC: BaseVC {
             strTitle = firstName.1
         }else if !lastName.0{
             strTitle = lastName.1
-        }else if !checkEmail.0{
-            strTitle = checkEmail.1
         }else if !mobileNo.0{
             strTitle = mobileNo.1
+        }else if !checkEmail.0{
+            strTitle = checkEmail.1
         }else if self.txtMobile.text?.count != 10 {
             strTitle = UrlConstant.ValidPhoneNo
         }else if txtviewHomeAddress.text == "Home Address" || txtviewHomeAddress.text == ""{
             strTitle = "Please enter home address"
-            return false
         }else if !password.0{
             strTitle = password.1
         }

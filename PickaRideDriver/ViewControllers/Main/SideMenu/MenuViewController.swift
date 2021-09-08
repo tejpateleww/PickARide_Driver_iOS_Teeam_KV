@@ -9,6 +9,7 @@
 
 import UIKit
 import SideMenuSwift
+import SDWebImage
 
 class Preferences {
     static let shared = Preferences()
@@ -17,6 +18,10 @@ class Preferences {
 
 class MenuViewController: UIViewController {
     
+    
+    @IBOutlet weak var imgUser: UIImageView!
+    @IBOutlet weak var lblUserName: themeLabel!
+    @IBOutlet weak var lblUserEmail: themeLabel!
     
     var selectedMenuClosure : (() -> ())?
     var isDarkModeEnabled = false
@@ -48,29 +53,34 @@ class MenuViewController: UIViewController {
         configureView()
         NotificationCenter.default.removeObserver(self, name: NotificationRefreshSideMenu, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(refreshMenu), name: NotificationRefreshSideMenu, object: nil)
-        //        sideMenuController?.cache(viewControllerGenerator: {
-        //            self.storyboard?.instantiateViewController(withIdentifier: "SecondViewController")
-        //        }, with: "1")
-        //
-        //        sideMenuController?.cache(viewControllerGenerator: {
-        //            self.storyboard?.instantiateViewController(withIdentifier: "ThirdViewController")
-        //        }, with: "2")
-        
         sideMenuController?.delegate = self
         self.setupLocalization()
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        print("[Example] Menu did appear")
+        self.prepareView()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        print("[Example] Menu will disappear")
+        
     }
     
     //MARK: -Other Methods
+    func prepareView(){
+        
+        let obj = SingletonClass.sharedInstance.UserProfilData
+        let strUrl = "\(APIEnvironment.Profilebu.rawValue)" + "\(obj?.profileImage ?? "")"
+        let strURl = URL(string: strUrl)
+        
+        self.imgUser.sd_imageIndicator = SDWebImageActivityIndicator.gray
+        self.imgUser.sd_setImage(with: strURl, placeholderImage: UIImage(named: "nav_dummy_userImage"), options: .refreshCached, completed: nil)
+        
+        self.lblUserName.text = "\(SingletonClass.sharedInstance.UserProfilData?.firstName ?? "") \(SingletonClass.sharedInstance.UserProfilData?.lastName ?? "")"
+        self.lblUserEmail.text = SingletonClass.sharedInstance.UserProfilData?.email ?? ""
+    }
+    
     @objc func refreshMenu() {
         DispatchQueue.main.async { [self] in
             self.selectedMenuIndex = 0
@@ -205,14 +215,7 @@ extension MenuViewController: UITableViewDelegate, UITableViewDataSource
             
             Utilities.showAlertWithTitleFromVC(vc: self, title: UrlConstant.Logout, message: UrlConstant.LogoutMessage, buttons: [UrlConstant.Ok,UrlConstant.Cancel], isOkRed: false) { (ind) in
                 if ind == 0{
-                    user_defaults.setValue(false, forKey: UserDefaultsKey.isUserLogin.rawValue)
-                    appDel.navigateToLogin()
-//                    Utilities.showHud()
-//                    WebServiceSubClass.Logout { (status, message, obj, error) in
-//                        Utilities.hideHud()
-//                        user_defaults.setValue(false, forKey: UserDefaultsKey.isUserLogin.rawValue)
-//                        appDel.navigateToLogin()
-//                    }
+                    appDel.dologout()
                 }
             }
             

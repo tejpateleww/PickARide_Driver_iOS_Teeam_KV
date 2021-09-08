@@ -23,25 +23,29 @@ class BankDetailsVC: BaseVC {
     //MARK:- Variables
     var isFromEditProfile : Bool = false
     var registerRequestModel = RegisterFinalRequestModel()
+    var bankInfoViewModel = BankInfoViewModel()
     
     //MARK:- View LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        if isFromEditProfile{
-            btnNext.setTitle("SAVE", for: .normal)
-            setNavigationBarInViewController(controller: self, naviColor: colors.appColor.value, naviTitle: "Edit Bank Details", leftImage: NavItemsLeft.back.value, rightImages: [NavItemsRight.none.value], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
-            txtBankName.text = "Standard Chartered"
-            txtAccountHolderName.text = "Joh smitn"
-            txtAccountNumber.text = "ACNO123456789"
-            txtIfscCode.text = "YT1234"
-            
+        
+        if self.isFromEditProfile{
+            self.setupDataForProfile()
+            self.setNavigationBarInViewController(controller: self, naviColor: colors.appColor.value, naviTitle: "Edit Bank Details", leftImage: NavItemsLeft.back.value, rightImages: [NavItemsRight.none.value], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
         }else{
-        setNavigationBarInViewController(controller: self, naviColor: colors.appColor.value, naviTitle: NavTitles.BankDetails.value, leftImage: NavItemsLeft.back.value, rightImages: [NavItemsRight.none.value], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
+            self.setNavigationBarInViewController(controller: self, naviColor: colors.appColor.value, naviTitle: NavTitles.BankDetails.value, leftImage: NavItemsLeft.back.value, rightImages: [NavItemsRight.none.value], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
         }
-
     }
   
     //MARK:- Custom Methods
+    func setupDataForProfile(){
+        self.btnNext.setTitle("SAVE", for: .normal)
+        self.txtBankName.text = SingletonClass.sharedInstance.UserProfilData?.bankName ?? ""
+        self.txtAccountHolderName.text = SingletonClass.sharedInstance.UserProfilData?.accountNumber ?? ""
+        self.txtAccountNumber.text = SingletonClass.sharedInstance.UserProfilData?.accountNumber ?? ""
+        self.txtIfscCode.text = SingletonClass.sharedInstance.UserProfilData?.ifscCode ?? ""
+    }
+    
     func validation()->Bool{
         var strTitle : String?
         let BankName = self.txtBankName.validatedText(validationType: .requiredField(field: self.txtBankName.placeholder?.lowercased() ?? ""))
@@ -80,9 +84,31 @@ class BankDetailsVC: BaseVC {
     
     //MARK:- IBACrions
     @IBAction func btnNextTap(_ sender: UIButton) {
-        if validation(){
-            self.storeDataInRegisterModel()
+        
+        if self.validation(){
+            if(self.isFromEditProfile){
+                self.callUpdatebankInfoAPI()
+            }else{
+                self.storeDataInRegisterModel()
+            }
         }
     }
     
+}
+
+//MARK:- Api Call
+extension BankDetailsVC{
+    
+    func callUpdatebankInfoAPI(){
+        self.bankInfoViewModel.bankDetailsVC = self
+        
+        let UploadDocReq = UpdateBankInfoReqModel()
+        UploadDocReq.bankName = self.txtBankName.text ?? ""
+        UploadDocReq.accountHolderName = self.txtAccountHolderName.text ?? ""
+        UploadDocReq.accountNumber = self.txtAccountNumber.text ?? ""
+        UploadDocReq.ifscCode = self.txtIfscCode.text ?? ""
+        
+        self.bankInfoViewModel.webserviceUpdateBankInfoAPI(reqModel: UploadDocReq)
+    }
+
 }

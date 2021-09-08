@@ -17,7 +17,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var lblSignIN: loginScreenLabel!
     @IBOutlet weak var lblWelcomeBack: loginScreenLabel!
     @IBOutlet weak var btnForgotPassword: loginScreenButton!
-    @IBOutlet weak var btnSignIN: submitButton!
+    @IBOutlet weak var btnSignIN: themeButton!
     @IBOutlet weak var lblOR: loginScreenLabel!
     @IBOutlet weak var lblDontHaveanAccount: loginScreenLabel!
     @IBOutlet weak var btnSIgnUP: loginScreenButton!
@@ -87,17 +87,12 @@ class LoginViewController: UIViewController {
 //        self.navigationController?.pushViewController(controller, animated: true)
     }
     
-    @IBAction func btnSignInClicked(_ sender: Any)
-    {
-//        if isValidForLogin(){
-//            if self.getLocation(){
-////                self.callLoginApi()
-                user_defaults.setValue(true, forKey: UserDefaultsKey.isUserLogin.rawValue)
-                appDel.navigateToMain()
-      
-//            }
-//        }
-        
+    @IBAction func btnSignInClicked(_ sender: Any){
+        if isValidForLogin(){
+            if self.getLocation(){
+                self.callLoginApi()
+            }
+        }
     }
     
     @IBAction func ForgotPassword(_ sender: UIButton)
@@ -163,8 +158,7 @@ extension LoginViewController{
         let reqModel = LoginReqModel()
         reqModel.username = self.txtEmailOrPhoneNumber.text ?? ""
         reqModel.password = self.txtPassword.text ?? ""
-        
-        self.loginusermodel.webserviceForLogin()
+        self.loginusermodel.webserviceForLogin(reqModel: reqModel)
     }
 }
 

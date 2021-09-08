@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class SettingVC: BaseVC, UITextFieldDelegate {
     
@@ -22,6 +23,12 @@ class SettingVC: BaseVC, UITextFieldDelegate {
     @IBOutlet weak var txtLanguage: UITextField!
     @IBOutlet weak var lblLanguage: themeLabel!
     @IBOutlet weak var lblLanguageName: themeLabel!
+    
+    @IBOutlet weak var imgUser: UIImageView!
+    @IBOutlet weak var lblUserName: themeLabel!
+    @IBOutlet weak var lblUserPhone: themeLabel!
+    @IBOutlet weak var lblUserEmail: themeLabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         selectedIndexOfPicker = 0
@@ -57,7 +64,21 @@ class SettingVC: BaseVC, UITextFieldDelegate {
 //        setupTextfields(textfield: txtLanguage)
         lblLanguageName.textColor = hexStringToUIColor(hex: "222B45")
    
-        // Do any additional setup after loading the view.
+        self.prepareView()
+    }
+    
+    func prepareView(){
+        
+        let obj = SingletonClass.sharedInstance.UserProfilData
+        let strUrl = "\(APIEnvironment.Profilebu.rawValue)" + "\(obj?.profileImage ?? "")"
+        let strURl = URL(string: strUrl)
+        
+        self.imgUser.sd_imageIndicator = SDWebImageActivityIndicator.gray
+        self.imgUser.sd_setImage(with: strURl, placeholderImage: UIImage(named: "nav_dummy_userImage"), options: .refreshCached, completed: nil)
+        
+        self.lblUserName.text = "\(SingletonClass.sharedInstance.UserProfilData?.firstName ?? "") \(SingletonClass.sharedInstance.UserProfilData?.lastName ?? "")"
+        self.lblUserEmail.text = SingletonClass.sharedInstance.UserProfilData?.email ?? ""
+        self.lblUserPhone.text = "\(SingletonClass.sharedInstance.UserProfilData?.countryCode ?? "") \(SingletonClass.sharedInstance.UserProfilData?.mobileNo ?? "")"
     }
     
     func setupTextfields(textfield : UITextField) {

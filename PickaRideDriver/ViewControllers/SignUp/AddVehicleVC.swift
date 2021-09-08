@@ -39,6 +39,7 @@ class AddVehicleVC: BaseVC {
     var modelID = ""
     var serviceTypeID = ""
     var vehicleTypeManufacturerId = ""
+    var vehicleInfoViewModel = VehicleInfoViewModel()
     
     //MARK: - Life cycle methods
     override func viewDidLoad() {
@@ -50,21 +51,33 @@ class AddVehicleVC: BaseVC {
     //MARK: - custom methods
     func prepareView(){
         if self.isFromEditProfile{
-            self.btnNext.setTitle("SAVE", for: .normal)
+            self.setupDataForProfile()
             self.setNavigationBarInViewController(controller: self, naviColor: colors.appColor.value, naviTitle: "Edit Vehicle Details", leftImage: NavItemsLeft.back.value, rightImages: [NavItemsRight.none.value], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
-            self.txtServiceType.text = "Micro"
-            self.txtBrand.text = "BMW"
-            self.txtModel.text = "ABC"
-            self.txtManufacturer.text = "BMW"
-            self.txtNumberPlate.text = "YT1234"
-            self.txtCarYear.text = "2012"
-            self.carColor.text = "Red"
         }else{
             self.setNavigationBarInViewController(controller: self, naviColor: colors.appColor.value, naviTitle: NavTitles.Addvehicle.value, leftImage: NavItemsLeft.back.value, rightImages: [NavItemsRight.none.value], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
         }
+        
         self.txtServiceType.isUserInteractionEnabled = false
         self.txtManufacturer.isUserInteractionEnabled = false
         self.setupTextFields()
+        
+        if(isFromEditProfile){
+            self.brandID = SingletonClass.sharedInstance.UserProfilData?.vehicleInfo?[0].companyId ?? ""
+            self.modelID = SingletonClass.sharedInstance.UserProfilData?.vehicleInfo?[0].vehicleTypeModelId ?? ""
+            self.serviceTypeID = SingletonClass.sharedInstance.UserProfilData?.vehicleInfo?[0].vehicleType ?? ""
+            self.vehicleTypeManufacturerId = SingletonClass.sharedInstance.UserProfilData?.vehicleInfo?[0].vehicleTypeManufacturerId ?? ""
+        }
+    }
+    
+    func setupDataForProfile(){
+        self.txtBrand.text = SingletonClass.sharedInstance.UserProfilData?.vehicleInfo?[0].vehicleTypeManufacturerName ?? ""
+        self.txtModel.text = SingletonClass.sharedInstance.UserProfilData?.vehicleInfo?[0].vehicleTypeModelName ?? ""
+        self.txtServiceType.text = SingletonClass.sharedInstance.UserProfilData?.vehicleInfo?[0].vehicleTypeName ?? ""
+        self.txtManufacturer.text = SingletonClass.sharedInstance.UserProfilData?.vehicleInfo?[0].vehicleTypeManufacturerName ?? ""
+        self.txtNumberPlate.text = SingletonClass.sharedInstance.UserProfilData?.vehicleInfo?[0].plateNumber ?? ""
+        self.txtCarYear.text = SingletonClass.sharedInstance.UserProfilData?.vehicleInfo?[0].yearOfManufacture ?? ""
+        self.carColor.text = SingletonClass.sharedInstance.UserProfilData?.vehicleInfo?[0].color ?? ""
+        self.btnNext.setTitle("SAVE", for: .normal)
     }
     
     func setupTextFields(){
@@ -100,26 +113,26 @@ class AddVehicleVC: BaseVC {
     }
     
     func validation() -> Bool{
-        if(self.txtBrand.text == "" || self.brandID == ""){
-            Utilities.showAlertAction(AppName, message: "Please select vehicle brand", vc: self)
+        if(self.txtBrand.text == ""){
+            Toast.show(title: UrlConstant.Required, message: "Please select vehicle brand", state: .failure)
             return false
         }else if(self.txtModel.text == "" || self.modelID == ""){
-            Utilities.showAlertAction(AppName, message: "Please select vehicle model", vc: self)
+            Toast.show(title: UrlConstant.Required, message: "Please select vehicle model", state: .failure)
             return false
         }else if(self.txtServiceType.text == "" || self.serviceTypeID == ""){
-            Utilities.showAlertAction(AppName, message: "Please select vehicle ServiceType", vc: self)
+            Toast.show(title: UrlConstant.Required, message: "Please select vehicle ServiceType", state: .failure)
             return false
         }else if(self.txtManufacturer.text == ""){
-            Utilities.showAlertAction(AppName, message: "Please enter vehicle Manufacturer", vc: self)
+            Toast.show(title: UrlConstant.Required, message: "Please enter vehicle Manufacturer", state: .failure)
             return false
         }else if(self.txtNumberPlate.text == ""){
-            Utilities.showAlertAction(AppName, message: "Please enter vehicle NumberPlate", vc: self)
+            Toast.show(title: UrlConstant.Required, message: "Please enter vehicle NumberPlate", state: .failure)
             return false
         }else if(self.txtCarYear.text == ""){
-            Utilities.showAlertAction(AppName, message: "Please enter vehicle Year", vc: self)
+            Toast.show(title: UrlConstant.Required, message: "Please enter vehicle Year", state: .failure)
             return false
         }else if(self.carColor.text == ""){
-            Utilities.showAlertAction(AppName, message: "Please enter vehicle Color", vc: self)
+            Toast.show(title: UrlConstant.Required, message: "Please enter vehicle Color", state: .failure)
             return false
         }
         return true
@@ -193,7 +206,7 @@ class AddVehicleVC: BaseVC {
     @IBAction func btnNextTap(_ sender: Any) {
         if validation(){
             if isFromEditProfile{
-                self.navigationController?.popViewController(animated: true)
+                self.callUpdateVehicleInfoAPI()
             }else{
                 self.storeDataInRegisterModel()
             }
@@ -208,6 +221,20 @@ extension AddVehicleVC{
         self.addVehicleUserModel.addVehicleVC = self
         self.addVehicleUserModel.registerRequestModel = self.registerRequestModel
         self.addVehicleUserModel.webserviceGetManufacturerList()
+    }
+    
+    func callUpdateVehicleInfoAPI(){
+        self.vehicleInfoViewModel.addVehicleVC = self
+        
+        let UploadDocReq = UpdateVehicleInfoReqModel()
+        UploadDocReq.color = self.carColor.text ?? ""
+        UploadDocReq.vehicleType = self.serviceTypeID
+        UploadDocReq.plateNumber = self.txtNumberPlate.text ?? ""
+        UploadDocReq.yearOfManufacture = self.txtCarYear.text ?? ""
+        UploadDocReq.vehicleTypeModelId = self.modelID
+        UploadDocReq.vehicleTypeManufacturerId = self.vehicleTypeManufacturerId
+        
+        self.vehicleInfoViewModel.webserviceUpdateVehicleInfoAPI(reqModel: UploadDocReq)
     }
 }
 

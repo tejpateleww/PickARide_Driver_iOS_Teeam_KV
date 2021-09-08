@@ -82,13 +82,9 @@ class ChangePasswordVC: BaseVC, UITextFieldDelegate {
         self.dismiss(animated: true, completion: nil)
     }
     @IBAction func btnSaveTap(_ sender: Any) {
-        //login view controller root
-//        if (!self.validation()){
-//            webserviceForChangePasswod()
-//            self.navigationController?.popViewController(animated: true)
-            self.dismiss(animated: true, completion: nil)
-//        }
-        
+        if (self.validation()){
+            callChangePasswordApi()
+        }
     }
 }
 

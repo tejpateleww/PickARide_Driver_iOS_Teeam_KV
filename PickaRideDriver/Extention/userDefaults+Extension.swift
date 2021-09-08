@@ -33,11 +33,20 @@ extension UserDefaults{
         let objResponse = try? UserDefaults.standard.get(objectType: [CountryDetilsModel].self, forKey:  UserDefaultsKey.countryList.rawValue)
         return objResponse ?? nil
     }
+    
     func setUserData() {
-        try? UserDefaults.standard.set(object: SingletonClass.sharedInstance.LoginRegisterUpdateData, forKey: UserDefaultsKey.userProfile.rawValue)
+        try? UserDefaults.standard.set(object: SingletonClass.sharedInstance.UserProfilData, forKey: UserDefaultsKey.userProfile.rawValue)
     }
-    func getUserData() -> RegisterFinal? {
-        let objResponse = try? UserDefaults.standard.get(objectType: RegisterFinal.self, forKey:  UserDefaultsKey.userProfile.rawValue)
+//    func getUserData() -> RegisterFinal? {
+//        let objResponse = try? UserDefaults.standard.get(objectType: RegisterFinal.self, forKey:  UserDefaultsKey.userProfile.rawValue)
+//        return objResponse ?? nil
+//    }
+    
+    func getUserData() -> RegisterData? {
+        let objResponse = try? UserDefaults.standard.get(objectType: RegisterData.self, forKey:  UserDefaultsKey.userProfile.rawValue)
+        SingletonClass.sharedInstance.UserProfilData = objResponse
+        SingletonClass.sharedInstance.UserId = objResponse?.id ?? ""
+        SingletonClass.sharedInstance.Api_Key = objResponse?.xApiKey ?? ""
         return objResponse ?? nil
     }
 

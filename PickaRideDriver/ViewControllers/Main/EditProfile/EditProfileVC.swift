@@ -6,12 +6,10 @@
 //
 
 import UIKit
+import SDWebImage
 
-class EditProfileVC: BaseVC, UITextFieldDelegate {
-    let arrEditProfile = ["Edit Bank Details","Edit Personal Details","Edit Vehicle Details","Edit Vehicle Documents"]
-    var selectedImage : UIImage?
-    private var imagePicker : ImagePicker!
-    var isRemovePhoto = false
+class EditProfileVC: BaseVC {
+    
     @IBOutlet weak var vwMobile: UIView!
     @IBOutlet weak var scrollViewEditProfile: UIScrollView!
     @IBOutlet weak var vwEditProfileCamera: settingsView!
@@ -25,8 +23,18 @@ class EditProfileVC: BaseVC, UITextFieldDelegate {
     @IBOutlet weak var txtPhoneNumber: UITextField!
     @IBOutlet weak var txtPassword: themeTextField!
     @IBOutlet weak var btnSave: themeButton!
+    @IBOutlet weak var txtCountryCode: UITextField!
+    
+    let arrEditProfile = ["Edit Bank Details","Edit Personal Details","Edit Vehicle Details","Edit Vehicle Documents"]
+    var selectedImage : UIImage?
+    private var imagePicker : ImagePicker!
+    var isRemovePhoto = false
+    var pickerView = UIPickerView()
+    var selectedIndexOfPicker = Int()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setNavigationBarInViewController(controller: self, naviColor: colors.appColor.value, naviTitle: "View Profile", leftImage: NavItemsLeft.cancel.value, rightImages: [NavItemsRight.EditProfile.value], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
         vwEditProfileCamera.isHidden = true
         tblEditProfile.delegate = self
@@ -51,7 +59,70 @@ class EditProfileVC: BaseVC, UITextFieldDelegate {
         txtPhoneNumber.isUserInteractionEnabled = false
         txtPassword.delegate = self
         // Do any additional setup after loading the view.
+        
+        self.prepareView()
     }
+    
+    func prepareView(){
+        
+        let obj = SingletonClass.sharedInstance.UserProfilData
+        let strUrl = "\(APIEnvironment.Profilebu.rawValue)" + "\(obj?.profileImage ?? "")"
+        let strURl = URL(string: strUrl)
+        self.imgProfile.sd_imageIndicator = SDWebImageActivityIndicator.gray
+        self.imgProfile.sd_setImage(with: strURl, placeholderImage: UIImage(named: "nav_dummy_userImage"), options: .refreshCached, completed: nil)
+        self.lblName.text = "Hey \(SingletonClass.sharedInstance.UserProfilData?.firstName ?? "")!"
+       
+        self.setupData()
+        self.setupPicker()
+    }
+    
+    func setupData(){
+        self.txtName.text = "\(SingletonClass.sharedInstance.UserProfilData?.firstName ?? "") \(SingletonClass.sharedInstance.UserProfilData?.lastName ?? "")"
+        self.txtEmail.text = SingletonClass.sharedInstance.UserProfilData?.email ?? ""
+        self.txtPhoneNumber.text = SingletonClass.sharedInstance.UserProfilData?.mobileNo ?? ""
+        self.txtPassword.text = "......"
+        self.txtCountryCode.text = SingletonClass.sharedInstance.UserProfilData?.countryCode ?? ""
+        
+    }
+    
+    func setupPicker(){
+        
+        self.pickerView.delegate = self
+        self.pickerView.dataSource = self
+        self.pickerView.showsSelectionIndicator = true
+        
+        self.txtCountryCode.delegate = self
+        self.txtCountryCode.tintColor = .white
+        self.txtCountryCode.inputView = pickerView
+        
+        let toolBar = UIToolbar()
+        toolBar.barStyle = UIBarStyle.default
+        toolBar.barTintColor = .black
+        toolBar.barTintColor = .white
+        toolBar.tintColor = themeColor
+        toolBar.sizeToFit()
+        let done = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(doneAction))
+        let space = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let cancel = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelAction))
+        toolBar.setItems([cancel,space,done], animated: false)
+        
+        if SingletonClass.sharedInstance.CountryList.count == 0{
+            WebServiceSubClass.GetCountryList { _, _, _, _ in}
+        }else{
+            self.txtCountryCode.inputAccessoryView = toolBar
+            self.txtCountryCode.text = SingletonClass.sharedInstance.CountryList[selectedIndexOfPicker].countryCode
+        }
+    }
+    
+    @objc func cancelAction(_ sender: UIBarButtonItem) {
+        self.txtCountryCode.endEditing(true)
+    }
+    
+    @objc func doneAction(_ sender: UIBarButtonItem) {
+        self.txtCountryCode.text = SingletonClass.sharedInstance.CountryList[self.selectedIndexOfPicker].countryCode
+        self.txtCountryCode.endEditing(true)
+    }
+    
     @IBAction func btnEditProfile(_ sender: Any) {
         resignFirstResponder()
         if (self.imgProfile.image != nil || self.selectedImage != nil) && ((self.imgProfile.image?.isEqualToImage(UIImage.init(named: "Dummy-Profile")!)) != nil){
@@ -131,24 +202,21 @@ class EditProfileVC: BaseVC, UITextFieldDelegate {
         }
     }
     
-    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        if textField == txtPassword{
-            let vc : ChangePasswordVC = ChangePasswordVC.instantiate(fromAppStoryboard: .Main)
-            self.navigationController?.present(vc, animated: true, completion: nil)
-        }
-        return false
-    }
+
 }
 extension EditProfileVC : UITableViewDelegate,UITableViewDataSource{
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return arrEditProfile.count
     }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:EditProfileCell = tblEditProfile.dequeueReusableCell(withIdentifier: EditProfileCell.className, for: indexPath)as! EditProfileCell
         cell.lblEditProfile.text = arrEditProfile[indexPath.row]
         cell.selectionStyle = .none
         return cell
     }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if arrEditProfile[indexPath.row] == "Edit Bank Details"{
             let vc : BankDetailsVC = BankDetailsVC.instantiate(fromAppStoryboard: .Login)
@@ -165,16 +233,17 @@ extension EditProfileVC : UITableViewDelegate,UITableViewDataSource{
             self.navigationController?.pushViewController(vc, animated: true)
         }
         else if arrEditProfile[indexPath.row] == "Edit Vehicle Documents"{
-            let vc : PersonalDocumentVC = PersonalDocumentVC.instantiate(fromAppStoryboard: .Login)
+            let vc : VehicleDocumentVC = VehicleDocumentVC.instantiate(fromAppStoryboard: .Login)
             vc.isFromEditProfile = true
-            vc.isVehicleDocument = true
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
 }
+
 // MARK: - ImagePickerDelegate
 extension EditProfileVC:ImagePickerDelegate {
     
@@ -193,4 +262,38 @@ extension EditProfileVC:ImagePickerDelegate {
             return
         }
     }
+}
+
+//MARK:- Country Code Picker Set Up
+extension EditProfileVC : UIPickerViewDelegate,UIPickerViewDataSource {
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return SingletonClass.sharedInstance.CountryList.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return (SingletonClass.sharedInstance.CountryList[row].countryCode ?? "") + " - " + (SingletonClass.sharedInstance.CountryList[row].name ?? "")
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        self.selectedIndexOfPicker = row
+    }
+}
+
+//MARK:- TextField Delegate
+extension EditProfileVC: UITextFieldDelegate{
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        if textField == self.txtCountryCode{
+            if SingletonClass.sharedInstance.CountryList.count == 0{
+                WebServiceSubClass.GetCountryList {_, _, _, _ in}
+                return false
+            }
+        }
+        return true
+    }
+    
 }

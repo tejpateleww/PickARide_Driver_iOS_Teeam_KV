@@ -286,13 +286,6 @@
                                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ygr-hl-LG8" customClass="RegisterView" customModule="PickaRideDriver" customModuleProvider="target">
                                                                                         <rect key="frame" x="0.0" y="0.0" width="70" height="40"/>
                                                                                         <subviews>
-                                                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_DownReg" translatesAutoresizingMaskIntoConstraints="NO" id="tQ3-m8-FX6">
-                                                                                                <rect key="frame" x="45" y="12.5" width="15" height="15"/>
-                                                                                                <constraints>
-                                                                                                    <constraint firstAttribute="width" constant="15" id="7ku-XX-a20"/>
-                                                                                                    <constraint firstAttribute="height" constant="15" id="L8E-s6-pel"/>
-                                                                                                </constraints>
-                                                                                            </imageView>
                                                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="+91" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LdE-HA-lhF">
                                                                                                 <rect key="frame" x="10" y="0.0" width="60" height="40"/>
                                                                                                 <constraints>
@@ -301,6 +294,13 @@
                                                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                                                 <textInputTraits key="textInputTraits"/>
                                                                                             </textField>
+                                                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_DownReg" translatesAutoresizingMaskIntoConstraints="NO" id="tQ3-m8-FX6">
+                                                                                                <rect key="frame" x="45" y="12.5" width="15" height="15"/>
+                                                                                                <constraints>
+                                                                                                    <constraint firstAttribute="width" constant="15" id="7ku-XX-a20"/>
+                                                                                                    <constraint firstAttribute="height" constant="15" id="L8E-s6-pel"/>
+                                                                                                </constraints>
+                                                                                            </imageView>
                                                                                         </subviews>
                                                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                                         <accessibility key="accessibilityConfiguration">
@@ -610,6 +610,7 @@
                         <outlet property="scrollViewEditProfile" destination="DTj-3g-Lgg" id="k0V-Ko-W5m"/>
                         <outlet property="tblEditProfile" destination="BNs-Te-RoG" id="ya5-Aw-ooF"/>
                         <outlet property="tblEditProfileHeight" destination="GZL-fx-Pqu" id="Uy2-qT-CHg"/>
+                        <outlet property="txtCountryCode" destination="LdE-HA-lhF" id="L5K-xa-pdi"/>
                         <outlet property="txtEmail" destination="ckW-Ca-ueL" id="XPa-Pu-TSQ"/>
                         <outlet property="txtName" destination="skF-Pi-Fkh" id="ybe-a8-9xc"/>
                         <outlet property="txtPassword" destination="Duk-yf-7js" id="gbr-KX-nOo"/>
@@ -1219,8 +1220,12 @@
                     <navigationItem key="navigationItem" id="unA-vw-jOh"/>
                     <connections>
                         <outlet property="btnEditProfile" destination="SHL-Ar-19X" id="bIU-cM-jvl"/>
+                        <outlet property="imgUser" destination="L2a-xh-MFB" id="ZO4-tf-RLj"/>
                         <outlet property="lblLanguage" destination="riJ-ay-FgJ" id="Nqd-QU-hTR"/>
                         <outlet property="lblLanguageName" destination="Eag-d5-Fdo" id="uBE-lO-Xlu"/>
+                        <outlet property="lblUserEmail" destination="lhR-Fp-UFB" id="pCe-7P-naw"/>
+                        <outlet property="lblUserName" destination="yfq-0j-g6g" id="S6W-qw-afl"/>
+                        <outlet property="lblUserPhone" destination="rqJ-8Q-cIQ" id="sUG-zM-3Ji"/>
                         <outlet property="tblSetting" destination="Tu9-vx-GgJ" id="roW-gQ-O1Y"/>
                         <outlet property="tblSettingHeight" destination="EAo-aW-bw7" id="MdW-kZ-RkO"/>
                         <outlet property="txtLanguage" destination="C8G-VT-YFC" id="uPH-c5-w2M"/>
@@ -3875,7 +3880,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="67x-Zx-D9I"/>
                     <connections>
+                        <outlet property="imgUser" destination="QGd-jm-KLv" id="SWR-yH-qKA"/>
                         <outlet property="lblLegal" destination="qBp-J1-VsE" id="zEq-3o-8bT"/>
+                        <outlet property="lblUserEmail" destination="m7m-hR-dUK" id="lDg-yJ-Dhu"/>
+                        <outlet property="lblUserName" destination="A4n-j2-bdM" id="4sh-9z-vH0"/>
                         <outlet property="lblVersion" destination="Eh6-NW-Ygp" id="Jvv-bD-n14"/>
                         <outlet property="selectionMenuTrailingConstraint" destination="2G7-tf-eL1" id="7GK-px-qvc"/>
                         <outlet property="tblSidemenuData" destination="G9w-aE-kBq" id="jad-Sn-QFv"/>

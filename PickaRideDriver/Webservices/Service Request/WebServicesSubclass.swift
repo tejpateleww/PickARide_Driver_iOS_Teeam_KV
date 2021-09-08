@@ -67,6 +67,30 @@ class WebServiceSubClass{
         }
     }
     
+    class func UpdatePersonalDocsApi(reqModel : UpdatePersonalDocsReqModel , completion: @escaping (Bool,String,RegisterFinal?,Any) -> ()){
+        URLSessionRequestManager.makePostRequest(urlString: ApiKey.updatePersonalDocs.rawValue, requestModel: reqModel, responseModel: RegisterFinal.self) { (status, message, response, error) in
+            completion(status, message, response, error)
+        }
+    }
+    
+    class func UpdateVehicleDocsApi(reqModel : UpdateVehicleDocsReqModel , completion: @escaping (Bool,String,RegisterFinal?,Any) -> ()){
+        URLSessionRequestManager.makePostRequest(urlString: ApiKey.updateVehicleDocs.rawValue, requestModel: reqModel, responseModel: RegisterFinal.self) { (status, message, response, error) in
+            completion(status, message, response, error)
+        }
+    }
+    
+    class func UpdateBankInfoApi(reqModel : UpdateBankInfoReqModel , completion: @escaping (Bool,String,RegisterFinal?,Any) -> ()){
+        URLSessionRequestManager.makePostRequest(urlString: ApiKey.updateBankInfo.rawValue, requestModel: reqModel, responseModel: RegisterFinal.self) { (status, message, response, error) in
+            completion(status, message, response, error)
+        }
+    }
+    
+    class func UpdateVehicleInfoApi(reqModel : UpdateVehicleInfoReqModel , completion: @escaping (Bool,String,RegisterFinal?,Any) -> ()){
+        URLSessionRequestManager.makePostRequest(urlString: ApiKey.vehicleInfo.rawValue, requestModel: reqModel, responseModel: RegisterFinal.self) { (status, message, response, error) in
+            completion(status, message, response, error)
+        }
+    }
+    
     class func UploadSingleDocsApi(reqModel : UploadDocReqModel , imgKey: String, image: UIImage, completion: @escaping (Bool,String,UploadSingleDocResponseModel?,Any) -> ()){
         URLSessionRequestManager.makeImageUploadRequest(urlString: ApiKey.uploadDocs.rawValue, requestModel: reqModel, responseModel: UploadSingleDocResponseModel.self, image: image, imageKey: imgKey) { (status, message, response, error) in
             completion(status, message, response, error)
