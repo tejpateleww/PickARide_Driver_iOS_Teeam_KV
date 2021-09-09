@@ -99,6 +99,7 @@ class RegisterFinalRequestModel : Encodable{
     var vehicleTypeManufacturerId: String?
     var vehicleTypeModelId: String?
     var vehicleType: String?
+    var color: String?
     
     var profileImage: String?
     
@@ -144,6 +145,7 @@ class RegisterFinalRequestModel : Encodable{
         case vehicleTypeManufacturerId = "vehicle_type_manufacturer_id"
         case vehicleTypeModelId = "vehicle_type_model_id"
         case vehicleType = "vehicle_type"
+        case color = "color"
         
         case profileImage = "profile_image"
     }

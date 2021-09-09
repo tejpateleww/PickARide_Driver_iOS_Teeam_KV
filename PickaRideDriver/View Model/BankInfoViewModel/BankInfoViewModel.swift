@@ -49,3 +49,37 @@ class VehicleInfoViewModel{
     }
     
 }
+
+class UserInfoViewModel{
+    
+    weak var editProfileVC : EditProfileVC? = nil
+
+    func webserviceUserBasicInfoUpdateAPI(reqModel: UpdateBasicInfoReqModel, reqImage : UIImage){
+        self.editProfileVC?.btnSave.showLoading()
+        WebServiceSubClass.UpdateBasicInfoApi(reqModel: reqModel, imgKey: "profile_image", image: reqImage) { (status, apiMessage, response, error) in
+            self.editProfileVC?.btnSave.hideLoading()
+            if status{
+                Toast.show(title: UrlConstant.Success, message: apiMessage, state: .success)
+                SingletonClass.sharedInstance.UserProfilData = response?.data
+                user_defaults.setUserData()
+                let _ = user_defaults.getUserData()
+                self.editProfileVC?.prepareView()
+            }else{
+                Toast.show(title: UrlConstant.Failed, message: apiMessage, state: .failure)
+            }
+        }
+    }
+    
+    func webserviceSingleDocUpload(reqModel: UploadDocReqModel, reqImage : UIImage){
+        
+        WebServiceSubClass.UploadSingleDocsApi(reqModel: reqModel, imgKey: "image", image: reqImage) { (status, apiMessage, response, error) in
+            if status{
+                self.editProfileVC?.strImageURL = response?.url ?? ""
+                self.editProfileVC?.setupUserImage()
+            }else{
+                Toast.show(title: UrlConstant.Failed, message: apiMessage, state: .failure)
+            }
+        }
+    }
+    
+}

@@ -155,7 +155,7 @@ class OtpVC: BaseVC, OTPTextFieldDelegate {
     @IBAction func btnAeeroTap(_ sender: Any) {
         let strTokenCode = "\(self.txtOtp[0].text ?? "" )\(self.txtOtp[1].text ?? "" )\(self.txtOtp[2].text ?? "" )\(self.txtOtp[3].text ?? "")"
         if(self.StringOTP != strTokenCode){
-            Utilities.showAlert(AppName, message: UrlConstant.OtpInvalid, vc: self)
+            Toast.show(title: UrlConstant.Failed, message: UrlConstant.OtpInvalid, state: .failure)
         }else{
             self.timer.invalidate()
             

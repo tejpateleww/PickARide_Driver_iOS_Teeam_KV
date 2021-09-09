@@ -31,14 +31,14 @@ class WebServiceSubClass{
         }
     }
     
-    class func Logout(completion: @escaping (Bool,String,LogoutReponseModel?,Any) -> ()){
-        URLSessionRequestManager.makeGetRequest(urlString: ApiKey.logout.rawValue + "/" + SingletonClass.sharedInstance.UserId, responseModel: LogoutReponseModel.self) { (status, message, response, error) in
+    class func Login(reqModel : LoginReqModel , completion: @escaping (Bool,String,RegisterFinal?,Any) -> ()){
+        URLSessionRequestManager.makePostRequest(urlString: ApiKey.login.rawValue, requestModel: reqModel, responseModel: RegisterFinal.self) { (status, message, response, error) in
             completion(status, message, response, error)
         }
     }
     
-    class func Login(reqModel : LoginReqModel , completion: @escaping (Bool,String,RegisterFinal?,Any) -> ()){
-        URLSessionRequestManager.makePostRequest(urlString: ApiKey.login.rawValue, requestModel: reqModel, responseModel: RegisterFinal.self) { (status, message, response, error) in
+    class func Logout(completion: @escaping (Bool,String,LogoutReponseModel?,Any) -> ()) {
+        URLSessionRequestManager.makeGetRequest(urlString: ApiKey.logout.rawValue + SingletonClass.sharedInstance.UserId, responseModel: LogoutReponseModel.self) { (status, message, response, error) in
             completion(status, message, response, error)
         }
     }
@@ -85,6 +85,12 @@ class WebServiceSubClass{
         }
     }
     
+    class func UpdateDutyStatusApi(reqModel : ChangeDutyStatusReqModel , completion: @escaping (Bool,String,ChangeDutyResModel?,Any) -> ()){
+        URLSessionRequestManager.makePostRequest(urlString: ApiKey.changeDuty.rawValue, requestModel: reqModel, responseModel: ChangeDutyResModel.self) { (status, message, response, error) in
+            completion(status, message, response, error)
+        }
+    }
+    
     class func UpdateVehicleInfoApi(reqModel : UpdateVehicleInfoReqModel , completion: @escaping (Bool,String,RegisterFinal?,Any) -> ()){
         URLSessionRequestManager.makePostRequest(urlString: ApiKey.vehicleInfo.rawValue, requestModel: reqModel, responseModel: RegisterFinal.self) { (status, message, response, error) in
             completion(status, message, response, error)
@@ -97,8 +103,14 @@ class WebServiceSubClass{
         }
     }
     
-    class func UpdateVehicleInfoApi(imgKey: String, image: UIImage, completion: @escaping (Bool,String,UploadSingleDocResponseModel?,Any) -> ()){
-        URLSessionRequestManager.makeImageUploadRequest(urlString: ApiKey.changePassword.rawValue, requestModel: [String:String](), responseModel: UploadSingleDocResponseModel.self, image: image, imageKey: imgKey) { (status, message, response, error) in
+    class func UpdateBasicInfoApi(reqModel : UpdateBasicInfoReqModel , imgKey: String, image: UIImage, completion: @escaping (Bool,String,RegisterFinal?,Any) -> ()){
+        URLSessionRequestManager.makeImageUploadRequest(urlString: ApiKey.updateBasicInfo.rawValue, requestModel: reqModel, responseModel: RegisterFinal.self, image: image, imageKey: imgKey) { (status, message, response, error) in
+            completion(status, message, response, error)
+        }
+    }
+    
+    class func GetCurrentBookingApi(completion: @escaping (Bool,String,CurrentBookingModel?,Any) -> ()) {
+        URLSessionRequestManager.makeGetRequest(urlString: ApiKey.currentBooking.rawValue + SingletonClass.sharedInstance.UserId, responseModel: CurrentBookingModel.self) { (status, message, response, error) in
             completion(status, message, response, error)
         }
     }

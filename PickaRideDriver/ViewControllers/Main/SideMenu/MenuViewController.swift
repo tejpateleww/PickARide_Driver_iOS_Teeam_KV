@@ -26,6 +26,7 @@ class MenuViewController: UIViewController {
     var selectedMenuClosure : (() -> ())?
     var isDarkModeEnabled = false
     var selectedMenuIndex = 0
+    var logoutUserModel = LogoutUserModel()
     
     @IBOutlet weak var tblSidemenuData: UITableView! {
         didSet {
@@ -79,6 +80,10 @@ class MenuViewController: UIViewController {
         
         self.lblUserName.text = "\(SingletonClass.sharedInstance.UserProfilData?.firstName ?? "") \(SingletonClass.sharedInstance.UserProfilData?.lastName ?? "")"
         self.lblUserEmail.text = SingletonClass.sharedInstance.UserProfilData?.email ?? ""
+    }
+    
+    func DoLogoutFinal(){
+        appDel.dologout()
     }
     
     @objc func refreshMenu() {
@@ -165,6 +170,16 @@ extension MenuViewController: SideMenuControllerDelegate {
     }
 }
 
+//MARK:- Api Call
+extension MenuViewController{
+    
+    func callLogoutAPI(){
+        self.logoutUserModel.menuViewController = self
+        self.logoutUserModel.webserviceForLogout()
+    }
+
+}
+
 extension MenuViewController: UITableViewDelegate, UITableViewDataSource
 {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
@@ -215,7 +230,8 @@ extension MenuViewController: UITableViewDelegate, UITableViewDataSource
             
             Utilities.showAlertWithTitleFromVC(vc: self, title: UrlConstant.Logout, message: UrlConstant.LogoutMessage, buttons: [UrlConstant.Ok,UrlConstant.Cancel], isOkRed: false) { (ind) in
                 if ind == 0{
-                    appDel.dologout()
+                    
+                    self.callLogoutAPI()
                 }
             }
             

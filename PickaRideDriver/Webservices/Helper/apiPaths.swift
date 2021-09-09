@@ -74,19 +74,23 @@ enum ApiKey: String {
     case updateVehicleDocs                    = "update_vehicle_docs"
     case updateBankInfo                       = "update_bank_info"
     case vehicleInfo                          = "update_vehicle_info"
+    case updateBasicInfo                      = "update_basic_info"
+    case logout                               = "logout/"
+    case changeDuty                           = "change_duty"
+    case currentBooking                       = "current_booking/"
     
     
     case register                             = "register"
     case vehicleTypeManufacturerList          = "vehicle_type_manufacturer_list"
     case vehicleTypeList                      = "vehicle_type_list"
     case login                                = "login"
-    case updateBasicInfo                      = "update_basic_info"
+    
     
     
     case updateDocs                           = "update_docs"
     case changePassword                       = "change_password"
     case forgotPassword                       = "forgot_password"
-    case logout                               = "logout/"
+    
     case addCard                              = "add_card"
     case cardlist                             = "card_list"
     case removeCard                           = "remove_card"
@@ -96,7 +100,7 @@ enum ApiKey: String {
     case transferMoneyToMobileNum             = "transfer_money_with_mobile_no"
     case transferMoneyToBank                  = "transfer_money_to_bank"
     case walletHistory                        = "wallet_history"
-    case changeDuty                           = "change_duty"
+    
     
     
     
@@ -112,7 +116,7 @@ enum ApiKey: String {
 
 enum SocketKeys: String {
     
-    case KHostUrl                                 = "http://50.18.114.231:8080/"
+    case KHostUrl                                 = "http://65.1.154.172:8080/"
     case ConnectUser                              = "connect_user"
     case channelCommunation                       = "communication"
     case SendMessage                              = "send_message"

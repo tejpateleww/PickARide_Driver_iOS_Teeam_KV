@@ -81,10 +81,15 @@ class ChangePasswordVC: BaseVC, UITextFieldDelegate {
     @IBAction func btnCancelTap(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
+    
     @IBAction func btnSaveTap(_ sender: Any) {
         if (self.validation()){
             callChangePasswordApi()
         }
+    }
+    
+    func close(){
+        self.dismiss(animated: true, completion: nil)
     }
 }
 

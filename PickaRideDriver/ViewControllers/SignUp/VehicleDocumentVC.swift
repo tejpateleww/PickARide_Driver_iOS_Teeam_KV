@@ -289,7 +289,7 @@ class VehicleDocumentVC: BaseVC {
                 self.registerDriverApi()
             }
         }else{
-            Utilities.showAlert(AppName, message: "Please provide all vehicle document details.", vc: self)
+            Toast.show(title: UrlConstant.Failed, message: "Please provide all vehicle document details.", state: .failure)
         }
     }
     
@@ -338,6 +338,7 @@ extension VehicleDocumentVC : UITableViewDelegate, UITableViewDataSource{
             self.UploadImage(index: indexPath)
         }
         cell.MoreBtnClouser = {
+            self.selectedCellPath = indexPath
             let options = (indexPath.row == 2) ? cell.optionsDropDown : cell.optionsDropDownwithExp
             self.Dropdown(Dropdown: cell.ImageDropDown, StringArray: options, control: cell.btnMore, displayView: cell.btnRight, cellIndex : indexPath)
             cell.ImageDropDown.show()

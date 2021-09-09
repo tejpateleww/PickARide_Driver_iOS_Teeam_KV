@@ -192,10 +192,10 @@ class AddVehicleVC: BaseVC {
     func storeDataInRegisterModel(){
         self.registerRequestModel.plateNumber = self.txtNumberPlate.text ?? ""
         self.registerRequestModel.yearOfManufacture = self.txtCarYear.text ?? ""
+        self.registerRequestModel.color = self.carColor.text ?? ""
         self.registerRequestModel.vehicleTypeManufacturerId = self.vehicleTypeManufacturerId
         self.registerRequestModel.vehicleTypeModelId = self.modelID
         self.registerRequestModel.vehicleType = self.serviceTypeID
-        
         
         let vc : VehicleDocumentVC = VehicleDocumentVC.instantiate(fromAppStoryboard: .Login)
         vc.registerRequestModel = self.registerRequestModel

@@ -358,7 +358,7 @@ class PersonalDocumentVC: BaseVC {
                 self.storeDataInRegisterModel()
             }
         }else{
-            Utilities.showAlert(AppName, message: "Please provide all document details.", vc: self)
+            Toast.show(title: UrlConstant.Failed, message: "Please provide all document details.", state: .failure)
         }
     }
 }
@@ -420,6 +420,7 @@ extension PersonalDocumentVC : UITableViewDelegate, UITableViewDataSource{
             self.UploadImage(index: indexPath)
         }
         cell.MoreBtnClouser = {
+            self.selectedCellPath = indexPath
             let options = (indexPath.row == 0) ? cell.optionsDropDown : cell.optionsDropDownwithExp
             self.Dropdown(Dropdown: cell.ImageDropDown, StringArray: options, control: cell.btnMore, displayView: cell.btnRight, cellIndex : indexPath)
             cell.ImageDropDown.show()

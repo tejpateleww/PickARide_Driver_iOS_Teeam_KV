@@ -29,6 +29,7 @@ class PasswordUserModel{
             self.changePasswordVC?.btnSave.hideLoading()
             if status{
                 Toast.show(title: UrlConstant.Success, message: apiMessage, state: .success)
+                self.changePasswordVC?.close()
             }else{
                 Toast.show(title: UrlConstant.Failed, message: apiMessage, state: .failure)
             }
