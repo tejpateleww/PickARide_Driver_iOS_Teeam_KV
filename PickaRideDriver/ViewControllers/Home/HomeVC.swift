@@ -7,6 +7,7 @@
 
 import UIKit
 import GoogleMaps
+import SocketIO
 
 class HomeVC: BaseVC {
     
@@ -26,10 +27,23 @@ class HomeVC: BaseVC {
     var CurrentLocLong:String = "0.0"
     var CurrentLocMarker: GMSMarker?
     var homeViewModel = HomeViewModel()
+    var timer : Timer?
+    var newBookingResModel : NewBookingResBookingInfo?
     
     //MARK:- Life cycle methods
     override func viewWillAppear(_ animated: Bool) {
+        self.SocketOnMethods()
         self.callCurrentBookingAPI()
+        self.startTimer()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.allSocketOffMethods()
+        if(self.timer != nil){
+            self.timer?.invalidate()
+            self.timer = nil
+        }
     }
     
     override func viewDidLoad(){
@@ -38,12 +52,25 @@ class HomeVC: BaseVC {
         self.handleRideFlow(state: RideState.None)
         
         self.PrepareView()
-        
     }
     
     //MARK:- Custom methods
     func PrepareView(){
         self.checkMapPermission()
+        
+    }
+    
+    func startTimer() {
+        if(self.timer == nil){
+            self.timer = Timer.scheduledTimer(withTimeInterval: 10, repeats: true, block: { (timer) in
+                if  SocketIOManager.shared.socket.status == .connected {
+                    self.emitSocket_UpdateLocation(latitute: appDel.locationManager.currentLocation?.coordinate.latitude ?? 0.0, long: appDel.locationManager.currentLocation?.coordinate.longitude ?? 0.0)
+                    //self.emitSocket_forwardBookingRequestToAnotherDriver(bookingId: 0)
+                }else{
+                    print("socket not connected")
+                }
+            })
+        }
     }
     
     func setupMap(){
@@ -133,6 +160,7 @@ class HomeVC: BaseVC {
             self.incomingRideRequestView.isHidden = false
             self.acceptedRideDetailsView.isHidden = true
             self.cancelRideView.isHidden = true
+            self.incomingRideRequestView.newBookingResModel = self.newBookingResModel
             self.incomingRideRequestView.setRideDetails()
             
         }else if (state == RideState.RequestAccepted){
@@ -197,6 +225,7 @@ extension HomeVC : IncomingRideRequestViewDelegate{
     
     func onCancelRideRequest() {
         self.btnOn.isHidden = false
+        self.incomingRideRequestView.isHidden = true
     }
     
     func onNoThanksRequest(){

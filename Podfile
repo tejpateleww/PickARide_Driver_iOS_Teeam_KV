@@ -19,6 +19,7 @@ target 'PickaRideDriver' do
   pod 'DropDown'
   pod 'MKProgress'
   pod 'EasyTipView', '~> 2.1'
+  pod 'Socket.IO-Client-Swift'
 
   # Pods for PickaRideDriver
 

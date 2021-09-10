@@ -122,4 +122,9 @@ enum SocketKeys: String {
     case SendMessage                              = "send_message"
     case ReceiverMessage                          = "receiver_message"
     
+    case updateDriverLocation                     = "update_driver_location"
+    case forwardBookingRequest                    = "forward_booking_request"
+    case forwardBookingRequestToAnotherDriver   = "forward_booking_request_to_another_driver"
+    case acceptBookingRequest                    = "accept_booking_request"
+    
 }

@@ -724,6 +724,9 @@ PODS:
   - SDWebImage/Core (5.11.1)
   - SideMenuSwift (2.0.7)
   - SkyFloatingLabelTextField (4.0.0)
+  - Socket.IO-Client-Swift (16.0.1):
+    - Starscream (~> 4.0)
+  - Starscream (4.0.4)
   - SwiftyJSON (4.0.0)
 
 DEPENDENCIES:
@@ -741,6 +744,7 @@ DEPENDENCIES:
   - SDWebImage
   - SideMenuSwift
   - SkyFloatingLabelTextField
+  - Socket.IO-Client-Swift
   - SwiftyJSON
 
 SPEC REPOS:
@@ -772,6 +776,8 @@ SPEC REPOS:
     - SDWebImage
     - SideMenuSwift
     - SkyFloatingLabelTextField
+    - Socket.IO-Client-Swift
+    - Starscream
     - SwiftyJSON
 
 SPEC CHECKSUMS:
@@ -802,8 +808,10 @@ SPEC CHECKSUMS:
   SDWebImage: a7f831e1a65eb5e285e3fb046a23fcfbf08e696d
   SideMenuSwift: ffbbc88d23741932177ad1320df837cedfb3bc5e
   SkyFloatingLabelTextField: 79ddc40e4ad59707fedbb48d605417aee48bb78a
+  Socket.IO-Client-Swift: c116d6dc9fd6be9c259bacfe143f8725bce7d79e
+  Starscream: 5178aed56b316f13fa3bc55694e583d35dd414d9
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
 
-PODFILE CHECKSUM: 0fb97a2c02c0f3fcb2b4b084745697cd13acfcf8
+PODFILE CHECKSUM: 59397a814ebbfb6bee142a7aaa708f8b9321f3e5
 
 COCOAPODS: 1.10.1

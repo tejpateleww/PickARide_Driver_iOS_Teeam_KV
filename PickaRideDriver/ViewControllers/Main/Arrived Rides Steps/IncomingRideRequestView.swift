@@ -7,6 +7,8 @@
 
 import UIKit
 import Cosmos
+import SDWebImage
+import SocketIO
 
 protocol IncomingRideRequestViewDelegate {
     func onAcceptRideRequest()
@@ -16,7 +18,7 @@ protocol IncomingRideRequestViewDelegate {
 
 class IncomingRideRequestView: UIView {
     
-    var delegate : IncomingRideRequestViewDelegate?
+    //MARK:- IBOutlet
     @IBOutlet weak var vwHomeScreen: HomescreenView!
     @IBOutlet weak var viewCancelRide: UIView!
     @IBOutlet weak var btnNavigateWidth: NSLayoutConstraint!
@@ -41,7 +43,12 @@ class IncomingRideRequestView: UIView {
     @IBOutlet weak var driverInfoVW: UIView!
     @IBOutlet weak var mainVWBottomConstraint: NSLayoutConstraint!
     
+    //MARK:- Variables
+    var delegate : IncomingRideRequestViewDelegate?
     var noThanksTapClosure : (()->())?
+    var newBookingResModel : NewBookingResBookingInfo?
+    var counter = 15
+    var timer = Timer()
     
     var isExpandCategory:  Bool  = false {
         didSet {
@@ -54,38 +61,27 @@ class IncomingRideRequestView: UIView {
         }
     }
     
+    //MARK:- awakeFromNib
     override func awakeFromNib() {
         super.awakeFromNib()
-        vwRating.isUserInteractionEnabled = false
-        viewCancelRide.backgroundColor = themeColor
-//        btnNavigateWidth.constant = 36
-//        btnNavigate.setImage(#imageLiteral(resourceName: "iconGPS"), for: .normal)
-         setupView()
+        self.vwRating.isUserInteractionEnabled = false
+        self.viewCancelRide.backgroundColor = themeColor
+        self.setupView()
         self.setupViewCategory()
-//        vwHomeScreen.addShadow(location : .top)
-//        viewContainer.addShadow(location : .top)xd
-        
+        self.SocketOnMethods()
     }
-    
-//
-//    required init?(coder aDecoder: NSCoder) {
-//        super.init(coder: aDecoder)
-//    }
-//
-//    init() {
-//        super.init(frame: CGRect.zero)
-//    }
     
     override func layoutSubviews() {
         viewCount.cornerRadius = viewCount.frame.size.height / 2
         imageViewProfilePic.cornerRadius = imageViewProfilePic.frame.size.height / 2
     }
     
+    //MARK:- custom methods
     func setupViewCategory() {
         let swipeUp = UISwipeGestureRecognizer(target: self, action: #selector(respondToSwipeGesture(gesture:)))
         swipeUp.direction = UISwipeGestureRecognizer.Direction.up
         self.topVW.addGestureRecognizer(swipeUp)
-
+        
         let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(respondToSwipeGesture(gesture:)))
         swipeDown.direction = UISwipeGestureRecognizer.Direction.down
         self.topVW.addGestureRecognizer(swipeDown)
@@ -100,7 +96,7 @@ class IncomingRideRequestView: UIView {
             case UISwipeGestureRecognizer.Direction.up:
                 print("Swiped up")
                 self.isExpandCategory = true
-
+                
             default:
                 break
             }
@@ -121,39 +117,81 @@ class IncomingRideRequestView: UIView {
         return false
     }
     
+    func setRideDetails()
+    {
+        let strUrl = "\(APIEnvironment.Profilebu.rawValue)" + "\(self.newBookingResModel?.customerInfo.profileImage ?? "")"
+        let strURl = URL(string: strUrl)
+        self.imageViewProfilePic.sd_imageIndicator = SDWebImageActivityIndicator.gray
+        self.imageViewProfilePic.sd_setImage(with: strURl, placeholderImage: UIImage(named: "nav_dummy_userImage"), options: .refreshCached, completed: nil)
+        
+        self.lblName.text = self.newBookingResModel?.customerInfo.firstName ?? ""
+        self.lblRatings.text = "(\(self.newBookingResModel?.customerInfo.rating ?? "0"))"
+        self.lblDuration.text = "~ \(self.newBookingResModel?.tripDuration ?? "0") min"
+        self.lblFare.text = "~ $\(self.newBookingResModel?.estimatedFare ?? "")"
+        self.lblDistance.text = "\(self.newBookingResModel?.distance ?? "") km"
+        self.lblPickUpAddress.text = self.newBookingResModel?.pickupLocation ?? ""
+        self.lblDropUpAddress.text = self.newBookingResModel?.dropoffLocation ?? ""
+        self.vwRating.rating = Double(self.newBookingResModel?.customerInfo.rating ?? "0") ?? 0.0
+        self.lblCount.text = "15"
+        self.setTimer()
+    }
     
+    func setTimer(){
+        self.timer.invalidate()
+        self.timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(timerAction), userInfo: nil, repeats: true)
+    }
+    
+    @objc func timerAction() {
+        if self.counter > 0{
+            self.counter -= 1
+            self.lblCount.text =  "\(self.counter)"
+        } else {
+            self.counter = 15
+            self.timer.invalidate()
+            if(SocketIOManager.shared.socket.status == .connected){
+                let BookingId = Int(self.newBookingResModel?.id ?? "0") ?? 0
+                self.emitSocket_forwardBookingRequestToAnotherDriver(bookingId: BookingId)
+            }
+            delegate?.onCancelRideRequest()
+        }
+    }
+    
+    //MARK:- btn action methods
     @IBAction func btnAcceptRequestClickAction(_ sender: Any) {
-        delegate?.onAcceptRideRequest()
-//        btnNavigateWidth.constant = 108
-//        btnNavigate.setImage(UIImage(named: "imgNavigate"), for: .normal)
+        self.counter = 15
+        self.timer.invalidate()
+        if(SocketIOManager.shared.socket.status == .connected){
+            let BookingId = Int(self.newBookingResModel?.id ?? "0") ?? 0
+            let BookingType = self.newBookingResModel?.bookingType ?? ""
+            self.emitSocketAcceptBookingRequest(bookingId: BookingId, bookingType: BookingType)
+        }
+//        delegate?.onAcceptRideRequest()
+    }
+    
+    @IBAction func btnNoThanksTap(_ sender: UIButton) {
+        delegate?.onNoThanksRequest()
     }
     
     @IBAction func btnCancelRideClickAction(_ sender: Any) {
+        self.counter = 15
+        self.timer.invalidate()
+        if(SocketIOManager.shared.socket.status == .connected){
+            let BookingId = Int(self.newBookingResModel?.id ?? "0") ?? 0
+            self.emitSocket_forwardBookingRequestToAnotherDriver(bookingId: BookingId)
+        }
         delegate?.onCancelRideRequest()
     }
     
     @IBAction func btnNavigateTap(_ sender: Any) {
         
     }
+    
     @IBAction func btnSosTap(_ sender: Any) {
         
     }
-    func setRideDetails(/*Pass model class here*/)
-    {
-        lblName.text = "James smith"
-        lblRatings.text = "(3)"
-        lblDuration.text = "~ 25 min"
-        lblFare.text = "~ $12.50"
-        lblDistance.text = "4.5 km"
-        lblPickUpAddress.text = "1 Ash Park, Pembroke Dock, SA72"
-        lblDropUpAddress.text = "54 Hollybank Rd, Southampton"
-        lblCount.text = "15"
-    }
-    @IBAction func btnNoThanksTap(_ sender: UIButton) {
-        delegate?.onNoThanksRequest()
-    }
-}
     
+}
+
 fileprivate extension IncomingRideRequestView {
     
     func setupView() {
@@ -184,14 +222,15 @@ fileprivate extension IncomingRideRequestView {
         lblCount.text = ""
         lblCount.font = UIFont.bold(ofSize: FontsSize.Tiny)
         lblCount.textColor = UIColor.white
-
-
+        
+        
         lblNoThanks.text = ConstantString.LABEL_TITLE_HOME_NO_THANKS
         lblNoThanks.font = UIFont.regular(ofSize: FontsSize.ExtraSmall)
         lblNoThanks.textColor = .white
         btnAcceptRequest.setTitle(ConstantString.BUTTON_TITLE_HOME_TAP_TO_ACCCEPT, for: .normal)
     }    
 }
+
 enum VerticalLocation: String {
     case bottom
     case top
@@ -201,12 +240,12 @@ extension UIView {
     func addShadow(location: VerticalLocation, color: UIColor = .black, opacity: Float = 0.5, radius: CGFloat = 5.0) {
         switch location {
         case .bottom:
-             addShadow(offset: CGSize(width: 0, height: 10), color: color, opacity: opacity, radius: radius)
+            addShadow(offset: CGSize(width: 0, height: 10), color: color, opacity: opacity, radius: radius)
         case .top:
             addShadow(offset: CGSize(width: 0, height: -10), color: color, opacity: opacity, radius: radius)
         }
     }
-
+    
     func addShadow(offset: CGSize, color: UIColor = .black, opacity: Float = 0.5, radius: CGFloat = 5.0) {
         self.layer.masksToBounds = false
         self.layer.shadowColor = color.cgColor
