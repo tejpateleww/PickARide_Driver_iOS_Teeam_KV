@@ -20,26 +20,32 @@ class HomeVC: BaseVC {
     lazy var incomingRideRequestView : IncomingRideRequestView = IncomingRideRequestView.fromNib()
     lazy var acceptedRideDetailsView : AcceptedRideDetailsView = AcceptedRideDetailsView.fromNib()
     lazy var cancelRideView : CancelRideView = CancelRideView.fromNib()
+    
     var isCloseTap = false
     var strDutyStatus = ""
+    var strArrivedOtp = ""
     var strDutyStatusfromCurrentBooking = ""
     var CurrentLocLat:String = "0.0"
     var CurrentLocLong:String = "0.0"
+    var PickLocLat:String = "0.0"
+    var PickLocLong:String = "0.0"
     var CurrentLocMarker: GMSMarker?
+    var DropLocMarker: GMSMarker?
+    var arrMarkers: [GMSMarker] = []
     var homeViewModel = HomeViewModel()
     var timer : Timer?
     var newBookingResModel : NewBookingResBookingInfo?
+    var currentBookingModel : CurrentBookingDatum?
     
     //MARK:- Life cycle methods
     override func viewWillAppear(_ animated: Bool) {
         self.SocketOnMethods()
-        self.callCurrentBookingAPI()
         self.startTimer()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        self.allSocketOffMethods()
+        //self.allSocketOffMethods()
         if(self.timer != nil){
             self.timer?.invalidate()
             self.timer = nil
@@ -48,32 +54,38 @@ class HomeVC: BaseVC {
     
     override func viewDidLoad(){
         super.viewDidLoad()
+        self.callCurrentBookingAPI()
         self.setNavigationBarInViewController(controller: self, naviColor: colors.appColor.value, naviTitle: NavTitles.none.value, leftImage: NavItemsLeft.menu.value, rightImages: [NavItemsRight.sos.value], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
         self.handleRideFlow(state: RideState.None)
-        
         self.PrepareView()
     }
     
     //MARK:- Custom methods
     func PrepareView(){
         self.checkMapPermission()
-        
     }
     
-    func startTimer() {
-        if(self.timer == nil){
-            self.timer = Timer.scheduledTimer(withTimeInterval: 10, repeats: true, block: { (timer) in
-                if  SocketIOManager.shared.socket.status == .connected {
-                    self.emitSocket_UpdateLocation(latitute: appDel.locationManager.currentLocation?.coordinate.latitude ?? 0.0, long: appDel.locationManager.currentLocation?.coordinate.longitude ?? 0.0)
-                    //self.emitSocket_forwardBookingRequestToAnotherDriver(bookingId: 0)
+    func checkMapPermission(){
+        let LocationStatus = CLLocationManager.authorizationStatus()
+        if LocationStatus == .notDetermined {
+            appDel.locationManager.locationManager?.requestWhenInUseAuthorization()
+        }else if LocationStatus == .restricted || LocationStatus == .denied {
+            Utilities.showAlertWithTitleFromVC(vc: self, title: AppName, message: "Please turn on permission from settings, to track location in app.", buttons: ["Cancel","Settings"], isOkRed: false) { (ind) in
+                if ind == 0{
+                    
                 }else{
-                    print("socket not connected")
+                    if let settingsAppURL = URL(string: UIApplication.openSettingsURLString){
+                        UIApplication.shared.open(settingsAppURL, options: [:], completionHandler: nil)
+                    }
                 }
-            })
+            }
+        }else{
+            self.setupMap()
         }
     }
     
     func setupMap(){
+        self.vwMap.clear()
         
         self.CurrentLocLat = String(appDel.locationManager.currentLocation?.coordinate.latitude ?? 0.0)
         self.CurrentLocLong = String(appDel.locationManager.currentLocation?.coordinate.longitude ?? 0.0)
@@ -87,8 +99,7 @@ class HomeVC: BaseVC {
         self.CurrentLocMarker?.snippet = "Your Location"
         
         let markerView2 = MarkerPinView()
-        markerView2.markerImage = UIImage(named: "iconCurrentLocPin")?.withRenderingMode(.alwaysTemplate)
-        markerView2.tintColor = themeColor
+        markerView2.markerImage = UIImage(named: "iconCurrentLocPin")
         markerView2.layoutSubviews()
         
         self.CurrentLocMarker?.iconView = markerView2
@@ -96,25 +107,46 @@ class HomeVC: BaseVC {
         self.vwMap.selectedMarker = self.CurrentLocMarker
     }
     
-    func checkMapPermission(){
-        let LocationStatus = CLLocationManager.authorizationStatus()
-        if LocationStatus == .notDetermined {
-            appDel.locationManager.locationManager?.requestWhenInUseAuthorization()
-        }else if LocationStatus == .restricted || LocationStatus == .denied {
-            Utilities.showAlertWithTitleFromVC(vc: self, title: AppName, message: "Please turn on permission from settings, to track location in app.", buttons: ["Cancel","Settings"], isOkRed: false) { (ind) in
-                if ind == 0{
-                
+    func startTimer() {
+        if(self.timer == nil){
+            self.timer = Timer.scheduledTimer(withTimeInterval: 5, repeats: true, block: { (timer) in
+                if  SocketIOManager.shared.socket.status == .connected {
+                    self.emitSocket_UpdateLocation(latitute: appDel.locationManager.currentLocation?.coordinate.latitude ?? 0.0, long: appDel.locationManager.currentLocation?.coordinate.longitude ?? 0.0)
                 }else{
-                    if let settingsAppURL = URL(string: UIApplication.openSettingsURLString){
-                        UIApplication.shared.open(settingsAppURL, options: [:], completionHandler: nil)
-                    }
+                    print("socket not connected")
                 }
-            }
-        }else{
-            self.setupMap()
+            })
         }
     }
     
+    func checkForCurrentBooking(){
+        if(self.currentBookingModel != nil){
+            let currentStatus = self.currentBookingModel?.status ?? ""
+            if(currentStatus == "accepted"){
+                self.handleRideFlow(state: RideState.RequestAccepted)
+                self.btnOn.isHidden = true
+                self.setupPickupRoute()
+            }else if(currentStatus == "traveling"){
+                self.handleRideFlow(state: RideState.StartRide)
+                self.btnOn.isHidden = true
+                self.setupPickupRoute()
+            }
+        }
+    }
+    
+    func openReviewScreen(){
+        self.vwMap.clear()
+        self.setupMap()
+        self.handleRideFlow(state: RideState.None)
+        
+        let vc : RatingAndReviewVC = RatingAndReviewVC.instantiate(fromAppStoryboard: .Main)
+        vc.modalPresentationStyle = .overFullScreen
+        vc.currentBookingModel = self.currentBookingModel
+        vc.delegate = self
+        self.navigationController?.present(vc, animated: false, completion: nil)
+    }
+    
+    //MARK:- changeDutyStatus methods
     func changeDutyStatus(){
         self.lblOffline.text = self.strDutyStatus
         self.btnOn.isSelected = (self.lblOffline.text == "You're online") ? true : false
@@ -129,6 +161,147 @@ class HomeVC: BaseVC {
         self.btnOn.isSelected = (self.lblOffline.text == "You're online") ? true : false
     }
     
+    //MARK:- Setup Route methods
+    func setupPickupRoute(){
+        self.vwMap.clear()
+        
+        self.CurrentLocLat = String(appDel.locationManager.currentLocation?.coordinate.latitude ?? 0.0)
+        self.CurrentLocLong = String(appDel.locationManager.currentLocation?.coordinate.longitude ?? 0.0)
+        self.PickLocLat =  (self.currentBookingModel?.status == "traveling") ? self.currentBookingModel?.dropoffLat ?? "0.0" : self.currentBookingModel?.pickupLat ?? "0.0"
+        self.PickLocLong = (self.currentBookingModel?.status == "traveling") ? self.currentBookingModel?.dropoffLng ?? "0.0" : self.currentBookingModel?.pickupLng ?? "0.0"
+        
+        self.MapSetup(currentlat: CurrentLocLat, currentlong: CurrentLocLong, droplat: PickLocLat, droplog: PickLocLong)
+    }
+    
+    func MapSetup(currentlat: String, currentlong:String, droplat: String, droplog:String)
+    {
+        let camera = GMSCameraPosition.camera(withLatitude: Double(currentlat) ?? 0.0, longitude:  Double(currentlong) ?? 0.0, zoom: 13.8)
+        self.vwMap.camera = camera
+        
+        //Drop Location pin setup
+        self.DropLocMarker = GMSMarker()
+        self.DropLocMarker?.position = CLLocationCoordinate2D(latitude: Double(droplat) ?? 0.0, longitude: Double(droplog) ?? 0.0)
+        self.DropLocMarker?.snippet = (self.currentBookingModel?.status == "traveling") ? self.currentBookingModel?.dropoffLocation ?? "Drop Location" : self.currentBookingModel?.pickupLocation ?? "PickUp Location"
+        
+        let markerView = MarkerPinView()
+        markerView.markerImage = UIImage(named: "iconDropLocPin")
+        markerView.layoutSubviews()
+        
+        self.DropLocMarker?.iconView = markerView
+        self.DropLocMarker?.map = self.vwMap
+        
+        //Current Location pin setup
+        self.CurrentLocMarker = GMSMarker()
+        self.CurrentLocMarker?.position = CLLocationCoordinate2D(latitude: Double(currentlat) ?? 0.0, longitude: Double(currentlong) ?? 0.0)
+        self.CurrentLocMarker?.snippet = "Your Location"
+        
+        let markerView2 = MarkerPinView()
+        markerView2.markerImage = UIImage(named: "iconCurrentLocPin")
+        markerView2.layoutSubviews()
+        
+        self.CurrentLocMarker?.iconView = markerView2
+        self.CurrentLocMarker?.map = self.vwMap
+        self.vwMap.selectedMarker = self.CurrentLocMarker
+        
+        //For Displaying both markers in screen centered
+        self.arrMarkers.append(self.CurrentLocMarker!)
+        self.arrMarkers.append(self.DropLocMarker!)
+        var bounds = GMSCoordinateBounds()
+        for marker in self.arrMarkers
+        {
+            bounds = bounds.includingCoordinate(marker.position)
+        }
+        let update = GMSCameraUpdate.fit(bounds, withPadding: 120)
+        self.vwMap.animate(with: update)
+        
+        self.fetchRoute(currentlat: currentlat, currentlong: currentlong, droplat: droplat, droplog: droplog)
+    }
+    
+    func fetchRoute(currentlat: String, currentlong:String, droplat: String, droplog:String) {
+        
+        let CurrentLatLong = "\(currentlat),\(currentlong)"
+        let DestinationLatLong = "\(droplat),\(droplog)"
+        let param = "origin=\(CurrentLatLong)&destination=\(DestinationLatLong)&mode=driving&key=\(AppInfo.Google_API_Key)"
+        let url = URL(string: "https://maps.googleapis.com/maps/api/directions/json?\(param)")!
+        
+        let session = URLSession.shared
+        
+        let task = session.dataTask(with: url, completionHandler: {
+            (data, response, error) in
+            
+            guard error == nil else {
+                print(error!.localizedDescription)
+                return
+            }
+            
+            guard let jsonResult = try? JSONSerialization.jsonObject(with: data!, options: .allowFragments) as? [String: Any]?, let jsonResponse = jsonResult else {
+                print("error in JSONSerialization")
+                return
+            }
+            
+            guard let routes = jsonResponse["routes"] as? [Any] else {
+                return
+            }
+            
+            guard let route = routes[0] as? [String: Any] else {
+                return
+            }
+            
+            guard let overview_polyline = route["overview_polyline"] as? [String: Any] else {
+                return
+            }
+            
+            guard let polyLineString = overview_polyline["points"] as? String else {
+                return
+            }
+            
+            //Call this method to draw path on map
+            self.drawPath(from: polyLineString)
+        })
+        task.resume()
+    }
+    
+    func drawPath(from polyStr: String){
+        let path = GMSPath(fromEncodedPath: polyStr)
+        let polyline = GMSPolyline(path: path)
+        polyline.strokeWidth = 3.0
+        polyline.strokeColor = UIColor.black
+        polyline.map = self.vwMap
+    }
+    
+    //MARK: - open GoogleMap Path Methods
+    func openGoogleMap()
+    {
+        if (UIApplication.shared.canOpenURL(NSURL(string:"comgooglemaps://")! as URL))
+        {
+            if(self.CurrentLocLat == "0.0" && self.CurrentLocLong == "0.0")
+            {
+                UIApplication.shared.open((NSURL(string:
+                                                    "https://maps.google.com/maps?saddr=&daddr=\(self.PickLocLat),\(self.PickLocLong)")! as URL), options: [:], completionHandler: nil)
+            }
+            else
+            {
+                UIApplication.shared.open((NSURL(string:
+                                                    "https://maps.google.com/maps?saddr=\(self.CurrentLocLat),\(self.CurrentLocLong)&daddr=\(self.PickLocLat),\(self.PickLocLong)")! as URL), options: [:], completionHandler: nil)
+            }
+        }
+        else
+        {
+            NSLog("Can't use comgooglemaps://");
+            if(self.CurrentLocLat == "0.0" && self.CurrentLocLong == "0.0")
+            {
+                UIApplication.shared.open((NSURL(string:
+                                                    "https://maps.google.com/maps?saddr=&daddr=\(self.PickLocLat),\(self.PickLocLong)")! as URL), options: [:], completionHandler: nil)
+            }
+            else
+            {
+                UIApplication.shared.open((NSURL(string:
+                                                    "https://maps.google.com/maps?saddr=\(self.CurrentLocLat),\(self.CurrentLocLong)&daddr=\(self.PickLocLat),\(self.PickLocLong)")! as URL), options: [:], completionHandler: nil)
+            }
+        }
+    }
+    
+    //MARK:- handleRideFlow methods
     func handleRideFlow(state : Int) {
         
         if (state == RideState.None){
@@ -155,11 +328,16 @@ class HomeVC: BaseVC {
             self.acceptedRideDetailsView.isHidden = true
             self.cancelRideView.isHidden = true
             
+            self.btnOn.isHidden = false
+            
         }else if (state == RideState.NewRequest){
             
             self.incomingRideRequestView.isHidden = false
             self.acceptedRideDetailsView.isHidden = true
             self.cancelRideView.isHidden = true
+            //Btn_On/Off
+            self.btnOn.isHidden = true
+            //Btn_On/Off
             self.incomingRideRequestView.newBookingResModel = self.newBookingResModel
             self.incomingRideRequestView.setRideDetails()
             
@@ -172,14 +350,30 @@ class HomeVC: BaseVC {
                 if self.isCloseTap{
                     self.acceptedRideDetailsView.isNoTapFromCancelRide = true
                 }
-                self.acceptedRideDetailsView.isCompleted()
+                //self.acceptedRideDetailsView.isCompleted()
             }
             self.cancelRideView.YesCancelClosure = {
-                self.acceptedRideDetailsView.completeTap()
+                //self.acceptedRideDetailsView.completeTap()
             }
-            
+            self.acceptedRideDetailsView.currentBookingModel = self.currentBookingModel
             self.acceptedRideDetailsView.setRideDetails()
             
+        }else if (state == RideState.StartRide){
+            self.incomingRideRequestView.isHidden = true
+            self.acceptedRideDetailsView.isHidden = false
+            self.cancelRideView.isHidden = true
+            self.cancelRideView.noCancelClosure = {
+                if self.isCloseTap{
+                    self.acceptedRideDetailsView.isNoTapFromCancelRide = true
+                }
+                //self.acceptedRideDetailsView.isCompleted()
+            }
+            self.cancelRideView.YesCancelClosure = {
+                //self.acceptedRideDetailsView.completeTap()
+            }
+            
+            self.acceptedRideDetailsView.currentBookingModel = self.currentBookingModel
+            self.acceptedRideDetailsView.setRideDetailsForTripStart()
         }else if (state == RideState.CancelAcceptedRide){
             
             self.incomingRideRequestView.isHidden = true
@@ -199,10 +393,9 @@ class HomeVC: BaseVC {
         self.vwMap.camera = camera
     }
     
-    
 }
 
-//MARK:- Api Call
+//MARK:- Api Calls
 extension HomeVC{
     
     func callChangeDutyStatusAPI(){
@@ -219,8 +412,37 @@ extension HomeVC{
         self.homeViewModel.homeVC = self
         self.homeViewModel.webserviceGetCurrentBookingAPI()
     }
+    
+    func CompleteTripAPI(){
+        self.homeViewModel.homeVC = self
+        
+        let CompleteTripReq = CompleteTripReqModel()
+        CompleteTripReq.bookingId = self.currentBookingModel?.id ?? ""
+        CompleteTripReq.lat = self.currentBookingModel?.dropoffLat ?? "0.0"
+        CompleteTripReq.lng = self.currentBookingModel?.dropoffLng ?? "0.0"
+        
+        self.homeViewModel.webserviceCompBookingAPI(reqModel: CompleteTripReq)
+    }
+    
+    func verifyCustomerAPI(){
+        self.homeViewModel.homeVC = self
+        
+        let verifyCustomerReqModel = VerifyCustomerReqModel()
+        verifyCustomerReqModel.bookingId = self.currentBookingModel?.id ?? ""
+        verifyCustomerReqModel.customerId = self.currentBookingModel?.customerInfo?.id ?? "0"
+        
+        self.homeViewModel.webserviceVerifyCustomerAPI(reqModel: verifyCustomerReqModel)
+    }
 }
 
+//MARK:- HomeNavigationBarDelegate
+extension HomeVC : HomeNavigationBarDelegate{
+    func onClosePopup() {
+        self.setNavigationBarInViewController(controller: self, naviColor: colors.appColor.value, naviTitle: NavTitles.none.value, leftImage: NavItemsLeft.menu.value, rightImages: [NavItemsRight.sos.value], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
+    }
+}
+
+//MARK:- IncomingRideRequestViewDelegate
 extension HomeVC : IncomingRideRequestViewDelegate{
     
     func onCancelRideRequest() {
@@ -238,25 +460,24 @@ extension HomeVC : IncomingRideRequestViewDelegate{
         self.setNavigationBarInViewController(controller: self, naviColor: colors.appColor.value, naviTitle: NavTitles.none.value, leftImage: NavItemsLeft.menu.value, rightImages: [NavItemsRight.none.value], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
         self.handleRideFlow(state: RideState.RequestAccepted)
     }
+    
+    func onCurrentBookingAPI() {
+        self.callCurrentBookingAPI()
+    }
 }
 
+//MARK:- AcceptedRideDetailsViewDelgate
 extension HomeVC : AcceptedRideDetailsViewDelgate{
     
     func onArrivedUserLocation() {
-        self.handleRideFlow(state: RideState.None)
-        let vc : RatingAndReviewVC = RatingAndReviewVC.instantiate(fromAppStoryboard: .Main)
-        vc.modalPresentationStyle = .overFullScreen
-        vc.reviewBtnTapClosure = {
-            self.setNavigationBarInViewController(controller: self, naviColor: colors.appColor.value, naviTitle: NavTitles.none.value, leftImage: NavItemsLeft.menu.value, rightImages: [NavItemsRight.sos.value], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
-            self.btnOn.isHidden = false
-            self.lblOffline.text = "You're offline"
-        }
-        vc.btnDoneTapClosure = {
-            self.setNavigationBarInViewController(controller: self, naviColor: colors.appColor.value, naviTitle: NavTitles.none.value, leftImage: NavItemsLeft.menu.value, rightImages: [NavItemsRight.sos.value], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
-            self.btnOn.isHidden = false
-            self.lblOffline.text = "You're offline"
-        }
-        self.navigationController?.present(vc, animated: false, completion: nil)
+//        if  SocketIOManager.shared.socket.status == .connected {
+//            self.emitSocket_verifyCustomer(bookingId: self.currentBookingModel?.id ?? "", customerId: self.currentBookingModel?.customerInfo?.id ?? "")
+//            self.emitSocket_arrivedAtPickupLocation(bookingId: self.currentBookingModel?.id ?? "", otp: "1")
+//        }else{
+//            Toast.show(title: UrlConstant.Failed, message: "Socket Offline", state: .failure)
+//        }
+        
+        self.verifyCustomerAPI()
     }
     
     func onCancelAcceptedRideRequest() {
@@ -270,11 +491,35 @@ extension HomeVC : AcceptedRideDetailsViewDelgate{
     }
     
     func onCallRideRequest() {
-        guard let number = URL(string: "tel://" + "0123456789") else { return }
+        guard let number = URL(string: "tel://" + "\(self.currentBookingModel?.customerInfo?.mobileNo ?? "123456789")") else { return }
         UIApplication.shared.open(number)
     }
+    
+    func onNavigateAction() {
+        self.openGoogleMap()
+    }
+    
+    func onVerifyOtpTap(StrCustOtp: String) -> Bool {
+        if(self.strArrivedOtp == StrCustOtp.replacingOccurrences(of: "  ", with: "")){
+            if  SocketIOManager.shared.socket.status == .connected {
+                self.emitSocket_startTrip(bookingId: self.currentBookingModel?.id ?? "")
+            }else{
+                Toast.show(title: UrlConstant.Failed, message: "Socket Offline", state: .failure)
+            }
+            return true
+        }else{
+            Toast.show(title: UrlConstant.Failed, message: "Please enter correct otp", state: .failure)
+            return false
+        }
+    }
+    
+    func onTripCompAction() {
+        self.CompleteTripAPI()
+    }
+    
 }
 
+//MARK:- CancelRideViewDelgate
 extension HomeVC : CancelRideViewDelgate{
     
     func onRideCanelDecision(decision: Int)

@@ -91,8 +91,26 @@ class WebServiceSubClass{
         }
     }
     
+    class func CompleteTripApi(reqModel : CompleteTripReqModel , completion: @escaping (Bool,String,CurrentBookingDatum?,Any) -> ()){
+        URLSessionRequestManager.makePostRequest(urlString: ApiKey.completeTrip.rawValue, requestModel: reqModel, responseModel: CurrentBookingDatum.self) { (status, message, response, error) in
+            completion(status, message, response, error)
+        }
+    }
+    
+    class func VerifyCustomerAPI(reqModel : VerifyCustomerReqModel , completion: @escaping (Bool,String,VerifyCustomerModel?,Any) -> ()){
+        URLSessionRequestManager.makePostRequest(urlString: ApiKey.verifyCustomer.rawValue, requestModel: reqModel, responseModel: VerifyCustomerModel.self) { (status, message, response, error) in
+            completion(status, message, response, error)
+        }
+    }
+    
     class func UpdateVehicleInfoApi(reqModel : UpdateVehicleInfoReqModel , completion: @escaping (Bool,String,RegisterFinal?,Any) -> ()){
         URLSessionRequestManager.makePostRequest(urlString: ApiKey.vehicleInfo.rawValue, requestModel: reqModel, responseModel: RegisterFinal.self) { (status, message, response, error) in
+            completion(status, message, response, error)
+        }
+    }
+    
+    class func RateAndReviewApi(reqModel : RateAndReviewReqModel , completion: @escaping (Bool,String,RateAndReviewModel?,Any) -> ()){
+        URLSessionRequestManager.makePostRequest(urlString: ApiKey.reviewRating.rawValue, requestModel: reqModel, responseModel: RateAndReviewModel.self) { (status, message, response, error) in
             completion(status, message, response, error)
         }
     }

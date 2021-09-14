@@ -14,6 +14,7 @@ protocol IncomingRideRequestViewDelegate {
     func onAcceptRideRequest()
     func onCancelRideRequest()
     func onNoThanksRequest()
+    func onCurrentBookingAPI()
 }
 
 class IncomingRideRequestView: UIView {
@@ -29,7 +30,7 @@ class IncomingRideRequestView: UIView {
     @IBOutlet weak var vwRating: CosmosView!
     @IBOutlet weak var lblDropUpAddress: CommonLabel!
     @IBOutlet weak var lblPickUpAddress: CommonLabel!
-    @IBOutlet weak var btnAcceptRequest: SubmitButton!
+    @IBOutlet weak var btnAcceptRequest: themeButton!
     @IBOutlet weak var lblFare: CommonLabel!
     @IBOutlet weak var lblDistance: CommonLabel!
     @IBOutlet weak var lblDuration: CommonLabel!
@@ -72,8 +73,8 @@ class IncomingRideRequestView: UIView {
     }
     
     override func layoutSubviews() {
-        viewCount.cornerRadius = viewCount.frame.size.height / 2
-        imageViewProfilePic.cornerRadius = imageViewProfilePic.frame.size.height / 2
+        self.viewCount.cornerRadius = self.viewCount.frame.size.height / 2
+        self.imageViewProfilePic.cornerRadius = self.imageViewProfilePic.frame.size.height / 2
     }
     
     //MARK:- custom methods
@@ -124,7 +125,8 @@ class IncomingRideRequestView: UIView {
         self.imageViewProfilePic.sd_imageIndicator = SDWebImageActivityIndicator.gray
         self.imageViewProfilePic.sd_setImage(with: strURl, placeholderImage: UIImage(named: "nav_dummy_userImage"), options: .refreshCached, completed: nil)
         
-        self.lblName.text = self.newBookingResModel?.customerInfo.firstName ?? ""
+        let custName = (self.newBookingResModel?.customerInfo?.firstName ?? "")! + " " + (self.newBookingResModel?.customerInfo?.lastName ?? "")!
+        self.lblName.text = custName
         self.lblRatings.text = "(\(self.newBookingResModel?.customerInfo.rating ?? "0"))"
         self.lblDuration.text = "~ \(self.newBookingResModel?.tripDuration ?? "0") min"
         self.lblFare.text = "~ $\(self.newBookingResModel?.estimatedFare ?? "")"
@@ -134,6 +136,10 @@ class IncomingRideRequestView: UIView {
         self.vwRating.rating = Double(self.newBookingResModel?.customerInfo.rating ?? "0") ?? 0.0
         self.lblCount.text = "15"
         self.setTimer()
+    }
+    
+    func callCurrentBookingAPI(){
+        self.delegate?.onCurrentBookingAPI()
     }
     
     func setTimer(){
@@ -152,7 +158,7 @@ class IncomingRideRequestView: UIView {
                 let BookingId = Int(self.newBookingResModel?.id ?? "0") ?? 0
                 self.emitSocket_forwardBookingRequestToAnotherDriver(bookingId: BookingId)
             }
-            delegate?.onCancelRideRequest()
+            self.delegate?.onCancelRideRequest()
         }
     }
     
@@ -165,11 +171,10 @@ class IncomingRideRequestView: UIView {
             let BookingType = self.newBookingResModel?.bookingType ?? ""
             self.emitSocketAcceptBookingRequest(bookingId: BookingId, bookingType: BookingType)
         }
-//        delegate?.onAcceptRideRequest()
     }
     
     @IBAction func btnNoThanksTap(_ sender: UIButton) {
-        delegate?.onNoThanksRequest()
+        self.delegate?.onNoThanksRequest()
     }
     
     @IBAction func btnCancelRideClickAction(_ sender: Any) {
@@ -179,7 +184,7 @@ class IncomingRideRequestView: UIView {
             let BookingId = Int(self.newBookingResModel?.id ?? "0") ?? 0
             self.emitSocket_forwardBookingRequestToAnotherDriver(bookingId: BookingId)
         }
-        delegate?.onCancelRideRequest()
+        self.delegate?.onCancelRideRequest()
     }
     
     @IBAction func btnNavigateTap(_ sender: Any) {
@@ -196,38 +201,37 @@ fileprivate extension IncomingRideRequestView {
     
     func setupView() {
         
-        lblName.text = ""
-        lblName.font = UIFont.medium(ofSize: FontsSize.Regular)
+        self.lblName.text = ""
+        self.lblName.font = UIFont.medium(ofSize: FontsSize.Regular)
         
-        lblRatings.text = ""
-        lblRatings.font = UIFont.regular(ofSize: FontsSize.Regular)
+        self.lblRatings.text = ""
+        self.lblRatings.font = UIFont.regular(ofSize: FontsSize.Regular)
         
-        lblDuration.text = ""
-        lblDuration.font = UIFont.bold(ofSize: FontsSize.Medium)
+        self.lblDuration.text = ""
+        self.lblDuration.font = UIFont.bold(ofSize: FontsSize.Medium)
         
-        lblFare.text = ""
-        lblFare.font = UIFont.regular(ofSize: FontsSize.Regular)
+        self.lblFare.text = ""
+        self.lblFare.font = UIFont.regular(ofSize: FontsSize.Regular)
         
-        lblDistance.text = ""
-        lblDistance.font = UIFont.regular(ofSize: FontsSize.Regular)
+        self.lblDistance.text = ""
+        self.lblDistance.font = UIFont.regular(ofSize: FontsSize.Regular)
         
-        lblDropUpAddress.text = ""
-        lblDropUpAddress.font = UIFont.regular(ofSize: FontsSize.ExtraSmall)
+        self.lblDropUpAddress.text = ""
+        self.lblDropUpAddress.font = UIFont.regular(ofSize: FontsSize.ExtraSmall)
         
-        lblPickUpAddress.text = ""
-        lblPickUpAddress.font = UIFont.regular(ofSize: FontsSize.ExtraSmall)
+        self.lblPickUpAddress.text = ""
+        self.lblPickUpAddress.font = UIFont.regular(ofSize: FontsSize.ExtraSmall)
         
-        viewCount.backgroundColor = themeColorBlack.withAlphaComponent(0.2)
+        self.viewCount.backgroundColor = themeColorBlack.withAlphaComponent(0.2)
         
-        lblCount.text = ""
-        lblCount.font = UIFont.bold(ofSize: FontsSize.Tiny)
-        lblCount.textColor = UIColor.white
+        self.lblCount.text = ""
+        self.lblCount.font = UIFont.bold(ofSize: FontsSize.Tiny)
+        self.lblCount.textColor = UIColor.white
         
-        
-        lblNoThanks.text = ConstantString.LABEL_TITLE_HOME_NO_THANKS
-        lblNoThanks.font = UIFont.regular(ofSize: FontsSize.ExtraSmall)
-        lblNoThanks.textColor = .white
-        btnAcceptRequest.setTitle(ConstantString.BUTTON_TITLE_HOME_TAP_TO_ACCCEPT, for: .normal)
+        self.lblNoThanks.text = ConstantString.LABEL_TITLE_HOME_NO_THANKS
+        self.lblNoThanks.font = UIFont.regular(ofSize: FontsSize.ExtraSmall)
+        self.lblNoThanks.textColor = .white
+        self.btnAcceptRequest.setTitle(ConstantString.BUTTON_TITLE_HOME_TAP_TO_ACCCEPT, for: .normal)
     }    
 }
 

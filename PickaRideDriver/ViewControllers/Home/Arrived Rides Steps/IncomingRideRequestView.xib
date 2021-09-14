@@ -227,9 +227,13 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mgy-Da-Fg9" userLabel="Button View">
                                     <rect key="frame" x="24" y="317" width="366" height="46"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="336-cW-TXX" customClass="SubmitButton" customModule="PickaRideDriver" customModuleProvider="target">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="336-cW-TXX" customClass="themeButton" customModule="PickaRideDriver" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="366" height="46"/>
                                             <state key="normal" title="Button"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="isthemeBg" value="YES"/>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="isbold" value="YES"/>
+                                            </userDefinedRuntimeAttributes>
                                             <connections>
                                                 <action selector="btnAcceptRequestClickAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="FDp-1I-NsI"/>
                                             </connections>
@@ -420,7 +424,7 @@
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="qts-W8-aef" secondAttribute="trailing" constant="24" id="wU1-hC-RJn"/>
             </constraints>
             <connections>
-                <outlet property="btnAcceptRequest" destination="336-cW-TXX" id="VnK-wA-fW5"/>
+                <outlet property="btnAcceptRequest" destination="336-cW-TXX" id="K03-vT-6LD"/>
                 <outlet property="btnNavigate" destination="qts-W8-aef" id="gr9-al-aN8"/>
                 <outlet property="btnNavigateWidth" destination="pN2-jY-f6G" id="faA-AH-XfP"/>
                 <outlet property="btnNoThanks" destination="I9v-HO-Rbo" id="2C9-gt-4af"/>

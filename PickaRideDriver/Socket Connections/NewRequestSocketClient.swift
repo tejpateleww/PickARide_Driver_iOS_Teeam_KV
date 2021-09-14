@@ -50,7 +50,6 @@ extension IncomingRideRequestView{
     // ON ALL SOCKETS
     func allSocketOnMethods() {
         print("\n\n", #function, "\n\n")
-        onSocket_ForwardBookingRequest()
         onSocket_AcceptBookingRequest()
     }
     
@@ -65,24 +64,20 @@ extension IncomingRideRequestView{
     // MARK:= SOCKET ON METHODS =
     //-------------------------------------
     
-    func onSocket_ForwardBookingRequest(){
-        SocketIOManager.shared.socketCall(for: SocketKeys.forwardBookingRequest.rawValue) { (json) in
-            print(#function, "\n ", json)
-            print(json)
-            let dict = NewBookingResModel.init(fromJson: json[0])
-            self.newBookingResModel = dict.bookingInfo
-            
-        }
-    }
-    
     func onSocket_AcceptBookingRequest(){
         SocketIOManager.shared.socketCall(for: SocketKeys.acceptBookingRequest.rawValue) { (json) in
             print(#function, "\n ", json)
             print(json)
             let dict = NewBookingResModel.init(fromJson: json[0])
             self.newBookingResModel = dict.bookingInfo
+            self.callCurrentBookingAPI()
             
-            self.delegate?.onAcceptRideRequest()
+            self.btnAcceptRequest.showLoading()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                self.btnAcceptRequest.hideLoading()
+                self.delegate?.onAcceptRideRequest()
+            }
+           
         }
     }
     

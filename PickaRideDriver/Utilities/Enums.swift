@@ -96,9 +96,9 @@ enum RideState {
     static let None = 0
     static let NewRequest = 1
     static let RequestAccepted = 2
+    static let StartRide = 6
     static let RequestCancel = 3
     static let CancelAcceptedRide = 4
     static let ArrivedAtLocation = 5
-    static let StartRide = 6
     static let EndRide = 7
 }

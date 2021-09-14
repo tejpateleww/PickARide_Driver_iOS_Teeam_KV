@@ -56,7 +56,9 @@ extension HomeVC{
         print("\n\n", #function, "\n\n")
         onSocketConnectUser()
         onSocket_ReceiveLocACK()
+//        onSocket_ReceiveOTP()
         onSocket_ForwardBookingRequest()
+        onSocket_StratTrip()
     }
     
     // OFF ALL SOCKETS
@@ -64,7 +66,9 @@ extension HomeVC{
         print("\n\n", #function, "\n\n")
         SocketIOManager.shared.socket.off(SocketKeys.ConnectUser.rawValue)
         SocketIOManager.shared.socket.off(SocketKeys.updateDriverLocation.rawValue)
+//        SocketIOManager.shared.socket.off(SocketKeys.verifyCustomer.rawValue)
         SocketIOManager.shared.socket.off(SocketKeys.forwardBookingRequest.rawValue)
+        SocketIOManager.shared.socket.off(SocketKeys.startTrip.rawValue)
     }
     
     //-------------------------------------
@@ -79,7 +83,6 @@ extension HomeVC{
             print(dict)
         }
     }
-    
    
     func onSocket_ReceiveLocACK(){
         SocketIOManager.shared.socketCall(for: SocketKeys.updateDriverLocation.rawValue) { (json) in
@@ -93,9 +96,26 @@ extension HomeVC{
             print(#function, "\n ", json)
             print(json)
             let dict = NewBookingResModel.init(fromJson: json[0])
-            print(dict.bookingInfo?.customerInfo?.firstName ?? "")
             self.newBookingResModel = dict.bookingInfo
-            self.handleRideFlow(state: 1)
+            self.handleRideFlow(state: RideState.NewRequest)
+        }
+    }
+    
+//    func onSocket_ReceiveOTP(){
+//        SocketIOManager.shared.socketCall(for: SocketKeys.verifyCustomer.rawValue) { (json) in
+//            let dict = json[0]
+//            let otp = dict["otp"]
+//            print(otp)
+//            Toast.show(title: UrlConstant.Success, message: otp.stringValue, state: .success)
+//            self.strArrivedOtp = otp.stringValue
+//        }
+//    }
+    
+    func onSocket_StratTrip(){
+        SocketIOManager.shared.socketCall(for: SocketKeys.startTrip.rawValue) { (json) in
+            let dict = json[0]
+            print(dict)
+            self.callCurrentBookingAPI()
         }
     }
     
@@ -128,4 +148,23 @@ extension HomeVC{
         print(param)
         SocketIOManager.shared.socketEmit(for: SocketKeys.forwardBookingRequestToAnotherDriver.rawValue, with: param)
     }
+    
+//    func emitSocket_verifyCustomer(bookingId : String,customerId : String){
+//        let param = ["driver_id" : SingletonClass.sharedInstance.UserId ,"booking_id" : bookingId,"customer_id" : customerId ] as [String : Any]
+//        print(param)
+//        SocketIOManager.shared.socketEmit(for: SocketKeys.verifyCustomer.rawValue, with: param)
+//    }
+    
+//    func emitSocket_arrivedAtPickupLocation(bookingId : String,otp : String){
+//        let param = ["booking_id" : bookingId,"otp" : otp ] as [String : Any]
+//        print(param)
+//        SocketIOManager.shared.socketEmit(for: SocketKeys.arrivedAtPickupLocation.rawValue, with: param)
+//    }
+    
+    func emitSocket_startTrip(bookingId : String){
+        let param = ["booking_id" : bookingId] as [String : Any]
+        print(param)
+        SocketIOManager.shared.socketEmit(for: SocketKeys.startTrip.rawValue, with: param)
+    }
+
 }

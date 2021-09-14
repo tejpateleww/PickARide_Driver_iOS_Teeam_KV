@@ -18,3 +18,15 @@ class ChangeDutyStatusReqModel: Encodable{
         case lng = "lng"
     }
 }
+
+class CompleteTripReqModel: Encodable{
+    var bookingId : String?
+    var lat : String?
+    var lng : String?
+    
+    enum CodingKeys: String, CodingKey {
+        case bookingId = "booking_id"
+        case lat = "dropoff_lat"
+        case lng = "dropoff_lng"
+    }
+}

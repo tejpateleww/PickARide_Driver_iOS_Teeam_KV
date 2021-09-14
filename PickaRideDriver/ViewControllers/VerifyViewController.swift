@@ -15,10 +15,6 @@ class VerifyViewController: BaseVC {
     var isFrmRegister = false
     
     //MARK: -IBOutlets
-    
-    
-   
-    
     @IBOutlet weak var lblVerifyPhoneNumber: verifyVcLabel!
     @IBOutlet weak var lblCheckSMS: verifyVcLabel!
     @IBOutlet weak var textFieldOTP1: verifyPinTextField!

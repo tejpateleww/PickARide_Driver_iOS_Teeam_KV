@@ -265,12 +265,16 @@
                                                 <action selector="btnCancelClickAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="OF2-DO-pby"/>
                                             </connections>
                                         </button>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tH6-51-Jxc" customClass="SubmitButton" customModule="PickaRideDriver" customModuleProvider="target">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tH6-51-Jxc" customClass="themeButton" customModule="PickaRideDriver" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="366" height="40"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="40" id="9gv-pL-sXT"/>
                                             </constraints>
                                             <state key="normal" title="Button"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="isthemeBg" value="YES"/>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="isbold" value="YES"/>
+                                            </userDefinedRuntimeAttributes>
                                             <connections>
                                                 <action selector="btnSubmitButtonClickAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="0L5-og-rBh"/>
                                             </connections>
@@ -388,7 +392,7 @@
                 <outlet property="btnDownArrow" destination="IEo-yS-pb0" id="ohI-4Y-eag"/>
                 <outlet property="btnNavigate" destination="fTQ-G8-UUD" id="PEy-Fu-Idv"/>
                 <outlet property="btnSos" destination="DTL-5B-Yz9" id="2Eg-1c-mKD"/>
-                <outlet property="btnSubmit" destination="tH6-51-Jxc" id="rXb-lb-2nh"/>
+                <outlet property="btnSubmit" destination="tH6-51-Jxc" id="fHv-Id-Kvd"/>
                 <outlet property="imageViewProfile" destination="H3E-lQ-QpC" id="jzy-Dt-67X"/>
                 <outlet property="lbDropLocation" destination="vMZ-AK-aM8" id="Yyt-Yi-zrw"/>
                 <outlet property="lblEnterTripCode" destination="Edx-3B-Jbw" id="cfC-n7-juZ"/>
