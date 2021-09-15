@@ -176,6 +176,12 @@
 		885B66D326EB5D4800A281FC /* NewBookingResVehicleType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885B66CF26EB5D4800A281FC /* NewBookingResVehicleType.swift */; };
 		885B66D526EB72B300A281FC /* NewRequestSocketClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885B66D426EB72B300A281FC /* NewRequestSocketClient.swift */; };
 		8864746526E732970049B41D /* VehicleDocumentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8864746426E732970049B41D /* VehicleDocumentVC.swift */; };
+		8867A71326F1B75900049490 /* cancelReasonDatum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8867A71126F1B75900049490 /* cancelReasonDatum.swift */; };
+		8867A71426F1B75900049490 /* cancelReasonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8867A71226F1B75900049490 /* cancelReasonModel.swift */; };
+		8867A71726F1B7CB00049490 /* CancelTripViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8867A71626F1B7CB00049490 /* CancelTripViewModel.swift */; };
+		8867A71926F1C65B00049490 /* CancelBookingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8867A71826F1C65A00049490 /* CancelBookingModel.swift */; };
+		8867A71D26F1CF4000049490 /* CancelReasonPopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8867A71C26F1CF4000049490 /* CancelReasonPopUpVC.swift */; };
+		8867A71F26F1F43500049490 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8867A71E26F1F43500049490 /* GoogleService-Info.plist */; };
 		889E09F726E5EA4C00333AEA /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889E09F626E5EA4C00333AEA /* ImagePicker.swift */; };
 		889E09FA26E5F16900333AEA /* SingleDocUploadViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889E09F926E5F16900333AEA /* SingleDocUploadViewModel.swift */; };
 		889E0A0626E63F1800333AEA /* AddVehicleUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889E0A0526E63F1800333AEA /* AddVehicleUserModel.swift */; };
@@ -383,6 +389,12 @@
 		885B66CF26EB5D4800A281FC /* NewBookingResVehicleType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewBookingResVehicleType.swift; sourceTree = "<group>"; };
 		885B66D426EB72B300A281FC /* NewRequestSocketClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRequestSocketClient.swift; sourceTree = "<group>"; };
 		8864746426E732970049B41D /* VehicleDocumentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleDocumentVC.swift; sourceTree = "<group>"; };
+		8867A71126F1B75900049490 /* cancelReasonDatum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = cancelReasonDatum.swift; sourceTree = "<group>"; };
+		8867A71226F1B75900049490 /* cancelReasonModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = cancelReasonModel.swift; sourceTree = "<group>"; };
+		8867A71626F1B7CB00049490 /* CancelTripViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelTripViewModel.swift; sourceTree = "<group>"; };
+		8867A71826F1C65A00049490 /* CancelBookingModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CancelBookingModel.swift; sourceTree = "<group>"; };
+		8867A71C26F1CF4000049490 /* CancelReasonPopUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelReasonPopUpVC.swift; sourceTree = "<group>"; };
+		8867A71E26F1F43500049490 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		889E09F626E5EA4C00333AEA /* ImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		889E09F926E5F16900333AEA /* SingleDocUploadViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleDocUploadViewModel.swift; sourceTree = "<group>"; };
 		889E0A0526E63F1800333AEA /* AddVehicleUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVehicleUserModel.swift; sourceTree = "<group>"; };
@@ -480,6 +492,7 @@
 		187B8417267B5B2B00D3BFDA /* View Model */ = {
 			isa = PBXGroup;
 			children = (
+				8867A71526F1B7B900049490 /* Cancel Trip */,
 				8808C4BA26F073F4004B8518 /* RateAndReviewViewModel */,
 				881AF8AD26EA270300BC3C2D /* HomeViewModel */,
 				883C9E7126E8EE5700FA1778 /* BankInfoViewModel */,
@@ -583,6 +596,7 @@
 				84A5D09B2646875800AAFAB0 /* EditProfile */,
 				881AF8C526EA42B200BC3C2D /* Home */,
 				8808C4BD26F0B963004B8518 /* RateAndReview */,
+				84A5D11C2646B81B00AAFAB0 /* CancelRide */,
 				184514E7268A145D00E8884A /* VerifyViewController.swift */,
 				1871C8B52685B1CC00D4D17D /* DummyVC.swift */,
 				4F1A763B26450EC0003F00CF /* BaseVC */,
@@ -651,6 +665,7 @@
 		4F94F1172643D76500780413 /* PickaRideDriver */ = {
 			isa = PBXGroup;
 			children = (
+				8867A71E26F1F43500049490 /* GoogleService-Info.plist */,
 				18C89EAD26A57F6C0083D5C3 /* PickaRideDriver.entitlements */,
 				4F94F1262643D76700780413 /* Info.plist */,
 				4F94F1212643D76700780413 /* Assets.xcassets */,
@@ -906,7 +921,6 @@
 				81891DB2265E880600E8741E /* ChatVC */,
 				81A5538C264BC56D00698413 /* Earnings */,
 				843F8057264A6F4700BCBDB8 /* SideMenu */,
-				84A5D11C2646B81B00AAFAB0 /* CancelRide */,
 				847607052648FC340019CE1F /* SettingVC.swift */,
 				8476070F26491B660019CE1F /* MyRidesVC.swift */,
 				84DD717A264957850014AF60 /* RideDetailsVC.swift */,
@@ -919,6 +933,7 @@
 			isa = PBXGroup;
 			children = (
 				84A5D11D2646B83900AAFAB0 /* CancelRideVC.swift */,
+				8867A71C26F1CF4000049490 /* CancelReasonPopUpVC.swift */,
 			);
 			path = CancelRide;
 			sourceTree = "<group>";
@@ -1117,6 +1132,24 @@
 			path = "New Booking Request";
 			sourceTree = "<group>";
 		};
+		8867A71026F1B74A00049490 /* Cancel Trip Reasons */ = {
+			isa = PBXGroup;
+			children = (
+				8867A71126F1B75900049490 /* cancelReasonDatum.swift */,
+				8867A71226F1B75900049490 /* cancelReasonModel.swift */,
+				8867A71826F1C65A00049490 /* CancelBookingModel.swift */,
+			);
+			path = "Cancel Trip Reasons";
+			sourceTree = "<group>";
+		};
+		8867A71526F1B7B900049490 /* Cancel Trip */ = {
+			isa = PBXGroup;
+			children = (
+				8867A71626F1B7CB00049490 /* CancelTripViewModel.swift */,
+			);
+			path = "Cancel Trip";
+			sourceTree = "<group>";
+		};
 		889E09F826E5F14A00333AEA /* SingleDocUploadViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -1136,6 +1169,7 @@
 		889E09FC26E63D9300333AEA /* Response Models */ = {
 			isa = PBXGroup;
 			children = (
+				8867A71026F1B74A00049490 /* Cancel Trip Reasons */,
 				8808C4C126F0BBDD004B8518 /* VerifyCustomer */,
 				8808C4B426F07275004B8518 /* Rate and Review */,
 				885B66C326EB57F800A281FC /* New Booking Request */,
@@ -1293,6 +1327,7 @@
 				4F94F1BE2643E72800780413 /* Ubuntu-Medium.ttf in Resources */,
 				4F94F1722643DB5F00780413 /* navigationCommonView.xib in Resources */,
 				4F94F1C52643E72800780413 /* Ubuntu-Light.ttf in Resources */,
+				8867A71F26F1F43500049490 /* GoogleService-Info.plist in Resources */,
 				4F94F1222643D76700780413 /* Assets.xcassets in Resources */,
 				547D83D8265A502A00887C9C /* Login.storyboard in Resources */,
 				4F94F1C12643E72800780413 /* Ubuntu-Bold.ttf in Resources */,
@@ -1509,6 +1544,7 @@
 				8864746526E732970049B41D /* VehicleDocumentVC.swift in Sources */,
 				187B8414267B5B1000D3BFDA /* WalletModel.swift in Sources */,
 				8808C4B326F071FA004B8518 /* RateAndReviewReqModel.swift in Sources */,
+				8867A71326F1B75900049490 /* cancelReasonDatum.swift in Sources */,
 				881AF8BE26EA2C4300BC3C2D /* CurrentBookingDriverVehicleInfo.swift in Sources */,
 				185DEED92668DAF2008BA95C /* PersonalDocumentVC.swift in Sources */,
 				187B8435267B5BA100D3BFDA /* Themes.swift in Sources */,
@@ -1533,6 +1569,7 @@
 				18C89EAC26A560360083D5C3 /* PasswordViewModel.swift in Sources */,
 				1865CFB1267C7D4400379A40 /* Validators.swift in Sources */,
 				84A5D09D2646876F00AAFAB0 /* EditProfileVC.swift in Sources */,
+				8867A71426F1B75900049490 /* cancelReasonModel.swift in Sources */,
 				1871C8B62685B1CC00D4D17D /* DummyVC.swift in Sources */,
 				4F94F17B2643DB5F00780413 /* UITableViewCell+Extension.swift in Sources */,
 				185DEEDC2668DBD7008BA95C /* PersonalDocumentCell.swift in Sources */,
@@ -1551,8 +1588,10 @@
 				4F94F1892643DB5F00780413 /* CustomLabel.swift in Sources */,
 				4F94F1762643DB5F00780413 /* UIButton+Extension.swift in Sources */,
 				885B66C226EB421400A281FC /* ChatSocketClient.swift in Sources */,
+				8867A71D26F1CF4000049490 /* CancelReasonPopUpVC.swift in Sources */,
 				81A55390264BC5CF00698413 /* TodayEarningChildViewController.swift in Sources */,
 				8476071A264933A90019CE1F /* pastUpcomingCell.swift in Sources */,
+				8867A71726F1B7CB00049490 /* CancelTripViewModel.swift in Sources */,
 				8808C4B626F07283004B8518 /* RateAndReviewModel.swift in Sources */,
 				4F94F1792643DB5F00780413 /* extension+String.swift in Sources */,
 				843F805C264A6FB300BCBDB8 /* MenuViewController.swift in Sources */,
@@ -1593,6 +1632,7 @@
 				1865CF64267C767600379A40 /* URLSessionRequestManager.swift in Sources */,
 				889E0A0A26E643E200333AEA /* ManufacturerListDatum.swift in Sources */,
 				885B66D126EB5D4800A281FC /* NewBookingResModel.swift in Sources */,
+				8867A71926F1C65B00049490 /* CancelBookingModel.swift in Sources */,
 				8808C4BC26F0741C004B8518 /* RateAndReviewViewModel.swift in Sources */,
 				881AF8BF26EA2C4300BC3C2D /* CurrentBookingCustomerInfo.swift in Sources */,
 				848FE833264A38E4008B6586 /* RideReceiptDetailsVC.swift in Sources */,

@@ -65,5 +65,18 @@ class HomeViewModel{
             }
         }
     }
+    
+    func webserviceCancelBookingAPI(reqModel: CancelBookingReqModel){
+        //self.homeVC?.acceptedRideDetailsView.btnSubmit.showLoading()
+        WebServiceSubClass.CancelBookingAPI(reqModel: reqModel) { (status, apiMessage, response, error) in
+            //self.homeVC?.acceptedRideDetailsView.btnSubmit.hideLoading()
+            if status{
+                Toast.show(title: UrlConstant.Success, message: apiMessage, state: .success)
+                self.homeVC?.callCurrentBookingAPI()
+            }else{
+                Toast.show(title: UrlConstant.Failed, message: apiMessage, state: .failure)
+            }
+        }
+    }
 
 }

@@ -18,3 +18,13 @@ class VerifyCustomerReqModel: Encodable{
         case customerId = "customer_id"
     }
 }
+
+class CancelBookingReqModel: Encodable{
+    var bookingId : String?
+    var cancelReason : String?
+    
+    enum CodingKeys: String, CodingKey {
+        case bookingId = "booking_id"
+        case cancelReason = "cancel_reason"
+    }
+}

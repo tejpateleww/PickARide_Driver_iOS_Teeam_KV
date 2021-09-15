@@ -103,6 +103,12 @@ class WebServiceSubClass{
         }
     }
     
+    class func CancelBookingAPI(reqModel : CancelBookingReqModel , completion: @escaping (Bool,String,CancelBookingModel?,Any) -> ()){
+        URLSessionRequestManager.makePostRequest(urlString: ApiKey.cancelTrip.rawValue, requestModel: reqModel, responseModel: CancelBookingModel.self) { (status, message, response, error) in
+            completion(status, message, response, error)
+        }
+    }
+    
     class func UpdateVehicleInfoApi(reqModel : UpdateVehicleInfoReqModel , completion: @escaping (Bool,String,RegisterFinal?,Any) -> ()){
         URLSessionRequestManager.makePostRequest(urlString: ApiKey.vehicleInfo.rawValue, requestModel: reqModel, responseModel: RegisterFinal.self) { (status, message, response, error) in
             completion(status, message, response, error)
@@ -129,6 +135,12 @@ class WebServiceSubClass{
     
     class func GetCurrentBookingApi(completion: @escaping (Bool,String,CurrentBookingModel?,Any) -> ()) {
         URLSessionRequestManager.makeGetRequest(urlString: ApiKey.currentBooking.rawValue + SingletonClass.sharedInstance.UserId, responseModel: CurrentBookingModel.self) { (status, message, response, error) in
+            completion(status, message, response, error)
+        }
+    }
+    
+    class func GetCancelTripReasonsApi(completion: @escaping (Bool,String,cancelReasonModel?,Any) -> ()) {
+        URLSessionRequestManager.makeGetRequest(urlString: ApiKey.cancelReasonList.rawValue, responseModel: cancelReasonModel.self) { (status, message, response, error) in
             completion(status, message, response, error)
         }
     }

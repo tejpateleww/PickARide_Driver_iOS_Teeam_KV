@@ -10,8 +10,12 @@ import IQKeyboardManagerSwift
 import CoreLocation
 import GoogleMaps
 import GooglePlaces
-import Firebase
 import UserNotifications
+
+import Firebase
+import FirebaseMessaging
+import FirebaseInstanceID
+import FirebaseCore
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDelegate,MessagingDelegate{
@@ -28,14 +32,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
 
         IQKeyboardManager.shared.enable = true
         IQKeyboardManager.shared.shouldResignOnTouchOutside = true
+        IQKeyboardManager.shared.previousNextDisplayMode = .alwaysHide
         GMSServices.provideAPIKey(AppInfo.Google_API_Key)
         GMSPlacesClient.provideAPIKey(AppInfo.Google_API_Key)
         checkAndSetDefaultLanguage()
-        registerForPushNotifications()
+        
         self.locationManager.startUpdatingLocation()
         SideMenuController.preferences.basic.menuWidth = UIScreen.main.bounds.width - 100
         SideMenuController.preferences.basic.defaultCacheKey = "0"
 
+        FirebaseApp.configure()
+        registerForPushNotifications()
         return true
     }
     

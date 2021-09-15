@@ -87,6 +87,9 @@ class HomeVC: BaseVC {
     func setupMap(){
         self.vwMap.clear()
         
+        let mapInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 0.0, right: 0.0)
+        self.vwMap.padding = mapInsets
+        
         self.CurrentLocLat = String(appDel.locationManager.currentLocation?.coordinate.latitude ?? 0.0)
         self.CurrentLocLong = String(appDel.locationManager.currentLocation?.coordinate.longitude ?? 0.0)
         
@@ -130,6 +133,9 @@ class HomeVC: BaseVC {
                 self.handleRideFlow(state: RideState.StartRide)
                 self.btnOn.isHidden = true
                 self.setupPickupRoute()
+            }else{
+                self.handleRideFlow(state: RideState.None)
+                self.setupMap()
             }
         }
     }
@@ -175,6 +181,9 @@ class HomeVC: BaseVC {
     
     func MapSetup(currentlat: String, currentlong:String, droplat: String, droplog:String)
     {
+        let mapInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 300.0, right: 0.0)
+        self.vwMap.padding = mapInsets
+        
         let camera = GMSCameraPosition.camera(withLatitude: Double(currentlat) ?? 0.0, longitude:  Double(currentlong) ?? 0.0, zoom: 13.8)
         self.vwMap.camera = camera
         
@@ -211,7 +220,7 @@ class HomeVC: BaseVC {
         {
             bounds = bounds.includingCoordinate(marker.position)
         }
-        let update = GMSCameraUpdate.fit(bounds, withPadding: 120)
+        let update = GMSCameraUpdate.fit(bounds, withPadding: 80)
         self.vwMap.animate(with: update)
         
         self.fetchRoute(currentlat: currentlat, currentlong: currentlong, droplat: droplat, droplog: droplog)
@@ -379,6 +388,7 @@ class HomeVC: BaseVC {
             self.incomingRideRequestView.isHidden = true
             self.acceptedRideDetailsView.isHidden = true
             self.cancelRideView.isHidden = false
+            self.cancelRideView.currentBookingModel = self.currentBookingModel
             self.cancelRideView.setRideDetails()
         }
     }
@@ -433,6 +443,16 @@ extension HomeVC{
         
         self.homeViewModel.webserviceVerifyCustomerAPI(reqModel: verifyCustomerReqModel)
     }
+    
+    func callCancelBookingAPI(strReason : String){
+        self.homeViewModel.homeVC = self
+        
+        let cancelBookingReqModel = CancelBookingReqModel()
+        cancelBookingReqModel.bookingId = self.currentBookingModel?.id ?? ""
+        cancelBookingReqModel.cancelReason = strReason
+        
+        self.homeViewModel.webserviceCancelBookingAPI(reqModel: cancelBookingReqModel)
+    }
 }
 
 //MARK:- HomeNavigationBarDelegate
@@ -470,13 +490,6 @@ extension HomeVC : IncomingRideRequestViewDelegate{
 extension HomeVC : AcceptedRideDetailsViewDelgate{
     
     func onArrivedUserLocation() {
-//        if  SocketIOManager.shared.socket.status == .connected {
-//            self.emitSocket_verifyCustomer(bookingId: self.currentBookingModel?.id ?? "", customerId: self.currentBookingModel?.customerInfo?.id ?? "")
-//            self.emitSocket_arrivedAtPickupLocation(bookingId: self.currentBookingModel?.id ?? "", otp: "1")
-//        }else{
-//            Toast.show(title: UrlConstant.Failed, message: "Socket Offline", state: .failure)
-//        }
-        
         self.verifyCustomerAPI()
     }
     
@@ -527,12 +540,7 @@ extension HomeVC : CancelRideViewDelgate{
         if (decision == 1) //Yes
         {
             let controller = AppStoryboard.Main.instance.instantiateViewController(withIdentifier: CancelRideVC.storyboardID) as! CancelRideVC
-            controller.doneCancelClosure = {
-                self.isCloseTap = true
-            }
-            controller.cancelReqClosure = {
-                self.handleRideFlow(state: RideState.None)
-            }
+            controller.delegate = self
             self.navigationController?.pushViewController(controller, animated: true)
         }else //No
         {
@@ -543,5 +551,17 @@ extension HomeVC : CancelRideViewDelgate{
     func onSubmitCancelReason()
     {
         handleRideFlow(state: RideState.None)
+    }
+}
+
+//MARK:- IncomingRideRequestViewDelegate
+extension HomeVC : CancelTripReasonDelgate{
+    func onCancelTripReject() {
+        self.isCloseTap = true
+    }
+    
+    func onCancelTripConfirm(strReason: String) {
+        print(strReason)
+        self.callCancelBookingAPI(strReason: strReason)
     }
 }

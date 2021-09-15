@@ -19,6 +19,7 @@ class CancelRideView: UIView {
     var selectIndex = 0
     var arrReason = ["Rider isn't here","Wrong address shown","Don't charge rider"]
     let footerView = UIView()
+    var currentBookingModel : CurrentBookingDatum?
     
     //MARK: -IBOutlets
 
@@ -43,7 +44,8 @@ class CancelRideView: UIView {
     }
 
     func setRideDetails(/*Pass model class here*/) {
-        lblCancelActionTitle.text = "Cancel Rockdean's Ride?"
+        let custName = (self.currentBookingModel?.customerInfo?.firstName)! + " " + (self.currentBookingModel?.customerInfo?.lastName)!
+        lblCancelActionTitle.text = "Cancel \(custName)'s Ride?"
     }
     
     @IBAction func btnYesCancelClickAction(_ sender: Any)

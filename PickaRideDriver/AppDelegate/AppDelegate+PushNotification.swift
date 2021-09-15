@@ -51,7 +51,7 @@ extension AppDelegate{
     }
     
     func messaging(_ messaging: Messaging, didRefreshRegistrationToken fcmToken: String) {
-        print(fcmToken)
+        print("fcmToken : \(fcmToken)")
     }
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {

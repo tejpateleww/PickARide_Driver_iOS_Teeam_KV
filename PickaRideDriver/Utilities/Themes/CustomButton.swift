@@ -262,20 +262,21 @@ class CancelButton : UIButton
 {
     @IBInspectable var isCancel : Bool = false
     @IBInspectable var isNotCancel : Bool = false
+    @IBInspectable var Font_Size : CGFloat = 14.0
     override func awakeFromNib() {
         if isCancel{
             self.layer.cornerRadius = 4
             self.backgroundColor = UIColor(hexString: "#F4586C")
             self.clipsToBounds = true
             self.setTitleColor(colors.white.value, for: .normal)
-            self.titleLabel?.font = CustomFont.medium.returnFont(14)
+            self.titleLabel?.font = CustomFont.medium.returnFont(Font_Size)
         }else if isNotCancel{
             self.layer.cornerRadius = 4
             self.layer.borderWidth = 1
             self.layer.borderColor = UIColor.init(hexString: "#7F7F7F").cgColor
             self.clipsToBounds = true
             self.setTitleColor(UIColor.init(hexString: "#7F7F7F"), for: .normal)
-            self.titleLabel?.font = CustomFont.medium.returnFont(14)
+            self.titleLabel?.font = CustomFont.medium.returnFont(Font_Size)
         }
     }
 }

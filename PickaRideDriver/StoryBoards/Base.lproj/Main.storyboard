@@ -691,7 +691,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Wxw-gg-9JG">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="467"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="300" id="nVq-9L-e8W"/>
+                                        </constraints>
                                         <inset key="separatorInset" minX="65" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CancelRideCell" id="unk-FN-Zho" customClass="CancelRideCell" customModule="PickaRideDriver" customModuleProvider="target">
@@ -777,7 +780,6 @@
                                 <constraints>
                                     <constraint firstItem="Wxw-gg-9JG" firstAttribute="leading" secondItem="yLd-zo-Klf" secondAttribute="leading" id="8lp-Q1-XhC"/>
                                     <constraint firstItem="Wxw-gg-9JG" firstAttribute="top" secondItem="zOS-2k-MMw" secondAttribute="bottom" id="Etq-CG-FPv"/>
-                                    <constraint firstItem="Kkb-LU-Vnq" firstAttribute="top" secondItem="Wxw-gg-9JG" secondAttribute="bottom" constant="140" id="M28-CM-ncB"/>
                                     <constraint firstAttribute="trailing" secondItem="zOS-2k-MMw" secondAttribute="trailing" id="aht-5x-Ec5"/>
                                     <constraint firstAttribute="trailing" secondItem="Kkb-LU-Vnq" secondAttribute="trailing" constant="18" id="cpL-XK-ld3"/>
                                     <constraint firstItem="zOS-2k-MMw" firstAttribute="top" secondItem="yLd-zo-Klf" secondAttribute="top" id="dzm-Hx-flE"/>
@@ -800,6 +802,7 @@
                     <connections>
                         <outlet property="btnDone" destination="Kkb-LU-Vnq" id="H0V-nJ-ce0"/>
                         <outlet property="tblReasonForCancel" destination="Wxw-gg-9JG" id="V1D-Ol-vyn"/>
+                        <outlet property="tblReasonForCancelHeight" destination="nVq-9L-e8W" id="w36-Rc-iBO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hqg-r1-vhl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -5446,6 +5449,130 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="01R-Vl-BAC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2262" y="54"/>
+        </scene>
+        <!--Cancel Reason Pop UpVC-->
+        <scene sceneID="nFi-Th-rkM">
+            <objects>
+                <viewController storyboardIdentifier="CancelReasonPopUpVC" id="qOB-qE-Nd6" customClass="CancelReasonPopUpVC" customModule="PickaRideDriver" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0aO-fp-sKg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qeQ-n3-pTm">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rjs-tB-fvI">
+                                        <rect key="frame" x="20" y="194" width="335" height="279"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cancel Reason" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F7t-UZ-LrK" customClass="themeLabel" customModule="PickaRideDriver" customModuleProvider="target">
+                                                <rect key="frame" x="111" y="25" width="113" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="Font_Size">
+                                                        <real key="value" value="25"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isbold" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yr3-0e-7sN" customClass="themeButton" customModule="PickaRideDriver" customModuleProvider="target">
+                                                <rect key="frame" x="15" y="218" width="145" height="46"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="46" id="tne-cx-KLC"/>
+                                                </constraints>
+                                                <state key="normal" title="Confirm"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="Font_Size">
+                                                        <real key="value" value="18"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isMedium" value="YES"/>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isthemeBg" value="YES"/>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isShadow" value="NO"/>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="btnConfirmAction:" destination="qOB-qE-Nd6" eventType="touchUpInside" id="Oxs-wI-tFN"/>
+                                                </connections>
+                                            </button>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="EqK-bI-UzV" customClass="ratingTextview" customModule="PickaRideDriver" customModuleProvider="target">
+                                                <rect key="frame" x="15" y="78" width="305" height="125"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="125" id="BGr-PI-w7o"/>
+                                                </constraints>
+                                                <color key="textColor" systemColor="labelColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderTextColor">
+                                                        <color key="value" red="0.56103956700000002" green="0.60686665770000003" blue="0.70169466729999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Write your reason to cancel trip here..."/>
+                                                </userDefinedRuntimeAttributes>
+                                            </textView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eb0-WA-udm" customClass="CancelButton" customModule="PickaRideDriver" customModuleProvider="target">
+                                                <rect key="frame" x="175" y="218" width="145" height="46"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="46" id="y7g-nk-CFa"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <state key="normal" title="Back"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isCancel" value="YES"/>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isNotCancel" value="NO"/>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="Font_Size">
+                                                        <integer key="value" value="18"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="btnBackAction:" destination="qOB-qE-Nd6" eventType="touchUpInside" id="cQP-54-6jG"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="eb0-WA-udm" firstAttribute="leading" secondItem="Yr3-0e-7sN" secondAttribute="trailing" constant="15" id="0lk-4R-E7F"/>
+                                            <constraint firstItem="eb0-WA-udm" firstAttribute="trailing" secondItem="EqK-bI-UzV" secondAttribute="trailing" id="3OU-Ci-4mG"/>
+                                            <constraint firstItem="Yr3-0e-7sN" firstAttribute="leading" secondItem="EqK-bI-UzV" secondAttribute="leading" id="50Q-gS-VJc"/>
+                                            <constraint firstAttribute="trailing" secondItem="EqK-bI-UzV" secondAttribute="trailing" constant="15" id="8Ef-ld-nEe"/>
+                                            <constraint firstItem="F7t-UZ-LrK" firstAttribute="top" secondItem="rjs-tB-fvI" secondAttribute="top" constant="25" id="Cds-0Q-tjn"/>
+                                            <constraint firstItem="EqK-bI-UzV" firstAttribute="leading" secondItem="rjs-tB-fvI" secondAttribute="leading" constant="15" id="WcX-Cl-Q5a"/>
+                                            <constraint firstAttribute="bottom" secondItem="Yr3-0e-7sN" secondAttribute="bottom" constant="15" id="emM-hr-LKJ"/>
+                                            <constraint firstItem="Yr3-0e-7sN" firstAttribute="top" secondItem="eb0-WA-udm" secondAttribute="top" id="hRK-Me-JXK"/>
+                                            <constraint firstItem="F7t-UZ-LrK" firstAttribute="centerX" secondItem="rjs-tB-fvI" secondAttribute="centerX" id="nBi-6l-SiJ"/>
+                                            <constraint firstItem="eb0-WA-udm" firstAttribute="width" secondItem="Yr3-0e-7sN" secondAttribute="width" id="r8z-ih-Zk3"/>
+                                            <constraint firstItem="Yr3-0e-7sN" firstAttribute="top" secondItem="EqK-bI-UzV" secondAttribute="bottom" constant="15" id="uoW-QG-5Id"/>
+                                            <constraint firstItem="EqK-bI-UzV" firstAttribute="top" secondItem="F7t-UZ-LrK" secondAttribute="bottom" constant="32.5" id="w78-4R-slQ"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="rjs-tB-fvI" secondAttribute="trailing" constant="20" id="9td-Qn-90r"/>
+                                    <constraint firstItem="rjs-tB-fvI" firstAttribute="leading" secondItem="qeQ-n3-pTm" secondAttribute="leading" constant="20" id="Tt4-Aw-ZQ4"/>
+                                    <constraint firstItem="rjs-tB-fvI" firstAttribute="centerY" secondItem="qeQ-n3-pTm" secondAttribute="centerY" id="e9F-54-CkT"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="hvY-Wk-L8A"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.56999999999999995" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="hvY-Wk-L8A" firstAttribute="trailing" secondItem="qeQ-n3-pTm" secondAttribute="trailing" id="9Gh-te-kat"/>
+                            <constraint firstItem="qeQ-n3-pTm" firstAttribute="top" secondItem="hvY-Wk-L8A" secondAttribute="top" id="A6b-ZA-a2t"/>
+                            <constraint firstItem="hvY-Wk-L8A" firstAttribute="bottom" secondItem="qeQ-n3-pTm" secondAttribute="bottom" id="O7i-Zw-xPx"/>
+                            <constraint firstItem="qeQ-n3-pTm" firstAttribute="leading" secondItem="hvY-Wk-L8A" secondAttribute="leading" id="age-PM-c4B"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="btnBack" destination="eb0-WA-udm" id="tit-9m-qB1"/>
+                        <outlet property="btnConfirm" destination="Yr3-0e-7sN" id="8Df-vG-I74"/>
+                        <outlet property="lblHeader" destination="F7t-UZ-LrK" id="EII-4N-k4B"/>
+                        <outlet property="txtReason" destination="EqK-bI-UzV" id="PRr-iF-PJA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PCM-fK-4Cv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="8880.7999999999993" y="814.54272863568224"/>
         </scene>
     </scenes>
     <resources>
