@@ -183,6 +183,8 @@
 		885DF0EE26F31424008242AE /* PastBookingResBookingInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885DF0E726F31424008242AE /* PastBookingResBookingInfo.swift */; };
 		885DF0EF26F31424008242AE /* PastBookingResDriverVehicleInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885DF0E826F31424008242AE /* PastBookingResDriverVehicleInfo.swift */; };
 		885DF0F226F31DBC008242AE /* RidesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885DF0F126F31DBC008242AE /* RidesViewModel.swift */; };
+		885DF0F626F35742008242AE /* NoDataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885DF0F426F35742008242AE /* NoDataTableViewCell.swift */; };
+		885DF0F726F35742008242AE /* NoDataTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 885DF0F526F35742008242AE /* NoDataTableViewCell.xib */; };
 		8864746526E732970049B41D /* VehicleDocumentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8864746426E732970049B41D /* VehicleDocumentVC.swift */; };
 		8867A71326F1B75900049490 /* cancelReasonDatum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8867A71126F1B75900049490 /* cancelReasonDatum.swift */; };
 		8867A71426F1B75900049490 /* cancelReasonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8867A71226F1B75900049490 /* cancelReasonModel.swift */; };
@@ -404,6 +406,8 @@
 		885DF0E726F31424008242AE /* PastBookingResBookingInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PastBookingResBookingInfo.swift; sourceTree = "<group>"; };
 		885DF0E826F31424008242AE /* PastBookingResDriverVehicleInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PastBookingResDriverVehicleInfo.swift; sourceTree = "<group>"; };
 		885DF0F126F31DBC008242AE /* RidesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RidesViewModel.swift; sourceTree = "<group>"; };
+		885DF0F426F35742008242AE /* NoDataTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoDataTableViewCell.swift; sourceTree = "<group>"; };
+		885DF0F526F35742008242AE /* NoDataTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoDataTableViewCell.xib; sourceTree = "<group>"; };
 		8864746426E732970049B41D /* VehicleDocumentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleDocumentVC.swift; sourceTree = "<group>"; };
 		8867A71126F1B75900049490 /* cancelReasonDatum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = cancelReasonDatum.swift; sourceTree = "<group>"; };
 		8867A71226F1B75900049490 /* cancelReasonModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = cancelReasonModel.swift; sourceTree = "<group>"; };
@@ -614,6 +618,7 @@
 				881AF8C526EA42B200BC3C2D /* Home */,
 				8808C4BD26F0B963004B8518 /* RateAndReview */,
 				84A5D11C2646B81B00AAFAB0 /* CancelRide */,
+				885DF0F826F360E7008242AE /* My Rides */,
 				184514E7268A145D00E8884A /* VerifyViewController.swift */,
 				1871C8B52685B1CC00D4D17D /* DummyVC.swift */,
 				4F1A763B26450EC0003F00CF /* BaseVC */,
@@ -781,6 +786,7 @@
 		4F94F1992643DB7500780413 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				885DF0F326F35728008242AE /* No Data Found Cell */,
 				18720F5D2681BABD008EE191 /* LocationService.swift */,
 				4F94F1CD2643FEE500780413 /* AppInfo.swift */,
 				81891D9C264FDA1B00E8741E /* MSBBarChart */,
@@ -939,9 +945,6 @@
 				81A5538C264BC56D00698413 /* Earnings */,
 				843F8057264A6F4700BCBDB8 /* SideMenu */,
 				847607052648FC340019CE1F /* SettingVC.swift */,
-				8476070F26491B660019CE1F /* MyRidesVC.swift */,
-				84DD717A264957850014AF60 /* RideDetailsVC.swift */,
-				848FE832264A38E4008B6586 /* RideReceiptDetailsVC.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -1171,6 +1174,25 @@
 			path = "Past Ride History";
 			sourceTree = "<group>";
 		};
+		885DF0F326F35728008242AE /* No Data Found Cell */ = {
+			isa = PBXGroup;
+			children = (
+				885DF0F426F35742008242AE /* NoDataTableViewCell.swift */,
+				885DF0F526F35742008242AE /* NoDataTableViewCell.xib */,
+			);
+			path = "No Data Found Cell";
+			sourceTree = "<group>";
+		};
+		885DF0F826F360E7008242AE /* My Rides */ = {
+			isa = PBXGroup;
+			children = (
+				8476070F26491B660019CE1F /* MyRidesVC.swift */,
+				84DD717A264957850014AF60 /* RideDetailsVC.swift */,
+				848FE832264A38E4008B6586 /* RideReceiptDetailsVC.swift */,
+			);
+			path = "My Rides";
+			sourceTree = "<group>";
+		};
 		8867A71026F1B74A00049490 /* Cancel Trip Reasons */ = {
 			isa = PBXGroup;
 			children = (
@@ -1367,6 +1389,7 @@
 				4F94F1BE2643E72800780413 /* Ubuntu-Medium.ttf in Resources */,
 				4F94F1722643DB5F00780413 /* navigationCommonView.xib in Resources */,
 				4F94F1C52643E72800780413 /* Ubuntu-Light.ttf in Resources */,
+				885DF0F726F35742008242AE /* NoDataTableViewCell.xib in Resources */,
 				8867A71F26F1F43500049490 /* GoogleService-Info.plist in Resources */,
 				4F94F1222643D76700780413 /* Assets.xcassets in Resources */,
 				547D83D8265A502A00887C9C /* Login.storyboard in Resources */,
@@ -1571,6 +1594,7 @@
 				4F94F1752643DB5F00780413 /* String+Extensions.swift in Sources */,
 				1865CFA4267C7A8400379A40 /* ConstantString.swift in Sources */,
 				187B842E267B5BA100D3BFDA /* Toast.swift in Sources */,
+				885DF0F626F35742008242AE /* NoDataTableViewCell.swift in Sources */,
 				84A5D1002646A67200AAFAB0 /* AddVehicleVC.swift in Sources */,
 				843F8071264A706400BCBDB8 /* TransitionContext.swift in Sources */,
 				187B8434267B5BA100D3BFDA /* ThemeShadowAndViews.swift in Sources */,

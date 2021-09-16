@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UIView_Shimmer
 
 class MyRidesVC: BaseVC {
     
@@ -15,7 +16,6 @@ class MyRidesVC: BaseVC {
     @IBOutlet weak var viewTblRideType: UIView!
     @IBOutlet weak var tblMyRides: UITableView!
     @IBOutlet weak var tblMyRideType: UITableView!
-    @IBOutlet weak var noDataView: UIView!
     
     //MARK: -Properties
     var pastCurrentPage = 0
@@ -26,6 +26,17 @@ class MyRidesVC: BaseVC {
     var myRideArr = ["UPCOMING","PAST"]
     var selectedMyRideState = 1
     var ridesViewModel = RidesViewModel()
+    
+    private var isLoading = true {
+        didSet {
+            self.tblMyRides.isUserInteractionEnabled = !isLoading
+            self.tblMyRides.reloadData()
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.isLoading = true
+    }
     
     //MARK: -View Life Cycle Methods
     override func viewDidLoad() {
@@ -39,8 +50,6 @@ class MyRidesVC: BaseVC {
     func prepareView(){
         self.setNavigationBarInViewController(controller: self, naviColor: colors.myride.value, naviTitle: "My Rides", leftImage: NavItemsLeft.back.value, rightImages: [NavItemsRight.none.value], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
         
-        self.noDataView.isHidden = true
-        
         self.tblMyRides.delegate = self
         self.tblMyRides.dataSource = self
         
@@ -52,6 +61,11 @@ class MyRidesVC: BaseVC {
         self.viewTblRideType.isHidden = true
         
         self.btnUpcoming.setTitle(self.myRideArr[self.selectedMyRideState], for: .normal)
+        self.registerNIB()
+    }
+    
+    func registerNIB(){
+        tblMyRides.register(UINib(nibName:NoDataTableViewCell.reuseIdentifier, bundle: nil), forCellReuseIdentifier: NoDataTableViewCell.reuseIdentifier)
     }
     
     func setRideTableView() {
@@ -61,7 +75,6 @@ class MyRidesVC: BaseVC {
                 self.btnUpcoming.imageView?.transform = CGAffineTransform(rotationAngle: .pi)
                 self.tblMyRideType.frame.size.height = self.tblMyRideType.contentSize.height * 2
             }, completion: {finished in
-                self.tblMyRides.reloadData()
             })
         } else {
             UIView.animate(withDuration: 0.3, animations: {
@@ -69,7 +82,6 @@ class MyRidesVC: BaseVC {
                 self.tblMyRideType.frame.size.height = 0
             }, completion: {finished in
                 self.viewTblRideType.isHidden = true
-                self.tblMyRides.reloadData()
             })
         }
     }
@@ -89,11 +101,9 @@ extension MyRidesVC : UITableViewDelegate,UITableViewDataSource {
         switch tableView{
         case self.tblMyRides:
             if self.arrRides.count > 0 {
-                self.noDataView.isHidden = true
                 return self.arrRides.count
             } else {
-                self.noDataView.isHidden = false
-                return 0
+                return 1
             }
         case self.tblMyRideType:
             return self.myRideArr.count
@@ -107,18 +117,24 @@ extension MyRidesVC : UITableViewDelegate,UITableViewDataSource {
         switch tableView{
         
         case self.tblMyRides:
-            let cell:MyRideCell = self.tblMyRides.dequeueReusableCell(withIdentifier: MyRideCell.reuseIdentifier, for: indexPath)as! MyRideCell
-            let dict = self.arrRides[indexPath.row]
-            cell.lblAddress.text = dict.bookingInfo?.pickupLocation ?? ""
-            cell.lblRideName.text = dict.bookingInfo?.vehicleName ?? ""
-            cell.lblAmount.text = "$\(dict.bookingInfo?.driverAmount ?? "0")"
             
-            let timestamp: TimeInterval =  Double(dict.bookingInfo?.acceptTime ?? "") ?? 0.0
-            let date = Date(timeIntervalSince1970: timestamp)
-            let formatedDate = date.timeAgoSinceDate(isForNotification: false)
-            cell.lblDate.text = formatedDate 
-            
-            return cell
+            if self.arrRides.count != 0 {
+                let cell:MyRideCell = self.tblMyRides.dequeueReusableCell(withIdentifier: MyRideCell.reuseIdentifier, for: indexPath)as! MyRideCell
+                let dict = self.arrRides[indexPath.row]
+                cell.lblAddress.text = dict.bookingInfo?.pickupLocation ?? ""
+                cell.lblRideName.text = dict.bookingInfo?.vehicleName ?? ""
+                cell.lblAmount.text = "$\(dict.bookingInfo?.driverAmount ?? "0")"
+                
+                let timestamp: TimeInterval =  Double(dict.bookingInfo?.acceptTime ?? "") ?? 0.0
+                let date = Date(timeIntervalSince1970: timestamp)
+                let formatedDate = date.timeAgoSinceDate(isForNotification: false)
+                cell.lblDate.text = formatedDate
+                
+                return cell
+            } else {
+                let NoDatacell = self.tblMyRides.dequeueReusableCell(withIdentifier: "NoDataTableViewCell", for: indexPath) as! NoDataTableViewCell
+                return NoDatacell
+            }
             
         case self.tblMyRideType:
             let cell:pastUpcomingCell = self.tblMyRideType.dequeueReusableCell(withIdentifier: pastUpcomingCell.reuseIdentifier, for: indexPath)as! pastUpcomingCell
@@ -170,6 +186,38 @@ extension MyRidesVC : UITableViewDelegate,UITableViewDataSource {
         default:
             break
         }
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if #available(iOS 13.0, *) {
+            cell.setTemplateWithSubviews(isLoading, viewBackgroundColor: .systemBackground)
+        } else {
+            cell.setTemplateWithSubviews(isLoading, viewBackgroundColor: .lightGray.withAlphaComponent(0.5))
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            self.isLoading = false
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        switch tableView {
+        case self.tblMyRides:
+            if self.arrRides.count != 0 {
+                return UITableView.automaticDimension
+            }else{
+                return tableView.frame.height
+            }
+        case self.tblMyRideType:
+            return UITableView.automaticDimension
+        default:
+            break
+        }
+        return UITableView.automaticDimension
+ 
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
