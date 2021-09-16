@@ -145,6 +145,18 @@ class WebServiceSubClass{
         }
     }
     
+    class func GetRideHistoryApi(Page: String, completion: @escaping (Bool,String,PastBookingResModel?,Any) -> ()) {
+        URLSessionRequestManager.makeGetRequest(urlString: ApiKey.pastBookingHistory.rawValue + SingletonClass.sharedInstance.UserId + "/" + Page, responseModel: PastBookingResModel.self) { (status, message, response, error) in
+            completion(status, message, response, error)
+        }
+    }
+    
+    class func GetUpcomingRideApi(Page: String, completion: @escaping (Bool,String,PastBookingResModel?,Any) -> ()) {
+        URLSessionRequestManager.makeGetRequest(urlString: ApiKey.upcomingBookingHistory.rawValue + SingletonClass.sharedInstance.UserId + "/" + Page, responseModel: PastBookingResModel.self) { (status, message, response, error) in
+            completion(status, message, response, error)
+        }
+    }
+    
     //----------------//
     
     //    class func InitApi(keyPath : String , completion: @escaping (Bool,InitResponseModel?,Any) -> ()) {

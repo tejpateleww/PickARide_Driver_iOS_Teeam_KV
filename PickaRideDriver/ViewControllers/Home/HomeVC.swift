@@ -111,6 +111,7 @@ class HomeVC: BaseVC {
     }
     
     func startTimer() {
+        self.emitSocket_UpdateLocation(latitute: appDel.locationManager.currentLocation?.coordinate.latitude ?? 0.0, long: appDel.locationManager.currentLocation?.coordinate.longitude ?? 0.0)
         if(self.timer == nil){
             self.timer = Timer.scheduledTimer(withTimeInterval: 5, repeats: true, block: { (timer) in
                 if  SocketIOManager.shared.socket.status == .connected {

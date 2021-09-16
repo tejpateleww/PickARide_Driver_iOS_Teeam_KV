@@ -20,6 +20,7 @@ target 'PickaRideDriver' do
   pod 'MKProgress'
   pod 'EasyTipView', '~> 2.1'
   pod 'Socket.IO-Client-Swift'
+  pod 'UIView-Shimmer', '~> 1.0'
 
   # Pods for PickaRideDriver
 

@@ -95,6 +95,9 @@ class MenuViewController: UIViewController {
     func setupLocalization() {
         //lblLegal.text = "MenuVC_lblLegal".Localized()
         //lblVersion.text = String(format: "MenuVC_lblVersion".Localized(), kAPPVesion)
+        
+        let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
+        self.lblVersion.text = "V \(appVersion ?? "1.0.0")"
     }
     
     private func configureView() {

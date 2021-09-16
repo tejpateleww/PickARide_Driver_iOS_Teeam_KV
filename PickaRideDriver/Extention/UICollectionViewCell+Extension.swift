@@ -33,3 +33,55 @@ extension UIResponder {
      }
 
 }
+
+extension Date {
+    
+    func timeAgoSinceDate(isForNotification : Bool = false) -> String {
+        
+        let weekdays = [
+            "Sunday",
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday"
+        ]
+        
+        let calendar = NSCalendar.current
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeZone = TimeZone.current
+        
+        if calendar.isDateInToday(self) {
+            var title = "Today"
+            if !isForNotification{
+                dateFormatter.dateFormat = "h:mm a"
+                title = "Today, " + dateFormatter.string(from: self)
+            }
+            return title
+        }else if calendar.isDateInTomorrow(self) {
+            var title = "Tomorrow"
+            if !isForNotification{
+                dateFormatter.dateFormat = "h:mm a"
+                title = "Tomorrow, " + dateFormatter.string(from: self)
+            }
+            return title
+        }else if calendar.isDateInYesterday(self) {
+            var title = "Yesterday"
+            if !isForNotification{
+                dateFormatter.dateFormat = "h:mm a"
+                title = "Yesterday, " + dateFormatter.string(from: self)
+            }
+            return title
+            
+        }else{
+            if isForNotification{
+                dateFormatter.dateFormat = "M/d/yyyy"
+            }else{
+                dateFormatter.dateFormat = "M/d/yyyy, h:mm a"
+            }
+            return dateFormatter.string(from: self)
+        }
+    }
+}

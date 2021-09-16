@@ -175,6 +175,14 @@
 		885B66D226EB5D4800A281FC /* NewBookingResCustomerInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885B66CE26EB5D4800A281FC /* NewBookingResCustomerInfo.swift */; };
 		885B66D326EB5D4800A281FC /* NewBookingResVehicleType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885B66CF26EB5D4800A281FC /* NewBookingResVehicleType.swift */; };
 		885B66D526EB72B300A281FC /* NewRequestSocketClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885B66D426EB72B300A281FC /* NewRequestSocketClient.swift */; };
+		885DF0E926F31424008242AE /* PastBookingResCustomerInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885DF0E226F31423008242AE /* PastBookingResCustomerInfo.swift */; };
+		885DF0EA26F31424008242AE /* PastBookingResModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885DF0E326F31424008242AE /* PastBookingResModel.swift */; };
+		885DF0EB26F31424008242AE /* PastBookingResDatum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885DF0E426F31424008242AE /* PastBookingResDatum.swift */; };
+		885DF0EC26F31424008242AE /* PastBookingResVehicleType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885DF0E526F31424008242AE /* PastBookingResVehicleType.swift */; };
+		885DF0ED26F31424008242AE /* PastBookingResDriverInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885DF0E626F31424008242AE /* PastBookingResDriverInfo.swift */; };
+		885DF0EE26F31424008242AE /* PastBookingResBookingInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885DF0E726F31424008242AE /* PastBookingResBookingInfo.swift */; };
+		885DF0EF26F31424008242AE /* PastBookingResDriverVehicleInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885DF0E826F31424008242AE /* PastBookingResDriverVehicleInfo.swift */; };
+		885DF0F226F31DBC008242AE /* RidesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885DF0F126F31DBC008242AE /* RidesViewModel.swift */; };
 		8864746526E732970049B41D /* VehicleDocumentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8864746426E732970049B41D /* VehicleDocumentVC.swift */; };
 		8867A71326F1B75900049490 /* cancelReasonDatum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8867A71126F1B75900049490 /* cancelReasonDatum.swift */; };
 		8867A71426F1B75900049490 /* cancelReasonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8867A71226F1B75900049490 /* cancelReasonModel.swift */; };
@@ -388,6 +396,14 @@
 		885B66CE26EB5D4800A281FC /* NewBookingResCustomerInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewBookingResCustomerInfo.swift; sourceTree = "<group>"; };
 		885B66CF26EB5D4800A281FC /* NewBookingResVehicleType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewBookingResVehicleType.swift; sourceTree = "<group>"; };
 		885B66D426EB72B300A281FC /* NewRequestSocketClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRequestSocketClient.swift; sourceTree = "<group>"; };
+		885DF0E226F31423008242AE /* PastBookingResCustomerInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PastBookingResCustomerInfo.swift; sourceTree = "<group>"; };
+		885DF0E326F31424008242AE /* PastBookingResModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PastBookingResModel.swift; sourceTree = "<group>"; };
+		885DF0E426F31424008242AE /* PastBookingResDatum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PastBookingResDatum.swift; sourceTree = "<group>"; };
+		885DF0E526F31424008242AE /* PastBookingResVehicleType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PastBookingResVehicleType.swift; sourceTree = "<group>"; };
+		885DF0E626F31424008242AE /* PastBookingResDriverInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PastBookingResDriverInfo.swift; sourceTree = "<group>"; };
+		885DF0E726F31424008242AE /* PastBookingResBookingInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PastBookingResBookingInfo.swift; sourceTree = "<group>"; };
+		885DF0E826F31424008242AE /* PastBookingResDriverVehicleInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PastBookingResDriverVehicleInfo.swift; sourceTree = "<group>"; };
+		885DF0F126F31DBC008242AE /* RidesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RidesViewModel.swift; sourceTree = "<group>"; };
 		8864746426E732970049B41D /* VehicleDocumentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleDocumentVC.swift; sourceTree = "<group>"; };
 		8867A71126F1B75900049490 /* cancelReasonDatum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = cancelReasonDatum.swift; sourceTree = "<group>"; };
 		8867A71226F1B75900049490 /* cancelReasonModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = cancelReasonModel.swift; sourceTree = "<group>"; };
@@ -492,6 +508,7 @@
 		187B8417267B5B2B00D3BFDA /* View Model */ = {
 			isa = PBXGroup;
 			children = (
+				885DF0F026F31D9C008242AE /* Past Ride History */,
 				8867A71526F1B7B900049490 /* Cancel Trip */,
 				8808C4BA26F073F4004B8518 /* RateAndReviewViewModel */,
 				881AF8AD26EA270300BC3C2D /* HomeViewModel */,
@@ -1132,6 +1149,28 @@
 			path = "New Booking Request";
 			sourceTree = "<group>";
 		};
+		885DF0E126F313DF008242AE /* Past Booking History */ = {
+			isa = PBXGroup;
+			children = (
+				885DF0E726F31424008242AE /* PastBookingResBookingInfo.swift */,
+				885DF0E226F31423008242AE /* PastBookingResCustomerInfo.swift */,
+				885DF0E426F31424008242AE /* PastBookingResDatum.swift */,
+				885DF0E626F31424008242AE /* PastBookingResDriverInfo.swift */,
+				885DF0E826F31424008242AE /* PastBookingResDriverVehicleInfo.swift */,
+				885DF0E326F31424008242AE /* PastBookingResModel.swift */,
+				885DF0E526F31424008242AE /* PastBookingResVehicleType.swift */,
+			);
+			path = "Past Booking History";
+			sourceTree = "<group>";
+		};
+		885DF0F026F31D9C008242AE /* Past Ride History */ = {
+			isa = PBXGroup;
+			children = (
+				885DF0F126F31DBC008242AE /* RidesViewModel.swift */,
+			);
+			path = "Past Ride History";
+			sourceTree = "<group>";
+		};
 		8867A71026F1B74A00049490 /* Cancel Trip Reasons */ = {
 			isa = PBXGroup;
 			children = (
@@ -1169,6 +1208,7 @@
 		889E09FC26E63D9300333AEA /* Response Models */ = {
 			isa = PBXGroup;
 			children = (
+				885DF0E126F313DF008242AE /* Past Booking History */,
 				8867A71026F1B74A00049490 /* Cancel Trip Reasons */,
 				8808C4C126F0BBDD004B8518 /* VerifyCustomer */,
 				8808C4B426F07275004B8518 /* Rate and Review */,
@@ -1508,6 +1548,7 @@
 				843F806E264A706400BCBDB8 /* UIViewController+Container.swift in Sources */,
 				1865CF6A267C767600379A40 /* CodableResponseServiceClass.swift in Sources */,
 				186EC9382696F64D00314717 /* PasswordModel.swift in Sources */,
+				885DF0EC26F31424008242AE /* PastBookingResVehicleType.swift in Sources */,
 				883C9E6926E8D94E00FA1778 /* updatePersonalDocsReqModel.swift in Sources */,
 				4F94F17A2643DB5F00780413 /* UIViewController+Extension.swift in Sources */,
 				881AF8B126EA274700BC3C2D /* HomeViewModel.swift in Sources */,
@@ -1534,6 +1575,7 @@
 				843F8071264A706400BCBDB8 /* TransitionContext.swift in Sources */,
 				187B8434267B5BA100D3BFDA /* ThemeShadowAndViews.swift in Sources */,
 				881AF8B426EA27B300BC3C2D /* DutyStatusReqModel.swift in Sources */,
+				885DF0F226F31DBC008242AE /* RidesViewModel.swift in Sources */,
 				889E0A0626E63F1800333AEA /* AddVehicleUserModel.swift in Sources */,
 				185DEEDF2669113B008BA95C /* WaitingForApprovalVC.swift in Sources */,
 				4F1A76372644FC67003F00CF /* LoginViewController.swift in Sources */,
@@ -1547,6 +1589,7 @@
 				8867A71326F1B75900049490 /* cancelReasonDatum.swift in Sources */,
 				881AF8BE26EA2C4300BC3C2D /* CurrentBookingDriverVehicleInfo.swift in Sources */,
 				185DEED92668DAF2008BA95C /* PersonalDocumentVC.swift in Sources */,
+				885DF0EA26F31424008242AE /* PastBookingResModel.swift in Sources */,
 				187B8435267B5BA100D3BFDA /* Themes.swift in Sources */,
 				186EC9362696F2A300314717 /* OtpModel.swift in Sources */,
 				187B8415267B5B1000D3BFDA /* CardModel.swift in Sources */,
@@ -1556,6 +1599,7 @@
 				883C9E6D26E8EC6900FA1778 /* UpdateBankInfoReqModel.swift in Sources */,
 				4F94F17E2643DB5F00780413 /* UITextField+Extension.swift in Sources */,
 				81891DA1264FDA1B00E8741E /* MSBBarChartView.swift in Sources */,
+				885DF0EF26F31424008242AE /* PastBookingResDriverVehicleInfo.swift in Sources */,
 				843F806C264A706400BCBDB8 /* Preferences.swift in Sources */,
 				81891DB4265E880600E8741E /* ChatViewController.swift in Sources */,
 				4F94F1852643DB5F00780413 /* customTextField.swift in Sources */,
@@ -1587,6 +1631,8 @@
 				4F94F1AB2643DB7600780413 /* Constants.swift in Sources */,
 				4F94F1892643DB5F00780413 /* CustomLabel.swift in Sources */,
 				4F94F1762643DB5F00780413 /* UIButton+Extension.swift in Sources */,
+				885DF0ED26F31424008242AE /* PastBookingResDriverInfo.swift in Sources */,
+				885DF0E926F31424008242AE /* PastBookingResCustomerInfo.swift in Sources */,
 				885B66C226EB421400A281FC /* ChatSocketClient.swift in Sources */,
 				8867A71D26F1CF4000049490 /* CancelReasonPopUpVC.swift in Sources */,
 				81A55390264BC5CF00698413 /* TodayEarningChildViewController.swift in Sources */,
@@ -1608,6 +1654,7 @@
 				881AF8BC26EA2C4300BC3C2D /* CurrentBookingDatum.swift in Sources */,
 				187B841F267B5B2B00D3BFDA /* RegisterViewModel.swift in Sources */,
 				883C9E7026E8EE5100FA1778 /* BankInfoViewModel.swift in Sources */,
+				885DF0EB26F31424008242AE /* PastBookingResDatum.swift in Sources */,
 				847607062648FC340019CE1F /* SettingVC.swift in Sources */,
 				187197FE2684B91F00B4DAAF /* ForgotPasswordVC1.swift in Sources */,
 				81A55392264BC5DD00698413 /* WeeklyEarningChildViewController.swift in Sources */,
@@ -1638,6 +1685,7 @@
 				848FE833264A38E4008B6586 /* RideReceiptDetailsVC.swift in Sources */,
 				885B66D326EB5D4800A281FC /* NewBookingResVehicleType.swift in Sources */,
 				1865CF65267C767600379A40 /* WebServicesSubclass.swift in Sources */,
+				885DF0EE26F31424008242AE /* PastBookingResBookingInfo.swift in Sources */,
 				889E0A0C26E643E200333AEA /* ManufacturerListVehicleModel.swift in Sources */,
 				4F1A763F26455C7B003F00CF /* BankDetailsVC.swift in Sources */,
 				81891DAF265E749C00E8741E /* CancelRideView.swift in Sources */,

@@ -720,10 +720,10 @@ class versionLabel : UILabel {
         self.textColor = colors.black.value.withAlphaComponent(0.4)
         if isLegalText {
             self.font = CustomFont.regular.returnFont(15)
-            self.textAlignment = .left
+            self.textAlignment = .center
         } else {
             self.font = CustomFont.medium.returnFont(18)
-            self.textAlignment = .right
+            self.textAlignment = .center
         }
     }
 }
