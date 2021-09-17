@@ -152,6 +152,9 @@ class AddVehicleVC: BaseVC {
                 self.txtManufacturer.text = item
                 self.txtModel.text = ""
                 self.txtServiceType.text = ""
+                self.txtNumberPlate.text = ""
+                self.txtCarYear.text = ""
+                self.carColor.text = ""
             }
             if(Dropdown == self.ModelDropDown){
                 self.setupModelServiceType(strModel: item)

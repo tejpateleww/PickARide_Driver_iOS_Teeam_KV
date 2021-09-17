@@ -436,6 +436,7 @@ class RideDetailLabel : UILabel{
     @IBInspectable var isPlace : Bool = false
     @IBInspectable var isAddress: Bool = false
     @IBInspectable var isPrice : Bool = false
+    @IBInspectable var isNumberPlate : Bool = false
     @IBInspectable var isTotal: Bool = false
     @IBInspectable var isPickup : Bool = false
     @IBInspectable var ispickupAddress: Bool = false
@@ -443,6 +444,8 @@ class RideDetailLabel : UILabel{
     @IBInspectable var isdestinationAddress: Bool = false
     @IBInspectable var isName : Bool = false
     @IBInspectable var isRating: Bool = false
+    @IBInspectable var isCarName: Bool = false
+    @IBInspectable var isPriceTitle: Bool = false
     override func awakeFromNib() {
         if isRideDetails{
             self.font = CustomFont.medium.returnFont(40)
@@ -460,8 +463,11 @@ class RideDetailLabel : UILabel{
             self.font = CustomFont.regular.returnFont(13)
             self.textColor = colors.loginPlaceHolderColor.value
         }else if isPrice{
-            self.font = CustomFont.regular.returnFont(13)
-            self.textColor = UIColor(hexString: "#ACB1C0")
+            self.font = CustomFont.bold.returnFont(15)
+            self.textColor = UIColor.black
+        }else if isNumberPlate{
+            self.font = CustomFont.bold.returnFont(15)
+            self.textColor = colors.gray.value
         } else if isTotal{
             self.font = CustomFont.bold.returnFont(18)
             self.textColor = colors.loginPlaceHolderColor.value
@@ -483,7 +489,14 @@ class RideDetailLabel : UILabel{
         }else if isRating{
             self.font = CustomFont.regular.returnFont(11)
             self.textColor = UIColor(hexString: "#9095A2")
+        }else if isCarName{
+            self.font = CustomFont.bold.returnFont(15)
+            self.textColor = UIColor.black
+        }else if isPriceTitle{
+            self.font = CustomFont.regular.returnFont(13)
+            self.textColor = colors.gray.value
         }
+        
     }
 }
 

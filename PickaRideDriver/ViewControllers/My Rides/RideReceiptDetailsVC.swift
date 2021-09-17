@@ -34,6 +34,7 @@ class RideReceiptDetailsVC: BaseVC {
     @IBOutlet weak var lblDiscount: themeLabel!
     @IBOutlet weak var lblTopupAdded: themeLabel!
     @IBOutlet weak var lblYourPayment: themeLabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         stackViewRating.isHidden = true

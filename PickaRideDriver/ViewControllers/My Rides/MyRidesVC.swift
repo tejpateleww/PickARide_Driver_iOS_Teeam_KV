@@ -27,15 +27,15 @@ class MyRidesVC: BaseVC {
     var selectedMyRideState = 1
     var ridesViewModel = RidesViewModel()
     
-    private var isLoading = true {
-        didSet {
-            self.tblMyRides.isUserInteractionEnabled = !isLoading
-            self.tblMyRides.reloadData()
-        }
-    }
+//    private var isLoading = true {
+//        didSet {
+//            self.tblMyRides.isUserInteractionEnabled = !isLoading
+//            self.tblMyRides.reloadData()
+//        }
+//    }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.isLoading = true
+//        self.isLoading = true
     }
     
     //MARK: -View Life Cycle Methods
@@ -159,10 +159,11 @@ extension MyRidesVC : UITableViewDelegate,UITableViewDataSource {
         case self.tblMyRides:
             if self.selectedMyRideState == 1 {
                 let vc : RideDetailsVC = RideDetailsVC.instantiate(fromAppStoryboard: .Main)
+                vc.isFromUpcomming = true
+                vc.PastBookingData = arrRides[indexPath.row]
                 self.navigationController?.pushViewController(vc, animated: true)
             }else{
                 let vc : RideDetailsVC = RideDetailsVC.instantiate(fromAppStoryboard: .Main)
-                vc.isFromUpcomming = true
                 self.navigationController?.pushViewController(vc, animated: true)
             }
             break
@@ -188,19 +189,19 @@ extension MyRidesVC : UITableViewDelegate,UITableViewDataSource {
         }
     }
     
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if #available(iOS 13.0, *) {
-            cell.setTemplateWithSubviews(isLoading, viewBackgroundColor: .systemBackground)
-        } else {
-            cell.setTemplateWithSubviews(isLoading, viewBackgroundColor: .lightGray.withAlphaComponent(0.5))
-        }
-    }
-    
-    func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            self.isLoading = false
-        }
-    }
+//    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+//        if #available(iOS 13.0, *) {
+//            cell.setTemplateWithSubviews(isLoading, viewBackgroundColor: .systemBackground)
+//        } else {
+//            cell.setTemplateWithSubviews(isLoading, viewBackgroundColor: .lightGray.withAlphaComponent(0.5))
+//        }
+//    }
+//    
+//    func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+//            self.isLoading = false
+//        }
+//    }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         

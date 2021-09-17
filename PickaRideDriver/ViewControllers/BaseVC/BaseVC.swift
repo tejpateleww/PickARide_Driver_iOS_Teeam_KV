@@ -9,6 +9,7 @@
 import UIKit
 //import LGSideMenuController
 import AVKit
+import SDWebImage
 
 class BaseVC: UIViewController, UIGestureRecognizerDelegate{
     
@@ -293,6 +294,31 @@ class BaseVC: UIViewController, UIGestureRecognizerDelegate{
 
 
                     let btnRightBar : UIBarButtonItem = UIBarButtonItem.init(customView: viewProfileEdit)
+                    btnRightBar.style = .plain
+                    arrButtons.append(btnRightBar)
+                }else{
+                    let viewProfile = UIView(frame: CGRect(x: 0, y: 0, width: 44, height: 44))
+
+                    navBtnProfile = UIButton.init()
+                    navBtnProfile.frame = CGRect(x: 0, y: 0, width: 44, height: 44)
+                    //navBtnProfile.setImage(UIImage.init(named: "ic_ProfileEdit"), for: .normal)
+                    
+                    navBtnProfile.sd_imageIndicator = SDWebImageActivityIndicator.gray
+                    let strURl = URL(string: rightImages[0])
+                    navBtnProfile.sd_setImage(with: strURl, for: .normal, completed: nil)
+                    //navBtnProfile.sd_setImage(with: strURl, for: .normal, placeholderImage: UIImage(named: "nav_dummy_userImage"), options: .refreshCached, completed: nil)
+                    
+                   
+                   // btnProfile.addTarget(self, action: #selector(openLoginVC(_:)), for: .touchUpInside)
+                    navBtnProfile.layer.setValue(controller, forKey: "controller")
+                    viewProfile.addSubview(navBtnProfile)
+                    navBtnProfile.addTarget(self, action: #selector(EditProfileBtn(_:)), for: .touchUpInside)
+                    navBtnProfile.layer.shadowColor = colors.black.value.cgColor
+                    navBtnProfile.layer.shadowOffset = CGSize(width: 0, height: 0)
+                    navBtnProfile.layer.shadowRadius = 3
+                    navBtnProfile.layer.shadowOpacity = 0.4
+
+                    let btnRightBar : UIBarButtonItem = UIBarButtonItem.init(customView: viewProfile)
                     btnRightBar.style = .plain
                     arrButtons.append(btnRightBar)
                 }

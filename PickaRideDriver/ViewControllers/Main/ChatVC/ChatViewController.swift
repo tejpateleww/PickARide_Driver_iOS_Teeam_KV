@@ -10,23 +10,22 @@ import UIKit
 
 class ChatViewController: BaseVC {
 
-
-
-    //MARK: -Properties
-    var MessageArray = [ChatConversation]()
     //MARK: -IBOutlets
     @IBOutlet weak var tblChat: UITableView!
     @IBOutlet var keyboardHeightLayoutConstraint: NSLayoutConstraint?
     @IBOutlet weak var txtviewComment: ratingTextview!
     @IBOutlet var vwNavBar: UIView!
-    
     @IBOutlet weak var lblName: UILabel!
     @IBOutlet weak var lblInfo: UILabel!
+    
+    //MARK: -Properties
+    var MessageArray = [ChatConversation]()
+    var currentBookingModel : CurrentBookingDatum?
+    
     //MARK: -View Life Cycle Methods
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+
 
         txtviewComment.delegate = self
         txtviewComment.textColor = txtviewComment.text == "" ? .black : .gray
@@ -38,7 +37,7 @@ class ChatViewController: BaseVC {
                                                                         ]))
         MessageArray.append(ChatConversation(date: "5:33 PM", Data: [MessageAllData(fromSender: false, message: "Sorry , I'm stuck in traffic. Please give me a moment.", lastMessage: true)
                                                                         ]))
-
+//let strUrl = "\(APIEnvironment.Profilebu.rawValue)" + "\(self.currentBookingModel?.customerInfo?.profileImage ?? "")"
         self.setNavigationBarInViewController(controller: self, naviColor: colors.white.value, naviTitle: "", leftImage: NavItemsLeft.back.value, rightImages: [NavItemsRight.userProfile.value], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
         setSenderProfileInfo()
         tblChat.reloadData()
@@ -66,8 +65,10 @@ class ChatViewController: BaseVC {
     func setSenderProfileInfo(){
         self.navigationItem.titleView = vwNavBar
         
-        self.lblName.text = "Connor Chavez"
-        self.lblInfo.text = "ST3751 - Toyota Vios"
+        let custName = (self.currentBookingModel?.customerInfo?.firstName)! + " " + (self.currentBookingModel?.customerInfo?.lastName)!
+        self.lblName.text = custName
+        let NumberPlate = "\(self.currentBookingModel?.driverVehicleInfo?.plateNumber ?? "") - \(self.currentBookingModel?.driverVehicleInfo?.vehicleTypeManufacturerName ?? "") \(self.currentBookingModel?.driverVehicleInfo?.vehicleTypeModelName ?? "")"
+        self.lblInfo.text = NumberPlate
     
         self.navBtnProfile.setImage(UIImage(named: "DummayUserPlaceHolder"), for: .normal)
     }
@@ -103,15 +104,6 @@ class ChatViewController: BaseVC {
     }
     func setValue() {
     }
-
-
-
-    //MARK: -IBActions
-
-
-    //MARK: -API Calls
-
-
 
 }
 

@@ -8,7 +8,7 @@
 import UIKit
 import UIView_Shimmer
 
-class MyRideCell: UITableViewCell, ShimmeringViewProtocol {
+class MyRideCell: UITableViewCell{ //ShimmeringViewProtocol 
 
 //    @IBOutlet weak var lblMyrides: myRidesLabel!
 //    @IBOutlet weak var lblRideName: myRidesLabel!
@@ -24,17 +24,17 @@ class MyRideCell: UITableViewCell, ShimmeringViewProtocol {
     @IBOutlet weak var impPin: UIImageView!
     @IBOutlet weak var lblPrice: themeLabel!
     
-    var shimmeringAnimatedItems: [UIView] {
-        [
-            lblDate,
-            lblAddress,
-            lblAmount,
-            lblRideName,
-            lblPrice,
-            impPin,
-            imgMap
-        ]
-    }
+//    var shimmeringAnimatedItems: [UIView] {
+//        [
+//            lblDate,
+//            lblAddress,
+//            lblAmount,
+//            lblRideName,
+//            lblPrice,
+//            impPin,
+//            imgMap
+//        ]
+//    }
     
     override func awakeFromNib() {
         super.awakeFromNib()

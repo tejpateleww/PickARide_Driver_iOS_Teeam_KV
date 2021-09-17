@@ -358,6 +358,10 @@ extension EditProfileVC: UITextFieldDelegate{
                 WebServiceSubClass.GetCountryList {_, _, _, _ in}
                 return false
             }
+        }else if textField == self.txtPassword{
+            let vc : ChangePasswordVC = ChangePasswordVC.instantiate(fromAppStoryboard: .Main)
+            self.navigationController?.present(vc, animated: true, completion: nil)
+            return false
         }
         return true
     }

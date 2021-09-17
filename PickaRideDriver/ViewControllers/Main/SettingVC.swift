@@ -78,7 +78,9 @@ class SettingVC: BaseVC, UITextFieldDelegate {
         
         self.lblUserName.text = "\(SingletonClass.sharedInstance.UserProfilData?.firstName ?? "") \(SingletonClass.sharedInstance.UserProfilData?.lastName ?? "")"
         self.lblUserEmail.text = SingletonClass.sharedInstance.UserProfilData?.email ?? ""
-        self.lblUserPhone.text = "\(SingletonClass.sharedInstance.UserProfilData?.countryCode ?? "") \(SingletonClass.sharedInstance.UserProfilData?.mobileNo ?? "")"
+        let countryCode = SingletonClass.sharedInstance.UserProfilData?.countryCode ?? ""
+        let Code = countryCode.replacingOccurrences(of: " ", with: "+")
+        self.lblUserPhone.text = "\(Code) \(SingletonClass.sharedInstance.UserProfilData?.mobileNo ?? "")"
     }
     
     func setupTextfields(textfield : UITextField) {

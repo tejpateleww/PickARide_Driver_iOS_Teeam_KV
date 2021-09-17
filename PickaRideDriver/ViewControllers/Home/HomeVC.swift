@@ -501,6 +501,7 @@ extension HomeVC : AcceptedRideDetailsViewDelgate{
     
     func onChatRideRequest() {
         let vc : ChatViewController = ChatViewController.instantiate(fromAppStoryboard: .Chat)
+        vc.currentBookingModel = self.currentBookingModel
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
