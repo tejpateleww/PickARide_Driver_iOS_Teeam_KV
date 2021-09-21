@@ -104,7 +104,10 @@ class EditProfileVC: BaseVC {
         self.txtviewHomeAddress.text = SingletonClass.sharedInstance.UserProfilData?.address ?? ""
         self.txtPhoneNumber.text = SingletonClass.sharedInstance.UserProfilData?.mobileNo ?? ""
         self.txtPassword.text = "......"
-        self.txtCountryCode.text = SingletonClass.sharedInstance.UserProfilData?.countryCode ?? ""
+        
+        let countryCode = SingletonClass.sharedInstance.UserProfilData?.countryCode ?? ""
+        let Code = countryCode.replacingOccurrences(of: " ", with: "+")
+        self.txtCountryCode.text = Code
     }
     
     func setupPicker(){
@@ -132,7 +135,7 @@ class EditProfileVC: BaseVC {
             WebServiceSubClass.GetCountryList { _, _, _, _ in}
         }else{
             self.txtCountryCode.inputAccessoryView = toolBar
-            self.txtCountryCode.text = SingletonClass.sharedInstance.CountryList[selectedIndexOfPicker].countryCode
+            //self.txtCountryCode.text = SingletonClass.sharedInstance.CountryList[selectedIndexOfPicker].countryCode
         }
     }
     
@@ -179,7 +182,7 @@ class EditProfileVC: BaseVC {
     }
     
     @objc func doneAction(_ sender: UIBarButtonItem) {
-        self.txtCountryCode.text = SingletonClass.sharedInstance.CountryList[self.selectedIndexOfPicker].countryCode
+        //self.txtCountryCode.text = SingletonClass.sharedInstance.CountryList[self.selectedIndexOfPicker].countryCode
         self.txtCountryCode.endEditing(true)
     }
     

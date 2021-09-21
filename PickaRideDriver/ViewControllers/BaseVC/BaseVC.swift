@@ -301,15 +301,13 @@ class BaseVC: UIViewController, UIGestureRecognizerDelegate{
 
                     navBtnProfile = UIButton.init()
                     navBtnProfile.frame = CGRect(x: 0, y: 0, width: 44, height: 44)
-                    //navBtnProfile.setImage(UIImage.init(named: "ic_ProfileEdit"), for: .normal)
                     
+                    navBtnProfile.layer.cornerRadius = 0.5 * navBtnProfile.bounds.size.width
+                    navBtnProfile.clipsToBounds = true
                     navBtnProfile.sd_imageIndicator = SDWebImageActivityIndicator.gray
-                    let strURl = URL(string: rightImages[0])
-                    navBtnProfile.sd_setImage(with: strURl, for: .normal, completed: nil)
-                    //navBtnProfile.sd_setImage(with: strURl, for: .normal, placeholderImage: UIImage(named: "nav_dummy_userImage"), options: .refreshCached, completed: nil)
+                    navBtnProfile.sd_setBackgroundImage(with: URL(string:rightImages[0]), for: .normal)
                     
-                   
-                   // btnProfile.addTarget(self, action: #selector(openLoginVC(_:)), for: .touchUpInside)
+                    navBtnProfile.addTarget(self, action: #selector(OpenChatUserInfo(_:)), for: .touchUpInside)
                     navBtnProfile.layer.setValue(controller, forKey: "controller")
                     viewProfile.addSubview(navBtnProfile)
                     navBtnProfile.addTarget(self, action: #selector(EditProfileBtn(_:)), for: .touchUpInside)
@@ -492,6 +490,11 @@ class BaseVC: UIViewController, UIGestureRecognizerDelegate{
 //        controller?.frostedViewController.view.endEditing(true)
 //        controller?.frostedViewController.presentMenuViewController()
 //                controller?.sideMenuViewController?._presentLeftMenuViewController()
+    }
+    
+    @objc func OpenChatUserInfo (_ sender: UIButton?)
+    {
+        print("called..")
     }
     
     

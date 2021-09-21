@@ -17,8 +17,8 @@ class HomeViewModel{
         WebServiceSubClass.UpdateDutyStatusApi(reqModel: reqModel) { (status, apiMessage, response, error) in
             Utilities.hideHud()
             if status{
-                self.homeVC?.strDutyStatus = response?.message ?? ""
-                self.homeVC?.changeDutyStatus()
+                self.homeVC?.strDutyStatusfromCurrentBooking = response?.duty ?? ""
+                self.homeVC?.changeDutyStatusBasedOnCurrentBooking()
             }else{
                 Toast.show(title: UrlConstant.Failed, message: apiMessage, state: .failure)
             }

@@ -21,7 +21,7 @@ class CancelRideVC: BaseVC {
 
     //MARK: - Variables
     var isselected = true
-    var isOtherselected = true
+    var isOtherselected = false
     var strReason = ""
     var selectIndex = 0
     var arrReason = [cancelReasonDatum]()

@@ -41,6 +41,7 @@ class HomeVC: BaseVC {
     override func viewWillAppear(_ animated: Bool) {
         self.SocketOnMethods()
         self.startTimer()
+        self.changeDutyStatus()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -71,9 +72,7 @@ class HomeVC: BaseVC {
             appDel.locationManager.locationManager?.requestWhenInUseAuthorization()
         }else if LocationStatus == .restricted || LocationStatus == .denied {
             Utilities.showAlertWithTitleFromVC(vc: self, title: AppName, message: "Please turn on permission from settings, to track location in app.", buttons: ["Cancel","Settings"], isOkRed: false) { (ind) in
-                if ind == 0{
-                    
-                }else{
+                if ind == 1{
                     if let settingsAppURL = URL(string: UIApplication.openSettingsURLString){
                         UIApplication.shared.open(settingsAppURL, options: [:], completionHandler: nil)
                     }
@@ -118,6 +117,7 @@ class HomeVC: BaseVC {
                     self.emitSocket_UpdateLocation(latitute: appDel.locationManager.currentLocation?.coordinate.latitude ?? 0.0, long: appDel.locationManager.currentLocation?.coordinate.longitude ?? 0.0)
                 }else{
                     print("socket not connected")
+                    Utilities.displayAlert(UrlConstant.SomethingWentWrong)
                 }
             })
         }
@@ -155,12 +155,17 @@ class HomeVC: BaseVC {
     
     //MARK:- changeDutyStatus methods
     func changeDutyStatus(){
+        if(SingletonClass.sharedInstance.UserProfilData?.duty == "0"){
+            self.strDutyStatus = "You're offline"
+        }else{
+            self.strDutyStatus = "You're online"
+        }
         self.lblOffline.text = self.strDutyStatus
         self.btnOn.isSelected = (self.lblOffline.text == "You're online") ? true : false
     }
     
     func changeDutyStatusBasedOnCurrentBooking(){
-        if(self.strDutyStatusfromCurrentBooking == "0"){
+        if(self.strDutyStatusfromCurrentBooking == "0" || self.strDutyStatusfromCurrentBooking == "offline"){
             self.lblOffline.text = "You're offline"
         }else{
             self.lblOffline.text = "You're online"

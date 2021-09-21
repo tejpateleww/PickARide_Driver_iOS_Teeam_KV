@@ -8,6 +8,7 @@
 import UIKit
 import DropDown
 import EasyTipView
+import Photos
 
 struct PersonalDetails{
     var header : String?
@@ -76,7 +77,7 @@ class PersonalDocumentVC: BaseVC {
     }
     
     func editPersonalDetails(){
-        self.ArrPersonaldetails.append(PersonalDetails(header: "Profile Photo", message: "Clear photo of yours", dateofExp: ""))
+        //self.ArrPersonaldetails.append(PersonalDetails(header: "Profile Photo", message: "Clear photo of yours", dateofExp: ""))
         self.ArrPersonaldetails.append(PersonalDetails(header: "Goverment ID", message: "ID is an offical Document", dateofExp: "Date of expiry : \(SingletonClass.sharedInstance.UserProfilData?.driverDocs?.governmentIdExpiryDate ?? "")"))
         self.ArrPersonaldetails.append(PersonalDetails(header: "Driving License", message: "A driving license is an offical Document", dateofExp: "Date of expiry : \(SingletonClass.sharedInstance.UserProfilData?.driverDocs?.drivingLicenceExpiryDate ?? "")"))
         self.ArrPersonaldetails.append(PersonalDetails(header: "Vehicle Registration", message: "Vehicle Registration", dateofExp: "Date of expiry : \(SingletonClass.sharedInstance.UserProfilData?.driverDocs?.vehicleRegistrationExpiryDate ?? "")"))
@@ -128,17 +129,15 @@ class PersonalDocumentVC: BaseVC {
         
         if(isFromEditProfile){
             if self.imagePicked == 0 {
-                SingletonClass.sharedInstance.UserProfilData?.profileImage = self.strImageURL
-            }else if self.imagePicked == 1 {
                 SingletonClass.sharedInstance.UserProfilData?.driverDocs?.governmentId = self.strImageURL
                 self.openDatePicker()
-            }else if self.imagePicked == 2 {
+            }else if self.imagePicked == 1 {
                 SingletonClass.sharedInstance.UserProfilData?.driverDocs?.drivingLicence = self.strImageURL
                 self.openDatePicker()
-            }else if self.imagePicked == 3 {
+            }else if self.imagePicked == 2 {
                 SingletonClass.sharedInstance.UserProfilData?.driverDocs?.vehicleRegistration = self.strImageURL
                 self.openDatePicker()
-            }else if self.imagePicked == 4 {
+            }else if self.imagePicked == 3 {
                 SingletonClass.sharedInstance.UserProfilData?.driverDocs?.driverInsurancePolicy = self.strImageURL
                 self.openDatePicker()
             }
@@ -164,17 +163,16 @@ class PersonalDocumentVC: BaseVC {
     
     func UpdateExpDate(){
         if(isFromEditProfile){
-            if self.imagePicked == 0 {
-            }else if self.imagePicked == 1 {
+           if self.imagePicked == 0 {
                 SingletonClass.sharedInstance.UserProfilData?.driverDocs?.governmentIdExpiryDate = self.datePicked
                 self.ArrPersonaldetails[self.imagePicked].dateofExp = "Date of expiry : \(SingletonClass.sharedInstance.UserProfilData?.driverDocs?.governmentIdExpiryDate ?? "Date of expiry : ")"
-            }else if self.imagePicked == 2 {
+            }else if self.imagePicked == 1 {
                 SingletonClass.sharedInstance.UserProfilData?.driverDocs?.drivingLicenceExpiryDate = self.datePicked
                 self.ArrPersonaldetails[self.imagePicked].dateofExp = "Date of expiry : \(SingletonClass.sharedInstance.UserProfilData?.driverDocs?.drivingLicenceExpiryDate ?? "Date of expiry : ")"
-            }else if self.imagePicked == 3 {
+            }else if self.imagePicked == 2 {
                 SingletonClass.sharedInstance.UserProfilData?.driverDocs?.vehicleRegistrationExpiryDate = self.datePicked
                 self.ArrPersonaldetails[self.imagePicked].dateofExp = "Date of expiry : \(SingletonClass.sharedInstance.UserProfilData?.driverDocs?.vehicleRegistrationExpiryDate ?? "Date of expiry : ")"
-            }else if self.imagePicked == 4 {
+            }else if self.imagePicked == 3 {
                 SingletonClass.sharedInstance.UserProfilData?.driverDocs?.driverInsurancePolicyExpiryDate = self.datePicked
                 self.ArrPersonaldetails[self.imagePicked].dateofExp = "Date of expiry : \(SingletonClass.sharedInstance.UserProfilData?.driverDocs?.driverInsurancePolicyExpiryDate ?? "Date of expiry : ")"
             }
@@ -199,13 +197,13 @@ class PersonalDocumentVC: BaseVC {
     
     func getExpDate() -> String{
         if(isFromEditProfile){
-            if self.imagePicked == 1 {
+            if self.imagePicked == 0 {
                 return SingletonClass.sharedInstance.UserProfilData?.driverDocs?.governmentIdExpiryDate ?? ""
-            }else if self.imagePicked == 2 {
+            }else if self.imagePicked == 1 {
                 return SingletonClass.sharedInstance.UserProfilData?.driverDocs?.drivingLicenceExpiryDate ?? ""
-            }else if self.imagePicked == 3 {
+            }else if self.imagePicked == 2 {
                 return SingletonClass.sharedInstance.UserProfilData?.driverDocs?.vehicleRegistrationExpiryDate ?? ""
-            }else if self.imagePicked == 4 {
+            }else if self.imagePicked == 3 {
                 return SingletonClass.sharedInstance.UserProfilData?.driverDocs?.driverInsurancePolicyExpiryDate ?? ""
             }
         }else{
@@ -226,20 +224,18 @@ class PersonalDocumentVC: BaseVC {
         
         if(isFromEditProfile){
             if self.imagePicked == 0 {
-                SingletonClass.sharedInstance.UserProfilData?.profileImage = ""
-            }else if self.imagePicked == 1 {
                 SingletonClass.sharedInstance.UserProfilData?.driverDocs?.governmentId = ""
                 SingletonClass.sharedInstance.UserProfilData?.driverDocs?.governmentIdExpiryDate = ""
                 self.ArrPersonaldetails[self.imagePicked].dateofExp = "Date of expiry : "
-            }else if self.imagePicked == 2 {
+            }else if self.imagePicked == 1 {
                 SingletonClass.sharedInstance.UserProfilData?.driverDocs?.drivingLicence = ""
                 SingletonClass.sharedInstance.UserProfilData?.driverDocs?.drivingLicenceExpiryDate = ""
                 self.ArrPersonaldetails[self.imagePicked].dateofExp = "Date of expiry : "
-            }else if self.imagePicked == 3 {
+            }else if self.imagePicked == 2 {
                 SingletonClass.sharedInstance.UserProfilData?.driverDocs?.vehicleRegistration = ""
                 SingletonClass.sharedInstance.UserProfilData?.driverDocs?.vehicleRegistrationExpiryDate = ""
                 self.ArrPersonaldetails[self.imagePicked].dateofExp = "Date of expiry : "
-            }else if self.imagePicked == 4 {
+            }else if self.imagePicked == 3 {
                 SingletonClass.sharedInstance.UserProfilData?.driverDocs?.driverInsurancePolicy = ""
                 SingletonClass.sharedInstance.UserProfilData?.driverDocs?.driverInsurancePolicyExpiryDate = ""
                 self.ArrPersonaldetails[self.imagePicked].dateofExp = "Date of expiry : "
@@ -285,9 +281,7 @@ class PersonalDocumentVC: BaseVC {
     func validate() -> Bool{
         
         if(isFromEditProfile){
-            if(SingletonClass.sharedInstance.UserProfilData?.profileImage == "" || SingletonClass.sharedInstance.UserProfilData?.profileImage == nil){
-                return false
-            }else if(SingletonClass.sharedInstance.UserProfilData?.driverDocs?.governmentId == "" || SingletonClass.sharedInstance.UserProfilData?.driverDocs?.governmentId == nil || SingletonClass.sharedInstance.UserProfilData?.driverDocs?.governmentIdExpiryDate == "" || SingletonClass.sharedInstance.UserProfilData?.driverDocs?.governmentIdExpiryDate == nil){
+            if(SingletonClass.sharedInstance.UserProfilData?.driverDocs?.governmentId == "" || SingletonClass.sharedInstance.UserProfilData?.driverDocs?.governmentId == nil || SingletonClass.sharedInstance.UserProfilData?.driverDocs?.governmentIdExpiryDate == "" || SingletonClass.sharedInstance.UserProfilData?.driverDocs?.governmentIdExpiryDate == nil){
                 return false
             }else if(SingletonClass.sharedInstance.UserProfilData?.driverDocs?.drivingLicence == "" || SingletonClass.sharedInstance.UserProfilData?.driverDocs?.drivingLicence == nil || SingletonClass.sharedInstance.UserProfilData?.driverDocs?.drivingLicenceExpiryDate == "" || SingletonClass.sharedInstance.UserProfilData?.driverDocs?.drivingLicenceExpiryDate == nil){
                 return false
@@ -343,7 +337,7 @@ class PersonalDocumentVC: BaseVC {
     func hideLoader(){
         let cell = self.tblPersonalDetails.cellForRow(at: self.selectedCellPath!) as! PersonalDocumentCell
         cell.activity.stopAnimating()
-        cell.btnUpload.isHidden = false
+//        cell.btnUpload.isHidden = false
         self.selectedCellPath = nil
     }
     
@@ -421,7 +415,14 @@ extension PersonalDocumentVC : UITableViewDelegate, UITableViewDataSource{
         }
         cell.MoreBtnClouser = {
             self.selectedCellPath = indexPath
-            let options = (indexPath.row == 0) ? cell.optionsDropDown : cell.optionsDropDownwithExp
+            
+            var options : [String] = []
+            if(self.isFromEditProfile){
+                options = cell.optionsDropDownwithExp
+            }else{
+                options = (indexPath.row == 0) ? cell.optionsDropDown : cell.optionsDropDownwithExp
+            }
+            
             self.Dropdown(Dropdown: cell.ImageDropDown, StringArray: options, control: cell.btnMore, displayView: cell.btnRight, cellIndex : indexPath)
             cell.ImageDropDown.show()
         }
@@ -444,7 +445,8 @@ extension PersonalDocumentVC : UITableViewDelegate, UITableViewDataSource{
         Dropdown?.selectionAction = { (index, item) in
             if(index == 0){
                 self.imagePicked = cellIndex.row
-                self.UploadImage(index: cellIndex)
+                self.checkCamera(index: cellIndex)
+                //self.UploadImage(index: cellIndex)
             }else if(index == 1){
                 self.imagePicked = cellIndex.row
                 self.RemoveData()
@@ -494,6 +496,67 @@ extension PersonalDocumentVC : UIImagePickerControllerDelegate, UINavigationCont
             self.hideLoader()
         }
         dismiss(animated: true, completion: nil)
+    }
+    
+    func checkCamera(index : IndexPath) {
+        let authStatus = AVCaptureDevice.authorizationStatus(for: AVMediaType.video)
+        switch authStatus {
+        case .authorized: self.UploadImage(index: index)
+        case .denied: alertToEncourageCameraAccessInitially()
+        case .notDetermined: checkCameraAccess(index : index)
+        default: alertToEncourageCameraAccessInitially()
+        }
+    }
+    
+    func checkCameraAccess(index : IndexPath) {
+        switch AVCaptureDevice.authorizationStatus(for: .video) {
+        case .denied:
+            print("Denied, request permission from settings")
+            alertToEncourageCameraAccessInitially()
+        case .restricted:
+            alertToEncourageCameraAccessInitially()
+            print("Restricted, device owner must approve")
+        case .authorized:
+            AVCaptureDevice.requestAccess(for: .video) { success in
+                if success {
+                    DispatchQueue.main.async {
+                        self.UploadImage(index: index)
+                        print("Permission granted, proceed")
+                    }
+                    
+                } else {
+                    print("Permission denied")
+                }
+            }
+            print("Authorized, proceed")
+        case .notDetermined:
+            AVCaptureDevice.requestAccess(for: .video) { success in
+                if success {
+                    DispatchQueue.main.async {
+                        self.UploadImage(index: index)
+                        print("Permission granted, proceed")
+                    }
+                    
+                } else {
+                    print("Permission denied")
+                }
+            }
+        @unknown default:
+            print("Dafaukt casr < Image Picker class")
+        }
+    }
+    
+    func alertToEncourageCameraAccessInitially() {
+        Utilities.showAlertWithTitleFromVC(vc: self, title: "", message: "Camera access required for capturing photos!", buttons: ["Cancel","Allow Camera"], isOkRed: false) { (ind) in
+            if ind == 1{
+                guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else {
+                    return
+                }
+                if UIApplication.shared.canOpenURL(settingsUrl) {
+                    UIApplication.shared.open(settingsUrl)
+                }
+            }
+        }
     }
 }
 

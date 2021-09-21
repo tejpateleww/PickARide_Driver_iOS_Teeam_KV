@@ -52,6 +52,7 @@ class MyRidesVC: BaseVC {
         
         self.tblMyRides.delegate = self
         self.tblMyRides.dataSource = self
+        self.tblMyRides.isHidden = true
         
         self.tblMyRideType.delegate = self
         self.tblMyRideType.dataSource = self

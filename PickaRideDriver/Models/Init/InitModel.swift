@@ -7,36 +7,42 @@
 
 import Foundation
 
-class InitResponseModel: Codable {
-    var status : Bool? = false, update: Int? = 0
-    var message: String?
-    let vehicleTypeList: [VehicleTypeListResponseModel]?
+class InitResponseModel : Codable {
+    
+    let appLinks : [InitResponseAppLink]?
+    let status : Bool?
     
     enum CodingKeys: String, CodingKey {
-        case message = "message"
+        case appLinks = "app_links"
         case status = "status"
-        case update = "update"
-        case vehicleTypeList = "vehicle_type_list"
     }
     
-    init(status: Bool, update: Int, message: String, vehicleTypeList: [VehicleTypeListResponseModel]) {
-        self.status = status
-        self.update = update
-        self.message = message
-        self.vehicleTypeList = vehicleTypeList
+    required init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        appLinks = try values.decodeIfPresent([InitResponseAppLink].self, forKey: .appLinks)
+        status = try values.decodeIfPresent(Bool.self, forKey: .status)
     }
+    
 }
 
-class VehicleTypeListResponseModel : Codable {
-    let vehicleModel : String?
+class InitResponseAppLink : Codable {
+    
+    let name : String?
+    let showName : String?
+    let url : String?
     
     enum CodingKeys: String, CodingKey {
-        case vehicleModel
+        case name = "name"
+        case showName = "show_name"
+        case url = "url"
     }
     
-    
-    init(vehicleModel: String) {
-        self.vehicleModel = vehicleModel
+    required init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        name = try values.decodeIfPresent(String.self, forKey: .name)
+        showName = try values.decodeIfPresent(String.self, forKey: .showName)
+        url = try values.decodeIfPresent(String.self, forKey: .url)
     }
     
 }
+

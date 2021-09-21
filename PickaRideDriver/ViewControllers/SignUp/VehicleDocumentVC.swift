@@ -8,6 +8,7 @@
 import UIKit
 import DropDown
 import EasyTipView
+import Photos
 
 struct VehicleDetails{
     var header : String?
@@ -275,7 +276,7 @@ class VehicleDocumentVC: BaseVC {
     func hideLoader(){
         let cell = self.tblPersonalDetails.cellForRow(at: self.selectedCellPath!) as! PersonalDocumentCell
         cell.activity.stopAnimating()
-        cell.btnUpload.isHidden = false
+//        cell.btnUpload.isHidden = false
         self.selectedCellPath = nil
     }
     
@@ -363,7 +364,8 @@ extension VehicleDocumentVC : UITableViewDelegate, UITableViewDataSource{
         Dropdown?.selectionAction = { (index, item) in
             if(index == 0){
                 self.imagePicked = cellIndex.row
-                self.UploadImage(index: cellIndex)
+                self.checkCamera(index: cellIndex)
+                //self.UploadImage(index: cellIndex)
             }else if(index == 1){
                 self.imagePicked = cellIndex.row
                 self.RemoveData()
@@ -407,6 +409,67 @@ extension VehicleDocumentVC : UIImagePickerControllerDelegate, UINavigationContr
             self.hideLoader()
         }
         dismiss(animated: true, completion: nil)
+    }
+    
+    func checkCamera(index : IndexPath) {
+        let authStatus = AVCaptureDevice.authorizationStatus(for: AVMediaType.video)
+        switch authStatus {
+        case .authorized: self.UploadImage(index: index)
+        case .denied: alertToEncourageCameraAccessInitially()
+        case .notDetermined: checkCameraAccess(index : index)
+        default: alertToEncourageCameraAccessInitially()
+        }
+    }
+    
+    func checkCameraAccess(index : IndexPath) {
+        switch AVCaptureDevice.authorizationStatus(for: .video) {
+        case .denied:
+            print("Denied, request permission from settings")
+            alertToEncourageCameraAccessInitially()
+        case .restricted:
+            alertToEncourageCameraAccessInitially()
+            print("Restricted, device owner must approve")
+        case .authorized:
+            AVCaptureDevice.requestAccess(for: .video) { success in
+                if success {
+                    DispatchQueue.main.async {
+                        self.UploadImage(index: index)
+                        print("Permission granted, proceed")
+                    }
+                    
+                } else {
+                    print("Permission denied")
+                }
+            }
+            print("Authorized, proceed")
+        case .notDetermined:
+            AVCaptureDevice.requestAccess(for: .video) { success in
+                if success {
+                    DispatchQueue.main.async {
+                        self.UploadImage(index: index)
+                        print("Permission granted, proceed")
+                    }
+                    
+                } else {
+                    print("Permission denied")
+                }
+            }
+        @unknown default:
+            print("Dafaukt casr < Image Picker class")
+        }
+    }
+    
+    func alertToEncourageCameraAccessInitially() {
+        Utilities.showAlertWithTitleFromVC(vc: self, title: "", message: "Camera access required for capturing photos!", buttons: ["Cancel","Allow Camera"], isOkRed: false) { (ind) in
+            if ind == 1{
+                guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else {
+                    return
+                }
+                if UIApplication.shared.canOpenURL(settingsUrl) {
+                    UIApplication.shared.open(settingsUrl)
+                }
+            }
+        }
     }
 }
 

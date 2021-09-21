@@ -42,7 +42,7 @@ class PopUpVC: UIViewController {
     func getCurrentShortDate() -> String {
         let todaysDate = Date()
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd/MM/yyyy"
+        dateFormatter.dateFormat = "yyyy-MM-dd"
         let DateInFormat = dateFormatter.string(from: todaysDate as Date)
         return DateInFormat
     }
@@ -82,10 +82,11 @@ class SettingForDatePicker: UITextField {
                     || action == #selector(UIResponderStandardEditActions.paste(_:))) ?
             false : super.canPerformAction(action, withSender: sender)
     }
+    
     override func didMoveToSuperview() {
         datePicker.datePickerMode = .date
         formatter.dateStyle = .short
-        formatter.dateFormat = "dd/MM/yyyy"
+        formatter.dateFormat = "yyyy-MM-dd"
         datePicker.minimumDate = Date()
         if #available(iOS 13.4, *) {
             datePicker.preferredDatePickerStyle = UIDatePickerStyle.wheels

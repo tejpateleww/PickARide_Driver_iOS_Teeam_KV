@@ -16,6 +16,7 @@ class RidesViewModel{
         self.myRidesVC?.isApiProcessing = true
         WebServiceSubClass.GetRideHistoryApi(Page: Page) { (status, apiMessage, response, error) in
             self.myRidesVC?.isApiProcessing = false
+            self.myRidesVC?.tblMyRides.isHidden = false
             if status{
                 if(response?.data?.count == 0){
                     if(Page == "1"){
@@ -44,6 +45,7 @@ class RidesViewModel{
         self.myRidesVC?.isApiProcessing = true
         WebServiceSubClass.GetUpcomingRideApi(Page: Page) { (status, apiMessage, response, error) in
             self.myRidesVC?.isApiProcessing = false
+            self.myRidesVC?.tblMyRides.isHidden = false
             if status{
                 if(response?.data?.count == 0){
                     if(Page == "1"){

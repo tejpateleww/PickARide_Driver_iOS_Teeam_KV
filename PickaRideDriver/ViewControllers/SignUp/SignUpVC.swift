@@ -166,11 +166,23 @@ class SignUpVC: BaseVC {
     }
     
     @IBAction func btnPrivicyPolicyTap(_ sender: UIButton) {
-        self.previewDocument(strURL: AppPrivacyPolicy)
+        var PrivacyPolicy = ""
+        if let PrivacyPolicyLink = SingletonClass.sharedInstance.AppInitModel?.appLinks?.filter({ $0.name == "privacy_policy"}) {
+            if PrivacyPolicyLink.count > 0 {
+                PrivacyPolicy = PrivacyPolicyLink[0].url ?? ""
+                self.previewDocument(strURL: PrivacyPolicy)
+            }
+        }
     }
     
     @IBAction func btnTermsAndConditionTap(_ sender: UIButton) {
-        self.previewDocument(strURL: AppTermAndConditions)
+        var TC = ""
+        if let TCLink = SingletonClass.sharedInstance.AppInitModel?.appLinks?.filter({ $0.name == "terms_and_condition"}) {
+            if TCLink.count > 0 {
+                TC = TCLink[0].url ?? ""
+                self.previewDocument(strURL: TC)
+            }
+        }
     }
     
     @IBAction func btnNextTap(_ sender: UIButton) {

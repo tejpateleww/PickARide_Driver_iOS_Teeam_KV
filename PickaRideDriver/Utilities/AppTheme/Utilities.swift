@@ -135,6 +135,7 @@ class Utilities:NSObject{
             vc.present(alertController, animated: true, completion: nil)
         }
     }
+
     
     static func displayAlert(_ title: String, message: String, completion:((_ index: Int) -> Void)?, otherTitles: String? ...) {
         
