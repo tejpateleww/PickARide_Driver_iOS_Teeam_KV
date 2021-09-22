@@ -25,6 +25,10 @@ class SingletonClass: NSObject
     var userCurrentLocation : CLLocationCoordinate2D?
     var CountryList = [CountryDetilsModel]()
     var DeviceType : String = "ios"
+    
+    var latitude : Double!
+    var longitude : Double!
+    
 //    var currentLat = Double()
 //    var currentLong = Double()
     

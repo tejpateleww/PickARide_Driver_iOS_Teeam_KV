@@ -198,6 +198,8 @@
 		889E0A0A26E643E200333AEA /* ManufacturerListDatum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889E0A0726E643E200333AEA /* ManufacturerListDatum.swift */; };
 		889E0A0B26E643E200333AEA /* ManufacturerListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889E0A0826E643E200333AEA /* ManufacturerListModel.swift */; };
 		889E0A0C26E643E200333AEA /* ManufacturerListVehicleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889E0A0926E643E200333AEA /* ManufacturerListVehicleModel.swift */; };
+		88BD4B5C26FB22BA0039F4CE /* ARCarMovement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BD4B5B26FB22BA0039F4CE /* ARCarMovement.swift */; };
+		88BD4B5E26FB4B9C0039F4CE /* Location.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 88BD4B5D26FB4B9C0039F4CE /* Location.gpx */; };
 		D41F99CBEDC0DD0DCC09EFAF /* Pods_PickaRideDriver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 346F3E876BF629DA2DD488C0 /* Pods_PickaRideDriver.framework */; };
 		E13924697974A4271CEFAD63 /* Pods_PickaRideDriverTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2365D99843CD5DA3E6579C86 /* Pods_PickaRideDriverTests.framework */; };
 /* End PBXBuildFile section */
@@ -421,6 +423,8 @@
 		889E0A0726E643E200333AEA /* ManufacturerListDatum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManufacturerListDatum.swift; sourceTree = "<group>"; };
 		889E0A0826E643E200333AEA /* ManufacturerListModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManufacturerListModel.swift; sourceTree = "<group>"; };
 		889E0A0926E643E200333AEA /* ManufacturerListVehicleModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManufacturerListVehicleModel.swift; sourceTree = "<group>"; };
+		88BD4B5B26FB22BA0039F4CE /* ARCarMovement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARCarMovement.swift; sourceTree = "<group>"; };
+		88BD4B5D26FB4B9C0039F4CE /* Location.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Location.gpx; sourceTree = "<group>"; };
 		93E1C17C15C20F6DE6ECFCD9 /* Pods-PickaRideDriver.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PickaRideDriver.debug.xcconfig"; path = "Target Support Files/Pods-PickaRideDriver/Pods-PickaRideDriver.debug.xcconfig"; sourceTree = "<group>"; };
 		95CA4A3D3E669B672AE3B1E6 /* Pods-PickaRideDriverTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PickaRideDriverTests.debug.xcconfig"; path = "Target Support Files/Pods-PickaRideDriverTests/Pods-PickaRideDriverTests.debug.xcconfig"; sourceTree = "<group>"; };
 		ADAA6BC735A10CDF1515D667 /* Pods-PickaRideDriver-PickaRideDriverUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PickaRideDriver-PickaRideDriverUITests.release.xcconfig"; path = "Target Support Files/Pods-PickaRideDriver-PickaRideDriverUITests/Pods-PickaRideDriver-PickaRideDriverUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -687,6 +691,7 @@
 		4F94F1172643D76500780413 /* PickaRideDriver */ = {
 			isa = PBXGroup;
 			children = (
+				88BD4B5D26FB4B9C0039F4CE /* Location.gpx */,
 				8867A71E26F1F43500049490 /* GoogleService-Info.plist */,
 				18C89EAD26A57F6C0083D5C3 /* PickaRideDriver.entitlements */,
 				4F94F1262643D76700780413 /* Info.plist */,
@@ -786,6 +791,7 @@
 		4F94F1992643DB7500780413 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				88BD4B5B26FB22BA0039F4CE /* ARCarMovement.swift */,
 				885DF0F326F35728008242AE /* No Data Found Cell */,
 				18720F5D2681BABD008EE191 /* LocationService.swift */,
 				4F94F1CD2643FEE500780413 /* AppInfo.swift */,
@@ -1390,6 +1396,7 @@
 				4F94F1722643DB5F00780413 /* navigationCommonView.xib in Resources */,
 				4F94F1C52643E72800780413 /* Ubuntu-Light.ttf in Resources */,
 				885DF0F726F35742008242AE /* NoDataTableViewCell.xib in Resources */,
+				88BD4B5E26FB4B9C0039F4CE /* Location.gpx in Resources */,
 				8867A71F26F1F43500049490 /* GoogleService-Info.plist in Resources */,
 				4F94F1222643D76700780413 /* Assets.xcassets in Resources */,
 				547D83D8265A502A00887C9C /* Login.storyboard in Resources */,
@@ -1574,6 +1581,7 @@
 				885DF0EC26F31424008242AE /* PastBookingResVehicleType.swift in Sources */,
 				883C9E6926E8D94E00FA1778 /* updatePersonalDocsReqModel.swift in Sources */,
 				4F94F17A2643DB5F00780413 /* UIViewController+Extension.swift in Sources */,
+				88BD4B5C26FB22BA0039F4CE /* ARCarMovement.swift in Sources */,
 				881AF8B126EA274700BC3C2D /* HomeViewModel.swift in Sources */,
 				187197FC26848E3200B4DAAF /* PopUpVC.swift in Sources */,
 				843F8072264A706400BCBDB8 /* BasicTransitionAnimator.swift in Sources */,

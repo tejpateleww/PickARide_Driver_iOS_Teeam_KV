@@ -155,7 +155,7 @@ class IncomingRideRequestView: UIView {
             self.counter = 15
             self.timer.invalidate()
             if(SocketIOManager.shared.socket.status == .connected){
-                let BookingId = Int(self.newBookingResModel?.id ?? "0") ?? 0
+                let BookingId = self.newBookingResModel?.id ?? "0"
                 self.emitSocket_forwardBookingRequestToAnotherDriver(bookingId: BookingId)
             }
             self.delegate?.onCancelRideRequest()
@@ -181,7 +181,7 @@ class IncomingRideRequestView: UIView {
         self.counter = 15
         self.timer.invalidate()
         if(SocketIOManager.shared.socket.status == .connected){
-            let BookingId = Int(self.newBookingResModel?.id ?? "0") ?? 0
+            let BookingId = self.newBookingResModel?.id ?? "0"
             self.emitSocket_forwardBookingRequestToAnotherDriver(bookingId: BookingId)
         }
         self.delegate?.onCancelRideRequest()

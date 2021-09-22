@@ -29,6 +29,7 @@ enum UserDefaultsKey : String {
     case DeviceToken = "DeviceToken"
     case countryList = "countryList"
     case selLanguage = "language"
+    case dutyStatus  = "dutyStatus"
     
 }
 

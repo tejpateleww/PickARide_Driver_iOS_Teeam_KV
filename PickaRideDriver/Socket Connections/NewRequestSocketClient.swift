@@ -85,7 +85,7 @@ extension IncomingRideRequestView{
     // MARK:= SOCKET EMIT METHODS =
     //-------------------------------------
     
-    func emitSocket_forwardBookingRequestToAnotherDriver(bookingId : Int){
+    func emitSocket_forwardBookingRequestToAnotherDriver(bookingId : String){
         let param = ["driver_id" : SingletonClass.sharedInstance.UserId ,"booking_id" : bookingId] as [String : Any]
         print(param)
         SocketIOManager.shared.socketEmit(for: SocketKeys.forwardBookingRequestToAnotherDriver.rawValue, with: param)

@@ -131,10 +131,11 @@ enum SocketKeys: String {
     
     case updateDriverLocation                     = "update_driver_location"
     case forwardBookingRequest                    = "forward_booking_request"
-    case forwardBookingRequestToAnotherDriver   = "forward_booking_request_to_another_driver"
+    case forwardBookingRequestToAnotherDriver    = "forward_booking_request_to_another_driver"
     case acceptBookingRequest                     = "accept_booking_request"
     case verifyCustomer                           = "verify_customer"
     case arrivedAtPickupLocation                  = "arrived_at_pickup_location"
     case startTrip                                = "start_trip"
+    case liveTracking                             = "live_tracking"
     
 }

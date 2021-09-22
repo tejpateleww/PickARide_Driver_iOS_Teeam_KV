@@ -56,7 +56,6 @@ extension HomeVC{
         print("\n\n", #function, "\n\n")
         onSocketConnectUser()
         onSocket_ReceiveLocACK()
-//        onSocket_ReceiveOTP()
         onSocket_ForwardBookingRequest()
         onSocket_StratTrip()
     }
@@ -101,16 +100,6 @@ extension HomeVC{
         }
     }
     
-//    func onSocket_ReceiveOTP(){
-//        SocketIOManager.shared.socketCall(for: SocketKeys.verifyCustomer.rawValue) { (json) in
-//            let dict = json[0]
-//            let otp = dict["otp"]
-//            print(otp)
-//            Toast.show(title: UrlConstant.Success, message: otp.stringValue, state: .success)
-//            self.strArrivedOtp = otp.stringValue
-//        }
-//    }
-    
     func onSocket_StratTrip(){
         SocketIOManager.shared.socketCall(for: SocketKeys.startTrip.rawValue) { (json) in
             let dict = json[0]
@@ -138,33 +127,35 @@ extension HomeVC{
     
     //MARK:- ===== Socket Emit update location =======
     func emitSocket_UpdateLocation(latitute:Double,long:Double){
-        let param = ["driver_id" : SingletonClass.sharedInstance.UserId ,"lat" : latitute ,"lng" : long] as [String : Any]
+        let param = ["driver_id" : SingletonClass.sharedInstance.UserId ,
+                     "lat" : latitute ,
+                     "lng" : long] as [String : Any]
         print(param)
         SocketIOManager.shared.socketEmit(for: SocketKeys.updateDriverLocation.rawValue, with: param)
     }
     
     func emitSocket_forwardBookingRequestToAnotherDriver(bookingId : Int){
-        let param = ["driver_id" : SingletonClass.sharedInstance.UserId ,"booking_id" : bookingId] as [String : Any]
+        let param = ["driver_id" : SingletonClass.sharedInstance.UserId ,
+                     "booking_id" : bookingId] as [String : Any]
         print(param)
         SocketIOManager.shared.socketEmit(for: SocketKeys.forwardBookingRequestToAnotherDriver.rawValue, with: param)
     }
-    
-//    func emitSocket_verifyCustomer(bookingId : String,customerId : String){
-//        let param = ["driver_id" : SingletonClass.sharedInstance.UserId ,"booking_id" : bookingId,"customer_id" : customerId ] as [String : Any]
-//        print(param)
-//        SocketIOManager.shared.socketEmit(for: SocketKeys.verifyCustomer.rawValue, with: param)
-//    }
-    
-//    func emitSocket_arrivedAtPickupLocation(bookingId : String,otp : String){
-//        let param = ["booking_id" : bookingId,"otp" : otp ] as [String : Any]
-//        print(param)
-//        SocketIOManager.shared.socketEmit(for: SocketKeys.arrivedAtPickupLocation.rawValue, with: param)
-//    }
     
     func emitSocket_startTrip(bookingId : String){
         let param = ["booking_id" : bookingId] as [String : Any]
         print(param)
         SocketIOManager.shared.socketEmit(for: SocketKeys.startTrip.rawValue, with: param)
+    }
+    
+    func emitSocket_liveTrackingp(CustId : String, lat : Double, lng : Double, pickup_lat : Double, pickup_lng : Double){
+        let param = ["driver_id" : SingletonClass.sharedInstance.UserId ,
+                     "customer_id" : CustId,
+                     "lat" : lat,
+                     "lng" : lng,
+                     "pickup_lat" : pickup_lat,
+                     "pickup_lng" : pickup_lng] as [String : Any]
+        print(param)
+        SocketIOManager.shared.socketEmit(for: SocketKeys.liveTracking.rawValue, with: param)
     }
 
 }

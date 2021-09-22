@@ -7,6 +7,7 @@
 
 import UIKit
 import SDWebImage
+import SafariServices
 
 class SettingVC: BaseVC, UITextFieldDelegate {
     
@@ -83,6 +84,22 @@ class SettingVC: BaseVC, UITextFieldDelegate {
         self.lblUserPhone.text = "\(Code) \(SingletonClass.sharedInstance.UserProfilData?.mobileNo ?? "")"
     }
     
+    func openPP(){
+        var PrivacyPolicy = ""
+        if let PrivacyPolicyLink = SingletonClass.sharedInstance.AppInitModel?.appLinks?.filter({ $0.name == "privacy_policy"}) {
+            if PrivacyPolicyLink.count > 0 {
+                PrivacyPolicy = PrivacyPolicyLink[0].url ?? ""
+                self.previewDocument(strURL: PrivacyPolicy)
+            }
+        }
+    }
+    
+    func previewDocument(strURL : String){
+        guard let url = URL(string: strURL) else {return}
+        let svc = SFSafariViewController(url: url)
+        present(svc, animated: true, completion: nil)
+    }
+    
     func setupTextfields(textfield : UITextField) {
         let button = UIButton(type: .custom)
         button.isSelected = true
@@ -147,7 +164,9 @@ extension SettingVC:UITableViewDelegate,UITableViewDataSource{
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
+        if(arrSetting[indexPath.row] == "Privacy Policy"){
+            self.openPP()
+        }
     }
 
 }

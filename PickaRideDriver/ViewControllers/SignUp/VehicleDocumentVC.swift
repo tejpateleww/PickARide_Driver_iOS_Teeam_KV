@@ -37,6 +37,7 @@ class VehicleDocumentVC: BaseVC {
     
     var preferences = EasyTipView.Preferences()
     var tipView: EasyTipView?
+    var timerHidePop : Timer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,6 +51,19 @@ class VehicleDocumentVC: BaseVC {
         }else{
             self.setNavigationBarInViewController(controller: self, naviColor: colors.appColor.value, naviTitle: "Vehicle Document", leftImage: NavItemsLeft.back.value, rightImages: [NavItemsRight.none.value], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
             self.vehicleDocuments()
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        if let tipView = self.tipView {
+            tipView.dismiss(withCompletion: {
+                self.tipView = nil
+            })
+        }
+        
+        if(self.timerHidePop != nil){
+            self.timerHidePop?.invalidate()
+            self.timerHidePop = nil
         }
     }
     
@@ -280,6 +294,20 @@ class VehicleDocumentVC: BaseVC {
         self.selectedCellPath = nil
     }
     
+    func startTimer() {
+        if(self.timerHidePop == nil){
+            self.timerHidePop = Timer.scheduledTimer(withTimeInterval: 5, repeats: true, block: { (timer) in
+                if let tipView = self.tipView {
+                    tipView.dismiss(withCompletion: {
+                        self.tipView = nil
+                        self.timerHidePop?.invalidate()
+                        self.timerHidePop = nil
+                    })
+                }
+            })
+        }
+    }
+    
     //MARK:- IBActions
     @IBAction func btnNextTap(_ sender: Any) {
         
@@ -346,6 +374,7 @@ extension VehicleDocumentVC : UITableViewDelegate, UITableViewDataSource{
         }
         cell.btnInfoClouser = {
             self.showPopTip(index: indexPath, sender: cell.btnInfo)
+            self.startTimer()
         }
         
         cell.lblHeading.text = self.ArrVehicleDetails[indexPath.row].header

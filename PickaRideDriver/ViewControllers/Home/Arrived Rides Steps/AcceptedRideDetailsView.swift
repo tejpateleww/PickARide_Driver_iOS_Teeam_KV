@@ -19,6 +19,7 @@ protocol AcceptedRideDetailsViewDelgate {
     func onCallRideRequest()
     func onNavigateAction()
     func onTripCompAction()
+    func onTripTrackingStarted()
     func onVerifyOtpTap(StrCustOtp:String) -> Bool
 }
 
@@ -58,6 +59,7 @@ class AcceptedRideDetailsView: UIView {
     var isCancelFromArrived = false
     var isfrom = status.arrived
     var currentBookingModel : CurrentBookingDatum?
+    var timerTracking : Timer?
     
     var isExpandCategory:  Bool  = false {
         didSet {
@@ -203,6 +205,25 @@ class AcceptedRideDetailsView: UIView {
         self.ViewTripCode.isHidden = true
         self.viewContactOptions.isHidden = true
         self.btnNavigate.isHidden = false
+        
+        self.startTimer()
+    }
+    
+    func startTimer() {
+        if(self.timerTracking == nil){
+            self.timerTracking = Timer.scheduledTimer(withTimeInterval: 7, repeats: true, block: { (timer) in
+                print("Track Timer Start ......")
+                self.delegate?.onTripTrackingStarted()
+            })
+        }
+    }
+    
+    func endTimer(){
+        if(self.timerTracking != nil){
+            self.timerTracking?.invalidate()
+            self.timerTracking = nil
+            print("Track Timer End ......")
+        }
     }
     
     //MARK:- Button action methods
@@ -213,8 +234,8 @@ class AcceptedRideDetailsView: UIView {
     @IBAction func btnSubmitButtonClickAction(_ sender: Any) {
         
         if  self.isCompleteClicked{
+            self.endTimer()
             self.delegate?.onTripCompAction()
-            
         }else if isComplete{
             let status = delegate?.onVerifyOtpTap(StrCustOtp: self.txtfieldTripCode.text ?? "")
             if(status ?? false){

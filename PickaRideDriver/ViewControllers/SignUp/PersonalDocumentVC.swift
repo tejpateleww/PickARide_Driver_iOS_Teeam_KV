@@ -34,6 +34,7 @@ class PersonalDocumentVC: BaseVC {
     var strImageURL = ""
     var selectedCellPath: IndexPath?
     var singleDocUploadModel = SingleDocUploadModel()
+    var timerHidePop : Timer?
     
     var preferences = EasyTipView.Preferences()
     var tipView: EasyTipView?
@@ -51,6 +52,19 @@ class PersonalDocumentVC: BaseVC {
         }else{
             self.setNavigationBarInViewController(controller: self, naviColor: colors.appColor.value, naviTitle: "Personal Document", leftImage: NavItemsLeft.back.value, rightImages: [NavItemsRight.none.value], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
             self.personalDetails()
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        if let tipView = self.tipView {
+            tipView.dismiss(withCompletion: {
+                self.tipView = nil
+            })
+        }
+        
+        if(self.timerHidePop != nil){
+            self.timerHidePop?.invalidate()
+            self.timerHidePop = nil
         }
     }
     
@@ -341,6 +355,20 @@ class PersonalDocumentVC: BaseVC {
         self.selectedCellPath = nil
     }
     
+    func startTimer() {
+        if(self.timerHidePop == nil){
+            self.timerHidePop = Timer.scheduledTimer(withTimeInterval: 5, repeats: true, block: { (timer) in
+                if let tipView = self.tipView {
+                    tipView.dismiss(withCompletion: {
+                        self.tipView = nil
+                        self.timerHidePop?.invalidate()
+                        self.timerHidePop = nil
+                    })
+                }
+            })
+        }
+    }
+    
     
     //MARK:- IBActions
     @IBAction func btnNextTap(_ sender: Any) {
@@ -428,6 +456,7 @@ extension PersonalDocumentVC : UITableViewDelegate, UITableViewDataSource{
         }
         cell.btnInfoClouser = {
             self.showPopTip(index: indexPath, sender: cell.btnInfo)
+            self.startTimer()
         }
         
         cell.lblHeading.text = self.ArrPersonaldetails[indexPath.row].header

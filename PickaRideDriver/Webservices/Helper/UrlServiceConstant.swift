@@ -21,6 +21,7 @@ class UrlConstant{
     static let Status = "status"
     static let SessionExpired = "UrlConstant_SessionExpired".Localized()
     static let SomethingWentWrong = "UrlConstant_SomethingWentWrong".Localized()
+    static let SomethingWentWrongSocket = "UrlConstant_SomethingWentWrong_Socket".Localized()
     static let NoInternetConnection =  "UrlConstant_NoInternetConnection".Localized()
     static let RequestTimeOut = "UrlConstant_RequestTimeOut".Localized()
     static let LocationRequired = "UrlConstant_LocationRequiredMessage".Localized()

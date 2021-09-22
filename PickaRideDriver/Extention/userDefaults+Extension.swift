@@ -47,6 +47,7 @@ extension UserDefaults{
         SingletonClass.sharedInstance.UserProfilData = objResponse
         SingletonClass.sharedInstance.UserId = objResponse?.id ?? ""
         SingletonClass.sharedInstance.Api_Key = objResponse?.xApiKey ?? ""
+        SingletonClass.sharedInstance.UserProfilData?.duty = user_defaults.value(forKey: UserDefaultsKey.dutyStatus.rawValue) as? String ?? "0"
         return objResponse ?? nil
     }
 

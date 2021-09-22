@@ -31,11 +31,15 @@ class HomeVC: BaseVC {
     var PickLocLong:String = "0.0"
     var CurrentLocMarker: GMSMarker?
     var DropLocMarker: GMSMarker?
+    var DriverLocMarker: GMSMarker?
     var arrMarkers: [GMSMarker] = []
     var homeViewModel = HomeViewModel()
     var timer : Timer?
     var newBookingResModel : NewBookingResBookingInfo?
     var currentBookingModel : CurrentBookingDatum?
+    
+    var moveMent: ARCarMovement?
+    var oldCoordinate: CLLocationCoordinate2D!
     
     //MARK:- Life cycle methods
     override func viewWillAppear(_ animated: Bool) {
@@ -64,6 +68,9 @@ class HomeVC: BaseVC {
     //MARK:- Custom methods
     func PrepareView(){
         self.checkMapPermission()
+        
+        self.moveMent = ARCarMovement()
+        self.moveMent?.delegate = self
     }
     
     func checkMapPermission(){
@@ -117,7 +124,7 @@ class HomeVC: BaseVC {
                     self.emitSocket_UpdateLocation(latitute: appDel.locationManager.currentLocation?.coordinate.latitude ?? 0.0, long: appDel.locationManager.currentLocation?.coordinate.longitude ?? 0.0)
                 }else{
                     print("socket not connected")
-                    Utilities.displayAlert(UrlConstant.SomethingWentWrong)
+                    Utilities.displayAlert(UrlConstant.SomethingWentWrongSocket)
                 }
             })
         }
@@ -167,8 +174,12 @@ class HomeVC: BaseVC {
     func changeDutyStatusBasedOnCurrentBooking(){
         if(self.strDutyStatusfromCurrentBooking == "0" || self.strDutyStatusfromCurrentBooking == "offline"){
             self.lblOffline.text = "You're offline"
+            user_defaults.set("0", forKey: UserDefaultsKey.dutyStatus.rawValue)
+            SingletonClass.sharedInstance.UserProfilData?.duty = "0"
         }else{
             self.lblOffline.text = "You're online"
+            user_defaults.set("1", forKey: UserDefaultsKey.DeviceToken.rawValue)
+            SingletonClass.sharedInstance.UserProfilData?.duty = "1"
         }
         self.btnOn.isSelected = (self.lblOffline.text == "You're online") ? true : false
     }
@@ -177,8 +188,8 @@ class HomeVC: BaseVC {
     func setupPickupRoute(){
         self.vwMap.clear()
         
-        self.CurrentLocLat = String(appDel.locationManager.currentLocation?.coordinate.latitude ?? 0.0)
-        self.CurrentLocLong = String(appDel.locationManager.currentLocation?.coordinate.longitude ?? 0.0)
+        self.CurrentLocLat = (self.currentBookingModel?.status == "traveling") ? self.currentBookingModel?.pickupLat ?? "0.0" : String(appDel.locationManager.currentLocation?.coordinate.latitude ?? 0.0)
+        self.CurrentLocLong = (self.currentBookingModel?.status == "traveling") ? self.currentBookingModel?.pickupLng ?? "0.0" : String(appDel.locationManager.currentLocation?.coordinate.longitude ?? 0.0)
         self.PickLocLat =  (self.currentBookingModel?.status == "traveling") ? self.currentBookingModel?.dropoffLat ?? "0.0" : self.currentBookingModel?.pickupLat ?? "0.0"
         self.PickLocLong = (self.currentBookingModel?.status == "traveling") ? self.currentBookingModel?.dropoffLng ?? "0.0" : self.currentBookingModel?.pickupLng ?? "0.0"
         
@@ -217,6 +228,19 @@ class HomeVC: BaseVC {
         self.CurrentLocMarker?.iconView = markerView2
         self.CurrentLocMarker?.map = self.vwMap
         self.vwMap.selectedMarker = self.CurrentLocMarker
+        
+        //Driver Location pin setup
+//        self.DriverLocMarker = GMSMarker()
+//        self.DriverLocMarker?.position = CLLocationCoordinate2D(latitude: Double(currentlat) ?? 0.0, longitude: Double(currentlong) ?? 0.0)
+//        self.DriverLocMarker?.snippet = "Driver Location"
+//
+//        let markerView3 = MarkerPinView()
+//        markerView3.markerImage = UIImage(named: "car")
+//        markerView3.layoutSubviews()
+//        self.DriverLocMarker?.iconView = markerView3
+//        if(self.currentBookingModel?.status == "traveling"){
+//            self.DriverLocMarker?.map = self.vwMap
+//        }
         
         //For Displaying both markers in screen centered
         self.arrMarkers.append(self.CurrentLocMarker!)
@@ -282,6 +306,25 @@ class HomeVC: BaseVC {
         polyline.strokeWidth = 3.0
         polyline.strokeColor = UIColor.black
         polyline.map = self.vwMap
+    }
+    
+    func setupTrackingMarker(){
+        SingletonClass.sharedInstance.latitude = appDel.locationManager.currentLocation?.coordinate.latitude ?? 0.0
+        SingletonClass.sharedInstance.longitude = appDel.locationManager.currentLocation?.coordinate.longitude ?? 0.0
+        if(self.oldCoordinate == nil){
+            self.oldCoordinate = CLLocationCoordinate2DMake(SingletonClass.sharedInstance.latitude, SingletonClass.sharedInstance.longitude)
+        }
+        if(self.DriverLocMarker == nil){
+            self.DriverLocMarker = GMSMarker(position: oldCoordinate)
+            self.DriverLocMarker?.icon = UIImage(named: "car")
+            self.DriverLocMarker?.map = self.vwMap
+        }
+        let newCoordinate: CLLocationCoordinate2D = CLLocationCoordinate2DMake(CLLocationDegrees(SingletonClass.sharedInstance.latitude), CLLocationDegrees(SingletonClass.sharedInstance.longitude))
+        self.moveMent?.arCarMovement(marker: self.DriverLocMarker!, oldCoordinate: oldCoordinate, newCoordinate: newCoordinate, mapView: self.vwMap, bearing: Float(0))
+        oldCoordinate = newCoordinate
+        
+        let camera = GMSCameraPosition.camera(withLatitude: newCoordinate.latitude, longitude: newCoordinate.longitude, zoom: 17)
+        self.vwMap.camera = camera
     }
     
     //MARK: - open GoogleMap Path Methods
@@ -465,6 +508,7 @@ extension HomeVC{
 extension HomeVC : HomeNavigationBarDelegate{
     func onClosePopup() {
         self.setNavigationBarInViewController(controller: self, naviColor: colors.appColor.value, naviTitle: NavTitles.none.value, leftImage: NavItemsLeft.menu.value, rightImages: [NavItemsRight.sos.value], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
+        self.changeDutyStatus()
     }
 }
 
@@ -494,6 +538,18 @@ extension HomeVC : IncomingRideRequestViewDelegate{
 
 //MARK:- AcceptedRideDetailsViewDelgate
 extension HomeVC : AcceptedRideDetailsViewDelgate{
+    func onTripTrackingStarted() {
+        print("Called..")
+        if  SocketIOManager.shared.socket.status == .connected {
+            self.emitSocket_liveTrackingp(CustId: self.currentBookingModel?.customerInfo?.id ?? "",
+                                          lat: Double(self.currentBookingModel?.dropoffLat ?? "0.0") ?? 0.0,
+                                          lng: Double(self.currentBookingModel?.dropoffLng ?? "0.0") ?? 0.0,
+                                          pickup_lat: Double(self.currentBookingModel?.pickupLat ?? "0.0") ?? 0.0,
+                                          pickup_lng: Double(self.currentBookingModel?.pickupLng ?? "0.0") ?? 0.0)
+        }
+        
+//        self.setupTrackingMarker()
+    }
     
     func onArrivedUserLocation() {
         self.verifyCustomerAPI()
@@ -572,3 +628,15 @@ extension HomeVC : CancelTripReasonDelgate{
         self.callCancelBookingAPI(strReason: strReason)
     }
 }
+
+//MARK:- ARCarMovementDelegate
+extension HomeVC : ARCarMovementDelegate{
+    func arCarMovementMoved(_ marker: GMSMarker) {
+        
+        self.DriverLocMarker = nil
+        self.DriverLocMarker = marker
+        self.DriverLocMarker?.map = self.vwMap
+    }
+    
+}
+
