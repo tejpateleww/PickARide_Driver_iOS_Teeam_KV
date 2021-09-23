@@ -8,13 +8,7 @@
 import UIKit
 import UIView_Shimmer
 
-class MyRideCell: UITableViewCell{ //ShimmeringViewProtocol 
-
-//    @IBOutlet weak var lblMyrides: myRidesLabel!
-//    @IBOutlet weak var lblRideName: myRidesLabel!
-//    @IBOutlet weak var lblAddress: myRidesLabel!
-//    @IBOutlet weak var lblPrice: myRidesLabel!
-//    @IBOutlet weak var lblAmount: myRidesLabel!
+class MyRideCell: UITableViewCell{
     
     @IBOutlet weak var lblDate: themeLabel!
     @IBOutlet weak var lblAddress: themeLabel!
@@ -23,18 +17,14 @@ class MyRideCell: UITableViewCell{ //ShimmeringViewProtocol
     @IBOutlet weak var imgMap: UIImageView!
     @IBOutlet weak var impPin: UIImageView!
     @IBOutlet weak var lblPrice: themeLabel!
+    @IBOutlet weak var btnAccept: themeButton!
+    @IBOutlet weak var btnReject: CancelButton!
+    @IBOutlet weak var stackButtons: UIStackView!
+    @IBOutlet weak var stackButtonsHeight: NSLayoutConstraint!
+    @IBOutlet weak var imgStatus: UIImageView!
     
-//    var shimmeringAnimatedItems: [UIView] {
-//        [
-//            lblDate,
-//            lblAddress,
-//            lblAmount,
-//            lblRideName,
-//            lblPrice,
-//            impPin,
-//            imgMap
-//        ]
-//    }
+    var AcceptTapped : (()->()) = { }
+    var RejectTapped : (()->()) = { }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -46,5 +36,13 @@ class MyRideCell: UITableViewCell{ //ShimmeringViewProtocol
 
         // Configure the view for the selected state
     }
-
+    
+    @IBAction func btnAcceptAction(_ sender: Any) {
+        self.AcceptTapped()
+    }
+    
+    @IBAction func btnRejectAction(_ sender: Any) {
+        self.RejectTapped()
+    }
+    
 }

@@ -40,6 +40,11 @@ class HomeVC: BaseVC {
     
     var moveMent: ARCarMovement?
     var oldCoordinate: CLLocationCoordinate2D!
+    var path = GMSPath()
+    var polyline = GMSPolyline()
+    
+    var index = 0
+    var timerMap : Timer?
     
     //MARK:- Life cycle methods
     override func viewWillAppear(_ animated: Bool) {
@@ -137,6 +142,7 @@ class HomeVC: BaseVC {
                 self.handleRideFlow(state: RideState.RequestAccepted)
                 self.btnOn.isHidden = true
                 self.setupPickupRoute()
+                self.setupTrackingMarker()
             }else if(currentStatus == "traveling"){
                 self.handleRideFlow(state: RideState.StartRide)
                 self.btnOn.isHidden = true
@@ -301,11 +307,11 @@ class HomeVC: BaseVC {
     }
     
     func drawPath(from polyStr: String){
-        let path = GMSPath(fromEncodedPath: polyStr)
-        let polyline = GMSPolyline(path: path)
-        polyline.strokeWidth = 3.0
-        polyline.strokeColor = UIColor.black
-        polyline.map = self.vwMap
+        self.path = GMSPath(fromEncodedPath: polyStr)!
+        self.polyline = GMSPolyline(path: path)
+        self.polyline.strokeWidth = 3.0
+        self.polyline.strokeColor = UIColor.black
+        self.polyline.map = self.vwMap
     }
     
     func setupTrackingMarker(){
@@ -324,7 +330,59 @@ class HomeVC: BaseVC {
         oldCoordinate = newCoordinate
         
         let camera = GMSCameraPosition.camera(withLatitude: newCoordinate.latitude, longitude: newCoordinate.longitude, zoom: 17)
-        self.vwMap.camera = camera
+        self.vwMap.animate(to: camera)
+        self.updateTravelledPath(currentLoc: newCoordinate)
+        
+    }
+    
+    func updateTravelledPath(currentLoc: CLLocationCoordinate2D){
+        var index = 0
+        for i in 0..<self.path.count(){
+            let pathLat = Double(self.path.coordinate(at: i).latitude).rounded(toPlaces: 3)
+            let pathLong = Double(self.path.coordinate(at: i).longitude).rounded(toPlaces: 3)
+
+            let currentLat = Double(currentLoc.latitude).rounded(toPlaces: 3)
+            let currentLong = Double(currentLoc.longitude).rounded(toPlaces: 3)
+
+            if currentLat == pathLat && currentLong == pathLong{
+                index = Int(i)
+                break
+            }
+        }
+
+       //Creating new path from the current location to the destination
+        let newPath = GMSMutablePath()
+        for i in index..<Int(self.path.count()){
+            newPath.add(self.path.coordinate(at: UInt(i)))
+            //print("Lat : \((self.path.coordinate(at: UInt(i)).latitude)) Long : \((self.path.coordinate(at: UInt(i)).longitude)) ")
+        }
+        self.path = newPath
+        self.polyline.map = nil
+        self.polyline = GMSPolyline(path: self.path)
+        self.polyline.strokeColor = UIColor.black
+        self.polyline.strokeWidth = 3.0
+        self.polyline.map = self.vwMap
+    }
+    
+    
+    
+    @objc func timerTriggered() {
+
+        if self.index < self.path.count() {
+
+            CATransaction.begin()
+            CATransaction.setAnimationDuration(1.9)
+            self.DriverLocMarker!.position = self.path.coordinate(at:UInt(index))
+            CATransaction.commit()
+            self.index += 1
+
+        } else {
+
+            timerMap?.invalidate()
+            timerMap = nil
+
+        }
+
     }
     
     //MARK: - open GoogleMap Path Methods
@@ -449,7 +507,7 @@ class HomeVC: BaseVC {
     
     @IBAction func btnReCenterAction(_ sender: Any) {
         let camera = GMSCameraPosition.camera(withLatitude: Double(self.CurrentLocLat) ?? 0.0, longitude:  Double(self.CurrentLocLong) ?? 0.0, zoom: 13.8)
-        self.vwMap.camera = camera
+        self.vwMap.animate(to: camera)
     }
     
 }
@@ -548,7 +606,7 @@ extension HomeVC : AcceptedRideDetailsViewDelgate{
                                           pickup_lng: Double(self.currentBookingModel?.pickupLng ?? "0.0") ?? 0.0)
         }
         
-//        self.setupTrackingMarker()
+        self.setupTrackingMarker()
     }
     
     func onArrivedUserLocation() {

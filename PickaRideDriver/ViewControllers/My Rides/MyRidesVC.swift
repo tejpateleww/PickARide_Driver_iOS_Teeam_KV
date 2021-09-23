@@ -27,15 +27,7 @@ class MyRidesVC: BaseVC {
     var selectedMyRideState = 1
     var ridesViewModel = RidesViewModel()
     
-//    private var isLoading = true {
-//        didSet {
-//            self.tblMyRides.isUserInteractionEnabled = !isLoading
-//            self.tblMyRides.reloadData()
-//        }
-//    }
-    
     override func viewWillAppear(_ animated: Bool) {
-//        self.isLoading = true
     }
     
     //MARK: -View Life Cycle Methods
@@ -122,16 +114,43 @@ extension MyRidesVC : UITableViewDelegate,UITableViewDataSource {
             if self.arrRides.count != 0 {
                 let cell:MyRideCell = self.tblMyRides.dequeueReusableCell(withIdentifier: MyRideCell.reuseIdentifier, for: indexPath)as! MyRideCell
                 let dict = self.arrRides[indexPath.row]
-                cell.lblAddress.text = dict.bookingInfo?.pickupLocation ?? ""
-                cell.lblRideName.text = dict.bookingInfo?.vehicleName ?? ""
-                cell.lblAmount.text = "$\(dict.bookingInfo?.driverAmount ?? "0")"
+                let BookingType = dict.bookingInfo?.bookingType ?? "" //book_later
+                let BookingStatus = dict.bookingInfo?.status ?? "" //pending
                 
-                let timestamp: TimeInterval =  Double(dict.bookingInfo?.acceptTime ?? "") ?? 0.0
+                let timestamp: TimeInterval = (self.selectedMyRideState == 1) ? Double(dict.bookingInfo?.acceptTime ?? "") ?? 0.0 : (BookingType == "book_later" && BookingStatus == "pending") ?  Double(dict.bookingInfo?.pickupDateTime ?? "") ?? 0.0 :  Double(dict.bookingInfo?.acceptTime ?? "") ?? 0.0
                 let date = Date(timeIntervalSince1970: timestamp)
                 let formatedDate = date.timeAgoSinceDate(isForNotification: false)
                 cell.lblDate.text = formatedDate
                 
+                if self.selectedMyRideState == 1 {
+                    cell.stackButtons.isHidden = true
+                    cell.stackButtonsHeight.constant = 0
+                    cell.imgStatus.image = UIImage(named: "Past")
+                }else{
+                    if(BookingType == "book_later" && BookingStatus == "pending"){
+                        cell.stackButtons.isHidden = false
+                        cell.stackButtonsHeight.constant = 40
+                        cell.imgStatus.image = UIImage(named: "Pending")
+                    }else{
+                        cell.stackButtons.isHidden = true
+                        cell.stackButtonsHeight.constant = 0
+                        cell.imgStatus.image = UIImage(named: "OnGoing")
+                    }
+                }
+                
+                cell.lblAddress.text = dict.bookingInfo?.pickupLocation ?? ""
+                cell.lblRideName.text = dict.bookingInfo?.vehicleName ?? ""
+                cell.lblAmount.text = "$\(dict.bookingInfo?.driverAmount ?? "0")"
+                
+                cell.AcceptTapped = {
+                    print("Accept called....")
+                }
+                cell.RejectTapped = {
+                    print("Reject called....")
+                }
+                
                 return cell
+                
             } else {
                 let NoDatacell = self.tblMyRides.dequeueReusableCell(withIdentifier: "NoDataTableViewCell", for: indexPath) as! NoDataTableViewCell
                 return NoDatacell
@@ -164,8 +183,6 @@ extension MyRidesVC : UITableViewDelegate,UITableViewDataSource {
                 vc.PastBookingData = arrRides[indexPath.row]
                 self.navigationController?.pushViewController(vc, animated: true)
             }else{
-                let vc : RideDetailsVC = RideDetailsVC.instantiate(fromAppStoryboard: .Main)
-                self.navigationController?.pushViewController(vc, animated: true)
             }
             break
             
@@ -190,20 +207,6 @@ extension MyRidesVC : UITableViewDelegate,UITableViewDataSource {
         }
     }
     
-//    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-//        if #available(iOS 13.0, *) {
-//            cell.setTemplateWithSubviews(isLoading, viewBackgroundColor: .systemBackground)
-//        } else {
-//            cell.setTemplateWithSubviews(isLoading, viewBackgroundColor: .lightGray.withAlphaComponent(0.5))
-//        }
-//    }
-//    
-//    func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-//            self.isLoading = false
-//        }
-//    }
-    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         switch tableView {
@@ -219,7 +222,7 @@ extension MyRidesVC : UITableViewDelegate,UITableViewDataSource {
             break
         }
         return UITableView.automaticDimension
- 
+        
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {

@@ -51,7 +51,7 @@ extension Date {
         let calendar = NSCalendar.current
         
         let dateFormatter = DateFormatter()
-        dateFormatter.timeZone = TimeZone.current
+        dateFormatter.timeZone = TimeZone(identifier: "Europe/London") //TimeZone.current
         
         if calendar.isDateInToday(self) {
             var title = "Today"
@@ -77,9 +77,9 @@ extension Date {
             
         }else{
             if isForNotification{
-                dateFormatter.dateFormat = "M/d/yyyy"
+                dateFormatter.dateFormat = "yyyy-MM-dd"
             }else{
-                dateFormatter.dateFormat = "M/d/yyyy, h:mm a"
+                dateFormatter.dateFormat = "yyyy-MM-dd, h:mm a"
             }
             return dateFormatter.string(from: self)
         }

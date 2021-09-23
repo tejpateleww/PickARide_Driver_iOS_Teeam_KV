@@ -193,6 +193,8 @@ class AcceptedRideDetailsView: UIView {
         self.btnDownArrow.isHidden = false
         self.viewContactOptions.isHidden = false
         self.btnNavigate.isHidden = false
+        
+        self.startTimer()
     }
     
     func TripStart(){
