@@ -19,12 +19,13 @@ class MyRidesVC: BaseVC {
     
     //MARK: -Properties
     var pastCurrentPage = 0
+    var InProgressCurrentPage = 0
     var upcomingCurrentPage = 0
     var isApiProcessing = false
     var isStopPaging = false
     var arrRides = [PastBookingResDatum]()
-    var myRideArr = ["UPCOMING","PAST"]
-    var selectedMyRideState = 1
+    var myRideArr = ["PAST","INPROCESS","UPCOMING"]
+    var selectedMyRideState = 0
     var ridesViewModel = RidesViewModel()
     
     override func viewWillAppear(_ animated: Bool) {
@@ -117,15 +118,17 @@ extension MyRidesVC : UITableViewDelegate,UITableViewDataSource {
                 let BookingType = dict.bookingInfo?.bookingType ?? "" //book_later
                 let BookingStatus = dict.bookingInfo?.status ?? "" //pending
                 
-                let timestamp: TimeInterval = (self.selectedMyRideState == 1) ? Double(dict.bookingInfo?.acceptTime ?? "") ?? 0.0 : (BookingType == "book_later" && BookingStatus == "pending") ?  Double(dict.bookingInfo?.pickupDateTime ?? "") ?? 0.0 :  Double(dict.bookingInfo?.acceptTime ?? "") ?? 0.0
+                let timestamp: TimeInterval = (self.selectedMyRideState == 0) ? Double(dict.bookingInfo?.acceptTime ?? "") ?? 0.0 : (BookingType == "book_later" && BookingStatus == "pending") ?  Double(dict.bookingInfo?.pickupDateTime ?? "") ?? 0.0 :  Double(dict.bookingInfo?.acceptTime ?? "") ?? 0.0
                 let date = Date(timeIntervalSince1970: timestamp)
                 let formatedDate = date.timeAgoSinceDate(isForNotification: false)
                 cell.lblDate.text = formatedDate
                 
-                if self.selectedMyRideState == 1 {
+                if self.selectedMyRideState == 0 {
                     cell.stackButtons.isHidden = true
                     cell.stackButtonsHeight.constant = 0
                     cell.imgStatus.image = UIImage(named: "Past")
+                }else if self.selectedMyRideState == 1{
+                    
                 }else{
                     if(BookingType == "book_later" && BookingStatus == "pending"){
                         cell.stackButtons.isHidden = false
@@ -177,12 +180,21 @@ extension MyRidesVC : UITableViewDelegate,UITableViewDataSource {
         switch tableView {
         
         case self.tblMyRides:
-            if self.selectedMyRideState == 1 {
+            if self.selectedMyRideState == 0 {
+                let vc : RideDetailsVC = RideDetailsVC.instantiate(fromAppStoryboard: .Main)
+                vc.isFromPast = true
+                vc.PastBookingData = arrRides[indexPath.row]
+                self.navigationController?.pushViewController(vc, animated: true)
+            }else if self.selectedMyRideState == 1 {
+                let vc : RideDetailsVC = RideDetailsVC.instantiate(fromAppStoryboard: .Main)
+                vc.isFromInprogress = true
+                vc.PastBookingData = arrRides[indexPath.row]
+                self.navigationController?.pushViewController(vc, animated: true)
+            }else{
                 let vc : RideDetailsVC = RideDetailsVC.instantiate(fromAppStoryboard: .Main)
                 vc.isFromUpcomming = true
                 vc.PastBookingData = arrRides[indexPath.row]
                 self.navigationController?.pushViewController(vc, animated: true)
-            }else{
             }
             break
             
@@ -195,11 +207,15 @@ extension MyRidesVC : UITableViewDelegate,UITableViewDataSource {
             self.isStopPaging = false
             
             if(self.selectedMyRideState == 0){
-                self.upcomingCurrentPage = 1
-                self.callUpcomingRideAPI()
-            }else{
                 self.pastCurrentPage = 1
                 self.callRideHistoryAPI()
+            }else if (self.selectedMyRideState == 1){
+                self.InProgressCurrentPage = 1
+                self.arrRides = []
+                self.tblMyRides.reloadData()
+            }else{
+                self.upcomingCurrentPage = 1
+                self.callUpcomingRideAPI()
             }
             
         default:
@@ -229,13 +245,21 @@ extension MyRidesVC : UITableViewDelegate,UITableViewDataSource {
         if (self.tblMyRides.contentOffset.y >= (self.tblMyRides.contentSize.height - self.tblMyRides.frame.size.height)) && self.isStopPaging == false && self.isApiProcessing == false {
             print("call from scroll..")
             if(self.selectedMyRideState == 0){
-                self.upcomingCurrentPage += 1
-                self.pastCurrentPage = 1
-                self.callUpcomingRideAPI()
-            }else{
                 self.pastCurrentPage += 1
                 self.upcomingCurrentPage = 1
+                self.InProgressCurrentPage = 1
                 self.callRideHistoryAPI()
+                
+            }else if(self.selectedMyRideState == 1){
+                self.InProgressCurrentPage += 1
+                self.pastCurrentPage = 1
+                self.upcomingCurrentPage = 1
+                
+            }else{
+                self.upcomingCurrentPage += 1
+                self.pastCurrentPage = 1
+                self.InProgressCurrentPage = 1
+                self.callUpcomingRideAPI()
             }
         }
     }

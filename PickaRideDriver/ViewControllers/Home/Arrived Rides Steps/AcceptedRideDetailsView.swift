@@ -197,6 +197,18 @@ class AcceptedRideDetailsView: UIView {
         self.startTimer()
     }
     
+    func VerifyUserOTP(){
+        self.isFromCloseBtn = true
+        self.ViewTripCode.isHidden = false
+        self.isfrom = status.startride
+        self.btnSubmit.setTitle("START RIDE", for: .normal)
+        self.btnNavigate.isHidden = false
+        self.lblMessage.text = "Arrived \((self.currentBookingModel?.customerInfo?.firstName)! + " " + (self.currentBookingModel?.customerInfo?.lastName)!)"
+        self.isArrived = false
+        self.isComplete = true
+        self.btnCancel.isHidden = true
+    }
+    
     func TripStart(){
         self.isFromCloseBtn = false
         self.btnCancel.isHidden = false
@@ -213,7 +225,7 @@ class AcceptedRideDetailsView: UIView {
     
     func startTimer() {
         if(self.timerTracking == nil){
-            self.timerTracking = Timer.scheduledTimer(withTimeInterval: 7, repeats: true, block: { (timer) in
+            self.timerTracking = Timer.scheduledTimer(withTimeInterval: 5, repeats: true, block: { (timer) in
                 print("Track Timer Start ......")
                 self.delegate?.onTripTrackingStarted()
             })
@@ -249,15 +261,6 @@ class AcceptedRideDetailsView: UIView {
         }else if isArrived{
             
         }else{
-            self.isFromCloseBtn = true
-            self.ViewTripCode.isHidden = false
-            self.isfrom = status.startride
-            self.btnSubmit.setTitle("START RIDE", for: .normal)
-            self.btnNavigate.isHidden = false
-            self.lblMessage.text = "Arrived \((self.currentBookingModel?.customerInfo?.firstName)! + " " + (self.currentBookingModel?.customerInfo?.lastName)!)"
-            self.isArrived = false
-            self.isComplete = true
-            self.btnCancel.isHidden = true
             self.delegate?.onArrivedUserLocation()
         }
     }

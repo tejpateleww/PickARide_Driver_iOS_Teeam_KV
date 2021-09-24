@@ -30,9 +30,13 @@ class RideDetailsVC: BaseVC {
     @IBOutlet weak var btnRepeateRide: UIButton!
     @IBOutlet weak var btnReceipt: RidesDetailsButton!
     @IBOutlet weak var ratingVw: CosmosView!
+    @IBOutlet weak var btnAccept: themeButton!
+    @IBOutlet weak var btnReject: CancelButton!
     
     //MARK: - Variables
     var isFromUpcomming : Bool = false
+    var isFromPast : Bool = false
+    var isFromInprogress : Bool = false
     var PastBookingData : PastBookingResDatum?
     
     //MARK: - Life cycle methods
@@ -41,17 +45,46 @@ class RideDetailsVC: BaseVC {
         
         self.prepareView()
         self.setupData()
-        
     }
     
     //MARK: - Custom methods
     func prepareView(){
         self.setNavigationBarInViewController(controller: self, naviColor: colors.white.value, naviTitle: "Ride Details", leftImage: NavItemsLeft.back.value, rightImages: [NavItemsRight.none.value], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
-        self.btnReceipt.isHidden = isFromUpcomming ? false : true
-        if !self.isFromUpcomming{
-            self.stackviewRecieptBottom.constant = 0
-            self.stackviewRecieptHeight.constant = 0
+        
+        if(self.isFromPast){
+            self.btnReceipt.isHidden = false
+            self.btnAccept.isHidden = true
+            self.btnReject.isHidden = true
+            self.btnRepeateRide.isHidden = true
+            
+            let timestamp: TimeInterval =  Double(self.PastBookingData?.bookingInfo?.acceptTime ?? "") ?? 0.0
+            let date = Date(timeIntervalSince1970: timestamp)
+            let formatedDate = date.timeAgoSinceDate(isForNotification: false)
+            self.lblTime.text = formatedDate
+            
+        }else if(self.isFromInprogress){
+            self.btnReject.isHidden = false
+            self.btnReceipt.isHidden = true
+            self.btnAccept.isHidden = true
+            self.btnRepeateRide.isHidden = true
+            
+            let timestamp: TimeInterval =  Double(self.PastBookingData?.bookingInfo?.pickupDateTime ?? "") ?? 0.0
+            let date = Date(timeIntervalSince1970: timestamp)
+            let formatedDate = date.timeAgoSinceDate(isForNotification: false)
+            self.lblTime.text = formatedDate
+            
+        }else{
+            self.btnAccept.isHidden = false
+            self.btnReject.isHidden = false
+            self.btnReceipt.isHidden = true
+            self.btnRepeateRide.isHidden = true
+            
+            let timestamp: TimeInterval =  Double(self.PastBookingData?.bookingInfo?.pickupDateTime ?? "") ?? 0.0
+            let date = Date(timeIntervalSince1970: timestamp)
+            let formatedDate = date.timeAgoSinceDate(isForNotification: false)
+            self.lblTime.text = formatedDate
         }
+    
         self.shadowView(view: MyOfferView)
         self.MyOfferView.layer.cornerRadius = 4
         self.ratingVw.isUserInteractionEnabled = false
@@ -59,10 +92,8 @@ class RideDetailsVC: BaseVC {
     
     func setupData(){
         if(self.PastBookingData != nil){
-            let timestamp: TimeInterval =  Double(self.PastBookingData?.bookingInfo?.acceptTime ?? "") ?? 0.0
-            let date = Date(timeIntervalSince1970: timestamp)
-            let formatedDate = date.timeAgoSinceDate(isForNotification: false)
-            self.lblTime.text = formatedDate
+            
+            
             
             self.lblRidigo.text = "\(self.PastBookingData?.bookingInfo?.vehicleName ?? "")(\(self.PastBookingData?.driverVehicleInfo?.plateNumber ?? "")"
             self.lblCarName.text = " - \(self.PastBookingData?.driverVehicleInfo?.vehicleTypeManufacturerName ?? "") \(self.PastBookingData?.driverVehicleInfo?.vehicleTypeModelName ?? ""))"
@@ -100,6 +131,12 @@ class RideDetailsVC: BaseVC {
     }
     
     @IBAction func btnHelpTap(_ sender: Any) {
+    }
+    
+    @IBAction func btnAcceptAction(_ sender: Any) {
+    }
+    
+    @IBAction func btnRejectAction(_ sender: Any) {
     }
     
 }

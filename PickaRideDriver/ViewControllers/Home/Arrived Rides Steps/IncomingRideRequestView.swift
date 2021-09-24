@@ -11,7 +11,7 @@ import SDWebImage
 import SocketIO
 
 protocol IncomingRideRequestViewDelegate {
-    func onAcceptRideRequest()
+//    func onAcceptRideRequest()
     func onCancelRideRequest()
     func onNoThanksRequest()
     func onCurrentBookingAPI()
@@ -170,6 +170,9 @@ class IncomingRideRequestView: UIView {
             let BookingId = Int(self.newBookingResModel?.id ?? "0") ?? 0
             let BookingType = self.newBookingResModel?.bookingType ?? ""
             self.emitSocketAcceptBookingRequest(bookingId: BookingId, bookingType: BookingType)
+        }else{
+            print("socket not connected")
+            Utilities.displayAlert(UrlConstant.SomethingWentWrongSocket)
         }
     }
     

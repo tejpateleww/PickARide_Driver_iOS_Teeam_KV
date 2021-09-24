@@ -97,6 +97,7 @@ extension HomeVC{
             let dict = NewBookingResModel.init(fromJson: json[0])
             self.newBookingResModel = dict.bookingInfo
             self.handleRideFlow(state: RideState.NewRequest)
+            self.setNavWithoutSOS()
         }
     }
     

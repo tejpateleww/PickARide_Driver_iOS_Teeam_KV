@@ -21,6 +21,7 @@ class CancelTripViewModel{
                 self.cancelRideVC?.tblReasonForCancel.reloadData()
             }else{
                 Toast.show(title: UrlConstant.Failed, message: apiMessage, state: .failure)
+                self.cancelRideVC?.PopBack()
             }
         }
     }

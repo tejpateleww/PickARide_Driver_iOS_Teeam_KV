@@ -60,12 +60,17 @@ class CancelRideVC: BaseVC {
             Toast.show(title: UrlConstant.Failed, message: "Please proview Reason...", state: .failure)
             return false
         }else{
-            self.strReason = (self.strReason == "") ? self.arrReason[0].reason ?? "" : self.strReason
-            if(self.strReason == ""){
-                Toast.show(title: UrlConstant.Failed, message: "Please proview Reason...", state: .failure)
-                return false
+            if(self.arrReason.count > 0){
+                self.strReason = (self.strReason == "") ? self.arrReason[0].reason ?? "" : self.strReason
+                if(self.strReason == ""){
+                    Toast.show(title: UrlConstant.Failed, message: "Please proview Reason...", state: .failure)
+                    return false
+                }else{
+                    return true
+                }
             }else{
-                return true
+                Toast.show(title: UrlConstant.Failed, message: UrlConstant.SomethingWentWrong, state: .failure)
+                return false
             }
         }
     }
@@ -75,6 +80,10 @@ class CancelRideVC: BaseVC {
         vc.modalPresentationStyle = .overFullScreen
         vc.delegate = self
         self.navigationController?.present(vc, animated: true, completion: nil)
+    }
+    
+    func PopBack(){
+        self.navigationController?.popViewController(animated: true)
     }
     
     //MARK: - Button action methods

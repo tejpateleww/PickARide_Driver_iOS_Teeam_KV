@@ -65,7 +65,7 @@ class HomeVC: BaseVC {
     override func viewDidLoad(){
         super.viewDidLoad()
         self.callCurrentBookingAPI()
-        self.setNavigationBarInViewController(controller: self, naviColor: colors.appColor.value, naviTitle: NavTitles.none.value, leftImage: NavItemsLeft.menu.value, rightImages: [NavItemsRight.sos.value], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
+        self.setNavWithSOS()
         self.handleRideFlow(state: RideState.None)
         self.PrepareView()
     }
@@ -76,6 +76,14 @@ class HomeVC: BaseVC {
         
         self.moveMent = ARCarMovement()
         self.moveMent?.delegate = self
+    }
+    
+    func setNavWithSOS(){
+        self.setNavigationBarInViewController(controller: self, naviColor: colors.appColor.value, naviTitle: NavTitles.none.value, leftImage: NavItemsLeft.menu.value, rightImages: [NavItemsRight.sos.value], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
+    }
+    
+    func setNavWithoutSOS(){
+        self.setNavigationBarInViewController(controller: self, naviColor: colors.appColor.value, naviTitle: NavTitles.none.value, leftImage: NavItemsLeft.menu.value, rightImages: [NavItemsRight.none.value], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
     }
     
     func checkMapPermission(){
@@ -139,6 +147,7 @@ class HomeVC: BaseVC {
         if(self.currentBookingModel != nil){
             let currentStatus = self.currentBookingModel?.status ?? ""
             if(currentStatus == "accepted"){
+                self.setNavWithoutSOS()
                 self.handleRideFlow(state: RideState.RequestAccepted)
                 self.btnOn.isHidden = true
                 self.setupPickupRoute()
@@ -150,6 +159,8 @@ class HomeVC: BaseVC {
             }else{
                 self.handleRideFlow(state: RideState.None)
                 self.setupMap()
+                self.path = GMSPath()
+                self.polyline = GMSPolyline()
             }
         }
     }
@@ -236,17 +247,17 @@ class HomeVC: BaseVC {
         self.vwMap.selectedMarker = self.CurrentLocMarker
         
         //Driver Location pin setup
-//        self.DriverLocMarker = GMSMarker()
-//        self.DriverLocMarker?.position = CLLocationCoordinate2D(latitude: Double(currentlat) ?? 0.0, longitude: Double(currentlong) ?? 0.0)
-//        self.DriverLocMarker?.snippet = "Driver Location"
-//
-//        let markerView3 = MarkerPinView()
-//        markerView3.markerImage = UIImage(named: "car")
-//        markerView3.layoutSubviews()
-//        self.DriverLocMarker?.iconView = markerView3
-//        if(self.currentBookingModel?.status == "traveling"){
-//            self.DriverLocMarker?.map = self.vwMap
-//        }
+        //        self.DriverLocMarker = GMSMarker()
+        //        self.DriverLocMarker?.position = CLLocationCoordinate2D(latitude: Double(currentlat) ?? 0.0, longitude: Double(currentlong) ?? 0.0)
+        //        self.DriverLocMarker?.snippet = "Driver Location"
+        //
+        //        let markerView3 = MarkerPinView()
+        //        markerView3.markerImage = UIImage(named: "car")
+        //        markerView3.layoutSubviews()
+        //        self.DriverLocMarker?.iconView = markerView3
+        //        if(self.currentBookingModel?.status == "traveling"){
+        //            self.DriverLocMarker?.map = self.vwMap
+        //        }
         
         //For Displaying both markers in screen centered
         self.arrMarkers.append(self.CurrentLocMarker!)
@@ -333,6 +344,16 @@ class HomeVC: BaseVC {
         self.vwMap.animate(to: camera)
         self.updateTravelledPath(currentLoc: newCoordinate)
         
+//        let Pick = CLLocation(latitude: Double(self.currentBookingModel?.pickupLat ?? "0.0") ?? 0.0, longitude: Double(self.currentBookingModel?.pickupLng ?? "0.0") ?? 0.0)
+//        let Current = CLLocation(latitude: SingletonClass.sharedInstance.latitude, longitude: SingletonClass.sharedInstance.longitude)
+//        let distanceInMeters = Pick.distance(from: Current)
+//        if(distanceInMeters <= 300){
+//            Utilities.displayAlert("You're near pick Location < 300 meters. ,Activate Arrive Button Now..")
+//        }
+//
+//        if(distanceInMeters <= 50){
+//            Utilities.displayAlert("You're At Pickup Location....")
+//        }
     }
     
     func updateTravelledPath(currentLoc: CLLocationCoordinate2D){
@@ -340,21 +361,20 @@ class HomeVC: BaseVC {
         for i in 0..<self.path.count(){
             let pathLat = Double(self.path.coordinate(at: i).latitude).rounded(toPlaces: 3)
             let pathLong = Double(self.path.coordinate(at: i).longitude).rounded(toPlaces: 3)
-
+            
             let currentLat = Double(currentLoc.latitude).rounded(toPlaces: 3)
             let currentLong = Double(currentLoc.longitude).rounded(toPlaces: 3)
-
+            
             if currentLat == pathLat && currentLong == pathLong{
                 index = Int(i)
                 break
             }
         }
-
-       //Creating new path from the current location to the destination
+        
+        //Creating new path from the current location to the destination
         let newPath = GMSMutablePath()
         for i in index..<Int(self.path.count()){
             newPath.add(self.path.coordinate(at: UInt(i)))
-            //print("Lat : \((self.path.coordinate(at: UInt(i)).latitude)) Long : \((self.path.coordinate(at: UInt(i)).longitude)) ")
         }
         self.path = newPath
         self.polyline.map = nil
@@ -365,24 +385,23 @@ class HomeVC: BaseVC {
     }
     
     
-    
-    @objc func timerTriggered() {
-
+    @objc func timerTriggered() { 
+        
         if self.index < self.path.count() {
-
+            
             CATransaction.begin()
             CATransaction.setAnimationDuration(1.9)
             self.DriverLocMarker!.position = self.path.coordinate(at:UInt(index))
             CATransaction.commit()
             self.index += 1
-
+            
         } else {
-
+            
             timerMap?.invalidate()
             timerMap = nil
-
+            
         }
-
+        
     }
     
     //MARK: - open GoogleMap Path Methods
@@ -565,7 +584,7 @@ extension HomeVC{
 //MARK:- HomeNavigationBarDelegate
 extension HomeVC : HomeNavigationBarDelegate{
     func onClosePopup() {
-        self.setNavigationBarInViewController(controller: self, naviColor: colors.appColor.value, naviTitle: NavTitles.none.value, leftImage: NavItemsLeft.menu.value, rightImages: [NavItemsRight.sos.value], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
+        self.setNavWithSOS()
         self.changeDutyStatus()
     }
 }
@@ -580,13 +599,8 @@ extension HomeVC : IncomingRideRequestViewDelegate{
     
     func onNoThanksRequest(){
         self.handleRideFlow(state: RideState.None)
-        self.setNavigationBarInViewController(controller: self, naviColor: colors.appColor.value, naviTitle: NavTitles.none.value, leftImage: NavItemsLeft.menu.value, rightImages: [NavItemsRight.sos.value], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
+        self.setNavWithSOS()
         self.btnOn.isHidden = false
-    }
-    
-    func onAcceptRideRequest() {
-        self.setNavigationBarInViewController(controller: self, naviColor: colors.appColor.value, naviTitle: NavTitles.none.value, leftImage: NavItemsLeft.menu.value, rightImages: [NavItemsRight.none.value], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
-        self.handleRideFlow(state: RideState.RequestAccepted)
     }
     
     func onCurrentBookingAPI() {

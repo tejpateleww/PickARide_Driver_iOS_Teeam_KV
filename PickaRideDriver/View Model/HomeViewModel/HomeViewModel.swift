@@ -60,6 +60,7 @@ class HomeViewModel{
                 Toast.show(title: UrlConstant.Success, message: response?.otp ?? "", state: .success)
                 self.homeVC?.strArrivedOtp = response?.otp ?? ""
                 self.homeVC?.acceptedRideDetailsView.btnSubmit.setTitle("START RIDE", for: .normal)
+                self.homeVC?.acceptedRideDetailsView.VerifyUserOTP()
             }else{
                 Toast.show(title: UrlConstant.Failed, message: apiMessage, state: .failure)
             }
@@ -73,6 +74,7 @@ class HomeViewModel{
             if status{
                 Toast.show(title: UrlConstant.Success, message: apiMessage, state: .success)
                 self.homeVC?.callCurrentBookingAPI()
+                self.homeVC?.acceptedRideDetailsView.endTimer()
             }else{
                 Toast.show(title: UrlConstant.Failed, message: apiMessage, state: .failure)
             }
