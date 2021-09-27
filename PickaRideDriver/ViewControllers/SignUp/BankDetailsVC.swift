@@ -46,6 +46,10 @@ class BankDetailsVC: BaseVC {
         self.txtIfscCode.text = SingletonClass.sharedInstance.UserProfilData?.ifscCode ?? ""
     }
     
+    func popBack(){
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     func validation()->Bool{
         var strTitle : String?
         let BankName = self.txtBankName.validatedText(validationType: .requiredField(field: self.txtBankName.placeholder?.lowercased() ?? ""))

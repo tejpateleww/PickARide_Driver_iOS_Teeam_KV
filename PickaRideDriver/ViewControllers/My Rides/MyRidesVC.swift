@@ -18,14 +18,14 @@ class MyRidesVC: BaseVC {
     @IBOutlet weak var tblMyRideType: UITableView!
     
     //MARK: -Properties
-    var pastCurrentPage = 0
-    var InProgressCurrentPage = 0
-    var upcomingCurrentPage = 0
+    var pastCurrentPage = 1
+    var InProgressCurrentPage = 1
+    var upcomingCurrentPage = 1
     var isApiProcessing = false
     var isStopPaging = false
     var arrRides = [PastBookingResDatum]()
     var myRideArr = ["PAST","INPROCESS","UPCOMING"]
-    var selectedMyRideState = 0
+    var selectedMyRideState = 1
     var ridesViewModel = RidesViewModel()
     
     override func viewWillAppear(_ animated: Bool) {
@@ -36,7 +36,7 @@ class MyRidesVC: BaseVC {
         super.viewDidLoad()
         
         self.prepareView()
-        self.callRideHistoryAPI()
+        self.callInProcessBookingRideAPI()
     }
     
     //MARK: - Custom methods
@@ -112,13 +112,12 @@ extension MyRidesVC : UITableViewDelegate,UITableViewDataSource {
         
         case self.tblMyRides:
             
-            if self.arrRides.count != 0 {
+            if (self.arrRides.count != 0){
                 let cell:MyRideCell = self.tblMyRides.dequeueReusableCell(withIdentifier: MyRideCell.reuseIdentifier, for: indexPath)as! MyRideCell
                 let dict = self.arrRides[indexPath.row]
-                let BookingType = dict.bookingInfo?.bookingType ?? "" //book_later
-                let BookingStatus = dict.bookingInfo?.status ?? "" //pending
+                let BookingStatus = dict.bookingInfo?.status ?? ""
                 
-                let timestamp: TimeInterval = (self.selectedMyRideState == 0) ? Double(dict.bookingInfo?.acceptTime ?? "") ?? 0.0 : (BookingType == "book_later" && BookingStatus == "pending") ?  Double(dict.bookingInfo?.pickupDateTime ?? "") ?? 0.0 :  Double(dict.bookingInfo?.acceptTime ?? "") ?? 0.0
+                let timestamp: TimeInterval = (self.selectedMyRideState == 0) ? Double(dict.bookingInfo?.acceptTime ?? "") ?? 0.0 : (self.selectedMyRideState == 1) ? Double(dict.bookingInfo?.bookingTime ?? "") ?? 0.0 : Double(dict.bookingInfo?.pickupDateTime ?? "") ?? 0.0
                 let date = Date(timeIntervalSince1970: timestamp)
                 let formatedDate = date.timeAgoSinceDate(isForNotification: false)
                 cell.lblDate.text = formatedDate
@@ -126,19 +125,19 @@ extension MyRidesVC : UITableViewDelegate,UITableViewDataSource {
                 if self.selectedMyRideState == 0 {
                     cell.stackButtons.isHidden = true
                     cell.stackButtonsHeight.constant = 0
-                    cell.imgStatus.image = UIImage(named: "Past")
-                }else if self.selectedMyRideState == 1{
-                    
-                }else{
-                    if(BookingType == "book_later" && BookingStatus == "pending"){
-                        cell.stackButtons.isHidden = false
-                        cell.stackButtonsHeight.constant = 40
-                        cell.imgStatus.image = UIImage(named: "Pending")
-                    }else{
-                        cell.stackButtons.isHidden = true
-                        cell.stackButtonsHeight.constant = 0
-                        cell.imgStatus.image = UIImage(named: "OnGoing")
+                    if(BookingStatus == "canceled"){
+                        cell.imgStatus.image = #imageLiteral(resourceName: "Cancel")
+                    }else if(BookingStatus == "completed"){
+                        cell.imgStatus.image = #imageLiteral(resourceName: "Completed")
                     }
+                }else if self.selectedMyRideState == 1{
+                    cell.stackButtons.isHidden = true
+                    cell.stackButtonsHeight.constant = 0
+                    cell.imgStatus.image = #imageLiteral(resourceName: "OnGoing")
+                }else{
+                    cell.stackButtons.isHidden = false
+                    cell.stackButtonsHeight.constant = 40
+                    cell.imgStatus.image = #imageLiteral(resourceName: "Pending")
                 }
                 
                 cell.lblAddress.text = dict.bookingInfo?.pickupLocation ?? ""
@@ -154,7 +153,7 @@ extension MyRidesVC : UITableViewDelegate,UITableViewDataSource {
                 
                 return cell
                 
-            } else {
+            }else{
                 let NoDatacell = self.tblMyRides.dequeueReusableCell(withIdentifier: "NoDataTableViewCell", for: indexPath) as! NoDataTableViewCell
                 return NoDatacell
             }
@@ -211,8 +210,7 @@ extension MyRidesVC : UITableViewDelegate,UITableViewDataSource {
                 self.callRideHistoryAPI()
             }else if (self.selectedMyRideState == 1){
                 self.InProgressCurrentPage = 1
-                self.arrRides = []
-                self.tblMyRides.reloadData()
+                self.callInProcessBookingRideAPI()
             }else{
                 self.upcomingCurrentPage = 1
                 self.callUpcomingRideAPI()
@@ -254,6 +252,7 @@ extension MyRidesVC : UITableViewDelegate,UITableViewDataSource {
                 self.InProgressCurrentPage += 1
                 self.pastCurrentPage = 1
                 self.upcomingCurrentPage = 1
+                self.callInProcessBookingRideAPI()
                 
             }else{
                 self.upcomingCurrentPage += 1
@@ -277,5 +276,10 @@ extension MyRidesVC{
     func callUpcomingRideAPI(){
         self.ridesViewModel.myRidesVC = self
         self.ridesViewModel.webserviceGetUpcomingRideAPI(Page: "\(self.upcomingCurrentPage)")
+    }
+    
+    func callInProcessBookingRideAPI(){
+        self.ridesViewModel.myRidesVC = self
+        self.ridesViewModel.webserviceInProcessBookingRideAPI(Page: "\(self.InProgressCurrentPage)")
     }
 }

@@ -85,6 +85,7 @@ enum ApiKey: String {
     case cancelTrip                           = "cancel_trip"
     case pastBookingHistory                   = "past_booking_history/"
     case upcomingBookingHistory               = "upcoming_booking_history/"
+    case inProcessBookingHistory              = "in_process_booking_history/"
     
     
     case register                             = "register"

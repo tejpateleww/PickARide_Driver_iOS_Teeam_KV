@@ -101,13 +101,11 @@ class Toast {
             
             
             UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: [.beginFromCurrentState, .curveLinear, .allowUserInteraction], animations: {
-                //                toastContainer.alpha = 1.0
                 window.layoutIfNeeded()
                 
             }, completion: { completed in
                 c3.constant = 0
                 UIView.animate(withDuration: 0.1, delay: delay, options: .curveLinear, animations: {
-                    //                    toastContainer.alpha = 0.0
                     window.layoutIfNeeded()
                 }) { _ in
                     toastContainer.removeFromSuperview()

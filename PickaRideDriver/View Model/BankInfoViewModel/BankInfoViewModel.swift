@@ -17,10 +17,11 @@ class BankInfoViewModel{
         WebServiceSubClass.UpdateBankInfoApi(reqModel: reqModel) { (status, apiMessage, response, error) in
             self.bankDetailsVC?.btnNext.hideLoading()
             if status{
-                Toast.show(title: UrlConstant.Success, message: apiMessage, state: .success)
                 SingletonClass.sharedInstance.UserProfilData = response?.data
                 user_defaults.setUserData()
                 let _ = user_defaults.getUserData()
+                self.bankDetailsVC?.popBack()
+                Toast.show(title: UrlConstant.Success, message: apiMessage, state: .success)
             }else{
                 Toast.show(title: UrlConstant.Failed, message: apiMessage, state: .failure)
             }
@@ -38,10 +39,11 @@ class VehicleInfoViewModel{
         WebServiceSubClass.UpdateVehicleInfoApi(reqModel: reqModel) { (status, apiMessage, response, error) in
             self.addVehicleVC?.btnNext.hideLoading()
             if status{
-                Toast.show(title: UrlConstant.Success, message: apiMessage, state: .success)
                 SingletonClass.sharedInstance.UserProfilData = response?.data
                 user_defaults.setUserData()
                 let _ = user_defaults.getUserData()
+                self.addVehicleVC?.popBack()
+                Toast.show(title: UrlConstant.Success, message: apiMessage, state: .success)
             }else{
                 Toast.show(title: UrlConstant.Failed, message: apiMessage, state: .failure)
             }

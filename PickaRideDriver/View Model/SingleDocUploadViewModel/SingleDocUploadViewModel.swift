@@ -36,10 +36,11 @@ class SingleDocUploadModel{
         WebServiceSubClass.UpdatePersonalDocsApi(reqModel: reqModel) { (status, apiMessage, response, error) in
             self.PersonalDocumentVC?.btnNext.hideLoading()
             if status{
-                Toast.show(title: UrlConstant.Success, message: apiMessage, state: .success)
                 SingletonClass.sharedInstance.UserProfilData = response?.data
                 user_defaults.setUserData()
                 let _ = user_defaults.getUserData()
+                self.PersonalDocumentVC?.popBack()
+                Toast.show(title: UrlConstant.Success, message: apiMessage, state: .success)
             }else{
                 Toast.show(title: UrlConstant.Failed, message: apiMessage, state: .failure)
             }
@@ -51,10 +52,11 @@ class SingleDocUploadModel{
         WebServiceSubClass.UpdateVehicleDocsApi(reqModel: reqModel) { (status, apiMessage, response, error) in
             self.vehicleDocumentVC?.btnNext.hideLoading()
             if status{
-                Toast.show(title: UrlConstant.Success, message: apiMessage, state: .success)
                 SingletonClass.sharedInstance.UserProfilData = response?.data
                 user_defaults.setUserData()
                 let _ = user_defaults.getUserData()
+                self.vehicleDocumentVC?.popBack()
+                Toast.show(title: UrlConstant.Success, message: apiMessage, state: .success)
             }else{
                 Toast.show(title: UrlConstant.Failed, message: apiMessage, state: .failure)
             }

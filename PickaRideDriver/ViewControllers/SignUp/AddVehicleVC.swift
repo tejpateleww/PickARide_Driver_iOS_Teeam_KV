@@ -113,6 +113,10 @@ class AddVehicleVC: BaseVC {
         self.Dropdown(Dropdown: self.CarYearDropDown, StringArray: self.carYearDropDown, control: self.txtCarYear, displayView: lblCarYearLine)
     }
     
+    func popBack(){
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     func validation() -> Bool{
         if(self.txtBrand.text == ""){
             Toast.show(title: UrlConstant.Required, message: "Please select vehicle brand", state: .failure)

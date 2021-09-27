@@ -69,4 +69,32 @@ class RidesViewModel{
         }
     }
     
+    func webserviceInProcessBookingRideAPI(Page : String){
+        self.myRidesVC?.isApiProcessing = true
+        WebServiceSubClass.GetInProcessBookingRideApi(Page: Page) { (status, apiMessage, response, error) in
+            self.myRidesVC?.isApiProcessing = false
+            self.myRidesVC?.tblMyRides.isHidden = false
+            if status{
+                if(response?.data?.count == 0){
+                    if(Page == "1"){
+                        self.myRidesVC?.arrRides = response?.data ?? []
+                        self.myRidesVC?.isStopPaging = true
+                    }else{
+                        print("End of Pagination...")
+                        self.myRidesVC?.isStopPaging = true
+                    }
+                }else{
+                    if(Page == "1"){
+                        self.myRidesVC?.arrRides = response?.data ?? []
+                    }else{
+                        self.myRidesVC?.arrRides.append(contentsOf: response?.data ?? [])
+                    }
+                }
+                self.myRidesVC?.tblMyRides.reloadData()
+            }else{
+                Toast.show(title: UrlConstant.Failed, message: apiMessage, state: .failure)
+            }
+        }
+    }
+    
 }

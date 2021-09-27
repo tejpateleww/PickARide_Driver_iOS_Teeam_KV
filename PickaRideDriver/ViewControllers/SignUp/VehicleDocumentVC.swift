@@ -105,6 +105,10 @@ class VehicleDocumentVC: BaseVC {
         self.ArrVehicleDetails.append(VehicleDetails(header: "Owner certificate", message: "A passport is a travel document", dateofExp: ""))
     }
     
+    func popBack(){
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     func UploadImage(index : IndexPath){
         let alert = UIAlertController(title: "Choose Photo", message: nil, preferredStyle: .alert)
         let Gallery = UIAlertAction(title: "Select photo from gallery"

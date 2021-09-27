@@ -1354,14 +1354,14 @@
                                                                     </constraints>
                                                                 </view>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ImgPin" translatesAutoresizingMaskIntoConstraints="NO" id="xTZ-4o-der">
-                                                                    <rect key="frame" x="15" y="199" width="12" height="12"/>
+                                                                    <rect key="frame" x="15" y="215.5" width="12" height="12"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="12" id="KHo-L1-Za3"/>
                                                                         <constraint firstAttribute="width" secondItem="xTZ-4o-der" secondAttribute="height" multiplier="1:1" id="X2X-v5-iR7"/>
                                                                     </constraints>
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Seattle - 280 Hemlock Ln" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jy5-1J-Zd6" customClass="themeLabel" customModule="PickaRideDriver" customModuleProvider="target">
-                                                                    <rect key="frame" x="32" y="199" width="206" height="45"/>
+                                                                    <rect key="frame" x="32" y="199" width="231" height="45"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -1393,7 +1393,7 @@
                                                                     </userDefinedRuntimeAttributes>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="12f-UM-bfh" customClass="themeLabel" customModule="PickaRideDriver" customModuleProvider="target">
-                                                                    <rect key="frame" x="248" y="174.5" width="80" height="16"/>
+                                                                    <rect key="frame" x="268" y="174.5" width="60" height="16"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -1406,10 +1406,10 @@
                                                                         </userDefinedRuntimeAttribute>
                                                                     </userDefinedRuntimeAttributes>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$1250.50" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v2d-hg-wia" customClass="themeLabel" customModule="PickaRideDriver" customModuleProvider="target">
-                                                                    <rect key="frame" x="248" y="195.5" width="80" height="21.5"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$12.50" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v2d-hg-wia" customClass="themeLabel" customModule="PickaRideDriver" customModuleProvider="target">
+                                                                    <rect key="frame" x="268" y="195.5" width="60" height="21.5"/>
                                                                     <constraints>
-                                                                        <constraint firstAttribute="width" constant="80" id="XCD-Cv-9Ba"/>
+                                                                        <constraint firstAttribute="width" constant="60" id="XCD-Cv-9Ba"/>
                                                                     </constraints>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                                     <nil key="textColor"/>
@@ -1460,6 +1460,7 @@
                                                                 <constraint firstItem="GS7-Sk-BqJ" firstAttribute="leading" secondItem="8VU-0u-ktz" secondAttribute="leading" constant="15" id="4AU-wI-9IG"/>
                                                                 <constraint firstItem="Tpz-MB-SOI" firstAttribute="leading" secondItem="xTZ-4o-der" secondAttribute="leading" id="Agg-z4-LIQ"/>
                                                                 <constraint firstAttribute="trailing" secondItem="OiS-ix-SCH" secondAttribute="trailing" constant="15" id="BSI-A9-mYY"/>
+                                                                <constraint firstItem="jy5-1J-Zd6" firstAttribute="top" secondItem="gcT-9Q-gVB" secondAttribute="bottom" constant="7.5" id="BSv-e2-srG"/>
                                                                 <constraint firstItem="gcT-9Q-gVB" firstAttribute="leading" secondItem="GS7-Sk-BqJ" secondAttribute="leading" id="Dh4-Gs-ZRf"/>
                                                                 <constraint firstItem="jy5-1J-Zd6" firstAttribute="leading" secondItem="xTZ-4o-der" secondAttribute="trailing" constant="5" id="EY2-7W-rpm"/>
                                                                 <constraint firstAttribute="trailing" secondItem="GS7-Sk-BqJ" secondAttribute="trailing" constant="15" id="Eyp-ia-YfB"/>
@@ -1468,12 +1469,11 @@
                                                                 <constraint firstItem="12f-UM-bfh" firstAttribute="trailing" secondItem="GS7-Sk-BqJ" secondAttribute="trailing" id="KnJ-i9-WHN"/>
                                                                 <constraint firstItem="12f-UM-bfh" firstAttribute="centerY" secondItem="gcT-9Q-gVB" secondAttribute="centerY" id="LCd-5h-AU2"/>
                                                                 <constraint firstItem="Tpz-MB-SOI" firstAttribute="trailing" secondItem="v2d-hg-wia" secondAttribute="trailing" id="LdT-Ds-kc6"/>
-                                                                <constraint firstItem="xTZ-4o-der" firstAttribute="top" secondItem="gcT-9Q-gVB" secondAttribute="bottom" constant="7.5" id="VNN-Js-ios"/>
                                                                 <constraint firstItem="12f-UM-bfh" firstAttribute="width" secondItem="v2d-hg-wia" secondAttribute="width" id="Xo8-La-Kln"/>
                                                                 <constraint firstItem="Tpz-MB-SOI" firstAttribute="top" secondItem="jy5-1J-Zd6" secondAttribute="bottom" constant="5" id="YLB-Sa-a6P"/>
-                                                                <constraint firstItem="v2d-hg-wia" firstAttribute="leading" secondItem="jy5-1J-Zd6" secondAttribute="trailing" constant="10" id="cJ0-IY-Uqx"/>
-                                                                <constraint firstItem="jy5-1J-Zd6" firstAttribute="top" secondItem="xTZ-4o-der" secondAttribute="top" id="eeo-NY-No2"/>
+                                                                <constraint firstItem="v2d-hg-wia" firstAttribute="leading" secondItem="jy5-1J-Zd6" secondAttribute="trailing" constant="5" id="cJ0-IY-Uqx"/>
                                                                 <constraint firstItem="xTZ-4o-der" firstAttribute="leading" secondItem="GS7-Sk-BqJ" secondAttribute="leading" id="fN3-lW-ehY"/>
+                                                                <constraint firstItem="xTZ-4o-der" firstAttribute="centerY" secondItem="jy5-1J-Zd6" secondAttribute="centerY" id="g3w-R5-2H0"/>
                                                                 <constraint firstItem="v2d-hg-wia" firstAttribute="trailing" secondItem="GS7-Sk-BqJ" secondAttribute="trailing" id="nnW-Nm-EIH"/>
                                                                 <constraint firstItem="OiS-ix-SCH" firstAttribute="leading" secondItem="8VU-0u-ktz" secondAttribute="leading" constant="15" id="tfN-ay-8EH"/>
                                                                 <constraint firstItem="OiS-ix-SCH" firstAttribute="top" secondItem="8VU-0u-ktz" secondAttribute="top" constant="10" id="xAw-6h-BVI"/>
@@ -1679,7 +1679,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kEL-lY-Wef">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="528.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="508.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ride Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AD7-dM-NhY" customClass="RideDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
                                                         <rect key="frame" x="16" y="0.0" width="343" height="0.0"/>
@@ -1737,7 +1737,7 @@
                                                                 </constraints>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Seattle - 280 Hemlock Ln" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aaa-Lo-G4E" customClass="RideDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
-                                                                <rect key="frame" x="32" y="196.5" width="208" height="16"/>
+                                                                <rect key="frame" x="32" y="196.5" width="233" height="16"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -1770,7 +1770,7 @@
                                                                 </userDefinedRuntimeAttributes>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6zQ-TC-7se" customClass="RideDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
-                                                                <rect key="frame" x="250" y="174.5" width="80" height="16"/>
+                                                                <rect key="frame" x="270" y="174.5" width="60" height="16"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -1785,9 +1785,9 @@
                                                                 </userDefinedRuntimeAttributes>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$25.50" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yj8-pB-tYJ" customClass="RideDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
-                                                                <rect key="frame" x="250" y="195.5" width="80" height="21.5"/>
+                                                                <rect key="frame" x="270" y="195.5" width="60" height="21.5"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="width" constant="80" id="hgQ-RB-N9g"/>
+                                                                    <constraint firstAttribute="width" constant="60" id="hgQ-RB-N9g"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                                 <nil key="textColor"/>
@@ -1842,7 +1842,7 @@
                                                             <constraint firstItem="fUk-S6-4P4" firstAttribute="leading" secondItem="ZPb-sd-5Cv" secondAttribute="leading" constant="15" id="gE6-Nd-gre"/>
                                                             <constraint firstItem="6zQ-TC-7se" firstAttribute="trailing" secondItem="EuW-vs-6Dq" secondAttribute="trailing" id="i08-35-Fy8"/>
                                                             <constraint firstItem="N78-e2-rKe" firstAttribute="leading" secondItem="mI2-aj-Wgv" secondAttribute="trailing" id="i83-aO-48Y"/>
-                                                            <constraint firstItem="yj8-pB-tYJ" firstAttribute="leading" secondItem="Aaa-Lo-G4E" secondAttribute="trailing" constant="10" id="k6g-w2-dWD"/>
+                                                            <constraint firstItem="yj8-pB-tYJ" firstAttribute="leading" secondItem="Aaa-Lo-G4E" secondAttribute="trailing" constant="5" id="k6g-w2-dWD"/>
                                                             <constraint firstItem="Aaa-Lo-G4E" firstAttribute="centerY" secondItem="lez-O5-Akk" secondAttribute="centerY" id="nRZ-tr-koj"/>
                                                             <constraint firstItem="fUk-S6-4P4" firstAttribute="top" secondItem="ZPb-sd-5Cv" secondAttribute="top" constant="10" id="th2-HS-2yR"/>
                                                             <constraint firstItem="Aaa-Lo-G4E" firstAttribute="top" secondItem="mI2-aj-Wgv" secondAttribute="bottom" constant="5" id="z57-Kb-59I"/>
@@ -1852,6 +1852,13 @@
                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="isShadow" value="YES"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Past" translatesAutoresizingMaskIntoConstraints="NO" id="4sJ-je-1FE">
+                                                        <rect key="frame" x="295" y="5" width="70" height="70"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="70" id="g0G-oj-FJf"/>
+                                                        </constraints>
+                                                    </imageView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nfc-dH-Wb0">
                                                         <rect key="frame" x="30" y="257.5" width="12" height="12"/>
                                                         <subviews>
@@ -1939,10 +1946,10 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="J4B-5a-gA7">
-                                                        <rect key="frame" x="16" y="381.5" width="343" height="35"/>
+                                                        <rect key="frame" x="16" y="369" width="343" height="40"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5un-vx-GqX" customClass="RidesDetailsButton" customModule="PickaRideDriver" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.0" width="78.5" height="35"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="78.5" height="40"/>
                                                                 <state key="normal" title="RECEIPT"/>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isReceipt" value="YES"/>
@@ -1952,7 +1959,7 @@
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="STu-p9-GUf" customClass="themeButton" customModule="PickaRideDriver" customModuleProvider="target">
-                                                                <rect key="frame" x="88.5" y="0.0" width="78" height="35"/>
+                                                                <rect key="frame" x="88.5" y="0.0" width="78" height="40"/>
                                                                 <state key="normal" title="ACCEPT"/>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isthemeBg" value="YES"/>
@@ -1963,7 +1970,7 @@
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FAM-Sh-F81" customClass="CancelButton" customModule="PickaRideDriver" customModuleProvider="target">
-                                                                <rect key="frame" x="176.5" y="0.0" width="78.5" height="35"/>
+                                                                <rect key="frame" x="176.5" y="0.0" width="78.5" height="40"/>
                                                                 <state key="normal" title="REJECT"/>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isCancel" value="YES"/>
@@ -1973,7 +1980,7 @@
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="80g-28-2xN">
-                                                                <rect key="frame" x="265" y="0.0" width="78" height="35"/>
+                                                                <rect key="frame" x="265" y="0.0" width="78" height="40"/>
                                                                 <state key="normal" title="REPEAT Ride">
                                                                     <color key="titleColor" name="AccentColor"/>
                                                                 </state>
@@ -1983,18 +1990,18 @@
                                                             </button>
                                                         </subviews>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="35" id="BF9-Hj-keB"/>
+                                                            <constraint firstAttribute="height" constant="40" id="BF9-Hj-keB"/>
                                                         </constraints>
                                                     </stackView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vGu-1F-6hh">
-                                                        <rect key="frame" x="0.0" y="441.5" width="375" height="2"/>
+                                                        <rect key="frame" x="0.0" y="421.5" width="375" height="2"/>
                                                         <color key="backgroundColor" red="0.96863657240000001" green="0.96861571069999997" blue="0.96861976390000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="2" id="nD5-0M-Pam"/>
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zOX-iJ-hW6" customClass="savedPlacesView" customModule="PickaRideDriver" customModuleProvider="target">
-                                                        <rect key="frame" x="15" y="458" width="43" height="43"/>
+                                                        <rect key="frame" x="15" y="438" width="43" height="43"/>
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Dummy-Profile" translatesAutoresizingMaskIntoConstraints="NO" id="I9h-R0-spV" customClass="ProfileView" customModule="PickaRideDriver" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="43" height="43"/>
@@ -2017,7 +2024,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Connor Chavez" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0NJ-Ke-YNg" customClass="RideDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
-                                                        <rect key="frame" x="63" y="458" width="297" height="20.5"/>
+                                                        <rect key="frame" x="63" y="438" width="297" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -2026,7 +2033,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rated You" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XdG-uf-pAe" customClass="RideDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
-                                                        <rect key="frame" x="63" y="485.5" width="61.5" height="16"/>
+                                                        <rect key="frame" x="63" y="465.5" width="61.5" height="16"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -2035,7 +2042,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ou3-ve-ykV" customClass="RidesDetailsButton" customModule="PickaRideDriver" customModuleProvider="target">
-                                                        <rect key="frame" x="16" y="503.5" width="343" height="25"/>
+                                                        <rect key="frame" x="16" y="483.5" width="343" height="25"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="25" id="fUG-ng-MeO"/>
                                                         </constraints>
@@ -2048,7 +2055,7 @@
                                                         </connections>
                                                     </button>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qIF-P6-fEo" customClass="CosmosView" customModule="Cosmos">
-                                                        <rect key="frame" x="132" y="483.5" width="228" height="20"/>
+                                                        <rect key="frame" x="132" y="463.5" width="228" height="20"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="20" id="KDd-qj-lKU"/>
@@ -2065,7 +2072,7 @@
                                                     <constraint firstItem="ELk-Rl-sGG" firstAttribute="leading" secondItem="nfc-dH-Wb0" secondAttribute="trailing" constant="5" id="1Db-3H-eWb"/>
                                                     <constraint firstItem="qIF-P6-fEo" firstAttribute="top" secondItem="0NJ-Ke-YNg" secondAttribute="bottom" constant="5" id="1lM-GP-4Go"/>
                                                     <constraint firstItem="vVf-GY-Xga" firstAttribute="leading" secondItem="fs1-aP-pVc" secondAttribute="leading" id="25R-S8-ETx"/>
-                                                    <constraint firstItem="J4B-5a-gA7" firstAttribute="top" secondItem="vVf-GY-Xga" secondAttribute="bottom" constant="25" id="3ft-pP-rVT"/>
+                                                    <constraint firstItem="J4B-5a-gA7" firstAttribute="top" secondItem="vVf-GY-Xga" secondAttribute="bottom" constant="12.5" id="3ft-pP-rVT"/>
                                                     <constraint firstAttribute="trailing" secondItem="qIF-P6-fEo" secondAttribute="trailing" constant="15" id="8dq-tD-0Aw"/>
                                                     <constraint firstItem="nfc-dH-Wb0" firstAttribute="centerX" secondItem="lez-O5-Akk" secondAttribute="centerX" id="9RW-eo-Fk5"/>
                                                     <constraint firstItem="oFR-wk-L3O" firstAttribute="leading" secondItem="nfc-dH-Wb0" secondAttribute="leading" id="9t5-Tt-CyI"/>
@@ -2080,6 +2087,7 @@
                                                     <constraint firstItem="ELk-Rl-sGG" firstAttribute="trailing" secondItem="ZPb-sd-5Cv" secondAttribute="trailing" id="KQd-DB-p1Z"/>
                                                     <constraint firstAttribute="bottom" secondItem="ou3-ve-ykV" secondAttribute="bottom" id="Mje-Qu-QYJ"/>
                                                     <constraint firstAttribute="trailing" secondItem="J4B-5a-gA7" secondAttribute="trailing" constant="16" id="N2x-hp-UbX"/>
+                                                    <constraint firstItem="4sJ-je-1FE" firstAttribute="trailing" secondItem="ZPb-sd-5Cv" secondAttribute="trailing" constant="5" id="S6N-1N-xXf"/>
                                                     <constraint firstItem="ZPb-sd-5Cv" firstAttribute="leading" secondItem="kEL-lY-Wef" secondAttribute="leading" constant="15" id="SKD-fG-lUZ"/>
                                                     <constraint firstItem="ou3-ve-ykV" firstAttribute="top" secondItem="qIF-P6-fEo" secondAttribute="bottom" id="SeQ-SW-Uhz"/>
                                                     <constraint firstAttribute="trailing" secondItem="AD7-dM-NhY" secondAttribute="trailing" constant="16" id="THZ-oT-qKq"/>
@@ -2099,11 +2107,13 @@
                                                     <constraint firstItem="AD7-dM-NhY" firstAttribute="leading" secondItem="kEL-lY-Wef" secondAttribute="leading" constant="16" id="lck-l0-QdW"/>
                                                     <constraint firstItem="fs1-aP-pVc" firstAttribute="leading" secondItem="uHk-SJ-QcA" secondAttribute="leading" id="muh-0H-bC1"/>
                                                     <constraint firstItem="uGO-ca-L7k" firstAttribute="centerX" secondItem="nfc-dH-Wb0" secondAttribute="centerX" id="n6D-7c-Kn8"/>
+                                                    <constraint firstItem="4sJ-je-1FE" firstAttribute="top" secondItem="ZPb-sd-5Cv" secondAttribute="top" constant="-5" id="p5S-OL-j1n"/>
                                                     <constraint firstItem="nfc-dH-Wb0" firstAttribute="top" secondItem="ZPb-sd-5Cv" secondAttribute="bottom" constant="25" id="rDM-kA-6tz"/>
                                                     <constraint firstItem="vVf-GY-Xga" firstAttribute="trailing" secondItem="fs1-aP-pVc" secondAttribute="trailing" id="stI-pG-wJ4"/>
                                                     <constraint firstItem="vGu-1F-6hh" firstAttribute="leading" secondItem="kEL-lY-Wef" secondAttribute="leading" id="uGw-7r-0bB"/>
+                                                    <constraint firstItem="4sJ-je-1FE" firstAttribute="width" secondItem="4sJ-je-1FE" secondAttribute="height" id="vFJ-N9-wSy"/>
                                                     <constraint firstItem="uHk-SJ-QcA" firstAttribute="leading" secondItem="ELk-Rl-sGG" secondAttribute="leading" id="wWo-Hj-3Yw"/>
-                                                    <constraint firstItem="vGu-1F-6hh" firstAttribute="top" secondItem="J4B-5a-gA7" secondAttribute="bottom" constant="25" id="xaw-P1-g9A"/>
+                                                    <constraint firstItem="vGu-1F-6hh" firstAttribute="top" secondItem="J4B-5a-gA7" secondAttribute="bottom" constant="12.5" id="xaw-P1-g9A"/>
                                                     <constraint firstItem="zOX-iJ-hW6" firstAttribute="top" secondItem="vGu-1F-6hh" secondAttribute="bottom" constant="14.5" id="yaH-SG-ch6"/>
                                                     <constraint firstItem="0NJ-Ke-YNg" firstAttribute="leading" secondItem="zOX-iJ-hW6" secondAttribute="trailing" constant="5" id="yp7-Xd-iQZ"/>
                                                     <constraint firstItem="zOX-iJ-hW6" firstAttribute="leading" secondItem="kEL-lY-Wef" secondAttribute="leading" constant="15" id="zAv-J9-eer"/>
@@ -2145,6 +2155,7 @@
                         <outlet property="btnRepeateRide" destination="80g-28-2xN" id="wdC-qr-oOu"/>
                         <outlet property="imgMapView" destination="Xlu-4i-ZRj" id="TbE-jJ-e7t"/>
                         <outlet property="imgProfilw" destination="I9h-R0-spV" id="xF7-N8-T4K"/>
+                        <outlet property="imgStatus" destination="4sJ-je-1FE" id="uh5-Mm-dbI"/>
                         <outlet property="lblAddress" destination="Aaa-Lo-G4E" id="r73-Qi-Pay"/>
                         <outlet property="lblCarName" destination="N78-e2-rKe" id="0wu-S1-U0e"/>
                         <outlet property="lblDestLocation" destination="vVf-GY-Xga" id="MmV-hz-826"/>

@@ -41,7 +41,7 @@ class HomeVC: BaseVC {
     var moveMent: ARCarMovement?
     var oldCoordinate: CLLocationCoordinate2D!
     var path = GMSPath()
-    var polyline = GMSPolyline()
+    var polyline : GMSPolyline!
     
     var index = 0
     var timerMap : Timer?
@@ -73,9 +73,15 @@ class HomeVC: BaseVC {
     //MARK:- Custom methods
     func PrepareView(){
         self.checkMapPermission()
+        self.addNotificationObs()
         
         self.moveMent = ARCarMovement()
         self.moveMent?.delegate = self
+        
+    }
+    
+    func addNotificationObs(){
+        NotificationCenter.default.addObserver(self, selector: #selector(self.onCancelAcceptedRideRequest), name: Notification.Name("CancelTripFromDetail"), object: nil)
     }
     
     func setNavWithSOS(){
@@ -105,6 +111,8 @@ class HomeVC: BaseVC {
     
     func setupMap(){
         self.vwMap.clear()
+        self.path = GMSPath()
+        self.polyline = GMSPolyline()
         
         let mapInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 0.0, right: 0.0)
         self.vwMap.padding = mapInsets
@@ -112,7 +120,7 @@ class HomeVC: BaseVC {
         self.CurrentLocLat = String(appDel.locationManager.currentLocation?.coordinate.latitude ?? 0.0)
         self.CurrentLocLong = String(appDel.locationManager.currentLocation?.coordinate.longitude ?? 0.0)
         
-        let camera = GMSCameraPosition.camera(withLatitude: Double(self.CurrentLocLat) ?? 0.0, longitude:  Double(self.CurrentLocLong) ?? 0.0, zoom: 13.8)
+        let camera = GMSCameraPosition.camera(withLatitude: Double(self.CurrentLocLat) ?? 0.0, longitude:  Double(self.CurrentLocLong) ?? 0.0, zoom: 13.6)
         self.vwMap.camera = camera
         
         //Current Location pin setup
@@ -151,7 +159,6 @@ class HomeVC: BaseVC {
                 self.handleRideFlow(state: RideState.RequestAccepted)
                 self.btnOn.isHidden = true
                 self.setupPickupRoute()
-                self.setupTrackingMarker()
             }else if(currentStatus == "traveling"){
                 self.handleRideFlow(state: RideState.StartRide)
                 self.btnOn.isHidden = true
@@ -159,14 +166,15 @@ class HomeVC: BaseVC {
             }else{
                 self.handleRideFlow(state: RideState.None)
                 self.setupMap()
-                self.path = GMSPath()
-                self.polyline = GMSPolyline()
             }
         }
     }
     
     func openReviewScreen(){
         self.vwMap.clear()
+        self.path = GMSPath()
+        self.polyline = GMSPolyline()
+        
         self.setupMap()
         self.handleRideFlow(state: RideState.None)
         
@@ -204,9 +212,11 @@ class HomeVC: BaseVC {
     //MARK:- Setup Route methods
     func setupPickupRoute(){
         self.vwMap.clear()
+        self.path = GMSPath()
+        self.polyline = GMSPolyline()
         
-        self.CurrentLocLat = (self.currentBookingModel?.status == "traveling") ? self.currentBookingModel?.pickupLat ?? "0.0" : String(appDel.locationManager.currentLocation?.coordinate.latitude ?? 0.0)
-        self.CurrentLocLong = (self.currentBookingModel?.status == "traveling") ? self.currentBookingModel?.pickupLng ?? "0.0" : String(appDel.locationManager.currentLocation?.coordinate.longitude ?? 0.0)
+        self.CurrentLocLat = String(appDel.locationManager.currentLocation?.coordinate.latitude ?? 0.0)
+        self.CurrentLocLong = String(appDel.locationManager.currentLocation?.coordinate.longitude ?? 0.0)
         self.PickLocLat =  (self.currentBookingModel?.status == "traveling") ? self.currentBookingModel?.dropoffLat ?? "0.0" : self.currentBookingModel?.pickupLat ?? "0.0"
         self.PickLocLong = (self.currentBookingModel?.status == "traveling") ? self.currentBookingModel?.dropoffLng ?? "0.0" : self.currentBookingModel?.pickupLng ?? "0.0"
         
@@ -218,7 +228,7 @@ class HomeVC: BaseVC {
         let mapInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 300.0, right: 0.0)
         self.vwMap.padding = mapInsets
         
-        let camera = GMSCameraPosition.camera(withLatitude: Double(currentlat) ?? 0.0, longitude:  Double(currentlong) ?? 0.0, zoom: 13.8)
+        let camera = GMSCameraPosition.camera(withLatitude: Double(currentlat) ?? 0.0, longitude:  Double(currentlong) ?? 0.0, zoom: 13.6)
         self.vwMap.camera = camera
         
         //Drop Location pin setup
@@ -234,30 +244,17 @@ class HomeVC: BaseVC {
         self.DropLocMarker?.map = self.vwMap
         
         //Current Location pin setup
-        self.CurrentLocMarker = GMSMarker()
-        self.CurrentLocMarker?.position = CLLocationCoordinate2D(latitude: Double(currentlat) ?? 0.0, longitude: Double(currentlong) ?? 0.0)
-        self.CurrentLocMarker?.snippet = "Your Location"
+        self.DriverLocMarker = GMSMarker()
+        self.DriverLocMarker?.position = CLLocationCoordinate2D(latitude: Double(currentlat) ?? 0.0, longitude: Double(currentlong) ?? 0.0)
+        self.DriverLocMarker?.snippet = "Your Location"
         
         let markerView2 = MarkerPinView()
-        markerView2.markerImage = UIImage(named: "iconCurrentLocPin")
+        markerView2.markerImage = UIImage(named: "car")
         markerView2.layoutSubviews()
         
-        self.CurrentLocMarker?.iconView = markerView2
-        self.CurrentLocMarker?.map = self.vwMap
-        self.vwMap.selectedMarker = self.CurrentLocMarker
-        
-        //Driver Location pin setup
-        //        self.DriverLocMarker = GMSMarker()
-        //        self.DriverLocMarker?.position = CLLocationCoordinate2D(latitude: Double(currentlat) ?? 0.0, longitude: Double(currentlong) ?? 0.0)
-        //        self.DriverLocMarker?.snippet = "Driver Location"
-        //
-        //        let markerView3 = MarkerPinView()
-        //        markerView3.markerImage = UIImage(named: "car")
-        //        markerView3.layoutSubviews()
-        //        self.DriverLocMarker?.iconView = markerView3
-        //        if(self.currentBookingModel?.status == "traveling"){
-        //            self.DriverLocMarker?.map = self.vwMap
-        //        }
+        self.DriverLocMarker?.iconView = markerView2
+        self.DriverLocMarker?.map = self.vwMap
+        self.vwMap.selectedMarker = self.DropLocMarker
         
         //For Displaying both markers in screen centered
         self.arrMarkers.append(self.CurrentLocMarker!)
@@ -332,40 +329,46 @@ class HomeVC: BaseVC {
             self.oldCoordinate = CLLocationCoordinate2DMake(SingletonClass.sharedInstance.latitude, SingletonClass.sharedInstance.longitude)
         }
         if(self.DriverLocMarker == nil){
-            self.DriverLocMarker = GMSMarker(position: oldCoordinate)
+            self.DriverLocMarker = GMSMarker(position: self.oldCoordinate)
             self.DriverLocMarker?.icon = UIImage(named: "car")
             self.DriverLocMarker?.map = self.vwMap
         }
         let newCoordinate: CLLocationCoordinate2D = CLLocationCoordinate2DMake(CLLocationDegrees(SingletonClass.sharedInstance.latitude), CLLocationDegrees(SingletonClass.sharedInstance.longitude))
-        self.moveMent?.arCarMovement(marker: self.DriverLocMarker!, oldCoordinate: oldCoordinate, newCoordinate: newCoordinate, mapView: self.vwMap, bearing: Float(0))
-        oldCoordinate = newCoordinate
+        self.moveMent?.arCarMovement(marker: self.DriverLocMarker!, oldCoordinate: self.oldCoordinate, newCoordinate: newCoordinate, mapView: self.vwMap, bearing: Float(0))
+        self.oldCoordinate = newCoordinate
         
         let camera = GMSCameraPosition.camera(withLatitude: newCoordinate.latitude, longitude: newCoordinate.longitude, zoom: 17)
         self.vwMap.animate(to: camera)
         self.updateTravelledPath(currentLoc: newCoordinate)
         
-//        let Pick = CLLocation(latitude: Double(self.currentBookingModel?.pickupLat ?? "0.0") ?? 0.0, longitude: Double(self.currentBookingModel?.pickupLng ?? "0.0") ?? 0.0)
-//        let Current = CLLocation(latitude: SingletonClass.sharedInstance.latitude, longitude: SingletonClass.sharedInstance.longitude)
-//        let distanceInMeters = Pick.distance(from: Current)
-//        if(distanceInMeters <= 300){
-//            Utilities.displayAlert("You're near pick Location < 300 meters. ,Activate Arrive Button Now..")
-//        }
-//
-//        if(distanceInMeters <= 50){
-//            Utilities.displayAlert("You're At Pickup Location....")
-//        }
+        //        let Pick = CLLocation(latitude: Double(self.currentBookingModel?.pickupLat ?? "0.0") ?? 0.0, longitude: Double(self.currentBookingModel?.pickupLng ?? "0.0") ?? 0.0)
+        //        let Current = CLLocation(latitude: SingletonClass.sharedInstance.latitude, longitude: SingletonClass.sharedInstance.longitude)
+        //        let distanceInMeters = Pick.distance(from: Current)
+        //        if(distanceInMeters <= 300){
+        //            if(distanceInMeters <= 50){
+        //                Utilities.displayAlert("You're At Pickup Location....")
+        //            }
+        //            Utilities.displayAlert("You're near pick Location < 300 meters...")
+        //        }
+        
     }
     
     func updateTravelledPath(currentLoc: CLLocationCoordinate2D){
         var index = 0
         for i in 0..<self.path.count(){
-            let pathLat = Double(self.path.coordinate(at: i).latitude).rounded(toPlaces: 3)
-            let pathLong = Double(self.path.coordinate(at: i).longitude).rounded(toPlaces: 3)
+            let pathLat = Double(self.path.coordinate(at: i).latitude).rounded(toPlaces: 4)
+            let pathLong = Double(self.path.coordinate(at: i).longitude).rounded(toPlaces: 4)
             
-            let currentLat = Double(currentLoc.latitude).rounded(toPlaces: 3)
-            let currentLong = Double(currentLoc.longitude).rounded(toPlaces: 3)
+            let currentLat = Double(currentLoc.latitude).rounded(toPlaces: 4)
+            let currentLong = Double(currentLoc.longitude).rounded(toPlaces: 4)
+            
+            //            print(" pathLat - \(pathLat)")
+            //            print(" currentLat - \(currentLat)")
+            //            print(" pathLong - \(pathLong)")
+            //            print(" currentLong - \(currentLong)")
             
             if currentLat == pathLat && currentLong == pathLong{
+                print("....Route Updated....")
                 index = Int(i)
                 break
             }
@@ -377,7 +380,9 @@ class HomeVC: BaseVC {
             newPath.add(self.path.coordinate(at: UInt(i)))
         }
         self.path = newPath
-        self.polyline.map = nil
+        if (self.polyline != nil){
+            polyline.map = nil
+        }
         self.polyline = GMSPolyline(path: self.path)
         self.polyline.strokeColor = UIColor.black
         self.polyline.strokeWidth = 3.0
@@ -525,7 +530,7 @@ class HomeVC: BaseVC {
     }
     
     @IBAction func btnReCenterAction(_ sender: Any) {
-        let camera = GMSCameraPosition.camera(withLatitude: Double(self.CurrentLocLat) ?? 0.0, longitude:  Double(self.CurrentLocLong) ?? 0.0, zoom: 13.8)
+        let camera = GMSCameraPosition.camera(withLatitude: Double(self.CurrentLocLat) ?? 0.0, longitude:  Double(self.CurrentLocLong) ?? 0.0, zoom: 13.6)
         self.vwMap.animate(to: camera)
     }
     
@@ -611,7 +616,6 @@ extension HomeVC : IncomingRideRequestViewDelegate{
 //MARK:- AcceptedRideDetailsViewDelgate
 extension HomeVC : AcceptedRideDetailsViewDelgate{
     func onTripTrackingStarted() {
-        print("Called..")
         if  SocketIOManager.shared.socket.status == .connected {
             self.emitSocket_liveTrackingp(CustId: self.currentBookingModel?.customerInfo?.id ?? "",
                                           lat: Double(self.currentBookingModel?.dropoffLat ?? "0.0") ?? 0.0,
@@ -627,7 +631,7 @@ extension HomeVC : AcceptedRideDetailsViewDelgate{
         self.verifyCustomerAPI()
     }
     
-    func onCancelAcceptedRideRequest() {
+    @objc func onCancelAcceptedRideRequest() {
         self.handleRideFlow(state: RideState.CancelAcceptedRide)
         self.btnOn.isHidden = false
     }

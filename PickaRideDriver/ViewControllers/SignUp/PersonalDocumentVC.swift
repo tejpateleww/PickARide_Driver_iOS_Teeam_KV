@@ -111,6 +111,10 @@ class PersonalDocumentVC: BaseVC {
         }
     }
     
+    func popBack(){
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     func UploadImage(index : IndexPath){
         let alert = UIAlertController(title: "Choose Photo", message: nil, preferredStyle: .alert)
         let Gallery = UIAlertAction(title: "Select photo from gallery"

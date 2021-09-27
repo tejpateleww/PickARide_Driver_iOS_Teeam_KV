@@ -57,7 +57,7 @@ class HomeViewModel{
         WebServiceSubClass.VerifyCustomerAPI(reqModel: reqModel) { (status, apiMessage, response, error) in
             self.homeVC?.acceptedRideDetailsView.btnSubmit.hideLoading()
             if status{
-                Toast.show(title: UrlConstant.Success, message: response?.otp ?? "", state: .success)
+                Utilities.displayAlert(response?.otp ?? "")
                 self.homeVC?.strArrivedOtp = response?.otp ?? ""
                 self.homeVC?.acceptedRideDetailsView.btnSubmit.setTitle("START RIDE", for: .normal)
                 self.homeVC?.acceptedRideDetailsView.VerifyUserOTP()
