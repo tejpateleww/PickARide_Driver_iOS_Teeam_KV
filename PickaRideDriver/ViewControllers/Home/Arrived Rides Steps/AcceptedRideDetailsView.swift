@@ -188,6 +188,8 @@ class AcceptedRideDetailsView: UIView {
     func TripAccepted(){
         self.btnCancel.isHidden = true
         self.btnSubmit.setTitle("ARRIVED", for: .normal)
+//        self.btnSubmit.isUserInteractionEnabled = false
+//        self.btnSubmit.alpha = 0.5
         self.isComplete = false
         self.isCompleteClicked = false
         self.btnDownArrow.isHidden = false

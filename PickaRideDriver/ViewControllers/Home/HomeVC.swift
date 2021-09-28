@@ -341,15 +341,37 @@ class HomeVC: BaseVC {
         self.vwMap.animate(to: camera)
         self.updateTravelledPath(currentLoc: newCoordinate)
         
-        //        let Pick = CLLocation(latitude: Double(self.currentBookingModel?.pickupLat ?? "0.0") ?? 0.0, longitude: Double(self.currentBookingModel?.pickupLng ?? "0.0") ?? 0.0)
-        //        let Current = CLLocation(latitude: SingletonClass.sharedInstance.latitude, longitude: SingletonClass.sharedInstance.longitude)
-        //        let distanceInMeters = Pick.distance(from: Current)
-        //        if(distanceInMeters <= 300){
-        //            if(distanceInMeters <= 50){
-        //                Utilities.displayAlert("You're At Pickup Location....")
-        //            }
-        //            Utilities.displayAlert("You're near pick Location < 300 meters...")
-        //        }
+        //Find Distance Logic
+//        let location: CLLocation?
+//        if(self.currentBookingModel?.status == "traveling"){
+//            location = CLLocation(latitude: Double(self.currentBookingModel?.dropoffLat ?? "0.0") ?? 0.0, longitude: Double(self.currentBookingModel?.dropoffLng ?? "0.0") ?? 0.0)
+//        }else{
+//            location = CLLocation(latitude: Double(self.currentBookingModel?.pickupLat ?? "0.0") ?? 0.0, longitude: Double(self.currentBookingModel?.pickupLng ?? "0.0") ?? 0.0)
+//        }
+//
+//        let Current = CLLocation(latitude: SingletonClass.sharedInstance.latitude, longitude: SingletonClass.sharedInstance.longitude)
+//        let distanceInMeters = location?.distance(from: Current)
+//        if(distanceInMeters! <= 300){
+//            if(distanceInMeters! <= 50){
+//                if(self.currentBookingModel?.status == "traveling"){
+//                    Utilities.displayAlert("You're at DropOff Location \n(50 meters)")
+//                }else{
+//                    Utilities.displayAlert("You're at Pickup Location \n(50 meters)")
+//                }
+//            }
+//            if(!self.acceptedRideDetailsView.btnSubmit.isUserInteractionEnabled){
+//                Utilities.displayAlert("You're near pick Location \n(300 meters)")
+//                self.acceptedRideDetailsView.btnSubmit.isUserInteractionEnabled = true
+//                self.acceptedRideDetailsView.btnSubmit.alpha = 1
+//            }
+//        }else{
+//            if(self.currentBookingModel?.status != "traveling"){
+//                if(self.acceptedRideDetailsView.btnSubmit.isUserInteractionEnabled){
+//                    self.acceptedRideDetailsView.btnSubmit.isUserInteractionEnabled = false
+//                    self.acceptedRideDetailsView.btnSubmit.alpha = 0.5
+//                }
+//            }
+//        }
         
     }
     
@@ -358,13 +380,12 @@ class HomeVC: BaseVC {
         for i in 0..<self.path.count(){
             let pathLat = Double(self.path.coordinate(at: i).latitude).rounded(toPlaces: 4)
             let pathLong = Double(self.path.coordinate(at: i).longitude).rounded(toPlaces: 4)
-            
             let currentLat = Double(currentLoc.latitude).rounded(toPlaces: 4)
             let currentLong = Double(currentLoc.longitude).rounded(toPlaces: 4)
             
-            //            print(" pathLat - \(pathLat)")
+//                        print(" pathLat - \(pathLat)")
             //            print(" currentLat - \(currentLat)")
-            //            print(" pathLong - \(pathLong)")
+//                        print(" pathLong - \(pathLong)")
             //            print(" currentLong - \(currentLong)")
             
             if currentLat == pathLat && currentLong == pathLong{
@@ -402,8 +423,8 @@ class HomeVC: BaseVC {
             
         } else {
             
-            timerMap?.invalidate()
-            timerMap = nil
+            self.timerMap?.invalidate()
+            self.timerMap = nil
             
         }
         

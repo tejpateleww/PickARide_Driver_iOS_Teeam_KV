@@ -17,6 +17,8 @@ import FirebaseMessaging
 import FirebaseInstanceID
 import FirebaseCore
 
+import SocketIO
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDelegate,MessagingDelegate{
     
@@ -26,6 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
     static var shared: AppDelegate {
         return UIApplication.shared.delegate as! AppDelegate
     }
+    let SManager = SocketManager(socketURL: URL(string: SocketKeys.KHostUrl.rawValue)!)
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool
     {
@@ -114,6 +117,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
                 UserDefaults.standard.removeObject(forKey: key)
             }
         }
+        
         
         user_defaults.setValue(false, forKey: UserDefaultsKey.isUserLogin.rawValue)
         SingletonClass.sharedInstance.clearSingletonClass()

@@ -42,8 +42,12 @@ class HomeViewModel{
     
     func webserviceCompBookingAPI(reqModel: CompleteTripReqModel){
         self.homeVC?.acceptedRideDetailsView.btnSubmit.showLoading()
+        self.homeVC?.acceptedRideDetailsView.btnCancel.isUserInteractionEnabled = false
+        self.homeVC?.acceptedRideDetailsView.btnCancel.alpha = 0.5
         WebServiceSubClass.CompleteTripApi(reqModel: reqModel) { (status, apiMessage, response, error) in
             self.homeVC?.acceptedRideDetailsView.btnSubmit.hideLoading()
+            self.homeVC?.acceptedRideDetailsView.btnCancel.isUserInteractionEnabled = true
+            self.homeVC?.acceptedRideDetailsView.btnCancel.alpha = 1
             if status{
                 self.homeVC?.openReviewScreen()
             }else{
