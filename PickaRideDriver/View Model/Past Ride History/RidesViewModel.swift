@@ -97,4 +97,18 @@ class RidesViewModel{
         }
     }
     
+    func webserviceAcceptBookingRideAPI(reqModel: RidesRequestModel){
+        Utilities.showHud()
+        WebServiceSubClass.AcceptBookLaterAPI(reqModel: reqModel) { (status, message, response, error) in
+            Utilities.hideHud()
+            if status{
+                self.myRidesVC?.upcomingCurrentPage = 1
+                self.myRidesVC?.callUpcomingRideAPI()
+                Toast.show(title: UrlConstant.Success, message: response?.message ?? "", state: .success)
+            }else{
+                Toast.show(title: UrlConstant.Failed, message: message, state: .failure)
+            }
+        }
+    }
+    
 }

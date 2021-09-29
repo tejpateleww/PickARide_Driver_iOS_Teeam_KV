@@ -163,6 +163,14 @@ class WebServiceSubClass{
         }
     }
     
+    class func AcceptBookLaterAPI(reqModel : RidesRequestModel , completion: @escaping (Bool,String,LogoutReponseModel?,Any) -> ()){
+        URLSessionRequestManager.makePostRequest(urlString: ApiKey.acceptBookLaterRequest.rawValue, requestModel: reqModel, responseModel: LogoutReponseModel.self) { (status, message, response, error) in
+            completion(status, message, response, error)
+        }
+    }
+    
+    
+    
     //----------------//
     
     //    class func InitApi(keyPath : String , completion: @escaping (Bool,InitResponseModel?,Any) -> ()) {

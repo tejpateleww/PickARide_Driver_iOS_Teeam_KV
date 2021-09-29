@@ -163,6 +163,8 @@
 		881AF8C026EA2C4300BC3C2D /* CurrentBookingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881AF8BA26EA2C4200BC3C2D /* CurrentBookingModel.swift */; };
 		881AF8C126EA2C4300BC3C2D /* CurrentBookingVehicleType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881AF8BB26EA2C4300BC3C2D /* CurrentBookingVehicleType.swift */; };
 		881AF8C426EA2DEB00BC3C2D /* ChangeDutyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881AF8C326EA2DEB00BC3C2D /* ChangeDutyModel.swift */; };
+		883A17E32704592D00254C86 /* RidesReqModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883A17E22704592D00254C86 /* RidesReqModel.swift */; };
+		883A17E5270461A300254C86 /* RideDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883A17E4270461A300254C86 /* RideDetailViewModel.swift */; };
 		883C9E6926E8D94E00FA1778 /* updatePersonalDocsReqModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883C9E6826E8D94E00FA1778 /* updatePersonalDocsReqModel.swift */; };
 		883C9E6D26E8EC6900FA1778 /* UpdateBankInfoReqModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883C9E6C26E8EC6900FA1778 /* UpdateBankInfoReqModel.swift */; };
 		883C9E7026E8EE5100FA1778 /* BankInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883C9E6F26E8EE5100FA1778 /* BankInfoViewModel.swift */; };
@@ -386,6 +388,8 @@
 		881AF8BA26EA2C4200BC3C2D /* CurrentBookingModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentBookingModel.swift; sourceTree = "<group>"; };
 		881AF8BB26EA2C4300BC3C2D /* CurrentBookingVehicleType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentBookingVehicleType.swift; sourceTree = "<group>"; };
 		881AF8C326EA2DEB00BC3C2D /* ChangeDutyModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeDutyModel.swift; sourceTree = "<group>"; };
+		883A17E22704592D00254C86 /* RidesReqModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RidesReqModel.swift; sourceTree = "<group>"; };
+		883A17E4270461A300254C86 /* RideDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideDetailViewModel.swift; sourceTree = "<group>"; };
 		883C9E6826E8D94E00FA1778 /* updatePersonalDocsReqModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = updatePersonalDocsReqModel.swift; sourceTree = "<group>"; };
 		883C9E6C26E8EC6900FA1778 /* UpdateBankInfoReqModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateBankInfoReqModel.swift; sourceTree = "<group>"; };
 		883C9E6F26E8EE5100FA1778 /* BankInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankInfoViewModel.swift; sourceTree = "<group>"; };
@@ -1084,6 +1088,14 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
+		883A17E12704591900254C86 /* Rides */ = {
+			isa = PBXGroup;
+			children = (
+				883A17E22704592D00254C86 /* RidesReqModel.swift */,
+			);
+			path = Rides;
+			sourceTree = "<group>";
+		};
 		883C9E6426E882A600FA1778 /* Forgot Password */ = {
 			isa = PBXGroup;
 			children = (
@@ -1112,6 +1124,7 @@
 		883C9E6726E8D91400FA1778 /* Request Models */ = {
 			isa = PBXGroup;
 			children = (
+				883A17E12704591900254C86 /* Rides */,
 				8808C4BE26F0BB52004B8518 /* VerifyCustomer */,
 				8808C4B126F071DA004B8518 /* Rate and Review */,
 				881AF8B226EA278900BC3C2D /* DutyStatus */,
@@ -1186,6 +1199,7 @@
 			isa = PBXGroup;
 			children = (
 				885DF0F126F31DBC008242AE /* RidesViewModel.swift */,
+				883A17E4270461A300254C86 /* RideDetailViewModel.swift */,
 			);
 			path = "Past Ride History";
 			sourceTree = "<group>";
@@ -1590,6 +1604,7 @@
 				186EC9382696F64D00314717 /* PasswordModel.swift in Sources */,
 				885DF0EC26F31424008242AE /* PastBookingResVehicleType.swift in Sources */,
 				883C9E6926E8D94E00FA1778 /* updatePersonalDocsReqModel.swift in Sources */,
+				883A17E5270461A300254C86 /* RideDetailViewModel.swift in Sources */,
 				4F94F17A2643DB5F00780413 /* UIViewController+Extension.swift in Sources */,
 				88BD4B5C26FB22BA0039F4CE /* ARCarMovement.swift in Sources */,
 				881AF8B126EA274700BC3C2D /* HomeViewModel.swift in Sources */,
@@ -1681,6 +1696,7 @@
 				8867A71726F1B7CB00049490 /* CancelTripViewModel.swift in Sources */,
 				8808C4B626F07283004B8518 /* RateAndReviewModel.swift in Sources */,
 				4F94F1792643DB5F00780413 /* extension+String.swift in Sources */,
+				883A17E32704592D00254C86 /* RidesReqModel.swift in Sources */,
 				843F805C264A6FB300BCBDB8 /* MenuViewController.swift in Sources */,
 				8476070B264909500019CE1F /* SettingCell.swift in Sources */,
 				1865CF69267C767600379A40 /* UploadMediaModel.swift in Sources */,

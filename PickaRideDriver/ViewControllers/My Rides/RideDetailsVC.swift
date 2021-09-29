@@ -9,6 +9,10 @@ import UIKit
 import SDWebImage
 import Cosmos
 
+protocol AcceptBookingReqDelgate {
+    func onAcceptBookingReq()
+}
+
 class RideDetailsVC: BaseVC {
     
     //MARK: -IBActions
@@ -39,6 +43,8 @@ class RideDetailsVC: BaseVC {
     var isFromPast : Bool = false
     var isFromInprogress : Bool = false
     var PastBookingData : PastBookingResDatum?
+    var rideDeatilViewModel = RideDeatilViewModel()
+    var delegate : AcceptBookingReqDelgate?
     
     //MARK: - Life cycle methods
     override func viewDidLoad() {
@@ -150,6 +156,12 @@ class RideDetailsVC: BaseVC {
     
     func acceptRide() {
         print("accept ride..")
+        self.callAcceptBookingRideAPI(Id: self.PastBookingData?.bookingInfo?.id ?? "")
+    }
+    
+    func popBack(){
+        self.delegate?.onAcceptBookingReq()
+        self.navigationController?.popViewController(animated: true)
     }
     
     //MARK: - Button action methods
@@ -174,3 +186,14 @@ class RideDetailsVC: BaseVC {
     
 }
 
+
+//MARK:- Api Calls
+extension RideDetailsVC{
+    
+    func callAcceptBookingRideAPI(Id : String){
+        self.rideDeatilViewModel.rideDetailsVC = self
+        let reqModel = RidesRequestModel()
+        reqModel.bookingId = Id
+        self.rideDeatilViewModel.webserviceAcceptBookingRideAPI(reqModel: reqModel)
+    }
+}

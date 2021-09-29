@@ -116,6 +116,7 @@ extension MyRidesVC : UITableViewDelegate,UITableViewDataSource {
                 let cell:MyRideCell = self.tblMyRides.dequeueReusableCell(withIdentifier: MyRideCell.reuseIdentifier, for: indexPath)as! MyRideCell
                 let dict = self.arrRides[indexPath.row]
                 let BookingStatus = dict.bookingInfo?.status ?? ""
+                let BookingType = dict.bookingInfo?.bookingType ?? ""
                 
                 let timestamp: TimeInterval = (self.selectedMyRideState == 0) ? Double(dict.bookingInfo?.acceptTime ?? "") ?? 0.0 : (self.selectedMyRideState == 1) ? Double(dict.bookingInfo?.bookingTime ?? "") ?? 0.0 : Double(dict.bookingInfo?.pickupDateTime ?? "") ?? 0.0
                 let date = Date(timeIntervalSince1970: timestamp)
@@ -133,7 +134,12 @@ extension MyRidesVC : UITableViewDelegate,UITableViewDataSource {
                 }else if self.selectedMyRideState == 1{
                     cell.stackButtons.isHidden = true
                     cell.stackButtonsHeight.constant = 0
-                    cell.imgStatus.image = #imageLiteral(resourceName: "OnGoing")
+                    if(BookingType == "book_now"){
+                        cell.imgStatus.image = #imageLiteral(resourceName: "OnGoing")
+                    }else if(BookingType == "book_later"){
+                        cell.imgStatus.image = #imageLiteral(resourceName: "Pending")
+                    }
+                    
                 }else{
                     cell.stackButtons.isHidden = false
                     cell.stackButtonsHeight.constant = 40
@@ -146,6 +152,7 @@ extension MyRidesVC : UITableViewDelegate,UITableViewDataSource {
                 
                 cell.AcceptTapped = {
                     print("Accept called....")
+                    self.callAcceptBookingRideAPI(Id: dict.bookingInfo?.id ?? "")
                 }
                 cell.RejectTapped = {
                     print("Reject called....")
@@ -192,6 +199,7 @@ extension MyRidesVC : UITableViewDelegate,UITableViewDataSource {
             }else{
                 let vc : RideDetailsVC = RideDetailsVC.instantiate(fromAppStoryboard: .Main)
                 vc.isFromUpcomming = true
+                vc.delegate = self
                 vc.PastBookingData = arrRides[indexPath.row]
                 self.navigationController?.pushViewController(vc, animated: true)
             }
@@ -281,5 +289,20 @@ extension MyRidesVC{
     func callInProcessBookingRideAPI(){
         self.ridesViewModel.myRidesVC = self
         self.ridesViewModel.webserviceInProcessBookingRideAPI(Page: "\(self.InProgressCurrentPage)")
+    }
+    
+    func callAcceptBookingRideAPI(Id : String){
+        self.ridesViewModel.myRidesVC = self
+        let reqModel = RidesRequestModel()
+        reqModel.bookingId = Id
+        self.ridesViewModel.webserviceAcceptBookingRideAPI(reqModel: reqModel)
+    }
+}
+
+//MARK:- AcceptBookingReqDelgate
+extension MyRidesVC : AcceptBookingReqDelgate{
+    func onAcceptBookingReq() {
+        self.upcomingCurrentPage = 1
+        self.callUpcomingRideAPI()
     }
 }

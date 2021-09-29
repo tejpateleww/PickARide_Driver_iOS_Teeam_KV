@@ -46,6 +46,10 @@ class HomeVC: BaseVC {
     var index = 0
     var timerMap : Timer?
     
+    var oldPoint:CLLocation!
+    var newPoint:CLLocation!
+    var coordinates : [CLLocation] = []
+    
     //MARK:- Life cycle methods
     override func viewWillAppear(_ animated: Bool) {
         self.SocketOnMethods()
@@ -342,90 +346,101 @@ class HomeVC: BaseVC {
         self.updateTravelledPath(currentLoc: newCoordinate)
         
         //Find Distance Logic
-//        let location: CLLocation?
-//        if(self.currentBookingModel?.status == "traveling"){
-//            location = CLLocation(latitude: Double(self.currentBookingModel?.dropoffLat ?? "0.0") ?? 0.0, longitude: Double(self.currentBookingModel?.dropoffLng ?? "0.0") ?? 0.0)
-//        }else{
-//            location = CLLocation(latitude: Double(self.currentBookingModel?.pickupLat ?? "0.0") ?? 0.0, longitude: Double(self.currentBookingModel?.pickupLng ?? "0.0") ?? 0.0)
-//        }
-//
-//        let Current = CLLocation(latitude: SingletonClass.sharedInstance.latitude, longitude: SingletonClass.sharedInstance.longitude)
-//        let distanceInMeters = location?.distance(from: Current)
-//        if(distanceInMeters! <= 300){
-//            if(distanceInMeters! <= 50){
-//                if(self.currentBookingModel?.status == "traveling"){
-//                    Utilities.displayAlert("You're at DropOff Location \n(50 meters)")
-//                }else{
-//                    Utilities.displayAlert("You're at Pickup Location \n(50 meters)")
-//                }
-//            }
-//            if(!self.acceptedRideDetailsView.btnSubmit.isUserInteractionEnabled){
-//                Utilities.displayAlert("You're near pick Location \n(300 meters)")
-//                self.acceptedRideDetailsView.btnSubmit.isUserInteractionEnabled = true
-//                self.acceptedRideDetailsView.btnSubmit.alpha = 1
-//            }
-//        }else{
-//            if(self.currentBookingModel?.status != "traveling"){
-//                if(self.acceptedRideDetailsView.btnSubmit.isUserInteractionEnabled){
-//                    self.acceptedRideDetailsView.btnSubmit.isUserInteractionEnabled = false
-//                    self.acceptedRideDetailsView.btnSubmit.alpha = 0.5
-//                }
-//            }
-//        }
+        let location: CLLocation?
+        if(self.currentBookingModel?.status == "traveling"){
+            location = CLLocation(latitude: Double(self.currentBookingModel?.dropoffLat ?? "0.0") ?? 0.0, longitude: Double(self.currentBookingModel?.dropoffLng ?? "0.0") ?? 0.0)
+        }else{
+            location = CLLocation(latitude: Double(self.currentBookingModel?.pickupLat ?? "0.0") ?? 0.0, longitude: Double(self.currentBookingModel?.pickupLng ?? "0.0") ?? 0.0)
+        }
+
+        let Current = CLLocation(latitude: SingletonClass.sharedInstance.latitude, longitude: SingletonClass.sharedInstance.longitude)
+        let distanceInMeters = location?.distance(from: Current)
+        if(distanceInMeters! <= 300){
+            if(distanceInMeters! <= 50){
+                if(self.currentBookingModel?.status == "traveling"){
+                    Utilities.displayAlert("You're at DropOff Location \n(50 meters)")
+                }else{
+                    Utilities.displayAlert("You're at Pickup Location \n(50 meters)")
+                }
+            }
+            if(!self.acceptedRideDetailsView.btnSubmit.isUserInteractionEnabled){
+                Utilities.displayAlert("You're near pick Location \n(300 meters)")
+                self.acceptedRideDetailsView.btnSubmit.isUserInteractionEnabled = true
+                self.acceptedRideDetailsView.btnSubmit.alpha = 1
+            }
+        }
         
     }
     
     func updateTravelledPath(currentLoc: CLLocationCoordinate2D){
         var index = 0
+        self.coordinates = []
+        print("---------- Polyline Array ----------")
         for i in 0..<self.path.count(){
-            let pathLat = Double(self.path.coordinate(at: i).latitude).rounded(toPlaces: 4)
-            let pathLong = Double(self.path.coordinate(at: i).longitude).rounded(toPlaces: 4)
-            let currentLat = Double(currentLoc.latitude).rounded(toPlaces: 4)
-            let currentLong = Double(currentLoc.longitude).rounded(toPlaces: 4)
+            let pathLat = Double(self.path.coordinate(at: i).latitude).rounded(toPlaces: 5)
+            let pathLong = Double(self.path.coordinate(at: i).longitude).rounded(toPlaces: 5)
+            print(" pathLat - \(pathLat) : pathLong - \(pathLong)")
             
-//                        print(" pathLat - \(pathLat)")
-            //            print(" currentLat - \(currentLat)")
-//                        print(" pathLong - \(pathLong)")
-            //            print(" currentLong - \(currentLong)")
-            
-            if currentLat == pathLat && currentLong == pathLong{
-                print("....Route Updated....")
-                index = Int(i)
-                break
+            self.newPoint = CLLocation(latitude: pathLat, longitude: pathLong)
+            if(self.oldPoint == nil){
+                self.oldPoint = self.newPoint
             }
+            self.getAllCoordinate(startPoint: self.oldPoint, endPoint: self.newPoint)
+            self.oldPoint = self.newPoint
+            
+            let coord = CLLocation(latitude: pathLat, longitude: pathLong)
+            self.coordinates.append(coord)
         }
+        
+        let userLocation = CLLocation(latitude: Double(currentLoc.latitude).rounded(toPlaces: 5), longitude: Double(currentLoc.longitude).rounded(toPlaces: 5))
+        let closest = self.coordinates.min(by:{ $0.distance(from: userLocation) < $1.distance(from: userLocation) })
+        index = self.coordinates.firstIndex{$0 === closest}!
         
         //Creating new path from the current location to the destination
         let newPath = GMSMutablePath()
-        for i in index..<Int(self.path.count()){
-            newPath.add(self.path.coordinate(at: UInt(i)))
+        for i in index..<Int(self.coordinates.count){
+            newPath.add(CLLocationCoordinate2D(latitude: self.coordinates[i].coordinate.latitude, longitude: self.coordinates[i].coordinate.longitude))
         }
-        self.path = newPath
         if (self.polyline != nil){
             polyline.map = nil
         }
-        self.polyline = GMSPolyline(path: self.path)
+        self.polyline = GMSPolyline(path: newPath)
         self.polyline.strokeColor = UIColor.black
         self.polyline.strokeWidth = 3.0
         self.polyline.map = self.vwMap
+    }
+    
+    func getAllCoordinate(startPoint:CLLocation, endPoint:CLLocation){
+        let startPoint = CLLocation(latitude: startPoint.coordinate.latitude, longitude: startPoint.coordinate.longitude)
+        let endPoint = CLLocation(latitude: endPoint.coordinate.latitude, longitude: endPoint.coordinate.longitude)
+
+        let yourTotalCoordinates = Double(5) //1 number of coordinates, change it as per your uses
+        let latitudeDiff = startPoint.coordinate.latitude - endPoint.coordinate.latitude //2
+        let longitudeDiff = startPoint.coordinate.longitude - endPoint.coordinate.longitude //3
+        let latMultiplier = latitudeDiff / (yourTotalCoordinates + 1) //4
+        let longMultiplier = longitudeDiff / (yourTotalCoordinates + 1) //5
+
+        for index in 1...Int(yourTotalCoordinates) { //7
+            let lat  = startPoint.coordinate.latitude - (latMultiplier * Double(index)) //8
+            let long = startPoint.coordinate.longitude - (longMultiplier * Double(index)) //9
+            let point = CLLocation(latitude: lat.rounded(toPlaces: 5), longitude: long.rounded(toPlaces: 5)) //10
+            print(" pathLat - \(point.coordinate.latitude) : pathLong - \(point.coordinate.longitude)")
+            self.coordinates.append(point) //11
+        }
     }
     
     
     @objc func timerTriggered() { 
         
         if self.index < self.path.count() {
-            
             CATransaction.begin()
             CATransaction.setAnimationDuration(1.9)
             self.DriverLocMarker!.position = self.path.coordinate(at:UInt(index))
             CATransaction.commit()
             self.index += 1
-            
-        } else {
-            
+        }else{
             self.timerMap?.invalidate()
             self.timerMap = nil
-            
         }
         
     }
