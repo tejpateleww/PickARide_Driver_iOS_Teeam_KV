@@ -59,8 +59,7 @@ class AcceptedRideDetailsView: UIView {
     var isCancelFromArrived = false
     var isfrom = status.arrived
     var currentBookingModel : CurrentBookingDatum?
-    var timerTracking : Timer?
-    
+  
     var isExpandCategory:  Bool  = false {
         didSet {
             mainVWBottomConstraint.constant = isExpandCategory ? 0 : (-mainVW.frame.height + topVW.frame.height + timewVW.frame.height + 35)
@@ -226,8 +225,8 @@ class AcceptedRideDetailsView: UIView {
     }
     
     func startTimer() {
-        if(self.timerTracking == nil){
-            self.timerTracking = Timer.scheduledTimer(withTimeInterval: 5, repeats: true, block: { (timer) in
+        if(appDel.timerTracking == nil){
+            appDel.timerTracking = Timer.scheduledTimer(withTimeInterval: 5, repeats: true, block: { (timer) in
                 print("Track Timer Start ......")
                 self.delegate?.onTripTrackingStarted()
             })
@@ -235,9 +234,9 @@ class AcceptedRideDetailsView: UIView {
     }
     
     func endTimer(){
-        if(self.timerTracking != nil){
-            self.timerTracking?.invalidate()
-            self.timerTracking = nil
+        if(appDel.timerTracking != nil){
+            appDel.timerTracking?.invalidate()
+            appDel.timerTracking = nil
             print("Track Timer End ......")
         }
     }

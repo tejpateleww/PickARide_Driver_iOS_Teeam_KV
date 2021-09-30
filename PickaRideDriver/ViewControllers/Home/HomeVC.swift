@@ -343,6 +343,18 @@ class HomeVC: BaseVC {
         
         let camera = GMSCameraPosition.camera(withLatitude: newCoordinate.latitude, longitude: newCoordinate.longitude, zoom: 17)
         self.vwMap.animate(to: camera)
+        
+        
+        let userLocation = CLLocation(latitude: SingletonClass.sharedInstance.latitude.rounded(toPlaces: 5), longitude: SingletonClass.sharedInstance.longitude.rounded(toPlaces: 5))
+        let closest = self.coordinates.min(by:{ $0.distance(from: userLocation) < $1.distance(from: userLocation) })
+        let Meters = closest?.distance(from: userLocation) ?? 0
+        print("Distance from closest point---------- \(Meters.rounded(toPlaces: 2)) meters")
+        if(Meters > 300){
+            print("New route ---***---***---**--**--**--**----*****")
+            self.setupPickupRoute()
+            return
+        }
+        
         self.updateTravelledPath(currentLoc: newCoordinate)
         
         //Find Distance Logic
@@ -352,7 +364,7 @@ class HomeVC: BaseVC {
         }else{
             location = CLLocation(latitude: Double(self.currentBookingModel?.pickupLat ?? "0.0") ?? 0.0, longitude: Double(self.currentBookingModel?.pickupLng ?? "0.0") ?? 0.0)
         }
-
+        
         let Current = CLLocation(latitude: SingletonClass.sharedInstance.latitude, longitude: SingletonClass.sharedInstance.longitude)
         let distanceInMeters = location?.distance(from: Current)
         if(distanceInMeters! <= 300){
@@ -372,6 +384,7 @@ class HomeVC: BaseVC {
         
     }
     
+    //MARK: - update TravelledPath Methods
     func updateTravelledPath(currentLoc: CLLocationCoordinate2D){
         var index = 0
         self.coordinates = []
@@ -408,18 +421,18 @@ class HomeVC: BaseVC {
         self.polyline.strokeColor = UIColor.black
         self.polyline.strokeWidth = 3.0
         self.polyline.map = self.vwMap
+        
     }
     
     func getAllCoordinate(startPoint:CLLocation, endPoint:CLLocation){
-        let startPoint = CLLocation(latitude: startPoint.coordinate.latitude, longitude: startPoint.coordinate.longitude)
-        let endPoint = CLLocation(latitude: endPoint.coordinate.latitude, longitude: endPoint.coordinate.longitude)
-
+        
         let yourTotalCoordinates = Double(5) //1 number of coordinates, change it as per your uses
         let latitudeDiff = startPoint.coordinate.latitude - endPoint.coordinate.latitude //2
+        
         let longitudeDiff = startPoint.coordinate.longitude - endPoint.coordinate.longitude //3
         let latMultiplier = latitudeDiff / (yourTotalCoordinates + 1) //4
         let longMultiplier = longitudeDiff / (yourTotalCoordinates + 1) //5
-
+        
         for index in 1...Int(yourTotalCoordinates) { //7
             let lat  = startPoint.coordinate.latitude - (latMultiplier * Double(index)) //8
             let long = startPoint.coordinate.longitude - (longMultiplier * Double(index)) //9
@@ -429,56 +442,27 @@ class HomeVC: BaseVC {
         }
     }
     
-    
-    @objc func timerTriggered() { 
-        
-        if self.index < self.path.count() {
-            CATransaction.begin()
-            CATransaction.setAnimationDuration(1.9)
-            self.DriverLocMarker!.position = self.path.coordinate(at:UInt(index))
-            CATransaction.commit()
-            self.index += 1
-        }else{
-            self.timerMap?.invalidate()
-            self.timerMap = nil
-        }
-        
-    }
-    
     //MARK: - open GoogleMap Path Methods
-    func openGoogleMap()
-    {
-        if (UIApplication.shared.canOpenURL(NSURL(string:"comgooglemaps://")! as URL))
-        {
-            if(self.CurrentLocLat == "0.0" && self.CurrentLocLong == "0.0")
-            {
-                UIApplication.shared.open((NSURL(string:
-                                                    "https://maps.google.com/maps?saddr=&daddr=\(self.PickLocLat),\(self.PickLocLong)")! as URL), options: [:], completionHandler: nil)
+    func openGoogleMap(){
+        if (UIApplication.shared.canOpenURL(NSURL(string:"comgooglemaps://")! as URL)){
+            if(self.CurrentLocLat == "0.0" && self.CurrentLocLong == "0.0"){
+                UIApplication.shared.open((NSURL(string:"https://maps.google.com/maps?saddr=&daddr=\(self.PickLocLat),\(self.PickLocLong)")! as URL), options: [:], completionHandler: nil)
             }
-            else
-            {
-                UIApplication.shared.open((NSURL(string:
-                                                    "https://maps.google.com/maps?saddr=\(self.CurrentLocLat),\(self.CurrentLocLong)&daddr=\(self.PickLocLat),\(self.PickLocLong)")! as URL), options: [:], completionHandler: nil)
+            else{
+                UIApplication.shared.open((NSURL(string:"https://maps.google.com/maps?saddr=\(self.CurrentLocLat),\(self.CurrentLocLong)&daddr=\(self.PickLocLat),\(self.PickLocLong)")! as URL), options: [:], completionHandler: nil)
             }
-        }
-        else
-        {
-            NSLog("Can't use comgooglemaps://");
-            if(self.CurrentLocLat == "0.0" && self.CurrentLocLong == "0.0")
-            {
-                UIApplication.shared.open((NSURL(string:
-                                                    "https://maps.google.com/maps?saddr=&daddr=\(self.PickLocLat),\(self.PickLocLong)")! as URL), options: [:], completionHandler: nil)
+        }else{
+            if(self.CurrentLocLat == "0.0" && self.CurrentLocLong == "0.0"){
+                UIApplication.shared.open((NSURL(string:"https://maps.google.com/maps?saddr=&daddr=\(self.PickLocLat),\(self.PickLocLong)")! as URL), options: [:], completionHandler: nil)
             }
-            else
-            {
-                UIApplication.shared.open((NSURL(string:
-                                                    "https://maps.google.com/maps?saddr=\(self.CurrentLocLat),\(self.CurrentLocLong)&daddr=\(self.PickLocLat),\(self.PickLocLong)")! as URL), options: [:], completionHandler: nil)
+            else{
+                UIApplication.shared.open((NSURL(string:"https://maps.google.com/maps?saddr=\(self.CurrentLocLat),\(self.CurrentLocLong)&daddr=\(self.PickLocLat),\(self.PickLocLong)")! as URL), options: [:], completionHandler: nil)
             }
         }
     }
     
     //MARK:- handleRideFlow methods
-    func handleRideFlow(state : Int) {
+    func handleRideFlow(state : Int){
         
         if (state == RideState.None){
             

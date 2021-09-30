@@ -29,6 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
         return UIApplication.shared.delegate as! AppDelegate
     }
     let SManager = SocketManager(socketURL: URL(string: SocketKeys.KHostUrl.rawValue)!)
+    var timerTracking : Timer?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool
     {
@@ -118,6 +119,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
             }
         }
         
+        let socket = (UIApplication.shared.delegate as! AppDelegate).SManager.defaultSocket
+        socket.off(SocketKeys.updateDriverLocation.rawValue)
+        socket.off(SocketKeys.forwardBookingRequest.rawValue)
+        socket.off(SocketKeys.forwardBookingRequestToAnotherDriver.rawValue)
+        socket.off(SocketKeys.acceptBookingRequest.rawValue)
+        socket.off(SocketKeys.verifyCustomer.rawValue)
+        socket.off(SocketKeys.arrivedAtPickupLocation.rawValue)
+        socket.off(SocketKeys.startTrip.rawValue)
+        socket.off(SocketKeys.liveTracking.rawValue)
+        socket.disconnect()
+        
+        if(appDel.timerTracking != nil){
+            appDel.timerTracking?.invalidate()
+            appDel.timerTracking = nil
+        }
         
         user_defaults.setValue(false, forKey: UserDefaultsKey.isUserLogin.rawValue)
         SingletonClass.sharedInstance.clearSingletonClass()
