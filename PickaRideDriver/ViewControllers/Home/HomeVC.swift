@@ -344,43 +344,32 @@ class HomeVC: BaseVC {
         let camera = GMSCameraPosition.camera(withLatitude: newCoordinate.latitude, longitude: newCoordinate.longitude, zoom: 17)
         self.vwMap.animate(to: camera)
         
-        
-        let userLocation = CLLocation(latitude: SingletonClass.sharedInstance.latitude.rounded(toPlaces: 5), longitude: SingletonClass.sharedInstance.longitude.rounded(toPlaces: 5))
-        let closest = self.coordinates.min(by:{ $0.distance(from: userLocation) < $1.distance(from: userLocation) })
-        let Meters = closest?.distance(from: userLocation) ?? 0
-        print("Distance from closest point---------- \(Meters.rounded(toPlaces: 2)) meters")
-        if(Meters > 300){
-            print("New route ---***---***---**--**--**--**----*****")
-            self.setupPickupRoute()
-            return
-        }
-        
         self.updateTravelledPath(currentLoc: newCoordinate)
         
         //Find Distance Logic
-        let location: CLLocation?
-        if(self.currentBookingModel?.status == "traveling"){
-            location = CLLocation(latitude: Double(self.currentBookingModel?.dropoffLat ?? "0.0") ?? 0.0, longitude: Double(self.currentBookingModel?.dropoffLng ?? "0.0") ?? 0.0)
-        }else{
-            location = CLLocation(latitude: Double(self.currentBookingModel?.pickupLat ?? "0.0") ?? 0.0, longitude: Double(self.currentBookingModel?.pickupLng ?? "0.0") ?? 0.0)
-        }
-        
-        let Current = CLLocation(latitude: SingletonClass.sharedInstance.latitude, longitude: SingletonClass.sharedInstance.longitude)
-        let distanceInMeters = location?.distance(from: Current)
-        if(distanceInMeters! <= 300){
-            if(distanceInMeters! <= 50){
-                if(self.currentBookingModel?.status == "traveling"){
-                    Utilities.displayAlert("You're at DropOff Location \n(50 meters)")
-                }else{
-                    Utilities.displayAlert("You're at Pickup Location \n(50 meters)")
-                }
-            }
-            if(!self.acceptedRideDetailsView.btnSubmit.isUserInteractionEnabled){
-                Utilities.displayAlert("You're near pick Location \n(300 meters)")
-                self.acceptedRideDetailsView.btnSubmit.isUserInteractionEnabled = true
-                self.acceptedRideDetailsView.btnSubmit.alpha = 1
-            }
-        }
+//        let location: CLLocation?
+//        if(self.currentBookingModel?.status == "traveling"){
+//            location = CLLocation(latitude: Double(self.currentBookingModel?.dropoffLat ?? "0.0") ?? 0.0, longitude: Double(self.currentBookingModel?.dropoffLng ?? "0.0") ?? 0.0)
+//        }else{
+//            location = CLLocation(latitude: Double(self.currentBookingModel?.pickupLat ?? "0.0") ?? 0.0, longitude: Double(self.currentBookingModel?.pickupLng ?? "0.0") ?? 0.0)
+//        }
+//        
+//        let Current = CLLocation(latitude: SingletonClass.sharedInstance.latitude, longitude: SingletonClass.sharedInstance.longitude)
+//        let distanceInMeters = location?.distance(from: Current)
+//        if(distanceInMeters! <= 300){
+//            if(distanceInMeters! <= 50){
+//                if(self.currentBookingModel?.status == "traveling"){
+//                    Utilities.displayAlert("You're at DropOff Location \n(50 meters)")
+//                }else{
+//                    Utilities.displayAlert("You're at Pickup Location \n(50 meters)")
+//                }
+//            }
+//            if(!self.acceptedRideDetailsView.btnSubmit.isUserInteractionEnabled){
+//                Utilities.displayAlert("You're near pick Location \n(300 meters)")
+//                self.acceptedRideDetailsView.btnSubmit.isUserInteractionEnabled = true
+//                self.acceptedRideDetailsView.btnSubmit.alpha = 1
+//            }
+//        }
         
     }
     
@@ -408,6 +397,17 @@ class HomeVC: BaseVC {
         let userLocation = CLLocation(latitude: Double(currentLoc.latitude).rounded(toPlaces: 5), longitude: Double(currentLoc.longitude).rounded(toPlaces: 5))
         let closest = self.coordinates.min(by:{ $0.distance(from: userLocation) < $1.distance(from: userLocation) })
         index = self.coordinates.firstIndex{$0 === closest}!
+        
+        let Meters = closest?.distance(from: userLocation) ?? 0
+        print("Distance from closest point---------- \(Meters.rounded(toPlaces: 2)) meters")
+        if(Meters > 300){
+            print("New route ---***---***---**--**--**--**----*****")
+            self.setupPickupRoute()
+            self.oldPoint = nil
+            self.newPoint = nil
+            self.oldCoordinate = nil
+            return
+        }
         
         //Creating new path from the current location to the destination
         let newPath = GMSMutablePath()
@@ -638,10 +638,11 @@ extension HomeVC : AcceptedRideDetailsViewDelgate{
     func onTripTrackingStarted() {
         if  SocketIOManager.shared.socket.status == .connected {
             self.emitSocket_liveTrackingp(CustId: self.currentBookingModel?.customerInfo?.id ?? "",
-                                          lat: Double(self.currentBookingModel?.dropoffLat ?? "0.0") ?? 0.0,
-                                          lng: Double(self.currentBookingModel?.dropoffLng ?? "0.0") ?? 0.0,
-                                          pickup_lat: Double(self.currentBookingModel?.pickupLat ?? "0.0") ?? 0.0,
-                                          pickup_lng: Double(self.currentBookingModel?.pickupLng ?? "0.0") ?? 0.0)
+                                          lat: appDel.locationManager.currentLocation?.coordinate.latitude ?? 0.0,
+                                          lng: appDel.locationManager.currentLocation?.coordinate.longitude ?? 0.0,
+                                          pickup_lat: (self.currentBookingModel?.status == "traveling") ? Double(self.currentBookingModel?.dropoffLat ?? "0.0") ?? 0.0 : Double(self.currentBookingModel?.pickupLat ?? "0.0") ?? 0.0,
+                                          pickup_lng: (self.currentBookingModel?.status == "traveling") ? Double(self.currentBookingModel?.dropoffLng ?? "0.0") ?? 0.0 : Double(self.currentBookingModel?.pickupLng ?? "0.0") ?? 0.0)
+            
         }
         
         self.setupTrackingMarker()

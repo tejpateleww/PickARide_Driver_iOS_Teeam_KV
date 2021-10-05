@@ -12,6 +12,7 @@ import UIKit
 
 let keywindow = UIApplication.shared.keyWindow
 let user_defaults = UserDefaults.standard
+let screenWidth = UIScreen.main.bounds.width
 let appDel = UIApplication.shared.delegate as! AppDelegate
 let kAPPVesion = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as! String
 let AppName = ""

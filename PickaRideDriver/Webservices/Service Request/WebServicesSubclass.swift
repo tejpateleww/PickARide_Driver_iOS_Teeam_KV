@@ -169,6 +169,12 @@ class WebServiceSubClass{
         }
     }
     
+    class func GetChatHistoryApi(BookingID: String, completion: @escaping (Bool,String,chatHistoryModel?,Any) -> ()) {
+        URLSessionRequestManager.makeGetRequest(urlString: ApiKey.chatHistory.rawValue + BookingID, responseModel: chatHistoryModel.self) { (status, message, response, error) in
+            completion(status, message, response, error)
+        }
+    }
+    
     
     
     //----------------//

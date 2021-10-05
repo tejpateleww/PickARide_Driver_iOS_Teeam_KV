@@ -114,3 +114,63 @@ func rounded(toPlaces places:Int) -> Double {
     return (self * divisor).rounded() / divisor
 }
 }
+
+extension String {
+    
+    var ampmDateString: String? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HH:mm"
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        if let date = dateFormatter.date(from: self){
+            dateFormatter.dateFormat = "h:mm a"
+            dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+            return dateFormatter.string(from: date)
+        }
+        else{
+            return nil
+        }
+    }
+    
+    ///"2020-03-26 00:00:00
+    
+    var serverDateStringToDateType1: Date? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        return dateFormatter.date(from: self)
+    }
+    
+    func convertDateString(inputFormat: DateFormatInputType, outputFormat: DateFormatOutputType) -> String {
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        dateFormatter.dateFormat = inputFormat.rawValue
+        
+        if let date = dateFormatter.date(from: self) {
+            dateFormatter.dateFormat = outputFormat.rawValue
+            return  dateFormatter.string(from: date)
+        }else{
+            print("Could not get the dat string from dateformattere")
+            return ""
+        }
+    }
+    
+    
+    
+    //    func convertToDate(inputFormat: DateFormatInputType) -> Date? {
+    //
+    //        UtilityClass.commonDateFormatter.locale = Locale(identifier: "en_US_POSIX")
+    //        UtilityClass.commonDateFormatter.dateFormat = inputFormat.rawValue
+    //
+    //        if let date = UtilityClass.commonDateFormatter.date(from: self) {
+    //            print("Date got successfully")
+    //            return date
+    //        }else{
+    //            print("Could not find the date correctly")
+    //            return nil
+    //       }
+    //
+    //    }
+    
+    
+}

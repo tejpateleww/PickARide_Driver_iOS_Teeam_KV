@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import IQKeyboardManagerSwift
 
 class ChatViewController: BaseVC {
-
+    
     //MARK: -IBOutlets
     @IBOutlet weak var tblChat: UITableView!
     @IBOutlet var keyboardHeightLayoutConstraint: NSLayoutConstraint?
@@ -19,47 +20,57 @@ class ChatViewController: BaseVC {
     @IBOutlet weak var lblInfo: UILabel!
     
     //MARK: -Properties
-    var MessageArray = [ChatConversation]()
+    var chatViewModel = ChatViewModel()
     var currentBookingModel : CurrentBookingDatum?
+    var arrayChatHistory = [chatHistoryDatum]()
+    var filterListArr : [String: [chatHistoryDatum]] = [String(): [chatHistoryDatum]()]
+    var filterKeysArr : [Date] = [Date]()
+    var oldChatSectionTitle = Date()
+    var oldChatId = String()
     
     //MARK: -View Life Cycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-
-
-        txtviewComment.delegate = self
-        txtviewComment.textColor = txtviewComment.text == "" ? .black : .gray
-        setLocalization()
-        setValue()
-        MessageArray.append(ChatConversation(date: "Today at 5:03 PM", Data: [MessageAllData(fromSender: true, message: "Hello, are you nearby?", lastMessage: false),
-                                                                              MessageAllData(fromSender: false, message: "I'll be there in a few mins", lastMessage: true),
-                                                                              MessageAllData(fromSender: true, message: "OK, I'm in front of the bus stop", lastMessage: true)
-                                                                        ]))
-        MessageArray.append(ChatConversation(date: "5:33 PM", Data: [MessageAllData(fromSender: false, message: "Sorry , I'm stuck in traffic. Please give me a moment.", lastMessage: true)
-                                                                        ]))
+        
+        self.prepareView()
+        self.setSenderProfileInfo()
+        self.registerNIB()
+        self.callChatHistoryAPI()
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        //self.SocketOnMethods()
+        self.setupKeyboard(false)
+        self.hideKeyboard()
+        self.registerForKeyboardNotifications()
+        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        //self.allSocketOffMethods()
+        self.setupKeyboard(true)
+        self.deregisterFromKeyboardNotifications()
+        IQKeyboardManager.shared.enableAutoToolbar = true
+        IQKeyboardManager.shared.enable = true
+        
+    }
+    
+    //MARK: - Custom Methods
+    func prepareView(){
+        self.tblChat.isHidden = true
+        self.txtviewComment.delegate = self
+        self.txtviewComment.textColor = self.txtviewComment.text == "" ? .black : .gray
         let strUrl = "\(APIEnvironment.Profilebu.rawValue)" + "\(self.currentBookingModel?.customerInfo?.profileImage ?? "")"
         self.setNavigationBarInViewController(controller: self, naviColor: colors.white.value, naviTitle: "", leftImage: NavItemsLeft.back.value, rightImages: [strUrl], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
-        setSenderProfileInfo()
-        tblChat.reloadData()
-
-
-        NotificationCenter.default.addObserver(self,selector: #selector(self.keyboardNotification(notification:)),name: UIResponder.keyboardWillChangeFrameNotification,object: nil)
-
-
-        let dismissKeyboardGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
-        dismissKeyboardGesture.cancelsTouchesInView = false
-        tblChat.addGestureRecognizer(dismissKeyboardGesture)
-
-
     }
-
-    deinit {
-        NotificationCenter.default.removeObserver(self)
-      }
-
-
-    @objc func hideKeyboard() {
-        view.endEditing(true)
+    
+    func registerNIB(){
+        tblChat.register(UINib(nibName:NoDataTableViewCell.reuseIdentifier, bundle: nil), forCellReuseIdentifier: NoDataTableViewCell.reuseIdentifier)
     }
     
     func setSenderProfileInfo(){
@@ -69,44 +80,59 @@ class ChatViewController: BaseVC {
         self.lblName.text = custName
         let NumberPlate = "\(self.currentBookingModel?.driverVehicleInfo?.plateNumber ?? "") - \(self.currentBookingModel?.driverVehicleInfo?.vehicleTypeManufacturerName ?? "") \(self.currentBookingModel?.driverVehicleInfo?.vehicleTypeModelName ?? "")"
         self.lblInfo.text = NumberPlate
-    
+        
         self.navBtnProfile.setImage(UIImage(named: "DummayUserPlaceHolder"), for: .normal)
     }
-
-
-    //MARK: -Bring up and down the keyboard
-    @objc func keyboardNotification(notification: NSNotification) {
-      guard let userInfo = notification.userInfo else { return }
-
-      let endFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
-      let endFrameY = endFrame?.origin.y ?? 0
-      let duration:TimeInterval = (userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue ?? 0
-      let animationCurveRawNSN = userInfo[UIResponder.keyboardAnimationCurveUserInfoKey] as? NSNumber
-      let animationCurveRaw = animationCurveRawNSN?.uintValue ?? UIView.AnimationOptions.curveEaseInOut.rawValue
-      let animationCurve:UIView.AnimationOptions = UIView.AnimationOptions(rawValue: animationCurveRaw)
-
-      if endFrameY >= UIScreen.main.bounds.size.height {
-        self.keyboardHeightLayoutConstraint?.constant = 0.0
-      } else {
-        self.keyboardHeightLayoutConstraint?.constant = endFrame?.size.height ?? 0.0
-      }
-
-      UIView.animate(
-        withDuration: duration,
-        delay: TimeInterval(0),
-        options: animationCurve,
-        animations: { self.view.layoutIfNeeded() },
-        completion: nil)
+    
+    func scrollToBottom(){
+        DispatchQueue.main.async {
+            if self.arrayChatHistory.count > 0 {
+                let list = self.filterListArr[self.filterKeysArr.last?.Date_In_DD_MM_YYYY_FORMAT ?? String ()]
+                
+                let rowIndex = list?.count == 0 ? 0 : ((list?.count ?? 0) - 1)
+                let indexPath = IndexPath(row: rowIndex, section: self.filterKeysArr.count - 1)
+                self.tblChat.reloadData()
+                self.tblChat.scrollToRow(at: indexPath, at: .bottom, animated: false)
+            }
+        }
     }
-    //MARK: -other methods
-    func setLocalization() {
-
+    
+    func scrollAt(){
+        if self.arrayChatHistory.count > 0 {
+            let list = self.filterListArr[oldChatSectionTitle.Date_In_DD_MM_YYYY_FORMAT ?? ""]
+            let row = list?.firstIndex(where: {$0.id == oldChatId}) ?? 0
+            let section = self.filterKeysArr.firstIndex(where: {$0.Date_In_DD_MM_YYYY_FORMAT == oldChatSectionTitle.Date_In_DD_MM_YYYY_FORMAT}) ?? 0
+            let indexPath = IndexPath(row: row, section: section)
+            self.tblChat.reloadData()
+            self.tblChat.scrollToRow(at: indexPath, at: .top, animated: false)
+        }
     }
-    func setValue() {
+    
+    func scrollToFirstRow() {
+        self.tblChat.layoutIfNeeded()
+        let indexPath = NSIndexPath(row: 0, section: 0)
+        self.tblChat.scrollToRow(at: indexPath as IndexPath, at: .top, animated: false)
     }
-
+    
+    func filterArrayData(isFromDidLoad: Bool){
+        self.filterListArr.removeAll()
+        self.filterKeysArr.removeAll()
+        self.arrayChatHistory.sort(by: {$0.createdAt!.compare($1.createdAt!) == .orderedAscending})
+        for each in self.arrayChatHistory{
+            let dateField = each.createdAt?.serverDateStringToDateType1?.Date_In_DD_MM_YYYY_FORMAT ?? String ()
+            if filterListArr.keys.contains(dateField){
+                filterListArr[dateField]?.append(each)
+            }else{
+                filterListArr[dateField] = [each]
+                self.filterKeysArr.append(each.createdAt?.serverDateStringToDateType1 ?? Date())
+            }
+        }
+        self.filterKeysArr.sort(by: <)
+        isFromDidLoad ? self.scrollToBottom() : self.scrollAt()
+    }
+    
+    
 }
-
 
 //MARK:- Textview Delegate
 extension ChatViewController : UITextViewDelegate {
@@ -115,140 +141,199 @@ extension ChatViewController : UITextViewDelegate {
         txtviewComment.textColor = .black
         return true
     }
-    func textViewDidChangeSelection(_ textView: UITextView) {
-//        self.txtviewComment.text = txtviewComment.text
-        
-        
-    }
+    
     func textViewDidEndEditing(_ textView: UITextView) {
         txtviewComment.text = txtviewComment.text == "" ? "Type a message..." : txtviewComment.text
         txtviewComment.textColor = txtviewComment.text == "" ? .black : .gray
     }
 }
+
 //MARK: -tableviewDelegate
-extension ChatViewController : UITableViewDelegate, UITableViewDataSource
-{
-
-
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return MessageArray[section].MessageData!.count
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell = UITableViewCell()
-        if MessageArray[indexPath.section].MessageData![indexPath.row].isFromSender == true {
-            let SenderCell = tblChat.dequeueReusableCell(withIdentifier: chatSenderCell.reuseIdentifier, for: indexPath) as! chatSenderCell
-            SenderCell.lblSenderMessage.text = MessageArray[indexPath.section].MessageData![indexPath.row].chatMessage
-            SenderCell.lblBottomView.isHidden = false
-
-//            if indexPath.row != 0 {
-//                if indexPath.row != MessageArray[indexPath.section].MessageDate!.count - 1 {
-//                    if (MessageArray[indexPath.section].MessageData![indexPath.row].isFromSender!) && (MessageArray[indexPath.section].MessageData![indexPath.row - 1].isFromSender!)   {
-//                        SenderCell.lblBottomView.isHidden = false
-//                    } else {
-//                        SenderCell.lblBottomView.isHidden = true
-//                    }
-//                } else {
-//                    SenderCell.lblBottomView.isHidden = false
-//                }
-//
-//
-//            } else {
-//                if indexPath.row != MessageArray[indexPath.section].MessageDate!.count - 1 {
-//                    if (MessageArray[indexPath.section].MessageData![indexPath.row].isFromSender!) && (MessageArray[indexPath.section].MessageData![indexPath.row + 1].isFromSender!)   {
-//                        SenderCell.lblBottomView.isHidden = true
-//                    } else {
-//                        SenderCell.lblBottomView.isHidden = false
-//                    }
-//                } else {
-//                    SenderCell.lblBottomView.isHidden = false
-//                }
-//            }
-
-
-
-//            if MessageArray[indexPath.section].MessageData![indexPath.row].isLastMessage != true {
-//
-//            }
-            cell = SenderCell
-
-        } else {
-            let ReciverCell = tblChat.dequeueReusableCell(withIdentifier: chatReciverCell.reuseIdentifier, for: indexPath) as! chatReciverCell
-            ReciverCell.lblReciverMessage.text = MessageArray[indexPath.section].MessageData![indexPath.row].chatMessage
-            ReciverCell.lblBottomView.isHidden = false
-//            if indexPath.row != 0 {
-//                if indexPath.row != MessageArray[indexPath.section].MessageDate?.count {
-//                    if (MessageArray[indexPath.section].MessageData![indexPath.row].isFromSender!) && (MessageArray[indexPath.section].MessageData![indexPath.row - 1].isFromSender!)   {
-//                        ReciverCell.lblBottomView.isHidden = false
-//                    } else {
-//                        ReciverCell.lblBottomView.isHidden = true
-//                    }
-//                } else {
-//                    ReciverCell.lblBottomView.isHidden = false
-//                }
-//
-//
-//            } else {
-//                if indexPath.row != MessageArray[indexPath.section].MessageDate?.count {
-//                    if (MessageArray[indexPath.section].MessageData![indexPath.row].isFromSender!) && (MessageArray[indexPath.section].MessageData![indexPath.row + 1].isFromSender!)   {
-//                        ReciverCell.lblBottomView.isHidden = true
-//                    } else {
-//                        ReciverCell.lblBottomView.isHidden = false
-//                    }
-//                } else {
-//                    ReciverCell.lblBottomView.isHidden = false
-//                }
-//            }
-
-            cell = ReciverCell
-        }
-
-        return cell
-
-    }
+extension ChatViewController : UITableViewDelegate, UITableViewDataSource{
+    
     func numberOfSections(in tableView: UITableView) -> Int {
-        return MessageArray.count
+        if self.arrayChatHistory.count > 0 {
+            return self.filterKeysArr.count
+        } else {
+            return 1
+        }
     }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if self.arrayChatHistory.count > 0 {
+            let strDate = self.filterKeysArr[section].Date_In_DD_MM_YYYY_FORMAT ?? ""
+            return self.filterListArr[strDate]?.count ?? 0
+        } else {
+            return 1
+        }
+    }
+    
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 44
+        return 30
     }
+    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let cell = tblChat.dequeueReusableCell(withIdentifier: chatHeaderCell.reuseIdentifier) as! chatHeaderCell
-        cell.lblDateTime.text = MessageArray[section].MessageDate
-        return cell
+        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: screenWidth, height:30.0))
+        if(self.arrayChatHistory.count > 0){
+        
+            let lblDate = UILabel(frame: CGRect(x: 0, y: 0, width: 150, height: 30))
+            lblDate.backgroundColor = UIColor.lightGray
+            lblDate.textColor = UIColor.white
+            lblDate.layer.cornerRadius = lblDate.frame.height/2.0
+            lblDate.layer.masksToBounds = true
+            
+            let obj = self.filterKeysArr[section]
+            lblDate.text = obj.timeAgoSinceDate(isForNotification: true)
+            
+            lblDate.textAlignment = .center
+            lblDate.font = FontBook.regular.of(size: 12.0)
+            
+            headerView.addSubview(lblDate)
+            lblDate.center = headerView.center
+        
+        }
+        return headerView
     }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        if(self.arrayChatHistory.count > 0){
+            let strDateTitle = self.filterKeysArr[indexPath.section].Date_In_DD_MM_YYYY_FORMAT ?? ""
+            let obj = self.filterListArr[strDateTitle]?[indexPath.row]
+            
+            let isDriver = obj?.senderType ?? "" == "driver"
+            if(isDriver){
+                let cell = tblChat.dequeueReusableCell(withIdentifier: chatSenderCell.reuseIdentifier) as! chatSenderCell
+                cell.selectionStyle = .none
+                cell.lblSenderMessage.text = obj?.message ?? ""
+                return cell
+            }else{
+                let cell = tblChat.dequeueReusableCell(withIdentifier: chatReciverCell.reuseIdentifier) as! chatReciverCell
+                cell.selectionStyle = .none
+                cell.lblReciverMessage.text = obj?.message ?? ""
+                return cell
+            }
+        }else{
+            let NoDatacell = self.tblChat.dequeueReusableCell(withIdentifier: "NoDataTableViewCell", for: indexPath) as! NoDataTableViewCell
+            return NoDatacell
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if self.arrayChatHistory.count != 0 {
+            return UITableView.automaticDimension
+        }else{
+            return tableView.frame.height
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 50
+    }
+    
+    
 }
-class chatSenderCell : UITableViewCell {
 
+//MARK:- Api Calls
+extension ChatViewController{
+    
+    func callChatHistoryAPI(){
+        self.chatViewModel.ChatCV = self
+        let Id = self.currentBookingModel?.id ?? ""
+        self.chatViewModel.webserviceGetChatHistoryAPI(strBookingID: Id)
+    }
+    
+}
+
+class chatSenderCell : UITableViewCell {
+    
     @IBOutlet weak var lblBottomView: UIView!
     @IBOutlet weak var lblSenderView: chatScreenView!
     @IBOutlet weak var lblSenderMessage: chatScreenLabel!
 }
+
 class chatReciverCell : UITableViewCell {
     @IBOutlet weak var lblBottomView: UIView!
     @IBOutlet weak var lblReciverView: chatScreenView!
     @IBOutlet weak var lblReciverMessage: chatScreenLabel!
 }
-class chatHeaderCell : UITableViewCell {
 
+class chatHeaderCell : UITableViewCell {
     @IBOutlet weak var lblDateTime: chatScreenLabel!
 }
-class ChatConversation {
-    var MessageDate : String?
-    var MessageData : [MessageAllData]?
-    init(date:String,Data:[MessageAllData]) {
-        self.MessageDate = date
-        self.MessageData = Data
+
+
+//MARK: KEYBOARD SETUP FOR CHATBOX
+extension ChatViewController {
+    func registerForKeyboardNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWasShown(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillBeHidden(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
-}
-class MessageAllData {
-    var isFromSender : Bool?
-    var chatMessage : String?
-    var isLastMessage : Bool?
-    init(fromSender:Bool,message:String,lastMessage:Bool) {
-        self.isLastMessage = lastMessage
-        self.isFromSender = fromSender
-        self.chatMessage = message
+    
+    func hideKeyboard()
+    {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(
+            target: self,
+            action: #selector(dismissKeyboards))
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboards()
+    {
+        view.endEditing(true)
+    }
+    
+    func setupKeyboard(_ enable: Bool) {
+        IQKeyboardManager.shared.enable = enable
+        IQKeyboardManager.shared.enableAutoToolbar = enable
+        IQKeyboardManager.shared.shouldShowToolbarPlaceholder = !enable
+        IQKeyboardManager.shared.previousNextDisplayMode = .alwaysShow
+    }
+    
+    @objc func keyboardWillBeHidden(notification: NSNotification){
+        keyboardHeightLayoutConstraint?.constant = 0
+        self.animateConstraintWithDuration()
+    }
+    
+    @objc func keyboardWasShown(notification: NSNotification){
+        
+        let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue.size
+        
+        if #available(iOS 11.0, *) {
+            
+            DispatchQueue.main.async {
+                if self.arrayChatHistory.count != 0 {
+                    self.scrollToBottom()
+                }
+            }
+            keyboardHeightLayoutConstraint?.constant = keyboardSize!.height - view.safeAreaInsets.bottom
+            
+        } else {
+            
+            DispatchQueue.main.async {
+                if self.arrayChatHistory.count != 0 {
+                    self.scrollToBottom()
+                }
+            }
+            keyboardHeightLayoutConstraint?.constant = keyboardSize!.height - 10
+            
+        }
+        self.animateConstraintWithDuration()
+    }
+    
+    func deregisterFromKeyboardNotifications(){
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    func animateConstraintWithDuration(duration: TimeInterval = 0.5) {
+        UIView.animate(withDuration: duration, animations: { [weak self] in
+            self?.loadViewIfNeeded() ?? ()
+        })
+    }
+    
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldBeRequiredToFailBy otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
     }
 }
 

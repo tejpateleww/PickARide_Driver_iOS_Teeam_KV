@@ -163,6 +163,9 @@
 		881AF8C026EA2C4300BC3C2D /* CurrentBookingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881AF8BA26EA2C4200BC3C2D /* CurrentBookingModel.swift */; };
 		881AF8C126EA2C4300BC3C2D /* CurrentBookingVehicleType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881AF8BB26EA2C4300BC3C2D /* CurrentBookingVehicleType.swift */; };
 		881AF8C426EA2DEB00BC3C2D /* ChangeDutyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881AF8C326EA2DEB00BC3C2D /* ChangeDutyModel.swift */; };
+		88367A23270C46260034D5F1 /* chatHistoryDatum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88367A21270C46260034D5F1 /* chatHistoryDatum.swift */; };
+		88367A24270C46260034D5F1 /* chatHistoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88367A22270C46260034D5F1 /* chatHistoryModel.swift */; };
+		88367A27270C4BEC0034D5F1 /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88367A26270C4BEC0034D5F1 /* ChatViewModel.swift */; };
 		883A17E32704592D00254C86 /* RidesReqModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883A17E22704592D00254C86 /* RidesReqModel.swift */; };
 		883A17E5270461A300254C86 /* RideDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883A17E4270461A300254C86 /* RideDetailViewModel.swift */; };
 		883C9E6926E8D94E00FA1778 /* updatePersonalDocsReqModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883C9E6826E8D94E00FA1778 /* updatePersonalDocsReqModel.swift */; };
@@ -388,6 +391,9 @@
 		881AF8BA26EA2C4200BC3C2D /* CurrentBookingModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentBookingModel.swift; sourceTree = "<group>"; };
 		881AF8BB26EA2C4300BC3C2D /* CurrentBookingVehicleType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentBookingVehicleType.swift; sourceTree = "<group>"; };
 		881AF8C326EA2DEB00BC3C2D /* ChangeDutyModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeDutyModel.swift; sourceTree = "<group>"; };
+		88367A21270C46260034D5F1 /* chatHistoryDatum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = chatHistoryDatum.swift; sourceTree = "<group>"; };
+		88367A22270C46260034D5F1 /* chatHistoryModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = chatHistoryModel.swift; sourceTree = "<group>"; };
+		88367A26270C4BEC0034D5F1 /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
 		883A17E22704592D00254C86 /* RidesReqModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RidesReqModel.swift; sourceTree = "<group>"; };
 		883A17E4270461A300254C86 /* RideDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideDetailViewModel.swift; sourceTree = "<group>"; };
 		883C9E6826E8D94E00FA1778 /* updatePersonalDocsReqModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = updatePersonalDocsReqModel.swift; sourceTree = "<group>"; };
@@ -516,6 +522,7 @@
 		187B8417267B5B2B00D3BFDA /* View Model */ = {
 			isa = PBXGroup;
 			children = (
+				88367A25270C4BD00034D5F1 /* ChatViewModel */,
 				885DF0F026F31D9C008242AE /* Past Ride History */,
 				8867A71526F1B7B900049490 /* Cancel Trip */,
 				8808C4BA26F073F4004B8518 /* RateAndReviewViewModel */,
@@ -1088,6 +1095,23 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
+		88367A20270C460B0034D5F1 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				88367A22270C46260034D5F1 /* chatHistoryModel.swift */,
+				88367A21270C46260034D5F1 /* chatHistoryDatum.swift */,
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
+		88367A25270C4BD00034D5F1 /* ChatViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				88367A26270C4BEC0034D5F1 /* ChatViewModel.swift */,
+			);
+			path = ChatViewModel;
+			sourceTree = "<group>";
+		};
 		883A17E12704591900254C86 /* Rides */ = {
 			isa = PBXGroup;
 			children = (
@@ -1260,6 +1284,7 @@
 		889E09FC26E63D9300333AEA /* Response Models */ = {
 			isa = PBXGroup;
 			children = (
+				88367A20270C460B0034D5F1 /* Chat */,
 				885DF0E126F313DF008242AE /* Past Booking History */,
 				8867A71026F1B74A00049490 /* Cancel Trip Reasons */,
 				8808C4C126F0BBDD004B8518 /* VerifyCustomer */,
@@ -1650,6 +1675,7 @@
 				187B8435267B5BA100D3BFDA /* Themes.swift in Sources */,
 				186EC9362696F2A300314717 /* OtpModel.swift in Sources */,
 				187B8415267B5B1000D3BFDA /* CardModel.swift in Sources */,
+				88367A23270C46260034D5F1 /* chatHistoryDatum.swift in Sources */,
 				8808C4C526F0C1AB004B8518 /* VerifyCustomerModel.swift in Sources */,
 				4F94F17F2643DB5F00780413 /* UISearchbar+Extension.swift in Sources */,
 				883C9E6D26E8EC6900FA1778 /* UpdateBankInfoReqModel.swift in Sources */,
@@ -1724,6 +1750,7 @@
 				187B8413267B5B1000D3BFDA /* InitModel.swift in Sources */,
 				4F94F1CC2643FE1B00780413 /* Storyboards.swift in Sources */,
 				4F94F1862643DB5F00780413 /* GradientButton.swift in Sources */,
+				88367A27270C4BEC0034D5F1 /* ChatViewModel.swift in Sources */,
 				84760715264927130019CE1F /* MyRideCell.swift in Sources */,
 				4F94F1822643DB5F00780413 /* CustomSlider.swift in Sources */,
 				4F94F1832643DB5F00780413 /* CustomView.swift in Sources */,
@@ -1734,6 +1761,7 @@
 				889E0A0B26E643E200333AEA /* ManufacturerListModel.swift in Sources */,
 				1865CF64267C767600379A40 /* URLSessionRequestManager.swift in Sources */,
 				889E0A0A26E643E200333AEA /* ManufacturerListDatum.swift in Sources */,
+				88367A24270C46260034D5F1 /* chatHistoryModel.swift in Sources */,
 				885B66D126EB5D4800A281FC /* NewBookingResModel.swift in Sources */,
 				8867A71926F1C65B00049490 /* CancelBookingModel.swift in Sources */,
 				8808C4BC26F0741C004B8518 /* RateAndReviewViewModel.swift in Sources */,
