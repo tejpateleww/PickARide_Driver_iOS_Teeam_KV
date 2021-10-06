@@ -71,48 +71,32 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "072F9294-618B-4E3E-B266-533F789E3556"
+            uuid = "0F74D83F-3E56-4542-A547-A7097844BD16"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "PickaRideDriver/ViewControllers/ChatVC/ChatViewController.swift"
+            filePath = "../Gas2UDriver/Gas 2 You/Socket Connections/ChatSocketClient.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "200"
-            endingLineNumber = "200"
-            landmarkName = "tableView(_:cellForRowAt:)"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
+            landmarkName = "onSocket_SendMessage()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "3E4F1D46-E1E2-4077-962E-E3FEFA84E04A"
+            uuid = "162ED751-7DDE-49B4-B5B1-15688B9A6B3A"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "PickaRideDriver/ViewControllers/ChatVC/ChatViewController.swift"
+            filePath = "../Gas2UDriver/Gas 2 You/Socket Connections/ChatSocketClient.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "216"
-            endingLineNumber = "216"
-            landmarkName = "tableView(_:cellForRowAt:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "2A3E11D3-B31A-4198-ABBC-B34FC55BFCDB"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PickaRideDriver/ViewControllers/ChatVC/ChatViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "199"
-            endingLineNumber = "199"
-            landmarkName = "tableView(_:cellForRowAt:)"
+            startingLineNumber = "98"
+            endingLineNumber = "98"
+            landmarkName = "emitSocket_SendMessage(param:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -171,6 +171,9 @@ class HomeVC: BaseVC {
                 self.handleRideFlow(state: RideState.None)
                 self.setupMap()
             }
+        }else{
+            self.handleRideFlow(state: RideState.None)
+            self.setupMap()
         }
     }
     
@@ -377,11 +380,11 @@ class HomeVC: BaseVC {
     func updateTravelledPath(currentLoc: CLLocationCoordinate2D){
         var index = 0
         self.coordinates = []
-        print("---------- Polyline Array ----------")
+      //  print("---------- Polyline Array ----------")
         for i in 0..<self.path.count(){
             let pathLat = Double(self.path.coordinate(at: i).latitude).rounded(toPlaces: 5)
             let pathLong = Double(self.path.coordinate(at: i).longitude).rounded(toPlaces: 5)
-            print(" pathLat - \(pathLat) : pathLong - \(pathLong)")
+           // print(" pathLat - \(pathLat) : pathLong - \(pathLong)")
             
             self.newPoint = CLLocation(latitude: pathLat, longitude: pathLong)
             if(self.oldPoint == nil){
@@ -399,9 +402,9 @@ class HomeVC: BaseVC {
         index = self.coordinates.firstIndex{$0 === closest}!
         
         let Meters = closest?.distance(from: userLocation) ?? 0
-        print("Distance from closest point---------- \(Meters.rounded(toPlaces: 2)) meters")
+      //  print("Distance from closest point---------- \(Meters.rounded(toPlaces: 2)) meters")
         if(Meters > 300){
-            print("New route ---***---***---**--**--**--**----*****")
+           // print("New route ---***---***---**--**--**--**----*****")
             self.setupPickupRoute()
             self.oldPoint = nil
             self.newPoint = nil
@@ -437,7 +440,7 @@ class HomeVC: BaseVC {
             let lat  = startPoint.coordinate.latitude - (latMultiplier * Double(index)) //8
             let long = startPoint.coordinate.longitude - (longMultiplier * Double(index)) //9
             let point = CLLocation(latitude: lat.rounded(toPlaces: 5), longitude: long.rounded(toPlaces: 5)) //10
-            print(" pathLat - \(point.coordinate.latitude) : pathLong - \(point.coordinate.longitude)")
+         //   print(" pathLat - \(point.coordinate.latitude) : pathLong - \(point.coordinate.longitude)")
             self.coordinates.append(point) //11
         }
     }

@@ -18,6 +18,7 @@ class ChatViewController: BaseVC {
     @IBOutlet var vwNavBar: UIView!
     @IBOutlet weak var lblName: UILabel!
     @IBOutlet weak var lblInfo: UILabel!
+    @IBOutlet weak var btnSendMsg: UIButton!
     
     //MARK: -Properties
     var chatViewModel = ChatViewModel()
@@ -42,7 +43,7 @@ class ChatViewController: BaseVC {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        //self.SocketOnMethods()
+        self.ChatSocketOnMethods()
         self.setupKeyboard(false)
         self.hideKeyboard()
         self.registerForKeyboardNotifications()
@@ -52,7 +53,7 @@ class ChatViewController: BaseVC {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        //self.allSocketOffMethods()
+        self.ChatSocketOffMethods()
         self.setupKeyboard(true)
         self.deregisterFromKeyboardNotifications()
         IQKeyboardManager.shared.enableAutoToolbar = true
@@ -60,9 +61,64 @@ class ChatViewController: BaseVC {
         
     }
     
+    //MARK: - Button Action Methods
+    @IBAction func btnSendMsgAction(_ sender: Any) {
+        if validation() {
+            
+            let reqModel = sendMessageReqModel()
+            reqModel.message = self.txtviewComment.text ?? ""
+            reqModel.sender_id = SingletonClass.sharedInstance.UserId
+            reqModel.sender_type = "driver"
+            reqModel.receiver_id = self.currentBookingModel?.customerId ?? ""
+            reqModel.receiver_type = "customer"
+            reqModel.booking_id = self.currentBookingModel?.id ?? ""
+            
+            let param = reqModel.generatPostParams()
+            if SocketIOManager.shared.socket.status == .connected {
+                self.emitSocket_SendMessage(param: param)
+            }
+//            appendMessage()
+            self.txtviewComment.text = ""
+            
+        }
+    }
+    
+    func appendMessage(){
+        
+        let chatObj : chatHistoryDatum = chatHistoryDatum()
+        
+        chatObj.id = String(Int.random(in: 1...9999999))
+        chatObj.bookingId = self.currentBookingModel?.id ?? ""
+        chatObj.message =  self.txtviewComment.text ?? ""
+        chatObj.receiverId =  self.currentBookingModel?.customerId ?? ""
+        chatObj.receiverType = "customer"
+        chatObj.senderId =  SingletonClass.sharedInstance.UserId
+        chatObj.senderType = "driver"
+      
+        let date = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        chatObj.createdAt = dateFormatter.string(from: date)
+        
+        self.arrayChatHistory.append(chatObj)
+        self.filterArrayData(isFromDidLoad: true)
+        
+    }
+    
+    func validation() -> Bool{
+        
+        if self.txtviewComment.text.trimmingCharacters(in: .whitespacesAndNewlines).count == 0 {
+            self.txtviewComment.text = ""
+            Utilities.showAlertAction(message: "Please enter message", vc: self)
+            return false
+        }
+        return true
+    }
+    
+    
     //MARK: - Custom Methods
     func prepareView(){
-        self.tblChat.isHidden = true
+//        self.tblChat.isHidden = true
         self.txtviewComment.delegate = self
         self.txtviewComment.textColor = self.txtviewComment.text == "" ? .black : .gray
         let strUrl = "\(APIEnvironment.Profilebu.rawValue)" + "\(self.currentBookingModel?.customerInfo?.profileImage ?? "")"
@@ -143,8 +199,9 @@ extension ChatViewController : UITextViewDelegate {
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
+        txtviewComment.textColor = txtviewComment.text == "" ? .gray : .black
         txtviewComment.text = txtviewComment.text == "" ? "Type a message..." : txtviewComment.text
-        txtviewComment.textColor = txtviewComment.text == "" ? .black : .gray
+
     }
 }
 

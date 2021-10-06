@@ -59,6 +59,7 @@ class RideDetailsVC: BaseVC {
         self.setNavigationBarInViewController(controller: self, naviColor: colors.white.value, naviTitle: "Ride Details", leftImage: NavItemsLeft.back.value, rightImages: [NavItemsRight.none.value], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
         
         let BookingStatus = self.PastBookingData?.bookingInfo?.status ?? ""
+        let BookingType = self.PastBookingData?.bookingInfo?.bookingType ?? ""
         
         if(self.isFromPast){
             self.btnAccept.isHidden = true
@@ -81,7 +82,8 @@ class RideDetailsVC: BaseVC {
             
         }else if(self.isFromInprogress){
             self.btnReject.setTitle("CANCEL", for: .normal)
-            self.btnReject.isHidden = false
+            self.btnReject.isHidden = (BookingType == "book_later") ? true : false
+            self.stackviewRecieptHeight.constant = (BookingType == "book_later") ? 0 : 40
             self.btnReceipt.isHidden = true
             self.btnAccept.isHidden = true
             self.btnRepeateRide.isHidden = true

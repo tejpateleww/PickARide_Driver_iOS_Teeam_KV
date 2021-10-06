@@ -13,7 +13,7 @@ class ChatViewModel{
     weak var ChatCV : ChatViewController? = nil
     
     func webserviceGetChatHistoryAPI(strBookingID:String){
-        
+
         WebServiceSubClass.GetChatHistoryApi(BookingID: strBookingID){ (status, apiMessage, response, error) in
             self.ChatCV?.tblChat.isHidden = false
             if status{

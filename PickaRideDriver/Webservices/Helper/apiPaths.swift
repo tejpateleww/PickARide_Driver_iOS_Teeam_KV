@@ -130,9 +130,8 @@ enum SocketKeys: String {
     case KHostUrl                                 = "http://65.1.154.172:8080/"
     case ConnectUser                              = "connect_user"
     case channelCommunation                       = "communication"
-    case SendMessage                              = "send_message"
-    case ReceiverMessage                          = "receiver_message"
     
+    //Common
     case updateDriverLocation                     = "update_driver_location"
     case forwardBookingRequest                    = "forward_booking_request"
     case forwardBookingRequestToAnotherDriver     = "forward_booking_request_to_another_driver"
@@ -140,6 +139,10 @@ enum SocketKeys: String {
     case verifyCustomer                           = "verify_customer"
     case arrivedAtPickupLocation                  = "arrived_at_pickup_location"
     case startTrip                                = "start_trip"
+    case cancelTrip                                = "cancel_trip"
     case liveTracking                             = "live_tracking"
+    //Chat
+    case SendMessage                              = "send_message"
+    case ReceiverMessage                          = "receive_message"
     
 }

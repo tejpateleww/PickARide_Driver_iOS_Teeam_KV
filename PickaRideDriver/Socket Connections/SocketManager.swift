@@ -10,6 +10,7 @@ import Foundation
 import SocketIO
 import SwiftyJSON
 import SocketIO
+
 typealias CompletionBlock = ((JSON) -> ())?
 
 class SocketIOManager: NSObject {

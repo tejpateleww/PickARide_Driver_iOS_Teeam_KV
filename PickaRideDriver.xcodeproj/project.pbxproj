@@ -172,7 +172,7 @@
 		883C9E6D26E8EC6900FA1778 /* UpdateBankInfoReqModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883C9E6C26E8EC6900FA1778 /* UpdateBankInfoReqModel.swift */; };
 		883C9E7026E8EE5100FA1778 /* BankInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883C9E6F26E8EE5100FA1778 /* BankInfoViewModel.swift */; };
 		885B66C126EB421400A281FC /* SocketManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885B66BF26EB421400A281FC /* SocketManager.swift */; };
-		885B66C226EB421400A281FC /* ChatSocketClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885B66C026EB421400A281FC /* ChatSocketClient.swift */; };
+		885B66C226EB421400A281FC /* HomeSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885B66C026EB421400A281FC /* HomeSocket.swift */; };
 		885B66D026EB5D4800A281FC /* NewBookingResBookingInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885B66CC26EB5D4700A281FC /* NewBookingResBookingInfo.swift */; };
 		885B66D126EB5D4800A281FC /* NewBookingResModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885B66CD26EB5D4800A281FC /* NewBookingResModel.swift */; };
 		885B66D226EB5D4800A281FC /* NewBookingResCustomerInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885B66CE26EB5D4800A281FC /* NewBookingResCustomerInfo.swift */; };
@@ -195,6 +195,9 @@
 		8867A71926F1C65B00049490 /* CancelBookingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8867A71826F1C65A00049490 /* CancelBookingModel.swift */; };
 		8867A71D26F1CF4000049490 /* CancelReasonPopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8867A71C26F1CF4000049490 /* CancelReasonPopUpVC.swift */; };
 		8867A71F26F1F43500049490 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8867A71E26F1F43500049490 /* GoogleService-Info.plist */; };
+		886CBE0D270D7D88004F1132 /* sendMessageReqModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886CBE0C270D7D88004F1132 /* sendMessageReqModel.swift */; };
+		886CBE0F270D7F57004F1132 /* RequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886CBE0E270D7F57004F1132 /* RequestModel.swift */; };
+		886CBE11270D919F004F1132 /* ChatSocketClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886CBE10270D919F004F1132 /* ChatSocketClient.swift */; };
 		889E09F726E5EA4C00333AEA /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889E09F626E5EA4C00333AEA /* ImagePicker.swift */; };
 		889E09FA26E5F16900333AEA /* SingleDocUploadViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889E09F926E5F16900333AEA /* SingleDocUploadViewModel.swift */; };
 		889E0A0626E63F1800333AEA /* AddVehicleUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889E0A0526E63F1800333AEA /* AddVehicleUserModel.swift */; };
@@ -400,7 +403,7 @@
 		883C9E6C26E8EC6900FA1778 /* UpdateBankInfoReqModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateBankInfoReqModel.swift; sourceTree = "<group>"; };
 		883C9E6F26E8EE5100FA1778 /* BankInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankInfoViewModel.swift; sourceTree = "<group>"; };
 		885B66BF26EB421400A281FC /* SocketManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketManager.swift; sourceTree = "<group>"; };
-		885B66C026EB421400A281FC /* ChatSocketClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatSocketClient.swift; sourceTree = "<group>"; };
+		885B66C026EB421400A281FC /* HomeSocket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeSocket.swift; sourceTree = "<group>"; };
 		885B66CC26EB5D4700A281FC /* NewBookingResBookingInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewBookingResBookingInfo.swift; sourceTree = "<group>"; };
 		885B66CD26EB5D4800A281FC /* NewBookingResModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewBookingResModel.swift; sourceTree = "<group>"; };
 		885B66CE26EB5D4800A281FC /* NewBookingResCustomerInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewBookingResCustomerInfo.swift; sourceTree = "<group>"; };
@@ -423,6 +426,9 @@
 		8867A71826F1C65A00049490 /* CancelBookingModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CancelBookingModel.swift; sourceTree = "<group>"; };
 		8867A71C26F1CF4000049490 /* CancelReasonPopUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelReasonPopUpVC.swift; sourceTree = "<group>"; };
 		8867A71E26F1F43500049490 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		886CBE0C270D7D88004F1132 /* sendMessageReqModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sendMessageReqModel.swift; sourceTree = "<group>"; };
+		886CBE0E270D7F57004F1132 /* RequestModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestModel.swift; sourceTree = "<group>"; };
+		886CBE10270D919F004F1132 /* ChatSocketClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatSocketClient.swift; sourceTree = "<group>"; };
 		889E09F626E5EA4C00333AEA /* ImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		889E09F926E5F16900333AEA /* SingleDocUploadViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleDocUploadViewModel.swift; sourceTree = "<group>"; };
 		889E0A0526E63F1800333AEA /* AddVehicleUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVehicleUserModel.swift; sourceTree = "<group>"; };
@@ -1148,6 +1154,8 @@
 		883C9E6726E8D91400FA1778 /* Request Models */ = {
 			isa = PBXGroup;
 			children = (
+				886CBE0E270D7F57004F1132 /* RequestModel.swift */,
+				886CBE0B270D7D6F004F1132 /* Chat */,
 				883A17E12704591900254C86 /* Rides */,
 				8808C4BE26F0BB52004B8518 /* VerifyCustomer */,
 				8808C4B126F071DA004B8518 /* Rate and Review */,
@@ -1188,8 +1196,9 @@
 			isa = PBXGroup;
 			children = (
 				885B66BF26EB421400A281FC /* SocketManager.swift */,
-				885B66C026EB421400A281FC /* ChatSocketClient.swift */,
 				885B66D426EB72B300A281FC /* NewRequestSocketClient.swift */,
+				885B66C026EB421400A281FC /* HomeSocket.swift */,
+				886CBE10270D919F004F1132 /* ChatSocketClient.swift */,
 			);
 			path = "Socket Connections";
 			sourceTree = "<group>";
@@ -1263,6 +1272,14 @@
 				8867A71626F1B7CB00049490 /* CancelTripViewModel.swift */,
 			);
 			path = "Cancel Trip";
+			sourceTree = "<group>";
+		};
+		886CBE0B270D7D6F004F1132 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				886CBE0C270D7D88004F1132 /* sendMessageReqModel.swift */,
+			);
+			path = Chat;
 			sourceTree = "<group>";
 		};
 		889E09F826E5F14A00333AEA /* SingleDocUploadViewModel */ = {
@@ -1626,6 +1643,7 @@
 				889E09F726E5EA4C00333AEA /* ImagePicker.swift in Sources */,
 				843F806E264A706400BCBDB8 /* UIViewController+Container.swift in Sources */,
 				1865CF6A267C767600379A40 /* CodableResponseServiceClass.swift in Sources */,
+				886CBE0D270D7D88004F1132 /* sendMessageReqModel.swift in Sources */,
 				186EC9382696F64D00314717 /* PasswordModel.swift in Sources */,
 				885DF0EC26F31424008242AE /* PastBookingResVehicleType.swift in Sources */,
 				883C9E6926E8D94E00FA1778 /* updatePersonalDocsReqModel.swift in Sources */,
@@ -1715,7 +1733,7 @@
 				4F94F1762643DB5F00780413 /* UIButton+Extension.swift in Sources */,
 				885DF0ED26F31424008242AE /* PastBookingResDriverInfo.swift in Sources */,
 				885DF0E926F31424008242AE /* PastBookingResCustomerInfo.swift in Sources */,
-				885B66C226EB421400A281FC /* ChatSocketClient.swift in Sources */,
+				885B66C226EB421400A281FC /* HomeSocket.swift in Sources */,
 				8867A71D26F1CF4000049490 /* CancelReasonPopUpVC.swift in Sources */,
 				81A55390264BC5CF00698413 /* TodayEarningChildViewController.swift in Sources */,
 				8476071A264933A90019CE1F /* pastUpcomingCell.swift in Sources */,
@@ -1761,6 +1779,7 @@
 				889E0A0B26E643E200333AEA /* ManufacturerListModel.swift in Sources */,
 				1865CF64267C767600379A40 /* URLSessionRequestManager.swift in Sources */,
 				889E0A0A26E643E200333AEA /* ManufacturerListDatum.swift in Sources */,
+				886CBE0F270D7F57004F1132 /* RequestModel.swift in Sources */,
 				88367A24270C46260034D5F1 /* chatHistoryModel.swift in Sources */,
 				885B66D126EB5D4800A281FC /* NewBookingResModel.swift in Sources */,
 				8867A71926F1C65B00049490 /* CancelBookingModel.swift in Sources */,
@@ -1775,6 +1794,7 @@
 				81891DAF265E749C00E8741E /* CancelRideView.swift in Sources */,
 				187B8416267B5B1000D3BFDA /* CommonModel.swift in Sources */,
 				4F94F1882643DB5F00780413 /* customTextView.swift in Sources */,
+				886CBE11270D919F004F1132 /* ChatSocketClient.swift in Sources */,
 				1865CFAC267C7B4E00379A40 /* CardValidatorType.swift in Sources */,
 				4F94F1802643DB5F00780413 /* Data+Extensions.swift in Sources */,
 				881AF8AA26EA0AC300BC3C2D /* LogoutReqModel.swift in Sources */,

@@ -265,6 +265,9 @@
                                                     <constraint firstAttribute="width" constant="20" id="wUn-C0-iAi"/>
                                                 </constraints>
                                                 <state key="normal" image="ic_Send"/>
+                                                <connections>
+                                                    <action selector="btnSendMsgAction:" destination="UIj-au-GJ1" eventType="touchUpInside" id="TmS-t1-fUe"/>
+                                                </connections>
                                             </button>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Type a message..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="pq7-5f-giv" customClass="ratingTextview" customModule="PickaRideDriver" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="352" height="40"/>
@@ -309,6 +312,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Dbg-yI-TxX"/>
                     <connections>
+                        <outlet property="btnSendMsg" destination="FZd-j4-MSn" id="wzO-rz-iBM"/>
                         <outlet property="keyboardHeightLayoutConstraint" destination="sR0-Xh-XQi" id="Km9-cR-g1s"/>
                         <outlet property="lblInfo" destination="4cf-uD-tOs" id="axV-xo-gxi"/>
                         <outlet property="lblName" destination="wmy-3J-cuK" id="efA-fo-GPY"/>
