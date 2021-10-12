@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "Group 54586.png",
+      "filename" : "ic_Navigation.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "Group 54586@2x.png",
+      "filename" : "ic_Navigation@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "Group 54586@3x.png",
+      "filename" : "ic_Navigation@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
