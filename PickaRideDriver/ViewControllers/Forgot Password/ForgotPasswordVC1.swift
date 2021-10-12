@@ -10,6 +10,7 @@ class ForgotPasswordVC: BaseVC {
     @IBOutlet weak var txtEmail: emailPasswordTextField!
     
     var forgotPasswordUserModel = PasswordUserModel()
+    let ACCEPTABLE_CHARACTERS_FOR_EMAIL = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@."
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,8 +49,8 @@ extension ForgotPasswordVC{
 extension ForgotPasswordVC{
     func validation()->Bool{
         var strTitle : String?
-        let checkEmail = self.txtEmail.validatedText(validationType: .email)
         
+        let checkEmail = txtEmail.validatedText(validationType: .email(field: self.txtEmail.placeholder?.lowercased() ?? ""))
         if !checkEmail.0{
             strTitle = checkEmail.1
         }
@@ -58,7 +59,6 @@ extension ForgotPasswordVC{
             Toast.show(title: UrlConstant.Required, message: str, state: .failure)
             return false
         }
-        
         return true
     }
     
@@ -68,5 +68,24 @@ extension ForgotPasswordVC{
         let reqModel = ForgotPasswordReqModel()
         reqModel.email = txtEmail.text ?? ""
         self.forgotPasswordUserModel.webserviceForgotPassword(reqModel: reqModel)
+    }
+}
+
+//MARK:- TextField Delegate
+extension ForgotPasswordVC: UITextFieldDelegate{
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        switch textField {
+        
+        case self.txtEmail :
+            let cs = NSCharacterSet(charactersIn: ACCEPTABLE_CHARACTERS_FOR_EMAIL).inverted
+            let filtered = string.components(separatedBy: cs).joined(separator: "")
+            return (string == filtered)
+
+       
+        default:
+            print("")
+        }
+        return true
     }
 }

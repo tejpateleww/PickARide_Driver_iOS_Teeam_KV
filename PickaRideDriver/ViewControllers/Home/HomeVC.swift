@@ -405,10 +405,10 @@ class HomeVC: BaseVC {
       //  print("Distance from closest point---------- \(Meters.rounded(toPlaces: 2)) meters")
         if(Meters > 300){
            // print("New route ---***---***---**--**--**--**----*****")
-            self.setupPickupRoute()
             self.oldPoint = nil
             self.newPoint = nil
             self.oldCoordinate = nil
+            self.setupPickupRoute()
             return
         }
         

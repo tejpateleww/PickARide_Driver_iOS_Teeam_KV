@@ -350,12 +350,12 @@
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fTQ-G8-UUD">
-                    <rect key="frame" x="282" y="403" width="108" height="36"/>
+                    <rect key="frame" x="355" y="403.5" width="35" height="35"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="36" id="PRu-WO-Iji"/>
-                        <constraint firstAttribute="width" constant="108" id="Z0O-OE-p7Z"/>
+                        <constraint firstAttribute="height" constant="35" id="PRu-WO-Iji"/>
+                        <constraint firstAttribute="width" constant="35" id="Z0O-OE-p7Z"/>
                     </constraints>
-                    <state key="normal" title="Navigate" image="imgNavigate"/>
+                    <state key="normal" image="icon_Direction"/>
                     <connections>
                         <action selector="btnNavigateTap:" destination="iN0-l3-epB" eventType="touchUpInside" id="C4f-0Q-XfT"/>
                     </connections>
@@ -420,7 +420,7 @@
         <image name="ic_drop_location" width="24" height="27.5"/>
         <image name="ic_message" width="46" height="46"/>
         <image name="ic_phonecall" width="46" height="46"/>
-        <image name="imgNavigate" width="108" height="36"/>
+        <image name="icon_Direction" width="40" height="40"/>
         <namedColor name="SeperatorColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="0.029999999329447746" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

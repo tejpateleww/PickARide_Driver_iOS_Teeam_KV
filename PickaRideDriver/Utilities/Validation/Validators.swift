@@ -13,7 +13,7 @@ protocol ValidatorConvertible {
 }
 
 enum ValidatorType {
-    case email
+    case email(field: String)
     case password(field: String)
     case username(field: String)
     case requiredField(field: String)
@@ -24,7 +24,7 @@ enum ValidatorType {
 enum VaildatorFactory {
     static func validatorFor(type: ValidatorType) -> ValidatorConvertible {
         switch type {
-        case .email: return EmailValidator()
+        case .email(let fieldName): return EmailValidator(fieldName)
         case .password(let fieldName): return PasswordValidator(fieldName)
         case .username(let fieldName): return UserNameValidator(fieldName)
         case .requiredField(let fieldName): return RequiredFieldValidator(fieldName)
@@ -118,7 +118,7 @@ struct PasswordValidator: ValidatorConvertible {
     func validated(_ value: String) -> (Bool,String) {
         guard value != "" else {return (false,ValidationError("Please enter " + fieldName.lowercased()).message)}
         guard value.count >= 8 else { return (false,ValidationError( fieldName.capitalizingFirstLetter() + " must contain at least 8 characters").message)}
-        guard value.count < 15 else {
+        guard value.count <= 15 else {
             return (false , ValidationError("\(fieldName) shoudn't contain more than 15 characters").message)
             // throw ValidationError("Username shoudn't conain more than 18 characters" )
         }
@@ -134,10 +134,17 @@ struct PasswordValidator: ValidatorConvertible {
 }
 
 struct EmailValidator: ValidatorConvertible {
+    private let fieldName: String
+    
+    init(_ field: String) {
+        fieldName = field
+    }
+    
     func validated(_ value: String) -> (Bool,String) {
+        guard value != "" else {return (false,ValidationError("Please enter " + fieldName.lowercased()).message)}
         do {
             if try NSRegularExpression(pattern: "^[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}$", options: .caseInsensitive).firstMatch(in: value, options: [], range: NSRange(location: 0, length: value.count)) == nil {
-                return (false,ValidationError("Please enter email id").message)
+                return (false,ValidationError("Please enter a valid email").message)
             }
         } catch {
             return (false,ValidationError("Please enter a valid email").message)

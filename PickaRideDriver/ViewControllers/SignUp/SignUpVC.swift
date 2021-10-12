@@ -34,6 +34,11 @@ class SignUpVC: BaseVC {
     var selectedIndexOfPicker = Int()
     var otpUserModel = RegisterUserModel()
     var registerRequestModel = RegisterFinalRequestModel()
+    let ACCEPTABLE_CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz"
+    let ACCEPTABLE_CHARACTERS_FOR_EMAIL = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@."
+    let ACCEPTABLE_CHARACTERS_FOR_PHONE = "0123456789"
+    let RISTRICTED_CHARACTERS_FOR_PASSWORD = " "
+    let ACCEPTABLE_CHARACTERS_FOR_ADDRESS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz ,/-"
     
     //MARK:- View life cycle
     override func viewDidLoad() {
@@ -132,7 +137,7 @@ class SignUpVC: BaseVC {
         let firstName = self.txtFirstName.validatedText(validationType: .username(field: self.txtFirstName.placeholder?.lowercased() ?? ""))
         let lastName = self.txtLastName.validatedText(validationType: .username(field: self.txtLastName.placeholder?.lowercased() ?? ""))
         let mobileNo = self.txtMobile.validatedText(validationType: .requiredField(field: self.txtMobile.placeholder?.lowercased() ?? ""))
-        let checkEmail = self.txtEmail.validatedText(validationType: .email)
+        let checkEmail = self.txtEmail.validatedText(validationType: .email(field: self.txtEmail.placeholder?.lowercased() ?? ""))
         let password = self.txtPassword.validatedText(validationType: .password(field: self.txtPassword.placeholder?.lowercased() ?? ""))
         
         if !firstName.0{
@@ -210,7 +215,23 @@ extension SignUpVC : UITextViewDelegate{
         return true
     }
     
-    func textViewDidChangeSelection(_ textView: UITextView) {
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+    
+        switch textView {
+        case self.txtviewHomeAddress :
+            let set = CharacterSet(charactersIn: ACCEPTABLE_CHARACTERS_FOR_ADDRESS)
+            let inverted = set.inverted
+            let filtered = text.components(separatedBy: inverted).joined(separator: "")
+            let currentString: NSString = textView.text as NSString? ?? ""
+            let newString: NSString = currentString.replacingCharacters(in: range, with: text) as NSString
+            let char = text.cString(using: String.Encoding.utf8)!
+            let isBackSpace = strcmp(char, "\\b")
+            return (text == filtered) ? (newString.length <= TEXTFIELD_MaximumLimit) : (isBackSpace == -92) ? true : false
+            
+        default:
+            print("")
+        }
+        return true
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
@@ -219,8 +240,8 @@ extension SignUpVC : UITextViewDelegate{
     }
 }
 
-//MARK:- TextField Delegate
 extension SignUpVC: UITextFieldDelegate{
+    
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         if textField == self.txtCountryCode{
             if SingletonClass.sharedInstance.CountryList.count == 0{
@@ -232,11 +253,49 @@ extension SignUpVC: UITextFieldDelegate{
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        if textField == self.txtMobile || textField == self.txtFirstName || textField == self.txtLastName || textField == self.txtPassword{
+        
+        switch textField {
+ 
+        case self.txtFirstName :
+            let cs = NSCharacterSet(charactersIn: ACCEPTABLE_CHARACTERS).inverted
+            let filtered = string.components(separatedBy: cs).joined(separator: "")
             let currentString: NSString = textField.text as NSString? ?? ""
             let newString: NSString = currentString.replacingCharacters(in: range, with: string) as NSString
-            return string == "" || (newString.length <= ((textField == txtMobile) ? MAX_PHONE_DIGITS : TEXTFIELD_MaximumLimit))
+            return (string == filtered) ? (newString.length <= TEXTFIELD_MaximumLimit) : false
+            
+        case self.txtLastName :
+            let cs = NSCharacterSet(charactersIn: ACCEPTABLE_CHARACTERS).inverted
+            let filtered = string.components(separatedBy: cs).joined(separator: "")
+            let currentString: NSString = textField.text as NSString? ?? ""
+            let newString: NSString = currentString.replacingCharacters(in: range, with: string) as NSString
+            return (string == filtered) ? (newString.length <= TEXTFIELD_MaximumLimit) : false
+            
+        case self.txtEmail :
+            let cs = NSCharacterSet(charactersIn: ACCEPTABLE_CHARACTERS_FOR_EMAIL).inverted
+            let filtered = string.components(separatedBy: cs).joined(separator: "")
+            return (string == filtered)
+            
+        case self.txtMobile :
+            let cs = NSCharacterSet(charactersIn: ACCEPTABLE_CHARACTERS_FOR_PHONE).inverted
+            let filtered = string.components(separatedBy: cs).joined(separator: "")
+            let currentString: NSString = textField.text as NSString? ?? ""
+            let newString: NSString = currentString.replacingCharacters(in: range, with: string) as NSString
+            return (string == filtered) ? (newString.length <= MAX_PHONE_DIGITS) : false
+            
+        case self.txtPassword :
+            let set = CharacterSet(charactersIn: RISTRICTED_CHARACTERS_FOR_PASSWORD)
+            let inverted = set.inverted
+            let filtered = string.components(separatedBy: inverted).joined(separator: "")
+            let currentString: NSString = textField.text as NSString? ?? ""
+            let newString: NSString = currentString.replacingCharacters(in: range, with: string) as NSString
+            let char = string.cString(using: String.Encoding.utf8)!
+            let isBackSpace = strcmp(char, "\\b")
+            return (string != filtered) ? (newString.length <= TEXTFIELD_PASSWORD_MaximumLimit) : (isBackSpace == -92) ? true : false
+
+        default:
+            print("")
         }
+       
         return true
     }
 }

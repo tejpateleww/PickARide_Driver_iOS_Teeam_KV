@@ -11,6 +11,8 @@ import UIKit
 import SideMenuSwift
 import SDWebImage
 
+import SafariServices
+
 class Preferences {
     static let shared = Preferences()
     var enableTransitionAnimation = false
@@ -180,6 +182,12 @@ extension MenuViewController{
         self.logoutUserModel.menuViewController = self
         self.logoutUserModel.webserviceForLogout()
     }
+    
+    func previewDocument(strURL : String){
+        guard let url = URL(string: strURL) else {return}
+        let svc = SFSafariViewController(url: url)
+        present(svc, animated: true, completion: nil)
+    }
 
 }
 
@@ -222,13 +230,14 @@ extension MenuViewController: UITableViewDelegate, UITableViewDataSource
         }
         else if strCellItemTitle == MyType.Help.value
         {
-            let vc : DummyVC = DummyVC.instantiate(fromAppStoryboard: .Main)
-            vc.strTitle = "Help"
-            vc.dataText = "This is Help Page"
-            homeVC?.navigationController?.pushViewController(vc, animated: true)
-            //            let controller = AppStoryboard.Chat.instance.instantiateViewController(withIdentifier: ChatViewController.storyboardID) as! ChatViewController
-            //            homeVC?.navigationController?.pushViewController(controller, animated: true)
-        }
+            var Help = ""
+            if let HelpLink = SingletonClass.sharedInstance.AppInitModel?.appLinks?.filter({ $0.name == "help"}) {
+                if HelpLink.count > 0 {
+                    Help = HelpLink[0].url ?? ""
+                    self.previewDocument(strURL: Help)
+                }
+            }
+       }
         else if strCellItemTitle == MyType.Logout.value {
             
             Utilities.showAlertWithTitleFromVC(vc: self, title: UrlConstant.Logout, message: UrlConstant.LogoutMessage, buttons: [UrlConstant.Ok,UrlConstant.Cancel], isOkRed: false) { (ind) in

@@ -29,6 +29,8 @@ class LoginViewController: UIViewController {
     //MARK: -View Life Cycle Methods
     var loginusermodel = LoginUserModel()
     var locationManager : LocationService?
+    let ACCEPTABLE_CHARACTERS_FOR_EMAIL = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@."
+    let RISTRICTED_CHARACTERS_FOR_PASSWORD = " "
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -118,7 +120,12 @@ class LoginViewController: UIViewController {
 extension LoginViewController{
     func isValidForLogin() -> Bool{
         var strTitle : String?
-        let checkEmail = txtEmailOrPhoneNumber.validatedText(validationType: .email)
+        
+        if(self.txtEmailOrPhoneNumber.text == ""){
+            Toast.show(title: UrlConstant.Required, message: "Please enter email", state: .failure)
+            return false
+        }
+        let checkEmail = txtEmailOrPhoneNumber.validatedText(validationType: .email(field: self.txtEmailOrPhoneNumber.placeholder?.lowercased() ?? ""))
         let password = txtPassword.validatedText(validationType: .password(field: self.txtPassword.placeholder?.lowercased() ?? ""))
         
         if !checkEmail.0{
@@ -130,20 +137,6 @@ extension LoginViewController{
         if let str = strTitle{
             Toast.show(title: UrlConstant.Required, message: str, state: .failure)
             return false
-        }
-        
-        return true
-    }
-}
-
-//MARK:- TextField Delegate
-extension LoginViewController: UITextFieldDelegate{
-    
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        if textField == txtPassword {
-            let currentString: NSString = textField.text as NSString? ?? ""
-            let newString: NSString = currentString.replacingCharacters(in: range, with: string) as NSString
-            return string == "" || newString.length <=  TEXTFIELD_MaximumLimit
         }
         
         return true
@@ -162,3 +155,31 @@ extension LoginViewController{
     }
 }
 
+
+//MARK:- TextField Delegate
+extension LoginViewController: UITextFieldDelegate{
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        switch textField {
+        
+        case self.txtEmailOrPhoneNumber :
+            let cs = NSCharacterSet(charactersIn: ACCEPTABLE_CHARACTERS_FOR_EMAIL).inverted
+            let filtered = string.components(separatedBy: cs).joined(separator: "")
+            return (string == filtered)
+
+        case self.txtPassword :
+            let set = CharacterSet(charactersIn: RISTRICTED_CHARACTERS_FOR_PASSWORD)
+            let inverted = set.inverted
+            let filtered = string.components(separatedBy: inverted).joined(separator: "")
+            let currentString: NSString = textField.text as NSString? ?? ""
+            let newString: NSString = currentString.replacingCharacters(in: range, with: string) as NSString
+            let char = string.cString(using: String.Encoding.utf8)!
+            let isBackSpace = strcmp(char, "\\b")
+            return (string != filtered) ? (newString.length <= TEXTFIELD_PASSWORD_MaximumLimit) : (isBackSpace == -92) ? true : false
+            
+        default:
+            print("")
+        }
+        return true
+    }
+}
