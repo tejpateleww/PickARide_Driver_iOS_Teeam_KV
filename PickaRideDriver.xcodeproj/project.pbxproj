@@ -151,6 +151,7 @@
 		8808C4BC26F0741C004B8518 /* RateAndReviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8808C4BB26F0741C004B8518 /* RateAndReviewViewModel.swift */; };
 		8808C4C026F0BB6D004B8518 /* VerifyCustomerReqModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8808C4BF26F0BB6D004B8518 /* VerifyCustomerReqModel.swift */; };
 		8808C4C526F0C1AB004B8518 /* VerifyCustomerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8808C4C426F0C1AB004B8518 /* VerifyCustomerModel.swift */; };
+		880CA7972716B8FE0077CAC7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 880CA7962716B8FE0077CAC7 /* GoogleService-Info.plist */; };
 		881AF8A726E9E88B00BC3C2D /* UpdateBasicInfoReqModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881AF8A626E9E88B00BC3C2D /* UpdateBasicInfoReqModel.swift */; };
 		881AF8AA26EA0AC300BC3C2D /* LogoutReqModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881AF8A926EA0AC300BC3C2D /* LogoutReqModel.swift */; };
 		881AF8AC26EA0B6200BC3C2D /* LogoutUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881AF8AB26EA0B6200BC3C2D /* LogoutUserModel.swift */; };
@@ -194,7 +195,6 @@
 		8867A71726F1B7CB00049490 /* CancelTripViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8867A71626F1B7CB00049490 /* CancelTripViewModel.swift */; };
 		8867A71926F1C65B00049490 /* CancelBookingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8867A71826F1C65A00049490 /* CancelBookingModel.swift */; };
 		8867A71D26F1CF4000049490 /* CancelReasonPopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8867A71C26F1CF4000049490 /* CancelReasonPopUpVC.swift */; };
-		8867A71F26F1F43500049490 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8867A71E26F1F43500049490 /* GoogleService-Info.plist */; };
 		886CBE0D270D7D88004F1132 /* sendMessageReqModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886CBE0C270D7D88004F1132 /* sendMessageReqModel.swift */; };
 		886CBE0F270D7F57004F1132 /* RequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886CBE0E270D7F57004F1132 /* RequestModel.swift */; };
 		886CBE11270D919F004F1132 /* ChatSocketClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886CBE10270D919F004F1132 /* ChatSocketClient.swift */; };
@@ -382,6 +382,7 @@
 		8808C4BB26F0741C004B8518 /* RateAndReviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateAndReviewViewModel.swift; sourceTree = "<group>"; };
 		8808C4BF26F0BB6D004B8518 /* VerifyCustomerReqModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyCustomerReqModel.swift; sourceTree = "<group>"; };
 		8808C4C426F0C1AB004B8518 /* VerifyCustomerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerifyCustomerModel.swift; sourceTree = "<group>"; };
+		880CA7962716B8FE0077CAC7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		881AF8A626E9E88B00BC3C2D /* UpdateBasicInfoReqModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateBasicInfoReqModel.swift; sourceTree = "<group>"; };
 		881AF8A926EA0AC300BC3C2D /* LogoutReqModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutReqModel.swift; sourceTree = "<group>"; };
 		881AF8AB26EA0B6200BC3C2D /* LogoutUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutUserModel.swift; sourceTree = "<group>"; };
@@ -425,7 +426,6 @@
 		8867A71626F1B7CB00049490 /* CancelTripViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelTripViewModel.swift; sourceTree = "<group>"; };
 		8867A71826F1C65A00049490 /* CancelBookingModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CancelBookingModel.swift; sourceTree = "<group>"; };
 		8867A71C26F1CF4000049490 /* CancelReasonPopUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelReasonPopUpVC.swift; sourceTree = "<group>"; };
-		8867A71E26F1F43500049490 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		886CBE0C270D7D88004F1132 /* sendMessageReqModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sendMessageReqModel.swift; sourceTree = "<group>"; };
 		886CBE0E270D7F57004F1132 /* RequestModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestModel.swift; sourceTree = "<group>"; };
 		886CBE10270D919F004F1132 /* ChatSocketClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatSocketClient.swift; sourceTree = "<group>"; };
@@ -705,7 +705,7 @@
 			isa = PBXGroup;
 			children = (
 				88BD4B5D26FB4B9C0039F4CE /* Location.gpx */,
-				8867A71E26F1F43500049490 /* GoogleService-Info.plist */,
+				880CA7962716B8FE0077CAC7 /* GoogleService-Info.plist */,
 				18C89EAD26A57F6C0083D5C3 /* PickaRideDriver.entitlements */,
 				4F94F1262643D76700780413 /* Info.plist */,
 				4F94F1212643D76700780413 /* Assets.xcassets */,
@@ -1355,6 +1355,7 @@
 				4F94F1132643D76500780413 /* Resources */,
 				5992B19294072A89A3E1F84D /* [CP] Embed Pods Frameworks */,
 				AC01D4CAC69AB50FC0576826 /* [CP] Copy Pods Resources */,
+				880CA7982716D6AC0077CAC7 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -1457,13 +1458,13 @@
 				4F94F1252643D76700780413 /* LaunchScreen.storyboard in Resources */,
 				81891DB1265E74B300E8741E /* CancelRideView.xib in Resources */,
 				185DEEDD2668DBD7008BA95C /* PersonalDocumentCell.xib in Resources */,
+				880CA7972716B8FE0077CAC7 /* GoogleService-Info.plist in Resources */,
 				4F94F1C62643E72800780413 /* UFL.txt in Resources */,
 				4F94F1BE2643E72800780413 /* Ubuntu-Medium.ttf in Resources */,
 				4F94F1722643DB5F00780413 /* navigationCommonView.xib in Resources */,
 				4F94F1C52643E72800780413 /* Ubuntu-Light.ttf in Resources */,
 				885DF0F726F35742008242AE /* NoDataTableViewCell.xib in Resources */,
 				88BD4B5E26FB4B9C0039F4CE /* Location.gpx in Resources */,
-				8867A71F26F1F43500049490 /* GoogleService-Info.plist in Resources */,
 				4F94F1222643D76700780413 /* Assets.xcassets in Resources */,
 				547D83D8265A502A00887C9C /* Login.storyboard in Resources */,
 				4F94F1C12643E72800780413 /* Ubuntu-Bold.ttf in Resources */,
@@ -1568,6 +1569,25 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
+		};
+		880CA7982716D6AC0077CAC7 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}",
+				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/FirebaseCrashlytics/run\"\n";
 		};
 		A029C86666BDEFE500FEF4A3 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1998,6 +2018,7 @@
 				CODE_SIGN_ENTITLEMENTS = PickaRideDriver/PickaRideDriver.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1.0.0;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 8L8KR4GKUG;
 				INFOPLIST_FILE = PickaRideDriver/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
@@ -2022,6 +2043,7 @@
 				CODE_SIGN_ENTITLEMENTS = PickaRideDriver/PickaRideDriver.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1.0.0;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 8L8KR4GKUG;
 				INFOPLIST_FILE = PickaRideDriver/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;

@@ -8,52 +8,79 @@
 import UIKit
 import Cosmos
 class RideReceiptDetailsVC: BaseVC {
-
+    
     @IBOutlet weak var stackViewRating: UIView!
     @IBOutlet weak var vwRatingTop: NSLayoutConstraint!
     @IBOutlet weak var vwRatingBottom: NSLayoutConstraint!
     @IBOutlet weak var lblDiscription: themeLabel!
-    @IBOutlet weak var lblAddres: themeLabel!
-    @IBOutlet weak var lblArea: themeLabel!
-    @IBOutlet weak var lblPrice: themeLabel!
-    @IBOutlet weak var lblTime: themeLabel!
-    @IBOutlet weak var lblDistance: themeLabel!
-    @IBOutlet weak var lblDateTime: themeLabel!
-    @IBOutlet weak var lblServiceType: themeLabel!
-    @IBOutlet weak var lblRideType: themeLabel!
+    
     @IBOutlet weak var lblRatedName: themeLabel!
     @IBOutlet weak var imgRatedProfile: ProfileView!
     @IBOutlet weak var vwCosmos: CosmosView!
     @IBOutlet weak var lblYourRated: themeLabel!
     @IBOutlet weak var imgYourRatedProfile: ProfileView!
     @IBOutlet weak var vwCosmosRated: CosmosView!
-    @IBOutlet weak var lblRideFares: themeLabel!
-    @IBOutlet weak var lblTaxiFee: themeLabel!
-    @IBOutlet weak var lblTax: themeLabel!
-    @IBOutlet weak var lblTolls: themeLabel!
-    @IBOutlet weak var lblDiscount: themeLabel!
-    @IBOutlet weak var lblTopupAdded: themeLabel!
-    @IBOutlet weak var lblYourPayment: themeLabel!
+    
+    @IBOutlet weak var lblPickUpAddress: themeLabel!
+    @IBOutlet weak var lblDropOffAddress: themeLabel!
+    @IBOutlet weak var lblTotalEarning: themeLabel!
+    @IBOutlet weak var tripDuration: themeLabel!
+    @IBOutlet weak var tripDistance: themeLabel!
+    @IBOutlet weak var lblTripDateTime: themeLabel!
+    @IBOutlet weak var lblTripServiceTYpe: themeLabel!
+    @IBOutlet weak var lblTripRideType: themeLabel!
+    @IBOutlet weak var lblCustNAme: themeLabel!
+    @IBOutlet weak var lblPriceRideFare: themeLabel!
+    @IBOutlet weak var lblPriceTaxiFee: themeLabel!
+    @IBOutlet weak var lblPriceTax: themeLabel!
+    @IBOutlet weak var lblPriceTolls: themeLabel!
+    @IBOutlet weak var lblPriceDiscount: themeLabel!
+    @IBOutlet weak var lblPriceTopUp: themeLabel!
+    @IBOutlet weak var lblPriceYourPayment: themeLabel!
+    
+    var PastBookingData : PastBookingResDatum?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        stackViewRating.isHidden = true
-        vwRatingBottom.constant = 0
-        vwRatingTop.constant = 0
-        setNavigationBarInViewController(controller: self, naviColor: colors.appColor.value, naviTitle: NavTitles.RideDetails.value, leftImage: NavItemsLeft.back.value, rightImages: [NavItemsRight.help.value], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
-        let attributedString = NSMutableAttributedString(string: lblDiscription.text ?? "")
-
-        // *** Create instance of `NSMutableParagraphStyle`
-        let paragraphStyle = NSMutableParagraphStyle()
-
-        // *** set LineSpacing property in points ***
-        paragraphStyle.lineSpacing = 5 // Whatever line spacing you want in points
-
-        // *** Apply attribute to string ***
-        attributedString.addAttribute(NSAttributedString.Key.paragraphStyle, value:paragraphStyle, range:NSMakeRange(0, attributedString.length))
-
-        // *** Set Attributed String to your label ***
-        lblDiscription.attributedText = attributedString
-        // Do any additional setup after loading the view.
+        
+        self.prepareView()
+        self.setupData()
     }
+    
+    func prepareView(){
+        self.setNavigationBarInViewController(controller: self, naviColor: colors.appColor.value, naviTitle: NavTitles.RideDetails.value, leftImage: NavItemsLeft.back.value, rightImages: [NavItemsRight.help.value], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
+        self.stackViewRating.isHidden = true
+        self.vwRatingBottom.constant = 0
+        self.vwRatingTop.constant = 0
+        
+        let attributedString = NSMutableAttributedString(string: lblDiscription.text ?? "")
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineSpacing = 5 // Whatever line spacing you want in points
+        attributedString.addAttribute(NSAttributedString.Key.paragraphStyle, value:paragraphStyle, range:NSMakeRange(0, attributedString.length))
+        self.lblDiscription.attributedText = attributedString
+    }
+    
+    func setupData(){
+        self.lblPickUpAddress.text = self.PastBookingData?.bookingInfo?.pickupLocation ?? ""
+        self.lblDropOffAddress.text = self.PastBookingData?.bookingInfo?.dropoffLocation ?? ""
+        self.lblTotalEarning.text = self.PastBookingData?.bookingInfo?.driverAmount ?? ""
+        self.tripDistance.text = "\(self.PastBookingData?.bookingInfo?.tripDuration ?? "") min"
+        self.tripDistance.text = "\(self.PastBookingData?.bookingInfo?.distance ?? "") mi"
+        self.lblTripServiceTYpe.text = self.PastBookingData?.bookingInfo?.vehicleName ?? ""
+        self.lblTripRideType.text = self.PastBookingData?.bookingInfo?.bookingType ?? ""
+        
+        let timestamp: TimeInterval =  Double(self.PastBookingData?.bookingInfo?.dropoffTime ?? "") ?? 0.0
+        let date = Date(timeIntervalSince1970: timestamp)
+        let formatedDate = date.timeAgoSinceDate(isForNotification: false)
+        self.lblTripDateTime.text = formatedDate
+        
+        self.lblPriceRideFare.text = "$\(self.PastBookingData?.bookingInfo?.baseFare ?? "")"
+        self.lblPriceTaxiFee.text = "$\(self.PastBookingData?.bookingInfo?.companyAmount ?? "")"
+        self.lblPriceTax.text = "$\(self.PastBookingData?.bookingInfo?.tax ?? "")"
+        self.lblPriceTolls.text =  "$\(self.PastBookingData?.bookingInfo?.extraCharge ?? "")"
+        self.lblPriceDiscount.text = "$\(self.PastBookingData?.bookingInfo?.discount ?? "")"
+        self.lblPriceTopUp.text = "$\(self.PastBookingData?.bookingInfo?.tips ?? "")"
+        self.lblPriceYourPayment.text = "$\(self.PastBookingData?.bookingInfo?.driverAmount ?? "")"   
+    }
+    
 }

@@ -8,6 +8,7 @@ target 'PickaRideDriver' do
   pod 'SwiftyJSON'
   pod 'IQKeyboardManagerSwift', '6.3.0'
   pod 'Firebase/Messaging'
+  pod 'Firebase/Crashlytics'
   pod 'GooglePlaces'
   pod 'GooglePlacePicker'
   pod 'GoogleMaps'

@@ -169,6 +169,7 @@ class RideDetailsVC: BaseVC {
     //MARK: - Button action methods
     @IBAction func btnReceiptTap(_ sender: Any) {
         let vc : RideReceiptDetailsVC = RideReceiptDetailsVC.instantiate(fromAppStoryboard: .Main)
+        vc.PastBookingData = self.PastBookingData
         self.navigationController?.pushViewController(vc, animated: true)
     }
     

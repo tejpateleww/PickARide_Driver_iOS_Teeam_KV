@@ -7,7 +7,7 @@
 //
 
 import UIKit
-//import LGSideMenuController
+import SafariServices
 import AVKit
 import SDWebImage
 
@@ -287,7 +287,7 @@ class BaseVC: UIViewController, UIGestureRecognizerDelegate{
                     let btnProfileEdit = UIButton.init()
                     btnProfileEdit.frame = CGRect(x: 0, y: 0, width: 44, height: 44)
                     btnProfileEdit.setImage(UIImage.init(named: "imgHelp"), for: .normal)
-//                    btnProfileEdit.addTarget(self, action: #selector(EditUserProfile(_:)), for: .touchUpInside)
+                    btnProfileEdit.addTarget(self, action: #selector(HelpController(_:)), for: .touchUpInside)
                    // btnProfile.addTarget(self, action: #selector(openLoginVC(_:)), for: .touchUpInside)
                     btnProfileEdit.layer.setValue(controller, forKey: "controller")
                     viewProfileEdit.addSubview(btnProfileEdit)
@@ -472,6 +472,24 @@ class BaseVC: UIViewController, UIGestureRecognizerDelegate{
 //        }
         
     }
+    
+    @objc func HelpController (_ sender: UIButton?)
+    {
+        var Help = ""
+        if let HelpLink = SingletonClass.sharedInstance.AppInitModel?.appLinks?.filter({ $0.name == "help"}) {
+            if HelpLink.count > 0 {
+                Help = HelpLink[0].url ?? ""
+                self.previewDocument(strURL: Help)
+            }
+        }
+    }
+    
+    func previewDocument(strURL : String){
+        guard let url = URL(string: strURL) else {return}
+        let svc = SFSafariViewController(url: url)
+        present(svc, animated: true, completion: nil)
+    }
+    
     @objc func DismissViewController (_ sender: UIButton?)
     {
         let controller = sender?.layer.value(forKey: "controller") as? UIViewController

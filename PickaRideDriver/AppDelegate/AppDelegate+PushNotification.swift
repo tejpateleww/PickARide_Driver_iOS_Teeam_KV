@@ -19,15 +19,12 @@ extension AppDelegate{
         if #available(iOS 10.0, *) {
             UNUserNotificationCenter.current().delegate = self
             let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
-            
             UNUserNotificationCenter.current().requestAuthorization(options: authOptions, completionHandler: {_ , _ in })
             Messaging.messaging().delegate = self
         } else {
-            let settings: UIUserNotificationSettings =
-                UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
+            let settings: UIUserNotificationSettings = UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
             UIApplication.shared.registerUserNotificationSettings(settings)
         }
-        
         UIApplication.shared.registerForRemoteNotifications()
     }
     
@@ -36,7 +33,6 @@ extension AppDelegate{
         print("Firebase registration token: \(fcmToken ?? "No Token found")")
         SingletonClass.sharedInstance.DeviceToken = token
         user_defaults.set(fcmToken, forKey: UserDefaultsKey.DeviceToken.rawValue)
-        
         
         let dataDict:[String: String] = ["token": token]
         NotificationCenter.default.post(name: Notification.Name("FCMToken"), object: nil, userInfo: dataDict)
@@ -63,16 +59,20 @@ extension AppDelegate{
         print(#function, notification)
         let content = notification.request.content
         let userInfo = notification.request.content.userInfo
+        
         print(userInfo)
         print(appDel.window?.rootViewController?.navigationController?.children.first as Any)
         
         NotificationCenter.default.post(name: NotificationBadges, object: content)
         completionHandler([.alert, .sound])
+        print(#function, notification)
+        
     }
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         let userInfo = response.notification.request.content.userInfo
-        print(userInfo)
-        completionHandler()
+        print("USER INFo : ",userInfo)
+        
+
     }
 }

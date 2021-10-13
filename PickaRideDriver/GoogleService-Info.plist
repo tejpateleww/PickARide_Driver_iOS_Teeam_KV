@@ -3,32 +3,34 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>1005898810377-85r1odttjq6ndqcu9kb8fike6h4orlp2.apps.googleusercontent.com</string>
+	<string>698692323787-41vbmjugl5orpvmj90hrcfqiul02v6mu.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.1005898810377-85r1odttjq6ndqcu9kb8fike6h4orlp2</string>
+	<string>com.googleusercontent.apps.698692323787-41vbmjugl5orpvmj90hrcfqiul02v6mu</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>698692323787-benrsaj52cm5po828ktabjma4bn227di.apps.googleusercontent.com</string>
 	<key>API_KEY</key>
-	<string>AIzaSyAe5CA1huBzYSvjcXSIhHPdUv1Yf0EzLuY</string>
+	<string>AIzaSyDvJt3EcQPwKnsfIuOa0_9zd9P8L2FfUkE</string>
 	<key>GCM_SENDER_ID</key>
-	<string>1005898810377</string>
+	<string>698692323787</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>com.eww.PickaRideDriver</string>
 	<key>PROJECT_ID</key>
-	<string>pick-a-ride-303904</string>
+	<string>pick-a-ride-84a3a</string>
 	<key>STORAGE_BUCKET</key>
-	<string>pick-a-ride-303904.appspot.com</string>
+	<string>pick-a-ride-84a3a.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
-	<false/>
+	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
-	<false/>
+	<false></false>
 	<key>IS_APPINVITE_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>IS_GCM_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>IS_SIGNIN_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:1005898810377:ios:c415e670a4253f5244e4d8</string>
+	<string>1:698692323787:ios:8db9ebbcb865abea8a0e4e</string>
 </dict>
 </plist>

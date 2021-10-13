@@ -2189,13 +2189,60 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0B7-hQ-lDa">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="919.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="907.5"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ksh-7n-bhQ">
-                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="465.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="453.5"/>
                                                         <subviews>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bL3-lD-So8" customClass="ProfileView" customModule="PickaRideDriver" customModuleProvider="target">
+                                                                <rect key="frame" x="25" y="22" width="7" height="7"/>
+                                                                <color key="backgroundColor" red="0.20000000000000001" green="0.41176470588235292" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" secondItem="bL3-lD-So8" secondAttribute="height" multiplier="1:1" id="d63-Eh-p9W"/>
+                                                                    <constraint firstAttribute="height" constant="7" id="uya-eH-TYa"/>
+                                                                </constraints>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isViewRadius" value="YES"/>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </view>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 Ash Park, Pembroke Dock, SA72" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8aK-6u-Lzm" customClass="themeLabel" customModule="PickaRideDriver" customModuleProvider="target">
+                                                                <rect key="frame" x="40" y="15" width="310" height="20.5"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="Font_Size">
+                                                                        <real key="value" value="15"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="color" keyPath="fontColor">
+                                                                        <color key="value" red="0.15686274509803921" green="0.18431372549019609" blue="0.22352941176470587" alpha="1" colorSpace="calibratedRGB"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </label>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V8R-jw-fP6">
+                                                                <rect key="frame" x="25" y="50.5" width="7" height="7"/>
+                                                                <color key="backgroundColor" red="0.0" green="0.66666666666666663" blue="0.49411764705882355" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" secondItem="V8R-jw-fP6" secondAttribute="height" multiplier="1:1" id="8pq-9V-S3j"/>
+                                                                    <constraint firstAttribute="height" constant="7" id="JmC-vL-ABP"/>
+                                                                </constraints>
+                                                            </view>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="54 Hollybank Rd, Southampton" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="enP-uc-9qx" customClass="themeLabel" customModule="PickaRideDriver" customModuleProvider="target">
+                                                                <rect key="frame" x="40" y="43.5" width="310" height="20.5"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="Font_Size">
+                                                                        <real key="value" value="15"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="color" keyPath="fontColor">
+                                                                        <color key="value" red="0.15686274510000001" green="0.1843137255" blue="0.22352941179999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </label>
                                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="Dfq-qe-fm0">
-                                                                <rect key="frame" x="157" y="93" width="61.5" height="20.5"/>
+                                                                <rect key="frame" x="157" y="81" width="61.5" height="20.5"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ELJ-vq-uWD" customClass="themeLabel" customModule="PickaRideDriver" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.0" width="10.5" height="20.5"/>
@@ -2236,139 +2283,10 @@
                                                                 </subviews>
                                                             </stackView>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgDollar" translatesAutoresizingMaskIntoConstraints="NO" id="oc6-vT-xqZ">
-                                                                <rect key="frame" x="157" y="93" width="10.5" height="20.5"/>
+                                                                <rect key="frame" x="157" y="81" width="10.5" height="20.5"/>
                                                             </imageView>
-                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Tiy-u5-t6c">
-                                                                <rect key="frame" x="25" y="14" width="325" height="50"/>
-                                                                <subviews>
-                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s8M-2S-lY8">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="325" height="17.5"/>
-                                                                        <subviews>
-                                                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="FpR-5v-Uww">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="325" height="17.5"/>
-                                                                                <subviews>
-                                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EnB-dL-blR">
-                                                                                        <rect key="frame" x="0.0" y="0.0" width="20" height="17.5"/>
-                                                                                        <subviews>
-                                                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bL3-lD-So8" customClass="ProfileView" customModule="PickaRideDriver" customModuleProvider="target">
-                                                                                                <rect key="frame" x="6.5" y="5.5" width="7" height="7"/>
-                                                                                                <color key="backgroundColor" red="0.20000000000000001" green="0.41176470588235292" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                                                                <constraints>
-                                                                                                    <constraint firstAttribute="width" secondItem="bL3-lD-So8" secondAttribute="height" multiplier="1:1" id="d63-Eh-p9W"/>
-                                                                                                    <constraint firstAttribute="height" constant="7" id="uya-eH-TYa"/>
-                                                                                                </constraints>
-                                                                                                <userDefinedRuntimeAttributes>
-                                                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isViewRadius" value="YES"/>
-                                                                                                </userDefinedRuntimeAttributes>
-                                                                                            </view>
-                                                                                        </subviews>
-                                                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                                                        <constraints>
-                                                                                            <constraint firstItem="bL3-lD-So8" firstAttribute="centerX" secondItem="EnB-dL-blR" secondAttribute="centerX" id="7w9-3t-guz"/>
-                                                                                            <constraint firstItem="bL3-lD-So8" firstAttribute="centerY" secondItem="EnB-dL-blR" secondAttribute="centerY" id="Nm8-Xm-umR"/>
-                                                                                            <constraint firstAttribute="width" constant="20" id="dm7-tl-hF8"/>
-                                                                                        </constraints>
-                                                                                    </view>
-                                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jd5-Ok-dmq">
-                                                                                        <rect key="frame" x="30" y="0.0" width="295" height="17.5"/>
-                                                                                        <subviews>
-                                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 Ash Park, Pembroke Dock, SA72" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8aK-6u-Lzm" customClass="themeLabel" customModule="PickaRideDriver" customModuleProvider="target">
-                                                                                                <rect key="frame" x="0.0" y="0.0" width="295" height="17.5"/>
-                                                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                                                <nil key="textColor"/>
-                                                                                                <nil key="highlightedColor"/>
-                                                                                                <userDefinedRuntimeAttributes>
-                                                                                                    <userDefinedRuntimeAttribute type="number" keyPath="Font_Size">
-                                                                                                        <real key="value" value="15"/>
-                                                                                                    </userDefinedRuntimeAttribute>
-                                                                                                    <userDefinedRuntimeAttribute type="color" keyPath="fontColor">
-                                                                                                        <color key="value" red="0.15686274509803921" green="0.18431372549019609" blue="0.22352941176470587" alpha="1" colorSpace="calibratedRGB"/>
-                                                                                                    </userDefinedRuntimeAttribute>
-                                                                                                </userDefinedRuntimeAttributes>
-                                                                                            </label>
-                                                                                        </subviews>
-                                                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                                                        <constraints>
-                                                                                            <constraint firstItem="8aK-6u-Lzm" firstAttribute="top" secondItem="Jd5-Ok-dmq" secondAttribute="top" id="QLl-Fw-v5z"/>
-                                                                                            <constraint firstAttribute="trailing" secondItem="8aK-6u-Lzm" secondAttribute="trailing" id="aCx-jC-Xba"/>
-                                                                                            <constraint firstAttribute="bottom" secondItem="8aK-6u-Lzm" secondAttribute="bottom" id="gin-XD-bEX"/>
-                                                                                            <constraint firstItem="8aK-6u-Lzm" firstAttribute="leading" secondItem="Jd5-Ok-dmq" secondAttribute="leading" id="nfL-2m-FGP"/>
-                                                                                        </constraints>
-                                                                                    </view>
-                                                                                </subviews>
-                                                                            </stackView>
-                                                                        </subviews>
-                                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                                        <constraints>
-                                                                            <constraint firstAttribute="bottom" secondItem="FpR-5v-Uww" secondAttribute="bottom" id="9Gb-3c-8Uy"/>
-                                                                            <constraint firstItem="FpR-5v-Uww" firstAttribute="top" secondItem="s8M-2S-lY8" secondAttribute="top" id="M5V-8q-nEQ"/>
-                                                                            <constraint firstAttribute="trailing" secondItem="FpR-5v-Uww" secondAttribute="trailing" id="YnV-5z-m7Z"/>
-                                                                            <constraint firstItem="FpR-5v-Uww" firstAttribute="leading" secondItem="s8M-2S-lY8" secondAttribute="leading" id="sOX-Dw-cr1"/>
-                                                                        </constraints>
-                                                                    </view>
-                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L8d-Fw-PQh">
-                                                                        <rect key="frame" x="0.0" y="32.5" width="325" height="17.5"/>
-                                                                        <subviews>
-                                                                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Kdy-cI-xl8">
-                                                                                <rect key="frame" x="0.0" y="-0.5" width="315" height="50"/>
-                                                                                <subviews>
-                                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="su8-u1-vKA">
-                                                                                        <rect key="frame" x="0.0" y="0.0" width="20" height="50"/>
-                                                                                        <subviews>
-                                                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V8R-jw-fP6">
-                                                                                                <rect key="frame" x="6.5" y="21.5" width="7" height="7"/>
-                                                                                                <color key="backgroundColor" red="0.0" green="0.66666666666666663" blue="0.49411764705882355" alpha="1" colorSpace="calibratedRGB"/>
-                                                                                                <constraints>
-                                                                                                    <constraint firstAttribute="width" secondItem="V8R-jw-fP6" secondAttribute="height" multiplier="1:1" id="8pq-9V-S3j"/>
-                                                                                                    <constraint firstAttribute="height" constant="7" id="JmC-vL-ABP"/>
-                                                                                                </constraints>
-                                                                                            </view>
-                                                                                        </subviews>
-                                                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                                                        <constraints>
-                                                                                            <constraint firstItem="V8R-jw-fP6" firstAttribute="centerY" secondItem="su8-u1-vKA" secondAttribute="centerY" id="ID5-hQ-dMk"/>
-                                                                                            <constraint firstItem="V8R-jw-fP6" firstAttribute="centerX" secondItem="su8-u1-vKA" secondAttribute="centerX" id="ndC-Sv-R5m"/>
-                                                                                            <constraint firstAttribute="width" constant="20" id="pHN-4h-hTQ"/>
-                                                                                        </constraints>
-                                                                                    </view>
-                                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FHv-kh-bQp">
-                                                                                        <rect key="frame" x="30" y="0.0" width="285" height="50"/>
-                                                                                        <subviews>
-                                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="54 Hollybank Rd, Southampton" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="enP-uc-9qx" customClass="themeLabel" customModule="PickaRideDriver" customModuleProvider="target">
-                                                                                                <rect key="frame" x="0.0" y="0.0" width="285" height="50"/>
-                                                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                                                <nil key="textColor"/>
-                                                                                                <nil key="highlightedColor"/>
-                                                                                                <userDefinedRuntimeAttributes>
-                                                                                                    <userDefinedRuntimeAttribute type="number" keyPath="Font_Size">
-                                                                                                        <real key="value" value="15"/>
-                                                                                                    </userDefinedRuntimeAttribute>
-                                                                                                    <userDefinedRuntimeAttribute type="color" keyPath="fontColor">
-                                                                                                        <color key="value" red="0.15686274510000001" green="0.1843137255" blue="0.22352941179999999" alpha="1" colorSpace="calibratedRGB"/>
-                                                                                                    </userDefinedRuntimeAttribute>
-                                                                                                </userDefinedRuntimeAttributes>
-                                                                                            </label>
-                                                                                        </subviews>
-                                                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                                                        <constraints>
-                                                                                            <constraint firstAttribute="bottom" secondItem="enP-uc-9qx" secondAttribute="bottom" id="2MB-Ng-4oK"/>
-                                                                                            <constraint firstItem="enP-uc-9qx" firstAttribute="leading" secondItem="FHv-kh-bQp" secondAttribute="leading" id="4gz-H4-jbB"/>
-                                                                                            <constraint firstAttribute="trailing" secondItem="enP-uc-9qx" secondAttribute="trailing" id="N9M-VA-Qsm"/>
-                                                                                            <constraint firstItem="enP-uc-9qx" firstAttribute="top" secondItem="FHv-kh-bQp" secondAttribute="top" id="iFS-TB-j3k"/>
-                                                                                        </constraints>
-                                                                                    </view>
-                                                                                </subviews>
-                                                                            </stackView>
-                                                                        </subviews>
-                                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                                    </view>
-                                                                </subviews>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="50" id="NYE-Lr-HxQ"/>
-                                                                </constraints>
-                                                            </stackView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Payment made successfully " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wWz-kr-g2S" customClass="themeLabel" customModule="PickaRideDriver" customModuleProvider="target">
-                                                                <rect key="frame" x="79.5" y="130.5" width="216" height="20.5"/>
+                                                                <rect key="frame" x="79.5" y="118.5" width="216" height="20.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -2382,7 +2300,7 @@
                                                                 </userDefinedRuntimeAttributes>
                                                             </label>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9ag-Op-6Gh">
-                                                                <rect key="frame" x="0.0" y="171" width="375" height="74.5"/>
+                                                                <rect key="frame" x="0.0" y="159" width="375" height="74.5"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="dum-62-5JG">
                                                                         <rect key="frame" x="0.0" y="1" width="375" height="72.5"/>
@@ -2490,7 +2408,7 @@
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9pT-JU-hpo">
-                                                                <rect key="frame" x="0.0" y="245.5" width="375" height="120"/>
+                                                                <rect key="frame" x="0.0" y="233.5" width="375" height="120"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="23" translatesAutoresizingMaskIntoConstraints="NO" id="QVf-mC-vag">
                                                                         <rect key="frame" x="0.0" y="15" width="375" height="105"/>
@@ -2652,7 +2570,7 @@
                                                                 </constraints>
                                                             </view>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jya-B9-rvL">
-                                                                <rect key="frame" x="24.5" y="390.5" width="326" height="1"/>
+                                                                <rect key="frame" x="24.5" y="378.5" width="326" height="1"/>
                                                                 <color key="backgroundColor" red="0.85490196078431369" green="0.87058823529411766" blue="0.8901960784313725" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="1" id="fQr-oL-OUT"/>
@@ -2662,7 +2580,7 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="81K-gv-uqM">
-                                                                <rect key="frame" x="0.0" y="403.5" width="375" height="50"/>
+                                                                <rect key="frame" x="0.0" y="391.5" width="375" height="50"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="jhO-25-BNV">
                                                                         <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
@@ -2907,18 +2825,23 @@
                                                         </subviews>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="trailing" secondItem="Tiy-u5-t6c" secondAttribute="trailing" constant="25" id="04R-TT-eKJ"/>
+                                                            <constraint firstItem="Dfq-qe-fm0" firstAttribute="top" secondItem="enP-uc-9qx" secondAttribute="bottom" constant="17" id="5WQ-0t-n2g"/>
                                                             <constraint firstAttribute="trailing" secondItem="81K-gv-uqM" secondAttribute="trailing" id="6Bs-d2-hyZ"/>
                                                             <constraint firstItem="81K-gv-uqM" firstAttribute="top" secondItem="jya-B9-rvL" secondAttribute="bottom" constant="12" id="8l4-ge-dKc"/>
                                                             <constraint firstItem="9ag-Op-6Gh" firstAttribute="top" secondItem="wWz-kr-g2S" secondAttribute="bottom" constant="20" id="9PI-Gh-KCG"/>
+                                                            <constraint firstItem="enP-uc-9qx" firstAttribute="trailing" secondItem="8aK-6u-Lzm" secondAttribute="trailing" id="Az3-jg-grk"/>
+                                                            <constraint firstItem="8aK-6u-Lzm" firstAttribute="leading" secondItem="bL3-lD-So8" secondAttribute="trailing" constant="8" symbolic="YES" id="BDZ-xu-Hzg"/>
                                                             <constraint firstItem="oc6-vT-xqZ" firstAttribute="bottom" secondItem="ELJ-vq-uWD" secondAttribute="bottom" id="DQd-kN-4n7"/>
-                                                            <constraint firstItem="Tiy-u5-t6c" firstAttribute="top" secondItem="ksh-7n-bhQ" secondAttribute="top" constant="14" id="IP1-dl-39t"/>
+                                                            <constraint firstAttribute="trailing" secondItem="8aK-6u-Lzm" secondAttribute="trailing" constant="25" id="L0A-ie-7bd"/>
                                                             <constraint firstItem="oc6-vT-xqZ" firstAttribute="leading" secondItem="ELJ-vq-uWD" secondAttribute="leading" id="MWt-mq-JK6"/>
+                                                            <constraint firstItem="enP-uc-9qx" firstAttribute="leading" secondItem="8aK-6u-Lzm" secondAttribute="leading" id="PVm-uf-Hyj"/>
                                                             <constraint firstAttribute="bottom" secondItem="81K-gv-uqM" secondAttribute="bottom" constant="12" id="Qvg-ZV-Lfl"/>
                                                             <constraint firstItem="oc6-vT-xqZ" firstAttribute="trailing" secondItem="ELJ-vq-uWD" secondAttribute="trailing" id="SlZ-ik-iYk"/>
+                                                            <constraint firstItem="bL3-lD-So8" firstAttribute="leading" secondItem="ksh-7n-bhQ" secondAttribute="leading" constant="25" id="Vfd-Q9-OFh"/>
                                                             <constraint firstItem="wWz-kr-g2S" firstAttribute="centerX" secondItem="ksh-7n-bhQ" secondAttribute="centerX" id="XPo-kD-P0S"/>
-                                                            <constraint firstItem="Dfq-qe-fm0" firstAttribute="top" secondItem="Tiy-u5-t6c" secondAttribute="bottom" constant="29" id="Xxp-p4-zzD"/>
                                                             <constraint firstItem="wWz-kr-g2S" firstAttribute="top" secondItem="Dfq-qe-fm0" secondAttribute="bottom" constant="17" id="YAc-Hq-C6z"/>
+                                                            <constraint firstItem="V8R-jw-fP6" firstAttribute="leading" secondItem="bL3-lD-So8" secondAttribute="leading" id="eEU-3k-zQO"/>
+                                                            <constraint firstItem="8aK-6u-Lzm" firstAttribute="top" secondItem="ksh-7n-bhQ" secondAttribute="top" constant="15" id="hMw-17-sFC"/>
                                                             <constraint firstAttribute="trailing" secondItem="9ag-Op-6Gh" secondAttribute="trailing" id="hZm-8M-HaF"/>
                                                             <constraint firstItem="9pT-JU-hpo" firstAttribute="leading" secondItem="ksh-7n-bhQ" secondAttribute="leading" id="jCX-kU-mt3"/>
                                                             <constraint firstItem="jya-B9-rvL" firstAttribute="leading" secondItem="ksh-7n-bhQ" secondAttribute="leading" constant="24.5" id="kGO-Go-Fjr"/>
@@ -2927,14 +2850,16 @@
                                                             <constraint firstAttribute="trailing" secondItem="9pT-JU-hpo" secondAttribute="trailing" id="mLw-ik-2yx"/>
                                                             <constraint firstItem="oc6-vT-xqZ" firstAttribute="top" secondItem="ELJ-vq-uWD" secondAttribute="top" id="nvd-aS-31o"/>
                                                             <constraint firstItem="jya-B9-rvL" firstAttribute="top" secondItem="9pT-JU-hpo" secondAttribute="bottom" constant="25" id="oJX-Ep-bQF"/>
+                                                            <constraint firstItem="8aK-6u-Lzm" firstAttribute="centerY" secondItem="bL3-lD-So8" secondAttribute="centerY" id="oMe-nW-MsB"/>
                                                             <constraint firstItem="Dfq-qe-fm0" firstAttribute="centerX" secondItem="ksh-7n-bhQ" secondAttribute="centerX" id="qjf-DJ-f3l"/>
                                                             <constraint firstAttribute="trailing" secondItem="jya-B9-rvL" secondAttribute="trailing" constant="24.5" id="vXW-C9-dua"/>
-                                                            <constraint firstItem="Tiy-u5-t6c" firstAttribute="leading" secondItem="ksh-7n-bhQ" secondAttribute="leading" constant="25" id="ycG-fg-Quf"/>
+                                                            <constraint firstItem="enP-uc-9qx" firstAttribute="centerY" secondItem="V8R-jw-fP6" secondAttribute="centerY" id="y57-6p-bkn"/>
+                                                            <constraint firstItem="enP-uc-9qx" firstAttribute="top" secondItem="8aK-6u-Lzm" secondAttribute="bottom" constant="8" id="y8d-Le-TpI"/>
                                                             <constraint firstItem="81K-gv-uqM" firstAttribute="leading" secondItem="ksh-7n-bhQ" secondAttribute="leading" id="zie-4o-uun"/>
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0o7-S3-zV9">
-                                                        <rect key="frame" x="0.0" y="475.5" width="375" height="48"/>
+                                                        <rect key="frame" x="0.0" y="463.5" width="375" height="48"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RECEIPT" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eMQ-ix-YVR" customClass="themeLabel" customModule="PickaRideDriver" customModuleProvider="target">
                                                                 <rect key="frame" x="24" y="10" width="327" height="28"/>
@@ -2962,7 +2887,7 @@
                                                         </constraints>
                                                     </view>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="GkD-1H-Csh">
-                                                        <rect key="frame" x="0.0" y="533.5" width="375" height="240"/>
+                                                        <rect key="frame" x="0.0" y="521.5" width="375" height="240"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0D4-BR-t6L">
                                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
@@ -3246,7 +3171,7 @@
                                                         </constraints>
                                                     </stackView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eMt-ZZ-6Xc">
-                                                        <rect key="frame" x="24" y="786.5" width="327" height="1"/>
+                                                        <rect key="frame" x="24" y="774.5" width="327" height="1"/>
                                                         <color key="backgroundColor" red="0.95294117647058818" green="0.95294117647058818" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="1" id="5Gz-xE-3Ow"/>
@@ -3256,7 +3181,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QoV-cW-xyz">
-                                                        <rect key="frame" x="0.0" y="800.5" width="375" height="40"/>
+                                                        <rect key="frame" x="0.0" y="788.5" width="375" height="40"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lLf-ws-lnx">
                                                                 <rect key="frame" x="24" y="9.5" width="327" height="21"/>
@@ -3304,7 +3229,7 @@
                                                         </constraints>
                                                     </view>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This ride was towards your destination you received Guaranteed fare" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gcW-aF-Eet" customClass="themeLabel" customModule="PickaRideDriver" customModuleProvider="target">
-                                                        <rect key="frame" x="24" y="858.5" width="327" height="41"/>
+                                                        <rect key="frame" x="24" y="846.5" width="327" height="41"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -3382,25 +3307,26 @@
                     <connections>
                         <outlet property="imgRatedProfile" destination="ESB-sf-mxa" id="p3V-4W-bKx"/>
                         <outlet property="imgYourRatedProfile" destination="bD5-QH-POJ" id="QIn-2x-wJZ"/>
-                        <outlet property="lblAddres" destination="8aK-6u-Lzm" id="18s-N4-N3D"/>
-                        <outlet property="lblArea" destination="enP-uc-9qx" id="exV-Eb-DEh"/>
-                        <outlet property="lblDateTime" destination="Zsw-yN-DQV" id="sG7-5v-WoI"/>
-                        <outlet property="lblDiscount" destination="1zn-9X-r3K" id="1kp-pq-iCd"/>
+                        <outlet property="lblCustNAme" destination="ZvK-De-D5b" id="S2j-yg-WCl"/>
                         <outlet property="lblDiscription" destination="gcW-aF-Eet" id="HQc-Ow-jTd"/>
-                        <outlet property="lblDistance" destination="G3Q-dR-wpf" id="qAS-Ix-MwU"/>
-                        <outlet property="lblPrice" destination="QrJ-TM-Jh6" id="GRu-PI-UHI"/>
+                        <outlet property="lblDropOffAddress" destination="enP-uc-9qx" id="Qhy-Dz-Gs2"/>
+                        <outlet property="lblPickUpAddress" destination="8aK-6u-Lzm" id="coI-6V-GFX"/>
+                        <outlet property="lblPriceDiscount" destination="1zn-9X-r3K" id="30q-bZ-Mrg"/>
+                        <outlet property="lblPriceRideFare" destination="Riu-Wd-pI0" id="zDK-QH-ICi"/>
+                        <outlet property="lblPriceTax" destination="Ffe-BI-BdH" id="8Ar-Tw-hd1"/>
+                        <outlet property="lblPriceTaxiFee" destination="P17-nZ-FB2" id="BQn-8C-d0F"/>
+                        <outlet property="lblPriceTolls" destination="jqc-fT-Pnf" id="hwz-jV-cMZ"/>
+                        <outlet property="lblPriceTopUp" destination="UO5-ej-gmz" id="RgN-WU-x9x"/>
+                        <outlet property="lblPriceYourPayment" destination="30x-4h-FQL" id="Jac-43-Eli"/>
                         <outlet property="lblRatedName" destination="6fU-9Z-DnI" id="o7F-zX-v43"/>
-                        <outlet property="lblRideFares" destination="Riu-Wd-pI0" id="zkb-Vx-Ae7"/>
-                        <outlet property="lblRideType" destination="9wC-4r-NWa" id="en8-C8-Oak"/>
-                        <outlet property="lblServiceType" destination="uap-iC-p65" id="6Dn-cU-2JV"/>
-                        <outlet property="lblTax" destination="Ffe-BI-BdH" id="3IB-A4-zHb"/>
-                        <outlet property="lblTaxiFee" destination="P17-nZ-FB2" id="VER-T1-Ull"/>
-                        <outlet property="lblTime" destination="gBC-6a-kgk" id="Jvt-Y5-yur"/>
-                        <outlet property="lblTolls" destination="jqc-fT-Pnf" id="Kd9-aU-bDm"/>
-                        <outlet property="lblTopupAdded" destination="UO5-ej-gmz" id="Vyc-9n-3Ra"/>
-                        <outlet property="lblYourPayment" destination="30x-4h-FQL" id="9sp-sf-zUB"/>
+                        <outlet property="lblTotalEarning" destination="QrJ-TM-Jh6" id="0ff-cl-Xjx"/>
+                        <outlet property="lblTripDateTime" destination="Zsw-yN-DQV" id="O5E-a2-1s4"/>
+                        <outlet property="lblTripRideType" destination="9wC-4r-NWa" id="YgS-yi-oS8"/>
+                        <outlet property="lblTripServiceTYpe" destination="uap-iC-p65" id="9jj-Cc-FZy"/>
                         <outlet property="lblYourRated" destination="y60-M9-Wse" id="DGR-tH-0C0"/>
                         <outlet property="stackViewRating" destination="cxV-tw-ntn" id="U3t-dk-y7c"/>
+                        <outlet property="tripDistance" destination="G3Q-dR-wpf" id="kNf-Wc-qTP"/>
+                        <outlet property="tripDuration" destination="gBC-6a-kgk" id="BJu-hb-Q3K"/>
                         <outlet property="vwCosmos" destination="5oa-p0-5AR" id="RFG-SY-Nsr"/>
                         <outlet property="vwCosmosRated" destination="ZRv-BA-FTA" id="MHB-jQ-MK5"/>
                         <outlet property="vwRatingBottom" destination="Qvg-ZV-Lfl" id="XD1-jU-LDx"/>

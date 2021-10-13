@@ -16,6 +16,7 @@ import Firebase
 import FirebaseMessaging
 import FirebaseInstanceID
 import FirebaseCore
+import FirebaseCrashlytics
 
 import SocketIO
 
@@ -31,9 +32,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
     let SManager = SocketManager(socketURL: URL(string: SocketKeys.KHostUrl.rawValue)!)
     var timerTracking : Timer?
     
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool
-    {
-
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool{
+        
         IQKeyboardManager.shared.enable = true
         IQKeyboardManager.shared.shouldResignOnTouchOutside = true
         IQKeyboardManager.shared.previousNextDisplayMode = .alwaysHide

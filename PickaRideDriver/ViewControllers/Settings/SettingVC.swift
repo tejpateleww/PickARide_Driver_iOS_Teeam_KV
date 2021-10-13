@@ -94,7 +94,7 @@ class SettingVC: BaseVC, UITextFieldDelegate {
         }
     }
     
-    func previewDocument(strURL : String){
+    override func previewDocument(strURL : String){
         guard let url = URL(string: strURL) else {return}
         let svc = SFSafariViewController(url: url)
         present(svc, animated: true, completion: nil)

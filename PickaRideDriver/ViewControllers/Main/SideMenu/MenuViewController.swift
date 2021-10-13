@@ -10,7 +10,6 @@
 import UIKit
 import SideMenuSwift
 import SDWebImage
-
 import SafariServices
 
 class Preferences {
