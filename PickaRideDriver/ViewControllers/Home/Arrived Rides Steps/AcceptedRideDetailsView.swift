@@ -20,6 +20,7 @@ protocol AcceptedRideDetailsViewDelgate {
     func onNavigateAction()
     func onTripCompAction()
     func onTripTrackingStarted()
+    func onHandleMap()
     func onVerifyOtpTap(StrCustOtp:String) -> Bool
 }
 
@@ -59,16 +60,18 @@ class AcceptedRideDetailsView: UIView {
     var isCancelFromArrived = false
     var isfrom = status.arrived
     var currentBookingModel : CurrentBookingDatum?
+    weak var HomeVC : HomeVC? = nil
   
     var isExpandCategory:  Bool  = false {
         didSet {
             mainVWBottomConstraint.constant = isExpandCategory ? 0 : (-mainVW.frame.height + topVW.frame.height + timewVW.frame.height + 35)
             btnDownArrow.isHidden = !isExpandCategory
-            UIView.animate(withDuration: 0.8, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: [.curveEaseInOut, .allowUserInteraction, .beginFromCurrentState], animations: {
+            
+            self.delegate?.onHandleMap()
+            
+            UIView.animate(withDuration: 0.7, animations: {
                 self.layoutIfNeeded()
-            }) { (success) in
-                
-            }
+             })
         }
     }
     

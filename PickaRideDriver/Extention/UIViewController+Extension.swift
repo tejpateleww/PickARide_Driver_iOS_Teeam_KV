@@ -124,7 +124,7 @@ class MarkerPinView: UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        self.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
+        self.frame = CGRect(x: 0, y: 0, width: 35, height: 35)
         let imageview = UIImageView()
 //        if markerImage != nil{
             imageview.image = markerImage

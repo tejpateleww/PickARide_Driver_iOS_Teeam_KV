@@ -261,7 +261,7 @@ class HomeVC: BaseVC {
         
         self.DriverLocMarker?.iconView = markerView2
         self.DriverLocMarker?.map = self.vwMap
-        self.vwMap.selectedMarker = self.DropLocMarker
+//        self.vwMap.selectedMarker = self.DropLocMarker
         
         //For Displaying both markers in screen centered
         self.arrMarkers.append(self.CurrentLocMarker!)
@@ -350,29 +350,29 @@ class HomeVC: BaseVC {
         self.updateTravelledPath(currentLoc: newCoordinate)
         
         //Find Distance Logic
-//        let location: CLLocation?
-//        if(self.currentBookingModel?.status == "traveling"){
-//            location = CLLocation(latitude: Double(self.currentBookingModel?.dropoffLat ?? "0.0") ?? 0.0, longitude: Double(self.currentBookingModel?.dropoffLng ?? "0.0") ?? 0.0)
-//        }else{
-//            location = CLLocation(latitude: Double(self.currentBookingModel?.pickupLat ?? "0.0") ?? 0.0, longitude: Double(self.currentBookingModel?.pickupLng ?? "0.0") ?? 0.0)
-//        }
-//        
-//        let Current = CLLocation(latitude: SingletonClass.sharedInstance.latitude, longitude: SingletonClass.sharedInstance.longitude)
-//        let distanceInMeters = location?.distance(from: Current)
-//        if(distanceInMeters! <= 300){
-//            if(distanceInMeters! <= 50){
-//                if(self.currentBookingModel?.status == "traveling"){
-//                    Utilities.displayAlert("You're at DropOff Location \n(50 meters)")
-//                }else{
-//                    Utilities.displayAlert("You're at Pickup Location \n(50 meters)")
-//                }
-//            }
-//            if(!self.acceptedRideDetailsView.btnSubmit.isUserInteractionEnabled){
-//                Utilities.displayAlert("You're near pick Location \n(300 meters)")
-//                self.acceptedRideDetailsView.btnSubmit.isUserInteractionEnabled = true
-//                self.acceptedRideDetailsView.btnSubmit.alpha = 1
-//            }
-//        }
+        //        let location: CLLocation?
+        //        if(self.currentBookingModel?.status == "traveling"){
+        //            location = CLLocation(latitude: Double(self.currentBookingModel?.dropoffLat ?? "0.0") ?? 0.0, longitude: Double(self.currentBookingModel?.dropoffLng ?? "0.0") ?? 0.0)
+        //        }else{
+        //            location = CLLocation(latitude: Double(self.currentBookingModel?.pickupLat ?? "0.0") ?? 0.0, longitude: Double(self.currentBookingModel?.pickupLng ?? "0.0") ?? 0.0)
+        //        }
+        //
+        //        let Current = CLLocation(latitude: SingletonClass.sharedInstance.latitude, longitude: SingletonClass.sharedInstance.longitude)
+        //        let distanceInMeters = location?.distance(from: Current)
+        //        if(distanceInMeters! <= 300){
+        //            if(distanceInMeters! <= 50){
+        //                if(self.currentBookingModel?.status == "traveling"){
+        //                    Utilities.displayAlert("You're at DropOff Location \n(50 meters)")
+        //                }else{
+        //                    Utilities.displayAlert("You're at Pickup Location \n(50 meters)")
+        //                }
+        //            }
+        //            if(!self.acceptedRideDetailsView.btnSubmit.isUserInteractionEnabled){
+        //                Utilities.displayAlert("You're near pick Location \n(300 meters)")
+        //                self.acceptedRideDetailsView.btnSubmit.isUserInteractionEnabled = true
+        //                self.acceptedRideDetailsView.btnSubmit.alpha = 1
+        //            }
+        //        }
         
     }
     
@@ -380,11 +380,11 @@ class HomeVC: BaseVC {
     func updateTravelledPath(currentLoc: CLLocationCoordinate2D){
         var index = 0
         self.coordinates = []
-      //  print("---------- Polyline Array ----------")
+        //  print("---------- Polyline Array ----------")
         for i in 0..<self.path.count(){
             let pathLat = Double(self.path.coordinate(at: i).latitude).rounded(toPlaces: 5)
             let pathLong = Double(self.path.coordinate(at: i).longitude).rounded(toPlaces: 5)
-           // print(" pathLat - \(pathLat) : pathLong - \(pathLong)")
+            // print(" pathLat - \(pathLat) : pathLong - \(pathLong)")
             
             self.newPoint = CLLocation(latitude: pathLat, longitude: pathLong)
             if(self.oldPoint == nil){
@@ -402,9 +402,9 @@ class HomeVC: BaseVC {
         index = self.coordinates.firstIndex{$0 === closest}!
         
         let Meters = closest?.distance(from: userLocation) ?? 0
-      //  print("Distance from closest point---------- \(Meters.rounded(toPlaces: 2)) meters")
+        //  print("Distance from closest point---------- \(Meters.rounded(toPlaces: 2)) meters")
         if(Meters > 300){
-           // print("New route ---***---***---**--**--**--**----*****")
+            // print("New route ---***---***---**--**--**--**----*****")
             self.oldPoint = nil
             self.newPoint = nil
             self.oldCoordinate = nil
@@ -440,8 +440,23 @@ class HomeVC: BaseVC {
             let lat  = startPoint.coordinate.latitude - (latMultiplier * Double(index)) //8
             let long = startPoint.coordinate.longitude - (longMultiplier * Double(index)) //9
             let point = CLLocation(latitude: lat.rounded(toPlaces: 5), longitude: long.rounded(toPlaces: 5)) //10
-         //   print(" pathLat - \(point.coordinate.latitude) : pathLong - \(point.coordinate.longitude)")
+            //   print(" pathLat - \(point.coordinate.latitude) : pathLong - \(point.coordinate.longitude)")
             self.coordinates.append(point) //11
+        }
+    }
+    
+    //MARK: - setMapHeight Methods
+    func setMapHeight(){
+        if(self.acceptedRideDetailsView.isExpandCategory){
+            UIView.animate(withDuration: 0.7, animations: {
+                let mapInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 300.0, right: 0.0)
+                self.vwMap.padding = mapInsets
+             })
+        }else{
+            UIView.animate(withDuration: 0.7, animations: {
+                let mapInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 150.0, right: 0.0)
+                self.vwMap.padding = mapInsets
+             })
         }
     }
     
@@ -638,6 +653,7 @@ extension HomeVC : IncomingRideRequestViewDelegate{
 
 //MARK:- AcceptedRideDetailsViewDelgate
 extension HomeVC : AcceptedRideDetailsViewDelgate{
+    
     func onTripTrackingStarted() {
         if  SocketIOManager.shared.socket.status == .connected {
             self.emitSocket_liveTrackingp(CustId: self.currentBookingModel?.customerInfo?.id ?? "",
@@ -647,8 +663,11 @@ extension HomeVC : AcceptedRideDetailsViewDelgate{
                                           pickup_lng: (self.currentBookingModel?.status == "traveling") ? Double(self.currentBookingModel?.dropoffLng ?? "0.0") ?? 0.0 : Double(self.currentBookingModel?.pickupLng ?? "0.0") ?? 0.0)
             
         }
-        
         self.setupTrackingMarker()
+    }
+    
+    func onHandleMap() {
+        self.setMapHeight()
     }
     
     func onArrivedUserLocation() {
