@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import UIKit
+
 extension IncomingRideRequestView{
     
     
@@ -68,9 +70,11 @@ extension IncomingRideRequestView{
         SocketIOManager.shared.socketCall(for: SocketKeys.acceptBookingRequest.rawValue) { (json) in
             print(#function, "\n ", json)
             print(json)
+        
             let dict = NewBookingResModel.init(fromJson: json[0])
             self.newBookingResModel = dict.bookingInfo
             self.callCurrentBookingAPI()
+            
            
         }
     }

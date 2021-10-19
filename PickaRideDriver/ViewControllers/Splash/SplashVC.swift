@@ -8,14 +8,63 @@
 
 import UIKit
 import SideMenuSwift
+import Alamofire
+import NotificationBannerSwift
 
 class SplashVC: UIViewController {
     
+    var offlineStatue : Bool = false
+    
+    //MARK:- Life Cycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
         let _ = user_defaults.getUserData()
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             self.webserviceInit()
+        }
+        self.prepareView()
+    }
+    
+    //MARK:- Custom methods
+    func prepareView(){
+        self.checkConnction()
+
+    }
+    
+}
+
+//MARK:- Network check methods
+extension SplashVC{
+    func checkConnction() {
+        
+        let manager = Alamofire.NetworkReachabilityManager()
+        manager?.startListening { status in
+            switch status {
+            case .notReachable :
+                print("not reachable")
+                self.offlineStatue = true
+                appDel.mainSocketOff()
+                let banner = StatusBarNotificationBanner(title: "connection lost", style: .danger)
+                banner.show()
+            case .reachable(.cellular) :
+                print("cellular")
+                if(self.offlineStatue){
+                    self.offlineStatue = false
+                    appDel.mainSocketOn()
+                    let banner = StatusBarNotificationBanner(title: "back online", style: .success)
+                    banner.show()
+                }
+            case .reachable(.ethernetOrWiFi) :
+                print("ethernetOrWiFi")
+                if(self.offlineStatue){
+                    self.offlineStatue = false
+                    appDel.mainSocketOn()
+                    let banner = StatusBarNotificationBanner(title: "back online", style: .success)
+                    banner.show()
+                }
+            default :
+                print("unknown")
+            }
         }
     }
 }

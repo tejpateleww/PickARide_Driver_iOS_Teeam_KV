@@ -267,7 +267,9 @@ class EditProfileVC: BaseVC {
     
     @IBAction func btnPasswordAction(_ sender: Any) {
         let vc : ChangePasswordVC = ChangePasswordVC.instantiate(fromAppStoryboard: .Main)
+        vc.modalPresentationStyle = .overFullScreen
         self.navigationController?.present(vc, animated: true, completion: nil)
+    
     }
     
 }
@@ -363,6 +365,7 @@ extension EditProfileVC: UITextFieldDelegate{
             }
         }else if textField == self.txtPassword{
             let vc : ChangePasswordVC = ChangePasswordVC.instantiate(fromAppStoryboard: .Main)
+            vc.modalPresentationStyle = .overFullScreen
             self.navigationController?.present(vc, animated: true, completion: nil)
             return false
         }

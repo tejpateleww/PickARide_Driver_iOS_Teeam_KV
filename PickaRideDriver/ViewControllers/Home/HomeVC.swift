@@ -8,6 +8,7 @@
 import UIKit
 import GoogleMaps
 import SocketIO
+import NotificationBannerSwift
 
 class HomeVC: BaseVC {
     
@@ -34,7 +35,6 @@ class HomeVC: BaseVC {
     var DriverLocMarker: GMSMarker?
     var arrMarkers: [GMSMarker] = []
     var homeViewModel = HomeViewModel()
-    var timer : Timer?
     var newBookingResModel : NewBookingResBookingInfo?
     var currentBookingModel : CurrentBookingDatum?
     
@@ -55,15 +55,14 @@ class HomeVC: BaseVC {
         self.SocketOnMethods()
         self.startTimer()
         self.changeDutyStatus()
+        
+        appDel.isHomeVcVisible = true
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        //self.allSocketOffMethods()
-        if(self.timer != nil){
-            self.timer?.invalidate()
-            self.timer = nil
-        }
+        appDel.isHomeVcVisible = false
     }
     
     override func viewDidLoad(){
@@ -72,6 +71,8 @@ class HomeVC: BaseVC {
         self.setNavWithSOS()
         self.handleRideFlow(state: RideState.None)
         self.PrepareView()
+        
+      
     }
     
     //MARK:- Custom methods
@@ -81,6 +82,8 @@ class HomeVC: BaseVC {
         
         self.moveMent = ARCarMovement()
         self.moveMent?.delegate = self
+        
+
         
     }
     
@@ -143,13 +146,17 @@ class HomeVC: BaseVC {
     
     func startTimer() {
         self.emitSocket_UpdateLocation(latitute: appDel.locationManager.currentLocation?.coordinate.latitude ?? 0.0, long: appDel.locationManager.currentLocation?.coordinate.longitude ?? 0.0)
-        if(self.timer == nil){
-            self.timer = Timer.scheduledTimer(withTimeInterval: 5, repeats: true, block: { (timer) in
+        if(appDel.timerLocUpdate == nil){
+            appDel.timerLocUpdate = Timer.scheduledTimer(withTimeInterval: 5, repeats: true, block: { (timer) in
                 if  SocketIOManager.shared.socket.status == .connected {
                     self.emitSocket_UpdateLocation(latitute: appDel.locationManager.currentLocation?.coordinate.latitude ?? 0.0, long: appDel.locationManager.currentLocation?.coordinate.longitude ?? 0.0)
                 }else{
                     print("socket not connected")
-                    Utilities.displayAlert(UrlConstant.SomethingWentWrongSocket)
+                    Utilities.showAlertWithTitleFromVC(vc: self, title: AppName, message: UrlConstant.SomethingWentWrongSocket, buttons: ["Retry"], isOkRed: false) { (ind) in
+                        if ind == 0{
+                            self.SocketOnMethods()
+                        }
+                    }
                 }
             })
         }
@@ -196,8 +203,10 @@ class HomeVC: BaseVC {
     func changeDutyStatus(){
         if(SingletonClass.sharedInstance.UserProfilData?.duty == "0"){
             self.strDutyStatus = "You're offline"
+            self.stopTimer()
         }else{
             self.strDutyStatus = "You're online"
+            self.startTimer()
         }
         self.lblOffline.text = self.strDutyStatus
         self.btnOn.isSelected = (self.lblOffline.text == "You're online") ? true : false
@@ -208,12 +217,21 @@ class HomeVC: BaseVC {
             self.lblOffline.text = "You're offline"
             user_defaults.set("0", forKey: UserDefaultsKey.dutyStatus.rawValue)
             SingletonClass.sharedInstance.UserProfilData?.duty = "0"
+            self.stopTimer()
         }else{
             self.lblOffline.text = "You're online"
             user_defaults.set("1", forKey: UserDefaultsKey.DeviceToken.rawValue)
             SingletonClass.sharedInstance.UserProfilData?.duty = "1"
+            self.startTimer()
         }
         self.btnOn.isSelected = (self.lblOffline.text == "You're online") ? true : false
+    }
+    
+    func stopTimer(){
+        if(appDel.timerLocUpdate != nil){
+            appDel.timerLocUpdate?.invalidate()
+            appDel.timerLocUpdate = nil
+        }
     }
     
     //MARK:- Setup Route methods

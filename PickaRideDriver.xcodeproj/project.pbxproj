@@ -507,6 +507,7 @@
 		186CBF4C268355D000245B7C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				88627B43271EF0CB0094F9D8 /* Notification Request View */,
 				4F94F1502643DB5F00780413 /* navigationCommonView */,
 			);
 			path = Views;
@@ -1254,6 +1255,13 @@
 				848FE832264A38E4008B6586 /* RideReceiptDetailsVC.swift */,
 			);
 			path = "My Rides";
+			sourceTree = "<group>";
+		};
+		88627B43271EF0CB0094F9D8 /* Notification Request View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Notification Request View";
 			sourceTree = "<group>";
 		};
 		8867A71026F1B74A00049490 /* Cancel Trip Reasons */ = {

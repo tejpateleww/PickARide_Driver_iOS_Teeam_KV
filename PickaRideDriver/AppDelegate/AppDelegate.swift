@@ -23,14 +23,16 @@ import SocketIO
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDelegate,MessagingDelegate{
     
-    var locationManager = LocationService()
-    let notificationCenter = UNUserNotificationCenter.current()
-    var window: UIWindow?
     static var shared: AppDelegate {
         return UIApplication.shared.delegate as! AppDelegate
     }
+    var locationManager = LocationService()
+    let notificationCenter = UNUserNotificationCenter.current()
+    var window: UIWindow?
     let SManager = SocketManager(socketURL: URL(string: SocketKeys.KHostUrl.rawValue)!)
     var timerTracking : Timer?
+    var timerLocUpdate : Timer?
+    var isHomeVcVisible : Bool = false
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool{
         
@@ -47,7 +49,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
 
         FirebaseApp.configure()
         registerForPushNotifications()
+        
         return true
+    }
+    
+    func applicationWillTerminate(_ application: UIApplication) {
+        self.stopTimers()
     }
     
     func navigateToLogin(){
@@ -111,14 +118,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
         user_defaults.setUserData()
     }
     
-    func dologout(){
-        for (key, _) in UserDefaults.standard.dictionaryRepresentation() {
-            
-            if key != UserDefaultsKey.DeviceToken.rawValue && key  != "language"  {
-                UserDefaults.standard.removeObject(forKey: key)
-            }
-        }
-        
+    func mainSocketOff(){
         let socket = (UIApplication.shared.delegate as! AppDelegate).SManager.defaultSocket
         socket.off(SocketKeys.updateDriverLocation.rawValue)
         socket.off(SocketKeys.forwardBookingRequest.rawValue)
@@ -129,12 +129,61 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
         socket.off(SocketKeys.startTrip.rawValue)
         socket.off(SocketKeys.liveTracking.rawValue)
         socket.disconnect()
+    }
+    
+    func mainSocketOn(){
+        let socket = (UIApplication.shared.delegate as! AppDelegate).SManager.defaultSocket
         
+        socket.on(SocketKeys.updateDriverLocation.rawValue) { data, ack in
+            print ("updateDriverLocation socket connected")
+        }
+        socket.on(SocketKeys.forwardBookingRequest.rawValue) { data, ack in
+            print ("forwardBookingRequest socket connected")
+        }
+        socket.on(SocketKeys.forwardBookingRequestToAnotherDriver.rawValue) { data, ack in
+            print ("forwardBookingRequestToAnotherDriver socket connected")
+        }
+        socket.on(SocketKeys.acceptBookingRequest.rawValue) { data, ack in
+            print ("acceptBookingRequest socket connected")
+        }
+        socket.on(SocketKeys.verifyCustomer.rawValue) { data, ack in
+            print ("verifyCustomer socket connected")
+        }
+        socket.on(SocketKeys.arrivedAtPickupLocation.rawValue) { data, ack in
+            print ("arrivedAtPickupLocation socket connected")
+        }
+        socket.on(SocketKeys.startTrip.rawValue) { data, ack in
+            print ("startTrip socket connected")
+        }
+        socket.on(SocketKeys.liveTracking.rawValue) { data, ack in
+            print ("liveTracking socket connected")
+        }
+        socket.connect()
+    }
+    
+    func stopTimers(){
+        //stop all timers
         if(appDel.timerTracking != nil){
             appDel.timerTracking?.invalidate()
             appDel.timerTracking = nil
         }
+        if(appDel.timerLocUpdate != nil){
+            appDel.timerLocUpdate?.invalidate()
+            appDel.timerLocUpdate = nil
+        }
+    }
+    
+    func dologout(){
+        for (key, _) in UserDefaults.standard.dictionaryRepresentation() {
+            
+            if key != UserDefaultsKey.DeviceToken.rawValue && key  != "language"  {
+                UserDefaults.standard.removeObject(forKey: key)
+            }
+        }
         
+        self.mainSocketOff()
+        self.stopTimers()
+
         user_defaults.setValue(false, forKey: UserDefaultsKey.isUserLogin.rawValue)
         SingletonClass.sharedInstance.clearSingletonClass()
         user_defaults.setUserData()
@@ -144,3 +193,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
     
 }
 
+
+extension UIApplication {
+    
+/// Top most ViewController
+    func topMostViewController() -> UIViewController? {
+        return self.keyWindow?.rootViewController?.topMostViewController()
+    }
+    
+/// Top visible viewcontroller
+    var topMostVisibleViewController : UIViewController? {
+        
+        if UIApplication.shared.keyWindow?.rootViewController is UINavigationController {
+            return (UIApplication.shared.keyWindow?.rootViewController as! UINavigationController).visibleViewController
+        }
+        return nil
+    }
+}

@@ -7,8 +7,10 @@
 //
 
 import Foundation
+import UIKit
+import NotificationBannerSwift
+
 extension HomeVC{
-    
     
     // ----------------------------------------------------
     //MARK:- --- All Socket Methods ---
@@ -113,10 +115,25 @@ extension HomeVC{
         SocketIOManager.shared.socketCall(for: SocketKeys.forwardBookingRequest.rawValue) { (json) in
             print(#function, "\n ", json)
             print(json)
+            
             let dict = NewBookingResModel.init(fromJson: json[0])
             self.newBookingResModel = dict.bookingInfo
             self.handleRideFlow(state: RideState.NewRequest)
             self.setNavWithoutSOS()
+            
+            if(!appDel.isHomeVcVisible){
+                let rightView = UIImageView(image: #imageLiteral(resourceName: "splash_img_center"))
+                let banner = GrowingNotificationBanner(title: "You have received new request", subtitle: "Tap here to accept ride", leftView: nil, rightView: rightView, style: .theme, colors: nil, iconPosition: .center, sideViewSize: 50)
+                banner.onTap = {
+                    print("tapped on banner...")
+                    appDel.window?.rootViewController?.dismiss(animated: false, completion: {
+                        self.navigationController?.popToViewController(ofClass: HomeVC.self)
+                    })
+                }
+                banner.duration = 15
+                banner.show()
+            }
+            
         }
     }
     

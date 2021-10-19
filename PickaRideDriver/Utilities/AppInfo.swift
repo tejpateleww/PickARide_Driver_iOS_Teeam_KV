@@ -49,14 +49,9 @@ struct AppInfo {
         return ""
     }
     static var Google_API_Key: String {
-        return "AIzaSyDU7rSEixg3F-ceR5nz9JAcYxEw5J7hOEI"
-        //return "AIzaSyD9aZBxr4MjVuneyUp4x969up5GUvTY6vk"
-        //
+        return "AIzaSyDU7rSEixg3F-ceR5nz9JAcYxEw5J7hOEI" // AIzaSyDKJGsMhG1iL3NsqDb9PbQ4u1p_jLBB_FA
     }
-//    static var Google_API_Key: String {
-//        return "AIzaSyDZ6MXcM6b-8Oy61CKeQuwMiX71fRkWQgY"
-//        //
-//    }
+
 }
 
 

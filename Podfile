@@ -22,6 +22,8 @@ target 'PickaRideDriver' do
   pod 'EasyTipView', '~> 2.1'
   pod 'Socket.IO-Client-Swift'
   pod 'UIView-Shimmer', '~> 1.0'
+  pod 'NotificationBannerSwift', '~> 3.0.0'
+  pod 'Alamofire'
 
   # Pods for PickaRideDriver
 
