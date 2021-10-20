@@ -120,17 +120,19 @@ extension HomeVC{
             self.newBookingResModel = dict.bookingInfo
             self.handleRideFlow(state: RideState.NewRequest)
             self.setNavWithoutSOS()
+            Vibration.oldSchool.vibrate()
             
             if(!appDel.isHomeVcVisible){
-                let rightView = UIImageView(image: #imageLiteral(resourceName: "splash_img_center"))
-                let banner = GrowingNotificationBanner(title: "You have received new request", subtitle: "Tap here to accept ride", leftView: nil, rightView: rightView, style: .theme, colors: nil, iconPosition: .center, sideViewSize: 50)
+                let view = CustomNotification.instantiate(Title: "You have received new request", SubTitle: "Tap here to accept ride")
+                let banner = NotificationBanner(customView:view)
+                banner.bannerHeight = 80
+                banner.duration = 15
                 banner.onTap = {
                     print("tapped on banner...")
                     appDel.window?.rootViewController?.dismiss(animated: false, completion: {
                         self.navigationController?.popToViewController(ofClass: HomeVC.self)
                     })
                 }
-                banner.duration = 15
                 banner.show()
             }
             

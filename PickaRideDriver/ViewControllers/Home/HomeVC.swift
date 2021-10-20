@@ -23,6 +23,7 @@ class HomeVC: BaseVC {
     lazy var cancelRideView : CancelRideView = CancelRideView.fromNib()
     
     var isCloseTap = false
+    var isMapError = false
     var strDutyStatus = ""
     var strArrivedOtp = ""
     var strDutyStatusfromCurrentBooking = ""
@@ -57,7 +58,6 @@ class HomeVC: BaseVC {
         self.changeDutyStatus()
         
         appDel.isHomeVcVisible = true
-        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -72,7 +72,7 @@ class HomeVC: BaseVC {
         self.handleRideFlow(state: RideState.None)
         self.PrepareView()
         
-      
+        
     }
     
     //MARK:- Custom methods
@@ -82,9 +82,6 @@ class HomeVC: BaseVC {
         
         self.moveMent = ARCarMovement()
         self.moveMent?.delegate = self
-        
-
-        
     }
     
     func addNotificationObs(){
@@ -120,6 +117,7 @@ class HomeVC: BaseVC {
         self.vwMap.clear()
         self.path = GMSPath()
         self.polyline = GMSPolyline()
+        self.isMapError = false
         
         let mapInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 0.0, right: 0.0)
         self.vwMap.padding = mapInsets
@@ -253,7 +251,7 @@ class HomeVC: BaseVC {
         let mapInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 300.0, right: 0.0)
         self.vwMap.padding = mapInsets
         
-        let camera = GMSCameraPosition.camera(withLatitude: Double(currentlat) ?? 0.0, longitude:  Double(currentlong) ?? 0.0, zoom: 13.6)
+        let camera = GMSCameraPosition.camera(withLatitude: Double(currentlat) ?? 0.0, longitude:  Double(currentlong) ?? 0.0, zoom: 17)
         self.vwMap.camera = camera
         
         //Drop Location pin setup
@@ -279,18 +277,18 @@ class HomeVC: BaseVC {
         
         self.DriverLocMarker?.iconView = markerView2
         self.DriverLocMarker?.map = self.vwMap
-//        self.vwMap.selectedMarker = self.DropLocMarker
+        //        self.vwMap.selectedMarker = self.DropLocMarker
         
         //For Displaying both markers in screen centered
-        self.arrMarkers.append(self.CurrentLocMarker!)
-        self.arrMarkers.append(self.DropLocMarker!)
-        var bounds = GMSCoordinateBounds()
-        for marker in self.arrMarkers
-        {
-            bounds = bounds.includingCoordinate(marker.position)
-        }
-        let update = GMSCameraUpdate.fit(bounds, withPadding: 80)
-        self.vwMap.animate(with: update)
+        //        self.arrMarkers.append(self.CurrentLocMarker!)
+        //        self.arrMarkers.append(self.DropLocMarker!)
+        //        var bounds = GMSCoordinateBounds()
+        //        for marker in self.arrMarkers
+        //        {
+        //            bounds = bounds.includingCoordinate(marker.position)
+        //        }
+        //        let update = GMSCameraUpdate.fit(bounds, withPadding: 80)
+        //        self.vwMap.animate(with: update)
         
         self.fetchRoute(currentlat: currentlat, currentlong: currentlong, droplat: droplat, droplog: droplog)
     }
@@ -314,6 +312,23 @@ class HomeVC: BaseVC {
             
             guard let jsonResult = try? JSONSerialization.jsonObject(with: data!, options: .allowFragments) as? [String: Any]?, let jsonResponse = jsonResult else {
                 print("error in JSONSerialization")
+                return
+            }
+            
+            guard let status = jsonResponse["status"] as? String else {
+                return
+            }
+            
+            if(status == "REQUEST_DENIED" || status == "ZERO_RESULTS"){
+                print("Map Error : \(jsonResponse["error_message"] as? String ?? "REQUEST_DENIED")")
+                
+                DispatchQueue.main.async {
+                    if(!self.isMapError){
+                        let banner = StatusBarNotificationBanner(title: "Can't find a way there", style: .danger)
+                        banner.show()
+                        self.isMapError = true
+                    }
+                }
                 return
             }
             
@@ -348,6 +363,11 @@ class HomeVC: BaseVC {
     }
     
     func setupTrackingMarker(){
+        
+        if(self.path.count() <= 0) {
+            return
+        }
+        
         SingletonClass.sharedInstance.latitude = appDel.locationManager.currentLocation?.coordinate.latitude ?? 0.0
         SingletonClass.sharedInstance.longitude = appDel.locationManager.currentLocation?.coordinate.longitude ?? 0.0
         if(self.oldCoordinate == nil){
@@ -469,12 +489,12 @@ class HomeVC: BaseVC {
             UIView.animate(withDuration: 0.7, animations: {
                 let mapInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 300.0, right: 0.0)
                 self.vwMap.padding = mapInsets
-             })
+            })
         }else{
             UIView.animate(withDuration: 0.7, animations: {
                 let mapInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 150.0, right: 0.0)
                 self.vwMap.padding = mapInsets
-             })
+            })
         }
     }
     

@@ -198,6 +198,8 @@
 		886CBE0D270D7D88004F1132 /* sendMessageReqModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886CBE0C270D7D88004F1132 /* sendMessageReqModel.swift */; };
 		886CBE0F270D7F57004F1132 /* RequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886CBE0E270D7F57004F1132 /* RequestModel.swift */; };
 		886CBE11270D919F004F1132 /* ChatSocketClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886CBE10270D919F004F1132 /* ChatSocketClient.swift */; };
+		886F88572720040100328F53 /* CustomNotification.xib in Resources */ = {isa = PBXBuildFile; fileRef = 886F88562720040100328F53 /* CustomNotification.xib */; };
+		886F8859272004B700328F53 /* CustomNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886F8858272004B700328F53 /* CustomNotification.swift */; };
 		889E09F726E5EA4C00333AEA /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889E09F626E5EA4C00333AEA /* ImagePicker.swift */; };
 		889E09FA26E5F16900333AEA /* SingleDocUploadViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889E09F926E5F16900333AEA /* SingleDocUploadViewModel.swift */; };
 		889E0A0626E63F1800333AEA /* AddVehicleUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889E0A0526E63F1800333AEA /* AddVehicleUserModel.swift */; };
@@ -429,6 +431,8 @@
 		886CBE0C270D7D88004F1132 /* sendMessageReqModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sendMessageReqModel.swift; sourceTree = "<group>"; };
 		886CBE0E270D7F57004F1132 /* RequestModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestModel.swift; sourceTree = "<group>"; };
 		886CBE10270D919F004F1132 /* ChatSocketClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatSocketClient.swift; sourceTree = "<group>"; };
+		886F88562720040100328F53 /* CustomNotification.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomNotification.xib; sourceTree = "<group>"; };
+		886F8858272004B700328F53 /* CustomNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNotification.swift; sourceTree = "<group>"; };
 		889E09F626E5EA4C00333AEA /* ImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		889E09F926E5F16900333AEA /* SingleDocUploadViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleDocUploadViewModel.swift; sourceTree = "<group>"; };
 		889E0A0526E63F1800333AEA /* AddVehicleUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVehicleUserModel.swift; sourceTree = "<group>"; };
@@ -1260,6 +1264,8 @@
 		88627B43271EF0CB0094F9D8 /* Notification Request View */ = {
 			isa = PBXGroup;
 			children = (
+				886F88562720040100328F53 /* CustomNotification.xib */,
+				886F8858272004B700328F53 /* CustomNotification.swift */,
 			);
 			path = "Notification Request View";
 			sourceTree = "<group>";
@@ -1471,6 +1477,7 @@
 				4F94F1BE2643E72800780413 /* Ubuntu-Medium.ttf in Resources */,
 				4F94F1722643DB5F00780413 /* navigationCommonView.xib in Resources */,
 				4F94F1C52643E72800780413 /* Ubuntu-Light.ttf in Resources */,
+				886F88572720040100328F53 /* CustomNotification.xib in Resources */,
 				885DF0F726F35742008242AE /* NoDataTableViewCell.xib in Resources */,
 				88BD4B5E26FB4B9C0039F4CE /* Location.gpx in Resources */,
 				4F94F1222643D76700780413 /* Assets.xcassets in Resources */,
@@ -1809,6 +1816,7 @@
 				889E0A0A26E643E200333AEA /* ManufacturerListDatum.swift in Sources */,
 				886CBE0F270D7F57004F1132 /* RequestModel.swift in Sources */,
 				88367A24270C46260034D5F1 /* chatHistoryModel.swift in Sources */,
+				886F8859272004B700328F53 /* CustomNotification.swift in Sources */,
 				885B66D126EB5D4800A281FC /* NewBookingResModel.swift in Sources */,
 				8867A71926F1C65B00049490 /* CancelBookingModel.swift in Sources */,
 				8808C4BC26F0741C004B8518 /* RateAndReviewViewModel.swift in Sources */,

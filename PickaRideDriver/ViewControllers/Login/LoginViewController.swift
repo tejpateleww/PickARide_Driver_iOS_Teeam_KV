@@ -55,7 +55,6 @@ class LoginViewController: UIViewController {
         txtPassword.placeholder = ConstantString.PLACE_HOLDER_LOGIN_PASSWORD
         btnForgotPassword.setTitle(ConstantString.BUTTON_TITLE_LOGIN_FORGOT_PASSWORD, for: .normal)
         btnSignIN.setTitle(ConstantString.BUTTON_TITLE_LOGIN_SIGN_IN, for: .normal)
-        //        lblOR.text = "LoginScreen_lblOR".Localized()
         lblDontHaveanAccount.text = ConstantString.LABEL_LOGIN_DONT_HAVE_ACCOUNT
         btnSIgnUP.setTitle(ConstantString.BUTTON_TITLE_LOGIN_SIGN_UP, for: .normal)
     }

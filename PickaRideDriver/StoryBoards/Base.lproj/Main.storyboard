@@ -5487,6 +5487,20 @@
             <point key="canvasLocation" x="8880.7999999999993" y="814.54272863568224"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="5oa-p0-5AR">
+            <size key="intrinsicContentSize" width="120" height="20"/>
+        </designable>
+        <designable name="ABX-eq-teA">
+            <size key="intrinsicContentSize" width="189.35000000000002" height="26.670000000000002"/>
+        </designable>
+        <designable name="ZRv-BA-FTA">
+            <size key="intrinsicContentSize" width="120" height="20"/>
+        </designable>
+        <designable name="qIF-P6-fEo">
+            <size key="intrinsicContentSize" width="120" height="20"/>
+        </designable>
+    </designables>
     <resources>
         <image name="Dummy-Map" width="375" height="812"/>
         <image name="Dummy-Profile" width="100" height="100"/>

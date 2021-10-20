@@ -71,11 +71,11 @@ struct UserNameValidator: ValidatorConvertible {
         guard value != "" else {return (false,ValidationError("Please enter \(fieldName)").message)}
         
         guard value.count >= 3 else {
-            return (false , ValidationError("\(fieldName) must contain more than three characters").message)
+            return (false , ValidationError("\(fieldName.firstUppercased) must contain more than three characters").message)
             // ValidationError("Username must contain more than three characters" )
         }
-        guard value.count < 15 else {
-            return (false , ValidationError("\(fieldName) shoudn't contain more than 15 characters").message)
+        guard value.count <= 15 else {
+            return (false , ValidationError("\(fieldName.firstUppercased) shoudn't contain more than 15 characters").message)
             // throw ValidationError("Username shoudn't conain more than 18 characters" )
         }
         
@@ -117,9 +117,9 @@ struct PasswordValidator: ValidatorConvertible {
     
     func validated(_ value: String) -> (Bool,String) {
         guard value != "" else {return (false,ValidationError("Please enter " + fieldName.lowercased()).message)}
-        guard value.count >= 8 else { return (false,ValidationError( fieldName.capitalizingFirstLetter() + " must contain at least 8 characters").message)}
+        guard value.count >= 8 else { return (false,ValidationError( fieldName.firstUppercased + " must contain at least 8 characters").message)}
         guard value.count <= 15 else {
-            return (false , ValidationError("\(fieldName) shoudn't contain more than 15 characters").message)
+            return (false , ValidationError("\(fieldName.firstUppercased) shoudn't contain more than 15 characters").message)
             // throw ValidationError("Username shoudn't conain more than 18 characters" )
         }
         // do {
