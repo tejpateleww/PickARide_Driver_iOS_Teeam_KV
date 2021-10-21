@@ -22,7 +22,7 @@ class SignUpVC: BaseVC {
     @IBOutlet weak var txtEmail: themeTextField!
     @IBOutlet weak var lblEmail: themeLabel!
     @IBOutlet weak var txtFirstName: themeTextField!
-    @IBOutlet weak var txtMobile: UITextField!
+    @IBOutlet weak var txtMobile: themeTextField!
     @IBOutlet weak var lblLastName: themeLabel!
     @IBOutlet weak var btnNext: themeButton!
     @IBOutlet weak var txtCountryCode: UITextField!
@@ -30,9 +30,10 @@ class SignUpVC: BaseVC {
     @IBOutlet weak var stackViewCountryCode: UIStackView!
     
     //MARK:- Variables and properties
+    var StringOTP : String = ""
     var pickerView = UIPickerView()
     var selectedIndexOfPicker = Int()
-    var otpUserModel = RegisterUserModel()
+    var otpUserModel = RegisterOTPUserModel()
     var registerRequestModel = RegisterFinalRequestModel()
     let ACCEPTABLE_CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz"
     let ACCEPTABLE_CHARACTERS_FOR_EMAIL = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@."
@@ -123,6 +124,7 @@ class SignUpVC: BaseVC {
         
         let controller = OtpVC.instantiate(fromAppStoryboard: .Login)
         controller.registerRequestModel = self.registerRequestModel
+        controller.StringOTP = self.StringOTP
         self.navigationController?.pushViewController(controller, animated: true)
     }
     
@@ -136,8 +138,8 @@ class SignUpVC: BaseVC {
         var strTitle : String?
         let firstName = self.txtFirstName.validatedText(validationType: .username(field: self.txtFirstName.placeholder?.lowercased() ?? ""))
         let lastName = self.txtLastName.validatedText(validationType: .username(field: self.txtLastName.placeholder?.lowercased() ?? ""))
-        let mobileNo = self.txtMobile.validatedText(validationType: .requiredField(field: self.txtMobile.placeholder?.lowercased() ?? ""))
-        let checkEmail = self.txtEmail.validatedText(validationType: .email(field: self.txtEmail.placeholder?.lowercased() ?? ""))
+        let mobileNo = self.txtMobile.validatedText(validationType: .phoneNo)
+        let checkEmail = self.txtEmail.validatedText(validationType: .email)
         let password = self.txtPassword.validatedText(validationType: .password(field: self.txtPassword.placeholder?.lowercased() ?? ""))
         
         if !firstName.0{
@@ -150,7 +152,7 @@ class SignUpVC: BaseVC {
             strTitle = checkEmail.1
         }else if self.txtMobile.text?.count != 10 {
             strTitle = UrlConstant.ValidPhoneNo
-        }else if txtviewHomeAddress.text == "Home Address" || txtviewHomeAddress.text == ""{
+        }else if txtviewHomeAddress.text == "Home Address" || txtviewHomeAddress.text.trimmingCharacters(in: .whitespaces) == ""{
             strTitle = "Please enter home address"
         }else if !password.0{
             strTitle = password.1
@@ -192,7 +194,7 @@ class SignUpVC: BaseVC {
     
     @IBAction func btnNextTap(_ sender: UIButton) {
         if self.validation(){
-            self.storeDataInRegisterModel()
+            self.callOtpApi()
         }
     }
     
@@ -236,7 +238,7 @@ extension SignUpVC : UITextViewDelegate{
     
     func textViewDidEndEditing(_ textView: UITextView) {
         self.txtviewHomeAddress.text = self.txtviewHomeAddress.text == "" ? "Home Address" : self.txtviewHomeAddress.text
-        self.txtviewHomeAddress.textColor = self.txtviewHomeAddress.text == "Home Address" ? colors.lightGrey.value : .black
+        self.txtviewHomeAddress.textColor = self.txtviewHomeAddress.text == "Home Address" ? colors.lightGrey.value.withAlphaComponent(0.4) : .black
     }
 }
 
@@ -320,5 +322,18 @@ extension SignUpVC : UIPickerViewDelegate,UIPickerViewDataSource {
     }
 }
 
-
+//MARK:- Api Call
+extension SignUpVC{
+    
+    func callOtpApi(){
+        self.otpUserModel.registerVC = self
+        self.otpUserModel.registerRequestModel = self.registerRequestModel
+        let otpReqModel = OTPRequestModel()
+        otpReqModel.email = self.txtEmail.text ?? ""
+        otpReqModel.countryCode = self.txtCountryCode.text ?? ""
+        otpReqModel.phone = self.txtMobile.text ?? ""
+        self.otpUserModel.webserviceRegisterOTP(reqModel: otpReqModel)
+    }
+    
+}
 

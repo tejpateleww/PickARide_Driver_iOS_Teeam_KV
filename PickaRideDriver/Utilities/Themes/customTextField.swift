@@ -52,11 +52,11 @@ class themeTextField : UITextField{
     @IBInspectable var Font_Color = UIColor.white
     override func awakeFromNib() {
         super.awakeFromNib()
-        //            self.font = CustomFont.regular.returnFont(16.0)
-        //            self.placeHolderColor = colors.lightGrey.value
-        //            self.textColor = colors.lightGrey.value
+        
         self.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: self.frame.height))
+        self.rightView = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: self.frame.height))
         self.leftViewMode = .always
+        self.rightViewMode = .always
         self.layer.borderWidth = 1
         self.layer.borderColor = colors.textfieldbordercolor.value.cgColor
         self.tintColor = themeColor

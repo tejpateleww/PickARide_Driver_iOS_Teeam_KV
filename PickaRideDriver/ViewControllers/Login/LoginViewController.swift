@@ -124,7 +124,7 @@ extension LoginViewController{
             Toast.show(title: UrlConstant.Required, message: "Please enter email", state: .failure)
             return false
         }
-        let checkEmail = txtEmailOrPhoneNumber.validatedText(validationType: .email(field: self.txtEmailOrPhoneNumber.placeholder?.lowercased() ?? ""))
+        let checkEmail = txtEmailOrPhoneNumber.validatedText(validationType: .email)
         let password = txtPassword.validatedText(validationType: .password(field: self.txtPassword.placeholder?.lowercased() ?? ""))
         
         if !checkEmail.0{

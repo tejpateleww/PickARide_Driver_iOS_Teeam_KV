@@ -50,7 +50,7 @@ extension ForgotPasswordVC{
     func validation()->Bool{
         var strTitle : String?
         
-        let checkEmail = txtEmail.validatedText(validationType: .email(field: self.txtEmail.placeholder?.lowercased() ?? ""))
+        let checkEmail = txtEmail.validatedText(validationType: .email)
         if !checkEmail.0{
             strTitle = checkEmail.1
         }

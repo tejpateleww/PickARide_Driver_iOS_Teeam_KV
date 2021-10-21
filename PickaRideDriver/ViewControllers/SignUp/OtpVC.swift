@@ -35,7 +35,8 @@ class OtpVC: BaseVC, OTPTextFieldDelegate {
         
         self.setNavigationBarInViewController(controller: self, naviColor: colors.appColor.value, naviTitle: "Verify", leftImage: NavItemsLeft.back.value, rightImages: [NavItemsRight.none.value], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
         self.PrepareView()
-        self.callOtpApi()
+        self.otpToastDisplay()
+        self.reversetimer()
     }
     
     //MARK:- custom methods

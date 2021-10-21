@@ -196,6 +196,7 @@ class AcceptedRideDetailsView: UIView {
         self.isCompleteClicked = false
         self.btnDownArrow.isHidden = false
         self.viewContactOptions.isHidden = false
+        self.ViewTripCode.isHidden = true
         self.btnNavigate.isHidden = false
         
         self.startTimer()
@@ -282,6 +283,7 @@ class AcceptedRideDetailsView: UIView {
     
     @IBAction func btnCancelClickAction(_ sender: Any) {
         self.isFromCloseBtn = true
+        self.txtfieldTripCode.text = ""
         self.delegate?.onCancelAcceptedRideRequest()
     }
     

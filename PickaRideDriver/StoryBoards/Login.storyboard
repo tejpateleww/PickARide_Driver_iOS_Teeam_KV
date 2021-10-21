@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Montserrat-Regular.ttf">
+        <array key="Montserrat_Regular.ttf">
             <string>Montserrat-Regular</string>
         </array>
     </customFonts>
@@ -502,7 +502,7 @@
                                                                                         <rect key="frame" x="86" y="0.0" width="241" height="40"/>
                                                                                         <subviews>
                                                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Phone Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mQq-fo-99D" customClass="themeTextField" customModule="PickaRideDriver" customModuleProvider="target">
-                                                                                                <rect key="frame" x="16" y="11" width="209" height="18.5"/>
+                                                                                                <rect key="frame" x="0.0" y="11" width="241" height="18.5"/>
                                                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                                                 <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                                                                                                 <userDefinedRuntimeAttributes>
@@ -517,9 +517,9 @@
                                                                                         </subviews>
                                                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                                         <constraints>
-                                                                                            <constraint firstAttribute="trailing" secondItem="mQq-fo-99D" secondAttribute="trailing" constant="16" id="B9p-If-WGx"/>
+                                                                                            <constraint firstAttribute="trailing" secondItem="mQq-fo-99D" secondAttribute="trailing" id="B9p-If-WGx"/>
                                                                                             <constraint firstItem="mQq-fo-99D" firstAttribute="centerY" secondItem="rMB-0W-FY2" secondAttribute="centerY" id="Z9N-JE-JPN"/>
-                                                                                            <constraint firstItem="mQq-fo-99D" firstAttribute="leading" secondItem="rMB-0W-FY2" secondAttribute="leading" constant="16" id="c2D-61-zYX"/>
+                                                                                            <constraint firstItem="mQq-fo-99D" firstAttribute="leading" secondItem="rMB-0W-FY2" secondAttribute="leading" id="c2D-61-zYX"/>
                                                                                         </constraints>
                                                                                     </view>
                                                                                 </subviews>
@@ -807,7 +807,7 @@
                         <outlet property="txtEmail" destination="DeI-Ns-azl" id="SxC-jo-Yqb"/>
                         <outlet property="txtFirstName" destination="gJG-Ar-cgG" id="zYS-kw-K3m"/>
                         <outlet property="txtLastName" destination="vCl-zl-G2F" id="8PH-XS-Llc"/>
-                        <outlet property="txtMobile" destination="mQq-fo-99D" id="K6a-yM-wLg"/>
+                        <outlet property="txtMobile" destination="mQq-fo-99D" id="YAY-gz-MH2"/>
                         <outlet property="txtPassword" destination="RRR-i1-xIY" id="dp1-I7-WdM"/>
                         <outlet property="txtviewHomeAddress" destination="oac-Aa-Tfz" id="BUJ-aX-zjr"/>
                         <outlet property="vwMobile" destination="OT2-LK-tCs" id="Y34-Ij-0pu"/>
@@ -857,6 +857,9 @@
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="FgN-Wf-X60" id="yNy-JW-YZR"/>
+                                                        </connections>
                                                     </textField>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -895,6 +898,9 @@
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="FgN-Wf-X60" id="iNI-JI-ddN"/>
+                                                        </connections>
                                                     </textField>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -932,7 +938,10 @@
                                                             <constraint firstAttribute="height" constant="40" id="nNM-BR-BY0"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="FgN-Wf-X60" id="H3e-Tt-GqB"/>
+                                                        </connections>
                                                     </textField>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -971,6 +980,9 @@
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="FgN-Wf-X60" id="SZW-Um-KXT"/>
+                                                        </connections>
                                                     </textField>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -2446,6 +2458,9 @@ Number</string>
                                                                                 <real key="value" value="16"/>
                                                                             </userDefinedRuntimeAttribute>
                                                                         </userDefinedRuntimeAttributes>
+                                                                        <connections>
+                                                                            <outlet property="delegate" destination="K6j-Lm-9Yw" id="pXM-Ed-syy"/>
+                                                                        </connections>
                                                                     </textField>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gf0-ov-HNI" customClass="BGColor" customModule="PickaRideDriver" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="60" width="339" height="0.0"/>
@@ -2617,6 +2632,9 @@ Number</string>
                                                                                 <real key="value" value="16"/>
                                                                             </userDefinedRuntimeAttribute>
                                                                         </userDefinedRuntimeAttributes>
+                                                                        <connections>
+                                                                            <outlet property="delegate" destination="K6j-Lm-9Yw" id="7Rn-PN-9aO"/>
+                                                                        </connections>
                                                                     </textField>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ea-mK-VfM" customClass="BGColor" customModule="PickaRideDriver" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="60" width="339" height="0.0"/>

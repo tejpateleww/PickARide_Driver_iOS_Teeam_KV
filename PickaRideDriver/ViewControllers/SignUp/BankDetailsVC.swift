@@ -21,6 +21,7 @@ class BankDetailsVC: BaseVC {
     @IBOutlet weak var txtBankName: themeTextField!
     
     //MARK:- Variables
+    let ACCEPTABLE_CHARACTERS_FOR_ACCOUNT_NUMBER = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
     var isFromEditProfile : Bool = false
     var registerRequestModel = RegisterFinalRequestModel()
     var bankInfoViewModel = BankInfoViewModel()
@@ -36,12 +37,12 @@ class BankDetailsVC: BaseVC {
             self.setNavigationBarInViewController(controller: self, naviColor: colors.appColor.value, naviTitle: NavTitles.BankDetails.value, leftImage: NavItemsLeft.back.value, rightImages: [NavItemsRight.none.value], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
         }
     }
-  
+    
     //MARK:- Custom Methods
     func setupDataForProfile(){
         self.btnNext.setTitle("SAVE", for: .normal)
         self.txtBankName.text = SingletonClass.sharedInstance.UserProfilData?.bankName ?? ""
-        self.txtAccountHolderName.text = SingletonClass.sharedInstance.UserProfilData?.accountNumber ?? ""
+        self.txtAccountHolderName.text = SingletonClass.sharedInstance.UserProfilData?.accountHolderName ?? ""
         self.txtAccountNumber.text = SingletonClass.sharedInstance.UserProfilData?.accountNumber ?? ""
         self.txtIfscCode.text = SingletonClass.sharedInstance.UserProfilData?.ifscCode ?? ""
     }
@@ -54,9 +55,9 @@ class BankDetailsVC: BaseVC {
         var strTitle : String?
         let BankName = self.txtBankName.validatedText(validationType: .requiredField(field: self.txtBankName.placeholder?.lowercased() ?? ""))
         let AccountHolderName = self.txtAccountHolderName.validatedText(validationType: .requiredField(field: self.txtAccountHolderName.placeholder?.lowercased() ?? ""))
-        let AccountNumber = self.txtAccountNumber.validatedText(validationType: .requiredField(field: self.txtAccountNumber.placeholder?.lowercased() ?? ""))
+        let AccountNumber = self.txtAccountNumber.validatedText(validationType: .accountNo(field: self.txtAccountNumber.placeholder?.lowercased() ?? ""))
         let IFSCCode = self.txtIfscCode.validatedText(validationType: .requiredField(field: self.txtIfscCode.placeholder?.lowercased() ?? ""))
-
+        
         if !BankName.0{
             strTitle = BankName.1
         }else if !AccountHolderName.0{
@@ -113,6 +114,28 @@ extension BankDetailsVC{
         UploadDocReq.ifscCode = self.txtIfscCode.text ?? ""
         
         self.bankInfoViewModel.webserviceUpdateBankInfoAPI(reqModel: UploadDocReq)
+    }
+    
+}
+
+extension BankDetailsVC: UITextFieldDelegate{
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        switch textField {
+ 
+        case self.txtAccountNumber :
+            let cs = NSCharacterSet(charactersIn: ACCEPTABLE_CHARACTERS_FOR_ACCOUNT_NUMBER).inverted
+            let filtered = string.components(separatedBy: cs).joined(separator: "")
+            let currentString: NSString = textField.text as NSString? ?? ""
+            let newString: NSString = currentString.replacingCharacters(in: range, with: string) as NSString
+            return (string == filtered) ? (newString.length <= MAX_ACCOUNT_NUMBERLimit) : false
+
+        default:
+            print("")
+        }
+       
+        return true
     }
 
 }

@@ -62,6 +62,7 @@ class UserInfoViewModel{
             self.editProfileVC?.btnSave.hideLoading()
             if status{
                 Toast.show(title: UrlConstant.Success, message: apiMessage, state: .success)
+                self.editProfileVC?.ScrollToTop()
                 SingletonClass.sharedInstance.UserProfilData = response?.data
                 user_defaults.setUserData()
                 let _ = user_defaults.getUserData()

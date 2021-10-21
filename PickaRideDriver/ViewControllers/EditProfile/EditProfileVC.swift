@@ -229,8 +229,8 @@ class EditProfileVC: BaseVC {
         self.txtName.textColor = .black
         self.txtviewHomeAddress.textColor = .black
         self.txtPassword.textColor = .black
-        let bottomOffset = CGPoint(x: 0, y: scrollViewEditProfile.contentSize.height - scrollViewEditProfile.bounds.height + scrollViewEditProfile.contentInset.bottom)
-        scrollViewEditProfile.setContentOffset(bottomOffset, animated: true)
+//        let bottomOffset = CGPoint(x: 0, y: scrollViewEditProfile.contentSize.height - scrollViewEditProfile.bounds.height + scrollViewEditProfile.contentInset.bottom)
+//        scrollViewEditProfile.setContentOffset(bottomOffset, animated: true)
         self.setupTextfields(textfield: txtPassword, isEdit: true)
         self.setNavigationBarInViewController(controller: self, naviColor: colors.appColor.value, naviTitle: "Edit Profile", leftImage: NavItemsLeft.cancel.value, rightImages: [NavItemsRight.none.value], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
         
@@ -251,6 +251,10 @@ class EditProfileVC: BaseVC {
             return false
         }
         return true
+    }
+    
+    func ScrollToTop(){
+        self.scrollViewEditProfile.scrollToTop()
     }
     
     //MARK:- Button action methods

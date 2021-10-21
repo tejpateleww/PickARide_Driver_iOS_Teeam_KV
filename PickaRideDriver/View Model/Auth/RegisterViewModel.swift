@@ -29,6 +29,25 @@ class RegisterUserModel{
     }
 }
 
+class RegisterOTPUserModel{
+    
+    weak var registerVC : SignUpVC? = nil
+    var registerRequestModel = RegisterFinalRequestModel()
+    
+    func webserviceRegisterOTP(reqModel: OTPRequestModel){
+        self.registerVC?.btnNext.showLoading()
+        WebServiceSubClass.OTPRequestApi(reqModel: reqModel) { (status, apiMessage, response, error) in
+            self.registerVC?.btnNext.hideLoading()
+            if status{
+                self.registerVC?.StringOTP = "\(response?.otp ?? 0)"
+                self.registerVC?.storeDataInRegisterModel()
+            }else{
+                Toast.show(title: UrlConstant.Failed, message: apiMessage, state: .failure)
+            }
+        }
+    }
+}
+
 class RegisterUserFinalModel{
     
     weak var vehicleDocumentVC : VehicleDocumentVC? = nil
