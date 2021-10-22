@@ -31,6 +31,7 @@ class LoginViewController: UIViewController {
     var locationManager : LocationService?
     let ACCEPTABLE_CHARACTERS_FOR_EMAIL = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@."
     let RISTRICTED_CHARACTERS_FOR_PASSWORD = " "
+    let ACCEPTABLE_CHARACTERS_FOR_PHONE = "0123456789"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,7 +52,6 @@ class LoginViewController: UIViewController {
     func setupLocalization() {
         lblSignIN.text = ConstantString.LABEL_LOGIN_SIGN_IN
         lblWelcomeBack.text = ConstantString.LABEL_LOGIN_WELCOME_BACK
-        txtEmailOrPhoneNumber.placeholder = ConstantString.PLACE_HOLDER_LOGIN_EMAILID
         txtPassword.placeholder = ConstantString.PLACE_HOLDER_LOGIN_PASSWORD
         btnForgotPassword.setTitle(ConstantString.BUTTON_TITLE_LOGIN_FORGOT_PASSWORD, for: .normal)
         btnSignIN.setTitle(ConstantString.BUTTON_TITLE_LOGIN_SIGN_IN, for: .normal)
@@ -120,11 +120,11 @@ extension LoginViewController{
     func isValidForLogin() -> Bool{
         var strTitle : String?
         
-        if(self.txtEmailOrPhoneNumber.text == ""){
-            Toast.show(title: UrlConstant.Required, message: "Please enter email", state: .failure)
-            return false
-        }
-        let checkEmail = txtEmailOrPhoneNumber.validatedText(validationType: .email)
+//        if(self.txtEmailOrPhoneNumber.text == ""){
+//            Toast.show(title: UrlConstant.Required, message: "Please enter email", state: .failure)
+//            return false
+//        }
+        let checkEmail = txtEmailOrPhoneNumber.validatedText(validationType: .phoneNo)
         let password = txtPassword.validatedText(validationType: .password(field: self.txtPassword.placeholder?.lowercased() ?? ""))
         
         if !checkEmail.0{
@@ -162,9 +162,11 @@ extension LoginViewController: UITextFieldDelegate{
         switch textField {
         
         case self.txtEmailOrPhoneNumber :
-            let cs = NSCharacterSet(charactersIn: ACCEPTABLE_CHARACTERS_FOR_EMAIL).inverted
+            let cs = NSCharacterSet(charactersIn: ACCEPTABLE_CHARACTERS_FOR_PHONE).inverted
             let filtered = string.components(separatedBy: cs).joined(separator: "")
-            return (string == filtered)
+            let currentString: NSString = textField.text as NSString? ?? ""
+            let newString: NSString = currentString.replacingCharacters(in: range, with: string) as NSString
+            return (string == filtered) ? (newString.length <= MAX_PHONE_DIGITS) : false
 
         case self.txtPassword :
             let set = CharacterSet(charactersIn: RISTRICTED_CHARACTERS_FOR_PASSWORD)

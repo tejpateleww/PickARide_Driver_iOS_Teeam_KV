@@ -106,9 +106,7 @@ class ChatViewController: BaseVC {
     }
     
     func validation() -> Bool{
-        
-        if self.txtviewComment.text.trimmingCharacters(in: .whitespacesAndNewlines).count == 0 {
-            self.txtviewComment.text = ""
+        if self.txtviewComment.text.trimmingCharacters(in: .whitespacesAndNewlines).count == 0 || self.txtviewComment.text == "Type a message..." {
             Utilities.showAlertAction(message: "Please enter message", vc: self)
             return false
         }

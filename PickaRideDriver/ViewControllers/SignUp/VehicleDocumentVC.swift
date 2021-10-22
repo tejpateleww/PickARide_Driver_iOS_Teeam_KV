@@ -29,6 +29,7 @@ class VehicleDocumentVC: BaseVC {
     var registerRequestModel = RegisterFinalRequestModel()
     var imagePicker = UIImagePickerController()
     var imagePicked = 0
+    var isActionDone : Int = 0
     var datePicked = ""
     var strImageURL = ""
     var singleDocUploadModel = SingleDocUploadModel()
@@ -288,13 +289,14 @@ class VehicleDocumentVC: BaseVC {
     func showLoader(){
         let cell = self.tblPersonalDetails.cellForRow(at: self.selectedCellPath!) as! PersonalDocumentCell
         cell.btnUpload.isHidden = true
+        cell.vwMoreButtons.isHidden = true
         cell.activity.startAnimating()
     }
     
     func hideLoader(){
         let cell = self.tblPersonalDetails.cellForRow(at: self.selectedCellPath!) as! PersonalDocumentCell
         cell.activity.stopAnimating()
-//        cell.btnUpload.isHidden = false
+        cell.vwMoreButtons.isHidden = (self.isFromEditProfile) ? false : (self.isActionDone == 1) ? false : true
         self.selectedCellPath = nil
     }
     
@@ -367,6 +369,7 @@ extension VehicleDocumentVC : UITableViewDelegate, UITableViewDataSource{
         }
         
         cell.uploadBtnClouser = {
+            self.isActionDone = 0
             self.selectedCellPath = indexPath
             self.UploadImage(index: indexPath)
         }
@@ -422,6 +425,8 @@ extension VehicleDocumentVC : UIImagePickerControllerDelegate, UINavigationContr
         if pickedImage == nil{
             Utilities.showAlert(AppName, message: "Please select image to upload", vc: self)
         }else{
+            
+            self.isActionDone = 1
             
             if self.imagePicked == 0 {
                 dismiss(animated: true)
