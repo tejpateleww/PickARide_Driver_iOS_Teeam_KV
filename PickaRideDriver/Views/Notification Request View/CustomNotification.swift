@@ -29,9 +29,10 @@ class CustomNotification: UIView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+    
         self.timer?.invalidate()
         self.timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(timerAction), userInfo: nil, repeats: true)
+        self.contentView.cornerRadius = 10
     }
     
     static func instantiate(Title: String, SubTitle: String) -> CustomNotification {

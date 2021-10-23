@@ -124,8 +124,7 @@ extension HomeVC{
             
             if(!appDel.isHomeVcVisible){
                 let view = CustomNotification.instantiate(Title: "You have received new request", SubTitle: "Tap here to accept ride")
-                let banner = NotificationBanner(customView:view)
-                banner.bannerHeight = 80
+                let banner = FloatingNotificationBanner(customView: view)
                 banner.duration = 15
                 banner.onTap = {
                     print("tapped on banner...")
@@ -135,7 +134,6 @@ extension HomeVC{
                 }
                 banner.show()
             }
-            
         }
     }
     
