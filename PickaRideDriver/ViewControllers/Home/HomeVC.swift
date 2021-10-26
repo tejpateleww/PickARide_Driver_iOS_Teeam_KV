@@ -283,15 +283,15 @@ class HomeVC: BaseVC {
         //        self.vwMap.selectedMarker = self.DropLocMarker
         
         //For Displaying both markers in screen centered
-        //        self.arrMarkers.append(self.CurrentLocMarker!)
-        //        self.arrMarkers.append(self.DropLocMarker!)
-        //        var bounds = GMSCoordinateBounds()
-        //        for marker in self.arrMarkers
-        //        {
-        //            bounds = bounds.includingCoordinate(marker.position)
-        //        }
-        //        let update = GMSCameraUpdate.fit(bounds, withPadding: 80)
-        //        self.vwMap.animate(with: update)
+        self.arrMarkers.append(self.CurrentLocMarker!)
+        self.arrMarkers.append(self.DropLocMarker!)
+        var bounds = GMSCoordinateBounds()
+        for marker in self.arrMarkers
+        {
+            bounds = bounds.includingCoordinate(marker.position)
+        }
+        let update = GMSCameraUpdate.fit(bounds, withPadding: 80)
+        self.vwMap.animate(with: update)
         
         self.fetchRoute(currentlat: currentlat, currentlong: currentlong, droplat: droplat, droplog: droplog)
     }
@@ -305,8 +305,7 @@ class HomeVC: BaseVC {
         
         let session = URLSession.shared
         
-        let task = session.dataTask(with: url, completionHandler: {
-            (data, response, error) in
+        let task = session.dataTask(with: url, completionHandler: {(data, response, error) in
             
             guard error == nil else {
                 print(error!.localizedDescription)
@@ -343,6 +342,40 @@ class HomeVC: BaseVC {
                 return
             }
             
+            // For Duration & Distance
+            guard let legs = route["legs"] as? [Any] else {
+                return
+            }
+            
+            guard let leg = legs[0] as? [String: Any] else {
+                return
+            }
+            
+            guard let distanceDict = leg["distance"] as? [String: Any] else {
+                return
+            }
+            
+            guard let distance = distanceDict["text"] as? String else {
+                return
+            }
+            
+            guard let durationDict = leg["duration"] as? [String: Any] else {
+                return
+            }
+            
+            guard let duration = durationDict["text"] as? String else {
+                return
+            }
+            
+            print(duration)
+            print(distance)
+            DispatchQueue.main.async {
+                self.acceptedRideDetailsView.lblTime.text = duration
+                self.acceptedRideDetailsView.lblExtraTime.text = distance
+            }
+            
+            
+            // For polyline
             guard let overview_polyline = route["overview_polyline"] as? [String: Any] else {
                 return
             }
@@ -350,6 +383,8 @@ class HomeVC: BaseVC {
             guard let polyLineString = overview_polyline["points"] as? String else {
                 return
             }
+            
+
             
             //Call this method to draw path on map
             self.drawPath(from: polyLineString)
