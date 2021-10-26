@@ -72,6 +72,9 @@ class HomeVC: BaseVC {
         self.handleRideFlow(state: RideState.None)
         self.PrepareView()
         
+
+        
+        
 //        self.vwMap.delegate = self
     }
     

@@ -34,6 +34,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
     var timerLocUpdate : Timer?
     var isHomeVcVisible : Bool = false
     
+    static var pushNotificationObj : NotificationObjectModel?
+    static var pushNotificationType : String?
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool{
         
         IQKeyboardManager.shared.enable = true
@@ -50,6 +53,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
         registerForPushNotifications()
         
         return true
+    }
+    
+    
+    func applicationDidEnterBackground(_ application: UIApplication) {
+        print("App is in Background mode")
     }
     
     func applicationWillTerminate(_ application: UIApplication) {

@@ -38,6 +38,9 @@ extension HomeVC{
             self.allSocketOffMethods()
             self.emitSocket_UserConnect()
             self.allSocketOnMethods()
+            
+            //Duty off socket call for backend
+            self.emitSocket_dutyOff()
         }
         
         //Connect User On Socket
@@ -99,7 +102,7 @@ extension HomeVC{
                 }
                 self.currentBookingModel = nil
                 self.checkForCurrentBooking()
-                Toast.show(title: UrlConstant.Failed, message: dict["message"].stringValue, state: .failure)
+                Toast.show(title: UrlConstant.Success, message: dict["message"].stringValue, state: .success)
             }
         }
     }
@@ -126,6 +129,7 @@ extension HomeVC{
                 let view = CustomNotification.instantiate(Title: "You have received new request", SubTitle: "Tap here to accept ride")
                 let banner = FloatingNotificationBanner(customView: view)
                 banner.duration = 15
+                banner.dismissOnSwipeUp = false
                 banner.onTap = {
                     print("tapped on banner...")
                     appDel.window?.rootViewController?.dismiss(animated: false, completion: {
@@ -182,6 +186,12 @@ extension HomeVC{
         let param = ["booking_id" : bookingId] as [String : Any]
         print(param)
         SocketIOManager.shared.socketEmit(for: SocketKeys.startTrip.rawValue, with: param)
+    }
+    
+    func emitSocket_dutyOff(){
+        let param : [String : Any] = [:]
+        print(param)
+        SocketIOManager.shared.socketEmit(for: SocketKeys.changeDutyWithDate.rawValue, with: param)
     }
     
     func emitSocket_liveTrackingp(CustId : String, lat : Double, lng : Double, pickup_lat : Double, pickup_lng : Double){

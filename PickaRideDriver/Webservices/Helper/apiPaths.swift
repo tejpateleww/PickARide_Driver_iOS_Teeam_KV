@@ -141,6 +141,7 @@ enum SocketKeys: String {
     case startTrip                                = "start_trip"
     case cancelTrip                                = "cancel_trip"
     case liveTracking                             = "live_tracking"
+    case changeDutyWithDate                       = "change_duty_with_date"
     //Chat
     case SendMessage                              = "send_message"
     case ReceiverMessage                          = "receive_message"

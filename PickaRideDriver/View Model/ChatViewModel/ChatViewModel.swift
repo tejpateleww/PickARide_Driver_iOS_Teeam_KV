@@ -16,6 +16,8 @@ class ChatViewModel{
 
         WebServiceSubClass.GetChatHistoryApi(BookingID: strBookingID){ (status, apiMessage, response, error) in
             self.ChatCV?.tblChat.isHidden = false
+            self.ChatCV?.isTblReload = true
+            self.ChatCV?.isLoading = false
             if status{
                 self.ChatCV?.arrayChatHistory = response?.data ?? []
                 self.ChatCV?.filterArrayData(isFromDidLoad: true)

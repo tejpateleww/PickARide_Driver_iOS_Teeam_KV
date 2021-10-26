@@ -8,6 +8,7 @@
 
 import UIKit
 import IQKeyboardManagerSwift
+import UIView_Shimmer
 
 class ChatViewController: BaseVC {
     
@@ -21,6 +22,13 @@ class ChatViewController: BaseVC {
     @IBOutlet weak var btnSendMsg: UIButton!
     
     //MARK: -Properties
+    var isTblReload = false
+    var isLoading = true {
+        didSet {
+            self.tblChat.isUserInteractionEnabled = !isLoading
+            self.tblChat.reloadData()
+        }
+    }
     var chatViewModel = ChatViewModel()
     var currentBookingModel : CurrentBookingDatum?
     var arrayChatHistory = [chatHistoryDatum]()
@@ -78,7 +86,8 @@ class ChatViewController: BaseVC {
                 self.emitSocket_SendMessage(param: param)
             }
 //            appendMessage()
-            self.txtviewComment.text = ""
+            self.txtviewComment.text = "Type a message..."
+            self.txtviewComment.textColor = .gray
             
         }
     }
@@ -118,13 +127,15 @@ class ChatViewController: BaseVC {
     func prepareView(){
 //        self.tblChat.isHidden = true
         self.txtviewComment.delegate = self
-        self.txtviewComment.textColor = self.txtviewComment.text == "" ? .black : .gray
+        self.txtviewComment.textColor = .gray
         let strUrl = "\(APIEnvironment.Profilebu.rawValue)" + "\(self.currentBookingModel?.customerInfo?.profileImage ?? "")"
         self.setNavigationBarInViewController(controller: self, naviColor: colors.white.value, naviTitle: "", leftImage: NavItemsLeft.back.value, rightImages: [strUrl], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
     }
     
     func registerNIB(){
         tblChat.register(UINib(nibName:NoDataTableViewCell.reuseIdentifier, bundle: nil), forCellReuseIdentifier: NoDataTableViewCell.reuseIdentifier)
+        let nib1 = UINib(nibName: ChatShimmer.className, bundle: nil)
+        self.tblChat.register(nib1, forCellReuseIdentifier: ChatShimmer.className)
     }
     
     func setSenderProfileInfo(){
@@ -219,7 +230,7 @@ extension ChatViewController : UITableViewDelegate, UITableViewDataSource{
             let strDate = self.filterKeysArr[section].Date_In_DD_MM_YYYY_FORMAT ?? ""
             return self.filterListArr[strDate]?.count ?? 0
         } else {
-            return 1
+            return (!self.isTblReload) ? 5 : 1
         }
     }
     
@@ -252,33 +263,50 @@ extension ChatViewController : UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if(self.arrayChatHistory.count > 0){
-            let strDateTitle = self.filterKeysArr[indexPath.section].Date_In_DD_MM_YYYY_FORMAT ?? ""
-            let obj = self.filterListArr[strDateTitle]?[indexPath.row]
-            
-            let isDriver = obj?.senderType ?? "" == "driver"
-            if(isDriver){
-                let cell = tblChat.dequeueReusableCell(withIdentifier: chatSenderCell.reuseIdentifier) as! chatSenderCell
-                cell.selectionStyle = .none
-                cell.lblSenderMessage.text = obj?.message ?? ""
-                return cell
-            }else{
-                let cell = tblChat.dequeueReusableCell(withIdentifier: chatReciverCell.reuseIdentifier) as! chatReciverCell
-                cell.selectionStyle = .none
-                cell.lblReciverMessage.text = obj?.message ?? ""
-                return cell
-            }
+        if(!self.isTblReload){
+            let cell = tblChat.dequeueReusableCell(withIdentifier: ChatShimmer.className, for: indexPath) as! ChatShimmer
+            return cell
         }else{
-            let NoDatacell = self.tblChat.dequeueReusableCell(withIdentifier: "NoDataTableViewCell", for: indexPath) as! NoDataTableViewCell
-            return NoDatacell
+            if(self.arrayChatHistory.count > 0){
+                let strDateTitle = self.filterKeysArr[indexPath.section].Date_In_DD_MM_YYYY_FORMAT ?? ""
+                let obj = self.filterListArr[strDateTitle]?[indexPath.row]
+                
+                let isDriver = obj?.senderType ?? "" == "driver"
+                if(isDriver){
+                    let cell = tblChat.dequeueReusableCell(withIdentifier: chatSenderCell.reuseIdentifier) as! chatSenderCell
+                    cell.selectionStyle = .none
+                    cell.lblSenderMessage.text = obj?.message ?? ""
+                    return cell
+                }else{
+                    let cell = tblChat.dequeueReusableCell(withIdentifier: chatReciverCell.reuseIdentifier) as! chatReciverCell
+                    cell.selectionStyle = .none
+                    cell.lblReciverMessage.text = obj?.message ?? ""
+                    return cell
+                }
+            }else{
+                let NoDatacell = self.tblChat.dequeueReusableCell(withIdentifier: "NoDataTableViewCell", for: indexPath) as! NoDataTableViewCell
+                return NoDatacell
+            }
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if #available(iOS 13.0, *) {
+            cell.setTemplateWithSubviews(isLoading, animate: true, viewBackgroundColor: .systemBackground)
+        } else {
+            cell.setTemplateWithSubviews(isLoading, animate: true, viewBackgroundColor: .lightGray.withAlphaComponent(0.1))
         }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if self.arrayChatHistory.count != 0 {
+        if(!self.isTblReload){
             return UITableView.automaticDimension
         }else{
-            return tableView.frame.height
+            if self.arrayChatHistory.count != 0 {
+                return UITableView.automaticDimension
+            }else{
+                return tableView.frame.height
+            }
         }
     }
     

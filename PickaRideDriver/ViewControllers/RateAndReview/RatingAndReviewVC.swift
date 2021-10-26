@@ -75,9 +75,8 @@ class RatingAndReviewVC: BaseVC {
     
     //MARK:- IBACtions
     @IBAction func btnReviewYourOrderTap(_ sender: UIButton) {
-        if(self.Validate()){
-            self.callRateAndReviewAPI()
-        }
+        //if(self.Validate()){}
+        self.callRateAndReviewAPI()
     }
     
     @IBAction func btnDoneTap(_ sender: Any) {
@@ -94,7 +93,7 @@ extension RatingAndReviewVC {
         let RateReq = RateAndReviewReqModel()
         RateReq.bookingId = self.currentBookingModel?.id ?? ""
         RateReq.rating = "\(self.newRatingValue)"
-        RateReq.comment = self.txtviewReview.text ?? ""
+        RateReq.comment = (self.txtviewReview.text == "Write your review here...") ? "" : self.txtviewReview.text ?? ""
         
         self.rateAndReviewViewModel.webserviceRatingAndReviewAPI(reqModel: RateReq)
     }

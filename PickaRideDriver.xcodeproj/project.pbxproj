@@ -172,6 +172,8 @@
 		883C9E6926E8D94E00FA1778 /* updatePersonalDocsReqModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883C9E6826E8D94E00FA1778 /* updatePersonalDocsReqModel.swift */; };
 		883C9E6D26E8EC6900FA1778 /* UpdateBankInfoReqModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883C9E6C26E8EC6900FA1778 /* UpdateBankInfoReqModel.swift */; };
 		883C9E7026E8EE5100FA1778 /* BankInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883C9E6F26E8EE5100FA1778 /* BankInfoViewModel.swift */; };
+		884961272727C2CF00ABD917 /* ChatShimmer.xib in Resources */ = {isa = PBXBuildFile; fileRef = 884961252727C2CF00ABD917 /* ChatShimmer.xib */; };
+		884961282727C2CF00ABD917 /* ChatShimmer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884961262727C2CF00ABD917 /* ChatShimmer.swift */; };
 		885B66C126EB421400A281FC /* SocketManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885B66BF26EB421400A281FC /* SocketManager.swift */; };
 		885B66C226EB421400A281FC /* HomeSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885B66C026EB421400A281FC /* HomeSocket.swift */; };
 		885B66D026EB5D4800A281FC /* NewBookingResBookingInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885B66CC26EB5D4700A281FC /* NewBookingResBookingInfo.swift */; };
@@ -405,6 +407,8 @@
 		883C9E6826E8D94E00FA1778 /* updatePersonalDocsReqModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = updatePersonalDocsReqModel.swift; sourceTree = "<group>"; };
 		883C9E6C26E8EC6900FA1778 /* UpdateBankInfoReqModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateBankInfoReqModel.swift; sourceTree = "<group>"; };
 		883C9E6F26E8EE5100FA1778 /* BankInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankInfoViewModel.swift; sourceTree = "<group>"; };
+		884961252727C2CF00ABD917 /* ChatShimmer.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatShimmer.xib; sourceTree = "<group>"; };
+		884961262727C2CF00ABD917 /* ChatShimmer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatShimmer.swift; sourceTree = "<group>"; };
 		885B66BF26EB421400A281FC /* SocketManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketManager.swift; sourceTree = "<group>"; };
 		885B66C026EB421400A281FC /* HomeSocket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeSocket.swift; sourceTree = "<group>"; };
 		885B66CC26EB5D4700A281FC /* NewBookingResBookingInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewBookingResBookingInfo.swift; sourceTree = "<group>"; };
@@ -810,6 +814,7 @@
 		4F94F1992643DB7500780413 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				884961242727C2B600ABD917 /* Shimmer Cell */,
 				88BD4B5B26FB22BA0039F4CE /* ARCarMovement.swift */,
 				885DF0F326F35728008242AE /* No Data Found Cell */,
 				18720F5D2681BABD008EE191 /* LocationService.swift */,
@@ -1197,6 +1202,15 @@
 			path = BankInfoViewModel;
 			sourceTree = "<group>";
 		};
+		884961242727C2B600ABD917 /* Shimmer Cell */ = {
+			isa = PBXGroup;
+			children = (
+				884961262727C2CF00ABD917 /* ChatShimmer.swift */,
+				884961252727C2CF00ABD917 /* ChatShimmer.xib */,
+			);
+			path = "Shimmer Cell";
+			sourceTree = "<group>";
+		};
 		885B66BA26EB1F2D00A281FC /* Socket Connections */ = {
 			isa = PBXGroup;
 			children = (
@@ -1476,6 +1490,7 @@
 				4F94F1C62643E72800780413 /* UFL.txt in Resources */,
 				4F94F1BE2643E72800780413 /* Ubuntu-Medium.ttf in Resources */,
 				4F94F1722643DB5F00780413 /* navigationCommonView.xib in Resources */,
+				884961272727C2CF00ABD917 /* ChatShimmer.xib in Resources */,
 				4F94F1C52643E72800780413 /* Ubuntu-Light.ttf in Resources */,
 				886F88572720040100328F53 /* CustomNotification.xib in Resources */,
 				885DF0F726F35742008242AE /* NoDataTableViewCell.xib in Resources */,
@@ -1699,6 +1714,7 @@
 				843F806F264A706400BCBDB8 /* Delegate.swift in Sources */,
 				18720F5E2681BABD008EE191 /* LocationService.swift in Sources */,
 				4F94F1AD2643DB7600780413 /* Singleton.swift in Sources */,
+				884961282727C2CF00ABD917 /* ChatShimmer.swift in Sources */,
 				881AF8C026EA2C4300BC3C2D /* CurrentBookingModel.swift in Sources */,
 				4F94F1772643DB5F00780413 /* UIView+Extension.swift in Sources */,
 				1865CFAD267C7B4E00379A40 /* MonthPickerView.swift in Sources */,

@@ -306,6 +306,8 @@ class BaseVC: UIViewController, UIGestureRecognizerDelegate{
                     navBtnProfile.clipsToBounds = true
                     navBtnProfile.sd_imageIndicator = SDWebImageActivityIndicator.gray
                     navBtnProfile.sd_setBackgroundImage(with: URL(string:rightImages[0]), for: .normal)
+                    //navBtnProfile.sd_setBackgroundImage(with: URL(string:rightImages[0]), for: .normal, placeholderImage: UIImage(named: "nav_dummy_userImage"), options: [.continueInBackground, .refreshCached])
+
                     
                     navBtnProfile.addTarget(self, action: #selector(OpenChatUserInfo(_:)), for: .touchUpInside)
                     navBtnProfile.layer.setValue(controller, forKey: "controller")

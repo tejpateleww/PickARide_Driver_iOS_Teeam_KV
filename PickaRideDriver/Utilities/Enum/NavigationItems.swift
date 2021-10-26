@@ -33,7 +33,7 @@ enum NavItemsLeft {
 
 
 enum NavItemsRight {
-    case none,login,EditProfile,userProfile,Done,sos,help
+    case none,login,EditProfile,userProfile,Done,sos,help,chat
     
     var value:String {
         switch self {
@@ -51,9 +51,12 @@ enum NavItemsRight {
             return "ic_SOSBtn"
         case .help:
             return "imgHelp"
+        case .chat:
+            return "chat"
         }
     }
 }
+
 enum NavTitles
 {
     case none, Home,reasonForCancle,rating, CommonView,BankDetails,RideDetails,Addvehicle,CancelRide,Earning,Chat

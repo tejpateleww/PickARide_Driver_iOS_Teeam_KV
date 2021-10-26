@@ -67,14 +67,83 @@ extension AppDelegate{
         completionHandler([.alert, .sound])
         print(#function, notification)
         
+        
+        if let mainDic = userInfo as? [String: Any]{
+            
+            let pushObj = NotificationObjectModel()
+            if let bookingId = mainDic["gcm.notification.booking_id"]{
+                pushObj.booking_id = bookingId as? String ?? ""
+            }
+            if let type = mainDic["gcm.notification.type"]{
+                pushObj.type = type as? String ?? ""
+            }
+            if let title = mainDic["title"]{
+                pushObj.title = title as? String ?? ""
+            }
+            if let text = mainDic["text"]{
+                pushObj.text = text as? String ?? ""
+            }
+            
+            AppDelegate.pushNotificationObj = pushObj
+            AppDelegate.pushNotificationType = pushObj.type
+            
+            if pushObj.type == NotificationTypes.notifLoggedOut.rawValue {
+                appDel.dologout()
+                return
+            }
+        }
+        
     }
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         let userInfo = response.notification.request.content.userInfo
         print("USER INFo : ",userInfo)
         
+        if let mainDic = userInfo as? [String: Any]{
+            
+            let pushObj = NotificationObjectModel()
+            if let bookingId = mainDic["gcm.notification.booking_id"]{
+                pushObj.booking_id = bookingId as? String ?? ""
+            }
+            if let type = mainDic["gcm.notification.type"]{
+                pushObj.type = type as? String ?? ""
+            }
+            if let title = mainDic["title"]{
+                pushObj.title = title as? String ?? ""
+            }
+            if let text = mainDic["text"]{
+                pushObj.text = text as? String ?? ""
+            }
+            
+            AppDelegate.pushNotificationObj = pushObj
+            AppDelegate.pushNotificationType = pushObj.type
+            
+            if pushObj.type == NotificationTypes.notifLoggedOut.rawValue {
+                appDel.dologout()
+                completionHandler()
+                return
+            }
+
+        }
 
     }
 }
 
 
+
+extension Notification.Name {
+    static let sessionExpire = NSNotification.Name("Logout")
+    static let refreshHomeScreen = NSNotification.Name("refreshHomeScreen")
+}
+
+enum NotificationTypes : String {
+    case notifLoggedOut = "Logout"
+    case newBooking = "newBooking"
+}
+
+class NotificationObjectModel: Codable {
+    var booking_id: String?
+    var type: String?
+    var title: String?
+    var text: String?
+}
