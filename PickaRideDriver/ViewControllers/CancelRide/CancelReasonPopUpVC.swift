@@ -43,13 +43,13 @@ class CancelReasonPopUpVC: UIViewController {
     @IBAction func btnConfirmAction(_ sender: Any) {
         if(Validate()){
             self.delegate?.onCancelRideFromOther(StrReason: self.txtReason.text ?? "")
-            self.dismiss(animated: true, completion: nil)
+            self.dismiss(animated: false, completion: nil)
         }
     }
     
     @IBAction func btnBackAction(_ sender: Any) {
         self.delegate?.onCancelRideFromOtherCancel()
-        self.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: false, completion: nil)
     }
     
 }

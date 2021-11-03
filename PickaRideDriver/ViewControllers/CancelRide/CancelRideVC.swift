@@ -90,13 +90,13 @@ class CancelRideVC: BaseVC {
     @IBAction func btnDoneTap(_ sender: Any) {
         if(Validate()){
             delegate?.onCancelTripConfirm(strReason: self.strReason)
-            self.navigationController?.popViewController(animated: true)
+            self.navigationController?.popViewController(animated: false)
         }
     }
     
     override func btnBackAction() {
         delegate?.onCancelTripReject()
-        self.navigationController?.popViewController(animated: true)
+        self.navigationController?.popViewController(animated: false)
     }
     
 }
