@@ -29,6 +29,7 @@ class MyRideCell: UITableViewCell{
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        self.btnReject.isHidden = true
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Lem-p0-fp0">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Lem-p0-fp0">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -456,19 +456,19 @@
                                                         </constraints>
                                                         <prototypes>
                                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EditProfileCell" id="HHg-ej-rnu" customClass="EditProfileCell" customModule="PickaRideDriver" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="24.5" width="375" height="42"/>
+                                                                <rect key="frame" x="0.0" y="44.5" width="375" height="42"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="HHg-ej-rnu" id="vMB-pw-GLk">
                                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="42"/>
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                     <subviews>
-                                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k0I-Gx-HFw">
+                                                                        <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="k0I-Gx-HFw">
                                                                             <rect key="frame" x="18" y="14" width="339" height="14"/>
                                                                             <subviews>
-                                                                                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ddi-WX-HMX">
+                                                                                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ddi-WX-HMX">
                                                                                     <rect key="frame" x="0.0" y="0.0" width="339" height="14"/>
                                                                                     <subviews>
-                                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edit Bank Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XDB-CI-b04" customClass="themeLabel" customModule="PickaRideDriver" customModuleProvider="target">
+                                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Edit Bank Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XDB-CI-b04" customClass="themeLabel" customModule="PickaRideDriver" customModuleProvider="target">
                                                                                             <rect key="frame" x="0.0" y="0.0" width="325" height="14"/>
                                                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                             <nil key="textColor"/>
@@ -483,7 +483,7 @@
                                                                                                 </userDefinedRuntimeAttribute>
                                                                                             </userDefinedRuntimeAttributes>
                                                                                         </label>
-                                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ImgGraterThen" translatesAutoresizingMaskIntoConstraints="NO" id="9fd-Ht-vLo">
+                                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="ImgGraterThen" translatesAutoresizingMaskIntoConstraints="NO" id="9fd-Ht-vLo">
                                                                                             <rect key="frame" x="325" y="0.0" width="14" height="14"/>
                                                                                             <constraints>
                                                                                                 <constraint firstAttribute="width" constant="14" id="SJJ-cC-tet"/>
@@ -698,7 +698,7 @@
                                         <inset key="separatorInset" minX="65" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CancelRideCell" id="unk-FN-Zho" customClass="CancelRideCell" customModule="PickaRideDriver" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="24.5" width="375" height="54.5"/>
+                                                <rect key="frame" x="0.0" y="44.5" width="375" height="54.5"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="unk-FN-Zho" id="4AK-2a-swT">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="54.5"/>
@@ -1046,7 +1046,7 @@
                                                         </constraints>
                                                         <prototypes>
                                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SettingCell" id="CiY-VS-oPN" customClass="SettingCell" customModule="PickaRideDriver" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="24.5" width="375" height="119"/>
+                                                                <rect key="frame" x="0.0" y="44.5" width="375" height="119"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="CiY-VS-oPN" id="lkJ-UN-9Tk">
                                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="119"/>
@@ -1311,7 +1311,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MyRideCell" rowHeight="315" id="kYD-gX-U3v" customClass="MyRideCell" customModule="PickaRideDriver" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="24.5" width="375" height="315"/>
+                                                <rect key="frame" x="0.0" y="44.5" width="375" height="315"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kYD-gX-U3v" id="LXj-im-ODC">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="315"/>
@@ -1361,7 +1361,7 @@
                                                                     </constraints>
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Seattle - 280 Hemlock Ln" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jy5-1J-Zd6" customClass="themeLabel" customModule="PickaRideDriver" customModuleProvider="target">
-                                                                    <rect key="frame" x="32" y="199" width="231" height="45"/>
+                                                                    <rect key="frame" x="32" y="199" width="236" height="45"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -1393,7 +1393,7 @@
                                                                     </userDefinedRuntimeAttributes>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="12f-UM-bfh" customClass="themeLabel" customModule="PickaRideDriver" customModuleProvider="target">
-                                                                    <rect key="frame" x="268" y="174.5" width="60" height="16"/>
+                                                                    <rect key="frame" x="273" y="174.5" width="55" height="16"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -1406,11 +1406,8 @@
                                                                         </userDefinedRuntimeAttribute>
                                                                     </userDefinedRuntimeAttributes>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$12.50" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v2d-hg-wia" customClass="themeLabel" customModule="PickaRideDriver" customModuleProvider="target">
-                                                                    <rect key="frame" x="268" y="195.5" width="60" height="21.5"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="width" constant="60" id="XCD-Cv-9Ba"/>
-                                                                    </constraints>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="$12.50" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v2d-hg-wia" customClass="themeLabel" customModule="PickaRideDriver" customModuleProvider="target">
+                                                                    <rect key="frame" x="273" y="195.5" width="55" height="21.5"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -1469,7 +1466,7 @@
                                                                 <constraint firstItem="12f-UM-bfh" firstAttribute="trailing" secondItem="GS7-Sk-BqJ" secondAttribute="trailing" id="KnJ-i9-WHN"/>
                                                                 <constraint firstItem="12f-UM-bfh" firstAttribute="centerY" secondItem="gcT-9Q-gVB" secondAttribute="centerY" id="LCd-5h-AU2"/>
                                                                 <constraint firstItem="Tpz-MB-SOI" firstAttribute="trailing" secondItem="v2d-hg-wia" secondAttribute="trailing" id="LdT-Ds-kc6"/>
-                                                                <constraint firstItem="12f-UM-bfh" firstAttribute="width" secondItem="v2d-hg-wia" secondAttribute="width" id="Xo8-La-Kln"/>
+                                                                <constraint firstItem="12f-UM-bfh" firstAttribute="width" secondItem="v2d-hg-wia" secondAttribute="width" priority="999" id="Xo8-La-Kln"/>
                                                                 <constraint firstItem="Tpz-MB-SOI" firstAttribute="top" secondItem="jy5-1J-Zd6" secondAttribute="bottom" constant="5" id="YLB-Sa-a6P"/>
                                                                 <constraint firstItem="v2d-hg-wia" firstAttribute="leading" secondItem="jy5-1J-Zd6" secondAttribute="trailing" constant="5" id="cJ0-IY-Uqx"/>
                                                                 <constraint firstItem="xTZ-4o-der" firstAttribute="leading" secondItem="GS7-Sk-BqJ" secondAttribute="leading" id="fN3-lW-ehY"/>
@@ -1529,7 +1526,7 @@
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <prototypes>
                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="pastUpcomingCell" id="3z3-Be-Ekd" customClass="pastUpcomingCell" customModule="PickaRideDriver" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="24.5" width="376" height="44"/>
+                                                        <rect key="frame" x="0.0" y="44.5" width="376" height="44"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3z3-Be-Ekd" id="7eT-9M-FIN">
                                                             <rect key="frame" x="0.0" y="0.0" width="376" height="44"/>
@@ -1750,8 +1747,8 @@
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="RIDEGO" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mI2-aj-Wgv" customClass="RideDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
-                                                                <rect key="frame" x="15" y="173.5" width="55.5" height="18"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mI2-aj-Wgv" customClass="RideDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
+                                                                <rect key="frame" x="15" y="173.5" width="40.5" height="18"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="18" id="hpE-5S-81f"/>
                                                                 </constraints>
@@ -1803,25 +1800,6 @@
                                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isPrice" value="YES"/>
                                                                 </userDefinedRuntimeAttributes>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="GJ01 PM 2222" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N78-e2-rKe" customClass="RideDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
-                                                                <rect key="frame" x="70.5" y="173.5" width="100.5" height="18"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="18" id="FNs-Vp-JOV"/>
-                                                                </constraints>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                                <nil key="textColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                                <userDefinedRuntimeAttributes>
-                                                                    <userDefinedRuntimeAttribute type="number" keyPath="Font_Size">
-                                                                        <real key="value" value="15"/>
-                                                                    </userDefinedRuntimeAttribute>
-                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isbold" value="YES"/>
-                                                                    <userDefinedRuntimeAttribute type="color" keyPath="fontColor">
-                                                                        <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                    </userDefinedRuntimeAttribute>
-                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isNumberPlate" value="YES"/>
-                                                                </userDefinedRuntimeAttributes>
-                                                            </label>
                                                         </subviews>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
@@ -1829,19 +1807,16 @@
                                                             <constraint firstItem="EuW-vs-6Dq" firstAttribute="top" secondItem="fUk-S6-4P4" secondAttribute="bottom" constant="10" id="2JE-Sj-JGR"/>
                                                             <constraint firstItem="mI2-aj-Wgv" firstAttribute="leading" secondItem="EuW-vs-6Dq" secondAttribute="leading" id="5H1-Mr-XCS"/>
                                                             <constraint firstItem="yj8-pB-tYJ" firstAttribute="trailing" secondItem="EuW-vs-6Dq" secondAttribute="trailing" id="8hg-jG-3ax"/>
-                                                            <constraint firstItem="N78-e2-rKe" firstAttribute="bottom" secondItem="mI2-aj-Wgv" secondAttribute="bottom" id="ALN-OS-ZlE"/>
                                                             <constraint firstItem="6zQ-TC-7se" firstAttribute="width" secondItem="yj8-pB-tYJ" secondAttribute="width" id="Akt-gW-iAw"/>
                                                             <constraint firstItem="yj8-pB-tYJ" firstAttribute="top" secondItem="6zQ-TC-7se" secondAttribute="bottom" constant="5" id="Arz-5t-ouT"/>
                                                             <constraint firstAttribute="trailing" secondItem="EuW-vs-6Dq" secondAttribute="trailing" constant="15" id="MDR-IZ-84D"/>
                                                             <constraint firstItem="mI2-aj-Wgv" firstAttribute="top" secondItem="EuW-vs-6Dq" secondAttribute="bottom" constant="10" id="RyD-0O-trc"/>
-                                                            <constraint firstItem="N78-e2-rKe" firstAttribute="top" secondItem="mI2-aj-Wgv" secondAttribute="top" id="TK4-ak-rb1"/>
                                                             <constraint firstItem="Aaa-Lo-G4E" firstAttribute="leading" secondItem="lez-O5-Akk" secondAttribute="trailing" constant="5" id="a68-pg-0U4"/>
                                                             <constraint firstItem="EuW-vs-6Dq" firstAttribute="leading" secondItem="ZPb-sd-5Cv" secondAttribute="leading" constant="15" id="dbH-4s-l6E"/>
                                                             <constraint firstItem="6zQ-TC-7se" firstAttribute="centerY" secondItem="mI2-aj-Wgv" secondAttribute="centerY" id="eZr-wE-uhx"/>
                                                             <constraint firstItem="lez-O5-Akk" firstAttribute="leading" secondItem="EuW-vs-6Dq" secondAttribute="leading" id="ek2-j1-hkC"/>
                                                             <constraint firstItem="fUk-S6-4P4" firstAttribute="leading" secondItem="ZPb-sd-5Cv" secondAttribute="leading" constant="15" id="gE6-Nd-gre"/>
                                                             <constraint firstItem="6zQ-TC-7se" firstAttribute="trailing" secondItem="EuW-vs-6Dq" secondAttribute="trailing" id="i08-35-Fy8"/>
-                                                            <constraint firstItem="N78-e2-rKe" firstAttribute="leading" secondItem="mI2-aj-Wgv" secondAttribute="trailing" id="i83-aO-48Y"/>
                                                             <constraint firstItem="yj8-pB-tYJ" firstAttribute="leading" secondItem="Aaa-Lo-G4E" secondAttribute="trailing" constant="5" id="k6g-w2-dWD"/>
                                                             <constraint firstItem="Aaa-Lo-G4E" firstAttribute="centerY" secondItem="lez-O5-Akk" secondAttribute="centerY" id="nRZ-tr-koj"/>
                                                             <constraint firstItem="fUk-S6-4P4" firstAttribute="top" secondItem="ZPb-sd-5Cv" secondAttribute="top" constant="10" id="th2-HS-2yR"/>
@@ -2157,7 +2132,6 @@
                         <outlet property="imgProfilw" destination="I9h-R0-spV" id="xF7-N8-T4K"/>
                         <outlet property="imgStatus" destination="4sJ-je-1FE" id="uh5-Mm-dbI"/>
                         <outlet property="lblAddress" destination="Aaa-Lo-G4E" id="r73-Qi-Pay"/>
-                        <outlet property="lblCarName" destination="N78-e2-rKe" id="0wu-S1-U0e"/>
                         <outlet property="lblDestLocation" destination="vVf-GY-Xga" id="MmV-hz-826"/>
                         <outlet property="lblPickupLocation" destination="uHk-SJ-QcA" id="Me2-5B-2dU"/>
                         <outlet property="lblPrice" destination="yj8-pB-tYJ" id="Fg3-gK-541"/>
@@ -3720,7 +3694,7 @@
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                 <prototypes>
                                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="sideCell" id="WUl-dP-sui" customClass="sideCell" customModule="PickaRideDriver" customModuleProvider="target">
-                                                                        <rect key="frame" x="0.0" y="24.5" width="275" height="83"/>
+                                                                        <rect key="frame" x="0.0" y="44.5" width="275" height="83"/>
                                                                         <autoresizingMask key="autoresizingMask"/>
                                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="WUl-dP-sui" id="Kci-Q0-w77">
                                                                             <rect key="frame" x="0.0" y="0.0" width="275" height="83"/>
@@ -5487,20 +5461,6 @@
             <point key="canvasLocation" x="8880.7999999999993" y="814.54272863568224"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="5oa-p0-5AR">
-            <size key="intrinsicContentSize" width="120" height="20"/>
-        </designable>
-        <designable name="ABX-eq-teA">
-            <size key="intrinsicContentSize" width="189.35000000000002" height="26.670000000000002"/>
-        </designable>
-        <designable name="ZRv-BA-FTA">
-            <size key="intrinsicContentSize" width="120" height="20"/>
-        </designable>
-        <designable name="qIF-P6-fEo">
-            <size key="intrinsicContentSize" width="120" height="20"/>
-        </designable>
-    </designables>
     <resources>
         <image name="Dummy-Map" width="375" height="812"/>
         <image name="Dummy-Profile" width="100" height="100"/>

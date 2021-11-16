@@ -143,12 +143,29 @@ extension MyRidesVC : UITableViewDelegate,UITableViewDataSource {
                 }else{
                     cell.stackButtons.isHidden = false
                     cell.stackButtonsHeight.constant = 40
+                    if(BookingStatus == "accepted"){
+                        cell.btnReject.isHidden = false
+                        cell.btnReject.setTitle("CANCEL", for: .normal)
+                        cell.btnAccept.isHidden = true
+                    }else{
+                        cell.btnAccept.isHidden = false
+                        cell.btnReject.isHidden = true
+                    }
                     cell.imgStatus.image = #imageLiteral(resourceName: "Pending")
                 }
                 
+                if self.selectedMyRideState == 0 {
+                    cell.lblAmount.text = "$\(dict.bookingInfo?.driverAmount ?? "0")"
+                }else if self.selectedMyRideState == 1{
+                    cell.lblAmount.text = "$\(dict.bookingInfo?.estimatedFare ?? "0")"
+                }else{
+                    cell.lblAmount.text = "$\(dict.bookingInfo?.estimatedFare ?? "0")"
+                }
+                
                 cell.lblAddress.text = dict.bookingInfo?.pickupLocation ?? ""
-                cell.lblRideName.text = dict.bookingInfo?.vehicleName ?? ""
-                cell.lblAmount.text = "$\(dict.bookingInfo?.driverAmount ?? "0")"
+                let custName = (dict.bookingInfo?.customerFirstName)! + " " + (dict.bookingInfo?.customerLastName)!
+                cell.lblRideName.text = custName
+                
                 
                 cell.AcceptTapped = {
                     print("Accept called....")

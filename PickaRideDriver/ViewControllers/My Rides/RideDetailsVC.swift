@@ -24,7 +24,7 @@ class RideDetailsVC: BaseVC {
     @IBOutlet weak var imgMapView: UIImageView!
     @IBOutlet weak var MyOfferView: UIView!
     @IBOutlet weak var lblRidigo: RideDetailLabel!
-    @IBOutlet weak var lblCarName: RideDetailLabel!
+//    @IBOutlet weak var lblCarName: RideDetailLabel!
     @IBOutlet weak var lblAddress: RideDetailLabel!
     @IBOutlet weak var lblPrice: RideDetailLabel!
     @IBOutlet weak var lblPickupLocation: RideDetailLabel!
@@ -95,8 +95,17 @@ class RideDetailsVC: BaseVC {
             self.lblTime.text = formatedDate
             
         }else{
+            self.stackviewRecieptHeight.constant = 40
             self.btnAccept.isHidden = false
-            self.btnReject.isHidden = false
+            if(BookingStatus == "accepted"){
+                self.btnAccept.isHidden = true
+                self.btnReject.isHidden = false
+                self.btnReject.setTitle("CANCEL", for: .normal)
+            }else{
+                self.btnReject.isHidden = true
+                self.btnAccept.isHidden = false
+            }
+            
             self.btnReceipt.isHidden = true
             self.btnRepeateRide.isHidden = true
             self.imgStatus.image = #imageLiteral(resourceName: "Pending")
@@ -115,19 +124,17 @@ class RideDetailsVC: BaseVC {
     func setupData(){
         if(self.PastBookingData != nil){
             
-            if(isFromUpcomming){
-                self.lblRidigo.text = "\(self.PastBookingData?.bookingInfo?.vehicleName ?? "")"
-                self.lblCarName.text = ""
+            if(self.isFromPast){
+                self.lblPrice.text = "$\(self.PastBookingData?.bookingInfo?.driverAmount ?? "0")"
+            }else if(self.isFromInprogress){
+                self.lblPrice.text = "$\(self.PastBookingData?.bookingInfo?.estimatedFare ?? "0")"
             }else{
-                self.lblRidigo.text = "\(self.PastBookingData?.bookingInfo?.vehicleName ?? "")(\(self.PastBookingData?.driverVehicleInfo?.plateNumber ?? "")"
-                self.lblCarName.text = " - \(self.PastBookingData?.driverVehicleInfo?.vehicleTypeManufacturerName ?? "") \(self.PastBookingData?.driverVehicleInfo?.vehicleTypeModelName ?? ""))"
+                self.lblPrice.text = "$\(self.PastBookingData?.bookingInfo?.estimatedFare ?? "0")"
             }
             
-            self.lblPrice.text = "$\(self.PastBookingData?.bookingInfo?.driverAmount ?? "0")"
             self.lblAddress.text = self.PastBookingData?.bookingInfo?.pickupLocation ?? ""
             self.lblPickupLocation.text = self.PastBookingData?.bookingInfo?.pickupLocation ?? ""
             self.lblDestLocation.text = self.PastBookingData?.bookingInfo?.dropoffLocation ?? ""
-            
             
             let strUrl = "\(APIEnvironment.Profilebu.rawValue)" + "\(self.PastBookingData?.customerInfo?.profileImage ?? "")"
             let strURl = URL(string: strUrl)
@@ -137,6 +144,8 @@ class RideDetailsVC: BaseVC {
             let custName = (self.PastBookingData?.customerInfo?.firstName ?? "")! + " " + (self.PastBookingData?.customerInfo?.lastName ?? "")!
             self.lblRideCustomerName.text = custName
             self.ratingVw.rating = Double(self.PastBookingData?.customerInfo?.rating ?? "0.0") ?? 0.0
+            
+            self.lblRidigo.text = custName
         }
     }
     

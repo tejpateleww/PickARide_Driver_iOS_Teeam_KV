@@ -104,9 +104,13 @@ class RidesViewModel{
             if status{
                 self.myRidesVC?.upcomingCurrentPage = 1
                 self.myRidesVC?.callUpcomingRideAPI()
-                Toast.show(title: UrlConstant.Success, message: response?.message ?? "", state: .success)
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    Toast.show(title: UrlConstant.Success, message: response?.message ?? "", state: .success)
+                }
             }else{
-                Toast.show(title: UrlConstant.Failed, message: message, state: .failure)
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    Toast.show(title: UrlConstant.Failed, message: message, state: .failure)
+                }
             }
         }
     }
