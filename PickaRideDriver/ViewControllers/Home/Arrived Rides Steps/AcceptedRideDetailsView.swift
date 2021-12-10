@@ -225,11 +225,17 @@ class AcceptedRideDetailsView: UIView {
         self.viewContactOptions.isHidden = true
         self.btnNavigate.isHidden = false
         
-        self.startTimer()
+        if(appDel.timerTracking != nil){
+            appDel.timerTracking?.invalidate()
+            appDel.timerTracking = nil
+            self.startTimer()
+        }else{
+            self.startTimer()
+        }
+        
     }
     
     func startTimer() {
-        
         DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
             if(appDel.timerTracking == nil){
                 appDel.timerTracking = Timer.scheduledTimer(withTimeInterval: 5, repeats: true, block: { (timer) in

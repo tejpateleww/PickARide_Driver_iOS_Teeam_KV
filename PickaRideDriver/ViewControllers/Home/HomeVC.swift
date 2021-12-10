@@ -251,7 +251,7 @@ class HomeVC: BaseVC {
     
     func MapSetup(currentlat: String, currentlong:String, droplat: String, droplog:String)
     {
-        let mapInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 300.0, right: 0.0)
+        let mapInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 300, right: 0.0)
         self.vwMap.padding = mapInsets
         
         let camera = GMSCameraPosition.camera(withLatitude: Double(currentlat) ?? 0.0, longitude:  Double(currentlong) ?? 0.0, zoom: 17)
@@ -280,7 +280,7 @@ class HomeVC: BaseVC {
         
         self.DriverLocMarker?.iconView = markerView2
         self.DriverLocMarker?.map = self.vwMap
-        //        self.vwMap.selectedMarker = self.DropLocMarker
+        //self.vwMap.selectedMarker = self.DropLocMarker
         
         //For Displaying both markers in screen centered
         self.arrMarkers.append(self.CurrentLocMarker!)
