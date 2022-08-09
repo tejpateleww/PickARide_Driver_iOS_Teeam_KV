@@ -25,6 +25,18 @@ class WebServiceSubClass{
         }
     }
     
+    class func GetCityList(completion: @escaping (Bool,String,CityListModel?,Any) -> ()){
+        URLSessionRequestManager.makeGetRequest(urlString: ApiKey.getCityList.rawValue,
+            isCustomerApi: true,
+            responseModel: CityListModel.self) { (status, message, response, error) in
+            if status{
+                SingletonClass.sharedInstance.CityList = response?.data ?? []
+            }
+            completion(status, message, response, error)
+        }
+    }
+    
+    
     class func GetManufacturerList(completion: @escaping (Bool,String,ManufacturerListModel?,Any) -> ()){
         URLSessionRequestManager.makeGetRequest(urlString: ApiKey.vehicleTypeManufacturerList.rawValue, responseModel: ManufacturerListModel.self){ (status, message, response, error) in
             completion(status, message, response, error)

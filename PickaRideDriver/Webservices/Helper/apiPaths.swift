@@ -11,11 +11,12 @@ typealias NetworkRouterCompletion = ((Data?,[String:Any]?, Bool) -> ())
 
 enum APIEnvironment : String {
  
-///Development URL : Picka ride customer
+///Development URL : Picka ride driver
     case Development = "http://65.1.154.172/api/driver_api/"
     case Profilebu = "http://65.1.154.172/"
     case Live = "not provided"
-     
+    
+    static let customerAPI = "api/customer_api/"
     static var baseURL: String{
         return APIEnvironment.environment.rawValue
     }
@@ -68,6 +69,7 @@ enum APIEnvironment : String {
 enum ApiKey: String {
     case Init                                 = "init/ios_driver/"
     case getCountryList                       = "country_list"
+    case getCityList                          = "city_list"
     case registerOTP                          = "register_otp"
     case uploadDocs                           = "upload_docs"
     case updatePersonalDocs                   = "update_personal_docs"

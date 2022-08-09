@@ -28,6 +28,7 @@ class SignUpVC: BaseVC {
     @IBOutlet weak var txtCountryCode: UITextField!
     @IBOutlet weak var txtLastName: themeTextField!
     @IBOutlet weak var stackViewCountryCode: UIStackView!
+    @IBOutlet weak var txtCityName: UITextField!
     
     //MARK:- Variables and properties
     var StringOTP : String = ""
@@ -41,7 +42,7 @@ class SignUpVC: BaseVC {
     let RISTRICTED_CHARACTERS_FOR_PASSWORD = " "
     let ACCEPTABLE_CHARACTERS_FOR_ADDRESS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz ,/-"
     
-    //MARK:- View life cycle
+    // MARK: - View life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setNavigationBarInViewController(controller: self, naviColor: colors.appColor.value, naviTitle: "Create profile", leftImage: NavItemsLeft.back.value, rightImages: [NavItemsRight.none.value], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
@@ -59,10 +60,14 @@ class SignUpVC: BaseVC {
         self.pickerView.delegate = self
         self.pickerView.dataSource = self
         self.pickerView.showsSelectionIndicator = true
-        
-        self.txtCountryCode.tintColor = .white
-        self.txtCountryCode.delegate = self
-        self.txtCountryCode.inputView = pickerView
+
+        self.txtCityName.tintColor = .white
+        self.txtCityName.delegate = self
+        self.txtCityName.inputView = pickerView
+
+//        self.txtCountryCode.tintColor = .white
+//        self.txtCountryCode.delegate = self
+//        self.txtCountryCode.inputView = pickerView
         
         let toolBar = UIToolbar()
         toolBar.barStyle = UIBarStyle.default
@@ -75,12 +80,22 @@ class SignUpVC: BaseVC {
         let cancel = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelAction))
         toolBar.setItems([cancel,space,done], animated: false)
         
-        if SingletonClass.sharedInstance.CountryList.count == 0{
-            WebServiceSubClass.GetCountryList { _, _, _, _ in}
-        }else{
-            self.txtCountryCode.inputAccessoryView = toolBar
-            self.txtCountryCode.text = SingletonClass.sharedInstance.CountryList[selectedIndexOfPicker].countryCode
-        }
+        self.txtCityName.inputAccessoryView = toolBar
+        
+        self.showCityNameFromList()
+//        if SingletonClass.sharedInstance.CountryList.count == 0{
+//            WebServiceSubClass.GetCountryList { _, _, _, _ in}
+//        }else{
+//            self.txtCityName.inputAccessoryView = toolBar
+//            self.txtCityName.text = SingletonClass.sharedInstance.CountryList[selectedIndexOfPicker].countryCode
+//        }
+//        if SingletonClass.sharedInstance.CityList.count == 0{
+//            WebServiceSubClass.GetCountryList { _, _, _, _ in}
+//        }else{
+//            self.txtCityName.inputAccessoryView = toolBar
+//            self.txtCityName.text = SingletonClass.sharedInstance.CityList[selectedIndexOfPicker].cityName
+//            self.txtCountryCode.text = SingletonClass.sharedInstance.CityList[selectedIndexOfPicker].countryCode
+//        }
     }
     
     func setUpUI(){
@@ -89,6 +104,7 @@ class SignUpVC: BaseVC {
         self.txtFirstName.delegate = self
         self.txtLastName.delegate = self
         self.txtCountryCode.delegate = self
+        self.txtCityName.delegate = self
         self.txtMobile.delegate = self
         self.txtPassword.delegate = self
         
@@ -141,11 +157,14 @@ class SignUpVC: BaseVC {
         let mobileNo = self.txtMobile.validatedText(validationType: .phoneNo)
         let checkEmail = self.txtEmail.validatedText(validationType: .email)
         let password = self.txtPassword.validatedText(validationType: .password(field: self.txtPassword.placeholder?.lowercased() ?? ""))
-        
+        let cityName = self.txtCityName.validatedText(validationType: .requiredField(field: self.txtCityName.placeholder?.lowercased() ?? ""))
+
         if !firstName.0{
             strTitle = firstName.1
         }else if !lastName.0{
             strTitle = lastName.1
+        }else if !cityName.0{
+            strTitle = cityName.1
         }else if !mobileNo.0{
             strTitle = mobileNo.1
         }else if !checkEmail.0{
@@ -198,14 +217,7 @@ class SignUpVC: BaseVC {
         }
     }
     
-    @objc func cancelAction(_ sender: UIBarButtonItem) {
-        self.txtCountryCode.endEditing(true)
-    }
-    
-    @objc func doneAction(_ sender: UIBarButtonItem) {
-        self.txtCountryCode.text = SingletonClass.sharedInstance.CountryList[self.selectedIndexOfPicker].countryCode
-        self.txtCountryCode.endEditing(true)
-    }
+   
 }
 
 //MARK:- UITextview Delegate methods
@@ -245,11 +257,12 @@ extension SignUpVC : UITextViewDelegate{
 extension SignUpVC: UITextFieldDelegate{
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        if textField == self.txtCountryCode{
-            if SingletonClass.sharedInstance.CountryList.count == 0{
-                WebServiceSubClass.GetCountryList {_, _, _, _ in}
-                return false
-            }
+        if textField == self.txtCityName {
+            showCityNameFromList()
+//            if SingletonClass.sharedInstance.CountryList.count == 0{
+//                WebServiceSubClass.GetCountryList {_, _, _, _ in}
+//                return false
+//            }
         }
         return true
     }
@@ -310,15 +323,15 @@ extension SignUpVC : UIPickerViewDelegate,UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return SingletonClass.sharedInstance.CountryList.count
+        return SingletonClass.sharedInstance.CityList.count
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return (SingletonClass.sharedInstance.CountryList[row].countryCode ?? "") + " - " + (SingletonClass.sharedInstance.CountryList[row].name ?? "")
+//        return (SingletonClass.sharedInstance.CountryList[row].countryCode ?? "") + " - " + (SingletonClass.sharedInstance.CountryList[row].name ?? "")
+        return (SingletonClass.sharedInstance.CityList[row].cityName ?? "")
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        self.selectedIndexOfPicker = row
     }
 }
 
@@ -337,3 +350,34 @@ extension SignUpVC{
     
 }
 
+// MARK: -  City name
+
+extension SignUpVC {
+    
+    func showCityNameFromList() {
+        print(#function)
+        if SingletonClass.sharedInstance.CityList.count == 0 {
+            WebServiceSubClass.GetCityList { [weak self] _, _, _, _ in
+                guard let self = self else {
+                    return
+                }
+                self.txtCityName.text = SingletonClass.sharedInstance.CityList.count > 0 ? SingletonClass.sharedInstance.CityList[self.selectedIndexOfPicker].cityName : ""
+                self.txtCountryCode.text = SingletonClass.sharedInstance.CityList.count > 0 ? SingletonClass.sharedInstance.CityList[self.selectedIndexOfPicker].countryCode : ""
+            }
+        }else{
+            self.txtCityName.text = SingletonClass.sharedInstance.CityList.count > 0 ? SingletonClass.sharedInstance.CityList[selectedIndexOfPicker].cityName : ""
+            self.txtCountryCode.text = SingletonClass.sharedInstance.CityList.count > 0 ? SingletonClass.sharedInstance.CityList[self.selectedIndexOfPicker].countryCode : ""
+        }
+    }
+    
+    @objc func cancelAction(_ sender: UIBarButtonItem) {
+        self.txtCityName.endEditing(true)
+    }
+    
+    @objc func doneAction(_ sender: UIBarButtonItem) {
+//        self.txtCountryCode.text = SingletonClass.sharedInstance.CountryList[self.selectedIndexOfPicker].countryCode
+        self.selectedIndexOfPicker = pickerView.selectedRow(inComponent: 0)
+        showCityNameFromList()
+        self.txtCityName.endEditing(true)
+    }
+}

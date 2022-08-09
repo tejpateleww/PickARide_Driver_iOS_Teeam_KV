@@ -17,14 +17,23 @@ class URLSessionRequestManager {
         return  APIEnvironment.headers
     }
     
-    class func makeGetRequest<C:Codable>(urlString: String, responseModel: C.Type, completion: @escaping (_ status: Bool,_ apiMessage: String,_ modelObj: C?,_ dataDic: Any) -> ()) {
+    class func makeGetRequest<C:Codable>(urlString: String,
+                                         isCustomerApi: Bool = false,
+                                         responseModel: C.Type,
+                                         completion: @escaping (_ status: Bool,_ apiMessage: String,_ modelObj: C?,_ dataDic: Any) -> ()) {
         
         if !Reachability.isConnectedToNetwork() {
             completion(false, UrlConstant.NoInternetConnection, nil, NoInternetResponseDic)
             return
         }
-        
-        guard let url = URL(string: APIEnvironment.baseURL + urlString) else {
+       
+        var baseURL = ""
+        if isCustomerApi {
+            baseURL = APIEnvironment.Profilebu.rawValue + APIEnvironment.customerAPI
+        } else {
+            baseURL = APIEnvironment.baseURL
+        }
+        guard let url = URL(string: baseURL + urlString) else {
             completion(false, UrlConstant.SomethingWentWrong, nil, SomethingWentWrongResponseDic)
             return
         }

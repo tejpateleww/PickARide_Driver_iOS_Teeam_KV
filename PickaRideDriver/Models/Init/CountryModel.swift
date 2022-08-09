@@ -57,3 +57,64 @@ class CountryDetilsModel: Codable {
         status = try? values?.decodeIfPresent(String.self, forKey: .status)
     }
 }
+
+// City Model
+class CityListModel: Codable {
+    let status: Bool?
+    let message: String?
+    let data: [CityDetailsModel]?
+    
+    init(status: Bool, message: String, data: [CityDetailsModel]) {
+        self.status = status
+        self.message = message
+        self.data = data
+    }
+    
+    enum CodingKeys: String, CodingKey {
+        case data = "data"
+        case message = "message"
+        case status = "status"
+    }
+    
+    required init(from decoder: Decoder) throws {
+        let values = try? decoder.container(keyedBy: CodingKeys.self)
+        data = try? values?.decodeIfPresent([CityDetailsModel].self, forKey: .data)
+        message = try? values?.decodeIfPresent(String.self, forKey: .message)
+        status = try? values?.decodeIfPresent(Bool.self, forKey: .status)
+    }
+}
+
+class CityDetailsModel: Codable {
+
+  var id, cityName, lat, lang: String?
+  var status, trash, createdAt: String?
+  var countryCode: String?
+  
+  enum CodingKeys: String, CodingKey {
+    case id        = "id"
+    case cityName  = "city_name"
+    case lat       = "lat"
+    case lang      = "lang"
+    case status    = "status"
+    case trash     = "trash"
+    case createdAt = "created_at"
+    case countryCode = "country_code"
+  }
+
+  required init(from decoder: Decoder) throws {
+    let values = try? decoder.container(keyedBy: CodingKeys.self)
+    id        = try? values?.decodeIfPresent(String.self , forKey: .id)
+    cityName  = try? values?.decodeIfPresent(String.self , forKey: .cityName)
+    lat       = try? values?.decodeIfPresent(String.self , forKey: .lat)
+    lang      = try? values?.decodeIfPresent(String.self , forKey: .lang)
+    status    = try? values?.decodeIfPresent(String.self , forKey: .status)
+    trash     = try? values?.decodeIfPresent(String.self , forKey: .trash)
+    createdAt = try? values?.decodeIfPresent(String.self , forKey: .createdAt)
+    countryCode  = try? values?.decodeIfPresent(String.self , forKey: .countryCode)
+  }
+
+  init() {
+
+  }
+
+}

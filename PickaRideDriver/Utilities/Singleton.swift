@@ -24,6 +24,7 @@ class SingletonClass: NSObject
     var isPresented = false
     var userCurrentLocation : CLLocationCoordinate2D?
     var CountryList = [CountryDetilsModel]()
+    var CityList = [CityDetailsModel]()
     var DeviceType : String = "ios"
     
     var latitude : Double!

@@ -110,12 +110,17 @@ extension SplashVC{
             
             DispatchQueue.global(qos: .background).async {
                 self.webserviceGetCountryList()
+                self.webserviceGetCityList()
             }
         }
     }
     
     func webserviceGetCountryList(){
         WebServiceSubClass.GetCountryList {_, _, _, _ in}
+    }
+    
+    func webserviceGetCityList(){
+        WebServiceSubClass.GetCityList {_, _, _, _ in}
     }
 }
 
