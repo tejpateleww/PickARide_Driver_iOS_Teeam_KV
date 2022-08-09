@@ -88,7 +88,7 @@ class CityDetailsModel: Codable {
 
   var id, cityName, lat, lang: String?
   var status, trash, createdAt: String?
-  var countryCode: String?
+  var countryCode, countryId: String?
   
   enum CodingKeys: String, CodingKey {
     case id        = "id"
@@ -99,6 +99,7 @@ class CityDetailsModel: Codable {
     case trash     = "trash"
     case createdAt = "created_at"
     case countryCode = "country_code"
+    case countryId = "country_id"
   }
 
   required init(from decoder: Decoder) throws {
@@ -111,6 +112,7 @@ class CityDetailsModel: Codable {
     trash     = try? values?.decodeIfPresent(String.self , forKey: .trash)
     createdAt = try? values?.decodeIfPresent(String.self , forKey: .createdAt)
     countryCode  = try? values?.decodeIfPresent(String.self , forKey: .countryCode)
+    countryId  = try? values?.decodeIfPresent(String.self , forKey: .countryId)
   }
 
   init() {

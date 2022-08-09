@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-//MARK:- Login Screen
+//MARK: - Login Screen
 class LoginReqModel : Encodable{
     var username: String?
     var password: String?
@@ -64,6 +64,7 @@ class RegisterFinalRequestModel : Encodable{
     var lastName: String?
     var email: String?
     var password: String?
+    var cityId: String?
     var mobileNo: String?
     var countryId: String?
     var countryCode: String?
@@ -113,7 +114,7 @@ class RegisterFinalRequestModel : Encodable{
         case mobileNo = "mobile_no"
         case countryId = "country_id"
         case countryCode = "country_code"
-        
+        case cityId = "city_id"
         case accountHolderName = "account_holder_name"
         case bankName = "bank_name"
         case ifscCode = "ifsc_code"
@@ -334,6 +335,7 @@ class RegisterData : Codable {
     var companyId : String?
     var countryCode : String?
     var countryId : String?
+    var cityId: String?
     var createdAt : String?
     var deviceToken : String?
     var deviceType : String?
@@ -371,6 +373,7 @@ class RegisterData : Codable {
         case busy = "busy"
         case companyId = "company_id"
         case countryCode = "country_code"
+        case cityId = "city_id"
         case countryId = "country_id"
         case createdAt = "created_at"
         case deviceToken = "device_token"
@@ -410,6 +413,7 @@ class RegisterData : Codable {
         bankName = try values.decodeIfPresent(String.self, forKey: .bankName)
         busy = try values.decodeIfPresent(String.self, forKey: .busy)
         companyId = try values.decodeIfPresent(String.self, forKey: .companyId)
+        cityId = try values.decodeIfPresent(String.self, forKey: .cityId)
         countryCode = try values.decodeIfPresent(String.self, forKey: .countryCode)
         countryId = try values.decodeIfPresent(String.self, forKey: .countryId)
         createdAt = try values.decodeIfPresent(String.self, forKey: .createdAt)

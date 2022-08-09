@@ -131,13 +131,13 @@ class SignUpVC: BaseVC {
     func storeDataInRegisterModel(){
         self.registerRequestModel.firstName = self.txtFirstName.text ?? ""
         self.registerRequestModel.lastName = self.txtLastName.text ?? ""
-        self.registerRequestModel.countryCode = self.txtCountryCode.text ?? ""
-        self.registerRequestModel.countryId = SingletonClass.sharedInstance.CountryList[selectedIndexOfPicker].id
+        self.registerRequestModel.countryCode = SingletonClass.sharedInstance.CityList[selectedIndexOfPicker].countryCode
+        self.registerRequestModel.countryId = SingletonClass.sharedInstance.CityList[selectedIndexOfPicker].countryId
+        self.registerRequestModel.cityId = SingletonClass.sharedInstance.CityList[selectedIndexOfPicker].id
         self.registerRequestModel.mobileNo = self.txtMobile.text ?? ""
         self.registerRequestModel.email = self.txtEmail.text ?? ""
         self.registerRequestModel.address = self.txtviewHomeAddress.text ?? ""
         self.registerRequestModel.password = self.txtPassword.text ?? ""
-        
         let controller = OtpVC.instantiate(fromAppStoryboard: .Login)
         controller.registerRequestModel = self.registerRequestModel
         controller.StringOTP = self.StringOTP
@@ -335,7 +335,7 @@ extension SignUpVC : UIPickerViewDelegate,UIPickerViewDataSource {
     }
 }
 
-//MARK:- Api Call
+//MARK: - Api Call
 extension SignUpVC{
     
     func callOtpApi(){
@@ -347,7 +347,6 @@ extension SignUpVC{
         otpReqModel.phone = self.txtMobile.text ?? ""
         self.otpUserModel.webserviceRegisterOTP(reqModel: otpReqModel)
     }
-    
 }
 
 // MARK: -  City name
