@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Lem-p0-fp0">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Lem-p0-fp0">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -181,10 +181,10 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6g7-ZR-pLV" customClass="IQPreviousNextView" customModule="IQKeyboardManagerSwift">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="628.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="702.5"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="U86-x3-jBh">
-                                                        <rect key="frame" x="16" y="120" width="343" height="383.5"/>
+                                                        <rect key="frame" x="16" y="120" width="343" height="457.5"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vsI-Tj-gCC">
                                                                 <rect key="frame" x="0.0" y="0.0" width="343" height="58"/>
@@ -224,7 +224,7 @@
                                                                     <constraint firstItem="skF-Pi-Fkh" firstAttribute="leading" secondItem="vsI-Tj-gCC" secondAttribute="leading" id="ymg-iT-xCB"/>
                                                                 </constraints>
                                                             </view>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K8N-oU-5Pf">
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K8N-oU-5Pf" userLabel="View - Email">
                                                                 <rect key="frame" x="0.0" y="74" width="343" height="58"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EMAIL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3oo-2k-5wf" customClass="themeLabel" customModule="PickaRideDriver" customModuleProvider="target">
@@ -262,8 +262,46 @@
                                                                     <constraint firstItem="3oo-2k-5wf" firstAttribute="leading" secondItem="K8N-oU-5Pf" secondAttribute="leading" id="kgx-9B-YAq"/>
                                                                 </constraints>
                                                             </view>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0LG-Bh-8UK" userLabel="View - City">
+                                                                <rect key="frame" x="0.0" y="148" width="343" height="58"/>
+                                                                <subviews>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CITY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jMh-hU-SJS" customClass="themeLabel" customModule="PickaRideDriver" customModuleProvider="target">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="37" height="20.5"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                        <nil key="textColor"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="Font_Size">
+                                                                                <real key="value" value="12"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                            <userDefinedRuntimeAttribute type="color" keyPath="fontColor">
+                                                                                <color key="value" red="0.53725490200000003" green="0.57254901960000004" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isbold" value="YES"/>
+                                                                        </userDefinedRuntimeAttributes>
+                                                                    </label>
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="abdullah88@gmail.com" placeholder="EMAIL" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g95-vU-cJJ" customClass="themeTextField" customModule="PickaRideDriver" customModuleProvider="target">
+                                                                        <rect key="frame" x="0.0" y="18" width="343" height="40"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" constant="40" id="97I-ZE-s7K"/>
+                                                                        </constraints>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                                    </textField>
+                                                                </subviews>
+                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="58" id="CWz-yX-xYx"/>
+                                                                    <constraint firstItem="jMh-hU-SJS" firstAttribute="top" secondItem="0LG-Bh-8UK" secondAttribute="top" id="SrT-WL-Sq1"/>
+                                                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="jMh-hU-SJS" secondAttribute="trailing" constant="5" id="bxh-uE-Ehe"/>
+                                                                    <constraint firstItem="g95-vU-cJJ" firstAttribute="leading" secondItem="0LG-Bh-8UK" secondAttribute="leading" id="g8K-aa-zw0"/>
+                                                                    <constraint firstItem="jMh-hU-SJS" firstAttribute="leading" secondItem="0LG-Bh-8UK" secondAttribute="leading" id="i94-W0-e9N"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="g95-vU-cJJ" secondAttribute="bottom" id="j0E-aP-iQq"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="g95-vU-cJJ" secondAttribute="trailing" id="wng-Jd-7Ez"/>
+                                                                </constraints>
+                                                            </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cJ8-1J-fis">
-                                                                <rect key="frame" x="0.0" y="148" width="343" height="60"/>
+                                                                <rect key="frame" x="0.0" y="222" width="343" height="60"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="COUNTRY CODE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JDg-Zr-hBa" customClass="themeLabel" customModule="PickaRideDriver" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.0" width="130.5" height="20.5"/>
@@ -359,7 +397,7 @@
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B6K-nE-dba">
-                                                                <rect key="frame" x="0.0" y="224" width="343" height="85.5"/>
+                                                                <rect key="frame" x="0.0" y="298" width="343" height="85.5"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HOME ADDRESS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HuB-xP-akm" customClass="themeLabel" customModule="PickaRideDriver" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.0" width="129.5" height="20.5"/>
@@ -399,7 +437,7 @@
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hys-4q-6Ny">
-                                                                <rect key="frame" x="0.0" y="325.5" width="343" height="58"/>
+                                                                <rect key="frame" x="0.0" y="399.5" width="343" height="58"/>
                                                                 <subviews>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nmV-Ug-DH1">
                                                                         <rect key="frame" x="0.0" y="18" width="343" height="40"/>
@@ -449,7 +487,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BNs-Te-RoG">
-                                                        <rect key="frame" x="0.0" y="524.5" width="375" height="34"/>
+                                                        <rect key="frame" x="0.0" y="598.5" width="375" height="34"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="34" id="GZL-fx-Pqu"/>
@@ -517,7 +555,7 @@
                                                         </prototypes>
                                                     </tableView>
                                                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="am1-XB-xdc" customClass="themeButton" customModule="PickaRideDriver" customModuleProvider="target">
-                                                        <rect key="frame" x="18" y="568.5" width="339" height="50"/>
+                                                        <rect key="frame" x="18" y="642.5" width="339" height="50"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="50" id="AKp-jq-rkQ"/>
                                                         </constraints>
@@ -666,6 +704,7 @@
                         <outlet property="scrollViewEditProfile" destination="DTj-3g-Lgg" id="k0V-Ko-W5m"/>
                         <outlet property="tblEditProfile" destination="BNs-Te-RoG" id="ya5-Aw-ooF"/>
                         <outlet property="tblEditProfileHeight" destination="GZL-fx-Pqu" id="Uy2-qT-CHg"/>
+                        <outlet property="txtCity" destination="g95-vU-cJJ" id="lmh-Hn-A11"/>
                         <outlet property="txtCountryCode" destination="LdE-HA-lhF" id="L5K-xa-pdi"/>
                         <outlet property="txtEmail" destination="ckW-Ca-ueL" id="XPa-Pu-TSQ"/>
                         <outlet property="txtName" destination="skF-Pi-Fkh" id="ybe-a8-9xc"/>

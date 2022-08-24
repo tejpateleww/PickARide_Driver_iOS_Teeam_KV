@@ -655,11 +655,13 @@ extension HomeVC{
     
     func callChangeDutyStatusAPI(){
         self.homeViewModel.homeVC = self
-        
+
         let DutyReq = ChangeDutyStatusReqModel()
         DutyReq.lat = String(appDel.locationManager.currentLocation?.coordinate.latitude ?? 0.0)
         DutyReq.lng = String(appDel.locationManager.currentLocation?.coordinate.longitude ?? 0.0)
-        
+        DutyReq.cityId = SingletonClass.sharedInstance.UserProfilData?.cityId ?? ""
+        //String(appDel.locationManager.currentLocation?.coordinate.longitude ?? 0.0)
+
         self.homeViewModel.webserviceChangeDutyStatusAPI(reqModel: DutyReq)
     }
     

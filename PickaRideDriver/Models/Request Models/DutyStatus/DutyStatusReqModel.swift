@@ -11,11 +11,13 @@ class ChangeDutyStatusReqModel: Encodable{
     var driverId : String? = SingletonClass.sharedInstance.UserId
     var lat : String?
     var lng : String?
+    var cityId: String?
     
     enum CodingKeys: String, CodingKey {
         case driverId = "driver_id"
         case lat = "lat"
         case lng = "lng"
+        case cityId = "city_id"
     }
 }
 

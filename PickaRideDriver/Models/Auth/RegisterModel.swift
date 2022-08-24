@@ -336,6 +336,7 @@ class RegisterData : Codable {
     var countryCode : String?
     var countryId : String?
     var cityId: String?
+    var cityName: String?
     var createdAt : String?
     var deviceToken : String?
     var deviceType : String?
@@ -374,6 +375,7 @@ class RegisterData : Codable {
         case companyId = "company_id"
         case countryCode = "country_code"
         case cityId = "city_id"
+        case cityName = "city_name"
         case countryId = "country_id"
         case createdAt = "created_at"
         case deviceToken = "device_token"
@@ -414,6 +416,7 @@ class RegisterData : Codable {
         busy = try values.decodeIfPresent(String.self, forKey: .busy)
         companyId = try values.decodeIfPresent(String.self, forKey: .companyId)
         cityId = try values.decodeIfPresent(String.self, forKey: .cityId)
+        cityName = try values.decodeIfPresent(String.self, forKey: .cityName)
         countryCode = try values.decodeIfPresent(String.self, forKey: .countryCode)
         countryId = try values.decodeIfPresent(String.self, forKey: .countryId)
         createdAt = try values.decodeIfPresent(String.self, forKey: .createdAt)

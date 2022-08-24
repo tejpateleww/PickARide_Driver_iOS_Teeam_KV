@@ -29,6 +29,7 @@ class EditProfileVC: BaseVC {
     @IBOutlet weak var imgDownArrow: UIImageView!
     @IBOutlet weak var txtviewHomeAddress: themeTextview!
     @IBOutlet weak var btnPassword: UIButton!
+    @IBOutlet weak var txtCity: themeTextField!
     
     //MARK:- Variables
     let arrEditProfile = ["Edit Bank Details","Edit Personal Details","Edit Vehicle Details","Edit Vehicle Documents"]
@@ -66,13 +67,16 @@ class EditProfileVC: BaseVC {
         
         self.setupTextfields(textfield: txtPassword, isEdit: false)
         self.varifiedTextFields(textfield: txtEmail)
+        self.varifiedTextFields(textfield: txtCity)
         self.varifiedTextFields(textfield: txtPhoneNumber)
         
         self.txtEmail.isUserInteractionEnabled = false
+        self.txtCity.isUserInteractionEnabled = false
         self.txtPhoneNumber.isUserInteractionEnabled = false
         self.txtName.isUserInteractionEnabled = false
         self.txtPassword.isUserInteractionEnabled = false
         self.txtEmail.textColor = .lightGray
+        self.txtCity.textColor = .lightGray
         self.txtPhoneNumber.textColor = .lightGray
         self.txtName.textColor = .lightGray
         self.txtPassword.textColor = .lightGray
@@ -98,6 +102,8 @@ class EditProfileVC: BaseVC {
         self.imgProfile.sd_imageIndicator = SDWebImageActivityIndicator.gray
         self.imgProfile.sd_setImage(with: strURl, placeholderImage: UIImage(named: "nav_dummy_userImage"), options: .refreshCached, completed: nil)
         self.lblName.text = "Hey \(SingletonClass.sharedInstance.UserProfilData?.firstName ?? "")!"
+        
+        self.txtCity.text = SingletonClass.sharedInstance.UserProfilData?.cityName ?? ""
         
         self.txtName.text = "\(SingletonClass.sharedInstance.UserProfilData?.firstName ?? "") \(SingletonClass.sharedInstance.UserProfilData?.lastName ?? "")"
         self.txtEmail.text = SingletonClass.sharedInstance.UserProfilData?.email ?? ""
