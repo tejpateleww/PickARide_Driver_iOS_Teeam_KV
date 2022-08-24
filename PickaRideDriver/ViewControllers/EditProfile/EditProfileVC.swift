@@ -30,6 +30,7 @@ class EditProfileVC: BaseVC {
     @IBOutlet weak var txtviewHomeAddress: themeTextview!
     @IBOutlet weak var btnPassword: UIButton!
     @IBOutlet weak var txtCity: themeTextField!
+    @IBOutlet weak var txtLastName: themeTextField!
     
     //MARK:- Variables
     let arrEditProfile = ["Edit Bank Details","Edit Personal Details","Edit Vehicle Details","Edit Vehicle Documents"]
@@ -74,11 +75,13 @@ class EditProfileVC: BaseVC {
         self.txtCity.isUserInteractionEnabled = false
         self.txtPhoneNumber.isUserInteractionEnabled = false
         self.txtName.isUserInteractionEnabled = false
+        self.txtLastName.isUserInteractionEnabled = false
         self.txtPassword.isUserInteractionEnabled = false
         self.txtEmail.textColor = .lightGray
         self.txtCity.textColor = .lightGray
         self.txtPhoneNumber.textColor = .lightGray
         self.txtName.textColor = .lightGray
+        self.txtLastName.textColor = .lightGray
         self.txtPassword.textColor = .lightGray
         self.txtCountryCode.isUserInteractionEnabled = false
         self.txtCountryCode.textColor = .lightGray
@@ -105,7 +108,8 @@ class EditProfileVC: BaseVC {
         
         self.txtCity.text = SingletonClass.sharedInstance.UserProfilData?.cityName ?? ""
         
-        self.txtName.text = "\(SingletonClass.sharedInstance.UserProfilData?.firstName ?? "") \(SingletonClass.sharedInstance.UserProfilData?.lastName ?? "")"
+        self.txtName.text = SingletonClass.sharedInstance.UserProfilData?.firstName ?? ""
+        self.txtLastName.text = SingletonClass.sharedInstance.UserProfilData?.lastName ?? ""
         self.txtEmail.text = SingletonClass.sharedInstance.UserProfilData?.email ?? ""
         self.txtviewHomeAddress.text = SingletonClass.sharedInstance.UserProfilData?.address ?? ""
         self.txtPhoneNumber.text = SingletonClass.sharedInstance.UserProfilData?.mobileNo ?? ""
@@ -230,9 +234,11 @@ class EditProfileVC: BaseVC {
         self.vwEditProfileCamera.isHidden = false
         self.btnUpdatePicture.isUserInteractionEnabled = true
         self.txtName.isUserInteractionEnabled = true
+        self.txtLastName.isUserInteractionEnabled = true
         self.txtviewHomeAddress.isUserInteractionEnabled = true
         self.txtPassword.isUserInteractionEnabled = true
         self.txtName.textColor = .black
+        self.txtLastName.textColor = .black
         self.txtviewHomeAddress.textColor = .black
         self.txtPassword.textColor = .black
 //        let bottomOffset = CGPoint(x: 0, y: scrollViewEditProfile.contentSize.height - scrollViewEditProfile.bounds.height + scrollViewEditProfile.contentInset.bottom)
@@ -244,10 +250,14 @@ class EditProfileVC: BaseVC {
     
     func validation()->Bool{
         var strTitle : String?
-        let FullName = self.txtName.validatedText(validationType: .requiredField(field: self.txtName.placeholder?.lowercased() ?? ""))
-        
-        if !FullName.0{
-            strTitle = FullName.1
+        let firstName = self.txtName.validatedText(validationType: .requiredField(field: self.txtName.placeholder?.lowercased() ?? ""))
+        let lastName = self.txtLastName.validatedText(validationType: .requiredField(field: self.txtLastName.placeholder?.lowercased() ?? ""))
+
+        if !firstName.0 {
+            strTitle = firstName.1
+        }
+        else if !lastName.0 {
+            strTitle = lastName.1
         }
         else if txtviewHomeAddress.text == "Home Address" || txtviewHomeAddress.text == ""{
             strTitle = "Please enter home address"
@@ -407,9 +417,9 @@ extension EditProfileVC{
     func callUpdateUserBasicInfo(){
         self.userInfoViewModel.editProfileVC = self
         
-        let fullNameArr = self.txtName.text?.components(separatedBy: " ")
-        let firstName: String = fullNameArr?[0] ?? ""
-        let lastName: String = fullNameArr?[1] ?? ""
+//        let fullNameArr = self.txtName.text?.components(separatedBy: " ")
+        let firstName: String = txtName.text ?? ""
+        let lastName: String = txtLastName.text ?? ""
         let StrImgUrl = (self.strImageURL == "") ? SingletonClass.sharedInstance.UserProfilData?.profileImage ?? "" : self.strImageURL
         
         let UploadReq = UpdateBasicInfoReqModel()

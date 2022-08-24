@@ -17,12 +17,12 @@
 		<key>DropDown.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>44</integer>
+			<integer>46</integer>
 		</dict>
 		<key>EasyTipView.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>48</integer>
+			<integer>41</integer>
 		</dict>
 		<key>Firebase.xcscheme_^#shared#^_</key>
 		<dict>
@@ -42,7 +42,7 @@
 		<key>FirebaseCrashlytics.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>41</integer>
+			<integer>42</integer>
 		</dict>
 		<key>FirebaseInstallations.xcscheme_^#shared#^_</key>
 		<dict>
@@ -102,7 +102,7 @@
 		<key>MKProgress.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>42</integer>
+			<integer>48</integer>
 		</dict>
 		<key>MarqueeLabel.xcscheme_^#shared#^_</key>
 		<dict>
@@ -187,7 +187,7 @@
 		<key>NotificationBannerSwift.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>50</integer>
+			<integer>45</integer>
 		</dict>
 		<key>Pods-PickaRideDriver-PickaRideDriverUITests.xcscheme_^#shared#^_</key>
 		<dict>
@@ -227,17 +227,17 @@
 		<key>SnapKit.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>46</integer>
+			<integer>47</integer>
 		</dict>
 		<key>Socket.IO-Client-Swift.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>45</integer>
+			<integer>43</integer>
 		</dict>
 		<key>Starscream.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>47</integer>
+			<integer>44</integer>
 		</dict>
 		<key>SwiftyJSON.xcscheme_^#shared#^_</key>
 		<dict>
@@ -247,7 +247,7 @@
 		<key>UIView-Shimmer.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>43</integer>
+			<integer>50</integer>
 		</dict>
 		<key>nanopb.xcscheme_^#shared#^_</key>
 		<dict>

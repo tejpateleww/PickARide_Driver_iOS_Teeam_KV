@@ -186,44 +186,87 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="U86-x3-jBh">
                                                         <rect key="frame" x="16" y="120" width="343" height="457.5"/>
                                                         <subviews>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vsI-Tj-gCC">
+                                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="SJZ-un-mXU">
                                                                 <rect key="frame" x="0.0" y="0.0" width="343" height="58"/>
                                                                 <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NAME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6rP-X2-MNn" customClass="themeLabel" customModule="PickaRideDriver" customModuleProvider="target">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="47.5" height="20.5"/>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                        <nil key="textColor"/>
-                                                                        <nil key="highlightedColor"/>
-                                                                        <userDefinedRuntimeAttributes>
-                                                                            <userDefinedRuntimeAttribute type="number" keyPath="Font_Size">
-                                                                                <real key="value" value="12"/>
-                                                                            </userDefinedRuntimeAttribute>
-                                                                            <userDefinedRuntimeAttribute type="color" keyPath="fontColor">
-                                                                                <color key="value" red="0.53725490200000003" green="0.57254901960000004" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
-                                                                            </userDefinedRuntimeAttribute>
-                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isbold" value="YES"/>
-                                                                        </userDefinedRuntimeAttributes>
-                                                                    </label>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Abdullah Amir" placeholder="NAME" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="skF-Pi-Fkh" customClass="themeTextField" customModule="PickaRideDriver" customModuleProvider="target">
-                                                                        <rect key="frame" x="0.0" y="18" width="343" height="40"/>
+                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vsI-Tj-gCC" userLabel="View - First name">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="163.5" height="58"/>
+                                                                        <subviews>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FIRST NAME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6rP-X2-MNn" customClass="themeLabel" customModule="PickaRideDriver" customModuleProvider="target">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="97" height="20.5"/>
+                                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                                <nil key="textColor"/>
+                                                                                <nil key="highlightedColor"/>
+                                                                                <userDefinedRuntimeAttributes>
+                                                                                    <userDefinedRuntimeAttribute type="number" keyPath="Font_Size">
+                                                                                        <real key="value" value="12"/>
+                                                                                    </userDefinedRuntimeAttribute>
+                                                                                    <userDefinedRuntimeAttribute type="color" keyPath="fontColor">
+                                                                                        <color key="value" red="0.53725490200000003" green="0.57254901960000004" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                                                    </userDefinedRuntimeAttribute>
+                                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isbold" value="YES"/>
+                                                                                </userDefinedRuntimeAttributes>
+                                                                            </label>
+                                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="FIRST NAME" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="skF-Pi-Fkh" customClass="themeTextField" customModule="PickaRideDriver" customModuleProvider="target">
+                                                                                <rect key="frame" x="0.0" y="18" width="163.5" height="40"/>
+                                                                                <constraints>
+                                                                                    <constraint firstAttribute="height" constant="40" id="zSw-Jc-uje"/>
+                                                                                </constraints>
+                                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                                <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                                                                            </textField>
+                                                                        </subviews>
+                                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                         <constraints>
-                                                                            <constraint firstAttribute="height" constant="40" id="zSw-Jc-uje"/>
+                                                                            <constraint firstItem="6rP-X2-MNn" firstAttribute="top" secondItem="vsI-Tj-gCC" secondAttribute="top" id="1AD-92-pSb"/>
+                                                                            <constraint firstItem="6rP-X2-MNn" firstAttribute="leading" secondItem="vsI-Tj-gCC" secondAttribute="leading" id="ANw-Pi-VlK"/>
+                                                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="6rP-X2-MNn" secondAttribute="trailing" constant="5" id="aJf-uR-BOF"/>
+                                                                            <constraint firstAttribute="height" constant="58" id="pze-V1-Kg5"/>
+                                                                            <constraint firstAttribute="trailing" secondItem="skF-Pi-Fkh" secondAttribute="trailing" id="r4A-5G-YNL"/>
+                                                                            <constraint firstAttribute="bottom" secondItem="skF-Pi-Fkh" secondAttribute="bottom" id="svS-Tj-4OP"/>
+                                                                            <constraint firstItem="skF-Pi-Fkh" firstAttribute="leading" secondItem="vsI-Tj-gCC" secondAttribute="leading" id="ymg-iT-xCB"/>
                                                                         </constraints>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                        <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
-                                                                    </textField>
+                                                                    </view>
+                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h5V-p0-06c" userLabel="View - Last name">
+                                                                        <rect key="frame" x="179.5" y="0.0" width="163.5" height="58"/>
+                                                                        <subviews>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LAST NAME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wrb-f4-acP" customClass="themeLabel" customModule="PickaRideDriver" customModuleProvider="target">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="93" height="20.5"/>
+                                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                                <nil key="textColor"/>
+                                                                                <nil key="highlightedColor"/>
+                                                                                <userDefinedRuntimeAttributes>
+                                                                                    <userDefinedRuntimeAttribute type="number" keyPath="Font_Size">
+                                                                                        <real key="value" value="12"/>
+                                                                                    </userDefinedRuntimeAttribute>
+                                                                                    <userDefinedRuntimeAttribute type="color" keyPath="fontColor">
+                                                                                        <color key="value" red="0.53725490200000003" green="0.57254901960000004" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                                                    </userDefinedRuntimeAttribute>
+                                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isbold" value="YES"/>
+                                                                                </userDefinedRuntimeAttributes>
+                                                                            </label>
+                                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="LAST NAME" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pk0-5W-N4D" customClass="themeTextField" customModule="PickaRideDriver" customModuleProvider="target">
+                                                                                <rect key="frame" x="0.0" y="18" width="163.5" height="40"/>
+                                                                                <constraints>
+                                                                                    <constraint firstAttribute="height" constant="40" id="i2c-hL-IoJ"/>
+                                                                                </constraints>
+                                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                                <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                                                                            </textField>
+                                                                        </subviews>
+                                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="bottom" secondItem="pk0-5W-N4D" secondAttribute="bottom" id="BrF-X0-21V"/>
+                                                                            <constraint firstItem="wrb-f4-acP" firstAttribute="top" secondItem="h5V-p0-06c" secondAttribute="top" id="IZc-gk-pU1"/>
+                                                                            <constraint firstItem="pk0-5W-N4D" firstAttribute="leading" secondItem="h5V-p0-06c" secondAttribute="leading" id="QuZ-Qm-17d"/>
+                                                                            <constraint firstItem="wrb-f4-acP" firstAttribute="leading" secondItem="h5V-p0-06c" secondAttribute="leading" id="WjV-HS-2Mu"/>
+                                                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="wrb-f4-acP" secondAttribute="trailing" constant="5" id="bNm-DA-ENp"/>
+                                                                            <constraint firstAttribute="trailing" secondItem="pk0-5W-N4D" secondAttribute="trailing" id="hKX-8g-rCN"/>
+                                                                            <constraint firstAttribute="height" constant="58" id="yDF-NZ-oeX"/>
+                                                                        </constraints>
+                                                                    </view>
                                                                 </subviews>
-                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                                <constraints>
-                                                                    <constraint firstItem="6rP-X2-MNn" firstAttribute="top" secondItem="vsI-Tj-gCC" secondAttribute="top" id="1AD-92-pSb"/>
-                                                                    <constraint firstItem="6rP-X2-MNn" firstAttribute="leading" secondItem="vsI-Tj-gCC" secondAttribute="leading" id="ANw-Pi-VlK"/>
-                                                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="6rP-X2-MNn" secondAttribute="trailing" constant="5" id="aJf-uR-BOF"/>
-                                                                    <constraint firstAttribute="height" constant="58" id="pze-V1-Kg5"/>
-                                                                    <constraint firstAttribute="trailing" secondItem="skF-Pi-Fkh" secondAttribute="trailing" id="r4A-5G-YNL"/>
-                                                                    <constraint firstAttribute="bottom" secondItem="skF-Pi-Fkh" secondAttribute="bottom" id="svS-Tj-4OP"/>
-                                                                    <constraint firstItem="skF-Pi-Fkh" firstAttribute="leading" secondItem="vsI-Tj-gCC" secondAttribute="leading" id="ymg-iT-xCB"/>
-                                                                </constraints>
-                                                            </view>
+                                                            </stackView>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K8N-oU-5Pf" userLabel="View - Email">
                                                                 <rect key="frame" x="0.0" y="74" width="343" height="58"/>
                                                                 <subviews>
@@ -707,6 +750,7 @@
                         <outlet property="txtCity" destination="g95-vU-cJJ" id="lmh-Hn-A11"/>
                         <outlet property="txtCountryCode" destination="LdE-HA-lhF" id="L5K-xa-pdi"/>
                         <outlet property="txtEmail" destination="ckW-Ca-ueL" id="XPa-Pu-TSQ"/>
+                        <outlet property="txtLastName" destination="pk0-5W-N4D" id="16O-2y-fC8"/>
                         <outlet property="txtName" destination="skF-Pi-Fkh" id="ybe-a8-9xc"/>
                         <outlet property="txtPassword" destination="Duk-yf-7js" id="gbr-KX-nOo"/>
                         <outlet property="txtPhoneNumber" destination="bgL-YT-1Xi" id="seq-Ax-YCF"/>
