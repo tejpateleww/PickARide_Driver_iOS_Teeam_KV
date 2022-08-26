@@ -32,8 +32,9 @@ class ChatViewController: BaseVC {
     var chatViewModel = ChatViewModel()
     var currentBookingModel : CurrentBookingDatum?
     var arrayChatHistory = [chatHistoryDatum]()
-    var filterListArr : [String: [chatHistoryDatum]] = [String(): [chatHistoryDatum]()]
-    var filterKeysArr : [Date] = [Date]()
+    var filterListArr : [chatHistoryDatum] = [chatHistoryDatum]()
+//    var filterListArr : [String: [chatHistoryDatum]] = [String(): [chatHistoryDatum]()]
+//    var filterKeysArr : [Date] = [Date]()
     var oldChatSectionTitle = Date()
     var oldChatId = String()
     
@@ -72,7 +73,15 @@ class ChatViewController: BaseVC {
     //MARK: - Button Action Methods
     @IBAction func btnSendMsgAction(_ sender: Any) {
         if validation() {
-            
+            /*
+             This all are param pass in "send_message" emit
+             message
+             sender_id
+             sender_type
+             receiver_id
+             receiver_type
+             booking_id
+             */
             let reqModel = sendMessageReqModel()
             reqModel.message = self.txtviewComment.text ?? ""
             reqModel.sender_id = SingletonClass.sharedInstance.UserId
@@ -86,9 +95,7 @@ class ChatViewController: BaseVC {
                 self.emitSocket_SendMessage(param: param)
             }
 //            appendMessage()
-            self.txtviewComment.text = "Type a message..."
-            self.txtviewComment.textColor = .gray
-            
+           
         }
     }
     
@@ -152,6 +159,21 @@ class ChatViewController: BaseVC {
     func scrollToBottom(){
         DispatchQueue.main.async {
             if self.arrayChatHistory.count > 0 {
+//                let list = self.filterListArr[self.filterKeysArr.last?.Date_In_DD_MM_YYYY_FORMAT ?? String ()]
+                
+//                let rowIndex = list?.count == 0 ? 0 : ((list?.count ?? 0) - 1)
+                let indexPath = IndexPath(row: 0, section: self.arrayChatHistory.count - 1)
+                self.tblChat.reloadData()
+                self.tblChat.scrollToRow(at: indexPath, at: .bottom, animated: false)
+            }
+        }
+    }
+   
+    /* #BeforefilterListArr datat type modification*/
+    /*
+    func scrollToBottom(){
+        DispatchQueue.main.async {
+            if self.arrayChatHistory.count > 0 {
                 let list = self.filterListArr[self.filterKeysArr.last?.Date_In_DD_MM_YYYY_FORMAT ?? String ()]
                 
                 let rowIndex = list?.count == 0 ? 0 : ((list?.count ?? 0) - 1)
@@ -160,13 +182,42 @@ class ChatViewController: BaseVC {
                 self.tblChat.scrollToRow(at: indexPath, at: .bottom, animated: false)
             }
         }
-    }
+     
+     func scrollAt(){
+         if self.arrayChatHistory.count > 0 {
+             let list = self.filterListArr[oldChatSectionTitle.Date_In_DD_MM_YYYY_FORMAT ?? ""]
+             let row = list?.firstIndex(where: {$0.id == oldChatId}) ?? 0
+             let section = self.filterKeysArr.firstIndex(where: {$0.Date_In_DD_MM_YYYY_FORMAT == oldChatSectionTitle.Date_In_DD_MM_YYYY_FORMAT}) ?? 0
+             let indexPath = IndexPath(row: row, section: section)
+             self.tblChat.reloadData()
+             self.tblChat.scrollToRow(at: indexPath, at: .top, animated: false)
+         }
+     }
+     
+     func filterArrayData(isFromDidLoad: Bool){
+         self.filterListArr.removeAll()
+         self.filterKeysArr.removeAll()
+ //        self.arrayChatHistory.sort(by: {$0.createdAt!.compare($1.createdAt!) == .orderedAscending})
+         for each in self.arrayChatHistory  {
+             let dateField = each.createdAt?.serverDateStringToDateType1?.Date_In_DD_MM_YYYY_FORMAT ?? String ()
+             if filterListArr.keys.contains(dateField){
+                 filterListArr[dateField]?.append(each)
+             }else{
+                 filterListArr[dateField] = [each]
+                 self.filterKeysArr.append(each.createdAt?.serverDateStringToDateType1 ?? Date())
+             }
+         }
+         self.filterKeysArr.sort(by: <)
+         isFromDidLoad ? self.scrollToBottom() : self.scrollAt()
+     }
+     */
     
     func scrollAt(){
         if self.arrayChatHistory.count > 0 {
-            let list = self.filterListArr[oldChatSectionTitle.Date_In_DD_MM_YYYY_FORMAT ?? ""]
-            let row = list?.firstIndex(where: {$0.id == oldChatId}) ?? 0
-            let section = self.filterKeysArr.firstIndex(where: {$0.Date_In_DD_MM_YYYY_FORMAT == oldChatSectionTitle.Date_In_DD_MM_YYYY_FORMAT}) ?? 0
+//            let list = self.filterListArr[oldChatSectionTitle.Date_In_DD_MM_YYYY_FORMAT ?? ""]
+            let section = self.arrayChatHistory.firstIndex(where: {$0.id == oldChatId}) ?? 0
+            let row = 0
+            //elf.filterKeysArr.firstIndex(where: {$0.Date_In_DD_MM_YYYY_FORMAT == oldChatSectionTitle.Date_In_DD_MM_YYYY_FORMAT}) ?? 0
             let indexPath = IndexPath(row: row, section: section)
             self.tblChat.reloadData()
             self.tblChat.scrollToRow(at: indexPath, at: .top, animated: false)
@@ -181,18 +232,19 @@ class ChatViewController: BaseVC {
     
     func filterArrayData(isFromDidLoad: Bool){
         self.filterListArr.removeAll()
-        self.filterKeysArr.removeAll()
-        self.arrayChatHistory.sort(by: {$0.createdAt!.compare($1.createdAt!) == .orderedAscending})
-        for each in self.arrayChatHistory{
-            let dateField = each.createdAt?.serverDateStringToDateType1?.Date_In_DD_MM_YYYY_FORMAT ?? String ()
-            if filterListArr.keys.contains(dateField){
-                filterListArr[dateField]?.append(each)
-            }else{
-                filterListArr[dateField] = [each]
-                self.filterKeysArr.append(each.createdAt?.serverDateStringToDateType1 ?? Date())
-            }
+//        self.filterKeysArr.removeAll()
+//        self.arrayChatHistory.sort(by: {$0.createdAt!.compare($1.createdAt!) == .orderedAscending})
+        for each in self.arrayChatHistory  {
+//            let dateField = each.createdAt?.serverDateStringToDateType1?.Date_In_DD_MM_YYYY_FORMAT ?? String ()
+//            if filterListArr.keys.contains(dateField){
+//                filterListArr[dateField]?.append(each)
+//            }else{
+//                filterListArr[dateField] = [each]
+//                self.filterKeysArr.append(each.createdAt?.serverDateStringToDateType1 ?? Date())
+//            }
+            self.filterListArr.append(each)
         }
-        self.filterKeysArr.sort(by: <)
+//        self.filterKeysArr.sort(by: <)
         isFromDidLoad ? self.scrollToBottom() : self.scrollAt()
     }
     
@@ -218,17 +270,19 @@ extension ChatViewController : UITextViewDelegate {
 extension ChatViewController : UITableViewDelegate, UITableViewDataSource{
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        if self.arrayChatHistory.count > 0 {
-            return self.filterKeysArr.count
-        } else {
-            return 1
-        }
+//        if self.arrayChatHistory.count > 0 {
+//            return self.filterKeysArr.count
+//        } else {
+//            return 1
+//        }
+        return self.arrayChatHistory.count == 0 ? 1 : self.arrayChatHistory.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if self.arrayChatHistory.count > 0 {
-            let strDate = self.filterKeysArr[section].Date_In_DD_MM_YYYY_FORMAT ?? ""
-            return self.filterListArr[strDate]?.count ?? 0
+//            let strDate = self.filterKeysArr[section].Date_In_DD_MM_YYYY_FORMAT ?? ""
+//            return self.filterListArr[strDate]?.count ?? 0
+            return 1
         } else {
             return (!self.isTblReload) ? 5 : 1
         }
@@ -248,8 +302,11 @@ extension ChatViewController : UITableViewDelegate, UITableViewDataSource{
             lblDate.layer.cornerRadius = lblDate.frame.height/2.0
             lblDate.layer.masksToBounds = true
             
-            let obj = self.filterKeysArr[section]
-            lblDate.text = obj.timeAgoSinceDate(isForNotification: true)
+//            let obj = self.filterKeysArr[section]
+            let obj = self.filterListArr[section]
+                      
+            lblDate.text = obj.createdAt
+            //obj.timeAgoSinceDate(isForNotification: true)
             
             lblDate.textAlignment = .center
             lblDate.font = FontBook.regular.of(size: 12.0)
@@ -268,19 +325,25 @@ extension ChatViewController : UITableViewDelegate, UITableViewDataSource{
             return cell
         }else{
             if(self.arrayChatHistory.count > 0){
-                let strDateTitle = self.filterKeysArr[indexPath.section].Date_In_DD_MM_YYYY_FORMAT ?? ""
-                let obj = self.filterListArr[strDateTitle]?[indexPath.row]
+                //#CommentedBecauseOfDataTypeChangedOFFilteredArray
                 
-                let isDriver = obj?.senderType ?? "" == "driver"
+//                let strDateTitle = self.filterKeysArr[indexPath.section].Date_In_DD_MM_YYYY_FORMAT ?? ""
+//                let obj = self.filterListArr[strDateTitle]?[indexPath.row]
+  
+                //
+ //               let strDateTitle = self.filterKeysArr[indexPath.section].Date_In_DD_MM_YYYY_FORMAT ?? ""
+                let obj = self.filterListArr[indexPath.section]
+                
+                let isDriver = obj.senderType == "driver"
                 if(isDriver){
                     let cell = tblChat.dequeueReusableCell(withIdentifier: chatSenderCell.reuseIdentifier) as! chatSenderCell
                     cell.selectionStyle = .none
-                    cell.lblSenderMessage.text = obj?.message ?? ""
+                    cell.lblSenderMessage.text = obj.message
                     return cell
                 }else{
                     let cell = tblChat.dequeueReusableCell(withIdentifier: chatReciverCell.reuseIdentifier) as! chatReciverCell
                     cell.selectionStyle = .none
-                    cell.lblReciverMessage.text = obj?.message ?? ""
+                    cell.lblReciverMessage.text = obj.message
                     return cell
                 }
             }else{

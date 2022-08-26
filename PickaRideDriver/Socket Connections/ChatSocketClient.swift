@@ -68,7 +68,7 @@ extension ChatViewController{
         SocketIOManager.shared.socketCall(for: SocketKeys.SendMessage.rawValue) { (json) in
             print(#function, "\n ", json)
             let dict = json[0]
-            print(dict)
+//            print(dict)
             
             let chatObj : chatHistoryDatum = chatHistoryDatum()
             chatObj.id = dict["id"].stringValue
@@ -82,6 +82,9 @@ extension ChatViewController{
             
             self.arrayChatHistory.append(chatObj)
             self.filterArrayData(isFromDidLoad: true)
+
+            self.txtviewComment.text = ""
+            self.txtviewComment.textColor = .black
         }
     }
     
