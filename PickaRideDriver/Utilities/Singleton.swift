@@ -56,5 +56,7 @@ class SingletonClass: NSObject
         SingletonClass.sharedInstance.UserProfilData = nil
         SingletonClass.sharedInstance.LoginRegisterUpdateData = nil
     }
+    
+    var currency = "$"
 }
 

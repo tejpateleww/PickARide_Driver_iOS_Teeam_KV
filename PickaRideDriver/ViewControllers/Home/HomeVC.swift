@@ -53,10 +53,10 @@ class HomeVC: BaseVC {
     
     //MARK:- Life cycle methods
     override func viewWillAppear(_ animated: Bool) {
+        self.setNavWithSOS()
         self.SocketOnMethods()
         self.startTimer()
         self.changeDutyStatus()
-        
         appDel.isHomeVcVisible = true
     }
     
@@ -68,13 +68,13 @@ class HomeVC: BaseVC {
     override func viewDidLoad(){
         super.viewDidLoad()
         self.callCurrentBookingAPI()
-        self.setNavWithSOS()
+        
         self.handleRideFlow(state: RideState.None)
         self.PrepareView()
         
 
         
-        
+
 //        self.vwMap.delegate = self
     }
     
@@ -93,6 +93,17 @@ class HomeVC: BaseVC {
     
     func setNavWithSOS(){
         self.setNavigationBarInViewController(controller: self, naviColor: colors.appColor.value, naviTitle: NavTitles.none.value, leftImage: NavItemsLeft.menu.value, rightImages: [NavItemsRight.sos.value], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
+        let chatSupportButton = themeButton(type: .system)
+        chatSupportButton.isthemeBg = true
+        chatSupportButton.isMedium = true
+        chatSupportButton.contentEdgeInsets = UIEdgeInsets(top: 10, left: 20, bottom: 10, right: 30)
+        chatSupportButton.titleEdgeInsets.right = -10
+        chatSupportButton.titleEdgeInsets.left = 10
+        chatSupportButton.setTitle("Chat Support", for: .normal)
+        chatSupportButton.setImage(UIImage(named: "ic_chat"), for: .normal)
+        chatSupportButton.setupUI()
+        chatSupportButton.sizeToFit()
+        self.navigationItem.titleView = chatSupportButton
     }
     
     func setNavWithoutSOS(){

@@ -111,7 +111,6 @@
 		547D83D8265A502A00887C9C /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 547D83D7265A502A00887C9C /* Login.storyboard */; };
 		63306643E0B7E70ABC5DB425 /* Pods_PickaRideDriver_PickaRideDriverUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2829DD5CEA22E4198B109D0A /* Pods_PickaRideDriver_PickaRideDriverUITests.framework */; };
 		8120ED2F264C2407004E0206 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8120ED2D264C2407004E0206 /* Localizable.strings */; };
-		81891DA1264FDA1B00E8741E /* MSBBarChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81891D9F264FDA1B00E8741E /* MSBBarChartView.swift */; };
 		81891DA72652DD9800E8741E /* IncomingRideRequestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81891DA62652DD9800E8741E /* IncomingRideRequestView.swift */; };
 		81891DA92652DDC200E8741E /* IncomingRideRequestView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81891DA82652DDC200E8741E /* IncomingRideRequestView.xib */; };
 		81891DAB2654466A00E8741E /* AcceptedRideDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81891DAA2654466A00E8741E /* AcceptedRideDetailsView.swift */; };
@@ -122,6 +121,12 @@
 		81A5538E264BC5A600698413 /* EarningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A5538D264BC5A600698413 /* EarningViewController.swift */; };
 		81A55390264BC5CF00698413 /* TodayEarningChildViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A5538F264BC5CF00698413 /* TodayEarningChildViewController.swift */; };
 		81A55392264BC5DD00698413 /* WeeklyEarningChildViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A55391264BC5DD00698413 /* WeeklyEarningChildViewController.swift */; };
+		840CED5E28C71E4800054214 /* BarChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840CED5D28C71E4800054214 /* BarChartView.swift */; };
+		840CED6028C761E800054214 /* WithdrawInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840CED5F28C761E800054214 /* WithdrawInfo.swift */; };
+		8424A05228C1CDEF007F4B38 /* WithdrawHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8424A05028C1CDEF007F4B38 /* WithdrawHistoryCell.swift */; };
+		8424A05328C1CDEF007F4B38 /* WithdrawHistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8424A05128C1CDEF007F4B38 /* WithdrawHistoryCell.xib */; };
+		8424A05528C1D13F007F4B38 /* WithdrawHistoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8424A05428C1D13F007F4B38 /* WithdrawHistoryVC.swift */; };
+		842E3B3028C0BFDD00E0A8FF /* Earning.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 842E3B2F28C0BFB100E0A8FF /* Earning.storyboard */; };
 		843F8053264A6F3E00BCBDB8 /* SideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843F8052264A6F3E00BCBDB8 /* SideMenuController.swift */; };
 		843F805C264A6FB300BCBDB8 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843F805B264A6FB300BCBDB8 /* MenuViewController.swift */; };
 		843F806A264A706400BCBDB8 /* StatusBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843F8060264A706400BCBDB8 /* StatusBar.swift */; };
@@ -145,7 +150,13 @@
 		84A5D1002646A67200AAFAB0 /* AddVehicleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A5D0FF2646A67200AAFAB0 /* AddVehicleVC.swift */; };
 		84A5D11E2646B83900AAFAB0 /* CancelRideVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A5D11D2646B83900AAFAB0 /* CancelRideVC.swift */; };
 		84A5D1262646B89D00AAFAB0 /* CancelRideCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A5D1252646B89D00AAFAB0 /* CancelRideCell.swift */; };
+		84C13A3A28C6024D0032BFA1 /* NoDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C13A3928C6024D0032BFA1 /* NoDataView.swift */; };
+		84C13A3C28C602610032BFA1 /* NoDataView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84C13A3B28C602610032BFA1 /* NoDataView.xib */; };
 		84DD717B264957850014AF60 /* RideDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DD717A264957850014AF60 /* RideDetailsVC.swift */; };
+		84E4EDFE28C0C8A700536AF1 /* WithdrawVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E4EDFD28C0C8A700536AF1 /* WithdrawVC.swift */; };
+		84F0C38B28C5CD8D00EDFBB1 /* Earning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F0C38A28C5CD8D00EDFBB1 /* Earning.swift */; };
+		84F0C38D28C5D2B400EDFBB1 /* EarningReqModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F0C38C28C5D2B400EDFBB1 /* EarningReqModel.swift */; };
+		84F0C38F28C5DC5100EDFBB1 /* BaseResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F0C38E28C5DC5100EDFBB1 /* BaseResponseModel.swift */; };
 		8808C4B326F071FA004B8518 /* RateAndReviewReqModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8808C4B226F071FA004B8518 /* RateAndReviewReqModel.swift */; };
 		8808C4B626F07283004B8518 /* RateAndReviewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8808C4B526F07283004B8518 /* RateAndReviewModel.swift */; };
 		8808C4BC26F0741C004B8518 /* RateAndReviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8808C4BB26F0741C004B8518 /* RateAndReviewViewModel.swift */; };
@@ -345,7 +356,6 @@
 		547D83D5265A500E00887C9C /* Chat.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Chat.storyboard; sourceTree = "<group>"; };
 		547D83D7265A502A00887C9C /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		8120ED2E264C2407004E0206 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		81891D9F264FDA1B00E8741E /* MSBBarChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSBBarChartView.swift; sourceTree = "<group>"; };
 		81891DA62652DD9800E8741E /* IncomingRideRequestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomingRideRequestView.swift; sourceTree = "<group>"; };
 		81891DA82652DDC200E8741E /* IncomingRideRequestView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IncomingRideRequestView.xib; sourceTree = "<group>"; };
 		81891DAA2654466A00E8741E /* AcceptedRideDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcceptedRideDetailsView.swift; sourceTree = "<group>"; };
@@ -356,6 +366,12 @@
 		81A5538D264BC5A600698413 /* EarningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarningViewController.swift; sourceTree = "<group>"; };
 		81A5538F264BC5CF00698413 /* TodayEarningChildViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayEarningChildViewController.swift; sourceTree = "<group>"; };
 		81A55391264BC5DD00698413 /* WeeklyEarningChildViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyEarningChildViewController.swift; sourceTree = "<group>"; };
+		840CED5D28C71E4800054214 /* BarChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarChartView.swift; sourceTree = "<group>"; };
+		840CED5F28C761E800054214 /* WithdrawInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithdrawInfo.swift; sourceTree = "<group>"; };
+		8424A05028C1CDEF007F4B38 /* WithdrawHistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithdrawHistoryCell.swift; sourceTree = "<group>"; };
+		8424A05128C1CDEF007F4B38 /* WithdrawHistoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WithdrawHistoryCell.xib; sourceTree = "<group>"; };
+		8424A05428C1D13F007F4B38 /* WithdrawHistoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithdrawHistoryVC.swift; sourceTree = "<group>"; };
+		842E3B2F28C0BFB100E0A8FF /* Earning.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Earning.storyboard; path = "/Users/admin/PickARide-driver/PickaRideDriver/StoryBoards/Earning.storyboard"; sourceTree = "<absolute>"; };
 		843F8052264A6F3E00BCBDB8 /* SideMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuController.swift; sourceTree = "<group>"; };
 		843F805B264A6FB300BCBDB8 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		843F8060264A706400BCBDB8 /* StatusBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusBar.swift; sourceTree = "<group>"; };
@@ -380,7 +396,13 @@
 		84A5D0FF2646A67200AAFAB0 /* AddVehicleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVehicleVC.swift; sourceTree = "<group>"; };
 		84A5D11D2646B83900AAFAB0 /* CancelRideVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelRideVC.swift; sourceTree = "<group>"; };
 		84A5D1252646B89D00AAFAB0 /* CancelRideCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelRideCell.swift; sourceTree = "<group>"; };
+		84C13A3928C6024D0032BFA1 /* NoDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoDataView.swift; sourceTree = "<group>"; };
+		84C13A3B28C602610032BFA1 /* NoDataView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoDataView.xib; sourceTree = "<group>"; };
 		84DD717A264957850014AF60 /* RideDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideDetailsVC.swift; sourceTree = "<group>"; };
+		84E4EDFD28C0C8A700536AF1 /* WithdrawVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithdrawVC.swift; sourceTree = "<group>"; };
+		84F0C38A28C5CD8D00EDFBB1 /* Earning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Earning.swift; sourceTree = "<group>"; };
+		84F0C38C28C5D2B400EDFBB1 /* EarningReqModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarningReqModel.swift; sourceTree = "<group>"; };
+		84F0C38E28C5DC5100EDFBB1 /* BaseResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseResponseModel.swift; sourceTree = "<group>"; };
 		8808C4B226F071FA004B8518 /* RateAndReviewReqModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateAndReviewReqModel.swift; sourceTree = "<group>"; };
 		8808C4B526F07283004B8518 /* RateAndReviewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RateAndReviewModel.swift; sourceTree = "<group>"; };
 		8808C4BB26F0741C004B8518 /* RateAndReviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateAndReviewViewModel.swift; sourceTree = "<group>"; };
@@ -515,6 +537,8 @@
 		186CBF4C268355D000245B7C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				840CED5D28C71E4800054214 /* BarChartView.swift */,
+				84C13A3828C6012E0032BFA1 /* NoDataView */,
 				88627B43271EF0CB0094F9D8 /* Notification Request View */,
 				4F94F1502643DB5F00780413 /* navigationCommonView */,
 			);
@@ -819,7 +843,6 @@
 				885DF0F326F35728008242AE /* No Data Found Cell */,
 				18720F5D2681BABD008EE191 /* LocationService.swift */,
 				4F94F1CD2643FEE500780413 /* AppInfo.swift */,
-				81891D9C264FDA1B00E8741E /* MSBBarChart */,
 				4F94F1A02643DB7500780413 /* Validation */,
 				4F94F14B2643DB5F00780413 /* Enum */,
 				4F94F1632643DB5F00780413 /* Themes */,
@@ -881,19 +904,12 @@
 			isa = PBXGroup;
 			children = (
 				4F94F11E2643D76500780413 /* Main.storyboard */,
+				842E3B2F28C0BFB100E0A8FF /* Earning.storyboard */,
 				4F94F1232643D76700780413 /* LaunchScreen.storyboard */,
 				547D83D5265A500E00887C9C /* Chat.storyboard */,
 				547D83D7265A502A00887C9C /* Login.storyboard */,
 			);
 			path = StoryBoards;
-			sourceTree = "<group>";
-		};
-		81891D9C264FDA1B00E8741E /* MSBBarChart */ = {
-			isa = PBXGroup;
-			children = (
-				81891D9F264FDA1B00E8741E /* MSBBarChartView.swift */,
-			);
-			path = MSBBarChart;
 			sourceTree = "<group>";
 		};
 		81891DA32651887C00E8741E /* Arrived Rides Steps */ = {
@@ -920,11 +936,21 @@
 		81A5538C264BC56D00698413 /* Earnings */ = {
 			isa = PBXGroup;
 			children = (
-				81A5538D264BC5A600698413 /* EarningViewController.swift */,
-				81A5538F264BC5CF00698413 /* TodayEarningChildViewController.swift */,
-				81A55391264BC5DD00698413 /* WeeklyEarningChildViewController.swift */,
+				8424A04F28C1CDBC007F4B38 /* WithdrawHistory */,
+				84E4EDFC28C0C84F00536AF1 /* Earnings */,
+				84E4EDFD28C0C8A700536AF1 /* WithdrawVC.swift */,
+				8424A05428C1D13F007F4B38 /* WithdrawHistoryVC.swift */,
 			);
 			path = Earnings;
+			sourceTree = "<group>";
+		};
+		8424A04F28C1CDBC007F4B38 /* WithdrawHistory */ = {
+			isa = PBXGroup;
+			children = (
+				8424A05028C1CDEF007F4B38 /* WithdrawHistoryCell.swift */,
+				8424A05128C1CDEF007F4B38 /* WithdrawHistoryCell.xib */,
+			);
+			path = WithdrawHistory;
 			sourceTree = "<group>";
 		};
 		843F8057264A6F4700BCBDB8 /* SideMenu */ = {
@@ -983,6 +1009,33 @@
 				8867A71C26F1CF4000049490 /* CancelReasonPopUpVC.swift */,
 			);
 			path = CancelRide;
+			sourceTree = "<group>";
+		};
+		84C13A3828C6012E0032BFA1 /* NoDataView */ = {
+			isa = PBXGroup;
+			children = (
+				84C13A3928C6024D0032BFA1 /* NoDataView.swift */,
+				84C13A3B28C602610032BFA1 /* NoDataView.xib */,
+			);
+			path = NoDataView;
+			sourceTree = "<group>";
+		};
+		84E4EDFC28C0C84F00536AF1 /* Earnings */ = {
+			isa = PBXGroup;
+			children = (
+				81A5538D264BC5A600698413 /* EarningViewController.swift */,
+				81A5538F264BC5CF00698413 /* TodayEarningChildViewController.swift */,
+				81A55391264BC5DD00698413 /* WeeklyEarningChildViewController.swift */,
+			);
+			path = Earnings;
+			sourceTree = "<group>";
+		};
+		84F0C38928C5CD5E00EDFBB1 /* Earning */ = {
+			isa = PBXGroup;
+			children = (
+				84F0C38A28C5CD8D00EDFBB1 /* Earning.swift */,
+			);
+			path = Earning;
 			sourceTree = "<group>";
 		};
 		8803055A2701E84200FF0294 /* DatePicker PopUp */ = {
@@ -1174,6 +1227,7 @@
 				881AF8A526E9E86700BC3C2D /* Update Basic Profile Info */,
 				883C9E6B26E8EC3800FA1778 /* Update Bank Info */,
 				883C9E6A26E8EC2B00FA1778 /* Update Docs */,
+				84F0C38C28C5D2B400EDFBB1 /* EarningReqModel.swift */,
 			);
 			path = "Request Models";
 			sourceTree = "<group>";
@@ -1329,6 +1383,7 @@
 		889E09FC26E63D9300333AEA /* Response Models */ = {
 			isa = PBXGroup;
 			children = (
+				84F0C38928C5CD5E00EDFBB1 /* Earning */,
 				88367A20270C460B0034D5F1 /* Chat */,
 				885DF0E126F313DF008242AE /* Past Booking History */,
 				8867A71026F1B74A00049490 /* Cancel Trip Reasons */,
@@ -1338,6 +1393,8 @@
 				881AF8C226EA2DD900BC3C2D /* DutyStatus */,
 				881AF8B526EA2C3300BC3C2D /* CurrentBooking */,
 				889E09FD26E63D9D00333AEA /* Manufacturer List */,
+				84F0C38E28C5DC5100EDFBB1 /* BaseResponseModel.swift */,
+				840CED5F28C761E800054214 /* WithdrawInfo.swift */,
 			);
 			path = "Response Models";
 			sourceTree = "<group>";
@@ -1487,7 +1544,10 @@
 				81891DB1265E74B300E8741E /* CancelRideView.xib in Resources */,
 				185DEEDD2668DBD7008BA95C /* PersonalDocumentCell.xib in Resources */,
 				880CA7972716B8FE0077CAC7 /* GoogleService-Info.plist in Resources */,
+				84C13A3C28C602610032BFA1 /* NoDataView.xib in Resources */,
+				842E3B3028C0BFDD00E0A8FF /* Earning.storyboard in Resources */,
 				4F94F1C62643E72800780413 /* UFL.txt in Resources */,
+				8424A05328C1CDEF007F4B38 /* WithdrawHistoryCell.xib in Resources */,
 				4F94F1BE2643E72800780413 /* Ubuntu-Medium.ttf in Resources */,
 				4F94F1722643DB5F00780413 /* navigationCommonView.xib in Resources */,
 				884961272727C2CF00ABD917 /* ChatShimmer.xib in Resources */,
@@ -1731,6 +1791,7 @@
 				185DEEDF2669113B008BA95C /* WaitingForApprovalVC.swift in Sources */,
 				4F1A76372644FC67003F00CF /* LoginViewController.swift in Sources */,
 				18E2E139267223570054E351 /* OtpVC.swift in Sources */,
+				8424A05528C1D13F007F4B38 /* WithdrawHistoryVC.swift in Sources */,
 				1865CF68267C767600379A40 /* apiPaths.swift in Sources */,
 				84DD717B264957850014AF60 /* RideDetailsVC.swift in Sources */,
 				8808C4C026F0BB6D004B8518 /* VerifyCustomerReqModel.swift in Sources */,
@@ -1743,17 +1804,19 @@
 				885DF0EA26F31424008242AE /* PastBookingResModel.swift in Sources */,
 				187B8435267B5BA100D3BFDA /* Themes.swift in Sources */,
 				186EC9362696F2A300314717 /* OtpModel.swift in Sources */,
+				840CED5E28C71E4800054214 /* BarChartView.swift in Sources */,
 				187B8415267B5B1000D3BFDA /* CardModel.swift in Sources */,
 				88367A23270C46260034D5F1 /* chatHistoryDatum.swift in Sources */,
 				8808C4C526F0C1AB004B8518 /* VerifyCustomerModel.swift in Sources */,
 				4F94F17F2643DB5F00780413 /* UISearchbar+Extension.swift in Sources */,
 				883C9E6D26E8EC6900FA1778 /* UpdateBankInfoReqModel.swift in Sources */,
 				4F94F17E2643DB5F00780413 /* UITextField+Extension.swift in Sources */,
-				81891DA1264FDA1B00E8741E /* MSBBarChartView.swift in Sources */,
 				885DF0EF26F31424008242AE /* PastBookingResDriverVehicleInfo.swift in Sources */,
 				843F806C264A706400BCBDB8 /* Preferences.swift in Sources */,
 				81891DB4265E880600E8741E /* ChatViewController.swift in Sources */,
 				4F94F1852643DB5F00780413 /* customTextField.swift in Sources */,
+				84F0C38D28C5D2B400EDFBB1 /* EarningReqModel.swift in Sources */,
+				84F0C38B28C5CD8D00EDFBB1 /* Earning.swift in Sources */,
 				1865CF66267C767600379A40 /* UrlServiceConstant.swift in Sources */,
 				4F94F1812643DB5F00780413 /* UICollectionViewCell+Extension.swift in Sources */,
 				1865CF93267C795100379A40 /* Enums.swift in Sources */,
@@ -1765,6 +1828,7 @@
 				1865CFB1267C7D4400379A40 /* Validators.swift in Sources */,
 				84A5D09D2646876F00AAFAB0 /* EditProfileVC.swift in Sources */,
 				8867A71426F1B75900049490 /* cancelReasonModel.swift in Sources */,
+				84F0C38F28C5DC5100EDFBB1 /* BaseResponseModel.swift in Sources */,
 				1871C8B62685B1CC00D4D17D /* DummyVC.swift in Sources */,
 				4F94F17B2643DB5F00780413 /* UITableViewCell+Extension.swift in Sources */,
 				185DEEDC2668DBD7008BA95C /* PersonalDocumentCell.swift in Sources */,
@@ -1796,6 +1860,7 @@
 				8476070B264909500019CE1F /* SettingCell.swift in Sources */,
 				1865CF69267C767600379A40 /* UploadMediaModel.swift in Sources */,
 				1865CF9F267C7A3200379A40 /* AppTheme_FontColor.swift in Sources */,
+				840CED6028C761E800054214 /* WithdrawInfo.swift in Sources */,
 				4F94F1732643DB5F00780413 /* UIColor+Extension.swift in Sources */,
 				187B8439267B64EB00D3BFDA /* Utilities.swift in Sources */,
 				4F94F16E2643DB5F00780413 /* Fonts.swift in Sources */,
@@ -1807,13 +1872,16 @@
 				187B841F267B5B2B00D3BFDA /* RegisterViewModel.swift in Sources */,
 				883C9E7026E8EE5100FA1778 /* BankInfoViewModel.swift in Sources */,
 				885DF0EB26F31424008242AE /* PastBookingResDatum.swift in Sources */,
+				84C13A3A28C6024D0032BFA1 /* NoDataView.swift in Sources */,
 				847607062648FC340019CE1F /* SettingVC.swift in Sources */,
 				187197FE2684B91F00B4DAAF /* ForgotPasswordVC1.swift in Sources */,
 				81A55392264BC5DD00698413 /* WeeklyEarningChildViewController.swift in Sources */,
 				4F94F1702643DB5F00780413 /* Colors.swift in Sources */,
 				81891DA72652DD9800E8741E /* IncomingRideRequestView.swift in Sources */,
+				84E4EDFE28C0C8A700536AF1 /* WithdrawVC.swift in Sources */,
 				187B843B267B65E900D3BFDA /* userDefaults+Extension.swift in Sources */,
 				4F1A763A26450E78003F00CF /* SignUpVC.swift in Sources */,
+				8424A05228C1CDEF007F4B38 /* WithdrawHistoryCell.swift in Sources */,
 				843F806A264A706400BCBDB8 /* StatusBar.swift in Sources */,
 				881AF8A726E9E88B00BC3C2D /* UpdateBasicInfoReqModel.swift in Sources */,
 				187B8413267B5B1000D3BFDA /* InitModel.swift in Sources */,

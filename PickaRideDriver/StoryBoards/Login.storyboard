@@ -1904,7 +1904,7 @@ Number</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LSi-qE-jNg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-748" y="54"/>
+            <point key="canvasLocation" x="564" y="54"/>
         </scene>
         <!--Forgot PasswordVC-->
         <scene sceneID="TmT-wL-qKI">

@@ -50,7 +50,7 @@ class MenuViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        SideMenuController.preferences.basic.enableRubberEffectWhenPanning = false
         isDarkModeEnabled = SideMenuController.preferences.basic.position == .under
         configureView()
         NotificationCenter.default.removeObserver(self, name: NotificationRefreshSideMenu, object: nil)
@@ -223,7 +223,7 @@ extension MenuViewController: UITableViewDelegate, UITableViewDataSource
             
         } else if strCellItemTitle == MyType.Earnings.value
         {
-            let controller = AppStoryboard.Main.instance.instantiateViewController(withIdentifier: EarningViewController.storyboardID)
+            let controller = AppStoryboard.Earning.instance.instantiateViewController(withIdentifier: EarningViewController.storyboardID)
             homeVC?.navigationController?.pushViewController(controller, animated: true)
             
         }
@@ -249,11 +249,9 @@ extension MenuViewController: UITableViewDelegate, UITableViewDataSource
             let controller = AppStoryboard.Main.instance.instantiateViewController(withIdentifier: SettingVC.storyboardID)
             homeVC?.navigationController?.pushViewController(controller, animated: true)
         }
-        //        else if strCellItemTitle == MyType.Help.value {
-        //            let vc : DummyVC = DummyVC.instantiate(fromAppStoryboard: .Main)
-        //            vc.strTitle = "Help"
-        //            homeVC?.navigationController?.pushViewController(vc, animated: true)
-        //        }
+        else if strCellItemTitle == MyType.withdraw.value {
+            homeVC?.navigationController?.pushViewController(WithdrawHistoryVC.newInstance, animated: true)
+        }
     }
 }
 class sideCell:UITableViewCell{
@@ -262,7 +260,7 @@ class sideCell:UITableViewCell{
 }
 
 enum MyType{
-    case MyRides,Earnings,Account,MyRating,withdraw,Privacy,Help,Logout
+    case MyRides, Earnings, Account, MyRating, withdraw, Privacy, Help, Logout
     
     var value:String{
         switch self{

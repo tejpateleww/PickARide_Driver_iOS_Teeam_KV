@@ -290,4 +290,25 @@ extension String{
         return reversed ? mask + suffix(n) : prefix(n) + mask
     }
     
+    func toCurrencyString() -> String {
+        return Double(self)?.toCurrencyString() ?? ""
+    }
+    
+}
+
+
+extension Double {
+    func toCurrencyString() -> String {
+        let currencyFormatter = NumberFormatter()
+        currencyFormatter.usesGroupingSeparator = true
+        currencyFormatter.numberStyle = .currency
+        currencyFormatter.currencySymbol = SingletonClass.sharedInstance.currency
+        //currencyFormatter.locale = Locale(identifier: "en_ZA")
+        let priceString = currencyFormatter.string(from: NSNumber(value: self))!
+        return priceString
+    }
+
+    func timeStampToDate() -> Date? {
+        return Date(timeIntervalSince1970: self)
+    }
 }

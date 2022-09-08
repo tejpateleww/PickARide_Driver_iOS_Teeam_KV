@@ -203,6 +203,9 @@ extension MyRidesVC : UITableViewDelegate,UITableViewDataSource {
         switch tableView {
         
         case self.tblMyRides:
+            guard arrRides.isEmpty == false else {
+                return
+            }
             if self.selectedMyRideState == 0 {
                 let vc : RideDetailsVC = RideDetailsVC.instantiate(fromAppStoryboard: .Main)
                 vc.isFromPast = true

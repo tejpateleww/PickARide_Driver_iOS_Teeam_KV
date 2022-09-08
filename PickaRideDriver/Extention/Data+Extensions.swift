@@ -15,6 +15,13 @@ enum DateFormatInputType: String {
     case yyyyMMdd = "yyyy-MM-dd"
     case ddMMyyyy = "dd-MM-yyyy"
     case onlyDateType_3 = "MM-dd-yyyy"
+    
+    func getDate(from string: String) -> Date? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = rawValue
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        return dateFormatter.date(from: string)
+    }
 }
 
 enum DateFormatOutputType: String {
@@ -31,6 +38,13 @@ enum DateFormatOutputType: String {
     case onlyNameOfDay = "EEEE"
     case MonthNameWithYear = "MMM YYYY"
     case MonthDateYear = "MMM d" //"MMM d, yyyy"
+    
+    func getString(from date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = rawValue
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        return dateFormatter.string(from: date)
+    }
 }
 
 extension Data {
@@ -112,6 +126,12 @@ extension Date {
         dateFormatter.dateFormat = DateFormatOutputType.standardFullDate.rawValue
         dateFormatter.locale = Locale(identifier: "en_US_POSIX")
          return dateFormatter.string(from: self)
+    }
+    var fullDateDayFormate: String? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "E, d MMM; yy"
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        return dateFormatter.string(from: self).replacingOccurrences(of: ";", with: "'")
     }
     
     var endOfWeek: Date? {

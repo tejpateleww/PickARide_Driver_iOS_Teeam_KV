@@ -38,6 +38,19 @@ class BaseVC: UIViewController, UIGestureRecognizerDelegate{
     
     func setNavigationBarInViewController (controller : UIViewController,naviColor : UIColor, naviTitle : String, leftImage : String , rightImages : [String], isTranslucent : Bool, CommonViewTitles : [String], isTwoLabels:Bool, isDisableBack:Bool = false, leftimageLeftAllign : Double = 0)
     {
+        
+        if #available(iOS 13.0, *) {
+            let appearance = UINavigationBarAppearance()
+            if isTranslucent {
+                appearance.configureWithTransparentBackground()
+            } else {
+                appearance.configureWithOpaqueBackground()
+            }
+            appearance.shadowColor = .clear
+            controller.navigationController?.navigationBar.standardAppearance = appearance
+            controller.navigationController?.navigationBar.scrollEdgeAppearance = appearance
+        }
+        
         UIApplication.shared.statusBarStyle = .lightContent
         controller.navigationController?.isNavigationBarHidden = false
         controller.navigationController?.navigationBar.isOpaque = false
@@ -46,6 +59,8 @@ class BaseVC: UIViewController, UIGestureRecognizerDelegate{
         
         controller.navigationController?.navigationBar.barTintColor = naviColor;
         controller.navigationController?.navigationBar.tintColor = colors.white.value;
+        
+        
         
    //     controller.navigationController?.navigationBar.frame = CGRect(x: 0, y: 0, width: (controller.navigationController?.navigationBar.frame.size.width)!, height: 48)
         if naviTitle == NavTitles.Home.value {

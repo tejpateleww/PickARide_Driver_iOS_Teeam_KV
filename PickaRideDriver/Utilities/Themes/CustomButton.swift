@@ -23,6 +23,10 @@ class themeButton : UIButton{
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        setupUI()
+    }
+    
+    func setupUI() {
         if isRound{
             self.layer.cornerRadius = self.frame.height/2
         }else{
@@ -50,12 +54,10 @@ class themeButton : UIButton{
         }else{
             self.titleLabel?.font = CustomFont.regular.returnFont(Font_Size)
         }
+        
+        titleLabel?.adjustsFontSizeToFitWidth = true
     }
-    
-//    override func layoutSubviews() {
-//        super.layoutSubviews()
-//    }
-    
+
     func addShadow(){
         let shadowPath = UIBezierPath(rect: self.bounds)
         self.layer.masksToBounds = false

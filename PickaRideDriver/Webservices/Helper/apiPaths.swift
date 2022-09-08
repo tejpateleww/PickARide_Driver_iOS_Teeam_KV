@@ -113,11 +113,10 @@ enum ApiKey: String {
     case transferMoneyToMobileNum             = "transfer_money_with_mobile_no"
     case transferMoneyToBank                  = "transfer_money_to_bank"
     case walletHistory                        = "wallet_history"
-    
-    
-    
-    
-    
+    case earning                              = "driver_earning"
+    case withdrawMoney                        = "withdraw_money"
+    case withdrawHistory                      = "withdraw_history"
+
     case socialCheckExists                    = "social_login"
     case updateProfile                        = "profile_update"
     

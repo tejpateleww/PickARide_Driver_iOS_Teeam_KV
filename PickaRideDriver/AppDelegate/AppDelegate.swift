@@ -198,6 +198,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
         appDel.navigateToMainLogin()
     }
     
+    static func triggerHapticFeedback(_ notificationType: UINotificationFeedbackGenerator.FeedbackType) {
+        UINotificationFeedbackGenerator().notificationOccurred(notificationType)
+    }
 }
 
 

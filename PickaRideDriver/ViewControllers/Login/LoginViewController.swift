@@ -41,6 +41,10 @@ class LoginViewController: UIViewController {
         txtEmailOrPhoneNumber.autocapitalizationType = .none
         let _ = self.getLocation()
         self.txtPassword.delegate = self
+       
+        txtEmailOrPhoneNumber.text = "9658231475"
+        txtPassword.text = "12345678"
+      
     }
     
     override func viewWillAppear(_ animated: Bool) {

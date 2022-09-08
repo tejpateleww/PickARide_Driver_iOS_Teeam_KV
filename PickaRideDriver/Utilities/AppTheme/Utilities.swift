@@ -372,7 +372,7 @@ class Utilities:NSObject{
         }
     }
     
-    class func showHUD() {
+    class func showHUD(backgroundColor: UIColor = .clear) {
         MKProgress.config.hudType = .radial
         MKProgress.config.hudColor = .clear
         MKProgress.config.width = 65.0
@@ -381,7 +381,7 @@ class Utilities:NSObject{
         MKProgress.config.cornerRadius = 16.0
         MKProgress.config.circleBorderColor = themeColor
         MKProgress.config.circleBorderWidth = 3.0
-        MKProgress.config.backgroundColor = .clear
+        MKProgress.config.backgroundColor = backgroundColor
         MKProgress.show()
     }
     class func hideHUD() {

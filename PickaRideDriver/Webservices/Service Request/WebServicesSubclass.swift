@@ -187,68 +187,34 @@ class WebServiceSubClass{
         }
     }
     
+    class func getEarning(isDaily: Bool, completion: @escaping (Bool, String, BaseResponseModel<EarningInfo>?, Any) -> Void) {
+       // var startDate = ""
+       // var endDate = ""
+        let type = isDaily ? "daily" : "weekly"
+        /*let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let todaysDate = Date()
+        if isDaily {
+            let dateStr = dateFormatter.string(from: todaysDate)
+            startDate = dateStr
+            endDate = dateStr
+        } else {
+            endDate = dateFormatter.string(from: todaysDate)
+            let fromDate = Calendar.current.date(byAdding: .day, value: -7, to: todaysDate)
+            startDate = dateFormatter.string(from: fromDate ?? Date())
+            
+        }*/
+        let requestModel = EarningReqModel(type: type)
+        URLSessionRequestManager.makePostRequest(urlString: ApiKey.earning.rawValue,
+                                                 requestModel: requestModel,
+                                                 responseModel: BaseResponseModel<EarningInfo>.self,
+                                                 completion: completion)
+    }
     
-    
-    //----------------//
-    
-    //    class func InitApi(keyPath : String , completion: @escaping (Bool,InitResponseModel?,Any) -> ()) {
-    //        URLSessionRequestManager.makeGetRequest(urlString: keyPath, responseModel: InitResponseModel.self) { (status, response, error) in
-    //            completion(status, response, error)
-    //        }
-    //    }
-    //
-    //    class func GetCountryList(keyPath : String , completion: @escaping (Bool,CountryDataResponseModel?,Any) -> ()){
-    //        URLSessionRequestManager.makeGetRequest(urlString: keyPath, responseModel: CountryDataResponseModel.self) { (status, response, error) in
-    //            completion(status, response, error)
-    //        }
-    //    }
-    //
-    //    class func Logout(keyPath : String , completion: @escaping (Bool,LogoutReponseModel?,Any) -> ()){
-    //        URLSessionRequestManager.makeGetRequest(urlString: keyPath, responseModel: LogoutReponseModel.self) { (status, response, error) in
-    //            completion(status, response, error)
-    //        }
-    //    }
-    //
-    //    class func RegisterToGetOTP(reqModel : RegisterOTPRequestModel , completion: @escaping (Bool,RegisterOTPResponseModel?,Any) -> ()){
-    //        URLSessionRequestManager.makePostRequest(urlString: ApiKey.registerOTP.rawValue, requestModel: reqModel, responseModel: RegisterOTPResponseModel.self) { (status, response, error) in
-    //            completion(status, response, error)
-    //        }
-    //    }
-    //
-    //    class func FinalRegistration(reqModel : RegisterFinalRequestModel , completion: @escaping (Bool,RegisterFinal?,Any) -> ()){
-    //        URLSessionRequestManager.makePostRequest(urlString: ApiKey.register.rawValue, requestModel: reqModel, responseModel: RegisterFinal.self) { (status, response, error) in
-    //            completion(status, response, error)
-    //        }
-    //    }
-    //
-    //    class func AddCard(reqModel : AddCardRequestModel , completion: @escaping (Bool,CardListResponseModel?,Any) -> ()){
-    //        URLSessionRequestManager.makePostRequest(urlString: ApiKey.addCard.rawValue, requestModel: reqModel, responseModel: CardListResponseModel.self) { (status, response, error) in
-    //            completion(status, response, error)
-    //        }
-    //    }
-    //
-    //    class func CardList(reqModel : CommonUserIdRequestModel , completion: @escaping (Bool,CardListResponseModel?,Any) -> ()){
-    //        URLSessionRequestManager.makePostRequest(urlString: ApiKey.cardlist.rawValue, requestModel: reqModel, responseModel: CardListResponseModel.self) { (status, response, error) in
-    //            completion(status, response, error)
-    //        }
-    //    }
-    //
-    //    class func addMonettoWallet(reqModel : AddMoneyRequestModel , completion: @escaping (Bool,AddMoneyResponseModel?,Any) -> ()){
-    //        URLSessionRequestManager.makePostRequest(urlString: ApiKey.addMoney.rawValue, requestModel: reqModel, responseModel: AddMoneyResponseModel.self) { (status, response, error) in
-    //            completion(status, response, error)
-    //        }
-    //    }
-    //
-    //    class func walletHistory(reqModel : WalletHistoryRequestModel , completion: @escaping (Bool,WalletHistoryListModel?,Any) -> ()){
-    //        URLSessionRequestManager.makePostRequest(urlString: ApiKey.walletHistory.rawValue, requestModel: reqModel, responseModel: WalletHistoryListModel.self) { (status, response, error) in
-    //            completion(status, response, error)
-    //        }
-    //    }
-    //
-    //    class func WalletToMobileNum(reqModel : walletToMobileNumReqModel , completion: @escaping (Bool,AddMoneyResponseModel?,Any) -> ()){
-    //        URLSessionRequestManager.makePostRequest(urlString: ApiKey.transferMoneyToMobileNum.rawValue, requestModel: reqModel, responseModel: AddMoneyResponseModel.self) { (status, response, error) in
-    //            completion(status, response, error)
-    //        }
-    //    }
-    
+    class func getWithdrawHistory( completion: @escaping (Bool,String,BaseResponseModel<[WithdrawInfo]>?,Any) -> Void) {
+        let url = "\(ApiKey.withdrawHistory.rawValue)/\(SingletonClass.sharedInstance.UserId)"
+        URLSessionRequestManager.makeGetRequest(urlString: url,
+                                                responseModel: BaseResponseModel<[WithdrawInfo]>.self,
+                                                completion: completion)
+    }
 }
