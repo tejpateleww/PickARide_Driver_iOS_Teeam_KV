@@ -187,6 +187,12 @@ class WebServiceSubClass{
         }
     }
     
+    static func getDispatcherChatHistory(dispatcherId: String,
+                                         completion: @escaping (Bool,String,chatHistoryModel?,Any) -> Void) {
+        let model = DispatcherChatReq(driver_id: SingletonClass.sharedInstance.UserId, dispatcher_id: dispatcherId)
+        URLSessionRequestManager.makePostRequest(urlString: ApiKey.dispatcherChatHistory.rawValue, requestModel: model, responseModel: chatHistoryModel.self, completion: completion)
+    }
+    
     class func getEarning(isDaily: Bool, completion: @escaping (Bool, String, BaseResponseModel<EarningInfo>?, Any) -> Void) {
        // var startDate = ""
        // var endDate = ""

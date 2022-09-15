@@ -91,7 +91,7 @@ enum ApiKey: String {
     case acceptBookLaterRequest               = "accept_book_later_request"
     case chatHistory                          = "chat_history/"
     case sendMessage                          = "send_message/"
-    
+    case dispatcherChatHistory                = "dispatcher_chat_history"
     
     case register                             = "register"
     case vehicleTypeManufacturerList          = "vehicle_type_manufacturer_list"
@@ -145,6 +145,4 @@ enum SocketKeys: String {
     case changeDutyWithDate                       = "change_duty_with_date"
     //Chat
     case SendMessage                              = "send_message"
-    case ReceiverMessage                          = "receive_message"
-    
 }

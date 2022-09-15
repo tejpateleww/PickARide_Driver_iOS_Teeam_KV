@@ -105,3 +105,6 @@ class RequestModel
     
 }
 
+struct DispatcherChatReq: Encodable {
+    let driver_id, dispatcher_id: String
+}

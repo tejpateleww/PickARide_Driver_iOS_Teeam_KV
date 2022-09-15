@@ -46,7 +46,7 @@ extension ChatViewController{
     //MARK:- Active Socket Methods
     func allChatSocketOnMethods() {
         onSocketConnectUser()
-        onSocket_SendMessage()
+      //  onSocket_SendMessage()
         onSocket_ReceiveMessage()
     }
     
@@ -54,7 +54,7 @@ extension ChatViewController{
     func ChatSocketOffMethods() {
         SocketIOManager.shared.socket.off(SocketKeys.ConnectUser.rawValue)
         SocketIOManager.shared.socket.off(SocketKeys.SendMessage.rawValue)
-        SocketIOManager.shared.socket.off(SocketKeys.ReceiverMessage.rawValue)
+        SocketIOManager.shared.socket.off(SocketKeys.SendMessage.rawValue)
     }
     
     //MARK:- On Methods
@@ -89,7 +89,7 @@ extension ChatViewController{
     }
     
     func onSocket_ReceiveMessage(){
-        SocketIOManager.shared.socketCall(for: SocketKeys.ReceiverMessage.rawValue) { (json) in
+        SocketIOManager.shared.socketCall(for: SocketKeys.SendMessage.rawValue) { (json) in
             print(#function, "\n ", json)
             let dict = json[0]
             print(dict)

@@ -24,13 +24,17 @@ class SocketIOManager: NSObject {
     
     override private init() {
         super.init()
-        
-      
-        
+        socket.on(clientEvent: .connect, callback: { _,_ in
+            if let coord = appDel.locationManager.currentLocation?.coordinate {
+                self.emitSocket_UpdateLocation(latitute: coord.latitude, long: coord.longitude)
+            }
+        })
    }
    
     func establishConnection() {
         socket.connect()
+        
+        
     }
     
     func closeConnection() {
@@ -67,6 +71,14 @@ class SocketIOManager: NSObject {
 //        print (description, ": \(json)")
 
         return (true, json)
+    }
+    
+    func emitSocket_UpdateLocation(latitute:Double,long:Double){
+        let param = ["driver_id" : SingletonClass.sharedInstance.UserId ,
+                     "lat" : latitute ,
+                     "lng" : long] as [String : Any]
+        print(param)
+        SocketIOManager.shared.socketEmit(for: SocketKeys.updateDriverLocation.rawValue, with: param)
     }
    
 }

@@ -31,6 +31,7 @@ class ChatViewController: BaseVC {
     }
     var chatViewModel = ChatViewModel()
     var currentBookingModel : CurrentBookingDatum?
+    var dispatcherId: String?
     var arrayChatHistory = [chatHistoryDatum]()
     var filterListArr : [chatHistoryDatum] = [chatHistoryDatum]()
 //    var filterListArr : [String: [chatHistoryDatum]] = [String(): [chatHistoryDatum]()]
@@ -86,15 +87,18 @@ class ChatViewController: BaseVC {
             reqModel.message = self.txtviewComment.text ?? ""
             reqModel.sender_id = SingletonClass.sharedInstance.UserId
             reqModel.sender_type = "driver"
-            reqModel.receiver_id = self.currentBookingModel?.customerId ?? ""
-            reqModel.receiver_type = "customer"
+            reqModel.receiver_id = dispatcherId ?? self.currentBookingModel?.customerId ?? ""
+            if dispatcherId == nil {
+                reqModel.receiver_type = "customer"
+            } else {
+                reqModel.receiver_type = "dispatcher"
+            }
             reqModel.booking_id = self.currentBookingModel?.id ?? ""
-            
             let param = reqModel.generatPostParams()
             if SocketIOManager.shared.socket.status == .connected {
                 self.emitSocket_SendMessage(param: param)
             }
-//            appendMessage()
+            self.txtviewComment.text = ""
            
         }
     }
@@ -147,11 +151,16 @@ class ChatViewController: BaseVC {
     
     func setSenderProfileInfo(){
         self.navigationItem.titleView = vwNavBar
+        if dispatcherId == nil {
+            let custName = (self.currentBookingModel?.customerInfo?.firstName)! + " " + (self.currentBookingModel?.customerInfo?.lastName)!
+            self.lblName.text = custName
+            let NumberPlate = "\(self.currentBookingModel?.driverVehicleInfo?.plateNumber ?? "") - \(self.currentBookingModel?.driverVehicleInfo?.vehicleTypeManufacturerName ?? "") \(self.currentBookingModel?.driverVehicleInfo?.vehicleTypeModelName ?? "")"
+            self.lblInfo.text = NumberPlate
+        } else {
+            self.lblName.text = "Chat Support"
+            self.lblInfo.text = ""
+        }
         
-        let custName = (self.currentBookingModel?.customerInfo?.firstName)! + " " + (self.currentBookingModel?.customerInfo?.lastName)!
-        self.lblName.text = custName
-        let NumberPlate = "\(self.currentBookingModel?.driverVehicleInfo?.plateNumber ?? "") - \(self.currentBookingModel?.driverVehicleInfo?.vehicleTypeManufacturerName ?? "") \(self.currentBookingModel?.driverVehicleInfo?.vehicleTypeModelName ?? "")"
-        self.lblInfo.text = NumberPlate
         
         self.navBtnProfile.setImage(UIImage(named: "DummayUserPlaceHolder"), for: .normal)
     }
@@ -384,9 +393,14 @@ extension ChatViewController : UITableViewDelegate, UITableViewDataSource{
 extension ChatViewController{
     
     func callChatHistoryAPI(){
-        self.chatViewModel.ChatCV = self
-        let Id = self.currentBookingModel?.id ?? ""
-        self.chatViewModel.webserviceGetChatHistoryAPI(strBookingID: Id)
+        if let dispatcherId = self.dispatcherId {
+            self.chatViewModel.ChatCV = self
+            chatViewModel.webserviceGetDispatcherChatHistoryAPI(dispatcherId: dispatcherId)
+        } else {
+            self.chatViewModel.ChatCV = self
+            let Id = self.currentBookingModel?.id ?? ""
+            self.chatViewModel.webserviceGetChatHistoryAPI(strBookingID: Id)
+        }
     }
     
 }

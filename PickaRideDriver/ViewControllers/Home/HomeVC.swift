@@ -72,7 +72,7 @@ class HomeVC: BaseVC {
         self.handleRideFlow(state: RideState.None)
         self.PrepareView()
         
-
+        appDel.locationManager.delegate = self
         
 
 //        self.vwMap.delegate = self
@@ -96,14 +96,20 @@ class HomeVC: BaseVC {
         let chatSupportButton = themeButton(type: .system)
         chatSupportButton.isthemeBg = true
         chatSupportButton.isMedium = true
-        chatSupportButton.contentEdgeInsets = UIEdgeInsets(top: 10, left: 20, bottom: 10, right: 30)
+        chatSupportButton.contentEdgeInsets = UIEdgeInsets(top: 8, left: 10, bottom: 8, right: 20)
         chatSupportButton.titleEdgeInsets.right = -10
         chatSupportButton.titleEdgeInsets.left = 10
         chatSupportButton.setTitle("Chat Support", for: .normal)
         chatSupportButton.setImage(UIImage(named: "ic_chat"), for: .normal)
         chatSupportButton.setupUI()
-        chatSupportButton.sizeToFit()
+        chatSupportButton.addTarget(self, action: #selector(chatSupportTapped), for: .touchUpInside)
         self.navigationItem.titleView = chatSupportButton
+    }
+    
+    @objc private func chatSupportTapped() {
+        let vc : ChatViewController = ChatViewController.instantiate(fromAppStoryboard: .Chat)
+        vc.dispatcherId = SingletonClass.sharedInstance.UserProfilData?.dispatcherId
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     func setNavWithoutSOS(){
@@ -398,7 +404,9 @@ class HomeVC: BaseVC {
 
             
             //Call this method to draw path on map
-            self.drawPath(from: polyLineString)
+            DispatchQueue.main.async {
+                self.drawPath(from: polyLineString)
+            }
         })
         task.resume()
     }
@@ -425,42 +433,21 @@ class HomeVC: BaseVC {
         if(self.DriverLocMarker == nil){
             self.DriverLocMarker = GMSMarker(position: self.oldCoordinate)
             self.DriverLocMarker?.icon = UIImage(named: "car")
+           
             self.DriverLocMarker?.map = self.vwMap
         }
         let newCoordinate: CLLocationCoordinate2D = CLLocationCoordinate2DMake(CLLocationDegrees(SingletonClass.sharedInstance.latitude), CLLocationDegrees(SingletonClass.sharedInstance.longitude))
-        self.moveMent?.arCarMovement(marker: self.DriverLocMarker!, oldCoordinate: self.oldCoordinate, newCoordinate: newCoordinate, mapView: self.vwMap, bearing: Float(0))
-        self.oldCoordinate = newCoordinate
-        
+        if oldCoordinate != nil {
+            CATransaction.begin()
+            CATransaction.setValue(2, forKey: kCATransactionAnimationDuration)
+        }
         let camera = GMSCameraPosition.camera(withLatitude: newCoordinate.latitude, longitude: newCoordinate.longitude, zoom: 17)
         self.vwMap.animate(to: camera)
-        
-        self.updateTravelledPath(currentLoc: newCoordinate)
-        
-        //Find Distance Logic
-        //        let location: CLLocation?
-        //        if(self.currentBookingModel?.status == "traveling"){
-        //            location = CLLocation(latitude: Double(self.currentBookingModel?.dropoffLat ?? "0.0") ?? 0.0, longitude: Double(self.currentBookingModel?.dropoffLng ?? "0.0") ?? 0.0)
-        //        }else{
-        //            location = CLLocation(latitude: Double(self.currentBookingModel?.pickupLat ?? "0.0") ?? 0.0, longitude: Double(self.currentBookingModel?.pickupLng ?? "0.0") ?? 0.0)
-        //        }
-        //
-        //        let Current = CLLocation(latitude: SingletonClass.sharedInstance.latitude, longitude: SingletonClass.sharedInstance.longitude)
-        //        let distanceInMeters = location?.distance(from: Current)
-        //        if(distanceInMeters! <= 300){
-        //            if(distanceInMeters! <= 50){
-        //                if(self.currentBookingModel?.status == "traveling"){
-        //                    Utilities.displayAlert("You're at DropOff Location \n(50 meters)")
-        //                }else{
-        //                    Utilities.displayAlert("You're at Pickup Location \n(50 meters)")
-        //                }
-        //            }
-        //            if(!self.acceptedRideDetailsView.btnSubmit.isUserInteractionEnabled){
-        //                Utilities.displayAlert("You're near pick Location \n(300 meters)")
-        //                self.acceptedRideDetailsView.btnSubmit.isUserInteractionEnabled = true
-        //                self.acceptedRideDetailsView.btnSubmit.alpha = 1
-        //            }
-        //        }
-        
+        self.moveMent?.arCarMovement(marker: self.DriverLocMarker!, oldCoordinate: self.oldCoordinate, newCoordinate: newCoordinate, mapView: self.vwMap, bearing: Float(0))
+        if oldCoordinate != nil {
+            CATransaction.commit()
+        }
+        self.oldCoordinate = newCoordinate
     }
     
     //MARK: - update TravelledPath Methods
@@ -752,7 +739,7 @@ extension HomeVC : AcceptedRideDetailsViewDelgate{
                                           pickup_lng: (self.currentBookingModel?.status == "traveling") ? Double(self.currentBookingModel?.dropoffLng ?? "0.0") ?? 0.0 : Double(self.currentBookingModel?.pickupLng ?? "0.0") ?? 0.0)
             
         }
-        self.setupTrackingMarker()
+        // self.setupTrackingMarker()
     }
     
     func onHandleMap() {
@@ -841,10 +828,20 @@ extension HomeVC : CancelTripReasonDelgate{
 extension HomeVC : ARCarMovementDelegate{
     func arCarMovementMoved(_ marker: GMSMarker) {
         
-        self.DriverLocMarker = nil
+       /* self.DriverLocMarker = nil
         self.DriverLocMarker = marker
-        self.DriverLocMarker?.map = self.vwMap
+        self.DriverLocMarker?.map = self.vwMap*/
     }
     
 }
 
+extension HomeVC: LocationServiceDelegate {
+    
+    func tracingLocation(currentLocation: CLLocation) {
+        setupTrackingMarker()
+    }
+    
+    func tracingLocationDidFailWithError(error: Error) {
+        
+    }
+}

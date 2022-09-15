@@ -365,6 +365,7 @@ class RegisterData : Codable {
     var verify : String?
     var walletBalance : String?
     var xApiKey : String?
+    var dispatcherId: String?
     
     enum CodingKeys: String, CodingKey {
         case accountHolderName = "account_holder_name"
@@ -405,6 +406,7 @@ class RegisterData : Codable {
         case verify = "verify"
         case walletBalance = "wallet_balance"
         case xApiKey = "x-api-key"
+        case dispatcherId = "dispatcher_id"
     }
     
     required init(from decoder: Decoder) throws {
@@ -447,6 +449,7 @@ class RegisterData : Codable {
         verify = try values.decodeIfPresent(String.self, forKey: .verify)
         walletBalance = try values.decodeIfPresent(String.self, forKey: .walletBalance)
         xApiKey = try values.decodeIfPresent(String.self, forKey: .xApiKey)
+        dispatcherId = try? values.decode(String.self, forKey: .dispatcherId)
     }
     
 }
