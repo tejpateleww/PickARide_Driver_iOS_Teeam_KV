@@ -150,6 +150,8 @@
 		84A5D1002646A67200AAFAB0 /* AddVehicleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A5D0FF2646A67200AAFAB0 /* AddVehicleVC.swift */; };
 		84A5D11E2646B83900AAFAB0 /* CancelRideVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A5D11D2646B83900AAFAB0 /* CancelRideVC.swift */; };
 		84A5D1262646B89D00AAFAB0 /* CancelRideCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A5D1252646B89D00AAFAB0 /* CancelRideCell.swift */; };
+		84AFA07828D8837E00F6E9A1 /* RideHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AFA07628D8837E00F6E9A1 /* RideHistoryCell.swift */; };
+		84AFA07928D8837E00F6E9A1 /* RideHistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84AFA07728D8837E00F6E9A1 /* RideHistoryCell.xib */; };
 		84C13A3A28C6024D0032BFA1 /* NoDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C13A3928C6024D0032BFA1 /* NoDataView.swift */; };
 		84C13A3C28C602610032BFA1 /* NoDataView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84C13A3B28C602610032BFA1 /* NoDataView.xib */; };
 		84DD717B264957850014AF60 /* RideDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DD717A264957850014AF60 /* RideDetailsVC.swift */; };
@@ -396,6 +398,8 @@
 		84A5D0FF2646A67200AAFAB0 /* AddVehicleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVehicleVC.swift; sourceTree = "<group>"; };
 		84A5D11D2646B83900AAFAB0 /* CancelRideVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelRideVC.swift; sourceTree = "<group>"; };
 		84A5D1252646B89D00AAFAB0 /* CancelRideCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelRideCell.swift; sourceTree = "<group>"; };
+		84AFA07628D8837E00F6E9A1 /* RideHistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideHistoryCell.swift; sourceTree = "<group>"; };
+		84AFA07728D8837E00F6E9A1 /* RideHistoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RideHistoryCell.xib; sourceTree = "<group>"; };
 		84C13A3928C6024D0032BFA1 /* NoDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoDataView.swift; sourceTree = "<group>"; };
 		84C13A3B28C602610032BFA1 /* NoDataView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoDataView.xib; sourceTree = "<group>"; };
 		84DD717A264957850014AF60 /* RideDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideDetailsVC.swift; sourceTree = "<group>"; };
@@ -1011,6 +1015,15 @@
 			path = CancelRide;
 			sourceTree = "<group>";
 		};
+		84AFA07528D8836000F6E9A1 /* RideHistoryCell */ = {
+			isa = PBXGroup;
+			children = (
+				84AFA07628D8837E00F6E9A1 /* RideHistoryCell.swift */,
+				84AFA07728D8837E00F6E9A1 /* RideHistoryCell.xib */,
+			);
+			path = RideHistoryCell;
+			sourceTree = "<group>";
+		};
 		84C13A3828C6012E0032BFA1 /* NoDataView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1322,6 +1335,7 @@
 		885DF0F826F360E7008242AE /* My Rides */ = {
 			isa = PBXGroup;
 			children = (
+				84AFA07528D8836000F6E9A1 /* RideHistoryCell */,
 				8476070F26491B660019CE1F /* MyRidesVC.swift */,
 				84DD717A264957850014AF60 /* RideDetailsVC.swift */,
 				848FE832264A38E4008B6586 /* RideReceiptDetailsVC.swift */,
@@ -1560,6 +1574,7 @@
 				4F94F1C12643E72800780413 /* Ubuntu-Bold.ttf in Resources */,
 				81891DA92652DDC200E8741E /* IncomingRideRequestView.xib in Resources */,
 				18C89EAA26A542490083D5C3 /* Settings.bundle in Resources */,
+				84AFA07928D8837E00F6E9A1 /* RideHistoryCell.xib in Resources */,
 				4F94F1BF2643E72800780413 /* Ubuntu-LightItalic.ttf in Resources */,
 				81891DAD2654468A00E8741E /* AcceptedRideDetailsView.xib in Resources */,
 				8120ED2F264C2407004E0206 /* Localizable.strings in Resources */,
@@ -1765,6 +1780,7 @@
 				843F8072264A706400BCBDB8 /* BasicTransitionAnimator.swift in Sources */,
 				186EC9342696E04C00314717 /* SplashVC.swift in Sources */,
 				4F94F1CE2643FEE500780413 /* AppInfo.swift in Sources */,
+				84AFA07828D8837E00F6E9A1 /* RideHistoryCell.swift in Sources */,
 				1865CF6B267C767600379A40 /* Webservices+Extension.swift in Sources */,
 				18C89EAF26A5810B0083D5C3 /* AppDelegate+PushNotification.swift in Sources */,
 				885B66D526EB72B300A281FC /* NewRequestSocketClient.swift in Sources */,
@@ -2117,7 +2133,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = PickaRideDriver/PickaRideDriver.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.0.1;
+				CURRENT_PROJECT_VERSION = 1.0.3;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 8L8KR4GKUG;
 				INFOPLIST_FILE = PickaRideDriver/Info.plist;
@@ -2142,7 +2158,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = PickaRideDriver/PickaRideDriver.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.0.1;
+				CURRENT_PROJECT_VERSION = 1.0.3;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 8L8KR4GKUG;
 				INFOPLIST_FILE = PickaRideDriver/Info.plist;

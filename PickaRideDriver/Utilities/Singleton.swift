@@ -30,6 +30,12 @@ class SingletonClass: NSObject
     var latitude : Double!
     var longitude : Double!
     
+    var sosNumber: String = "000000000"
+    
+    var currencySymbol: String {
+        UserDefaults.standard.getUserData()?.currencySymbol ?? ""
+    }
+    
 //    var currentLat = Double()
 //    var currentLong = Double()
     
@@ -51,12 +57,12 @@ class SingletonClass: NSObject
     }
     
     func clearSingletonClass() {
-        SingletonClass.sharedInstance.UserId = ""
-        SingletonClass.sharedInstance.Api_Key = ""
-        SingletonClass.sharedInstance.UserProfilData = nil
-        SingletonClass.sharedInstance.LoginRegisterUpdateData = nil
+        UserId = ""
+        Api_Key = ""
+        UserProfilData = nil
+        LoginRegisterUpdateData = nil
+        balance = nil
     }
-    
-    var currency = "$"
+    var balance: String?
 }
 

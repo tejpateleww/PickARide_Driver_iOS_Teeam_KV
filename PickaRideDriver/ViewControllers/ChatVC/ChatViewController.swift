@@ -306,8 +306,8 @@ extension ChatViewController : UITableViewDelegate, UITableViewDataSource{
         if(self.arrayChatHistory.count > 0){
         
             let lblDate = UILabel(frame: CGRect(x: 0, y: 0, width: 150, height: 30))
-            lblDate.backgroundColor = UIColor.lightGray
-            lblDate.textColor = UIColor.white
+            lblDate.backgroundColor = UIColor.white
+            lblDate.textColor = UIColor.lightGray
             lblDate.layer.cornerRadius = lblDate.frame.height/2.0
             lblDate.layer.masksToBounds = true
             

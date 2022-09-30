@@ -66,7 +66,7 @@ class WeeklyEarningChildViewController: UIViewController {
     private func setupView() {
         self.view.backgroundColor = themeColorOffWhite
         viewRideDetails.backgroundColor = themeColorOffGrey
-        lblDate.text = Date().fullDateDayFormate
+        lblDate.text = "--"
         viewRideDetails.backgroundColor = themeColorOffGrey
         /*lblRideFares.text = ConstantString.LABEL_TITLE_EARNING_RIDE_FARE
         lblTaxiFee.text = ConstantString.LABEL_TITLE_EARNING_TAXI_FEE
@@ -88,6 +88,7 @@ class WeeklyEarningChildViewController: UIViewController {
         lblOnlineHours.text = info.totalHours
         lblCardRides.text = info.cardTotal
         lblAmount.text = info.totalEarning
+        lblDate.text = "From \(info.startDate ?? "--") To \(info.endDate ?? "--")"
         setChartData(info.graphData)
     }
     

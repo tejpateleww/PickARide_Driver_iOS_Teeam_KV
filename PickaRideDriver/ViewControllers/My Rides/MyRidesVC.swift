@@ -59,7 +59,8 @@ class MyRidesVC: BaseVC {
     }
     
     func registerNIB(){
-        tblMyRides.register(UINib(nibName:NoDataTableViewCell.reuseIdentifier, bundle: nil), forCellReuseIdentifier: NoDataTableViewCell.reuseIdentifier)
+        tblMyRides.register(UINib(nibName: NoDataTableViewCell.reuseIdentifier, bundle: nil), forCellReuseIdentifier: NoDataTableViewCell.reuseIdentifier)
+        tblMyRides.register(UINib(nibName: RideHistoryCell.className, bundle: nil), forCellReuseIdentifier: RideHistoryCell.cellId)
     }
     
     func setRideTableView() {
@@ -113,70 +114,9 @@ extension MyRidesVC : UITableViewDelegate,UITableViewDataSource {
         case self.tblMyRides:
             
             if (self.arrRides.count != 0){
-                let cell:MyRideCell = self.tblMyRides.dequeueReusableCell(withIdentifier: MyRideCell.reuseIdentifier, for: indexPath)as! MyRideCell
-                let dict = self.arrRides[indexPath.row]
-                let BookingStatus = dict.bookingInfo?.status ?? ""
-                let BookingType = dict.bookingInfo?.bookingType ?? ""
-                
-                let timestamp: TimeInterval = (self.selectedMyRideState == 0) ? Double(dict.bookingInfo?.acceptTime ?? "") ?? 0.0 : (self.selectedMyRideState == 1) ? Double(dict.bookingInfo?.bookingTime ?? "") ?? 0.0 : Double(dict.bookingInfo?.pickupDateTime ?? "") ?? 0.0
-                let date = Date(timeIntervalSince1970: timestamp)
-                let formatedDate = date.timeAgoSinceDate(isForNotification: false)
-                cell.lblDate.text = formatedDate
-                
-                if self.selectedMyRideState == 0 {
-                    cell.stackButtons.isHidden = true
-                    cell.stackButtonsHeight.constant = 0
-                    if(BookingStatus == "canceled"){
-                        cell.imgStatus.image = #imageLiteral(resourceName: "Cancel")
-                    }else if(BookingStatus == "completed"){
-                        cell.imgStatus.image = #imageLiteral(resourceName: "Completed")
-                    }
-                }else if self.selectedMyRideState == 1{
-                    cell.stackButtons.isHidden = true
-                    cell.stackButtonsHeight.constant = 0
-                    if(BookingType == "book_now"){
-                        cell.imgStatus.image = #imageLiteral(resourceName: "OnGoing")
-                    }else if(BookingType == "book_later"){
-                        cell.imgStatus.image = #imageLiteral(resourceName: "Pending")
-                    }
-                    
-                }else{
-                    cell.stackButtons.isHidden = false
-                    cell.stackButtonsHeight.constant = 40
-                    if(BookingStatus == "accepted"){
-                        cell.btnReject.isHidden = false
-                        cell.btnReject.setTitle("CANCEL", for: .normal)
-                        cell.btnAccept.isHidden = true
-                    }else{
-                        cell.btnAccept.isHidden = false
-                        cell.btnReject.isHidden = true
-                    }
-                    cell.imgStatus.image = #imageLiteral(resourceName: "Pending")
-                }
-                
-                if self.selectedMyRideState == 0 {
-                    cell.lblAmount.text = "$\(dict.bookingInfo?.driverAmount ?? "0")"
-                }else if self.selectedMyRideState == 1{
-                    cell.lblAmount.text = "$\(dict.bookingInfo?.estimatedFare ?? "0")"
-                }else{
-                    cell.lblAmount.text = "$\(dict.bookingInfo?.estimatedFare ?? "0")"
-                }
-                
-                cell.lblAddress.text = dict.bookingInfo?.pickupLocation ?? ""
-                let custName = (dict.bookingInfo?.customerFirstName)! + " " + (dict.bookingInfo?.customerLastName)!
-                cell.lblRideName.text = custName
-                
-                
-                cell.AcceptTapped = {
-                    print("Accept called....")
-                    self.callAcceptBookingRideAPI(Id: dict.bookingInfo?.id ?? "")
-                }
-                cell.RejectTapped = {
-                    print("Reject called....")
-                }
-                
+                let cell = tableView.dequeueReusableCell(withIdentifier: RideHistoryCell.cellId, for: indexPath) as! RideHistoryCell
+                cell.setValues(arrRides[indexPath.row], rideState: selectedMyRideState)
                 return cell
-                
             }else{
                 let NoDatacell = self.tblMyRides.dequeueReusableCell(withIdentifier: "NoDataTableViewCell", for: indexPath) as! NoDataTableViewCell
                 return NoDatacell

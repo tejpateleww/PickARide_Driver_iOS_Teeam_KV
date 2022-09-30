@@ -16,7 +16,8 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var lblEmail: themeLabel!
     @IBOutlet weak var lblSignIN: loginScreenLabel!
     @IBOutlet weak var lblWelcomeBack: loginScreenLabel!
-    @IBOutlet weak var btnForgotPassword: loginScreenButton!
+    @IBOutlet weak
+    var btnForgotPassword: loginScreenButton!
     @IBOutlet weak var btnSignIN: themeButton!
     @IBOutlet weak var lblOR: loginScreenLabel!
     @IBOutlet weak var lblDontHaveanAccount: loginScreenLabel!
@@ -41,10 +42,10 @@ class LoginViewController: UIViewController {
         txtEmailOrPhoneNumber.autocapitalizationType = .none
         let _ = self.getLocation()
         self.txtPassword.delegate = self
-       
-        txtEmailOrPhoneNumber.text = "9658231475"
-        txtPassword.text = "12345678"
-      
+#if targetEnvironment(simulator)
+        txtEmailOrPhoneNumber.text = "9727528777"
+        txtPassword.text = "vyas1313"
+#endif
     }
     
     override func viewWillAppear(_ animated: Bool) {

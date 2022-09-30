@@ -117,8 +117,6 @@ extension HomeVC{
     func onSocket_ForwardBookingRequest(){
         SocketIOManager.shared.socketCall(for: SocketKeys.forwardBookingRequest.rawValue) { (json) in
             print(#function, "\n ", json)
-            print(json)
-            
             let dict = NewBookingResModel.init(fromJson: json[0])
             self.newBookingResModel = dict.bookingInfo
             self.handleRideFlow(state: RideState.NewRequest)

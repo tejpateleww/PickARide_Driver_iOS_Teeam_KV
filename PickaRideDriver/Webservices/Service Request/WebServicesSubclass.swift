@@ -196,7 +196,7 @@ class WebServiceSubClass{
     class func getEarning(isDaily: Bool, completion: @escaping (Bool, String, BaseResponseModel<EarningInfo>?, Any) -> Void) {
        // var startDate = ""
        // var endDate = ""
-        let type = isDaily ? "daily" : "weekly"
+        let type = isDaily ? "today" : "weekly"
         /*let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
         let todaysDate = Date()
@@ -222,5 +222,11 @@ class WebServiceSubClass{
         URLSessionRequestManager.makeGetRequest(urlString: url,
                                                 responseModel: BaseResponseModel<[WithdrawInfo]>.self,
                                                 completion: completion)
+    }
+    
+    class func withdrawMoney(amount: String, completion: @escaping (Bool,String, WithdrawMoneyResponse?, Any) -> Void) {
+        let requestModel = WithdrawMoneyRequestModel(driver_id: SingletonClass.sharedInstance.UserId, amount: amount)
+        URLSessionRequestManager.makePostRequest(urlString: ApiKey.withdrawMoney.rawValue, requestModel: requestModel, responseModel: WithdrawMoneyResponse.self, completion: completion)
+        
     }
 }

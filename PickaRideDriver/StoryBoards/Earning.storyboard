@@ -153,7 +153,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <segue destination="e87-m1-4m6" kind="show" id="hUQ-CK-cP6"/>
+                                            <segue destination="e87-m1-4m6" kind="show" identifier="to_withdraw_money" id="hUQ-CK-cP6"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Omc-HB-pmH" customClass="themeButton" customModule="PickaRideDriver" customModuleProvider="target">

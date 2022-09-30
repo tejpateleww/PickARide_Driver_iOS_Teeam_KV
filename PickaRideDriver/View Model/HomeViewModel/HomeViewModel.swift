@@ -20,7 +20,7 @@ class HomeViewModel{
                 self.homeVC?.strDutyStatusfromCurrentBooking = response?.duty ?? ""
                 self.homeVC?.changeDutyStatusBasedOnCurrentBooking()
             }else{
-                Toast.show(title: UrlConstant.Failed, message: apiMessage, state: .failure)
+                Utilities.ShowAlert(OfMessage: apiMessage)
             }
         }
     }
@@ -61,7 +61,7 @@ class HomeViewModel{
         WebServiceSubClass.VerifyCustomerAPI(reqModel: reqModel) { (status, apiMessage, response, error) in
             self.homeVC?.acceptedRideDetailsView.btnSubmit.hideLoading()
             if status{
-                Utilities.displayAlert(response?.otp ?? "")
+                // Utilities.displayAlert(response?.otp ?? "")
                 self.homeVC?.strArrivedOtp = response?.otp ?? ""
                 self.homeVC?.acceptedRideDetailsView.btnSubmit.setTitle("START RIDE", for: .normal)
                 self.homeVC?.acceptedRideDetailsView.VerifyUserOTP()

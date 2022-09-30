@@ -8,6 +8,7 @@
 import UIKit
 import SDWebImage
 import Cosmos
+import GoogleMaps
 
 protocol AcceptBookingReqDelgate {
     func onAcceptBookingReq()
@@ -17,26 +18,22 @@ class RideDetailsVC: BaseVC {
     
     //MARK: -IBActions
     @IBOutlet weak var stackviewRecieptBottom: NSLayoutConstraint!
-    @IBOutlet weak var stackviewRecieptTop: NSLayoutConstraint!
     @IBOutlet weak var stackviewRecieptHeight: NSLayoutConstraint!
     @IBOutlet weak var vwMap: UIView!
     @IBOutlet weak var lblTime: RideDetailLabel!
-    @IBOutlet weak var imgMapView: UIImageView!
     @IBOutlet weak var MyOfferView: UIView!
     @IBOutlet weak var lblRidigo: RideDetailLabel!
-//    @IBOutlet weak var lblCarName: RideDetailLabel!
-    @IBOutlet weak var lblAddress: RideDetailLabel!
     @IBOutlet weak var lblPrice: RideDetailLabel!
     @IBOutlet weak var lblPickupLocation: RideDetailLabel!
     @IBOutlet weak var lblDestLocation: RideDetailLabel!
     @IBOutlet weak var imgProfilw: ProfileView!
     @IBOutlet weak var lblRideCustomerName: RideDetailLabel!
     @IBOutlet weak var btnRepeateRide: UIButton!
-    @IBOutlet weak var btnReceipt: RidesDetailsButton!
     @IBOutlet weak var ratingVw: CosmosView!
     @IBOutlet weak var btnAccept: themeButton!
     @IBOutlet weak var btnReject: CancelButton!
     @IBOutlet weak var imgStatus: UIImageView!
+    lazy var mapView = GMSMapView(frame: .zero)
     
     //MARK: - Variables
     var isFromUpcomming : Bool = false
@@ -57,8 +54,8 @@ class RideDetailsVC: BaseVC {
     //MARK: - Custom methods
     func prepareView(){
         self.setNavigationBarInViewController(controller: self, naviColor: colors.white.value, naviTitle: "Ride Details", leftImage: NavItemsLeft.back.value, rightImages: [NavItemsRight.none.value], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
-        
-        let BookingStatus = self.PastBookingData?.bookingInfo?.status ?? ""
+        setMap()
+        let BookingStatus = self.PastBookingData?.bookingInfo?.status?.rawValue ?? ""
         let BookingType = self.PastBookingData?.bookingInfo?.bookingType ?? ""
         
         if(self.isFromPast){
@@ -67,11 +64,9 @@ class RideDetailsVC: BaseVC {
             self.btnRepeateRide.isHidden = true
             if(BookingStatus == "canceled"){
                 self.imgStatus.image = #imageLiteral(resourceName: "Cancel")
-                self.btnReceipt.isHidden = true
                 self.stackviewRecieptHeight.constant = 0
             }else if(BookingStatus == "completed"){
                 self.imgStatus.image = #imageLiteral(resourceName: "Completed")
-                self.btnReceipt.isHidden = false
                 self.stackviewRecieptHeight.constant = 40
             }
             
@@ -84,7 +79,6 @@ class RideDetailsVC: BaseVC {
             self.btnReject.setTitle("CANCEL", for: .normal)
             self.btnReject.isHidden = (BookingType == "book_later") ? true : false
             self.stackviewRecieptHeight.constant = (BookingType == "book_later") ? 0 : 40
-            self.btnReceipt.isHidden = true
             self.btnAccept.isHidden = true
             self.btnRepeateRide.isHidden = true
             self.imgStatus.image = #imageLiteral(resourceName: "OnGoing")
@@ -105,10 +99,8 @@ class RideDetailsVC: BaseVC {
                 self.btnReject.isHidden = true
                 self.btnAccept.isHidden = false
             }
-            
-            self.btnReceipt.isHidden = true
             self.btnRepeateRide.isHidden = true
-            self.imgStatus.image = #imageLiteral(resourceName: "Pending")
+            self.imgStatus.image = #imageLiteral(resourceName: "Pending-Status")
             
             let timestamp: TimeInterval =  Double(self.PastBookingData?.bookingInfo?.pickupDateTime ?? "") ?? 0.0
             let date = Date(timeIntervalSince1970: timestamp)
@@ -125,14 +117,13 @@ class RideDetailsVC: BaseVC {
         if(self.PastBookingData != nil){
             
             if(self.isFromPast){
-                self.lblPrice.text = "$\(self.PastBookingData?.bookingInfo?.driverAmount ?? "0")"
+                self.lblPrice.text = self.PastBookingData?.bookingInfo?.driverAmount?.toCurrencyString()
             }else if(self.isFromInprogress){
-                self.lblPrice.text = "$\(self.PastBookingData?.bookingInfo?.estimatedFare ?? "0")"
+                self.lblPrice.text = self.PastBookingData?.bookingInfo?.estimatedFare?.toCurrencyString()
             }else{
-                self.lblPrice.text = "$\(self.PastBookingData?.bookingInfo?.estimatedFare ?? "0")"
+                self.lblPrice.text = self.PastBookingData?.bookingInfo?.estimatedFare?.toCurrencyString()
             }
-            
-            self.lblAddress.text = self.PastBookingData?.bookingInfo?.pickupLocation ?? ""
+         
             self.lblPickupLocation.text = self.PastBookingData?.bookingInfo?.pickupLocation ?? ""
             self.lblDestLocation.text = self.PastBookingData?.bookingInfo?.dropoffLocation ?? ""
             
@@ -147,6 +138,96 @@ class RideDetailsVC: BaseVC {
             
             self.lblRidigo.text = custName
         }
+    }
+    
+    func setMap() {
+        guard let info = self.PastBookingData?.bookingInfo else {
+            return
+        }
+        
+        vwMap.addSubview(mapView)
+        mapView.setAllSideContraints(.zero)
+        guard let pickup = info.pickupCoordinate, let drop = info.dropOffCoordinate else {
+            return
+        }
+        fetchRoute(pickup: pickup, drop: drop)
+        let bounds = GMSCoordinateBounds(coordinate: pickup, coordinate: drop)
+        let cameraWithPadding: GMSCameraUpdate = GMSCameraUpdate.fit(bounds, withPadding: 40.0)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.mapView.animate(with: cameraWithPadding)
+            let pickUpMarker = GMSMarker(position: pickup)
+            pickUpMarker.icon = UIImage(named: "iconCurrentLocPin")
+            pickUpMarker.map = self.mapView
+            let dropOffMarker = GMSMarker(position: drop)
+            dropOffMarker.icon = GMSMarker.themeMarkerImage
+            dropOffMarker.map = self.mapView
+        }
+    }
+    
+    func fetchRoute(pickup: CLLocationCoordinate2D, drop: CLLocationCoordinate2D) {
+        
+        let CurrentLatLong = "\(pickup.latitude),\(pickup.longitude)"
+        let DestinationLatLong = "\(drop.latitude),\(drop.longitude)"
+        let param = "origin=\(CurrentLatLong)&destination=\(DestinationLatLong)&mode=driving&key=\(AppInfo.Google_API_Key)"
+        let url = URL(string: "https://maps.googleapis.com/maps/api/directions/json?\(param)")!
+        
+        let session = URLSession.shared
+        
+        let task = session.dataTask(with: url, completionHandler: {(data, response, error) in
+            
+            guard error == nil else {
+                print(error!.localizedDescription)
+                return
+            }
+            
+            guard let jsonResult = try? JSONSerialization.jsonObject(with: data!, options: .allowFragments) as? [String: Any]?,
+                    let jsonResponse = jsonResult else {
+                print("error in JSONSerialization")
+                return
+            }
+            
+            guard let status = jsonResponse["status"] as? String else {
+                return
+            }
+            
+            if(status == "REQUEST_DENIED" || status == "ZERO_RESULTS"){
+                print("Map Error : \(jsonResponse["error_message"] as? String ?? "REQUEST_DENIED")")
+                return
+            }
+            
+            guard let routes = jsonResponse["routes"] as? [Any] else {
+                return
+            }
+            
+            guard let route = routes[0] as? [String: Any] else {
+                return
+            }
+            
+            // For polyline
+            guard let overview_polyline = route["overview_polyline"] as? [String: Any] else {
+                return
+            }
+            
+            guard let polyLineString = overview_polyline["points"] as? String else {
+                return
+            }
+            
+
+            
+            //Call this method to draw path on map
+            DispatchQueue.main.async {
+                self.drawPath(from: polyLineString)
+            }
+        })
+        task.resume()
+    }
+    
+    func drawPath(from polyStr: String){
+        let path = GMSPath(fromEncodedPath: polyStr)!
+        let polyline = GMSPolyline(path: path)
+        polyline.strokeWidth = 3.0
+        polyline.strokeColor = UIColor.black
+        polyline.map = self.mapView
     }
     
     func shadowView(view : UIView){
@@ -176,12 +257,6 @@ class RideDetailsVC: BaseVC {
     }
     
     //MARK: - Button action methods
-    @IBAction func btnReceiptTap(_ sender: Any) {
-        let vc : RideReceiptDetailsVC = RideReceiptDetailsVC.instantiate(fromAppStoryboard: .Main)
-        vc.PastBookingData = self.PastBookingData
-        self.navigationController?.pushViewController(vc, animated: true)
-    }
-    
     @IBAction func btnRepeatRideTap(_ sender: Any) {
     }
     
@@ -207,5 +282,11 @@ extension RideDetailsVC{
         let reqModel = RidesRequestModel()
         reqModel.bookingId = Id
         self.rideDeatilViewModel.webserviceAcceptBookingRideAPI(reqModel: reqModel)
+    }
+}
+
+extension GMSMarker {
+   static var themeMarkerImage: UIImage {
+        GMSMarker.markerImage(with: ThemeColorEnum.Theme.rawValue)
     }
 }

@@ -38,7 +38,8 @@ class MenuViewController: UIViewController {
     }
     //    var myimgarr = [#imageLiteral(resourceName: "imgHome"),#imageLiteral(resourceName: "imgMyrides"),#imageLiteral(resourceName: "imgPayment"),#imageLiteral(resourceName: "imgNotification"),#imageLiteral(resourceName: "imgSettings"),#imageLiteral(resourceName: "imgAddFrind"),#imageLiteral(resourceName: "imgHelp"),#imageLiteral(resourceName: "imgLogout")]
     var myarray = [MyType]()
-    let mylblarr = [MyType.MyRides.value,MyType.Earnings.value,MyType.Account.value,MyType.MyRating.value,MyType.withdraw.value,MyType.Help.value,MyType.Logout.value]
+    let mylblarr = [MyType.MyRides.value, MyType.Earnings.value,
+                    MyType.Account.value, MyType.Help.value, MyType.Logout.value]
     
     @IBOutlet weak var selectionTableViewHeader: UILabel!
     

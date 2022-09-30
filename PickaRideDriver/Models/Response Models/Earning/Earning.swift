@@ -12,6 +12,7 @@ struct EarningInfo: Codable {
     let totalEarning, totalRide, cardTotal, remainingBalance: String?
     let totalHours: String?
     let graphData: [EarningGraphData]
+    let startDate, endDate: String?
 
     enum CodingKeys: String, CodingKey {
         case totalEarning = "total_earning"
@@ -20,6 +21,8 @@ struct EarningInfo: Codable {
         case remainingBalance = "remaining_balance"
         case totalHours = "total_hours"
         case graphData = "graph_data"
+        case startDate = "start_date"
+        case endDate = "end_date"
     }
     
     init(from decoder: Decoder) throws {
@@ -30,6 +33,8 @@ struct EarningInfo: Codable {
         remainingBalance = try? values.decode(String.self, forKey: .remainingBalance)
         totalHours = try? values.decode(String.self, forKey: .totalHours)
         graphData = (try? values.decode([EarningGraphData].self, forKey: .graphData)) ?? []
+        startDate = try? values.decode(String.self, forKey: .startDate)
+        endDate = try? values.decode(String.self, forKey: .endDate)
     }
 }
 

@@ -302,7 +302,7 @@ extension Double {
         let currencyFormatter = NumberFormatter()
         currencyFormatter.usesGroupingSeparator = true
         currencyFormatter.numberStyle = .currency
-        currencyFormatter.currencySymbol = SingletonClass.sharedInstance.currency
+        currencyFormatter.currencySymbol = SingletonClass.sharedInstance.currencySymbol
         //currencyFormatter.locale = Locale(identifier: "en_ZA")
         let priceString = currencyFormatter.string(from: NSNumber(value: self))!
         return priceString

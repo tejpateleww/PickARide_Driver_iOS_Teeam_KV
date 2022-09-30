@@ -108,3 +108,7 @@ class RequestModel
 struct DispatcherChatReq: Encodable {
     let driver_id, dispatcher_id: String
 }
+
+struct WithdrawMoneyRequestModel: Encodable {
+    let driver_id, amount: String
+}

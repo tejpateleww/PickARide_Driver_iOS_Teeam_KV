@@ -21,14 +21,12 @@ class EarningViewController: BaseVC {
     @IBOutlet weak var viewLeftSeperatorLine: UIView!
     @IBOutlet weak var viewRightSeperatorLine: UIView!
     
-    override func viewDidLoad()
-    {
+    override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
     }
     
-    override func viewDidLayoutSubviews()
-    {
+    override func viewDidLayoutSubviews() {
         viewLeftSeperatorLine.cornerRadius = viewLeftSeperatorLine.frame.size.height / 2
         viewRightSeperatorLine.cornerRadius = viewRightSeperatorLine.frame.size.height / 2
         viewSegmentContainer.addBottomShadow()

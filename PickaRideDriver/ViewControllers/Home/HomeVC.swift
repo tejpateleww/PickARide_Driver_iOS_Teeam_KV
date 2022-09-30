@@ -53,6 +53,7 @@ class HomeVC: BaseVC {
     
     //MARK:- Life cycle methods
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         self.setNavWithSOS()
         self.SocketOnMethods()
         self.startTimer()
@@ -76,6 +77,10 @@ class HomeVC: BaseVC {
         
 
 //        self.vwMap.delegate = self
+    }
+    
+    deinit {
+        print("Freed")
     }
     
     //MARK:- Custom methods

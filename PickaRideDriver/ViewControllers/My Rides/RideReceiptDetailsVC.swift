@@ -63,7 +63,7 @@ class RideReceiptDetailsVC: BaseVC {
     func setupData(){
         self.lblPickUpAddress.text = self.PastBookingData?.bookingInfo?.pickupLocation ?? ""
         self.lblDropOffAddress.text = self.PastBookingData?.bookingInfo?.dropoffLocation ?? ""
-        self.lblTotalEarning.text = self.PastBookingData?.bookingInfo?.driverAmount ?? ""
+        self.lblTotalEarning.text = self.PastBookingData?.bookingInfo?.driverAmount?.toCurrencyString()
         self.tripDistance.text = "\(self.PastBookingData?.bookingInfo?.tripDuration ?? "") min"
         self.tripDistance.text = "\(self.PastBookingData?.bookingInfo?.distance ?? "") mi"
         self.lblTripServiceTYpe.text = self.PastBookingData?.bookingInfo?.vehicleName ?? ""
@@ -74,13 +74,13 @@ class RideReceiptDetailsVC: BaseVC {
         let formatedDate = date.timeAgoSinceDate(isForNotification: false)
         self.lblTripDateTime.text = formatedDate
         
-        self.lblPriceRideFare.text = "$\(self.PastBookingData?.bookingInfo?.baseFare ?? "")"
-        self.lblPriceTaxiFee.text = "$\(self.PastBookingData?.bookingInfo?.companyAmount ?? "")"
-        self.lblPriceTax.text = "$\(self.PastBookingData?.bookingInfo?.tax ?? "")"
-        self.lblPriceTolls.text =  "$\(self.PastBookingData?.bookingInfo?.extraCharge ?? "")"
-        self.lblPriceDiscount.text = "$\(self.PastBookingData?.bookingInfo?.discount ?? "")"
-        self.lblPriceTopUp.text = "$\(self.PastBookingData?.bookingInfo?.tips ?? "")"
-        self.lblPriceYourPayment.text = "$\(self.PastBookingData?.bookingInfo?.driverAmount ?? "")"   
+        self.lblPriceRideFare.text = self.PastBookingData?.bookingInfo?.baseFare?.toCurrencyString()
+        self.lblPriceTaxiFee.text = self.PastBookingData?.bookingInfo?.companyAmount?.toCurrencyString()
+        self.lblPriceTax.text = self.PastBookingData?.bookingInfo?.tax?.toCurrencyString()
+        self.lblPriceTolls.text =  self.PastBookingData?.bookingInfo?.extraCharge?.toCurrencyString()
+        self.lblPriceDiscount.text = self.PastBookingData?.bookingInfo?.discount?.toCurrencyString()
+        self.lblPriceTopUp.text = self.PastBookingData?.bookingInfo?.tips?.toCurrencyString()
+        self.lblPriceYourPayment.text = self.PastBookingData?.bookingInfo?.driverAmount?.toCurrencyString()
     }
     
 }

@@ -96,6 +96,7 @@ class TodayEarningChildViewController: UIViewController {
             Utilities.hideHUD()
             self.info = model?.data
             self.setValue()
+            SingletonClass.sharedInstance.balance = self.info?.remainingBalance
             if status == false {
                 self.showNoData(model?.message ?? "Data not available")
             }

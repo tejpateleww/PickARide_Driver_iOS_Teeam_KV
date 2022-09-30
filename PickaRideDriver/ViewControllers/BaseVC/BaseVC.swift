@@ -134,7 +134,6 @@ class BaseVC: UIViewController, UIGestureRecognizerDelegate{
             if leftImage == NavItemsLeft.back.value {
                 let btnLeft = UIButton(frame: CGRect(x: leftimageLeftAllign, y: 0, width: 44, height: 44))
                 btnLeft.setImage(UIImage.init(named: "nav_back"), for: .normal)
-                btnLeft.layer.setValue(controller, forKey: "controller")
                 btnLeft.addTarget(self, action: #selector(self.btnBackAction), for: .touchUpInside)
                 btnLeft.contentHorizontalAlignment = .left
                 let LeftView = UIView(frame: CGRect(x: 0, y: 0, width: 44, height: 44))
@@ -146,7 +145,6 @@ class BaseVC: UIViewController, UIGestureRecognizerDelegate{
             } else if leftImage == NavItemsLeft.menu.value {
                 let btnLeft = UIButton(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
                 btnLeft.setImage(UIImage.init(named: "ic_menu"), for: .normal)
-                btnLeft.layer.setValue(controller, forKey: "controller")
                 btnLeft.addTarget(self, action: #selector(btMenuAction(_:)), for: .touchUpInside)
                 
                 btnLeft.shadow = true
@@ -167,7 +165,6 @@ class BaseVC: UIViewController, UIGestureRecognizerDelegate{
             } else if leftImage == NavItemsLeft.cancel.value {
                 let btnLeft = UIButton(frame: CGRect(x: -14, y: 0, width: 44, height: 44))
                 btnLeft.setImage(UIImage.init(named: "ic_Cancel"), for: .normal)
-                btnLeft.layer.setValue(controller, forKey: "controller")
                 
                 btnLeft.addTarget(self, action: #selector(self.btnBackAction), for: .touchUpInside)
                 let LeftView = UIView(frame: CGRect(x: 0, y: 0, width: 44, height: 44))
@@ -178,8 +175,6 @@ class BaseVC: UIViewController, UIGestureRecognizerDelegate{
                 controller.navigationItem.leftBarButtonItem = btnLeftBar
             } else if leftImage == NavItemsLeft.cancelWhite.value {
                 let btnLeft = UIButton(frame: CGRect(x: 0, y: 0, width: 44, height: 44))
-                btnLeft.setImage(UIImage.init(named: "ic_cancelWhite"), for: .normal)
-                btnLeft.layer.setValue(controller, forKey: "controller")
                 
                 btnLeft.addTarget(self, action: #selector(self.btnBackAction), for: .touchUpInside)
                 let LeftView = UIView(frame: CGRect(x: 0, y: 0, width: 44, height: 44))
@@ -191,7 +186,6 @@ class BaseVC: UIViewController, UIGestureRecognizerDelegate{
             } else if leftImage == NavItemsLeft.QuestionFalse.value {
                 let btnLeft = UIButton(frame: CGRect(x: 0, y: 0, width: 44, height: 44))
                 btnLeft.setImage(UIImage.init(named: "imgQuestionFalse"), for: .normal)
-                btnLeft.layer.setValue(controller, forKey: "controller")
                 btnLeft.addTarget(self, action: #selector(self.btnBackAction), for: .touchUpInside)
                 btnLeft.contentHorizontalAlignment = .left
                 let LeftView = UIView(frame: CGRect(x: 0, y: 0, width: 44, height: 44))
@@ -220,7 +214,6 @@ class BaseVC: UIViewController, UIGestureRecognizerDelegate{
                     btnLogin.titleLabel?.font = CustomFont.bold.returnFont(18)
                     btnLogin.setTitleColor(colors.submitButtonColor.value, for: .normal)
                     btnLogin.addTarget(self, action: #selector(openLoginVC(_:)), for: .touchUpInside)
-                    btnLogin.layer.setValue(controller, forKey: "controller")
                     viewLogin.addSubview(btnLogin)
 
                 
@@ -236,7 +229,6 @@ class BaseVC: UIViewController, UIGestureRecognizerDelegate{
                     navBtnProfile.setImage(UIImage.init(named: "ic_ProfileEdit"), for: .normal)
                    
                    // btnProfile.addTarget(self, action: #selector(openLoginVC(_:)), for: .touchUpInside)
-                    navBtnProfile.layer.setValue(controller, forKey: "controller")
                     viewProfile.addSubview(navBtnProfile)
                     navBtnProfile.addTarget(self, action: #selector(EditProfileBtn(_:)), for: .touchUpInside)
                     navBtnProfile.layer.shadowColor = colors.black.value.cgColor
@@ -254,9 +246,8 @@ class BaseVC: UIViewController, UIGestureRecognizerDelegate{
                     let btnProfileEdit = UIButton.init()
                     btnProfileEdit.frame = CGRect(x: 0, y: 0, width: 44, height: 44)
                     btnProfileEdit.setImage(UIImage.init(named: "nav_dummy_userImage"), for: .normal)
-                    btnProfileEdit.addTarget(self, action: #selector(EditUserProfile(_:)), for: .touchUpInside)
+                    btnProfileEdit.addTarget(self, action: #selector(profileTapped), for: .touchUpInside)
                    // btnProfile.addTarget(self, action: #selector(openLoginVC(_:)), for: .touchUpInside)
-                    btnProfileEdit.layer.setValue(controller, forKey: "controller")
                     viewProfileEdit.addSubview(btnProfileEdit)
 
 
@@ -273,7 +264,6 @@ class BaseVC: UIViewController, UIGestureRecognizerDelegate{
                     navBtnDone.setTitleColor(colors.submitButtonColor.value, for: .normal)
                    
                    // btnLogin.addTarget(self, action: #selector(openLoginVC(_:)), for: .touchUpInside)
-                    navBtnDone.layer.setValue(controller, forKey: "controller")
                     viewDone.addSubview(navBtnDone)
 
                     let btnRightBar : UIBarButtonItem = UIBarButtonItem.init(customView: viewDone)
@@ -286,9 +276,8 @@ class BaseVC: UIViewController, UIGestureRecognizerDelegate{
                     let btnProfileEdit = UIButton.init()
                     btnProfileEdit.frame = CGRect(x: 0, y: 0, width: 60, height: 30)
                     btnProfileEdit.setImage(UIImage.init(named: "ic_SOSBtn"), for: .normal)
-                    btnProfileEdit.addTarget(self, action: #selector(EditUserProfile(_:)), for: .touchUpInside)
+                    btnProfileEdit.addTarget(self, action: #selector(sosTapped), for: .touchUpInside)
                    // btnProfile.addTarget(self, action: #selector(openLoginVC(_:)), for: .touchUpInside)
-                    btnProfileEdit.layer.setValue(controller, forKey: "controller")
                     viewProfileEdit.addSubview(btnProfileEdit)
 
 
@@ -304,7 +293,6 @@ class BaseVC: UIViewController, UIGestureRecognizerDelegate{
                     btnProfileEdit.setImage(UIImage.init(named: "imgHelp"), for: .normal)
                     btnProfileEdit.addTarget(self, action: #selector(HelpController(_:)), for: .touchUpInside)
                    // btnProfile.addTarget(self, action: #selector(openLoginVC(_:)), for: .touchUpInside)
-                    btnProfileEdit.layer.setValue(controller, forKey: "controller")
                     viewProfileEdit.addSubview(btnProfileEdit)
 
 
@@ -325,7 +313,6 @@ class BaseVC: UIViewController, UIGestureRecognizerDelegate{
 
                     
                     navBtnProfile.addTarget(self, action: #selector(OpenChatUserInfo(_:)), for: .touchUpInside)
-                    navBtnProfile.layer.setValue(controller, forKey: "controller")
                     viewProfile.addSubview(navBtnProfile)
                     navBtnProfile.addTarget(self, action: #selector(EditProfileBtn(_:)), for: .touchUpInside)
                     navBtnProfile.layer.shadowColor = colors.black.value.cgColor
@@ -340,24 +327,6 @@ class BaseVC: UIViewController, UIGestureRecognizerDelegate{
             }
             controller.navigationItem.rightBarButtonItems = arrButtons
         }
-        
-        /*
-        if rightImage != "" {
-            
-            let btnRight = UIButton.init()
-            btnRight.setImage(UIImage.init(named: rightImage), for: .normal)
-            btnRight.layer.setValue(controller, forKey: "controller")
-            
-//            if rightImage == iconWhiteCall {
-                btnRight.addTarget(self, action: #selector(self.btnCallAction), for: .touchUpInside)
-//            }
-            
-            let btnRightBar : UIBarButtonItem = UIBarButtonItem.init(customView: btnRight)
-            btnRightBar.style = .plain
-            controller.navigationItem.rightBarButtonItem = btnRightBar
-            
-        }
-        */
         
     }
     
@@ -401,50 +370,12 @@ class BaseVC: UIViewController, UIGestureRecognizerDelegate{
         }
     }
     
-//    @objc func  EditProfileViewController(_ sender: UIButton?) {
-//        guard let ProfilePage = sender?.layer.value(forKey: "controller") as? ProfileViewController else {
-//            return
-//        }
-//        ProfilePage.EditTapped()
-//    }
-    
-//    @objc func  ShowTickets(_ sender: UIButton?) {
-//        guard let controller = sender?.layer.value(forKey: "controller") as? GenerateTicketVC else {
-//            return
-//        }
-//        let TickelistPage:MyTicketVC = UIViewController.viewControllerInstance(storyBoard: AppStoryboards.Help)
-//        controller.navigationController?.pushViewController(TickelistPage, animated: true)
-//    }
-    
-//    @objc func  SelectPremium(_ sender: UIButton?) {
-////        guard sender == UIButton else {
-////            return
-////        }
-//        self.btnPremium.isSelected = !self.btnPremium.isSelected
-//        self.isPremiumBooking = self.btnPremium.isSelected
-//        if self.btnPremium.isSelected {
-//
-//            let  infoPopup:HeaderWithDescription = UIViewController.viewControllerInstance(storyBoard: AppStoryboards.CustomPopup)
-//            infoPopup.Title = "Premium Search"
-//            infoPopup.Desc = UtilityClass.GetPremiumDesc()
-//        appDel.window?.rootViewController?.present(infoPopup, animated: true, completion: nil)
-//        }
-//
-//    }
-    
+
     @objc func OpenSideMenu(_ sender: UIButton?) {
-      
-//        let controller = sender?.layer.value(forKey: "controller") as? UIViewController
-//        let vc = AppStoryboard.Popup.instance.instantiateViewController(withIdentifier: sideMenuController.storyboardID)
-//        let navController = UINavigationController.init(rootViewController: vc)
-//        navController.modalPresentationStyle = .overFullScreen
-//        navController.navigationController?.modalTransitionStyle = .crossDissolve
-//        controller?.present(navController, animated: false, completion: nil)
+
     }
     @objc func openLoginVC(_ sender: UIButton?) {
-        let controller = sender?.layer.value(forKey: "controller") as? UIViewController
-//        let notifVc = AppStoryboard.Login.instance.instantiateViewController(withIdentifier: NotificationsListVC.storyboardID)
-        controller?.navigationController?.popViewController(animated: true)
+      navigationController?.popViewController(animated: true)
     }
     
     @objc func EditProfileBtn(_ sender: UIButton?){
@@ -457,37 +388,27 @@ class BaseVC: UIViewController, UIGestureRecognizerDelegate{
     }
     
     @objc func OpenNotificationsVC(_ sender: UIButton?) {
-//        let controller = sender?.layer.value(forKey: "controller") as? UIViewController
-//        let notifVc = AppStoryboard.Home.instance.instantiateViewController(withIdentifier: NotificationsListVC.storyboardID)
-//        controller?.navigationController?.pushViewController(notifVc, animated: true)
+
     }
     
     @objc func OpenOtherProfileVC(_ sender: UIButton?) {
-//        let controller = sender?.layer.value(forKey: "controller") as? UIViewController
-//        let notifVc = AppStoryboard.Home.instance.instantiateViewController(withIdentifier: ProfileVC.storyboardID)
-//        controller?.navigationController?.pushViewController(notifVc, animated: true)
+
     }
     
     @objc func OpenChatVC(_ sender: UIButton?) {
-//            let controller = sender?.layer.value(forKey: "controller") as? UIViewController
-//            let chatVc = AppStoryboard.Home.instance.instantiateViewController(withIdentifier: MedicalFollowUpChatVC.storyboardID)
-           // controller?.navigationController?.pushViewController(chatVc, animated: true)
+
         }
     @objc func OpenEditProfileVC(_ sender: UIButton?) {
-//        let controller = sender?.layer.value(forKey: "controller") as? UIViewController
-//        let notifVc = AppStoryboard.Home.instance.instantiateViewController(withIdentifier: ProfileVC.storyboardID)
-//        controller?.navigationController?.pushViewController(notifVc, animated: true)
+
     }
-    @objc func EditUserProfile(_ sender: UIButton?) {
+    
+    @objc func profileTapped() {
         
-//        let rtViewVC = (appDel.window?.rootViewController as! UINavigationController).children
-//        for i in rtViewVC {
-//            if i.isKind(of: EditProfileVC.self) {
-//                let vc:EditProfileVC = i as! EditProfileVC
-////                vc.makeEditProfile(isEditProfile: true)
-//            }
-//        }
-        
+    }
+    
+    @objc func sosTapped() {
+        let sosNumber = SingletonClass.sharedInstance.sosNumber
+        callNumber(phoneNumber: sosNumber)
     }
     
     @objc func HelpController (_ sender: UIButton?)
@@ -509,22 +430,17 @@ class BaseVC: UIViewController, UIGestureRecognizerDelegate{
     
     @objc func DismissViewController (_ sender: UIButton?)
     {
-        let controller = sender?.layer.value(forKey: "controller") as? UIViewController
-        controller?.navigationController?.dismiss(animated: true, completion: nil)
+     
+        navigationController?.dismiss(animated: true, completion: nil)
     }
     
     @objc func poptoViewController (_ sender: UIButton?)
     {
-        let controller = sender?.layer.value(forKey: "controller") as? UIViewController
-        controller?.navigationController?.popViewController(animated: true)
+        navigationController?.popViewController(animated: true)
     }
     @objc func OpenMenuViewController (_ sender: UIButton?)
     {
-       
-//        let controller = sender?.layer.value(forKey: "controller") as? UIViewController
-//        controller?.frostedViewController.view.endEditing(true)
-//        controller?.frostedViewController.presentMenuViewController()
-//                controller?.sideMenuViewController?._presentLeftMenuViewController()
+
     }
     
     @objc func OpenChatUserInfo (_ sender: UIButton?)
@@ -575,8 +491,7 @@ class BaseVC: UIViewController, UIGestureRecognizerDelegate{
     }
     
     @objc func btMenuAction (_ sender: UIButton?) {
-        let controller = sender?.layer.value(forKey: "controller") as? UIViewController
-        controller?.sideMenuController?.revealMenu()
+        sideMenuController?.revealMenu()
         
     }
         func btMenuAction() {
@@ -641,7 +556,6 @@ class PlayerViewController: AVPlayerViewController, UIGestureRecognizerDelegate{
                 btnLeft.setImage(UIImage.init(named: "ic_sideMenu"), for: .normal)
             }
             
-            btnLeft.layer.setValue(controller, forKey: "controller")
             let LeftView = UIView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
             LeftView.addSubview(btnLeft)
             
@@ -653,7 +567,6 @@ class PlayerViewController: AVPlayerViewController, UIGestureRecognizerDelegate{
         if Right{
             let btnRight = UIButton.init()
             btnRight.setImage(UIImage.init(named: "ic_SOSBtn"), for: .normal)
-            btnRight.layer.setValue(controller, forKey: "controller")
             btnRight.addTarget(self, action: #selector(self.EditProfile), for: .touchUpInside)
             
             let btnRightBar : UIBarButtonItem = UIBarButtonItem.init(customView: btnRight)
