@@ -21,7 +21,7 @@ class CurrentBookingDatum : Codable {
         let customerId : String?
         let customerInfo : CurrentBookingCustomerInfo?
         let discount : String?
-        let distance : String?
+        var distance : String?
         let distanceFare : String?
         let driverAmount : String?
         let driverDuty : String?
@@ -56,7 +56,7 @@ class CurrentBookingDatum : Codable {
         let tipsStatus : String?
         let totalDriverEarning : String?
         let totalTrips : String?
-        let tripDuration : String?
+        var tripDuration : String?
         let vehicleType : CurrentBookingVehicleType?
         let vehicleTypeId : String?
         let waitingTime : String?

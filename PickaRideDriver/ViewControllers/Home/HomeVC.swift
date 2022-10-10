@@ -392,6 +392,9 @@ class HomeVC: BaseVC {
             print(duration)
             print(distance)
             DispatchQueue.main.async {
+                self.currentBookingModel?.tripDuration = duration
+                self.currentBookingModel?.distance = distance
+                
                 self.acceptedRideDetailsView.lblTime.text = duration
                 self.acceptedRideDetailsView.lblExtraTime.text = distance
             }
@@ -405,9 +408,7 @@ class HomeVC: BaseVC {
             guard let polyLineString = overview_polyline["points"] as? String else {
                 return
             }
-            
-
-            
+        
             //Call this method to draw path on map
             DispatchQueue.main.async {
                 self.drawPath(from: polyLineString)
@@ -422,6 +423,14 @@ class HomeVC: BaseVC {
         self.polyline.strokeWidth = 3.0
         self.polyline.strokeColor = UIColor.black
         self.polyline.map = self.vwMap
+        
+        if(appDel.timerLocUpdate == nil){
+            if(appDel.timerLocUpdate == nil){
+                DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                    self.startTimer()
+                }
+            }
+        }
     }
     
     func setupTrackingMarker(){
@@ -435,12 +444,13 @@ class HomeVC: BaseVC {
         if(self.oldCoordinate == nil){
             self.oldCoordinate = CLLocationCoordinate2DMake(SingletonClass.sharedInstance.latitude, SingletonClass.sharedInstance.longitude)
         }
+        
         if(self.DriverLocMarker == nil){
             self.DriverLocMarker = GMSMarker(position: self.oldCoordinate)
             self.DriverLocMarker?.icon = UIImage(named: "car")
-           
             self.DriverLocMarker?.map = self.vwMap
         }
+        
         let newCoordinate: CLLocationCoordinate2D = CLLocationCoordinate2DMake(CLLocationDegrees(SingletonClass.sharedInstance.latitude), CLLocationDegrees(SingletonClass.sharedInstance.longitude))
         if oldCoordinate != nil {
             CATransaction.begin()
@@ -453,6 +463,10 @@ class HomeVC: BaseVC {
             CATransaction.commit()
         }
         self.oldCoordinate = newCoordinate
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.3) {
+            self.updateTravelledPath(currentLoc: newCoordinate)
+        }
+        
     }
     
     //MARK: - update TravelledPath Methods
@@ -476,17 +490,22 @@ class HomeVC: BaseVC {
             self.coordinates.append(coord)
         }
         
+        if(self.coordinates.count == 0){
+           return
+        }
+        
         let userLocation = CLLocation(latitude: Double(currentLoc.latitude).rounded(toPlaces: 5), longitude: Double(currentLoc.longitude).rounded(toPlaces: 5))
         let closest = self.coordinates.min(by:{ $0.distance(from: userLocation) < $1.distance(from: userLocation) })
         index = self.coordinates.firstIndex{$0 === closest}!
         
         let Meters = closest?.distance(from: userLocation) ?? 0
         //  print("Distance from closest point---------- \(Meters.rounded(toPlaces: 2)) meters")
-        if(Meters > 300){
+        if(Meters > 100){
             // print("New route ---***---***---**--**--**--**----*****")
             self.oldPoint = nil
             self.newPoint = nil
             self.oldCoordinate = nil
+            self.stopTimer()
             self.setupPickupRoute()
             return
         }
@@ -508,7 +527,7 @@ class HomeVC: BaseVC {
     
     func getAllCoordinate(startPoint:CLLocation, endPoint:CLLocation){
         
-        let yourTotalCoordinates = Double(5) //1 number of coordinates, change it as per your uses
+        let yourTotalCoordinates = Double(15) //1 number of coordinates, change it as per your uses
         let latitudeDiff = startPoint.coordinate.latitude - endPoint.coordinate.latitude //2
         
         let longitudeDiff = startPoint.coordinate.longitude - endPoint.coordinate.longitude //3

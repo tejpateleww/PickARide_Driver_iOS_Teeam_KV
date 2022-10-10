@@ -152,8 +152,8 @@ class AcceptedRideDetailsView: UIView {
         self.imageViewProfile.sd_setImage(with: strURl, placeholderImage: UIImage(named: "nav_dummy_userImage"), options: .refreshCached, completed: nil)
         
         let custName = (self.currentBookingModel?.customerInfo?.firstName)! + " " + (self.currentBookingModel?.customerInfo?.lastName)!
-        self.lblTime.text = "0 min" //"\(self.currentBookingModel?.tripDuration ?? "0") min"
-        self.lblExtraTime.text = "0 km" //"\(self.currentBookingModel?.distance ?? "0") km"
+        self.lblTime.text = "\(self.currentBookingModel?.tripDuration ?? "0")"
+        self.lblExtraTime.text = "\(self.currentBookingModel?.distance ?? "0")"
         self.lblMessage.text = "Picking up \(custName)"
         self.lbDropLocation.text = "\(self.currentBookingModel?.pickupLocation ?? "")"
         
@@ -168,8 +168,8 @@ class AcceptedRideDetailsView: UIView {
         self.imageViewProfile.sd_setImage(with: strURl, placeholderImage: UIImage(named: "nav_dummy_userImage"), options: .refreshCached, completed: nil)
         
         let custName = (self.currentBookingModel?.customerInfo?.firstName)! + " " + (self.currentBookingModel?.customerInfo?.lastName)!
-        self.lblTime.text = "0 min" //"\(self.currentBookingModel?.tripDuration ?? "0") min"
-        self.lblExtraTime.text = "0 km" //"\(self.currentBookingModel?.distance ?? "0") km"
+        self.lblTime.text = "\(self.currentBookingModel?.tripDuration ?? "0")"
+        self.lblExtraTime.text = "\(self.currentBookingModel?.distance ?? "0")"
         self.lblMessage.text = "Dropping up \(custName)"
         self.lbDropLocation.text = "\(self.currentBookingModel?.dropoffLocation ?? "")"
         

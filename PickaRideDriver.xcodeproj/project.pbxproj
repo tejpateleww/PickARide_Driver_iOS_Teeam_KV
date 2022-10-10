@@ -55,6 +55,7 @@
 		18E2E139267223570054E351 /* OtpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E2E138267223570054E351 /* OtpVC.swift */; };
 		18E2E13B267240360054E351 /* RatingAndReviewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E2E13A267240360054E351 /* RatingAndReviewVC.swift */; };
 		18ECF0BC26A5B1AD00B7F1C1 /* UploadDocModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ECF0BB26A5B1AD00B7F1C1 /* UploadDocModel.swift */; };
+		4782305528EC08EF00891FF3 /* Earning.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4782305428EC08EF00891FF3 /* Earning.storyboard */; };
 		4F1A76372644FC67003F00CF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1A76362644FC67003F00CF /* LoginViewController.swift */; };
 		4F1A763A26450E78003F00CF /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1A763926450E78003F00CF /* SignUpVC.swift */; };
 		4F1A763D26450ED6003F00CF /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1A763C26450ED6003F00CF /* BaseVC.swift */; };
@@ -126,7 +127,6 @@
 		8424A05228C1CDEF007F4B38 /* WithdrawHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8424A05028C1CDEF007F4B38 /* WithdrawHistoryCell.swift */; };
 		8424A05328C1CDEF007F4B38 /* WithdrawHistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8424A05128C1CDEF007F4B38 /* WithdrawHistoryCell.xib */; };
 		8424A05528C1D13F007F4B38 /* WithdrawHistoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8424A05428C1D13F007F4B38 /* WithdrawHistoryVC.swift */; };
-		842E3B3028C0BFDD00E0A8FF /* Earning.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 842E3B2F28C0BFB100E0A8FF /* Earning.storyboard */; };
 		843F8053264A6F3E00BCBDB8 /* SideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843F8052264A6F3E00BCBDB8 /* SideMenuController.swift */; };
 		843F805C264A6FB300BCBDB8 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843F805B264A6FB300BCBDB8 /* MenuViewController.swift */; };
 		843F806A264A706400BCBDB8 /* StatusBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843F8060264A706400BCBDB8 /* StatusBar.swift */; };
@@ -297,6 +297,7 @@
 		2365D99843CD5DA3E6579C86 /* Pods_PickaRideDriverTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PickaRideDriverTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2829DD5CEA22E4198B109D0A /* Pods_PickaRideDriver_PickaRideDriverUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PickaRideDriver_PickaRideDriverUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		346F3E876BF629DA2DD488C0 /* Pods_PickaRideDriver.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PickaRideDriver.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4782305428EC08EF00891FF3 /* Earning.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Earning.storyboard; sourceTree = "<group>"; };
 		4F1A76362644FC67003F00CF /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		4F1A763926450E78003F00CF /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		4F1A763C26450ED6003F00CF /* BaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseVC.swift; sourceTree = "<group>"; };
@@ -373,7 +374,6 @@
 		8424A05028C1CDEF007F4B38 /* WithdrawHistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithdrawHistoryCell.swift; sourceTree = "<group>"; };
 		8424A05128C1CDEF007F4B38 /* WithdrawHistoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WithdrawHistoryCell.xib; sourceTree = "<group>"; };
 		8424A05428C1D13F007F4B38 /* WithdrawHistoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithdrawHistoryVC.swift; sourceTree = "<group>"; };
-		842E3B2F28C0BFB100E0A8FF /* Earning.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Earning.storyboard; path = "/Users/admin/PickARide-driver/PickaRideDriver/StoryBoards/Earning.storyboard"; sourceTree = "<absolute>"; };
 		843F8052264A6F3E00BCBDB8 /* SideMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuController.swift; sourceTree = "<group>"; };
 		843F805B264A6FB300BCBDB8 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		843F8060264A706400BCBDB8 /* StatusBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusBar.swift; sourceTree = "<group>"; };
@@ -907,8 +907,8 @@
 		4F94F1C82643F2EB00780413 /* StoryBoards */ = {
 			isa = PBXGroup;
 			children = (
+				4782305428EC08EF00891FF3 /* Earning.storyboard */,
 				4F94F11E2643D76500780413 /* Main.storyboard */,
-				842E3B2F28C0BFB100E0A8FF /* Earning.storyboard */,
 				4F94F1232643D76700780413 /* LaunchScreen.storyboard */,
 				547D83D5265A500E00887C9C /* Chat.storyboard */,
 				547D83D7265A502A00887C9C /* Login.storyboard */,
@@ -1559,7 +1559,6 @@
 				185DEEDD2668DBD7008BA95C /* PersonalDocumentCell.xib in Resources */,
 				880CA7972716B8FE0077CAC7 /* GoogleService-Info.plist in Resources */,
 				84C13A3C28C602610032BFA1 /* NoDataView.xib in Resources */,
-				842E3B3028C0BFDD00E0A8FF /* Earning.storyboard in Resources */,
 				4F94F1C62643E72800780413 /* UFL.txt in Resources */,
 				8424A05328C1CDEF007F4B38 /* WithdrawHistoryCell.xib in Resources */,
 				4F94F1BE2643E72800780413 /* Ubuntu-Medium.ttf in Resources */,
@@ -1580,6 +1579,7 @@
 				8120ED2F264C2407004E0206 /* Localizable.strings in Resources */,
 				4F94F1C32643E72800780413 /* Ubuntu-BoldItalic.ttf in Resources */,
 				4F94F1C02643E72800780413 /* Ubuntu-Regular.ttf in Resources */,
+				4782305528EC08EF00891FF3 /* Earning.storyboard in Resources */,
 				4F94F1202643D76500780413 /* Main.storyboard in Resources */,
 				4F94F1C22643E72800780413 /* Ubuntu-MediumItalic.ttf in Resources */,
 			);
@@ -2133,7 +2133,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = PickaRideDriver/PickaRideDriver.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.0.3;
+				CURRENT_PROJECT_VERSION = 1.0.4;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 8L8KR4GKUG;
 				INFOPLIST_FILE = PickaRideDriver/Info.plist;
@@ -2158,7 +2158,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = PickaRideDriver/PickaRideDriver.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.0.3;
+				CURRENT_PROJECT_VERSION = 1.0.4;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 8L8KR4GKUG;
 				INFOPLIST_FILE = PickaRideDriver/Info.plist;

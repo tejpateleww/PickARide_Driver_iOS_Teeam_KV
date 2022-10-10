@@ -84,8 +84,7 @@ class LoginViewController: UIViewController {
         self.txtPassword.isSecureTextEntry = sender.isSelected
     }
     
-    @IBAction func signUP(_ sender: Any)
-    {
+    @IBAction func signUP(_ sender: Any) {
         self.navigationController?.navigationBar.isHidden = false
         let controller = AppStoryboard.Login.instance.instantiateViewController(withIdentifier: SignUpVC.storyboardID)
         self.navigationController?.pushViewController(controller, animated: true)
@@ -93,7 +92,7 @@ class LoginViewController: UIViewController {
 //        self.navigationController?.pushViewController(controller, animated: true)
     }
     
-    @IBAction func btnSignInClicked(_ sender: Any){
+    @IBAction func btnSignInClicked(_ sender: Any) {
         if isValidForLogin(){
             if self.getLocation(){
                 self.callLoginApi()
@@ -101,8 +100,7 @@ class LoginViewController: UIViewController {
         }
     }
     
-    @IBAction func ForgotPassword(_ sender: UIButton)
-    {
+    @IBAction func ForgotPassword(_ sender: UIButton) {
         if sender.tag == 1{
             sender.isSelected = !sender.isSelected
         }else{
@@ -110,6 +108,7 @@ class LoginViewController: UIViewController {
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
+    
     func getLocation() -> Bool {
         if SingletonClass.sharedInstance.userCurrentLocation == nil{
             self.locationManager = LocationService()

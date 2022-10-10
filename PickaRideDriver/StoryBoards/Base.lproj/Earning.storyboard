@@ -1,0 +1,1222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Earning View Controller-->
+        <scene sceneID="ats-sE-mwH">
+            <objects>
+                <viewController storyboardIdentifier="EarningViewController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hlF-Zf-XZC" customClass="EarningViewController" customModule="PickaRideDriver" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="K6S-rj-0sB">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iDD-JP-nmG">
+                                <rect key="frame" x="0.0" y="105" width="414" height="896"/>
+                                <subviews>
+                                    <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GEn-NL-Twb">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                        <connections>
+                                            <segue destination="p9R-KT-dBP" kind="embed" id="k4C-LT-loU"/>
+                                        </connections>
+                                    </containerView>
+                                    <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bNW-FN-ATc">
+                                        <rect key="frame" x="414" y="0.0" width="414" height="896"/>
+                                        <connections>
+                                            <segue destination="ZnA-Nk-5ff" kind="embed" id="F80-kQ-vMz"/>
+                                        </connections>
+                                    </containerView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="bNW-FN-ATc" secondAttribute="trailing" id="BvD-Nx-l3X"/>
+                                    <constraint firstItem="GEn-NL-Twb" firstAttribute="top" secondItem="iDD-JP-nmG" secondAttribute="top" id="GAN-vu-SXE"/>
+                                    <constraint firstAttribute="bottom" secondItem="bNW-FN-ATc" secondAttribute="bottom" id="UzS-5M-o9k"/>
+                                    <constraint firstItem="bNW-FN-ATc" firstAttribute="top" secondItem="iDD-JP-nmG" secondAttribute="top" id="iNO-DR-cgy"/>
+                                    <constraint firstItem="GEn-NL-Twb" firstAttribute="leading" secondItem="iDD-JP-nmG" secondAttribute="leading" id="j07-eF-Qgc"/>
+                                    <constraint firstItem="bNW-FN-ATc" firstAttribute="leading" secondItem="GEn-NL-Twb" secondAttribute="trailing" id="mXH-db-BaS"/>
+                                </constraints>
+                            </scrollView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q8b-It-W8q" userLabel="Segement Container">
+                                <rect key="frame" x="0.0" y="44" width="414" height="50"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ZZI-cn-8j9">
+                                        <rect key="frame" x="16" y="7" width="382" height="43"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="ubN-9L-xUF">
+                                                <rect key="frame" x="0.0" y="0.0" width="382" height="40"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="EeR-HG-tmD">
+                                                        <rect key="frame" x="0.0" y="0.0" width="188.5" height="40"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XqL-my-chY" userLabel="btnToday" customClass="SegmentButton" customModule="PickaRideDriver" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="0.0" width="188.5" height="40"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="40" id="U3Y-e2-0wW"/>
+                                                                </constraints>
+                                                                <state key="normal" title="Button">
+                                                                    <color key="titleColor" red="0.0" green="0.66666666666666663" blue="0.49411764705882355" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                                </state>
+                                                                <connections>
+                                                                    <action selector="segmentButtonClickAction:" destination="hlF-Zf-XZC" eventType="touchUpInside" id="Xev-pF-FNN"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="8EE-bf-PRP">
+                                                        <rect key="frame" x="193.5" y="0.0" width="188.5" height="40"/>
+                                                        <subviews>
+                                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OjK-JF-oxh" userLabel="btnWeekly" customClass="SegmentButton" customModule="PickaRideDriver" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="0.0" width="188.5" height="40"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="40" id="whz-JX-Fxr"/>
+                                                                </constraints>
+                                                                <state key="normal" title="Button">
+                                                                    <color key="titleColor" red="0.0" green="0.66666666669999997" blue="0.4941176471" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                                </state>
+                                                                <connections>
+                                                                    <action selector="segmentButtonClickAction:" destination="hlF-Zf-XZC" eventType="touchUpInside" id="wtv-Jk-26r"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="oi6-zC-hL0">
+                                                <rect key="frame" x="0.0" y="40" width="382" height="3"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Yq4-Ca-Kt7">
+                                                        <rect key="frame" x="0.0" y="0.0" width="186" height="3"/>
+                                                        <subviews>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oMz-ev-4os">
+                                                                <rect key="frame" x="0.0" y="0.0" width="186" height="3"/>
+                                                                <color key="backgroundColor" red="0.0" green="0.66666666669999997" blue="0.4941176471" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="3" id="mab-uB-ku6"/>
+                                                                </constraints>
+                                                            </view>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="DuX-i9-YMy">
+                                                        <rect key="frame" x="196" y="0.0" width="186" height="3"/>
+                                                        <subviews>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LhS-FM-ver">
+                                                                <rect key="frame" x="0.0" y="0.0" width="186" height="3"/>
+                                                                <color key="backgroundColor" red="0.0" green="0.66666666669999997" blue="0.4941176471" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="3" id="yZ6-Gp-G2z"/>
+                                                                </constraints>
+                                                            </view>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="43" id="UAl-Qr-uq5"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="ZZI-cn-8j9" firstAttribute="leading" secondItem="q8b-It-W8q" secondAttribute="leading" constant="16" id="6Pp-cy-8CQ"/>
+                                    <constraint firstAttribute="height" constant="50" id="8aD-je-kKV"/>
+                                    <constraint firstAttribute="bottom" secondItem="ZZI-cn-8j9" secondAttribute="bottom" id="ST6-Hl-1lI"/>
+                                    <constraint firstAttribute="trailing" secondItem="ZZI-cn-8j9" secondAttribute="trailing" constant="16" id="atR-Q3-1Lo"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rVt-Xj-04x" userLabel="Extra View">
+                                <rect key="frame" x="0.0" y="95" width="414" height="10"/>
+                                <color key="backgroundColor" red="0.94901960784313721" green="0.96078431372549022" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="10" id="3b1-xE-bAz"/>
+                                </constraints>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="3QW-tX-eWd">
+                                <rect key="frame" x="0.0" y="816" width="414" height="46"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bRW-Zz-4Cw" customClass="themeButton" customModule="PickaRideDriver" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="0.0" width="177" height="46"/>
+                                        <inset key="contentEdgeInsets" minX="8" minY="0.0" maxX="8" maxY="0.0"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Withdraw Money"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isthemeBg" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isMedium" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="Font_Size">
+                                                <real key="value" value="18"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <segue destination="e87-m1-4m6" kind="show" identifier="to_withdraw_money" id="hUQ-CK-cP6"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Omc-HB-pmH" customClass="themeButton" customModule="PickaRideDriver" customModuleProvider="target">
+                                        <rect key="frame" x="217" y="0.0" width="177" height="46"/>
+                                        <inset key="contentEdgeInsets" minX="8" minY="0.0" maxX="8" maxY="0.0"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Withdraw History"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isthemeBg" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isMedium" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="Font_Size">
+                                                <real key="value" value="18"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <segue destination="YJb-qB-4te" kind="show" id="g94-YK-ujz"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.94901960780000005" green="0.96078431369999995" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="46" id="PhX-F6-cnB"/>
+                                </constraints>
+                                <edgeInsets key="layoutMargins" top="0.0" left="20" bottom="0.0" right="20"/>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="gnE-is-hrz"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="3QW-tX-eWd" firstAttribute="leading" secondItem="gnE-is-hrz" secondAttribute="leading" id="1Ok-xe-5GH"/>
+                            <constraint firstItem="iDD-JP-nmG" firstAttribute="trailing" secondItem="gnE-is-hrz" secondAttribute="trailing" id="4PK-28-0qS"/>
+                            <constraint firstItem="gnE-is-hrz" firstAttribute="bottom" secondItem="3QW-tX-eWd" secondAttribute="bottom" id="CEO-ml-J1O"/>
+                            <constraint firstItem="q8b-It-W8q" firstAttribute="top" secondItem="gnE-is-hrz" secondAttribute="top" id="HQy-qN-u15"/>
+                            <constraint firstItem="iDD-JP-nmG" firstAttribute="top" secondItem="rVt-Xj-04x" secondAttribute="bottom" id="JLf-5x-peX"/>
+                            <constraint firstItem="iDD-JP-nmG" firstAttribute="height" secondItem="K6S-rj-0sB" secondAttribute="height" id="XEO-IB-yAp"/>
+                            <constraint firstItem="bNW-FN-ATc" firstAttribute="width" secondItem="K6S-rj-0sB" secondAttribute="width" id="bFo-u6-MBC"/>
+                            <constraint firstItem="rVt-Xj-04x" firstAttribute="leading" secondItem="gnE-is-hrz" secondAttribute="leading" id="eTo-zB-2FS"/>
+                            <constraint firstItem="gnE-is-hrz" firstAttribute="trailing" secondItem="rVt-Xj-04x" secondAttribute="trailing" id="jM2-C0-IAC"/>
+                            <constraint firstItem="rVt-Xj-04x" firstAttribute="top" secondItem="q8b-It-W8q" secondAttribute="bottom" constant="1" id="jW1-Wi-0pn"/>
+                            <constraint firstItem="q8b-It-W8q" firstAttribute="leading" secondItem="gnE-is-hrz" secondAttribute="leading" id="lIz-OS-eK5"/>
+                            <constraint firstItem="q8b-It-W8q" firstAttribute="trailing" secondItem="gnE-is-hrz" secondAttribute="trailing" id="qED-DL-qjv"/>
+                            <constraint firstItem="gnE-is-hrz" firstAttribute="trailing" secondItem="3QW-tX-eWd" secondAttribute="trailing" id="reh-Uh-PGi"/>
+                            <constraint firstItem="bNW-FN-ATc" firstAttribute="height" secondItem="K6S-rj-0sB" secondAttribute="height" id="v2U-x8-RSq"/>
+                            <constraint firstItem="GEn-NL-Twb" firstAttribute="height" secondItem="K6S-rj-0sB" secondAttribute="height" id="xCD-ck-zVU"/>
+                            <constraint firstItem="iDD-JP-nmG" firstAttribute="width" secondItem="K6S-rj-0sB" secondAttribute="width" id="xIQ-9o-O3u"/>
+                            <constraint firstItem="iDD-JP-nmG" firstAttribute="leading" secondItem="gnE-is-hrz" secondAttribute="leading" id="xWQ-Wl-qU0"/>
+                            <constraint firstItem="GEn-NL-Twb" firstAttribute="width" secondItem="K6S-rj-0sB" secondAttribute="width" id="zKm-ql-s9Q"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="btnToday" destination="XqL-my-chY" id="4zd-7e-IB3"/>
+                        <outlet property="btnWeekly" destination="OjK-JF-oxh" id="NsO-oK-k94"/>
+                        <outlet property="scrollView" destination="iDD-JP-nmG" id="KHV-WC-K6b"/>
+                        <outlet property="viewLeftSeperatorLine" destination="oMz-ev-4os" id="0aQ-Ki-wac"/>
+                        <outlet property="viewRightSeperatorLine" destination="LhS-FM-ver" id="0B9-GO-5hI"/>
+                        <outlet property="viewSegmentContainer" destination="q8b-It-W8q" id="EfQ-Ph-8kQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="u2F-Jz-nkA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6922" y="1601"/>
+        </scene>
+        <!--Withdraw HistoryVC-->
+        <scene sceneID="4X9-aw-sXH">
+            <objects>
+                <viewController storyboardIdentifier="WithdrawHistoryVC" id="YJb-qB-4te" customClass="WithdrawHistoryVC" customModule="PickaRideDriver" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2NN-Rp-Edk">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="b3y-q5-Hbi">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="YJb-qB-4te" id="uvN-7J-yED"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="pLz-R0-s3U"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="b3y-q5-Hbi" secondAttribute="bottom" id="OtP-3X-6f4"/>
+                            <constraint firstItem="b3y-q5-Hbi" firstAttribute="leading" secondItem="pLz-R0-s3U" secondAttribute="leading" id="SLw-Z2-gS1"/>
+                            <constraint firstItem="b3y-q5-Hbi" firstAttribute="top" secondItem="2NN-Rp-Edk" secondAttribute="top" id="gTO-tj-YE5"/>
+                            <constraint firstItem="pLz-R0-s3U" firstAttribute="trailing" secondItem="b3y-q5-Hbi" secondAttribute="trailing" id="iqg-Av-UaC"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="L8m-uv-h19"/>
+                    <connections>
+                        <outlet property="tableView" destination="b3y-q5-Hbi" id="EZc-kv-IOb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="O8i-UD-eNX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="8070" y="1716"/>
+        </scene>
+        <!--WithdrawVC-->
+        <scene sceneID="44o-iJ-09s">
+            <objects>
+                <viewController id="e87-m1-4m6" customClass="WithdrawVC" customModule="PickaRideDriver" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="CVl-We-L6B">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eAQ-S4-SrV" userLabel="Separator">
+                                <rect key="frame" x="0.0" y="44" width="414" height="4"/>
+                                <color key="backgroundColor" red="0.94901960780000005" green="0.96078431369999995" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="4" id="f3M-AA-6NG"/>
+                                </constraints>
+                            </view>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KyH-9m-bz7">
+                                <rect key="frame" x="0.0" y="48" width="414" height="794"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uhb-nm-9z7">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="302.5"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="qnv-BC-zHH">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="302.5"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TK5-CQ-n2D">
+                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="204.5"/>
+                                                        <subviews>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="bwc-xI-fjN">
+                                                                <rect key="frame" x="0.0" y="0.0" width="414" height="204.5"/>
+                                                                <subviews>
+                                                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4xF-IK-FEb">
+                                                                        <rect key="frame" x="24" y="24" width="366" height="20.5"/>
+                                                                        <subviews>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Available balance" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MIW-qa-ecz" customClass="themeLabel" customModule="PickaRideDriver" customModuleProvider="target">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="350.5" height="20.5"/>
+                                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                                <nil key="textColor"/>
+                                                                                <nil key="highlightedColor"/>
+                                                                                <userDefinedRuntimeAttributes>
+                                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isMedium" value="YES"/>
+                                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isblack" value="YES"/>
+                                                                                    <userDefinedRuntimeAttribute type="number" keyPath="Font_Size">
+                                                                                        <real key="value" value="16"/>
+                                                                                    </userDefinedRuntimeAttribute>
+                                                                                </userDefinedRuntimeAttributes>
+                                                                            </label>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="--" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qPS-6u-CVp" customClass="themeLabel" customModule="PickaRideDriver" customModuleProvider="target">
+                                                                                <rect key="frame" x="350.5" y="0.0" width="15.5" height="20.5"/>
+                                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                                <nil key="textColor"/>
+                                                                                <nil key="highlightedColor"/>
+                                                                                <userDefinedRuntimeAttributes>
+                                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isMedium" value="YES"/>
+                                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isblack" value="YES"/>
+                                                                                    <userDefinedRuntimeAttribute type="number" keyPath="Font_Size">
+                                                                                        <real key="value" value="20"/>
+                                                                                    </userDefinedRuntimeAttribute>
+                                                                                </userDefinedRuntimeAttributes>
+                                                                            </label>
+                                                                        </subviews>
+                                                                    </stackView>
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zYG-Ao-Noi">
+                                                                        <rect key="frame" x="24" y="68.5" width="366" height="44"/>
+                                                                        <color key="backgroundColor" red="0.94901960784313721" green="0.96078431372549022" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" constant="44" id="5Ty-mb-vJt"/>
+                                                                        </constraints>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                        <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                                                    </textField>
+                                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Eme-QI-fzn">
+                                                                        <rect key="frame" x="24" y="136.5" width="366" height="44"/>
+                                                                    </stackView>
+                                                                </subviews>
+                                                                <constraints>
+                                                                    <constraint firstItem="Eme-QI-fzn" firstAttribute="height" secondItem="zYG-Ao-Noi" secondAttribute="height" id="N8K-ep-fmO"/>
+                                                                </constraints>
+                                                                <edgeInsets key="layoutMargins" top="24" left="24" bottom="24" right="24"/>
+                                                            </stackView>
+                                                        </subviews>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="trailing" secondItem="bwc-xI-fjN" secondAttribute="trailing" id="1eg-zL-yr2"/>
+                                                            <constraint firstItem="bwc-xI-fjN" firstAttribute="top" secondItem="TK5-CQ-n2D" secondAttribute="top" id="2B2-qW-ylk"/>
+                                                            <constraint firstItem="bwc-xI-fjN" firstAttribute="leading" secondItem="TK5-CQ-n2D" secondAttribute="leading" id="tNw-7b-tC5"/>
+                                                            <constraint firstAttribute="bottom" secondItem="bwc-xI-fjN" secondAttribute="bottom" id="zV7-HH-CLm"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XMA-4l-IDG" userLabel="Separator">
+                                                        <rect key="frame" x="0.0" y="204.5" width="414" height="4"/>
+                                                        <color key="backgroundColor" red="0.94901960780000005" green="0.96078431369999995" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="4" id="kCt-OQ-UXl"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f8L-pM-gQ9">
+                                                        <rect key="frame" x="0.0" y="208.5" width="414" height="94"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tkD-dp-W7C" customClass="themeButton" customModule="PickaRideDriver" customModuleProvider="target">
+                                                                <rect key="frame" x="24" y="24" width="366" height="46"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="46" id="U4Z-yI-8hl"/>
+                                                                </constraints>
+                                                                <inset key="contentEdgeInsets" minX="8" minY="0.0" maxX="8" maxY="0.0"/>
+                                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                                <state key="normal" title="SUBMIT REQUEST"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isthemeBg" value="YES"/>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isMedium" value="YES"/>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="Font_Size">
+                                                                        <real key="value" value="18"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="submitTapped" destination="e87-m1-4m6" eventType="touchUpInside" id="dHX-PH-roo"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstItem="tkD-dp-W7C" firstAttribute="top" secondItem="f8L-pM-gQ9" secondAttribute="top" constant="24" id="QeO-wV-DDJ"/>
+                                                            <constraint firstItem="tkD-dp-W7C" firstAttribute="leading" secondItem="f8L-pM-gQ9" secondAttribute="leading" constant="24" id="Xtn-Q2-Mcy"/>
+                                                            <constraint firstAttribute="trailing" secondItem="tkD-dp-W7C" secondAttribute="trailing" constant="24" id="aYM-Zr-HCs"/>
+                                                            <constraint firstAttribute="bottom" secondItem="tkD-dp-W7C" secondAttribute="bottom" constant="24" id="urh-t2-Rlj"/>
+                                                        </constraints>
+                                                    </view>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="qnv-BC-zHH" firstAttribute="top" secondItem="Uhb-nm-9z7" secondAttribute="top" id="0Ur-ZB-q4O"/>
+                                            <constraint firstItem="qnv-BC-zHH" firstAttribute="leading" secondItem="Uhb-nm-9z7" secondAttribute="leading" id="2UR-me-SnU"/>
+                                            <constraint firstAttribute="trailing" secondItem="qnv-BC-zHH" secondAttribute="trailing" id="iGK-if-h7e"/>
+                                            <constraint firstAttribute="bottom" secondItem="qnv-BC-zHH" secondAttribute="bottom" id="m1q-OQ-xrY"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="Uhb-nm-9z7" firstAttribute="top" secondItem="KyH-9m-bz7" secondAttribute="top" id="K53-qa-So2"/>
+                                    <constraint firstItem="Uhb-nm-9z7" firstAttribute="height" secondItem="KyH-9m-bz7" secondAttribute="height" priority="100" id="UJ7-t4-HPt"/>
+                                    <constraint firstItem="Uhb-nm-9z7" firstAttribute="leading" secondItem="KyH-9m-bz7" secondAttribute="leading" id="eVy-pn-0Tk"/>
+                                    <constraint firstItem="Uhb-nm-9z7" firstAttribute="width" secondItem="KyH-9m-bz7" secondAttribute="width" id="iua-c0-aB0"/>
+                                    <constraint firstAttribute="bottom" secondItem="Uhb-nm-9z7" secondAttribute="bottom" id="rZd-QS-5do"/>
+                                    <constraint firstAttribute="trailing" secondItem="Uhb-nm-9z7" secondAttribute="trailing" id="tbT-w1-qqw"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="5Eq-Lf-Mv7"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="KyH-9m-bz7" firstAttribute="top" secondItem="5Eq-Lf-Mv7" secondAttribute="top" constant="4" id="4fB-a6-ChY"/>
+                            <constraint firstItem="eAQ-S4-SrV" firstAttribute="leading" secondItem="5Eq-Lf-Mv7" secondAttribute="leading" id="9uj-zU-5O2"/>
+                            <constraint firstItem="KyH-9m-bz7" firstAttribute="top" secondItem="eAQ-S4-SrV" secondAttribute="bottom" id="Bz2-yi-UdW"/>
+                            <constraint firstItem="5Eq-Lf-Mv7" firstAttribute="trailing" secondItem="eAQ-S4-SrV" secondAttribute="trailing" id="I9h-vj-gAw"/>
+                            <constraint firstItem="5Eq-Lf-Mv7" firstAttribute="bottom" secondItem="KyH-9m-bz7" secondAttribute="bottom" id="c7g-Lh-RjK"/>
+                            <constraint firstItem="KyH-9m-bz7" firstAttribute="leading" secondItem="5Eq-Lf-Mv7" secondAttribute="leading" id="cSC-8Q-4u3"/>
+                            <constraint firstItem="5Eq-Lf-Mv7" firstAttribute="trailing" secondItem="KyH-9m-bz7" secondAttribute="trailing" id="myD-eO-j5N"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="1c8-Ob-B4Q"/>
+                    <connections>
+                        <outlet property="amountTextfield" destination="zYG-Ao-Noi" id="SVO-Nf-Xj9"/>
+                        <outlet property="balanceLabel" destination="qPS-6u-CVp" id="exn-y4-EjL"/>
+                        <outlet property="buttonStack" destination="Eme-QI-fzn" id="V85-M2-wXa"/>
+                        <outlet property="submitButton" destination="tkD-dp-W7C" id="veg-1g-XM8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Ao-Y3-98F" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="8071" y="1012"/>
+        </scene>
+        <!--Today Earning Child View Controller-->
+        <scene sceneID="3Dq-uf-M1v">
+            <objects>
+                <viewController id="p9R-KT-dBP" customClass="TodayEarningChildViewController" customModule="PickaRideDriver" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vxG-tj-FQ7">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AUo-UJ-Xrp">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="151"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Qds-au-GHe">
+                                        <rect key="frame" x="0.0" y="20" width="414" height="41"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mon, 18 Feb’19" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ooh-Um-zvx" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
+                                                <rect key="frame" x="149" y="0.0" width="116" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="54.75" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zY0-CF-xaz" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
+                                                <rect key="frame" x="185.5" y="20.5" width="43.5" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="RideBalance" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HtH-W9-lNE" customClass="themeLabel" customModule="PickaRideDriver" customModuleProvider="target">
+                                        <rect key="frame" x="175" y="40.5" width="10.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="Font_Size">
+                                                <real key="value" value="21"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="fontColor">
+                                                <color key="value" red="0.0" green="0.66666666669999997" blue="0.4941176471" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isMedium" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kh3-1f-LbT" userLabel="Ride Details">
+                                        <rect key="frame" x="0.0" y="81" width="414" height="70"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="0y7-Gb-R0L">
+                                                <rect key="frame" x="0.0" y="1" width="414" height="68"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Clh-YM-Ahy">
+                                                        <rect key="frame" x="0.0" y="0.0" width="137.5" height="68"/>
+                                                        <subviews>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="p0r-SE-6ga">
+                                                                <rect key="frame" x="0.0" y="0.0" width="137.5" height="68"/>
+                                                                <subviews>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="15" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2co-qG-gys" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
+                                                                        <rect key="frame" x="59.5" y="0.0" width="18" height="34"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                        <nil key="textColor"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="RideCount" value="YES"/>
+                                                                        </userDefinedRuntimeAttributes>
+                                                                    </label>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rides" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Zt-7X-fST" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
+                                                                        <rect key="frame" x="47.5" y="34" width="42.5" height="34"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                        <nil key="textColor"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                </subviews>
+                                                            </stackView>
+                                                        </subviews>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstItem="p0r-SE-6ga" firstAttribute="top" secondItem="Clh-YM-Ahy" secondAttribute="top" id="Dj9-C0-HkG"/>
+                                                            <constraint firstAttribute="trailing" secondItem="p0r-SE-6ga" secondAttribute="trailing" id="Fkd-2m-3zn"/>
+                                                            <constraint firstAttribute="bottom" secondItem="p0r-SE-6ga" secondAttribute="bottom" id="mFZ-pg-4z5"/>
+                                                            <constraint firstItem="p0r-SE-6ga" firstAttribute="leading" secondItem="Clh-YM-Ahy" secondAttribute="leading" id="xgj-xm-Uu1"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g3D-J7-7m4">
+                                                        <rect key="frame" x="138.5" y="0.0" width="137" height="68"/>
+                                                        <subviews>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="nvF-cK-Z5q">
+                                                                <rect key="frame" x="0.0" y="0.0" width="137" height="68"/>
+                                                                <subviews>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8:30" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yOb-Bh-y4G" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
+                                                                        <rect key="frame" x="51" y="0.0" width="35.5" height="34"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                        <nil key="textColor"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="RideCount" value="YES"/>
+                                                                        </userDefinedRuntimeAttributes>
+                                                                    </label>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Online hrs" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y2p-87-IdJ" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
+                                                                        <rect key="frame" x="30" y="34" width="77" height="34"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                        <nil key="textColor"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                </subviews>
+                                                            </stackView>
+                                                        </subviews>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstItem="nvF-cK-Z5q" firstAttribute="top" secondItem="g3D-J7-7m4" secondAttribute="top" id="VYW-ga-1TQ"/>
+                                                            <constraint firstItem="nvF-cK-Z5q" firstAttribute="leading" secondItem="g3D-J7-7m4" secondAttribute="leading" id="a5r-tH-3eW"/>
+                                                            <constraint firstAttribute="trailing" secondItem="nvF-cK-Z5q" secondAttribute="trailing" id="uv9-I9-0t1"/>
+                                                            <constraint firstAttribute="bottom" secondItem="nvF-cK-Z5q" secondAttribute="bottom" id="wPg-0n-REK"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Uc-2b-52w">
+                                                        <rect key="frame" x="276.5" y="0.0" width="137.5" height="68"/>
+                                                        <subviews>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="pYj-7l-ncA">
+                                                                <rect key="frame" x="0.0" y="0.0" width="137.5" height="68"/>
+                                                                <subviews>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$22.48" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W4q-PZ-iRZ" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
+                                                                        <rect key="frame" x="41.5" y="0.0" width="55" height="34"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                        <nil key="textColor"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="RideCount" value="YES"/>
+                                                                        </userDefinedRuntimeAttributes>
+                                                                    </label>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Card Rides" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J5P-tO-0j7" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
+                                                                        <rect key="frame" x="27" y="34" width="83.5" height="34"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                        <nil key="textColor"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                </subviews>
+                                                            </stackView>
+                                                        </subviews>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstItem="pYj-7l-ncA" firstAttribute="top" secondItem="4Uc-2b-52w" secondAttribute="top" id="7ai-EY-02b"/>
+                                                            <constraint firstAttribute="trailing" secondItem="pYj-7l-ncA" secondAttribute="trailing" id="B01-TR-iip"/>
+                                                            <constraint firstAttribute="bottom" secondItem="pYj-7l-ncA" secondAttribute="bottom" id="NMm-0n-Taz"/>
+                                                            <constraint firstItem="pYj-7l-ncA" firstAttribute="leading" secondItem="4Uc-2b-52w" secondAttribute="leading" id="w7X-M5-za7"/>
+                                                        </constraints>
+                                                    </view>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="0y7-Gb-R0L" secondAttribute="trailing" id="Fax-ET-8Cs"/>
+                                            <constraint firstItem="0y7-Gb-R0L" firstAttribute="top" secondItem="Kh3-1f-LbT" secondAttribute="top" constant="1" id="Fck-ef-frR"/>
+                                            <constraint firstAttribute="height" constant="70" id="Ppx-fS-jAZ"/>
+                                            <constraint firstItem="0y7-Gb-R0L" firstAttribute="leading" secondItem="Kh3-1f-LbT" secondAttribute="leading" id="aAN-7o-aZL"/>
+                                            <constraint firstAttribute="bottom" secondItem="0y7-Gb-R0L" secondAttribute="bottom" constant="1" id="tqd-3f-nSL"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="Kh3-1f-LbT" secondAttribute="bottom" id="0vf-vU-B9e"/>
+                                    <constraint firstItem="Kh3-1f-LbT" firstAttribute="leading" secondItem="AUo-UJ-Xrp" secondAttribute="leading" id="6LZ-PL-UOL"/>
+                                    <constraint firstItem="HtH-W9-lNE" firstAttribute="top" secondItem="zY0-CF-xaz" secondAttribute="top" id="Abl-o0-Tqf"/>
+                                    <constraint firstAttribute="trailing" secondItem="Qds-au-GHe" secondAttribute="trailing" id="H6E-ui-SoN"/>
+                                    <constraint firstItem="Qds-au-GHe" firstAttribute="top" secondItem="AUo-UJ-Xrp" secondAttribute="top" constant="20" id="Kke-N9-CPL"/>
+                                    <constraint firstItem="Qds-au-GHe" firstAttribute="leading" secondItem="AUo-UJ-Xrp" secondAttribute="leading" id="Lxp-4p-4i0"/>
+                                    <constraint firstItem="Kh3-1f-LbT" firstAttribute="top" secondItem="Qds-au-GHe" secondAttribute="bottom" constant="20" id="bBf-FN-J5n"/>
+                                    <constraint firstItem="HtH-W9-lNE" firstAttribute="trailing" secondItem="zY0-CF-xaz" secondAttribute="leading" id="jNo-3K-2fE"/>
+                                    <constraint firstItem="HtH-W9-lNE" firstAttribute="bottom" secondItem="zY0-CF-xaz" secondAttribute="bottom" id="pdZ-dG-YWj"/>
+                                    <constraint firstAttribute="trailing" secondItem="Kh3-1f-LbT" secondAttribute="trailing" id="zgj-iJ-7zF"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ded-oG-FiN">
+                                <rect key="frame" x="4" y="155" width="406" height="297.5"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="cOE-d2-Di5">
+                                        <rect key="frame" x="24" y="24" width="358" height="249.5"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="4kP-4j-s14">
+                                                <rect key="frame" x="0.0" y="0.0" width="358" height="20.5"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W0K-NU-4Kc" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="179" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$40.25" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="woe-8R-N7u" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
+                                                        <rect key="frame" x="179" y="0.0" width="179" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Ahy-hK-L9r">
+                                                <rect key="frame" x="0.0" y="35.5" width="358" height="20.5"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ye-5h-92C" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="179" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$20.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="758-9n-5qx" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
+                                                        <rect key="frame" x="179" y="0.0" width="179" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="w9r-5k-4su">
+                                                <rect key="frame" x="0.0" y="71" width="358" height="20.5"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pRU-6C-tHB" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="179" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$400.50" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wvm-j2-4Ej" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
+                                                        <rect key="frame" x="179" y="0.0" width="179" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="fFa-7A-aa8">
+                                                <rect key="frame" x="0.0" y="106.5" width="358" height="20.5"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FmQ-GI-qUh" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="179" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$400.50" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WyF-1p-STJ" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
+                                                        <rect key="frame" x="179" y="0.0" width="179" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="dkG-4Y-KM7">
+                                                <rect key="frame" x="0.0" y="142" width="358" height="20.5"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QM3-sv-rt7" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="179" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$40.25" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cwq-Bt-KvI" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
+                                                        <rect key="frame" x="179" y="0.0" width="179" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="nFR-dx-o8P">
+                                                <rect key="frame" x="0.0" y="177.5" width="358" height="20.5"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aTy-T6-gR5" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="179" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$20.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rk0-SW-6A7" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
+                                                        <rect key="frame" x="179" y="0.0" width="179" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="bYq-nd-Y87">
+                                                <rect key="frame" x="0.0" y="213" width="358" height="1"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J9I-te-Ra4">
+                                                        <rect key="frame" x="0.0" y="0.0" width="358" height="1"/>
+                                                        <color key="backgroundColor" red="0.95294117647058818" green="0.95294117647058818" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="1" id="KAH-87-A3G"/>
+                                                        </constraints>
+                                                    </view>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Kx9-E0-yl6">
+                                                <rect key="frame" x="0.0" y="229" width="358" height="20.5"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="13P-2p-x4b" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="179" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="TotalBalance" value="YES"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$460.75" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zz4-tW-VjA" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
+                                                        <rect key="frame" x="179" y="0.0" width="179" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="TotalBalance" value="YES"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="cOE-d2-Di5" secondAttribute="bottom" constant="24" id="61N-es-Jb2"/>
+                                    <constraint firstItem="cOE-d2-Di5" firstAttribute="leading" secondItem="Ded-oG-FiN" secondAttribute="leading" constant="24" id="MMX-hu-QsE"/>
+                                    <constraint firstAttribute="trailing" secondItem="cOE-d2-Di5" secondAttribute="trailing" constant="24" id="Zdw-za-dgL"/>
+                                    <constraint firstItem="cOE-d2-Di5" firstAttribute="top" secondItem="Ded-oG-FiN" secondAttribute="top" constant="24" id="bSp-eu-TiE"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Rft-5d-9ze"/>
+                        <constraints>
+                            <constraint firstItem="Rft-5d-9ze" firstAttribute="trailing" secondItem="Ded-oG-FiN" secondAttribute="trailing" constant="4" id="9lh-el-CtS"/>
+                            <constraint firstItem="Ded-oG-FiN" firstAttribute="leading" secondItem="Rft-5d-9ze" secondAttribute="leading" constant="4" id="T3p-Fg-S4d"/>
+                            <constraint firstAttribute="trailing" secondItem="AUo-UJ-Xrp" secondAttribute="trailing" id="fYj-FD-tYe"/>
+                            <constraint firstItem="Ded-oG-FiN" firstAttribute="top" secondItem="AUo-UJ-Xrp" secondAttribute="bottom" constant="4" id="snI-W2-edj"/>
+                            <constraint firstItem="AUo-UJ-Xrp" firstAttribute="leading" secondItem="vxG-tj-FQ7" secondAttribute="leading" id="tIH-lA-xX2"/>
+                            <constraint firstItem="AUo-UJ-Xrp" firstAttribute="top" secondItem="vxG-tj-FQ7" secondAttribute="top" id="xwB-Ax-XYh"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="Ded-oG-FiN"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="lblAmount" destination="zY0-CF-xaz" id="2u5-3o-f5W"/>
+                        <outlet property="lblCardRides" destination="W4q-PZ-iRZ" id="Lfj-Wi-r4K"/>
+                        <outlet property="lblCurrency" destination="HtH-W9-lNE" id="ZOR-cH-jfS"/>
+                        <outlet property="lblDate" destination="ooh-Um-zvx" id="sai-dr-yvh"/>
+                        <outlet property="lblDiscount" destination="aTy-T6-gR5" id="f51-Vj-aik"/>
+                        <outlet property="lblDiscountAmount" destination="rk0-SW-6A7" id="uTo-Wv-5BW"/>
+                        <outlet property="lblNumberOfRides" destination="2co-qG-gys" id="6sc-eZ-ikI"/>
+                        <outlet property="lblOnlineHours" destination="yOb-Bh-y4G" id="2PQ-lQ-64m"/>
+                        <outlet property="lblRideFareAmount" destination="woe-8R-N7u" id="A5J-qB-XQV"/>
+                        <outlet property="lblRideFares" destination="W0K-NU-4Kc" id="qKe-j5-wlt"/>
+                        <outlet property="lblSurge" destination="QM3-sv-rt7" id="kQb-Pv-gsS"/>
+                        <outlet property="lblSurgeAmount" destination="cwq-Bt-KvI" id="HwF-My-TrT"/>
+                        <outlet property="lblTax" destination="pRU-6C-tHB" id="cBm-jN-sa5"/>
+                        <outlet property="lblTaxAmount" destination="wvm-j2-4Ej" id="hxz-p4-LmJ"/>
+                        <outlet property="lblTaxiFee" destination="6ye-5h-92C" id="AKN-ti-MCT"/>
+                        <outlet property="lblTaxiFeeAmount" destination="758-9n-5qx" id="spv-RN-3Mp"/>
+                        <outlet property="lblToll" destination="FmQ-GI-qUh" id="gXc-Ok-9C9"/>
+                        <outlet property="lblTollAmount" destination="WyF-1p-STJ" id="PjB-Zw-sjh"/>
+                        <outlet property="lblTotalEarningAmount" destination="Zz4-tW-VjA" id="cfa-05-coH"/>
+                        <outlet property="lblTotalEarnings" destination="13P-2p-x4b" id="aMM-fK-ong"/>
+                        <outlet property="viewOnlineHours" destination="g3D-J7-7m4" id="GfD-um-gge"/>
+                        <outlet property="viewRideCount" destination="Clh-YM-Ahy" id="puA-Df-cQp"/>
+                        <outlet property="viewRideDetails" destination="Kh3-1f-LbT" id="bgz-iG-MbL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RB5-Zd-QPA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6406" y="2417"/>
+        </scene>
+        <!--Weekly Earning Child View Controller-->
+        <scene sceneID="2Bl-j8-qjP">
+            <objects>
+                <viewController id="ZnA-Nk-5ff" customClass="WeeklyEarningChildViewController" customModule="PickaRideDriver" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ppy-Yt-sfH">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O4I-hN-yaf">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mAM-Lc-tBa" userLabel="ContainerView">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5zn-3O-sIR" userLabel="Top View">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="281"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Bp-5x-iBU" userLabel="Ride Details">
+                                                        <rect key="frame" x="0.0" y="211" width="414" height="70"/>
+                                                        <subviews>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="trs-MX-qJJ">
+                                                                <rect key="frame" x="0.0" y="1" width="414" height="68"/>
+                                                                <subviews>
+                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="upb-g8-xIb">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="137.5" height="68"/>
+                                                                        <subviews>
+                                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="X6g-6n-EVI">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="137.5" height="68"/>
+                                                                                <subviews>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="45" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tPs-eJ-Q89" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
+                                                                                        <rect key="frame" x="58" y="0.0" width="21" height="34"/>
+                                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                                        <nil key="textColor"/>
+                                                                                        <nil key="highlightedColor"/>
+                                                                                        <userDefinedRuntimeAttributes>
+                                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="RideCount" value="YES"/>
+                                                                                        </userDefinedRuntimeAttributes>
+                                                                                    </label>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rides" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J7U-BQ-uef" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
+                                                                                        <rect key="frame" x="47.5" y="34" width="42.5" height="34"/>
+                                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                                        <nil key="textColor"/>
+                                                                                        <nil key="highlightedColor"/>
+                                                                                    </label>
+                                                                                </subviews>
+                                                                            </stackView>
+                                                                        </subviews>
+                                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                        <constraints>
+                                                                            <constraint firstItem="X6g-6n-EVI" firstAttribute="leading" secondItem="upb-g8-xIb" secondAttribute="leading" id="Lvv-6l-i53"/>
+                                                                            <constraint firstItem="X6g-6n-EVI" firstAttribute="top" secondItem="upb-g8-xIb" secondAttribute="top" id="NSF-dI-0Bt"/>
+                                                                            <constraint firstAttribute="trailing" secondItem="X6g-6n-EVI" secondAttribute="trailing" id="bls-I5-Qcs"/>
+                                                                            <constraint firstAttribute="bottom" secondItem="X6g-6n-EVI" secondAttribute="bottom" id="gZo-fe-boJ"/>
+                                                                        </constraints>
+                                                                    </view>
+                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SoT-AA-VgH">
+                                                                        <rect key="frame" x="138.5" y="0.0" width="137" height="68"/>
+                                                                        <subviews>
+                                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="uqV-GN-reI">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="137" height="68"/>
+                                                                                <subviews>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="38:30" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mLP-Fv-M9C" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
+                                                                                        <rect key="frame" x="45.5" y="0.0" width="46" height="34"/>
+                                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                                        <nil key="textColor"/>
+                                                                                        <nil key="highlightedColor"/>
+                                                                                        <userDefinedRuntimeAttributes>
+                                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="RideCount" value="YES"/>
+                                                                                        </userDefinedRuntimeAttributes>
+                                                                                    </label>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Online hrs" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W6z-i3-kdi" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
+                                                                                        <rect key="frame" x="30" y="34" width="77" height="34"/>
+                                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                                        <nil key="textColor"/>
+                                                                                        <nil key="highlightedColor"/>
+                                                                                    </label>
+                                                                                </subviews>
+                                                                            </stackView>
+                                                                        </subviews>
+                                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="trailing" secondItem="uqV-GN-reI" secondAttribute="trailing" id="8Ta-my-I2s"/>
+                                                                            <constraint firstItem="uqV-GN-reI" firstAttribute="top" secondItem="SoT-AA-VgH" secondAttribute="top" id="FCm-jC-7gN"/>
+                                                                            <constraint firstAttribute="bottom" secondItem="uqV-GN-reI" secondAttribute="bottom" id="eBJ-XT-vTh"/>
+                                                                            <constraint firstItem="uqV-GN-reI" firstAttribute="leading" secondItem="SoT-AA-VgH" secondAttribute="leading" id="m8y-lS-ObB"/>
+                                                                        </constraints>
+                                                                    </view>
+                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vkN-HK-ESx">
+                                                                        <rect key="frame" x="276.5" y="0.0" width="137.5" height="68"/>
+                                                                        <subviews>
+                                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="kt8-Jk-CN1">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="137.5" height="68"/>
+                                                                                <subviews>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$99.48" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sYr-ly-i3t" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
+                                                                                        <rect key="frame" x="41" y="0.0" width="55.5" height="34"/>
+                                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                                        <nil key="textColor"/>
+                                                                                        <nil key="highlightedColor"/>
+                                                                                        <userDefinedRuntimeAttributes>
+                                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="RideCount" value="YES"/>
+                                                                                        </userDefinedRuntimeAttributes>
+                                                                                    </label>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Card Rides" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fyt-5J-38O" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
+                                                                                        <rect key="frame" x="27" y="34" width="83.5" height="34"/>
+                                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                                        <nil key="textColor"/>
+                                                                                        <nil key="highlightedColor"/>
+                                                                                    </label>
+                                                                                </subviews>
+                                                                            </stackView>
+                                                                        </subviews>
+                                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="trailing" secondItem="kt8-Jk-CN1" secondAttribute="trailing" id="Ntm-vT-YZw"/>
+                                                                            <constraint firstAttribute="bottom" secondItem="kt8-Jk-CN1" secondAttribute="bottom" id="cDV-h0-oPw"/>
+                                                                            <constraint firstItem="kt8-Jk-CN1" firstAttribute="leading" secondItem="vkN-HK-ESx" secondAttribute="leading" id="esx-RO-AFg"/>
+                                                                            <constraint firstItem="kt8-Jk-CN1" firstAttribute="top" secondItem="vkN-HK-ESx" secondAttribute="top" id="fQA-xl-htx"/>
+                                                                        </constraints>
+                                                                    </view>
+                                                                </subviews>
+                                                            </stackView>
+                                                        </subviews>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="70" id="3jo-FK-lFj"/>
+                                                            <constraint firstItem="trs-MX-qJJ" firstAttribute="leading" secondItem="1Bp-5x-iBU" secondAttribute="leading" id="arf-tV-l6O"/>
+                                                            <constraint firstItem="trs-MX-qJJ" firstAttribute="top" secondItem="1Bp-5x-iBU" secondAttribute="top" constant="1" id="kYh-8q-ngd"/>
+                                                            <constraint firstAttribute="trailing" secondItem="trs-MX-qJJ" secondAttribute="trailing" id="ldC-ga-XWt"/>
+                                                            <constraint firstAttribute="bottom" secondItem="trs-MX-qJJ" secondAttribute="bottom" constant="1" id="phm-i0-8RX"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="ocy-eH-d3Y">
+                                                        <rect key="frame" x="0.0" y="20" width="414" height="171"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mon, 18 Feb’19" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yWk-wY-nvp" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
+                                                                <rect key="frame" x="149" y="0.0" width="116" height="20.5"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="154.75" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IMo-s0-nuu" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
+                                                                <rect key="frame" x="181.5" y="25.5" width="51" height="20.5"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="RideBalance" value="YES"/>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </label>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fMY-JH-SmY" customClass="BarChartView" customModule="PickaRideDriver" customModuleProvider="target">
+                                                                <rect key="frame" x="20" y="51" width="374" height="120"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="120" id="bs0-8H-2gl"/>
+                                                                </constraints>
+                                                            </view>
+                                                        </subviews>
+                                                        <constraints>
+                                                            <constraint firstAttribute="trailing" secondItem="fMY-JH-SmY" secondAttribute="trailing" constant="20" id="ccO-5v-TG1"/>
+                                                            <constraint firstItem="fMY-JH-SmY" firstAttribute="leading" secondItem="ocy-eH-d3Y" secondAttribute="leading" constant="20" id="vEZ-Fj-bW2"/>
+                                                        </constraints>
+                                                    </stackView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TDQ-HY-u7G" customClass="themeLabel" customModule="PickaRideDriver" customModuleProvider="target">
+                                                        <rect key="frame" x="171" y="45.5" width="10.5" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="fontColor">
+                                                                <color key="value" red="0.0" green="0.66666666669999997" blue="0.4941176471" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="Font_Size">
+                                                                <real key="value" value="21"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isMedium" value="YES"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstItem="TDQ-HY-u7G" firstAttribute="top" secondItem="IMo-s0-nuu" secondAttribute="top" id="1fh-qB-Dyx"/>
+                                                    <constraint firstItem="TDQ-HY-u7G" firstAttribute="bottom" secondItem="IMo-s0-nuu" secondAttribute="bottom" id="3mr-v6-VWo"/>
+                                                    <constraint firstItem="1Bp-5x-iBU" firstAttribute="leading" secondItem="5zn-3O-sIR" secondAttribute="leading" id="4DA-3y-U62"/>
+                                                    <constraint firstItem="ocy-eH-d3Y" firstAttribute="top" secondItem="5zn-3O-sIR" secondAttribute="top" constant="20" id="8a7-dV-nAp"/>
+                                                    <constraint firstAttribute="trailing" secondItem="1Bp-5x-iBU" secondAttribute="trailing" id="Dfx-3I-lH6"/>
+                                                    <constraint firstAttribute="bottom" secondItem="1Bp-5x-iBU" secondAttribute="bottom" id="Lki-zf-tRn"/>
+                                                    <constraint firstItem="1Bp-5x-iBU" firstAttribute="top" secondItem="ocy-eH-d3Y" secondAttribute="bottom" constant="20" id="Mcj-P1-ob9"/>
+                                                    <constraint firstItem="TDQ-HY-u7G" firstAttribute="trailing" secondItem="IMo-s0-nuu" secondAttribute="leading" id="aMv-g1-ilA"/>
+                                                    <constraint firstItem="ocy-eH-d3Y" firstAttribute="leading" secondItem="5zn-3O-sIR" secondAttribute="leading" id="aZW-gj-B4R"/>
+                                                    <constraint firstAttribute="trailing" secondItem="ocy-eH-d3Y" secondAttribute="trailing" id="kGP-ck-TWl"/>
+                                                </constraints>
+                                            </view>
+                                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9ni-OV-BNY" userLabel="Bottom View">
+                                                <rect key="frame" x="0.0" y="285" width="414" height="297.5"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="dc5-dk-Di0">
+                                                        <rect key="frame" x="24" y="24" width="366" height="249.5"/>
+                                                        <subviews>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="5jW-Gt-ag1">
+                                                                <rect key="frame" x="0.0" y="0.0" width="366" height="20.5"/>
+                                                                <subviews>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wd9-vQ-8DK" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="183" height="20.5"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                        <nil key="textColor"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$40.25" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VVN-KM-JiR" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
+                                                                        <rect key="frame" x="183" y="0.0" width="183" height="20.5"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                        <nil key="textColor"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                </subviews>
+                                                            </stackView>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="M7T-GG-RTT">
+                                                                <rect key="frame" x="0.0" y="35.5" width="366" height="20.5"/>
+                                                                <subviews>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R10-y5-cIW" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="183" height="20.5"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                        <nil key="textColor"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$20.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8JH-cu-tCN" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
+                                                                        <rect key="frame" x="183" y="0.0" width="183" height="20.5"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                        <nil key="textColor"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                </subviews>
+                                                            </stackView>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="EW2-9J-fYV">
+                                                                <rect key="frame" x="0.0" y="71" width="366" height="20.5"/>
+                                                                <subviews>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N34-BB-X62" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="183" height="20.5"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                        <nil key="textColor"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$400.50" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eNo-MM-q1b" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
+                                                                        <rect key="frame" x="183" y="0.0" width="183" height="20.5"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                        <nil key="textColor"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                </subviews>
+                                                            </stackView>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="fR1-n6-3Kt">
+                                                                <rect key="frame" x="0.0" y="106.5" width="366" height="20.5"/>
+                                                                <subviews>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LZB-cb-riX" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="183" height="20.5"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                        <nil key="textColor"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$400.50" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eo3-zF-KuT" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
+                                                                        <rect key="frame" x="183" y="0.0" width="183" height="20.5"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                        <nil key="textColor"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                </subviews>
+                                                            </stackView>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="b1U-IH-e4C">
+                                                                <rect key="frame" x="0.0" y="142" width="366" height="20.5"/>
+                                                                <subviews>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="krG-cj-OMz" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="183" height="20.5"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                        <nil key="textColor"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$40.25" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eBJ-g5-a42" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
+                                                                        <rect key="frame" x="183" y="0.0" width="183" height="20.5"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                        <nil key="textColor"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                </subviews>
+                                                            </stackView>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="XRc-zB-0Px">
+                                                                <rect key="frame" x="0.0" y="177.5" width="366" height="20.5"/>
+                                                                <subviews>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QIP-G4-SBQ" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="183" height="20.5"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                        <nil key="textColor"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$20.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rTb-6H-zeb" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
+                                                                        <rect key="frame" x="183" y="0.0" width="183" height="20.5"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                        <nil key="textColor"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                </subviews>
+                                                            </stackView>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="aSH-BK-yzz">
+                                                                <rect key="frame" x="0.0" y="213" width="366" height="1"/>
+                                                                <subviews>
+                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kve-5j-tgn">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="366" height="1"/>
+                                                                        <color key="backgroundColor" red="0.95294117649999999" green="0.95294117649999999" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" constant="1" id="VkJ-G6-fBJ"/>
+                                                                        </constraints>
+                                                                    </view>
+                                                                </subviews>
+                                                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </stackView>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="uOr-dk-575">
+                                                                <rect key="frame" x="0.0" y="229" width="366" height="20.5"/>
+                                                                <subviews>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nSa-gS-f69" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="183" height="20.5"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                        <nil key="textColor"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="TotalBalance" value="YES"/>
+                                                                        </userDefinedRuntimeAttributes>
+                                                                    </label>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$460.75" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xTj-Tm-kKc" customClass="EarningDetailLabel" customModule="PickaRideDriver" customModuleProvider="target">
+                                                                        <rect key="frame" x="183" y="0.0" width="183" height="20.5"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                        <nil key="textColor"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="TotalBalance" value="YES"/>
+                                                                        </userDefinedRuntimeAttributes>
+                                                                    </label>
+                                                                </subviews>
+                                                            </stackView>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="bottom" secondItem="dc5-dk-Di0" secondAttribute="bottom" constant="24" id="0nH-EW-11g"/>
+                                                    <constraint firstItem="dc5-dk-Di0" firstAttribute="top" secondItem="9ni-OV-BNY" secondAttribute="top" constant="24" id="SdN-kP-JID"/>
+                                                    <constraint firstAttribute="trailing" secondItem="dc5-dk-Di0" secondAttribute="trailing" constant="24" id="eZw-Yv-z4h"/>
+                                                    <constraint firstItem="dc5-dk-Di0" firstAttribute="leading" secondItem="9ni-OV-BNY" secondAttribute="leading" constant="24" id="mie-0N-c9t"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="5zn-3O-sIR" firstAttribute="top" secondItem="mAM-Lc-tBa" secondAttribute="top" id="5Pi-gN-iXp"/>
+                                            <constraint firstItem="9ni-OV-BNY" firstAttribute="top" secondItem="5zn-3O-sIR" secondAttribute="bottom" constant="4" id="DLm-bS-teJ"/>
+                                            <constraint firstAttribute="trailing" secondItem="5zn-3O-sIR" secondAttribute="trailing" id="Pra-3S-JU0"/>
+                                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="5zn-3O-sIR" secondAttribute="bottom" id="ZMn-OB-h1f"/>
+                                            <constraint firstItem="9ni-OV-BNY" firstAttribute="leading" secondItem="mAM-Lc-tBa" secondAttribute="leading" id="lzf-iQ-Vrk"/>
+                                            <constraint firstAttribute="trailing" secondItem="9ni-OV-BNY" secondAttribute="trailing" id="p9P-Z9-AgI"/>
+                                            <constraint firstItem="5zn-3O-sIR" firstAttribute="leading" secondItem="mAM-Lc-tBa" secondAttribute="leading" id="tZv-Zb-8sV"/>
+                                            <constraint firstItem="9ni-OV-BNY" firstAttribute="top" secondItem="5zn-3O-sIR" secondAttribute="bottom" constant="4" id="txJ-ZH-WEk"/>
+                                        </constraints>
+                                        <variation key="default">
+                                            <mask key="subviews">
+                                                <exclude reference="9ni-OV-BNY"/>
+                                            </mask>
+                                        </variation>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="mAM-Lc-tBa" secondAttribute="trailing" id="Gt6-Vv-P7Z"/>
+                                    <constraint firstItem="mAM-Lc-tBa" firstAttribute="top" secondItem="O4I-hN-yaf" secondAttribute="top" id="RTQ-Qm-3Vq"/>
+                                    <constraint firstItem="mAM-Lc-tBa" firstAttribute="leading" secondItem="O4I-hN-yaf" secondAttribute="leading" id="WWx-xB-YbG"/>
+                                    <constraint firstAttribute="bottom" secondItem="mAM-Lc-tBa" secondAttribute="bottom" id="ql9-1L-fHU"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="UHO-cl-QaD"/>
+                        <constraints>
+                            <constraint firstItem="O4I-hN-yaf" firstAttribute="leading" secondItem="UHO-cl-QaD" secondAttribute="leading" id="Evr-oD-nTs"/>
+                            <constraint firstItem="O4I-hN-yaf" firstAttribute="trailing" secondItem="UHO-cl-QaD" secondAttribute="trailing" id="VY5-i2-ae8"/>
+                            <constraint firstItem="UHO-cl-QaD" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="9ni-OV-BNY" secondAttribute="bottom" constant="10" id="XWU-Jp-cnY"/>
+                            <constraint firstItem="O4I-hN-yaf" firstAttribute="bottom" secondItem="UHO-cl-QaD" secondAttribute="bottom" id="YTt-pj-zc9"/>
+                            <constraint firstItem="mAM-Lc-tBa" firstAttribute="width" secondItem="Ppy-Yt-sfH" secondAttribute="width" id="cLA-2z-DAR"/>
+                            <constraint firstItem="mAM-Lc-tBa" firstAttribute="height" secondItem="Ppy-Yt-sfH" secondAttribute="height" priority="250" id="fDT-Ut-hQ2"/>
+                            <constraint firstItem="O4I-hN-yaf" firstAttribute="top" secondItem="UHO-cl-QaD" secondAttribute="top" id="sPO-d0-ezn"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="barChart" destination="fMY-JH-SmY" id="KvL-WE-NiP"/>
+                        <outlet property="lblAmount" destination="IMo-s0-nuu" id="yOa-hU-7DX"/>
+                        <outlet property="lblCardRides" destination="sYr-ly-i3t" id="exs-kU-IVN"/>
+                        <outlet property="lblCurrency" destination="TDQ-HY-u7G" id="l9s-mm-LJZ"/>
+                        <outlet property="lblDate" destination="yWk-wY-nvp" id="Ipi-4e-Xew"/>
+                        <outlet property="lblDiscount" destination="krG-cj-OMz" id="9PR-pB-oWw"/>
+                        <outlet property="lblDiscountAmount" destination="eBJ-g5-a42" id="xfs-XQ-sMD"/>
+                        <outlet property="lblNumberOfRides" destination="tPs-eJ-Q89" id="bZD-Rw-Q8B"/>
+                        <outlet property="lblOnlineHours" destination="mLP-Fv-M9C" id="DcY-T2-zsr"/>
+                        <outlet property="lblRideFareAmount" destination="VVN-KM-JiR" id="Gfz-7V-kyh"/>
+                        <outlet property="lblRideFares" destination="wd9-vQ-8DK" id="ohF-xc-2gS"/>
+                        <outlet property="lblSurge" destination="QIP-G4-SBQ" id="RgP-7A-a15"/>
+                        <outlet property="lblSurgeAmount" destination="rTb-6H-zeb" id="eMI-b7-WP7"/>
+                        <outlet property="lblTax" destination="N34-BB-X62" id="Ds7-iH-HSU"/>
+                        <outlet property="lblTaxAmount" destination="eNo-MM-q1b" id="LYB-La-LXy"/>
+                        <outlet property="lblTaxiFee" destination="R10-y5-cIW" id="Qh8-qa-lxV"/>
+                        <outlet property="lblTaxiFeeAmount" destination="8JH-cu-tCN" id="rHp-An-H4Q"/>
+                        <outlet property="lblToll" destination="LZB-cb-riX" id="UXZ-ya-Ts7"/>
+                        <outlet property="lblTollAmount" destination="eo3-zF-KuT" id="Ku8-7Z-FTY"/>
+                        <outlet property="lblTotalEarningAmount" destination="xTj-Tm-kKc" id="nbr-LF-T3Q"/>
+                        <outlet property="lblTotalEarnings" destination="nSa-gS-f69" id="CsD-K7-Byl"/>
+                        <outlet property="scrollView" destination="O4I-hN-yaf" id="295-7e-XuY"/>
+                        <outlet property="viewOnlineHours" destination="SoT-AA-VgH" id="g8d-Rf-mB1"/>
+                        <outlet property="viewRideCount" destination="X6g-6n-EVI" id="tRE-Z7-w6M"/>
+                        <outlet property="viewRideDetails" destination="1Bp-5x-iBU" id="iAH-gd-hJ4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wwm-lO-5kj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7457" y="2417"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
